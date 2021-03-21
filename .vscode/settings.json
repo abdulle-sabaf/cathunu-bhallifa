@@ -1,5 +1,6 @@
 {
     // Latex workshop
+    "latex-workshop.latex.outDir": "../../中学数学",
     "latex-workshop.latex.tools": [
           {
             "name": "latexmk",
@@ -19,7 +20,7 @@
             "-synctex=1",
             "-interaction=nonstopmode",
             "-file-line-error",
-            "--output-directory=../../中学数学",
+            "--output-directory=%OUTDIR%",
             "%DOC%"
               ]
           },          
