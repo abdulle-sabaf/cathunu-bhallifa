@@ -199,20 +199,46 @@ $MN$也叫做关于边$BC$的中位线。另外要注意的是：我们只知道
 我们利用角平分线的性质构造了一个等腰三角形。这是与角平分线相关的问题中常见的思路。
 相应地，也可以过$B$作$AC$的平分线，和$AP$交于点$E$，并证明$\triangle ABE$是等腰三角形。
 
-\begin{tm}{\textbf{勾股定理}}\label{tm:0-2-2}
+\begin{tm}{\textbf{射影定理}}\label{tm:0-2-2}
+    直角三角形$ABC$中，$\angle A$是直角。作$A$到$BC$的垂线，垂足为$H$。则
+    $$ |AB|^2 = |BH|\cdot |BC|, \quad |AC|^2 = |CH|\cdot |BC|,$$
+    且
+    $$|AH|^2 = |BH| \cdot |CH|.$$
+\end{tm}
+\begin{proof2}
+    $\angle AHB$和$\angle BAC$都是直角。
+    $\angle HBA = \angle CBA$，$\angle AHB = \angle BAC$，所以$\triangle HBA \sim \triangle ABC$。
+    因此，
+    $$ \frac{|BH|}{|BA|} = \frac{|BA|}{|BC|},$$
+    即
+    $$ |AB|^2 = |BH|\cdot |BC|.$$
+    同理，
+    $\angle ACH = \angle ACB$，$\angle CHA = \angle BAC$，所以$\triangle HAC \sim \triangle ABC$。
+    因此，
+    $$ \frac{|CH|}{|AC|} = \frac{|CA|}{|BC|},$$
+    即
+    $$ |AC|^2 = |CH|\cdot |BC|.$$
+    从$\triangle HBA \sim \triangle ABC$可以推出$\angle BAH = \angle ACB$，
+    从$\triangle HAC \sim \triangle ABC$可以推出$\angle HAC = \angle CBA$，
+    因此，$\triangle HAC \sim \triangle HBA$。于是，
+    $$ \frac{|BH|}{|HA|} = \frac{|AH|}{|HC|},$$
+    即
+    $$|AH|^2 = |BH| \cdot |CH|.$$
+\end{proof2}
+射影定理是一个十分有用的结论。
+它的本质是直角三角形中的相似关系：$\triangle HAC \sim \triangle HBA \sim \triangle ABC$。
+
+\begin{tm}{\textbf{勾股定理}}\label{tm:0-2-3}
     直角三角形$ABC$中，$\angle A$是直角。则
     $$|AB|^2+|AC|^2 = |BC|^2.$$
 \end{tm}
 \begin{proof2}
-    作$A$到$BC$的垂线，垂足为$H$。$\angle BHA$和$\angle AHC$都是直角。
-    $\angle ABH = \angle CBA$，$\angle BHA = \angle BAC$，所以$\triangle HBA \sim \triangle ABC$。
-    因此，
-    $$ \frac{|BH|}{|BA|} = \frac{|BA|}{|BC|}.$$
-    同理，$\triangle HAC \backsim \triangle ABC$。因此，
-    $$ \frac{|HC|}{|AC|} = \frac{|CA|}{|BC|}.$$
+    作$A$到$BC$的垂线，垂足为$H$。
+    根据射影定理，    
+    $$ |AB|^2 = |BH|\cdot |BC|, \quad |AC|^2 = |CH|\cdot |BC|,$$
     这说明
-    $$ |BC| = |BH| + |HC| = \frac{|AB|^2}{|BC|} + \frac{|AC|^2}{|BC|}$$
-    两边同乘以$|BC|$，就得到
+    $$ |AB|^2+|AC|^2 = |BH|\cdot |BC| + |HC|\cdot |BC| = (|BH| + |HC|)\cdot |BC|$$
+    即
     $$ |BC|^2 = |AB|^2+|AC|^2.$$
 \end{proof2}
 勾股定理是数学中非常重要的定理，也是非常有名的定理。它的证明方法有四百多种，涉及各种各样的技巧和知识。
@@ -233,7 +259,7 @@ $MN$也叫做关于边$BC$的中位线。另外要注意的是：我们只知道
 
 那么，$p(A)$和$p(B)$是否总相交呢？两条直线要么相交，要么平行或重合。
 如果$p(A)$和$p(B)$平行或重合，根据垂直定理及推论，直线$BC$和$AC$平行或重合。
-因此，要么$A,B,C$共线，这时我们说三角形退化为直线，要么$p(A)$和$p(B)$相交。
+因此，要么$A,B,C$共线，这时我们说三角形退化为直线；要么$p(A)$和$p(B)$相交。
 \begin{tm}{\textbf{外心定理}}\label{tm:1-0-0}
     （非退化的）三角形三边的垂直平分线交于一点，称为三角形的\textbf{外心}。
 \end{tm}
