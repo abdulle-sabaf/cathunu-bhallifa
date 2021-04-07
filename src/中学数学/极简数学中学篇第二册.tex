@@ -38,7 +38,7 @@
 \newtheorem{sk}{思考}[section]
 \newtheorem{po}{公理}
 \newtheorem*{so}{解答}
-\newtheorem*{proof2}{证明}
+\newenvironment{proof2}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
 \newtheorem{xt}{习题}[section]
 \newtheorem{cor}{推论}[pp]
 % 列举环境的行间距
@@ -511,17 +511,18 @@ $\angle 4$是$\angle 1$的补角，
 两点可以确定一条直线，三点可以确定什么呢？把三个点两两相连，得到三条线段。
 我们把这样的形状称为\textbf{三角形}。点$A,B,C$确定的三角形称为“三角形$ABC$”，记为$\triangle ABC$。
 
+三角形是一种简单的形状。我们已经接触过三角形的概念了。下面我们从公理化的定义出发，证明三角形的一些基本性质。
+为此，我们首先定义和三角形相关的一些基本概念。 
 
+\begin{wrapfigure}[8]{l}{0.18\textwidth} %this figure will be at the right
+    \vspace{-10pt}
+    \includegraphics[width=0.144\textwidth]{三角形1.png}
+\end{wrapfigure}
 
 点$A,B,C$称为三角形的\textbf{顶点}，线段$AB$，$BC$和$AC$称为三角形的\textbf{边}。
 射线$AB$和$AC$确定的角记为$\angle A$，类似有$\angle B$和$\angle C$，它们叫做$\triangle ABC$的\textbf{内角}，
 简称$\triangle ABC$的角。内角的补角称为\textbf{外角}。边$BC$称为$\angle A$的对边，$AB$和$AC$称为$\angle A$的邻边，$\angle A$称为$BC$的对角；
 $\angle B$和$\angle C$也如是。
-
-\begin{wrapfigure}[5]{l}{0.15\textwidth} %this figure will be at the right
-    \vspace{-20pt}
-    \includegraphics[width=0.144\textwidth]{三角形1.png}
-\end{wrapfigure}
 
 我们知道，三角形内角之和是$180^\circ$，也就是平角。因此：
 \begin{itemize}
@@ -576,6 +577,7 @@ $\angle CBA = \angle A'B'C'$，$\angle ACB = \angle B'C'A'$。
     于是$\angle CBA = \angle A'B'D$，而$\angle CBA = \angle A'B'C'$，从而同样有射线$B'D$和$B'C'$重合，
     因此$\triangle ABC \backsimeq \triangle A'B'C'$。
 \end{proof2}
+
 这个定理和全等公理很像。全等公理要求两边和夹角相等，这个定理要求两角和角的公共边相等。
 我们把前者简称为“边角边”，后者简称为“角边角”。“角边角”也包含同角和反角两种情况。
 
@@ -668,6 +670,7 @@ $\triangle MAO \backsimeq \triangle MBO$。所以，$\angle AOM = -\angle BOM$�
     也就是说，$|DE| = 2|BM| = |BC|$。而我们已知$|BE| = |AB|$，$|BD| = |AC|$。
     所以，根据“边边边”，$\triangle ABC \cong \triangle BED$。于是，$\angle EBD = \angle BAC$。
 \end{proof2}
+
 从这个定理，我们可以推出：三角形三个内角之和等于平角。这个结论，我们已经有直观感受。现在，我们从公理出发，
 严格证明了这个结论。
 
@@ -690,6 +693,7 @@ $\triangle MAO \backsimeq \triangle MBO$。所以，$\angle AOM = -\angle BOM$�
     如果$m,n$与$l$相交于同一点$O$，以$l$在$O$任一侧的射线为始边，以$m$在$O$的任一侧为终边，形成的角是直角；
     同样，以$n$在$O$的任一侧为终边，形成的也是直角。因此它们的终边重合。也就是说，直线$m,n$重合。
 \end{proof2}
+
 类似的结论还有：
 \begin{itemize}
     \item 如果直线$m \parallel n$，$n \perp l$，那么$m \perp l$。
@@ -706,6 +710,7 @@ $\triangle MAO \backsimeq \triangle MBO$。所以，$\angle AOM = -\angle BOM$�
     再证明这样的直线是唯一的。设$m$和$l$相交于点$H$，在$l$上找另一点$A$，作$AH$的垂直平分线$n$。$n\perp l$，而且$H$不在$n$上，
     所以$n \parallel m$，且$P$不在$n$上。如果过$P$的直线垂直于$l$，那么它平行于$n$，根据平行公理，这样的直线是唯一的。
 \end{proof2}
+
 我们把垂线$m$与直线$l$的交点$H$称为$P$或$m$到$l$的\textbf{垂足}。
 
 \begin{tm}{\textbf{角平分线定理}}\label{tm:3-1-20}
@@ -717,6 +722,7 @@ $\triangle MAO \backsimeq \triangle MBO$。所以，$\angle AOM = -\angle BOM$�
     两个三角形有共同的边$|PO| = |PO|$，根据“角边角”，$\triangle APO \backsimeq \triangle BPO$。
     于是$|PA| = |PB|$。
 \end{proof2}
+
 这个定理可以简单说成：角平分线上的点到两边距离相等。角平分线定理的证明中$\triangle APO \backsimeq \triangle BPO$，
 所以还可以得出$|AO| = |BO|$。
 
@@ -816,6 +822,7 @@ $\angle CBA = \angle ABC$，所以$\angle AMB = \angle CMA$。
     根据放缩公理，$MN \parallel OB$。因此$MN \perp OA$。这说明$MN$是线段$OA$的垂直平分线。
     因此$|OM| = |AM|$，$|AB| = 2|AM| = 2|OM|$。
 \end{proof2}
+
 可以观察到，斜边中点和直角顶点的连线（称为斜边上的中线）是两条直角边的垂直平分线的交点。
 $\triangle MOB$、$\triangle MOA$都是等腰三角形。
 
@@ -872,12 +879,15 @@ $$ m \equiv r \mod n.$$
 同样地，除以$5$余$0$、$2$、$3$、$4$的整数的集合各是模$5$的同余类。模$5$的同余类一共有$5$个。一般来说，
 模$n$的同余类有$n$个，分别是除以$n$余$0,1,\cdots,n-1$的整数的集合。为了方便，我们把这些同余类记作：
 $$ \overline{0}, \overline{1}, \cdots , \overline{n-1}.$$
+\begin{xt}\label{xt:5-0-0}
+    \mbox{}\\
+    \indent 1. 证明：如果$a$是$b$的因数，$b$是$c$的因数，那么$a$是$c$的因数。\\
+    \indent 2. 证明：如果$a$是$b$的倍数，$b$是$c$的倍数，那么$a$是$c$的倍数。
+\end{xt}
 
 \section{辗转相除法}
-因数只有自己和$1$的正整数叫做\textbf{素数}，除了$1$和自己还有别的因数的正整数叫做\textbf{合数}。我们约定$1$既不是素数也不是
-合数。
-
-举例来说，$2$、$3$、$5$、$7$是素数，而$4$、$6$、$8$是合数。偶素数只有一个：$2$，其余素数都是奇数。
+任意正整数$n$总有两个因数：，$1$和它自己。如果$n$还有别的因数，就称为它的\textbf{真因数}。
+比如，$6$有两个真因数：$2$和$3$。正整数$n$的因数不会大于$n$，真因数严格介于$1$和$n$之间。
 
 如果整数$p$既是整数$n$的因数，又是整数$m$的因数，那么就说$p$是$n$和$m$的\textbf{公因数}。同理，
 如果整数$p$既是整数$n$的倍数，又是整数$m$的倍数，那么就说$p$是$n$和$m$的\textbf{公倍数}。
@@ -907,13 +917,14 @@ $$ d(a - nb) = r.$$
     \item 如果$r > 0$，那么对$r$和$n$重复步骤$1$。
 \end{enumerate}
 
-\begin{xt}\label{xt:5-2-0}
+\begin{xt}\label{xt:5-1-0}
     辗转相除法中，\\
     \indent 1. 为什么$n,m$的最大公因数就是$n,r$的最大公因数？\\
     \indent 2. 为什么每步之后，两个数里较大的数比前一步时至少减少了$1$？\\
     算一算：\\
     \indent 1. 用辗转相除法求$376$和$488$的最大公因数。\\
-    \indent 2. 用辗转相除法求$144$和$209$的最大公因数。
+    \indent 2. 用辗转相除法求$144$和$209$的最大公因数。\\
+    证明：正整数$n$和$n+1$互素。
 \end{xt}
 
 \section{更相分益法}
@@ -930,7 +941,7 @@ $$ d(a - nb) = r.$$
     &= (1 + 2\times 1) \times 42 + (-2) \times 60 \notag 
 \end{align}
 我们把$42$和$60$的最大公因数$6$用$42$和$60$的倍数表示了出来。一般来说，我们也可以这么做。
-\begin{tm}{\textbf{倍和析因定理}}\label{tm:5-2-0}
+\begin{tm}{\textbf{倍和析因定理}}\label{tm:5-1-0}
     可以用两个整数$n,m$的倍数之和表示它们的最大公因数。
 \end{tm}
 \begin{proof2}
@@ -945,11 +956,12 @@ $$ d(a - nb) = r.$$
     $d$可以表示为$n_{k-3}$和$n_{k-2}$倍数的和。\\
     如此进行下去，$k$次后，就能把$d$表示成$n_1,n_0$（也就是$n,m$）倍数的和。
 \end{proof2}
+
 这个方法叫做\textbf{更相分益法}。简单来说，就是把辗转相除法倒过来。
 
 如果$n,m$互素，倍和析因定理告诉我们，可以找到它们的倍数，相加为$1$。
 
-\begin{xt}\label{xt:5-2-1}
+\begin{xt}\label{xt:5-1-1}
     算一算：\\
     \indent 1. 用更相分益法把$376$和$488$的最大公因数表示成它们倍数的和。\\
     \indent 2. 用更相分益法把$144$和$209$的最大公因数表示成它们倍数的和。
