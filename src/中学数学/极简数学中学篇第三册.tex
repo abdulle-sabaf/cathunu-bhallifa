@@ -1237,22 +1237,241 @@ $ax + b > 0$。因此解集是$\{x | x > 1.5\}$。
     3. $8.1x -7 < 9$\\
     4. $1.8x + 3 \leqslant 15$
 \end{xt}
-% \chapter{多变量的问题}
-% \section{二元一次方程组}
-% \section{二元一次不等式组}
-% \begin{wrapfigure}{r}{0.4\textwidth} %this figure will be at the right
-%     \vspace{-10pt}
-%     \centering
-%     \includegraphics[width=0.4\textwidth]{三线八角.png}
-% \end{wrapfigure}
 
-% 最后我们证明同位角相等和平行线的关系。
-% \begin{tm}\label{tm:3-0-4}
-%     如右图，设直线$l$与两条直线$m,n$相交于两点。同位角$\angle 1$和$\angle 5$相等，当且仅当$m,n$平行。
-% \end{tm}
-% \begin{proof2}
 
-% \end{proof2}
+\chapter{多变量方程}
+我们来看下面的问题：
+\begin{quote}
+    已知两个数的和是$7$，求这两个数。
+\end{quote}
+这个问题里有两个未知数。如果设其中一个数是$x$，另一个是$y$，根据题意，
+可以列出方程：
+$$ x + y = 7.$$
+这个方程里有两个变量来表示未知数，并且含有变量的项都是一次项。这样的方程叫做\textbf{二元一次方程}。
+二元一次方程是由关于未知数的二元一次式构成的方程。
 
+$x=3, y=4$时，方程成立，因此，$x=3, y=4$是方程的一个解。
+$x=2.4, y=4.6$时，方程也成立，因此，$x=2.4, y=4.6$也是方程的一个解。
+我们也可以把解写成$(3, 4)$或$ \left\{ \begin{array}{c}
+    x = 3, \\
+    y = 4.
+\end{array}\right.$
+
+如果把方程改写成：$ y = 7 - x.$
+那么，$x$取任意数的时候，将$y$对应$7 - x$得到的数，就得到方程的一个解。
+比如：
+$$
+\begin{array}{ll}
+    \mbox{取}x = 1\mbox{时，} & \mbox{可以得到 }y = 6\mbox{；} \\
+    \mbox{取}x = 2\mbox{时，} & \mbox{可以得到 }y = 5\mbox{；}  \\
+    \mbox{取}x = -0.8\mbox{时，} & \mbox{可以得到 }y = 7.8\mbox{；}  \\
+    \mbox{取}x = 31\mbox{时，} & \mbox{可以得到 }y = -24\mbox{；等等。} 
+\end{array}
+$$
+如果$x,y$可以取任意实数，那么这个方程的解集是$\{(a, 7-a) \,|\, a \in \mathbb{R}\}$，
+它是$\{(a, b) \,|\, a,b\in\mathbb{R}\}$的子集。
+
+\section{二元一次方程组}
+实际生活中，包含多变量的问题往往也包含不止一个相等关系。我们来看另一个问题：
+\begin{quote}
+    甲乙两数和是$7$，且甲比乙大$3$，问甲乙各是多少？
+\end{quote}
+这个问题包含了两个未知数，也包含了两个相等关系。可以列出两个方程：
+$$ \quad \quad \quad \quad \quad\left\{
+\begin{array}{cr}
+     x + y = 7, & \quad \quad \quad \quad \quad (1) \\
+     x - y = 3, & \quad \quad \quad \quad \quad (2)
+\end{array}\right.
+$$
+我们要求$x$和$y$既满足$(1)$，又满足$(2)$。因此，用大括号把这两个方程括起来，求它们的公共解。
+这样的多个方程，称为\textbf{方程组}。由几个一元方程组成，关于两个变量的方程组，叫做\textbf{二元一次方程组}。\\
+$ \left\{ \begin{array}{c}
+    x = 3, \\
+    y = 4.
+\end{array}\right. ,\quad \left\{ \begin{array}{c}
+    x = 5, \\
+    y = 2.
+\end{array}\right. ,\quad \left\{ \begin{array}{c}
+    x = -1, \\
+    y = 8.
+\end{array}\right.\cdots $都是$(1)$的解；\\
+$ \left\{ \begin{array}{c}
+    x = 6, \\
+    y = 3.
+\end{array}\right. ,\quad \left\{ \begin{array}{c}
+    x = 5, \\
+    y = 2.
+\end{array}\right. ,\quad \left\{ \begin{array}{c}
+    x = -1.5, \\
+    y = -4.5.
+\end{array}\right.\cdots $都是$(2)$的解。\\
+其中，$\left\{ \begin{array}{c}
+    x = 5, \\
+    y = 2.
+\end{array}\right.$既是$(1)$的解，也是$(2)$的解，因此是两个方程的公共解，或者说\textbf{方程组的解}。
+用集合的说法，方程组的解集是各个方程解集的交集。
+
+\section{消元法}
+怎么解二元一次方程组呢？我们介绍一种常用的方法：\textbf{消元法}。
+
+消元法的思路是：从二元一次方程组出发，得到一元一次方程，从而求出解。二元一次方程组比一元一次方程多一个元。
+因此，要消去一个元。
+
+从上一节的方程组出发：
+$$ \quad \quad \quad \quad \quad\left\{
+\begin{array}{cr}
+     x + y = 7, & \quad \quad \quad \quad \quad (1) \\
+     x - y = 3, & \quad \quad \quad \quad \quad (2)
+\end{array}\right.
+$$
+我们把$(1)$改写成$y = 7 - x$，用$x$表示$y$。然后将$(2)$中的$y$用$x$代替，得到一个关于$x$的一元一次方程。：
+$$ x - (7 - x) = 3.$$
+解这个方程，得$x = 5$。而$y$可以用$x$表示，因此可以求出$y$：$y = 7 - x = 2$。
+经过检验，得出方程组的解是：$\left\{ \begin{array}{c}
+    x = 5, \\
+    y = 2.
+\end{array}\right.$
+
+以上方法把从方程组的一个方程出发，把一个变量用另一个变量表示，代入别的方程，消去变量。
+这种方法叫做\textbf{代入消元法}，简称\textbf{代入法}。它可以概括为：
+\begin{center}
+    \fbox{
+        \shortstack[l]{
+            1. 选定一个方程和其中一个系数不为零的变量。\\
+            2. 根据等式的基本性质，把这个变量写成另一个变量的表达式。\\
+            3. 将它的表达式代入其它的方程，这样这个变量就被消去了，只\\
+            $\,\,\,\,\,$剩下关于另一个变量的一元一次方程。\\
+            4. 解出另一个变量的值。\\
+            5. 将另一个变量的值代入第二步中的表达式，解出消去变量的值。
+        }
+    }
+\end{center}
+
+再看另一种方法。仍然从上一节的方程组出发。观察$(2)$中含$y$的项，系数是$-1$，
+而$(1)$中含$y$的项，系数是$1$。将等式$(1)$两边各乘以$1$，然后用$(2)$分边加上它，
+就得到：
+$$ x - y + 1 \cdot (x + y) = 3 + 1 \cdot 7.$$
+注意到$y$的系数为$-1 + 1 \cdot 1 = 0$，含$y$的项被消掉了。只剩下含$x$的项。上式化简得到一元一次方程：
+$$ 2x = 10.$$
+解这个方程得$x = 5$，代入$(1)$得到$y = 2$。经过检验，得出方程组的解是：$\left\{ \begin{array}{c}
+    x = 5, \\
+    y = 2.
+\end{array}\right.$
+
+以上方法从方程组的一个方程出发，通过在两边乘以适当的系数后和其它方程相加，消去其它方程中的某个变量。
+这种方法叫\textbf{增减消元法}，简称\textbf{增减法}。它可以概括为：
+\begin{center}
+    \fbox{
+        \shortstack[l]{
+            1. 选定一个方程和其中一个系数不为零的变量。\\
+            2. 将方程两边乘以适当的数，使得第一步中变量的系数和\\
+            $\,\,\,\,\,$另一个方程中的系数是相反数。\\
+            3. 把新得到的方程分边和另一个方程相加，这样这个变量就被\\
+            $\,\,\,\,\,$消去了。\\
+            4. 解出另一个变量的值。\\
+            5. 将另一个变量的值代入第一步中的方程，解出消去变量的值。
+        }
+    }
+\end{center}
+
+第二步中，如何选取适当的数呢？我们再来看一个例子。
+$$ \quad \quad \quad \quad \quad\left\{
+\begin{array}{cr}
+     4x + 3y = 7, & \quad \quad \quad \quad \quad (1) \\
+     x + 2y = 3, & \quad \quad \quad \quad \quad (2)
+\end{array}\right.
+$$
+我们仍然想消去$y$。选定第一个方程，$y$的系数是$3$。要将方程两边乘以适当的数$a$，让$y$的系数变成$2$的相反数。
+因此我们可以列出方程：
+$$ 3a = -2.$$
+即$a = -\frac{2}{3}$。这样，$(1)$乘以$-\frac23$得到的新方程和$(2)$相加，就得到：
+$$ \left(1 + (-\frac{2}{3}) \cdot 4\right) x = 3 + (-\frac{2}{3}) \cdot 7.$$
+解得$x = 1$，代入第一个方程得到$y = 1$。经过检验，得出方程组的解是：$\left\{ \begin{array}{c}
+    x = 1, \\
+    y = 1.
+\end{array}\right.$
+
+总结：第二步中，适当的数可以通过解关于变量系数的一元一次方程得到。为了使方程有解，第一步要选系数不为$0$的变量。
+
+\section{多元一次方程组举例}
+观察以上解答，可以发现，消元法只用到了四则运算。
+用消元法的思想，不仅可以解二元一次方程组，也可以解关于更多变量的一次方程组。
+
+我们来看这样一个方程组：
+$$ \quad \quad \quad \quad \quad\left\{
+\begin{array}{cr}
+     x - 3y + z = 2, & \quad \quad \quad \quad \quad (1) \\
+     4x - y - z = 9, & \quad \quad \quad \quad \quad (2) \\
+     y + 3z = 7, & \quad \quad \quad \quad \quad (3)
+\end{array}\right.
+$$
+用增减法解这个方程组。首先消去$x$。选取$(1)$，两边乘以$-4$与$(2)$相加，得到：
+$$ \quad\quad\quad\quad\quad 11y -5z = 1.\quad\quad\quad\quad\quad (2')$$
+$(3)$中本来就没有$x$，所以$(2')$和$(3)$构成二元一次方程组：
+$$ \quad \quad \quad \quad \quad\left\{
+\begin{array}{cr}
+    11y -5z = 1, & \quad \quad \quad \quad \quad (2') \\
+    y + 3z = 7. & \quad \quad \quad \quad \quad (3) 
+\end{array}\right.
+$$
+接下来再消去$y$。选取$(3)$，两边乘以$-11$和$(2')$相加，得到一元一次方程：
+$$ -38z = -76.$$
+解得$z = 2$，代入$(3)$得到$y = 1$；再代入$(1)$得到$x = 3$。经过检验，得出方程组的解是：$\left\{ \begin{array}{c}
+    x = 3, \\
+    y = 1, \\
+    z = 2.
+\end{array}\right.$
+
+以上的方程组总有一个解。是不是一次方程组总有解呢？我们来看这样一个方程组：
+$$ \quad \quad \quad \quad \quad\left\{
+\begin{array}{cr}
+     x + 3y = 0, & \quad \quad \quad \quad \quad (1) \\
+     -x - 3y = 3, & \quad \quad \quad \quad \quad (2)
+\end{array}\right.
+$$
+用增减法消去$x$，得到：$0 = 3$。这个等式总是不成立的，因此方程无解。另一方面，如果$(2)$的右边是$0$而不是$3$，
+那么用增减法消去$x$，就得到：$0 = 0$。这个等式总是成立的，因此方程有任意解。
+
+\section{图像法}
+我们已经了解过如何用图像法解一元一次方程和一元一次不等式。建立直角坐标系后，
+一元一次式对应着平面上的直线。一元一次方程的解对应着直线和$x$轴的交点，
+而一元一次不等式的解集对应直线在$x$轴上方或下方的部分。
+
+如何在平面上表示二元一次方程组呢？仍然从第一节的方程组出发：
+$$ \quad \quad \quad \quad \quad\left\{
+\begin{array}{cr}
+     x + y = 7, & \quad \quad \quad \quad \quad (1) \\
+     x - y = 3, & \quad \quad \quad \quad \quad (2)
+\end{array}\right.
+$$
+我们已经发现，$x$取任意数时，$y$取$7 - x$，就得到$(1)$的一个解。
+也就是说，点$(x, y)$是$(1)$的一个解，当且仅当$y = 7 - x$。考虑一次函数：$x \mapsto 7 - x$。
+它的图像是一条直线，而且它的图像中每一个点$(x, y)$，就是$(1)$的一个解。
+于是我们有这样的结论：
+\begin{tm}
+    二元一次方程的解集对应平面中一条直线。
+\end{tm}
+两种特殊情形需要注意：$x$或$y$的系数等于$0$，这时方程的解集分别对应平行于$x$轴和平行于$y$轴的直线。
+比如，$y = 7$的解集是$\{(x, 7) \,|\, x\in\mathbb{R}\}$，这是一条平行于$x$轴的直线；
+$x = 4$的解集是$\{(4, y) \,|\, y\in\mathbb{R}\}$，这是一条平行于$y$轴的直线。
+
+\begin{wrapfigure}[12]{r}{0.5\textwidth} %this figure will be at the right
+    \vspace{-15pt}
+    \flushright
+    \includegraphics[width=0.48\textwidth]{二元一次方程组.png}
+\end{wrapfigure}
+
+二元一次方程组的解集，是它包含的各个二元一次方程解集的交集。所以，以上方程组的解集，
+就是$x + y = 7$解集对应的直线和$x - y = 3$解集对应的直线的交点。
+在平面直角坐标系中作出这两条直线，它们的交点就是方程组的解。
+
+因为两条直线要么平行，要么相交，要么重合，所以两个方程构成的二元一次方程组
+要么无解，要么恰有一个解，要么有任意解。
+
+\begin{sk}
+    \mbox{}\\
+    1. 设某个二元一次方程组由$3$个方程组成。它的解集可能有哪些情况？$4$个、$5$个方程组成的方程组呢？\\
+    2. 三元一次方程组能否对应平面中的形状？你有什么想法？
+\end{sk}
 
 \end{document}
