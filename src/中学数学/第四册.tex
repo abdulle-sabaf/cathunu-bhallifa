@@ -788,7 +788,7 @@ $\mu = \frac{b^2 - 4ac}{4a^2}$。
 
 无论哪一种方法，我们都发现，常数项$\frac{b^2 - 4ac}{4a^2}$的正负性质和方程解的个数有直接关系。
 它的分母$4a^2$总是正数，所以关键在于分子：$b^2 - 4ac$。
-我们把这个式子叫作一元二次方程$ax^2 + bx + c = 0$的判别式，记作$\Delta$：
+我们把这个式子叫作一元二次方程$ax^2 + bx + c = 0$的\textbf{判别式}，记作$\Delta$：
 $$\Delta = b^2 - 4ac.$$
 $\Delta<0$时，方程无解；$\Delta = 0$时，方程有唯一解：$x = -\frac{b}{2a}$；$\Delta>0$时，方程有两个解：
 $$x_{1,2} = \frac{-b \pm \sqrt{\Delta}}{2a}.$$
@@ -952,7 +952,6 @@ $x$越靠近$0$，曲线就越陡峭。观察不同曲线之间的区别，可�
     那么$c^2 \geqslant 4k$。
 \end{xt}
 
-
 \section{二次函数}
 一元一次式对应一次函数，而一元二次式对应着二次函数。一般来说，一元二次式可以写成$ax^2 + bx + c$的形式，
 其中$a \neq 0$。我们把形如
@@ -1002,10 +1001,49 @@ $(x, x^2)$，$(-x, x^2)$也在图像上，所以图像关于$y$轴对称。由�
 从$x=0$开始，随着$x$逐渐增大，函数值逐渐减小，而且减小速度逐渐加快。
 与$a>0$时相同的是：在$x=0$附近，曲线比较平缓，$x$增大后，曲线越来越陡峭。
 
-\section{反函数}
+\begin{figure}[h] %this figure will be at the right
+    \vspace{8pt}
+    \centering
+    \includegraphics[width=0.5\textwidth]{二次函数2.png}
+\end{figure}
 
-\chapter{多变量不等式}
-\section{二元一次不等式组}
-\section{一次方程与不等式组}
+对于一般的一元二次式$ax^2+bx+c$，二次函数$x\mapsto ax^2+bx+c$的图像是怎样的呢？
+上一章中，我们使用配方法解一元二次方程。用同样的方法，我们可以把$ax^2+bx+c$
+写成：
+\begin{align}
+    ax^2+bx+c &= a\left(x + \frac{b}{2a}\right)^2 + \frac{4ac - b^2}{4a} \notag \\
+    &= a\left(x + \frac{b}{2a}\right)^2 - \frac{\Delta}{4a}. \notag
+\end{align}
+
+因此，如果我们把$x\mapsto ax^2$的图像按$\left(-\frac{b}{2a}, -\frac{\Delta}{4a}\right)$平移，
+就得到$x\mapsto ax^2+bx+c$的图像。
+比如，要得到$x\mapsto 0.5x^2+0.8x-1$的图像，我们从
+$x\mapsto 0.5x^2$出发。将$0.5x^2+0.8x-1$配方得到
+$$ 0.5x^2+0.8x-1 = 0.5\left(x + 0.8\right)^2 - 1.32$$
+于是将$x\mapsto 0.5x^2$按$(-0.8, -1.32)$平移，就得到$x\mapsto 0.5x^2+0.8x-1$的图像。
+
+\begin{figure}[ht] %this figure will be at the right
+    \centering
+    \includegraphics[width=0.45\textwidth]{二次函数3.png}
+\end{figure}
+
+用$x\mapsto 0.5x^2+0.8x-1$作例子，可以看到，原来$x\mapsto ax^2$的图像关于$y$轴对称。
+平移之后，图像关于直线$x = -\frac{b}{2a}$对称。$a>0$时，$x\mapsto ax^2$的图像最低点是$(0,0)$，
+平移之后，最低点是$\left(-\frac{b}{2a}, -\frac{\Delta}{4a}\right)$。
+$a<0$时，$x\mapsto ax^2$的图像最高点是$(0,0)$，
+平移之后，最高点是$\left(-\frac{b}{2a}, -\frac{\Delta}{4a}\right)$。
+直线$x = -\frac{b}{2a}$叫做二次函数图像的对称轴，
+点$\left(-\frac{b}{2a}, -\frac{\Delta}{4a}\right)$叫做二次函数图像的顶点。
+\begin{xt}\label{xt:5-1-0}
+    \mbox{} \\    
+    \indent 1. 二次函数$x\mapsto x^2$的图像和$x\mapsto ax + b$恰有一个交点，
+    那么$a$、$b$满足怎样的关系？交点的坐标是多少？\\
+    \indent 2. 二次函数$x\mapsto ax^2+bx+c$的图像和它关于点$(x_0, y_0)$平移后的图像有交点，
+    则$(x_0, y_0)$应满足什么条件？交点个数可以是多少？
+\end{xt}
+
+% \chapter{多变量不等式}
+% \section{二元一次不等式组}
+% \section{一次方程与不等式组}
 
 \end{document}
