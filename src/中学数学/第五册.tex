@@ -8,7 +8,7 @@
 \usepackage[table, dvipsnames, svgnames, x11names]{xcolor}
 \usepackage{colortbl}% 
 \usepackage{tabularx}
-\usepackage{amsmath}
+\usepackage{amsmath, tikz}
 \usepackage{amssymb}
 \usepackage{xfrac}
 \usepackage{eucal}
@@ -31,6 +31,18 @@
 \setlength\parskip{8pt}
 \setlength{\fboxsep}{12pt}
 \renewcommand\thesection{\arabic{chapter}.\arabic{section}}
+
+\usetikzlibrary{calc,topaths}
+
+\newcommand\widearc[1]{%
+\tikz[baseline=(wideArcAnchor.base)]{
+    \node[inner sep=0] (wideArcAnchor) {$#1$}; 
+    \coordinate (wideArcAnchorA) at ($(wideArcAnchor.north west) + (0.15em,0.1em)$);
+    \coordinate (wideArcAnchorB) at ($(wideArcAnchor.north east) + (0.0em,0.1em)$);
+%
+    \draw[line width=0.1ex,line cap=round,out=45,in=135] (wideArcAnchorA) to (wideArcAnchorB);
+}}
+
 \newtheorem{df}{定义}[section] 
 \newtheorem{pp}{命题}[section]
 \newtheorem{tm}{定理}[section]
@@ -63,11 +75,138 @@
 \newpage
 
 \chapter{圆}
+
+学习反比例函数和二次函数时，我们发现，就算是简单代数式的函数，它的图像也是我们无法手动画出的曲线。
+曲线是比直线更复杂的形状。为了给我们今后研究各种曲线打下基础，以下我们研究一种简单的曲线：圆。
+
 \section{圆的基本性质}
-\section{垂径定理}
+我们已经学过圆的概念。公理体系中，我们这样定义圆：平面上到定点$O$距离为定长的点的集合，是一个圆。
+给定线段$XY$，到$O$的距离和$AB$等长的点构成一个圆。$O$叫做\textbf{圆心}，
+$XY$叫做圆的\textbf{半径}，长度一般记为$r$，不至于混淆的时候，半径的长也简称为半径。
+
+圆心为$O$、半径为$r$的圆，一般记为圆$(O, r)$或$\odot(O, r)$。
+圆心$O$和另一点$P$确定的圆，一般记为圆$(O, P)$或$\odot(O, P)$。如果不在意半径，不至于混淆的情况下，
+也可以简记为圆$O$。
+
+平面上的点到$O$的距离小于$r$，就说它在圆内；如果等于$r$，就说它在圆上；如果大于$r$，就说它在圆外。
+
+关于圆，我们有以下公理：
+\begin{itemize}
+    \item 直线和圆有两个交点$A$、$B$，当且仅当直线有部分在圆内。
+    \item 给定点$A$、$B$和线段$EF$、$GH$，如果$|EF| + |GH| > |AB| > \left||EF| - |GH|\right|$，
+    那么总存在两点$P$、$Q$，使得$|AP| = |EF|$、$|PB| = |GH|$，$|AQ| = |EF|$、$|QB| = |GH|$。
+    $P$、$Q$分别在直线$AB$两侧。
+\end{itemize}
+连接圆上两点$A$、$B$，直线$AB$和圆有$A$、$B$两个交点，根据圆公理，线段$AB$（除端点）在圆内。
+我们把线段$AB$称为圆的一条\textbf{弦}。
+连接圆上一点$A$和圆心$O$，延长$AO$，根据圆公理，它和圆有另一个交点$B$，称为点$A$的\textbf{对径点}。
+$AB$称为圆的\textbf{直径}。直径是过圆心的弦。它的长度是半径的两倍。不至于混淆的时候，直径的长也简称为直径。
+
+给定圆上两点$A$、$B$，考虑弦$AB$的垂直平分线$l$，圆心$O$显然在$l$上。也就是说，恰有一条直径垂直平分每条弦。
+
+圆、角和旋转有天然的关系。给定角$AOB$，可以定义\textbf{旋转}：
+
+\begin{df}\label{df:0-0-0}
+    给定角$AOB$，平面中一点$P$关于$\angle AOB$旋转的结果，
+    是唯一使得$\angle POQ = \angle AOB$且$|OP| = |OQ|$的点$Q$。
+\end{df}
+$O$称为旋转的\textbf{中心}。任何点$P$绕中心旋转，结果都在圆$(O,P)$上。
+
+可以看到，给定一个圆$(O,P)$，从点$P$出发，旋转不同的角度，
+就得到圆上其它的点。从零角出发，随着角度不断增大，直到周角，我们沿逆时针经历了圆上所有的点。
+也就是说，我们认为零角到周角的角按角度和圆上的点之间有一一映射。
+换句话说，数轴上$0$和$360$之间的数，和圆上的点之间有一一映射。
+我们把它称作\textbf{圆映射}，记为$\gamma_{(O,P)}$。
+
+通过$\gamma_{(O,P)}$，我们可以把对圆的研究，改为对数轴上线段的研究。
+这样就把曲线上的问题转为了直线上的问题。
+比如，既然$[0, 360)$对应整个圆，那么$[0,180]$就对应半个圆，
+$[0,60]$就对应六分之一个圆，等等。我们把闭区间对应的圆的部分称为\textbf{圆弧}。
+
+同一圆上两个圆弧分别对应$[a_1, a_1+x]$和$[a_2, a_2+x]$，这两个圆弧有什么不同吗？
+观察圆的图像可知，并没有不同。也就是说，圆弧的形状只和它对应数轴上区间的长度有关，和它所在的位置无关。
+只要对应的区间一样长，那么圆弧就全等，可以相互覆盖。换句话说，圆弧只要等长，就是全等的。
+于是，线段所满足的公理，对同一个圆上的圆弧也成立。
+
+和线段一样，圆弧也有起点和终点。比如$[0,60]$对应的圆弧，起点就是$P$，
+终点是$60$度角$POQ$的终边和圆的交点$Q$。如果圆弧对应的区间长度超过$180$，就说它是\textbf{优弧}；
+如果圆弧对应的区间长度小于$180$，就说它是\textbf{劣弧}；如果等于$180$，就说它是\textbf{半圆}。
+优弧比半圆长，劣弧比半圆短。
+
+从直线和圆相交的角度来看，圆上两点表示这两点确定的直线将圆分为两个圆弧。这两个圆弧并起来就是圆，
+所以要么一个是优弧、一个是劣弧，要么两者都是半圆（这时直线过圆心）。
+
+同一个圆上，明确了起点$A$和终点$B$，就唯一确定了圆弧$\widearc{AB}$。如果只说了两点$A$、$B$，
+那么$\widearc{AB}$一般指劣弧或起点为$A$终点为$B$的圆弧。如果要指优弧，一般会特别强调。
+
+\begin{xt}\label{xt:0-0-0}
+    证明：\\
+    \indent 1. 同一个圆中，直径是最长的弦。\\
+    \indent 2. 任意线段经过旋转得到等长的线段。任意三角形经过旋转得到同角全等的三角形。 
+\end{xt}
+
 \section{圆心角和圆周角}
-\section{圆内接四边形}
+
+根据圆映射的定义，每个圆弧都对应一个顶点在圆心，大小介于零角和周角之间的角，称为它的\textbf{圆心角}。
+圆弧还可以对应另一类角。给定起点为$A$，终点为$B$的圆弧$\widearc{AB}$和圆上一点$P$，则角$APB$称为一个\textbf{圆周角}。
+每个圆弧只对应一个圆心角，但可以对应很多个圆周角。
+
+同一段圆弧的圆心角和圆周角之间，有什么关系呢？如右图，连接$PO$，延长交圆于对径点$Q$。
+由于$\triangle AOP$是等腰三角形，$\angle OAP + \angle OPA = 0$，
+同理，$\angle OBP + \angle OPB = 0$。于是
+\begin{align}
+    \angle AOB &= \angle AOQ + \angle QOB \notag \\ 
+    &= \angle OAP + \angle APO + \angle PBO + \angle OPB \notag \\
+    &= 2\angle APO + 2\angle OPB = 2\angle APB \notag
+\end{align}
+也就是说，圆心角是圆周角的两倍大小，圆周角是圆心角的一半大小。
+由于每段圆弧只对应一个圆心角，无论$P$取圆上哪个点，圆周角$APB$都是圆心角的一半大小。
+
+\begin{tm}\textbf{圆周角定理}\label{tm:0-1-0}
+    给定圆$O$上的弧$\widearc{AB}$及圆上两点$P$、$Q$，
+    $$\angle APB = \angle AQB = \frac{1}{2} \angle AOB.$$
+\end{tm}
+对径点和圆心形成平角，因此，根据圆周角定理，对径点对应的圆周角是直角。或者说，半圆对应的圆周角是直角。
+
+同一个圆里，圆上的点$A$、$B$对应的圆心角$\angle AOB$和点$C$、$D$对应的圆心角$\angle COD$相等，那么
+根据“边角边”，圆心$O$和它们构成的三角形满足：$\triangle AOB \simeq \triangle COD$。弦$AB$和$CD$也等长。
+不仅如此，根据圆映射，圆弧$\widearc{AB}$和$\widearc{CD}$也等长。
+事实上，$\widearc{CD}$就是$\widearc{AB}$关于某个角旋转的结果。
+我们把这个结论称为“等角对等弦”、“等角对等弧”。
+
+反之，如果两个圆弧$\widearc{AB}$和$\widearc{CD}$等长，那么它们对应的区间也一样长。
+这说明它们对应的圆心角一样大。
+圆心角既然相等，那么弦$AB$和$CD$也等长。
+更进一步，设$P$是圆上的点，那么圆周角$\angle APB$和$\angle CPD$也一样大。我们把这个结论称为“等弧对等弦”、“等弧对等角”。
+
+反过来，如果圆$O$上两条弦$AB$和$CD$等长，那么根据“边边边”，$\triangle AOB \simeq \triangle COD$。
+于是圆心角相等，所以劣弧$\widearc{AB}$和$\widearc{CD}$等长。我们把这个结论称为“等弦对等角”、“等弦对等弧”。
+
+总的来说，在同一个圆里，两点对应的弦长相等当且仅当对应的（劣弧）弧长相等，当且仅当对应的圆心角相等，
+当且仅当对应的圆周角相等。弦、弧、圆心角、圆周角，都是用来描述圆的部分和整体关系的方法。
+
+给定圆上两点$A$、$B$，它们对应的垂直平分线$l$平分$\angle AOB$，即把$\angle AOB$分成两个相同大小的圆心角。
+因此，设$l$和圆交于$P$、$Q$，则它们也分别平分所在的圆弧（称为弧的中点）。
+我们把这一系列结论总称为垂径定理：
+\begin{tm}\textbf{垂径定理 }\label{tm:0-1-1}
+    给定圆上两点，则恰有圆的一条直径垂直平分两点对应的弦，同时平分对应的圆心角和两个圆弧。
+\end{tm}
+垂径定理也可以说成：过圆$O$的弦$AB$中点的直径与弦$AB$垂直，同时平分$\angle AOB$和弧$\widearc{AB}$。
+
+\begin{xt}\label{xt:0-1-0}
+    给定圆$O$，弦$AB$中点记为$M$，$|MO|$称为弦$AB$的\textbf{弦心距}。\\
+    \indent 1. 证明：圆心角相等，当且仅当对应的弦心距相等。\\
+    \indent 2. 设直线$MO$与圆$O$交于$P$、$Q$两点，证明：$|MP| \cdot |MQ| = |MA|\cdot |MB|.$
+\end{xt}
+
+\section{圆内接多边形}
+我们对圆上一点、两点引出的形状都有了初步了解，现在来看圆上多个点对应的形状。首先来看三个点的情形。
+
 \section{弧长和面积}
+
+% 由于角加上或减去若干个周角，仍然是同一个角，所以，数轴上的数和圆上的点之间也有映射。比如，从某个数：$783$出发，我们可以不断减去$360$，直到数值落在$0$和$360$之间。这时数值变成$63$，于是$783$对应到$63$度角对应的点。
+
+
 
 \chapter{圆和三角形}
 \section{圆幂}
