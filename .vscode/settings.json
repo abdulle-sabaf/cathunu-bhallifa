@@ -1,6 +1,6 @@
 {
     // Latex workshop
-    "latex-workshop.latex.outDir": "../../中学数学",
+    "latex-workshop.latex.outDir": "../../初中数学",
     "latex-workshop.latex.tools": [
           {
             "name": "latexmk",
