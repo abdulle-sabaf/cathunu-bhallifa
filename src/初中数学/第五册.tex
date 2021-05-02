@@ -84,8 +84,8 @@
 给定线段$XY$，到$O$的距离和$AB$等长的点构成一个圆。$O$叫做\textbf{圆心}，
 $XY$叫做圆的\textbf{半径}，长度一般记为$r$，不至于混淆的时候，半径的长也简称为半径。
 
-圆心为$O$、半径为$r$的圆，一般记为圆$(O, r)$或$\odot(O, r)$。
-圆心$O$和另一点$P$确定的圆，一般记为圆$(O, P)$或$\odot(O, P)$。如果不在意半径，不至于混淆的情况下，
+圆心为$O$、半径为$r$的圆，一般记为圆$(O, r)$或$\odot_{(O, r)}$。
+圆心$O$和另一点$P$确定的圆，一般记为圆$(O, P)$或$\odot_{(O, P)}$。如果不在意半径，不至于混淆的情况下，
 也可以简记为圆$O$。
 
 平面上的点到$O$的距离小于$r$，就说它在圆内；如果等于$r$，就说它在圆上；如果大于$r$，就说它在圆外。
@@ -99,7 +99,7 @@ $XY$叫做圆的\textbf{半径}，长度一般记为$r$，不至于混淆的时�
 \end{itemize}
 第一个公理说明直线与圆相交的条件，第二个公理则说明圆与圆相交的条件。
 
-考虑直线$l$和圆$\odot(O, r)$。过$O$作直线$m\perp l$，记垂足为$P$，$|OP| = d$。
+考虑直线$l$和圆$\odot_{(O, r)}$。过$O$作直线$m\perp l$，记垂足为$P$，$|OP| = d$。
 
 \begin{figure}[h] %this figure will be at the right
     \vspace{8pt}
@@ -123,7 +123,7 @@ $AB$称为圆的\textbf{直径}。直径是过圆心的弦。它的长度是半�
 
 给定圆上两点$A$、$B$，考虑弦$AB$的垂直平分线$l$，圆心$O$显然在$l$上。也就是说，\textbf{恰有一条直径垂直平分每条弦}。
 
-考虑两个圆：$\odot(O_1, r_1)$和$\odot(O_2, r_2)$，设两个圆心的距离是：$|O_1O_2| = s$，
+考虑两个圆：$\odot_{(O_1, r_1)}$和$\odot_{(O_2, r_2)}$，设两个圆心的距离是：$|O_1O_2| = s$，
 那么，两个圆的关系可能有以下几种：
 
 \begin{figure}[h] %this figure will be at the right
@@ -137,11 +137,11 @@ $AB$称为圆的\textbf{直径}。直径是过圆心的弦。它的长度是半�
     \item $s = r_1 + r_2.$ 考虑线段$O_1O_2$，上面有一点$P$使得$|O_1P| = r_1$，于是$|PO_2| = |O_1O_2| - |O_1P| = r_2$。
     这说明两个圆有一个公共点。如果点$Q$不在线段$O_1O_2$上，则$|O_1Q| + |QO_2| > |O_1O_2|$。
     于是$Q$不可能是公共点。也就是说，两个圆恰有一个共同点，在圆心连线上。我们说两圆\textbf{外切}。
-    \item $|r_1 - r_2| < s < r_1 + r_2.$ 根据第二个公理，$\odot(O_1, r_1)$和$\odot(O_2, r_2)$恰有两个公共点，分别在圆心连线两侧。我们说两圆\textbf{相交}。
+    \item $|r_1 - r_2| < s < r_1 + r_2.$ 根据第二个公理，$\odot_{(O_1, r_1)}$和$\odot_{(O_2, r_2)}$恰有两个公共点，分别在圆心连线两侧。我们说两圆\textbf{相交}。
     \item $s = |r_1 - r_2|.$ $r_1 > r_2$时，$s = r_1 - r_2$。考虑直线$O_1O_2$，上面有一点$P$，使得$|O_1P| = r_1$，且和$O_2$在$O_1$同一边。于是$|O_2P| = |O_1P| - |O_1O_2| = r_2$。
     这说明两个圆有一个公共点。如果点$Q$不在线段$O_1O_2$上，则$|O_1O_2| + |QO_2| < |O_1Q|$。
     于是$Q$不可能是公共点。也就是说，两个圆恰有一个共同点，在圆心连线上。$r_1 > r_2$时，通过类似推理可以得到同样的结论。我们说两圆\textbf{内切}。
-    \item $s < |r_1 - r_2|.$ 用反证法可以证明，两个圆没有公共点。如果$r_1 > r_2$，我们说$\odot(O_1, r_1)$\textbf{内含}$\odot(O_2, r_2)$，$\odot(O_2, r_2)$\textbf{容于}$\odot(O_1, r_1)$；反之亦然。
+    \item $s < |r_1 - r_2|.$ 用反证法可以证明，两个圆没有公共点。如果$r_1 > r_2$，我们说$\odot_{(O_1, r_1)}$\textbf{内含}$\odot_{(O_2, r_2)}$，$\odot_{(O_2, r_2)}$\textbf{内含于}$\odot_{(O_1, r_1)}$；反之亦然。
 \end{enumerate}
 要注意的是，如果仅知道两圆恰有一个公共点，我们无法判断到底是第二还是第四种情形；如果仅知道两圆没有公共点，我们无法判断到底是第一还是第五种情形。
 第二和第四种情形可以统称为两圆\textbf{相切}，第一和第五种情形可以统称为两圆\textbf{相离}。
@@ -220,8 +220,8 @@ $[0,60]$就对应六分之一个圆，等等。我们把闭区间对应的圆的
 由于每段圆弧只对应一个圆心角，无论$P$取圆上哪个点，只要不在弧上，圆周角$APB$都是圆心角的一半大小。
 
 如果点$P$在弧上，$\angle APB$和$\angle AOB$是什么关系呢？如果点在弧上，它对应的就是构成圆的另一段弧，于是它
-是另一段弧对应的圆心角的一般大小。另一段弧对应的圆心角是周角减去$\angle AOB$，所以
-$$\angle APB = 180^\circ - \angle AOB.$$
+是另一段弧对应的圆心角的一半大小。另一段弧对应的圆心角是周角减去$\angle AOB$，所以
+$$\angle APB = 180^\circ - \frac{1}{2} \angle AOB.$$
 
 \begin{tm}\textbf{圆周角定理}\label{tm:0-2-0}
     给定圆$O$上的弧$\widearc{AB}$及圆上的点$P$，如果$P \notin \widearc{AB}$，那么：
@@ -300,8 +300,102 @@ $\angle DBA = \angle DCA$。从这些等角关系出发，
 $AB$、$CD$看作对角线，把对角线$AC$、$BD$看作对边，我们就得到一个凸四边形$ACBD$。
 因此，观察相同的圆弧对应的圆周角可以发现，我们仍然有$\angle BAC = \angle BDC$、$\angle ACB = \angle ADB$，$\angle CAD = \angle CBD$，
 $\angle DBA = \angle DCA$。如果对角线$AC$和$BD$交于点$P$，仍然有$\triangle APB \backsim \triangle CPD$、$\triangle BPC \backsim \triangle DPA$。
+换句话说，即便圆内接四边形不是凸四边形，用它的顶点也能画出圆内接凸四边形，并且不妨碍我们讨论相关的性质。
+所以，我们也可以把圆内接四边形相关的问题简称为四点共圆的问题。
 
 以上是圆内接四边形边和角的性质，反过来，满足什么性质的四边形是圆内接四边形呢？
+或者说，满足什么条件的四个点共圆呢？
+
+\begin{tm}\label{tm:0-3-0}
+    如果凸四边形$ABCD$中的一对内角$\angle ABC$与$\angle CDA$的和是平角，
+    那么$ABCD$是圆内接四边形。
+\end{tm}
+
+\begin{proof2}
+    $\angle ABC + \angle CDA = 180^\circ$，所以要么两个角都是直角，要么一个是钝角，一个是锐角。\\
+    如果两个角都是直角，作对角线$AC$，取它的中点$O$。$\triangle ABC$是直角三角形，$AC$是斜边，
+    根据直角三角形的中线定理，$|AO| = |BO| = |CO|$。同理，$\triangle CDA$是直角三角形，$AC$是斜边，
+    于是$|AO| = |DO| = |CO|$。因此$A,B,C,D$四点都在$\odot_{(O, A)}$上。\\
+    如果两个角一个是钝角，一个是锐角。不妨设$\angle ABC > 90^\circ > \angle CDA$。作对角线$AC$，
+    则$B$、$D$在$AC$两侧。作对角线$AC$的垂直平分线$l$。
+    显然，$\triangle ABC$和$\triangle CDA$的外心都在$l$上，只需证明两者是同一点。\\
+    设$\triangle ABC$的外接圆为$\odot_{(O_1, B)}$。$\angle ABC$是钝角，因此它的圆心角对应优弧。
+    于是，$O_1$和$B$在直线$AC$两侧。$\angle CO_1A = 360^\circ - 2\angle ABC$。\\
+    另一方面，设$\triangle CDA$的外接圆为$\odot_{(O_2, D)}$。$\angle CDA$是锐角，因此它的圆心角对应劣弧。
+    于是，$O_2$和$D$在直线$AC$同一侧。$\angle CO_2A = 2\angle CDA$。\\
+    以上两个结论说明，$O_1$和$O_2$都和$D$在直线$AC$同一侧，且$\angle CO_1A = \angle CO_2A$。
+    而$\triangle CO_1A$和$\triangle CO_2A$都是等腰三角形，所以两者同角全等。这说明$O_1$和$O_2$是同一点。
+    $A,B,C,D$四点都在$\odot_{O_1, A}$上。
+\end{proof2}
+
+从这个定理可以推出，矩形、等腰梯形和正方形都是圆内接四边形。
+
+\begin{tm}\label{tm:0-3-10}
+    如果凸四边形$ABCD$中，$\angle ACB = \angle ADB$，
+    那么$ABCD$是圆内接四边形。
+\end{tm}
+
+\begin{proof2}
+    $ABCD$是凸四边形，所以$C$和$D$在直线$AB$同侧。
+    作边$AB$的垂直平分线$l$，显然，$\triangle ABC$和$\triangle ABD$的外心都在$l$上，
+    只需证明它们是同一点。\\
+    设$\triangle ABC$的外接圆为$\odot_{(O_1, C)}$，
+    $\triangle ABD$的外接圆为$\odot_{(O_2, D)}$。
+    如果$\angle ACB$是钝角，那么它的圆心角对应优弧。
+    于是，$O_1$和$C$在直线$AB$两侧，且$\angle BO_1A = 360^\circ - 2\angle ACB$。
+    这时，$\angle ADB = \angle ACB$也是钝角，所以同样有$O_2$和$D$在直线$AB$两侧，且
+    $\angle BO_2A = 360^\circ - 2\angle ADB$。
+    如果$\angle ACB$是锐角，那么它的圆心角对应劣弧。
+    于是，$O_1$和$C$在直线$AB$同侧，且$\angle BO_1A = 2\angle ACB$。
+    这时，$\angle ADB = \angle ACB$也是锐角，所以同样有$O_2$和$D$在直线$AB$同侧，且
+    $\angle BO_2A = 2\angle ADB$。\\
+    因此，$O_1$和$O_2$总在直线$AB$同侧，且$\angle BO_1A = \angle BO_2A$。
+    而$\triangle BO_1A$和$\triangle BO_2A$都是等腰三角形，所以两者同角全等。这说明$O_1$和$O_2$是同一点。
+    $A,B,C,D$四点都在$\odot_{O_1, A}$上。
+\end{proof2}
+
+\begin{tm}\label{tm:0-3-20}
+    过一点$P$的两条直线$m,n$上各有两点：$A, C\in m$和$B, D \in n$，分别各在$P$两侧。
+    如果
+    $$ |PA| \cdot |PC| = |PB| \cdot |PD|, $$
+    那么四边形$ABCD$是圆内接四边形。
+\end{tm}
+
+\begin{proof2}
+    考虑$\triangle APB$和$\triangle DPC$。对顶角$\angle APB = \angle DPC$。
+    而$ |PA| \cdot |PC| = |PB| \cdot |PD|$等于说
+    $$ \frac{|PA|}{|PB|} = \frac{|PD|}{|PC|}.$$
+    因此根据“边角边”，$\triangle APB \sim \triangle DPC$。于是有
+    $\angle ABP = \angle DCP$，$\angle BAP = \angle CDP$。因此，根据定理\ref{tm:0-3-10}，
+    四边形$ABCD$是圆内接四边形。
+\end{proof2}
+这个定理也可以理解为：两条线段相交，如果交点把每条线段分成的两部分长度之积相等，那么线段端点共圆。
+也就是说，这两条线段实际上是圆的两条相交的弦。
+
+反之，圆的两条弦$AC$和$BD$相交于$P$，则“等弦对等角”说明$\angle ACD = \angle ABD$、
+$\angle BAC = \angle BDC$。因此$\triangle ABP \sim \triangle DCP$，
+$ |PA| \cdot |PC| = |PB| \cdot |PD|$。
+
+\begin{tm}\textbf{相交弦定理}\label{tm:0-3-30}
+    圆的两条弦$AC$和$BD$相交于$P$，则
+    $$ |PA| \cdot |PC| = |PB| \cdot |PD|. $$
+\end{tm}
+
+\begin{xt}
+    \mbox{}\\
+    给定圆内接凸四边形$ABCD$。$E$是对角线$AC$上一点。$\angle CDE = \angle BDA$。\\
+    \indent 1. 证明：$\triangle CDE \sim \triangle BDA$。\\
+    \indent 2. 证明：$\triangle CDB \sim \triangle EDA$。\\
+    \indent 3. 证明：$|AC| \cdot |BD| = |AB| \cdot |CD| + |BC| \cdot |DA|.$\\
+    给定凸四边形$ABCD$，作射线$CE$使得$\angle ECD = \angle ABD$，
+    作射线$DE$使得$\angle CDE = \angle BDA$。两射线交于点$E$。\\
+    \indent 1. 证明：$\triangle CDE \sim \triangle BDA$。\\
+    \indent 2. 证明：$\triangle CDB \sim \triangle EDA$。\\
+    \indent 3. 证明：$|AC| \cdot |BD| \geqslant |AB| \cdot |CD| + |BC| \cdot |DA|.$ \\
+    \indent 4. 证明，凸四边形$ABCD$是圆内接四边形，当且仅当$|AC| \cdot |BD| = |AB| \cdot |CD| + |BC| \cdot |DA|.$\\
+    \indent 5. 证明：$A,B,C,D$四点共圆，当且仅当$|AC| \cdot |BD| = |AB| \cdot |CD| + |BC| \cdot |DA|.$
+
+\end{xt}
 
 \section{圆内接多边形}
 从四边形的情况来看，顶点的位置顺序对形状很重要。如果顶点$A$、$B$、$C$、$D$按顺时针或逆时针顺序排列，
@@ -336,7 +430,7 @@ $$ \angle A_1A_2A_3 + \angle A_2A_3A_4 + \cdots + \angle A_{n-2}A_{n-1}A_{n} + \
 把它变成$n-1$边形。比如，沿着线段$A_1A_3$剪一刀，
 就把$A_1A_2\cdots A_n$分成了三角形$A_1A_2A_3$和$n-1$边形$A_1A_3\cdots A_n$。
 
-\begin{tm}
+\begin{tm}\label{tm:0-4-0}
     凸$n$边形的内角和是$n-2$个平角。
 \end{tm}
 \begin{proof2}
@@ -359,19 +453,26 @@ $$ \angle A_1A_2A_3 + \angle A_2A_3A_4 + \cdots + \angle A_{n-2}A_{n-1}A_{n} + \
 
 有一种特殊的凸多边形必然是圆内接多边形：\textbf{正多边形}。
 正多边形是各边等长，各内角相等的多边形。正三角形、正方形都是正多边形。
-正多边形的内角角度是$\frac{180(n-2)}{n}^\circ$
+正多边形各个的内角角度是$\frac{180(n-2)}{n}^\circ$。
 
-\begin{xt}
+\begin{xt}\label{xt:0-4-0}
     \mbox{}\\
     \indent 1. 平行四边形、矩形、正方形、梯形、筝形，哪些总是圆内接多边形？哪些可以是圆内接多边形？要满足什么条件？\\
     \indent 2. 设有整数$1 \leqslant i,j,k,l \leqslant n$，圆内接$n$边形$A_1A_2\cdots A_n$中，$\angle A_iA_kA_j$和$\angle A_iA_lA_j$有什么关系？
 \end{xt}
 
-\section{弧长和面积}
+% \section{弧长和面积}
+% 直观上，我们知道圆和圆弧的形状。我们已经学过，半径为$r$的圆，面积是$\pi r^2$，周长是$2\pi r$。
+% 其中的$\pi$是常数，叫圆周率，大约等于$3.14$。在公理体系中，如何证明这一点呢？
+
+% 这些知识看似不难，但要从基本的定义和公理出发，得到
 
 
 \chapter{圆和三角形}
-\section{圆幂}
+讨论圆内接多边形的时候，我们已经了解了圆和圆内接三角形的关系。
+除此之外，圆和三角形还有更多的联系。
+\section{圆势}
+我们知道，点到圆的距离将点和圆的关系分成三类：圆内、圆外、圆上。
 \section{切线和割线}
 \section{垂心和外接圆}
 \section{内切圆和旁切圆}
