@@ -92,6 +92,6 @@
       "workbench.editor.enablePreview": true,
     "git.autofetch": true,
     "jupyter.sendSelectionToInteractiveWindow": true,
-    "window.zoomLevel": 0,
+    "window.zoomLevel": -1,
     "explorer.confirmDelete": false
 }
