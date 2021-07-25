@@ -62,6 +62,8 @@
 \newtheorem*{proof2}{证明}
 \newtheorem{xt}{习题}[section]
 \newtheorem{cor}{推论}[pp]
+\renewcommand{\proofname}{\indent\bf 证明}
+\renewcommand{\qedsymbol}{\hfill$\square$}
 % 列举环境的行间距
 \setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
 \setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
@@ -430,7 +432,7 @@ $\angle DBA = \angle DCA$。如果对角线$AC$和$BD$交于点$P$，仍然有$\
     那么$ABCD$是圆内接四边形。
 \end{tm}
 
-\begin{proof2}
+\begin{proof}
     $\angle ABC + \angle CDA = 180^\circ$，所以要么两个角都是直角，要么一个是钝角，一个是锐角。\\
     如果两个角都是直角，作对角线$AC$，取它的中点$O$。$\triangle ABC$是直角三角形，$AC$是斜边，
     根据直角三角形的中线定理，$|AO| = |BO| = |CO|$。同理，$\triangle CDA$是直角三角形，$AC$是斜边，
@@ -445,7 +447,7 @@ $\angle DBA = \angle DCA$。如果对角线$AC$和$BD$交于点$P$，仍然有$\
     以上两个结论说明，$O_1$和$O_2$都和$D$在直线$AC$同一侧，且$\angle CO_1A = \angle CO_2A$。
     而$\triangle CO_1A$和$\triangle CO_2A$都是等腰三角形，所以两者同角全等。这说明$O_1$和$O_2$是同一点。
     $A,B,C,D$四点都在$\odot_{O_1, A}$上。
-\end{proof2}
+\end{proof}
 
 从这个定理可以推出，矩形、等腰梯形和正方形都是圆内接四边形。
 
@@ -454,7 +456,7 @@ $\angle DBA = \angle DCA$。如果对角线$AC$和$BD$交于点$P$，仍然有$\
     那么$ABCD$是圆内接四边形。
 \end{tm}
 
-\begin{proof2}
+\begin{proof}
     $ABCD$是凸四边形，所以$C$和$D$在直线$AB$同侧。
     作边$AB$的垂直平分线$l$，显然，$\triangle ABC$和$\triangle ABD$的外心都在$l$上，
     只需证明它们是同一点。\\
@@ -471,7 +473,7 @@ $\angle DBA = \angle DCA$。如果对角线$AC$和$BD$交于点$P$，仍然有$\
     因此，$O_1$和$O_2$总在直线$AB$同侧，且$\angle BO_1A = \angle BO_2A$。
     而$\triangle BO_1A$和$\triangle BO_2A$都是等腰三角形，所以两者同角全等。这说明$O_1$和$O_2$是同一点。
     $A,B,C,D$四点都在$\odot_{O_1, A}$上。
-\end{proof2}
+\end{proof}
 
 \begin{tm}\label{tm:0-3-20}
     过一点$P$的两条直线$m,n$上各有两点：$A, C\in m$和$B, D \in n$，分别各在$P$两侧。
@@ -480,14 +482,14 @@ $\angle DBA = \angle DCA$。如果对角线$AC$和$BD$交于点$P$，仍然有$\
     那么四边形$ABCD$是圆内接四边形。
 \end{tm}
 
-\begin{proof2}
+\begin{proof}
     考虑$\triangle APB$和$\triangle DPC$。对顶角$\angle APB = \angle DPC$。
     而$ |PA| \cdot |PC| = |PB| \cdot |PD|$等于说
     $$ \frac{|PA|}{|PB|} = \frac{|PD|}{|PC|}.$$
     因此根据“边角边”，$\triangle APB \sim \triangle DPC$。于是有
     $\angle ABP = \angle DCP$，$\angle BAP = \angle CDP$。因此，根据定理\ref{tm:0-3-10}，
     四边形$ABCD$是圆内接四边形。
-\end{proof2}
+\end{proof}
 这个定理也可以理解为：两条线段相交，如果交点把每条线段分成的两部分长度之积相等，那么线段端点共圆。
 也就是说，这两条线段实际上是圆的两条相交的弦。
 
@@ -555,7 +557,7 @@ $$ \angle A_1A_2A_3 + \angle A_2A_3A_4 + \cdots + \angle A_{n-2}A_{n-1}A_{n} + \
 \begin{tm}\label{tm:0-4-0}
     凸$n$边形的内角和是$n-2$个平角。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     用归纳法证明。命题$P(n)$：凸$n+2$边形的内角和是$n$个平角。我们要证明$P(n)$对所有正整数$n$成立。\\
     $n=1$时，由于三角形内角和是平角，$P(1)$成立。\\
     假设$P(n)$成立，下面证明$P(n+1)$成立。\\
@@ -563,7 +565,7 @@ $$ \angle A_1A_2A_3 + \angle A_2A_3A_4 + \cdots + \angle A_{n-2}A_{n-1}A_{n} + \
     前者的内角和是平角。根据$P(n)$，后者的内角和是$n$个平角，因此，$A_1A_2A_3\cdots A_n$的内角和是$n+1$个平角。
     于是$P(n+1)$成立。\\
     因此对所有正整数$n$，命题$P(n)$成立。
-\end{proof2}
+\end{proof}
 
 满足什么条件时，凸多边形是圆内接多边形呢？最直接的条件，自然是平面上有一个圆，
 使多边形顶点都在圆上。或者说，能找到一点，到多边形各个顶点距离相等。
