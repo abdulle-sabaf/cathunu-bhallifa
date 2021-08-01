@@ -519,9 +519,158 @@ $ |PA| \cdot |PC| = |PB| \cdot |PD|$。
 \end{xt}
 
 \section{垂心组和外接圆}
+
+\begin{wrapfigure}[5]{r}{0.5\textwidth} %this figure will be at the right
+    \vspace{-90pt}
+    \flushright
+    \includegraphics[width=0.48\textwidth]{垂心与外心1.png}
+    \caption*{\texttt{垂心组}}
+\end{wrapfigure}
+
+考虑锐角三角形$ABC$，把顶点到对边的垂足分别记作$H_A, H_B, H_C$，垂心为$H$。
+由于$\angle HH_AB = \angle BH_CH = 90^\circ$，两角之和为平角，故$H, H_A, H_C, B$四点共圆。
+这说明$\angle H_CHH_A + \angle H_ABH_C = 180^\circ$。这说明$\angle CHA = \angle H_CHH_A$是钝角，
+$\triangle AHC$是钝角三角形。
+
+考察钝角三角形$AHC$，可以发现，它的顶点到对边的垂足也是$H_A, H_B, H_C$，而垂心是$B$。
+
+类似地，我们可以证明$H, H_B, H_C, A$四点共圆，$H, H_A, H_B, C$四点共圆。
+钝角三角形$BHC$、$CHA$的顶点到对边的垂足也是$H_A, H_B, H_C$，
+而垂心分别是$A$和$B$。
+
+于是，从锐角三角形$ABC$及其垂心$H$出发，可以得出四个三角形，每三个点构成的三角形的垂心，
+是四个点中剩余的那个点。我们把这样的四点称为\textbf{垂心组}。
+
+从钝角三角形及其垂心出发，一样可以得到一个垂心组。从直角三角形出发，其垂心和直角顶点重合，
+四点的垂心组退化为三点。
+
+从上面的讨论可知，垂心组四点共享三个垂足。任一顶点、垂心和另外两个顶点对应的垂足四点共圆。
+
+考察$A, H_B, H_A, B$四点。由$\angle AH_BB = 90^\circ = \angle AH_AB$可知，
+$A, H_B, H_A, B$四点共圆。由于$\angle AH_BB$是直角，$A, H_B, H_A, B$四点所在的圆，
+圆心是边$AB$的中点$M_C$。同理，$A, H_C, H_A, C$四点共圆，圆心是边$AC$的中点$M_B$；
+$B, H_C, H_B, C$四点共圆，圆心是边$BC$的中点$M_A$。
+
+从$A, H_B, H_A, B$四点共圆可以推出：$\angle A = \angle CH_AH_B$，$\angle B = \angle H_AH_BC$。
+也就是说，$\triangle CH_BH_A \backsim \triangle CBA$。
+
+从以上两个四点共圆性质还可以推出$\angle HH_CH_A = \angle CAH$，$\angle HH_AH_C = \angle ACH$。
+因此，$\triangle HH_AH_C \backsim \triangle HCA$。
+
+以上是三角形垂心组的基本性质。垂心是顶点到对边垂线的交点。另外一个和边垂直的概念是边的中垂线。
+如果把三角形的垂心和外心一起来看，会发现两者有密切的关联。
+
+考虑锐角三角形$ABC$、其垂心$H$及其外心$O$。边$BC$可以看作$\triangle ABC$外接圆的弦。
+圆心角$\angle BOC = 2\angle A$，因此在等腰三角形$BOC$中，
+$$\angle CBO = 90^\circ - \frac{1}{2}\angle BOC = 90^\circ - \angle A = \angle HBA.$$
+同理，$\angle BAO = \angle HAC$，$\angle ACO = \angle HCB$。
+
+\begin{wrapfigure}[9]{r}{0.42\textwidth} %this figure will be at the right
+    \vspace{-60pt}
+    \flushright
+    \includegraphics[width=0.4\textwidth]{垂心与外心2.png}
+    % \caption*{\texttt{垂心和外接圆}}
+\end{wrapfigure}
+
+此外，$\angle H_CH_AB = \angle A$，因此$\angle H_CH_AB + \angle CBO = 90^\circ$。
+这说明半径$OB \perp H_AH_C$。同理，半径$OA \perp H_BH_C$，$OC \perp H_AH_B$。
+
+作点$A$在$ABC$外接圆上的对径点$A'$，$AA'$是直径，所以$\angle ACA'$是直角。因此
+$$ \angle H_CHA' = 90^\circ - \angle ACH_C = \angle A.$$
+另一方面，$A, H_B, H, H_C$四点共圆，所以
+$$ \angle H_CHB = 180^\circ - \angle H_BHH_C = \angle A.$$
+这说明$CA' \parallel HB$。
+同理，我们可以得到$BA' \parallel HC$。因此四边形$A'BCH$是平行四边形。
+
+作$B,C$的对径点$B', C'$，同样可以证明，
+四边形$AB'HC$和$AHBC'$是平行四边形。
+
+\begin{wrapfigure}[9]{r}{0.42\textwidth} %this figure will be at the right
+    \vspace{-30pt}
+    \flushright
+    \includegraphics[width=0.4\textwidth]{垂心外心重心3.png}
+    % \caption*{\texttt{垂心和外接圆}}
+\end{wrapfigure}
+
+连接圆心$O$和$AB$中点$M_C$，$O$是直径$AA'$的中点，所以$OM_C$平行于$A'B$，且长度为$A'B$一半。
+我们把这种关系简称为“$OM_C$平行且等于$A'B$的一半”。
+
+连接$OH$和$AM_C$。由于$OM_C$平行且等于$A'B$的一半，$A'B$平行且等于$HC$，
+因此$OM_C$平行且等于$HC$的一半。记$OH$和$CM_C$交点为$G$，
+不难看出，$\triangle OGM_C \sim \triangle GHC$，且
+$$ \frac{|M_CG|}{|GC|} = \frac{|OG|}{|GH|} = \frac{|OM_C|}{|HC|} = \frac{1}{2}.$$
+也就是说，点$G$在三角形$ABC$中线$CM_C$上，且到$C$点的距离是到$M_C$距离的两倍。
+这说明$G$就是三角形$ABC$的重心。我们发现，三角形的垂心、外心和重心满足以下的性质：
+
+\begin{tm}{\textbf{三心共线定理}}\label{tm:1-2-10}
+    \mbox{} \\
+    三角形$ABC$的垂心、外心和重心共线，重心位于外心和垂心为端点的线段上，
+    而且重心到垂心的距离是重心到外心距离的两倍。
+\end{tm}
+
+\begin{xt}\label{xt:1-2-10}
+    沿用本节记号，证明： \\\
+    \indent 1. $|AH|\cdot |HH_A| = |BH|\cdot |HH_B| = |CH|\cdot |HH_C|.$\\
+    \indent 2. $H$是$\triangle H_AH_BH_C$的内心。\\
+    \indent 3. 记$\triangle ABC$的内心为$I$，旁心分别为$J_A, J_B, J_C$，则$I$是$\triangle J_AJ_BJ_C$的垂心。\\
+    \indent 4. $H$关于$AB$的对称点$H^C$在$ABC$外接圆上，且$\widearc{AC'} = \widearc{H^CB}$。\\
+    \indent 5. $\triangle AHB$、$\triangle AHC$和$\triangle CHB$的外接圆都和$\triangle ABC$的外接圆一样大。
+    它们的圆心分别是$\triangle ABC$的外心$O$关于三边的对称点，和$O$组成垂心组。
+    并且这个垂心组和垂心组$A,B,C,H$全等。
+\end{xt}
+
 \section{九点圆}
 
+我们已经了解过三角形的外接圆、内切圆和旁切圆。本节我们再介绍三角形内部的一个特殊的圆。
+
+设有三角形$ABC$，上一节中，我们证明了$\triangle ABC$的垂心$H$、外心$O$和重心$G$共线。
+考虑线段$OH$，作它的中点$M$。我们知道$AHBC'$是平行四边形，所以$M_C$是其对角线$HC'$的中点。
+因此，$MM_C$平行且等于$OC'$的一半。
+
+作$CH$的中点$D_C$，由于$OM_C$平行且等于$CH$的一半，因此平行且等于$HD_C$。
+也就是说，四边形$HD_COM_C$是平行四边形，于是$M_C, M, D_C$共线，$M$是$M_CD_C$的中点，
+$|MD_C| = |MM_C| = \frac12 |M_CD_C|$。
+
+$\triangle M_CH_CD_C$是直角三角形，所以斜边中点$M$到直角顶点$H_C$的距离是斜边长度$M_CD_C$的一半。
+也就是说，
+$$ |MD_C| = |MM_C| = |MH_C| = \frac12 |OC'| = \frac{\mathtt{R}}{2}.$$
+其中$\mathtt{R}$是$ABC$的外接圆半径。
+
+\begin{wrapfigure}[7]{r}{0.42\textwidth} %this figure will be at the right
+    \vspace{-20pt}
+    \flushright
+    \includegraphics[width=0.4\textwidth]{九点圆1.png}
+    % \caption*{\texttt{垂心和外接圆}}
+\end{wrapfigure}
+
+同理，我们也有
+\begin{align}
+    |MD_A| = |MM_A| = |MH_A| = \frac{\mathtt{R}}{2}, \notag \\
+    |MD_B| = |MM_B| = |MH_B| = \frac{\mathtt{R}}{2} \notag 
+\end{align} 
+所以，以$M$为圆心，以$\frac{\mathtt{R}}{2}$为半径画圆，我们就会发现，这个圆经过三边中点，
+三边上的垂足，以及三顶点到垂心连线的中点，合共九点。我们把这个圆称为\textbf{九点圆}。
+
+\begin{tm}{\textbf{九点圆定理}}\label{tm:1-3-10}
+    \mbox{} \\
+    三角形三边中点、三边垂足，以及三顶点到垂心连线的中点共圆。
+    圆心为外心与垂心的中点，半径为三角形外接圆半径的一半。
+\end{tm}
+三角形的九点圆的大小，刚好是三角形外接圆的一半。如果我们把三角形的垂心$H$看作“起点”，
+那么三角形的外接圆可以看作是九点圆外延加倍得到的。比如，把线段$HD_C$加倍延长，就得到$HC$；
+把线段$HM_C$加倍延长，就得到$HC'$；把线段$HH_C$加倍延长，就得到外接圆上一点$H^C$。
+一般来说，从$H$出发，连接$H$和九点圆上任一点，加倍延长后，终点就会落在外接圆上。
+
+\begin{xt}
+    沿用本节记号，证明：\\
+    \indent 1. 作外心$O$关于三边的对称点：$O_A, O_B, O_C$，则垂心$H$是$\triangle O_AO_BO_C$的外心。\\
+    \indent 2. $\triangle O_AO_BO_C \simeq \triangle ABC$。两者关于点$M$对称，有共同的九点圆。\\
+    \indent 3. 记$\triangle ABC$的旁心为$J_A, J_B, J_C$，则$\triangle J_AJ_BJ_C$的九点圆是$\triangle ABC$的外接圆。
+\end{xt}
+
 \section{圆内接多边形}
+九点圆涉及了内接于同一个圆的九边形。对一般的多边形来说，成为圆内接多边形意味着什么呢？
+
 从四边形的情况来看，顶点的位置顺序对形状很重要。如果顶点$A$、$B$、$C$、$D$按顺时针或逆时针顺序排列，
 那么四边形$ABCD$是凸四边形，否则，四边形$ABCD$可能是凹四边形。
 
@@ -554,7 +703,7 @@ $$ \angle A_1A_2A_3 + \angle A_2A_3A_4 + \cdots + \angle A_{n-2}A_{n-1}A_{n} + \
 把它变成$n-1$边形。比如，沿着线段$A_1A_3$剪一刀，
 就把$A_1A_2\cdots A_n$分成了三角形$A_1A_2A_3$和$n-1$边形$A_1A_3\cdots A_n$。
 
-\begin{tm}\label{tm:0-4-0}
+\begin{tm}\label{tm:1-4-0}
     凸$n$边形的内角和是$n-2$个平角。
 \end{tm}
 \begin{proof}
@@ -579,7 +728,7 @@ $$ \angle A_1A_2A_3 + \angle A_2A_3A_4 + \cdots + \angle A_{n-2}A_{n-1}A_{n} + \
 正多边形是各边等长，各内角相等的多边形。正三角形、正方形都是正多边形。
 正多边形各个的内角角度是$\frac{180(n-2)}{n}^\circ$。
 
-\begin{xt}\label{xt:0-4-0}
+\begin{xt}\label{xt:1-4-0}
     \mbox{}\\
     \indent 1. 平行四边形、矩形、正方形、梯形、筝形，哪些总是圆内接多边形？哪些可以是圆内接多边形？要满足什么条件？\\
     \indent 2. 设有整数$1 \leqslant i,j,k,l \leqslant n$，圆内接$n$边形$A_1A_2\cdots A_n$中，$\angle A_iA_kA_j$和$\angle A_iA_lA_j$有什么关系？
@@ -593,9 +742,45 @@ $$ \angle A_1A_2A_3 + \angle A_2A_3A_4 + \cdots + \angle A_{n-2}A_{n-1}A_{n} + \
 
 
 \chapter{三角函数}
-\section{锐角的三角函数}
-\section{三角函数的图像和性质}
+通过研究点、直线、角和三角形、四边形、圆形，我们对简单的平面图形有了更多的认识。
+其中对三角形的研究贯通了我们对各种形状的探索。通过对三角形性质的理解，
+我们建立了三角形和四边形、圆形乃至更复杂的形状之间的关系。
+
+如果对前面学习的知识做一次整理，我们会发现，大多数的结论要么和共点、共线、共圆有关，
+要么是长度之间、角度之间的相等或简单倍数关系。我们把这些结论称为定性结论。
+
+在科学研究和生产实践中，我们更需要知道的是形状之间定量的关系。
+比如，如果三角形的三边长度分别是$4,5,6$，我们希望知道三角形内角到底是多少度。
+又比如，如果菱形两条邻边长度为$1$，夹角为$50^\circ$，我们希望知道菱形对角线的长度。
+
+为了研究形状之间的定量关系，我们仍然从三角形开始研究。
+
+\section{正弦函数}
+如右图，我们想知道三角形$ABC$中$\angle B$的角度和对边$AC$长度的关系。
+为此，我们作$ABC$的外接圆$O$，则$AC$是$O$的弦。$\angle B$作为圆周角，是圆心角$\angle COA$的一半。
+作$AC$中点$M$，则$\angle B = \angle MOA$。再假设外接圆半径为$1$，
+我们就把一般三角形的边角关系转化成了特定直角三角形的边角关系。
+
+反过来，假设我们知道了斜边长度为$1$的直角三角形中，直角边和对角的关系，
+我们就能知道外接圆半径为$1$时，三角形内角和对边的关系。
+对于一般的三角形，只要按照外接圆半径的比例放大或缩小成$1$，就可以知道边和对角的关系了。
+
+那么，直角三角形的角和边有什么关系呢？我们先来看另一个问题。
+
+考虑半径为$1$的圆$O$（这样的圆以后常常遇到，我们把它叫做\textbf{单位圆}），连接圆心$O$和圆上两点，
+就构成一个三角形。为了方便讨论，我们以其中一点为“起点”，另一点为“终点”。设起点所在的直径是“水平”的，
+而终点在圆上其他位置（如下图）。
+
+\begin{figure}[H] %this figure will be at the right
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.8\textwidth]{三角函数2.png}
+    % \caption*{\texttt{垂心和外接圆}}
+\end{figure}
+
+\section{余弦函数}
 \section{三角函数和三角形}
+\section{正切和余切函数}
 
 
 \chapter{从或许到确定}
@@ -635,8 +820,9 @@ $$ \angle A_1A_2A_3 + \angle A_2A_3A_4 + \cdots + \angle A_{n-2}A_{n-1}A_{n} + \
 我们可以把相关的事件用终集的子集表示。比如，“明天杭州下雨”对应$\{\mbox{下雨}\}$这个子集，
 “骰子点数是偶数”对应$\{2,4,6\}$这个子集。事物发展的终态如果在子集里，就说明事件发生了，否则事件没有发生。
 
-单元集也对应着事件。我们把单元集对应的事件叫做\textbf{基本事件}。
-比如$\{1\}$对应的“骰子点数是$1$”就是基本事件。基本事件之间是互斥事件，它们是终集的分划。
+单元集也对应着事件。我们把这些事件叫做\textbf{基本事件}。
+不是任何其他事件的交集的事件，叫做基本事件。比如$\{1\}$对应的“骰子点数是$1$”就是基本事件。
+基本事件是各种事件的“基本单元”，它们通过合并形成别的事件。基本事件之间是互斥事件，它们是终集的分划。
 
 终集可以是有限的，也可以是无限的。目前我们只讨论有限的情况。
 要注意的是，随着问题的条件、环境、思考问题的角度发生变化，终集也会变化。
@@ -679,7 +865,7 @@ $$ S_1 = \big\{\varnothing, \{\mbox{AR}, \mbox{DR}\},\{\mbox{AN}, \mbox{DN}\}, \
 可以看出，$S_1$是$S_2$的子集。$S_1$到$S_2$的过程，就是对台风认知加深的过程。
 
 这种描述下，不同的知集就对应不同“粗细”的终集。每个知集都对应自己的基本事件。
-比如，$\{\mbox{AR}, \mbox{DR}\}$在$S_1$中是基本事件，在$S_2$中就不是基本事件了。
+这时候的基本事件不一定是单元集。比如，$\{\mbox{AR}, \mbox{DR}\}$在$S_1$中是基本事件，在$S_2$中就不是基本事件了。
 
 \begin{xt}
     写出以下问题的终集和知集。\\
@@ -850,6 +1036,13 @@ $$ C_n^m = \frac{n!}{m!(n-m)!} $$
 \end{xt}
 
 % \chapter{三段论（上）}
+% \begin{ex}
+%     判断以下的说法对不对。\\
+%     \indent 1. 哺乳动物都是恒温动物。家兔是哺乳动物。所以家兔是恒温动物。\\
+%     \indent 2. 八年级有些同学没有按规定请假。至少有一个参加足球培训的同学是八年级的。
+%     所以至少有一个参加足球培训的同学没有按规定请假。
+%     \indent 3. 任意奇数的平方除以$8$余$1$。某整数的平方除以$8$不余$1$。
+% \end{ex}
 % \section{大前提、小前提和结论}
 % \section{直言三段论}
 
