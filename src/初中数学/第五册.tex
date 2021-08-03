@@ -753,12 +753,18 @@ $$ \angle A_1A_2A_3 + \angle A_2A_3A_4 + \cdots + \angle A_{n-2}A_{n-1}A_{n} + \
 比如，如果三角形的三边长度分别是$4,5,6$，我们希望知道三角形内角到底是多少度。
 又比如，如果菱形两条邻边长度为$1$，夹角为$50^\circ$，我们希望知道菱形对角线的长度。
 
+
+\begin{wrapfigure}[5]{r}{0.4\textwidth} %this figure will be at the right
+    \vspace{-0pt}
+    \flushright
+    \includegraphics[width=0.36\textwidth]{三角函数1.png}
+\end{wrapfigure}
 为了研究形状之间的定量关系，我们仍然从三角形开始研究。
 
 \section{正弦函数}
-如右图，我们想知道三角形$ABC$中$\angle B$的角度和对边$AC$长度的关系。
-为此，我们作$ABC$的外接圆$O$，则$AC$是$O$的弦。$\angle B$作为圆周角，是圆心角$\angle COA$的一半。
-作$AC$中点$M$，则$\angle B = \angle MOA$。再假设外接圆半径为$1$，
+如右图，我们想知道三角形$ABC$中$\angle A$的角度和对边$BC$长度的关系。
+为此，我们作$ABC$的外接圆$O$，则$BC$是$O$的弦。$\angle A$作为圆周角，是圆心角$\angle COB$的一半。
+作$BC$中点$M$，则$\angle A = \angle MOB$。再假设外接圆半径为$1$，
 我们就把一般三角形的边角关系转化成了特定直角三角形的边角关系。
 
 反过来，假设我们知道了斜边长度为$1$的直角三角形中，直角边和对角的关系，
@@ -778,10 +784,546 @@ $$ \angle A_1A_2A_3 + \angle A_2A_3A_4 + \cdots + \angle A_{n-2}A_{n-1}A_{n} + \
     % \caption*{\texttt{垂心和外接圆}}
 \end{figure}
 
-\section{余弦函数}
-\section{三角函数和三角形}
-\section{正切和余切函数}
+不难看出，终点和起点所在的半径成直角时，三角形的面积最大，为$\frac{1}{2}$。
+其它情况下，运用勾股定理可知，终点上的高小于半径，因此根据三角形面积公式（面积等于底乘以高的一半），
+面积小于$\frac{1}{2}$。
 
+给定一个角$A$，我们把它对应的单位三角形的面积和直角对应的单位三角形面积之比称为$\angle A$的\textbf{正弦}或\textbf{正弦值}，
+记为$\sin A$。通过三角形面积公式可以看出，$\sin A$就是终点上的高，也就是前面直角三角形$MOA$中$AM$的长度。
+
+角度在零角到平角之间的每个角，都可以按以上方法定义正弦。更准确来说，我们定义的是角度的正弦。不过，
+它实际上对应着一个把数映射到数的映射，也就是函数。比如，$0$和$180$之间的任何实数，
+都通过角度制的圆映射对应某个角度，从而对应某个正弦值。
+
+另一种对应方法使用弧度的圆映射，
+也就是把角度在单位圆上对应的弧长映射到角度的正弦值。比如，$60^\circ$角对应着圆周的六分之一，
+在单位圆上对应的弧长是$\frac{2\pi}{6} = \frac{\pi}{3}$。
+我们就说$60^\circ$角的正弦值是$\sin \frac{\pi}{3}$。
+把角度或角度在单位圆上的弧长对应到角度的正弦值的函数，称为\textbf{正弦函数}。
+
+正弦函数有什么性质呢？观察不同角度对应的单位三角形可知，零角的正弦值是$0$（退化的三角形面积为$0$）。
+从零角出发，随着角度增大，正弦值不断增大；直角时，正弦值达到最大值$1$。然后，随着角度增大，
+正弦值不断减小；平角时，正弦值减为$0$。
+
+两个角互为补角时，对应的单位三角形是同一个菱形按不同对角线剖开得到的一半。所以两者面积相等。
+也就是说，\textbf{两个角互为补角，则正弦值相等}。因此，我们将把重点放在研究锐角的正弦值上。
+
+\begin{figure}[H] %this figure will be at the right
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.5\textwidth]{正弦菱形1.png}
+    % \caption*{\texttt{垂心和外接圆}}
+\end{figure}
+
+对具体的某个角度来说，怎么计算它的正弦值呢？这个问题不简单。以我们掌握的知识，
+还无法精确计算任意角度的正弦值，甚至难以估计任意角度的正弦值。求解任意角度的正弦值属于实变函数分析的重要基础内容。
+目前，我们可以使用正弦函数表，查找角度的正弦值，或通过使用计算器、编程等方式，
+借助计算机计算角度的正弦值。使用正弦表，可以方便地查找角度对应的正弦值。以下是整数角度的正弦表：
+
+% 正弦表
+\begin{center}
+    \begin{tabular}{| p{1em}<{\centering} | p{2.4em}<{\centering} | p{2.4em}<{\centering} | p{2.4em}<{\centering} | p{2.4em}<{\centering} | p{2.4em}<{\centering} | p{2.4em}<{\centering} | p{2.4em}<{\centering} | p{2.4em}<{\centering} | p{2.4em}<{\centering} |}
+        \hline
+                  & $0^\circ$& $10^\circ$ & $20^\circ$ & $30^\circ$ & $40^\circ$ & $50^\circ$ & $60^\circ$ & $70^\circ$ & $80^\circ$ \\ [0.5ex] 
+        \hline
+        $0^\circ$ & $0.0000$ &  $0.1736$  &  $0.3420$  &  $0.5000$  &  $0.6428$  &  $0.7660$  &  $0.8660$  &  $0.9397$  &  $0.9848$  \\
+        \hline
+        $1^\circ$ & $0.0175$ &  $0.1908$  &  $0.3584$  &  $0.5150$  &  $0.6561$  &  $0.7771$  &  $0.8746$  &  $0.9455$  &  $0.9877$  \\
+        \hline
+        $2^\circ$ & $0.0349$ &  $0.2079$  &  $0.3746$  &  $0.5299$  &  $0.6691$  &  $0.7880$  &  $0.8829$  &  $0.9511$  &  $0.9903$  \\
+        \hline
+        $3^\circ$ & $0.0523$ &  $0.2250$  &  $0.3907$  &  $0.5446$  &  $0.6820$  &  $0.7986$  &  $0.8910$  &  $0.9563$  &  $0.9925$  \\
+        \hline
+        $4^\circ$ & $0.0698$ &  $0.2419$  &  $0.4067$  &  $0.5592$  &  $0.6947$  &  $0.8090$  &  $0.8988$  &  $0.9613$  &  $0.9945$  \\
+        \hline
+        $5^\circ$ & $0.0872$ &  $0.2588$  &  $0.4226$  &  $0.5736$  &  $0.7071$  &  $0.8192$  &  $0.9063$  &  $0.9659$  &  $0.9962$  \\
+        \hline
+        $6^\circ$ & $0.1045$ &  $0.2756$  &  $0.4384$  &  $0.5878$  &  $0.7193$  &  $0.8290$  &  $0.9135$  &  $0.9703$  &  $0.9976$  \\
+        \hline
+        $7^\circ$ & $0.1219$ &  $0.2924$  &  $0.4540$  &  $0.6018$  &  $0.7314$  &  $0.8387$  &  $0.9205$  &  $0.9744$  &  $0.9986$  \\
+        \hline
+        $8^\circ$ & $0.1392$ &  $0.3090$  &  $0.4695$  &  $0.6157$  &  $0.7431$  &  $0.8480$  &  $0.9272$  &  $0.9781$  &  $0.9994$  \\
+        \hline
+        $9^\circ$ & $0.1564$ &  $0.3256$  &  $0.4848$  &  $0.6293$  &  $0.7547$  &  $0.8572$  &  $0.9336$  &  $0.9816$  &  $0.9998$  \\
+        \hline
+    \end{tabular}
+\end{center}
+每列的数据十位相同，每行的数据个位相同。比如，要查$26^\circ$的正弦值，就在十位为$2$的第三列，找到个位为$6$的
+第七行，查得正弦值为$0.4384$。
+
+对于非整数角度的正弦值，我们可以查询更精确的正弦表，或者用一次函数来近似估计。
+如果我们把整数角度的正弦值看作正弦函数的函数值，在直角坐标系上画出函数值对应的点，
+可以观察到正弦函数的值从$0$平稳增长到$1$。因此，可以认为两个整数角度之间，
+正弦函数的图像近似于线段，也就是一次函数图像的一部分。因此，非整数角度的正弦值可以通过计算线段上点的坐标而得到。
+
+举例来说，$37^\circ$和$38^\circ$之间的角度（比如说$37.3^\circ$）的正弦值，
+可以看作经过$(37, \sin 37^\circ)$和$(38, \sin 38^\circ)$两点的一次函数图像在横坐标为$37.3$时对应的纵坐标。
+这个一次函数可以写成：
+
+$$ y = \sin 37^\circ + \frac{\sin 38^\circ - \sin 37^\circ}{38 - 37} \cdot (x - 37)$$
+
+横坐标$x=37.3$时，代入函数表达式，就得到：
+\begin{align}
+    y &= \sin 37^\circ + 0.3\cdot(\sin 38^\circ - \sin 37^\circ ) \notag \\
+    &= 0.6018 + 0.3 \cdot (0.6157 - 0.6018) \approx 0.60597 \notag
+\end{align}
+实际上$\sin 37.3^\circ \approx 0.60599$，可见偏差不大。
+
+反过来，如果已知角的正弦值，也可以通过查表，估计角度的大小。比如，已知$\sin A = 0.83$，
+查表可知$\angle A$大小在$56^\circ$和$57^\circ$之间。
+
+\begin{wrapfigure}[5]{r}{0.42\textwidth} %this figure will be at the right
+    \vspace{-25pt}
+    \flushright
+    \includegraphics[width=0.4\textwidth]{正弦习题1.png}
+\end{wrapfigure}
+
+想一想，如果要得到更精确的结果，
+除了查询更精确的正弦表，还可以怎么做？
+
+\begin{xt}
+    如右图，延长$BA$交$l$于点$P$。\\
+    \indent 1. 计算$S_{\triangle AOP}$和$S_{\triangle BOP}$。 \\
+    \indent 2. 通过比较$S_{\triangle AOP}$和$S_{\triangle BOP}$，证明锐角的正弦值随角度增大而增大，
+    钝角的正弦值随角度增大而减小。 \\
+    \indent 3. 从$46^\circ$、$48^\circ$的正弦值出发，用一次函数近似估计$47^\circ$，
+    和正弦表上的值比较。哪个值比较大？对别的角度试一试，估计值的偏差有什么规律？ \\
+    \indent 4. 已知某锐角的正弦值为$0.73$，请估计它的角度大小。
+\end{xt}
+
+\section{正弦定理}
+
+我们可以用正弦值来探讨三角形的边角关系。首先把正弦值应用到一般三角形的面积上。
+我们知道$\angle A$对应的单位三角形的面积是$\frac{1}{2}\sin A$。
+如果$\angle A$的两邻边长度分别是$b$和$c$，那么根据等高三角形的面积关系，
+三角形的面积是单位三角形的$bc$倍，也就是$\frac{1}{2}bc\sin A$。
+
+定理：三角形两边长度为$b$和$c$，夹角为$A$，则面积为$\frac{1}{2}bc\sin A$。
+
+设三角形$ABC$中$A,B,C$对边长度为$a,b,c$，那么它的面积可以用三种方式表示：
+$$ S_{\triangle ABC} = \frac{1}{2}ab\sin C = \frac{1}{2}ca\sin B = \frac{1}{2}bc\sin A.$$
+两边除以$\frac{abc}{2}$，就得到：
+$$  \frac{2S_{\triangle ABC}}{abc} = \frac{\sin C}{c} = \frac{\sin B}{b} = \frac{\sin A}{a}. $$
+
+\begin{wrapfigure}[8]{r}{0.4\textwidth} %this figure will be at the right
+    \vspace{-30pt}
+    \flushright
+    \includegraphics[width=0.36\textwidth]{三角函数1.png}
+\end{wrapfigure}
+
+上式告诉我们，三角形三个内角的正弦值和对边长度的比是定值$\frac{2S_{\triangle ABC}}{abc}$。
+如何理解这个定值呢？让我们回到前面的三角形$MOB$。
+我们知道$BM = \mathrm{R}\sin A$，其中$\mathrm{R}$是$\triangle ABC$外接圆半径。
+所以$ \frac{a}{2} = \mathrm{R}\sin A$，即$ \frac{\sin A}{a} = \frac{1}{2\mathrm{R}}$。也就是说，
+$$ \frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C} =  2\mathrm{R}. $$
+
+\begin{tm}{\textbf{正弦定理} }\label{tm:2-1-10}
+    三角形任一边长与其对角正弦值之比为外接圆直径。
+\end{tm}
+从正弦定理可以立刻得出：三角形的面积等于三边长之积与外接圆半径之比的四分之一。
+$$S_{\triangle ABC} = \frac{abc}{4\mathrm{R}}. $$ 
+
+下面来看正弦定理的具体应用。
+
+\begin{ex}\label{ex:2-1-10}
+    三角形$ABC$中，边$AB$、$AC$长度分别为$3$和$5$，$\angle B = 80^\circ$，求$BC$的长度和$\angle C$的大小。    
+\end{ex}
+\begin{so}
+    根据正弦定理，$|AC|\sin C = |AB|\sin B$，所以$\sin C = \frac{|AB|\sin B}{|AC|}$。
+    查表知$\sin 80^\circ = 0.9848$，算得$\sin C \approx 0.5909$，
+    反查正弦表可知$\angle C \approx 36.2^\circ$或$\angle C \approx 143.8^\circ$。
+    由于三角形内角和是平角，$\angle C + \angle B < 180^\circ$，故排除$\angle C \approx 143.8^\circ$。
+    于是$\angle C \approx 36.2^\circ$，$\angle A = 180^\circ - \angle B - \angle C \approx 63.8^\circ$，
+    使用正弦定理可算得：
+    $$ |BC| = \frac{|AB|\sin A}{\sin B} = \frac{3 \cdot \sin 80^\circ}{\sin 63.8^\circ} \approx 3.29 $$
+\end{so}
+
+一般来说，已知三角形两条边以及一边对应的内角，或已知两内角以及其中一角的对边，
+就可以根据正弦定理解出未知的一角或一边。用平角减去两角角度，就可以求出第三个内角。
+再次使用正弦定理就可以解出第三边。这和我们熟知的“角边角”、“边角边”得出三角形全等的性质是相通的。
+
+正弦定理不仅可以用来处理定量关系，也可以用来处理定性关系。三角形的边长和对角的正弦值之比是定值，
+所以，边长越大，对角的正弦值也越大。而锐角的正弦值随着角度增大而增大，至直角达到最大。
+所以，锐角和直角三角形中，较大的边，对角也较大，较大的角，对边也较大。
+这个性质称为“\textbf{大边对大角}”、“\textbf{大角对大边}”。
+
+对钝角三角形，“大边对大角”、“大角对大边”的结论是否也成立呢？
+设三角形$ABC$中$\angle A$是钝角，则$\angle A$的补角是锐角。
+三角形内角和为平角，所以$180^\circ - \angle A = \angle B + \angle C > \angle B$，
+$\angle A$的补角大于$\angle B$，即$\sin A = \sin (B + C) > \sin B$。
+同理，$\sin A > \sin C$。钝角$\angle A$作为较大的角，
+其正弦值大于锐角$\angle B$和$\angle C$。
+而$\angle B$和$\angle C$同为锐角，“大边对大角”、“大角对大边”的结论在两者之间同样成立。
+综上所述，任意三角形中，“大边对大角”、“大角对大边”的结论总成立。
+
+\begin{xt}\label{xt:2-1-10}
+    \mbox{} \\
+    \indent 1. 设三角形$ABC$内角$A,B$的公共边为$c$，证明：$S_{\triangle ABC} = \frac{c^2\sin A\sin B}{\sin (A+B)}$。 \\
+    \indent 2. 三角形一边的长度是另一边的$2$倍。证明：至少有一个内角不大于$30^\circ$，一个内角不小于$75^\circ$。 \\
+    \indent 3. 已知三角形$ABC$中$\angle A = 36^\circ$，$\angle B = 60^\circ$，$\angle C$对边长度$c = 8$，求另两边的长度。 \\
+    \indent 4. 已知三角形两边长度是$4$、$5$，一个内角是$40^\circ$，第三边的长度有几种可能？找出所有满足条件的三角形。 \\
+    \indent 5. 已知三角形两边长度是$4$、$5$，一个内角是$70^\circ$，第三边的长度有几种可能？结论和上一题有什么不同？找出所有满足条件的三角形。
+\end{xt}
+
+
+\section{余弦函数}
+\begin{ex}\label{ex:2-2-10}
+    三角形$ABC$中，边$AB$、$AC$、$BC$的长度分别为$3$、$5$、$6$，求三个内角的大小。
+\end{ex}
+
+这个问题中没有给出任何内角的角度。我们无法直接用正弦定理计算内角的正弦值了。
+不过，既然我们能通过“边边边”证明三角形全等，这让我们猜想，有别的方法计算内角的角度。
+
+让我们把$AB$、$AC$、$BC$的长度换成$3$、$4$、$5$，我们观察到最长边边长的平方等于另两边边长的平方和。
+根据勾股定理逆定理，三角形是直角三角形。所以$\angle A$是直角。
+用正弦定理解得$\sin B = 0.8$，$\sin C = 0.6$，查表可知$\angle B \approx 53^\circ$，
+$\angle C \approx 37^\circ$。
+
+三边长$(3,4,5)$和三边长$(3,5,6)$的区别在于，前者的最大数是另两个数的平方和，后者不是。
+如果直角三角形两直角边长为$3$和$5$，那么斜边长为$\sqrt{34} \approx 5.83 < 6$。用“大边对大角”的原则猜测，
+第三边长为$6$时，对角应该时钝角。同理，第三边长如果是$5$，那么对角应该是锐角。
+
+我们可以隐约猜测，三角形一边长度的平方与另两边边长的平方和的差，跟它的对角有关系。
+为了定量描述这个关系，我们需要定义角的余弦。
+
+什么是角的余弦呢？我们已经定义了角的正弦。在直角三角形中，锐角的正弦是对边长度与斜边长度之比。
+这个公式中我们用到了三角形的两条边。我们定义锐角的\textbf{余弦}（或\textbf{余弦值}）
+为剩余的直角边（也就是相邻的直角边）长度与斜边长度之比。在$MOB$的例子中，
+角$A$的余弦就是弦$BC$的弦心距，记为$\cos A$。
+
+显然，直角三角形中，一个锐角的邻边就是另一个锐角的对边。所以\textbf{锐角的余弦等于它的余角的正弦}：
+$$ \forall \,\, 0 \leqslant A \leqslant 90^\circ, \,\,\, \cos A = \sin (90^\circ - A). $$
+这样我们就定义了\textbf{余弦函数}。零角的余弦是$1$。从零角出发，随着角度增大，角的余弦逐渐减小。
+直角时，余弦值达到最小值$0$。
+
+此外，角的正弦和余弦分别是直角三角形两条直角边和斜边的比值。所以根据勾股定理，
+$$ \cos^2 A + \sin^2 A = 1.$$
+其中$\cos^2 A, \sin^2 A$分别是$(\cos A)^2, (\sin A)^2$的简便记法。这个结论也叫\textbf{三角勾股定理}。
+
+怎么计算角的余弦值呢？从三角勾股定理定理可以看出，已知锐角的正弦，就可以得到它的余弦：
+$\cos A = \sqrt{1 - \sin^2 A}$。所以，可以查正弦表得到角的正弦值，再求出余弦值。
+反过来，已知锐角的余弦，可以先算出它的正弦，然后查表得到角度。
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 从等腰直角三角形的性质出发，计算$45^\circ$的正弦和余弦值。 \\
+    直角三角形$ABC$中，$\angle C$是直角。斜边长度$c$是直角边长度$a$的$2$倍。 \\
+    \indent 2. 作斜边中点$M$，证明：$\triangle BMC$是正三角形。 \\
+    \indent 3. 计算$30^\circ$和$60^\circ$的正弦和余弦值。 \\
+    等腰三角形$ABC$中，顶角$\angle A$是底角$\angle B$的$2$倍。 \\
+    \indent 4. 设$\angle B$的平分线交对边于点$D$。证明：$\triangle ABC \sim \triangle BCD$。 \\
+    \indent 5. 设底边长$a = 1$，腰长$b = c = x$，证明：$x^2 - x - 1 = 0$。 \\
+    \indent 6. 计算$18^\circ$、$36^\circ$、$54^\circ$和$72^\circ$的正弦和余弦值。
+\end{xt}
+
+
+\section{余弦定理}
+
+定义了角的余弦，我们再来看前面“边边边”的问题（例题\ref{ex:2-2-10}）。已知三角形$ABC$三边长为$a,b,c$，
+如果$\angle C$是直角，那么根据勾股定理，$a^2 + b^2 = c^2$。如果$\angle C$不是直角，
+我们希望把问题转化为直角三角形的边角关系。
+
+作顶点$A$到$BC$的高，记垂足为$H_A$，则$H_A \neq C$。$\triangle ACH_A$是直角三角形，
+所以$|AH_A| = |AC|\sin C = b\sin C$。如果$\angle C$是锐角，那么$H_A$在线段$BC$上，
+$|CH_A| = |AC|\cos C = b\cos C$；如果$\angle C$是钝角，那么$H_A$在线段$BC$延长线上，
+$|CH_A| = |AC|\cos C = b\cos (180^\circ - C)$。
+
+\begin{figure}[H] %this figure will be at the right
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.8\textwidth]{余弦定理1.png}
+    % \caption*{\texttt{垂心和外接圆}}
+\end{figure}
+
+$\triangle ABH_A$是直角三角形。根据勾股定理，$|AB|^2 = |AH_A|^2 + |BH_A|^2 $。
+如果$\angle C$是锐角，那么
+$$ |AB|^2 = |AH_A|^2 + |BH_A|^2 = |AH_A|^2 + (|BC| - |CH_A|)^2$$
+即
+\begin{align}
+    c^2 &= (b\sin C)^2 + (a - b\cos C)^2 \notag \\
+    &= b^2\sin^2 C + b^2\cos^2 C + a^2 - 2ab\cos C \notag \\
+    &= a^2 + b^2 - 2ab\cos C \notag
+\end{align}
+如果$\angle C$是钝角，那么
+$$ |AB|^2 = |AH_A|^2 + |BH_A|^2 = |AH_A|^2 + (|BC| + |CH_A|)^2$$
+即
+\begin{align}
+    c^2 &= (b\sin C)^2 + (a + b\cos (180^\circ - C))^2 \notag \\
+    &= b^2\sin^2 C + b^2\cos^2 (180^\circ - C) + a^2 + 2ab\cos (180^\circ - C) \notag
+\end{align}
+
+我们得到了$a$、$b$、$c$和$\angle C$的关系。这个关系叫做\textbf{余弦定理}。
+可以看到，对钝角三角形，余弦定理的表达式比锐角三角形复杂很多。
+原因在于我们没有定义钝角的余弦值，只能用锐角$180^\circ - C$的余弦值来表示。
+
+如何定义钝角的余弦值呢？钝角的正弦为其补角的正弦。我们希望钝角的余弦也满足三角勾股定理：
+$$ \sin^2 C +  \cos^2 C = 1 $$
+这就要求
+\begin{align}
+    \cos C &= \sqrt{1 - \sin^2 C} \notag \\
+    &= \sqrt{1 - \sin^2 (180^\circ - C)} \notag \\
+    &= \pm\cos (180^\circ - C) \notag
+\end{align}
+如果我们定义钝角的余弦为它补角的余弦：$ \cos C = \cos (180^\circ - C)$，钝角三角形的余弦定理就变成：
+$$ c^2 = a^2 + b^2 + 2ab \cos C.$$
+如果我们定义钝角的余弦为它补角的余弦的相反数：$ \cos C = -\cos (180^\circ - C)$，钝角三角形的余弦定理就变成：
+$$ c^2 = a^2 + b^2 - 2ab \cos C.$$
+显然，后一种情况下，钝角三角形和锐角三角形余弦定理的形式就统一了。接下来我们会看到，后者在各个方面都更加合理。
+
+\begin{xt}
+    \mbox{}\\
+    \indent 1. 已知三角形三边长为$5$、$7$、$8$，求三内角的大小。
+\end{xt}
+
+\section{和差角公式}
+
+解决平面形状的问题时，我们常常需要处理角度的和与差。给定两个角度$\alpha$、$\beta$，
+我们希望能够给出$\alpha + \beta$、$\alpha - \beta$的正弦和余弦值。换句话说，
+我们希望能够打通正弦函数、余弦函数和实数的加减法的关系。
+
+\begin{figure}[H] %this figure will be at the right
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.5\textwidth]{和角正弦公式1.png}
+    % \caption*{\texttt{垂心和外接圆}}
+\end{figure}
+
+让我们从两个锐角的和出发。如上图，$\alpha = \angle APO$和$\beta = \angle OPB$都是锐角，
+$OP \perp AB$。$\triangle AOB$的面积是$\triangle AOP$、$\triangle BOP$面积之和。用相应的面积公式表示：
+$$ \frac12 |AP||BP|\sin(\alpha + \beta) = \frac12 |AP||OP|\sin\alpha + \frac12 |OP||BP|\sin\beta$$
+因此：
+$$ \sin(\alpha + \beta) = \frac{|OP|}{|BP|}\sin\alpha + \frac{|OP|}{|AP|}\sin\beta$$
+$\triangle AOP$、$\triangle BOP$都是直角三角形，所以$|OP| = |AP|\cos \alpha = |BP|\cos \beta$。
+代入上式，就得到：
+$$ \forall \,\, 0 < \alpha, \beta < 90^\circ , \,\,\, \sin(\alpha + \beta) = \sin\alpha \cos \beta + \cos \alpha \sin\beta.$$
+这就是两锐角之和正弦值的公式，简称\textbf{和角正弦公式}。可以验证，当$\alpha$、$\beta$是零角或直角的时候，
+公式仍然成立。所以，可以把公式的适用范围扩大为$0 \leqslant \alpha , \beta \leqslant 90^\circ$。
+
+\begin{wrapfigure}[7]{r}{0.25\textwidth} %this figure will be at the right
+    \vspace{-45pt}
+    \flushright
+    \includegraphics[width=0.24\textwidth]{差角正弦公式1.png}
+\end{wrapfigure}
+
+对于两锐角之差，可以用类似的方式推导。如右图，设$\alpha = \angle APO > \beta = \angle BPO$，
+$\triangle AOP$的面积是$\triangle APB$、$\triangle OPB$面积之和。比照和角正弦公式的推导，可以得到：
+$$ \forall \,\, 0 <  \beta < \alpha < 90^\circ , \,\,\, \sin(\alpha - \beta) = \sin\alpha \cos \beta - \cos \alpha \sin\beta.$$
+
+是为两锐角之差正弦值的公式，简称\textbf{差角正弦公式}。可以验证，无论是当$\alpha$、$\beta$是零角或直角的时候，
+还是$\alpha = \beta$的时候，公式仍然成立。
+所以，可以把公式的适用范围扩大为$0 \leqslant \beta \leqslant \alpha \leqslant 90^\circ$。
+
+注意到和角、差角正弦公式中都出现了角的余弦，我们可以据此推出和角、差角的余弦公式。
+首先，假设$\alpha$、$\beta$、$\alpha - \beta$都是锐角。从和角正弦公式出发，可以得到这样的关系：
+$$ \sin(\alpha) = \sin(\alpha - \beta + \beta) = \sin (\alpha - \beta) \cos \beta + \cos(\alpha - \beta) \sin\beta.$$
+这个等式中只有$\cos(\alpha - \beta)$是未知的。根据差角正弦公式，可以得到：
+\begin{align}
+    \sin(\alpha) &= \sin (\alpha - \beta) \cos \beta + \cos(\alpha - \beta) \sin\beta \notag \\
+    &= (\sin\alpha \cos \beta - \cos \alpha \sin\beta) \cos \beta + \cos(\alpha - \beta) \sin\beta \notag \\
+    &= \sin\alpha \cos^2 \beta - \cos \alpha \sin\beta \cos \beta + \cos(\alpha - \beta) \sin\beta \notag
+ \end{align}
+因此
+\begin{align}
+    \sin\beta \cos(\alpha - \beta) &= \sin \alpha - \sin\alpha \cos^2 \beta + \cos \alpha \sin\beta \cos \beta \notag \\
+    &= \sin \alpha (1 - \cos^2 \beta) + \cos \alpha \sin\beta \cos \beta \notag \\
+    &= \sin\alpha \sin^2 \beta + \cos \alpha \sin\beta \cos \beta \notag \\
+    &= \sin\beta (\sin\alpha \sin \beta +  \cos \alpha \cos \beta) \notag
+ \end{align}
+两边约去$\sin \beta$，就得到：
+$$ \cos(\alpha - \beta) = \sin\alpha \sin \beta +  \cos \alpha \cos \beta. $$
+这就是两锐角之差余弦值的公式，简称\textbf{差角余弦公式}。
+
+同理，假设$\alpha$、$\beta$、$\alpha + \beta$都是锐角，从差角正弦公式出发，可以得到：
+\begin{align}
+      \sin(\alpha) &= \sin(\alpha + \beta - \beta) = \sin (\alpha + \beta) \cos \beta - \cos(\alpha + \beta) \sin\beta \notag \\
+      &= (\sin\alpha \cos \beta + \cos \alpha \sin\beta) \cos \beta - \cos(\alpha + \beta) \sin\beta \notag \\
+      &= \sin\alpha \cos^2 \beta + \cos \alpha \sin\beta \cos \beta - \cos(\alpha + \beta) \sin\beta \notag 
+ \end{align}
+因此
+\begin{align}
+    \sin\beta \cos(\alpha + \beta)  &= -\sin \alpha + \sin\alpha \cos^2 \beta + \cos \alpha \sin\beta \cos \beta \notag \\
+    &= -\sin \alpha (1 - \cos^2 \beta) + \cos \alpha \sin\beta \cos \beta \notag \\
+    &= -\sin\alpha \sin^2 \beta + \cos \alpha \sin\beta \cos \beta \notag \\
+    &= \sin\beta (\cos \alpha \cos \beta - \sin\alpha \sin \beta) \notag
+ \end{align}
+两边约去$\sin \beta$，就得到：
+$$  \cos(\alpha + \beta) = \cos \alpha \cos \beta - \sin\alpha \sin \beta. $$
+这就是两锐角之和余弦值的公式，简称\textbf{和角余弦公式}。
+
+要注意的是，上面的推导中，我们假设$\alpha$、$\beta$、$\alpha + \beta$是锐角。
+然而，推导中涉及的项，除了$\cos(\alpha + \beta)$，都不要求$\alpha + \beta$是锐角。
+另一方面，在和角余弦公式中，只要确定了$\alpha$、$\beta$，
+就能计算$\cos \alpha \cos \beta - \sin\alpha \sin \beta$。
+所以，$\alpha + \beta$是直角或钝角时，我们可以定义$\cos(\alpha + \beta)$为关于$x$的方程：
+$$  x = \cos \alpha \cos \beta - \sin\alpha \sin \beta $$
+的唯一解。这样，我们就定义了钝角的余弦值。当然，这样定义钝角余弦值，不好理解。
+为了好理解，我们仿照正弦，给出互为补角的两角余弦的关系。这样，通过单个锐角的余弦值，就能得到钝角的余弦值了。
+
+在和角余弦公式中，令较大角为直角，代入得到
+$$  \forall \,\, 0 \leqslant \beta \leqslant 90^\circ , \,\,\, \cos(90^\circ + \beta) = - \sin\beta. $$
+
+对锐角$\beta$来说，$90^\circ - \beta$也是锐角，于是：
+$$ -\cos \beta = - \sin(90^\circ - \beta) = \cos(180^\circ - \beta). $$
+这说明$ \cos(180^\circ - \beta) =  -\cos \beta$。\textbf{互为补角的两角，余弦值互为相反数}。
+
+上一节中，我们让钝角的余弦等于其补角的相反数。现在我们看到，这个选择是合理的。
+至此，我们可以写出余弦定理的统一形式：
+
+\begin{tm}{\textbf{余弦定理}}\label{tm:2-4-10}
+    设三角形$ABC$的内角$A,B,C$对边长度分别为$a,b,c$，则
+    $$ a^2 = b^2 + c^2 - 2bc\cos A, \,\,\, b^2 = c^2 + a^2 - 2ca\cos B, \,\,\, c^2 = a^2 + b^2 - 2ab\cos C. $$
+\end{tm}
+余弦定理说明，三角形内角的余弦值，决定了它对边边长的平方与另两边边长的平方和的大小关系。
+锐角的余弦值大于$0$，它对边边长的平方小于另两边边长的平方和。钝角的余弦值小于$0$，
+它对边边长的平方大于另两边边长的平方和。直角的余弦值是$0$，它对边边长的平方等于另两边边长的平方和。
+
+回到例题\ref{ex:2-2-10}：三角形三边长为$3$、$5$、$6$，求三个内角的大小。
+不妨设三角形$ABC$中$a=3$、$b=5$、$c=6$。根据余弦定理，
+$$ \cos C = \frac{a^2 + b^2 - c^2}{2ab} \approx -0.0667.$$
+于是$\sin C = \sqrt{1 - \cos^2 C} \approx 0.9978$，
+查表知锐角$180^\circ - C \approx 86.2^\circ$，即$\angle C \approx 93.8^\circ$。
+同理，可以算得$\angle A \approx 29.9^\circ$，$\angle B \approx 56.3^\circ$。
+
+\begin{xt}\label{xt:2-4-10}
+    \mbox{} \\
+    \indent 1. 验证：和角、差角公式对边界情形（零角、直角等情况）成立。 \\
+    \indent 2. 证明正弦和余弦的\textbf{倍角公式}：
+    \begin{align}
+        \forall \,\, 0 \leqslant \alpha \leqslant 90^\circ , \,\,\, & \sin 2\alpha = 2\sin \alpha \cos \alpha \notag \\
+        & \cos 2\alpha = 2\cos^2 \alpha - 1 \notag 
+    \end{align}
+    \indent 3. 证明正弦和余弦的\textbf{半角公式}：
+    \begin{align}
+        \forall \,\, 0 \leqslant \alpha \leqslant 180^\circ , \,\,\, & \sin \frac{\alpha}{2} = \sqrt{\frac{1 - \cos \alpha}{2}}  \notag \\
+        & \cos \frac{\alpha}{2} = \sqrt{\frac{1 + \cos \alpha}{2}} \notag
+    \end{align}
+    \indent 4. 证明正弦和余弦的\textbf{积化和差公式}：
+    \begin{align}
+        \cos \alpha \cos \beta &= \frac12 (\cos (\alpha + \beta) + \cos (\alpha - \beta)) \notag \\
+        \sin \alpha \sin \beta &= \frac12 (\cos (\alpha - \beta) - \cos (\alpha + \beta)) \notag \\
+        \sin \alpha \cos \beta &= \frac12 (\sin (\alpha + \beta) + \sin (\alpha - \beta)) \notag 
+    \end{align}
+    \indent 5. 证明正弦和余弦的\textbf{和差化积公式}：
+    \begin{align}
+        \sin \alpha \pm \sin \beta &= 2\sin \frac{\alpha \pm \beta}{2} \cos \frac{\alpha \mp \beta}{2} \notag \\
+        \cos \alpha + \cos \beta &= 2\cos \frac{\alpha + \beta}{2} \cos \frac{\alpha - \beta}{2} \notag \\
+        \cos \alpha - \cos \beta &= -2\sin \frac{\alpha + \beta}{2} \sin \frac{\alpha - \beta}{2} \notag 
+    \end{align}
+    \indent 5. 设平行四边形$ABCD$的相邻两边长为$a,b$，两对角线长为$u,v$，证明：$u^2 + v^2 = 2a^2 + 2b^2$。 \\
+    \indent 6. 设$\triangle ABC$三边长分别为$a,b,c$，证明：
+    $$\sin A = \frac{\sqrt{(b+c-a)(a-b+c)(a+b-c)(a+b+c)}}{2bc}.$$ 
+    \indent 7. 设$\triangle ABC$周长的一半为$p$，证明：$S_{\triangle ABC} = \sqrt{p(p-a)(p-b)(p-c)}$。 \\
+    \indent 8. $\triangle ABC$一边的长度是另一边的$2$倍。设$A$是$\triangle ABC$最大的内角，证明：$\cos A \leqslant 0.25$。
+
+\end{xt}
+
+\section{正切函数和余切函数}
+
+历史上，除了正弦函数和余弦函数，数学家们还发明了别的函数来讨论角度。\textbf{正切函数}和\textbf{余切函数}就是两种常用的函数。
+
+如下图，单位圆的切线$l$与锐角$\angle AOP$的终边交于$Q$，定义$\angle AOP$的\textbf{正切}（\textbf{值}）为
+$\tan\angle AOP = |AQ|$，\textbf{余切}（\textbf{值}）为$\cot\angle AOP = \frac{1}{|AQ|}$。
+也就是说，我们用角截切线的长度来度量角的大小。按照定义，\textbf{同角的正切值和余切值互为倒数}。
+
+\begin{wrapfigure}[7]{r}{0.25\textwidth} %this figure will be at the right
+    \vspace{-15pt}
+    \flushright
+    \includegraphics[width=0.24\textwidth]{正切函数1.png}
+\end{wrapfigure}
+
+和正弦、余弦一样，我们可以定义正切、余切函数。
+要注意的是，正切函数对零角和锐角有定义，但对直角没有定义。余切函数对锐角和直角有定义，对零角没有定义。
+
+不难证明：
+$$ \forall \,\, 0 < \alpha < 90^\circ, \,\,\, \tan \alpha = \frac{\sin \alpha}{\cos \alpha}, \,\,\, \cot \alpha = \frac{\cos \alpha}{\sin \alpha}$$
+
+换句话说，可以用锐角的正弦和余弦定义它的正切和余切。零角的正切是$0$，直角的余切是$0$。
+从零角开始，随着角度增大，正切值不断增大。从直角开始随着角度减小，余切值不断减小。
+$\cos 45^\circ = \sin (90^\circ - 45^\circ) = \sin 45^\circ $，
+因此$\tan 45^\circ = \cot 45^\circ = 1$。
+
+反过来，也可以用锐角的正切和余切定义它的正弦和余弦：
+$$ \forall \,\, 0 < \alpha < 90^\circ, \,\,\, \sin \alpha = \sqrt{\frac{1}{1 + \cot^2 \alpha}}, \,\,\, \cos \alpha = \sqrt{\frac{1}{1 + \tan^2 \alpha}}$$
+对于钝角，我们希望保持正切、余切和正弦、余弦的关系，因此，定义
+$$ \forall \,\, 90^\circ < \alpha < 180^\circ, \,\,\, \tan \alpha = \frac{\sin \alpha}{\cos \alpha}, \,\,\, \cot \alpha = \frac{\cos \alpha}{\sin \alpha}$$
+于是，补角的正切和余切满足以下关系：
+$$ \tan (180^\circ - \alpha) = -\tan \alpha, \,\,\, \cot (180^\circ - \alpha) = -\cot \alpha$$
+也就是说，钝角的正切和余切都小于$0$。
+
+从正弦和余弦的和差角公式，可以推出正切和余切的和差角公式：
+\begin{align}
+    \forall 0 \leqslant \alpha, \beta < 90^\circ, & \notag \\
+    \tan (\alpha + \beta) &= \frac{\sin (\alpha + \beta)}{\cos (\alpha + \beta)} = \frac{\sin\alpha \cos \beta + \cos \alpha \sin\beta}{\cos \alpha \cos \beta - \sin\alpha \sin \beta} \notag \\
+    &= \frac{\tan \alpha + \tan \beta}{1 - \tan \alpha \tan \beta} \notag    
+\end{align}
+\begin{align}
+    \tan (\alpha - \beta) &= \frac{\sin (\alpha - \beta)}{\cos (\alpha - \beta)} = \frac{\sin\alpha \cos \beta - \cos \alpha \sin\beta}{\cos \alpha \cos \beta + \sin\alpha \sin \beta} \notag \\
+    &= \frac{\tan \alpha - \tan \beta}{1 + \tan \alpha \tan \beta} \notag 
+\end{align}
+\begin{align}
+    \forall 0 < \alpha, \beta \leqslant 90^\circ, & \notag \\
+    \cot (\alpha + \beta) &= \frac{\cos (\alpha + \beta)}{\sin (\alpha + \beta)} = \frac{\cos \alpha \cos \beta - \sin\alpha \sin \beta}{\sin\alpha \cos \beta + \cos \alpha \sin\beta} \notag \\
+    &= \frac{\cot \alpha \cot \beta - 1}{\cot \alpha + \cot \beta} \notag 
+\end{align}
+\begin{align}
+    \cot (\alpha - \beta) &= \frac{\cos (\alpha - \beta)}{\sin (\alpha - \beta)} = \frac{\cos \alpha \cos \beta + \sin\alpha \sin \beta}{\sin\alpha \cos \beta - \cos \alpha \sin\beta} \notag \\
+    &= \frac{\cot \alpha \cot \beta + 1}{\cot \alpha - \cot \beta}  \notag 
+\end{align}
+以上关系可以简写为：
+\begin{align}
+    \tan (\alpha \pm \beta) &= \frac{\tan \alpha \pm \tan \beta}{1 \mp \tan \alpha \tan \beta} \notag \\
+    \cot (\alpha \pm \beta) &= \frac{\cot \alpha \cot \beta \mp 1}{\cot \alpha \pm \cot \beta} \notag
+\end{align}
+
+三角形中，内角之和为平角。因此，两角之和的正切值是第三个角正切值的相反数：
+\begin{align}
+    \tan C &= \tan (180^\circ - (A + B)) = - \tan (A + B) \notag \\
+    &= - \frac{\tan A + \tan B}{1 - \tan A \tan B}. \notag 
+\end{align}
+于是：
+\begin{align}
+    \tan C (1 - \tan A \tan B) &= - \tan A - \tan B, \notag \\
+    \tan A + \tan B + \tan C &= \tan A \tan B \tan C. \notag
+\end{align}
+\begin{tm}{\textbf{正切定理}}\label{tm:2-5-10}
+    三角形内角的正切值之和等于它们的乘积。
+\end{tm}
+正切定理和正弦定理、余弦定理不同。它并不涉及三角形的边，是纯粹关于角的定理。
+使用正切定理无法解决边角关系的问题，但可以比较方便地给出三角形内角的关系。
+利用正切和余切的倒数关系，可以写出关于余切的类似结论：
+\begin{tm}{\textbf{余切定理}}\label{tm:2-5-20}
+    三角形$ABC$内角的余切值满足：
+    $$ \cot A \cot B + \cot B \cot C + \cot C \cot A = 1.$$
+\end{tm}
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 证明正切和余切的\textbf{倍角公式}：
+    \begin{align}
+        \forall \,\, 0 < \alpha < 45^\circ, \,\,\,& \tan 2\alpha = \frac{2\tan \alpha}{1 - \tan^2 \alpha} & \notag \\
+        &\cot 2\alpha = \frac{\cot^2 \alpha - 1}{2 \cot \alpha} & \notag 
+    \end{align}
+    \indent 2. 证明正切和余切的\textbf{半角公式}：
+    \begin{align}
+        \forall \,\, 0 < \alpha < 180^\circ, \,\,\,& \tan \frac{\alpha}{2} = \frac{\sin \alpha}{1 + \cos \alpha} = \frac{1 - \cos \alpha}{\sin \alpha} = \sqrt{\frac{1 - \cos \alpha}{1 + \cos \alpha}}\notag \\
+        & \cot \frac{\alpha}{2} = \frac{1 + \cos \alpha}{\sin \alpha} = \frac{\sin \alpha}{1 - \cos \alpha} = \sqrt{\frac{1 + \cos \alpha}{1 - \cos \alpha}} \notag 
+    \end{align}
+    定义锐角$\alpha$的\textbf{正割值}（$\sec \alpha$）和\textbf{余割值}（$\csc \alpha$）：
+    \begin{align}
+        \sec \alpha &= \frac{1}{\cos \alpha}, \,\,\, \csc \alpha = \frac{1}{\sin \alpha}. \notag 
+    \end{align}
+    \indent 3. 证明：锐角的正割等于它的余角的余割，锐角的余割等于它的余角的正割。\\
+    \indent 4. 证明：
+    \begin{align}
+        1 + \tan^2 \alpha &= \sec^2 \alpha , \,\,\, 1 + \cot^2 \alpha = \csc^2 \alpha \notag 
+    \end{align}
+    \indent 5. 证明\textbf{万能公式}：
+    \begin{align}
+        \forall 0 < \alpha < 180^\circ, & \mbox{ 记} \tan\frac{\alpha}{2} = t, \,\,\, \mbox{则：}\notag \\
+        \sin \alpha = \frac{2t}{1 + t^2}, & \,\,\,\,\, \tan \alpha = \frac{2t}{1 - t^2}, \,\,\,\,\,\, \sec \alpha = \frac{1 + t^2}{1 -t^2}, \notag \\
+        \cos \alpha = \frac{1 -t^2}{1 + t^2}, & \,\,\,\,\,\, \cot \alpha = \frac{1 - t^2}{2t}, \,\,\,\,\,\, \csc \alpha = \frac{1 + t^2}{2t}. \notag  
+    \end{align}
+\end{xt}
 
 \chapter{从或许到确定}
 预测未来，是人类社会的重要活动。合理有效地预测未来，是社会文明进步的标志。
