@@ -303,7 +303,7 @@ $$ |MA| \cdot |MB| = |MA|^2 = |MB|^2 = |MP| \cdot |MQ|.$$
 过$P$任意作一条直线，和圆交于两点$M,N$，是否也有这个结论呢？
 
 \begin{wrapfigure}[7]{r}{0.43\textwidth} %this figure will be at the right
-    \vspace{-14pt}
+    \vspace{-22pt}
     \flushright
     \includegraphics[width=0.42\textwidth]{圆势1.png}
 \end{wrapfigure}
@@ -312,7 +312,7 @@ $$ |MA| \cdot |MB| = |MA|^2 = |MB|^2 = |MP| \cdot |MQ|.$$
 所以$\angle NDC = \angle NMC$。又对顶角$\angle DPN = \angle CPM$，所以
 $ \triangle DPN \backsim \triangle MPC$。也就是说，
 $$ \frac{|PD|}{|PN|} = \frac{|PM|}{|PC|}.$$
-换句话说，$|PC| \cdot |PD| = |PN|\cdot|PM|$。
+换句话说，$|PC| \cdot |PD| = |PN|\cdot|PM|$。这个结论也叫\textbf{相交弦定理}。
 
 对圆内一点$P$来说，即便不知道圆心，只要过$P$作直线与圆交于两点，那么$P$到两点的距离乘积
 就是它到圆的势的绝对值。
@@ -322,16 +322,25 @@ $$ \frac{|PD|}{|PN|} = \frac{|PM|}{|PC|}.$$
 $$|PA|\cdot|PB| = (|PO| - |AO|) \cdot (|PO| + |PB|) = |OP|^2 - r^2.$$
 过$P$作直线$l$和圆交于两点$M,N$，$|PM| \cdot |PN|$是否也等于$|OP|^2 - r^2$呢？
 
+\begin{wrapfigure}[12]{r}{0.43\textwidth} %this figure will be at the right
+    \vspace{-18pt}
+    \flushright
+    \includegraphics[width=0.42\textwidth]{圆势2.png}
+\end{wrapfigure}
+
 如右图，注意到$\angle BNA$和$\angle BMA$都对应半圆，所以都是直角。
 三角形外角$\angle PAN = \angle ABN + \angle BNA$，而$\angle ABN$和$\angle AMN$对应同一段弧且都不在弧上，
 所以$\angle ABN = \angle AMN$。于是，
-$$\angle PAN = \angle ABN + 90^\circ = \angle AMN + \angle BMA = \angle BMN.$$
+\begin{align}
+    \angle PAN &= \angle ABN + 90^\circ \notag \\
+    &= \angle AMN + \angle BMA =\angle BMN. \notag
+\end{align}
 这说明$\triangle PAN \backsim \triangle PBM$，所以
 $$ \frac{|PA|}{|PN|} = \frac{|PM|}{|PB|},$$
 换句话说，$|PM|\cdot |PN| = |PA|\cdot |PB|$。
-我们把这个性质总结为：
+这个性质也叫\textbf{割线定理}。
 
-对圆内一点$P$来说，即便不知道圆心，只要过$P$作直线与圆交于两点，那么$P$到两点的距离乘积
+对圆外一点$P$，即便不知道圆心，只要过$P$作直线与圆交于两点，那么$P$到两点的距离乘积
 就是它到圆的势。
 
 因此，无论在圆内还是圆外，经过一点$P$的直线与圆交于两点，则它到两点的距离乘积只与它和圆的远近关系有关。
@@ -362,15 +371,21 @@ $$ \frac{|PA|}{|PN|} = \frac{|PM|}{|PB|},$$
 过圆$(O,r)$外一点$P$作切线，记切点为$Q$，则$\triangle OQP$为直角三角形。根据勾股定理，
 $$ |PQ|^2 + |OQ|^2 = |OP|^2.$$
 因此，$|PQ|^2 = |OP|^2 - r^2$。也就是说，点$P$到切点的距离平方，
-是它关于圆的势。若过$P$作圆$O$的割线，交圆于$A$、$B$两点，那么由上一节可知
+是它关于圆的势。若过$P$作圆$O$的割线，交圆于$A$、$B$两点，那么
 $$ |PA| \cdot |PB| = |OP|^2 - r^2 = |PQ|^2.$$
 也就是说，
 $$ \frac{|PA|}{|PQ|} = \frac{|PQ|}{|PB|}.$$
 因此，$\triangle PAQ \sim \triangle PQB$。这两个三角形的相似关系称为\textbf{切割线定理}。
+切割线定理可以看作割线定理的特例。
 
 从切割线定理可以推出：$\angle PQA = \angle PBQ$。从另一个角度，可以这样理解：
 过圆上一点$Q$只有一条切线$PQ$。如果过$Q$再作一条直线，直线于圆必交于另一点$A$，
 而$\angle PQA$等于圆弧$\widearc{QA}$对应的圆周角。
+
+\begin{sk}\label{sk:0-4-0}
+    已知圆外一点$P$，如何准确作出$P$到$O$的切线？
+\end{sk}
+
 
 \chapter{圆和多边形}
 我们对圆上一点、两点引出的形状都有了初步了解，现在来看圆上多个点对应的形状。
@@ -388,18 +403,39 @@ $$ \frac{|PA|}{|PQ|} = \frac{|PQ|}{|PB|}.$$
 以内心为圆心，以它到三边的距离为半径作圆，这个圆和三角形三边都相切。我们把这个圆叫做三角形的\textbf{内切圆}
 （“内心”即“内切圆圆心”的简称），把三角形称为圆的\textbf{外切三角形}。
 
+\begin{wrapfigure}[7]{r}{0.46\textwidth} %this figure will be at the right
+    \vspace{-20pt}
+    \flushright
+    \includegraphics[width=0.45\textwidth]{内切圆势1.png}
+\end{wrapfigure}
+
 除了内心，三角形还有旁心。旁心到三角形三边的距离也相等。因此，以每个旁心为圆心，以它到三遍的距离为圆心，
 各可以得到一个圆。每个圆都与三角形一边和另两边的延长线相切。这三个圆称为三角形的旁切圆
 （“旁心”即“旁切圆圆心”的简称），把三角形称为它们的\textbf{旁切三角形}。
+
+\begin{xt}\label{xt:1-0-10}
+    \mbox{} \\
+    如右上图，$\triangle ABC$的内心为$I$，外心为$O$。设$I$到$AC$的垂足为$I_B$，
+    射线$AI$与圆$O$交于$D$，$D$的对径点为$E$。\\
+    \indent 1. 证明：$\triangle CDI$是等腰三角形，$|CD| = |DI|$。\\
+    \indent 2. 证明：$\triangle CDE \sim \triangle I_BIA$。\\
+    \indent 3. 证明：$I$关于圆$O$的势$\mathtt{R}^2 - |OI|^2 = 2\mathtt{Rr}$。其中$\mathtt{R}$是外接圆半径，
+    $\mathtt{r}$是内切圆半径。\\
+    \indent 4. 设$J_A, J_B, J_C$是$\triangle ABC$的旁心，证明：它们关于圆$O$的势分别等于外接圆半径与对应旁切圆半径乘积的两倍。
+\end{xt}
 
 \section{圆内接四边形}
 在三个点的基础上再加一个点$D$，四个点$A$、$B$、$C$、$D$能否恰好对应一个圆呢？显然，
 $\triangle ABC$和$\triangle BCD$的外接圆未必是同一个圆。所以，四个点不总是在同一个圆上。
 换句话说，要让四个点共圆，这四个点必须满足一定的条件。
 
-% 圆内接四边形ABCD
+\begin{wrapfigure}[3]{r}{0.32\textwidth} %this figure will be at the right
+    \vspace{-40pt}
+    \flushright
+    \includegraphics[width=0.3\textwidth]{圆内接四边形1.png}
+\end{wrapfigure}
 
-如右图上情形，设$A$、$B$、$C$、$D$圆$(O,r)$上（相异的）四点，考察它们对应的圆弧。我们发现，
+如右图，设$A$、$B$、$C$、$D$圆$(O,r)$上（相异的）四点，考察它们对应的圆弧。我们发现，
 $\widearc{ABC}$和$\widearc{CDA}$是整个圆的分划，因此，它们对应的圆心角之和是周角。
 根据圆周角定理，$\angle ABC + \angle CDA = 180^\circ$。同理，$\angle BCD + \angle DAB = 180^\circ$。
 
@@ -410,7 +446,13 @@ $\angle DBA = \angle DCA$。
 % 从这些等角关系出发，
 % 如果对角线$AC$和$BD$交于点$P$，那么$\triangle APB \backsim \triangle CPD$、$\triangle BPC \backsim \triangle DPA$。
 
-如果$A$、$B$、$C$、$D$顺序改变，如右图下情形，那么四边形$ABCD$就是蝶形。
+\begin{wrapfigure}[4]{r}{0.32\textwidth} %this figure will be at the right
+    \vspace{-48pt}
+    \flushright
+    \includegraphics[width=0.3\textwidth]{圆内接四边形1b.png}
+\end{wrapfigure}
+
+如果$A$、$B$、$C$、$D$顺序改变，如右图，那么四边形$ABCD$就是蝶形。
 $\widearc{ABC}$和$\widearc{CDA}$对应同一段圆弧$\widearc{AC}$。
 这时$\angle ABC + \angle CDA = 0^\circ$，或者说$\angle ABC = \angle ADC$。
 同理，$\angle BAD = \angle BCD$。
@@ -422,12 +464,12 @@ $AB$、$CD$看作对角线，把对角线$AC$、$BD$看作对边，我们就得�
 因此，观察相同的圆弧对应的圆周角可以发现，我们仍然有$\angle BAC = \angle BDC$、$\angle ACB = \angle ADB$，$\angle CAD = \angle CBD$，
 $\angle DBA = \angle DCA$。如果对角线$AC$和$BD$交于点$P$，仍然有$\triangle APB \backsim \triangle CPD$、$\triangle BPC \backsim \triangle DPA$。
 换句话说，即便圆内接四边形不是凸四边形，用它的顶点也能画出圆内接凸四边形，并且不妨碍我们讨论相关的性质。
-所以，我们总把圆内接四边形问题归结为凸四边形来讨论，也称之为四边共圆问题。
+所以，我们总把圆内接四边形问题归结为凸四边形来讨论，也称之为四点共圆问题。
 
 以上是圆内接四边形边和角的性质，反过来，满足什么性质的四边形是圆内接四边形呢？
 或者说，满足什么条件的四个点共圆呢？
 
-\begin{tm}\label{tm:0-3-0}
+\begin{tm}\label{tm:1-1-0}
     如果凸四边形$ABCD$中的一对内角$\angle ABC$与$\angle CDA$的和是平角，
     那么$ABCD$是圆内接四边形。
 \end{tm}
@@ -451,7 +493,7 @@ $\angle DBA = \angle DCA$。如果对角线$AC$和$BD$交于点$P$，仍然有$\
 
 从这个定理可以推出，矩形、等腰梯形和正方形都是圆内接四边形。
 
-\begin{tm}\label{tm:0-3-10}
+\begin{tm}\label{tm:1-1-10}
     如果凸四边形$ABCD$中，$\angle ACB = \angle ADB$，
     那么$ABCD$是圆内接四边形。
 \end{tm}
@@ -475,7 +517,7 @@ $\angle DBA = \angle DCA$。如果对角线$AC$和$BD$交于点$P$，仍然有$\
     $A,B,C,D$四点都在$\odot_{O_1, A}$上。
 \end{proof}
 
-\begin{tm}\label{tm:0-3-20}
+\begin{tm}\label{tm:1-1-20}
     过一点$P$的两条直线$m,n$上各有两点：$A, C\in m$和$B, D \in n$，分别各在$P$两侧。
     如果
     $$ |PA| \cdot |PC| = |PB| \cdot |PD|, $$
@@ -487,40 +529,37 @@ $\angle DBA = \angle DCA$。如果对角线$AC$和$BD$交于点$P$，仍然有$\
     而$ |PA| \cdot |PC| = |PB| \cdot |PD|$等于说
     $$ \frac{|PA|}{|PB|} = \frac{|PD|}{|PC|}.$$
     因此根据“边角边”，$\triangle APB \sim \triangle DPC$。于是有
-    $\angle ABP = \angle DCP$，$\angle BAP = \angle CDP$。因此，根据定理\ref{tm:0-3-10}，
+    $\angle ABP = \angle DCP$，$\angle BAP = \angle CDP$。因此，根据定理\ref{tm:1-1-10}，
     四边形$ABCD$是圆内接四边形。
 \end{proof}
 这个定理也可以理解为：两条线段相交，如果交点把每条线段分成的两部分长度之积相等，那么线段端点共圆。
-也就是说，这两条线段实际上是圆的两条相交的弦。
+也就是说，这两条线段实际上是圆的两条相交的弦，乘积$ |PA| \cdot |PC| = |PB| \cdot |PD|$是$P$关于圆的势。
+这个定理是相交弦定理的逆定理。
 
-反之，圆的两条弦$AC$和$BD$相交于$P$，则“等弦对等角”说明$\angle ACD = \angle ABD$、
-$\angle BAC = \angle BDC$。因此$\triangle ABP \sim \triangle DCP$，
-$ |PA| \cdot |PC| = |PB| \cdot |PD|$。
-
-\begin{tm}\textbf{相交弦定理}\label{tm:0-3-30}
-    圆的两条弦$AC$和$BD$相交于$P$，则
-    $$ |PA| \cdot |PC| = |PB| \cdot |PD|. $$
-\end{tm}
-
-\begin{xt}
+\begin{xt}\label{xt:1-1-10}
     \mbox{}\\
+    \indent 1. $\triangle ABC$三边$BC,CA,AB$上分别有点$X,Y,Z$。
+    设$\triangle AYZ$的外接圆和$\triangle BXZ$的外接圆交于点$P$，证明：$C,X,Y,P$四点共圆。\\
+    \indent 2. 直线$XYZ$与三角形$ABC$的边$BC,CA,AB$所在直线分别交于点$X,Y,Z$。
+    证明：$\triangle AYZ$、$\triangle BXZ$、$\triangle CXY$、$\triangle ABC$的外接圆过一公共点。
+    \indent 3. $P$是平面上一点。过$P$作直线$l_1,l_2,l_3$与$\triangle ABC$三边$BC,CA,AB$分别交于点$X,Y,Z$。
+    如果$\angle AYP = \angle BZP = \angle CXP$，证明：$A, Y, Z, P$四点共圆、$B, X, Z, P$四点共圆、$C,X,Y,P$四点共圆。\\
     给定圆内接凸四边形$ABCD$。$E$是对角线$AC$上一点。$\angle CDE = \angle BDA$。\\
-    \indent 1. 证明：$\triangle CDE \sim \triangle BDA$。\\
-    \indent 2. 证明：$\triangle CDB \sim \triangle EDA$。\\
-    \indent 3. 证明：$|AC| \cdot |BD| = |AB| \cdot |CD| + |BC| \cdot |DA|.$\\
+    \indent 4. 证明：$\triangle CDE \sim \triangle BDA$。\\
+    \indent 5. 证明：$\triangle CDB \sim \triangle EDA$。\\
+    \indent 6. 证明：$|AC| \cdot |BD| = |AB| \cdot |CD| + |BC| \cdot |DA|.$\\
     给定凸四边形$ABCD$，作射线$CE$使得$\angle ECD = \angle ABD$，
     作射线$DE$使得$\angle CDE = \angle BDA$。两射线交于点$E$。\\
-    \indent 1. 证明：$\triangle CDE \sim \triangle BDA$。\\
-    \indent 2. 证明：$\triangle CDB \sim \triangle EDA$。\\
-    \indent 3. 证明：$|AC| \cdot |BD| \geqslant |AB| \cdot |CD| + |BC| \cdot |DA|.$ \\
-    \indent 4. 证明，凸四边形$ABCD$是圆内接四边形，当且仅当$|AC| \cdot |BD| = |AB| \cdot |CD| + |BC| \cdot |DA|.$\\
-    \indent 5. 证明：$A,B,C,D$四点共圆，当且仅当$|AC| \cdot |BD| = |AB| \cdot |CD| + |BC| \cdot |DA|.$
-
+    \indent 7. 证明：$\triangle CDE \sim \triangle BDA$。\\
+    \indent 8. 证明：$\triangle CDB \sim \triangle EDA$。\\
+    \indent 9. 证明：$|AC| \cdot |BD| \geqslant |AB| \cdot |CD| + |BC| \cdot |DA|.$ \\
+    \indent 10. 证明，凸四边形$ABCD$是圆内接四边形，当且仅当$|AC| \cdot |BD| = |AB| \cdot |CD| + |BC| \cdot |DA|.$\\
+    \indent 11. 证明：$A,B,C,D$四点共圆，当且仅当$|AC| \cdot |BD| = |AB| \cdot |CD| + |BC| \cdot |DA|.$
 \end{xt}
 
 \section{垂心组和外接圆}
 
-\begin{wrapfigure}[5]{r}{0.5\textwidth} %this figure will be at the right
+\begin{wrapfigure}[7]{r}{0.5\textwidth} %this figure will be at the right
     \vspace{-90pt}
     \flushright
     \includegraphics[width=0.48\textwidth]{垂心与外心1.png}
@@ -528,11 +567,11 @@ $ |PA| \cdot |PC| = |PB| \cdot |PD|$。
 \end{wrapfigure}
 
 考虑锐角三角形$ABC$，把顶点到对边的垂足分别记作$H_A, H_B, H_C$，垂心为$H$。
-由于$\angle HH_AB = \angle BH_CH = 90^\circ$，两角之和为平角，故$H, H_A, H_C, B$四点共圆。
-这说明$\angle H_CHH_A + \angle H_ABH_C = 180^\circ$。这说明$\angle CHA = \angle H_CHH_A$是钝角，
+由于$\angle HH_AB = \angle BH_CH = 90^\circ$，两角之和为平角，故$H, H_A, H_C, B$四点共圆，
+$\angle H_CHH_A + \angle H_ABH_C = 180^\circ$。这说明$\angle CHA = \angle H_CHH_A$是钝角，
 $\triangle AHC$是钝角三角形。
 
-考察钝角三角形$AHC$，可以发现，它的顶点到对边的垂足也是$H_A, H_B, H_C$，而垂心是$B$。
+考察钝角三角形$AHC$，它的顶点到对边的垂足也是$H_A, H_B, H_C$，而垂心是$B$。
 
 类似地，我们可以证明$H, H_B, H_C, A$四点共圆，$H, H_A, H_B, C$四点共圆。
 钝角三角形$BHC$、$CHA$的顶点到对边的垂足也是$H_A, H_B, H_C$，
@@ -566,7 +605,7 @@ $$\angle CBO = 90^\circ - \frac{1}{2}\angle BOC = 90^\circ - \angle A = \angle H
 同理，$\angle BAO = \angle HAC$，$\angle ACO = \angle HCB$。
 
 \begin{wrapfigure}[9]{r}{0.42\textwidth} %this figure will be at the right
-    \vspace{-60pt}
+    \vspace{-50pt}
     \flushright
     \includegraphics[width=0.4\textwidth]{垂心与外心2.png}
     % \caption*{\texttt{垂心和外接圆}}
@@ -752,14 +791,14 @@ $$ \angle A_1A_2A_3 + \angle A_2A_3A_4 + \cdots + \angle A_{n-2}A_{n-1}A_{n} + \
 在科学研究和生产实践中，我们更需要知道的是形状之间定量的关系。
 比如，如果三角形的三边长度分别是$4,5,6$，我们希望知道三角形内角到底是多少度。
 又比如，如果菱形两条邻边长度为$1$，夹角为$50^\circ$，我们希望知道菱形对角线的长度。
-
+为此，我们从三角形的边角关系着手研究。
 
 \begin{wrapfigure}[5]{r}{0.4\textwidth} %this figure will be at the right
     \vspace{-0pt}
     \flushright
     \includegraphics[width=0.36\textwidth]{三角函数1.png}
 \end{wrapfigure}
-为了研究形状之间的定量关系，我们仍然从三角形开始研究。
+我们的目标是解三角形：已知三角形部分边角的大小，求其余边角的值。
 
 \section{正弦函数}
 如右图，我们想知道三角形$ABC$中$\angle A$的角度和对边$BC$长度的关系。
@@ -910,15 +949,15 @@ $$  \frac{2S_{\triangle ABC}}{abc} = \frac{\sin C}{c} = \frac{\sin B}{b} = \frac
 
 上式告诉我们，三角形三个内角的正弦值和对边长度的比是定值$\frac{2S_{\triangle ABC}}{abc}$。
 如何理解这个定值呢？让我们回到前面的三角形$MOB$。
-我们知道$BM = \mathrm{R}\sin A$，其中$\mathrm{R}$是$\triangle ABC$外接圆半径。
-所以$ \frac{a}{2} = \mathrm{R}\sin A$，即$ \frac{\sin A}{a} = \frac{1}{2\mathrm{R}}$。也就是说，
-$$ \frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C} =  2\mathrm{R}. $$
+我们知道$BM = \mathtt{R}\sin A$，其中$\mathtt{R}$是$\triangle ABC$外接圆半径。
+所以$ \frac{a}{2} = \mathtt{R}\sin A$，即$ \frac{\sin A}{a} = \frac{1}{2\mathtt{R}}$。也就是说，
+$$ \frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C} =  2\mathtt{R}. $$
 
 \begin{tm}{\textbf{正弦定理} }\label{tm:2-1-10}
     三角形任一边长与其对角正弦值之比为外接圆直径。
 \end{tm}
 从正弦定理可以立刻得出：三角形的面积等于三边长之积与外接圆半径之比的四分之一。
-$$S_{\triangle ABC} = \frac{abc}{4\mathrm{R}}. $$ 
+$$S_{\triangle ABC} = \frac{abc}{4\mathtt{R}}. $$ 
 
 下面来看正弦定理的具体应用。
 
@@ -981,22 +1020,22 @@ $\angle A$的补角大于$\angle B$，即$\sin A = \sin (B + C) > \sin B$。
 \section{余弦函数}
 \begin{ex}\label{ex:2-2-10}
     \mbox{} \\
-    \indent 1. 三角形$ABC$中，边$AB$、$AC$、$BC$的长度分别为$3$、$5$、$6$，求三个内角的大小。\\
-    \indent 2. 三角形$ABC$中，边$BC$、$AC$的长度分别是$4$、$6$，$\angle C = 50^\circ$，求$AB$长度。
+    \indent 1. 三角形$ABC$中，边$BC$、$AC$的长度分别是$4$、$6$，$\angle C = 50^\circ$，求$AB$长度。\\
+    \indent 2. 三角形$ABC$中，边$AB$、$AC$、$BC$的长度分别为$3$、$5$、$6$，求三个内角的大小。
 \end{ex}
 使用正弦定理，我们列出以下等式：\\
-\indent 1. $ \frac{6}{\sin A} = \frac{5}{\sin B} = \frac{3}{\sin C}.$\\
-\indent 2. $ \frac{4}{\sin A} = \frac{6}{\sin B} = \frac{|BC|}{\sin 50^\circ}.$
+\indent 1. $ \frac{4}{\sin A} = \frac{6}{\sin B} = \frac{|BC|}{\sin 50^\circ}.$ \\
+\indent 2. $ \frac{6}{\sin A} = \frac{5}{\sin B} = \frac{3}{\sin C}.$
 
 每个等式中都有两个未知量。我们无法直接用正弦定理计算内角的正弦值了。
 不过，既然我们能通过“边边边”和“边角边”证明三角形全等，这让我们猜想，有别的方法计算内角的角度。
 
-第一题中，让我们把$AB$、$AC$、$BC$的长度换成$3$、$4$、$5$，我们观察到最长边边长的平方等于另两边边长的平方和。
+第一题中，让我们把$\angle C$改为直角，那么根据勾股定理，$|AB| = \sqrt{4^2+6^2} = 2\sqrt{13}$。
+
+第二题中，让我们把$AB$、$AC$、$BC$的长度换成$3$、$4$、$5$，我们观察到最长边边长的平方等于另两边边长的平方和。
 根据勾股定理逆定理，三角形是直角三角形。所以$\angle A$是直角。
 用正弦定理解得$\sin B = 0.8$，$\sin C = 0.6$，查表可知$\angle B \approx 53^\circ$，
 $\angle C \approx 37^\circ$。
-
-第二题中，让我们把$\angle C$改为直角，那么根据勾股定理，$|AB| = \sqrt{4^2+6^2} = 2\sqrt{13}$。
 
 可以看出，对于直角三角形，由于有勾股定理作为“武器”，我们总可以破解三角形的边角关系。
 因此，我们需要“升级装备”，把勾股定理推广为对一般的三角形也适用的结论。
@@ -1071,7 +1110,7 @@ $$ |AB|^2 = |AH_A|^2 + |BH_A|^2 = |AH_A|^2 + (|BC| - |CH_A|)^2$$
 \end{so}
 用同样的方法，能否解决第二题呢？我们列出等式：
 $$6^2 = 3^2 + 5^2 - 2 \cdot 3\cdot 5 \cos C $$
-解得$\cos C = -\frac{1}{15}$。显然，任何锐角或直角的余弦都不是负数。我们猜测，这是因为$C$是钝角。
+解得$\cos C = -\frac{1}{15}$。显然，任何锐角或直角的余弦都不是负数。我们猜测，这是因为$C$是钝角，
 而前面的推导中，$\angle C$是锐角。
 
 来看$\angle C$是钝角的情况。如果$\angle C$是钝角，那么
@@ -1104,7 +1143,10 @@ $$ c^2 = a^2 + b^2 - 2ab \cos C.$$
 
 \begin{xt}
     \mbox{}\\
-    \indent 1. 已知三角形三边长为$5$、$7$、$8$，求三内角的大小。
+    \indent 1. 已知三角形三边长为$5$、$7$、$8$，求三内角的大小。\\
+    $\triangle ABC$中，$|AB|=6,|BC|=3,|CA|=5$，\\
+    \indent 2. 求$\angle A$的大小。\\
+    \indent 3. 求$\angle B, \angle C$的大小。
 \end{xt}
 
 \section{和差角公式}
@@ -1209,9 +1251,7 @@ $$ -\cos \beta = - \sin(90^\circ - \beta) = \cos(180^\circ - \beta). $$
 锐角的余弦值大于$0$，它对边边长的平方小于另两边边长的平方和。钝角的余弦值小于$0$，
 它对边边长的平方大于另两边边长的平方和。直角的余弦值是$0$，它对边边长的平方等于另两边边长的平方和。
 
-回到例题\ref{ex:2-2-10}：三角形三边长为$3$、$5$、$6$，求三个内角的大小。
-不妨设三角形$ABC$中$a=3$、$b=5$、$c=6$。根据余弦定理，
-$$ \cos C = \frac{a^2 + b^2 - c^2}{2ab} \approx -0.0667.$$
+回到例题\ref{ex:2-2-10}第二题。之前我们算出$\cos C = -\frac{1}{15}$，说明$C$是钝角。
 于是$\sin C = \sqrt{1 - \cos^2 C} \approx 0.9978$，
 查表知锐角$180^\circ - C \approx 86.2^\circ$，即$\angle C \approx 93.8^\circ$。
 同理，可以算得$\angle A \approx 29.9^\circ$，$\angle B \approx 56.3^\circ$。
@@ -1328,7 +1368,7 @@ $$ \tan (180^\circ - \alpha) = -\tan \alpha, \,\,\, \cot (180^\circ - \alpha) = 
     $$ \cot A \cot B + \cot B \cot C + \cot C \cot A = 1.$$
 \end{tm}
 
-\begin{xt}
+\begin{xt}\label{xt:2-5-10}
     \mbox{} \\
     \indent 1. 证明正切和余切的\textbf{倍角公式}：
     \begin{align}
@@ -1345,16 +1385,48 @@ $$ \tan (180^\circ - \alpha) = -\tan \alpha, \,\,\, \cot (180^\circ - \alpha) = 
         \sec \alpha &= \frac{1}{\cos \alpha}, \,\,\, \csc \alpha = \frac{1}{\sin \alpha}. \notag 
     \end{align}
     \indent 3. 证明：锐角的正割等于它的余角的余割，锐角的余割等于它的余角的正割。\\
-    \indent 4. 证明：
-    \begin{align}
-        1 + \tan^2 \alpha &= \sec^2 \alpha , \,\,\, 1 + \cot^2 \alpha = \csc^2 \alpha \notag 
-    \end{align}
+    \indent 4. 证明：$ 1 + \tan^2 \alpha = \sec^2 \alpha , \,\,\, 1 + \cot^2 \alpha = \csc^2 \alpha. $\\
     \indent 5. 证明\textbf{万能公式}：
     \begin{align}
         \forall 0 < \alpha < 180^\circ, & \mbox{ 记} \tan\frac{\alpha}{2} = t, \,\,\, \mbox{则：}\notag \\
         \sin \alpha = \frac{2t}{1 + t^2}, & \,\,\,\,\, \tan \alpha = \frac{2t}{1 - t^2}, \,\,\,\,\,\, \sec \alpha = \frac{1 + t^2}{1 -t^2}, \notag \\
         \cos \alpha = \frac{1 -t^2}{1 + t^2}, & \,\,\,\,\,\, \cot \alpha = \frac{1 - t^2}{2t}, \,\,\,\,\,\, \csc \alpha = \frac{1 + t^2}{2t}. \notag  
     \end{align}
+\end{xt}
+
+\section{多边形的边角关系}
+
+多边形的边和角没有直接对应关系。因此，多边形的边角关系，要通过对角线来间接建立。
+比如，圆内接凸四边形$ABCD$中，对角之和为平角。根据余弦定理，
+\begin{align}
+    |AC|^2 &= |AB|^2 + |BC|^2 -2|AB||BC|\cos\angle ABC \notag \\
+    &= |AD|^2 + |DC|^2 -2|AD||DC|\cos\angle CDA \notag
+\end{align}
+于是，我们得到圆内接凸四边形的内角和四边边长的关系：
+\begin{align}
+    \cos\angle ABC = -\cos \angle CDA &= \frac{|AB|^2 + |BC|^2 - |CD|^2 - |DA|^2 }{2(|AB||BC| + |CD||DA|)}, \notag \\
+    \cos\angle BCD = -\cos \angle DAB &= \frac{|BC|^2 + |CD|^2 - |DA|^2 - |AB|^2 }{2(|BC||CD| + |DA||AB|)}. \notag 
+\end{align}
+
+另一个例子是正多边形。设单位圆$O$的内接正$n$边形边长为$b_n$，
+连接圆心$O$和相邻两顶点$A,B$，$\triangle OAB$是等腰三角形。
+正$n$边形内角为$\alpha_n = \frac{(n-2)180^\circ}{n}$，
+因此$\angle OAB = -\angle OBA = \frac{\alpha_n}{2} = \frac{(n-2)90^\circ}{n}$，
+$\angle AOB = \frac{360^\circ}{n}$。根据正弦定理，
+$$ \frac{b_n}{\sin \angle AOB} = \frac{1}{\sin \angle OAB}.$$
+因此
+$$b_n = \frac{\sin \frac{360^\circ}{n}}{\sin \frac{(n-2)90^\circ}{n}} = \frac{\sin \frac{360^\circ}{n}}{\cos \frac{180^\circ}{n}}.$$
+
+为了方便，记$\beta_n = \frac{180^\circ}{n}$，则$b_n = \frac{\sin 2\beta_n}{\cos \beta_n} = 2\sin \beta_n$。
+于是，正$n$边形的周长是$nb_n = 2n\sin \beta_n$。
+
+\begin{xt}\label{xt:2-6-10}
+    \mbox{} \\
+    \indent 1. 求单位圆内接正$12$边形的周长。\\
+    设圆内接四边形$ABCD$面积为$S$，周长为$2p$，\\
+    \indent 2. 证明$S = \frac12 \sin \angle ABC (|AB||BC| + |CD||DA|)$。 \\
+    \indent 3. 证明$S^2 = (p - |AB|)(p - |BC|)(p - |CD|)(p - |DA|)$。\\
+    \indent 4. 对一般的四边形$ABCD$，如何用$|AB|, |BC|, |CD|, |DA|$和$\frac{\angle ABC + \angle CDA}{2}$表示它的面积$S$？
 \end{xt}
 
 \chapter{从或许到确定}
