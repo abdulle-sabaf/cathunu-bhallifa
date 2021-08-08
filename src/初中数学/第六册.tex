@@ -64,9 +64,186 @@
 \tableofcontents
 \newpage
 
-\chapter{代数式的关系}
-\section{代数恒等式}
-\section{代数不等式}
+\chapter{向量}
+第五册中，我们学习了用三角函数解三角形。三角函数是定量研究平面形的利器。
+不过，三角函数本身并不是简单的函数。我们目前只能通过查表的方式得到函数值。
+这让我们思考，能不能打造一种更方便定量研究的体系呢？
+
+回顾我们对平面形的研究，我们从几条公理出发，得出点、直线、三角形、圆等形状之间的定性关系。
+公理体系的缺陷在于没有与数紧密结合。比如，“两点之间直线最短”，除了定性的“最短”，没有提供别的信息。
+我们需要一种根本上和数量结合的体系，来理解各种平面形状。
+
+此外，公理体系中并没有强调运动的概念。我们说点运动形成了线，旋转形成角度和圆，
+但并没有相关的工具来描述具体的运动。我们需要一种根本上和运动结合的体系，来理解形状之间的关系。
+
+\section{点、向量和直线}
+学习有理数的时候，我们使用数轴上的点表示。每个点代表一个实数。两点重合，
+当且仅当它们代表同一个数。这种表示方法把数和直线上的点牢牢绑在一起。
+我们可以用数的关系表示直线上点的关系。数轴使我们可以定量理解直线。
+
+至于平面中的点，我们用相互垂直的数轴定义了点的坐标。每个点代表一个有序数对。两个数按顺序排列，对应平面中一点。
+
+能不能像数轴一样，用一个量代表平面中一点呢？数轴之所以能用一个数代表一个点，
+是因为直线只有两个方向，使用正负号就可以代表方向。平面中不止两个方向，我们无法用正负来表示方向了。
+为此，我们引入一个新的量来代表平面中的点：\textbf{向量}。
+
+自然数、有理数、实数都有自己的运算法则。向量作为代表点的量，需要满足怎样的运算法则呢？
+我们从运动出发，给出以下的法则：
+\begin{enumerate}
+    \item 向量的加法就是平移：两个向量相加得到另一个向量。向量的加法满足结合律和交换律。
+    \item 零向量表示静止不变：存在这样一个向量，任何向量与它相加，仍然是自己。
+    这个向量叫做\textsl{零向量}。零向量不定义方向，也可以说它与任何向量同向或反向。它对应的点称为\textbf{原点}。
+    \item 从每个非零向量，引出一根数轴：任何实数乘以向量，得到方向相同或相反的向量。
+    这个运算称为\textbf{数乘运算}。数乘运算对应图形的放缩。
+    \item 放缩和四则运算相容：数轴上可以做数的运算。
+    \item 平移和放缩相容：先平移再放缩，和先放缩再平移，结果一样。
+\end{enumerate}
+让我们用数学语言把这些法则更具体地写出来。我们把平面看作集合，记为$\mathbb{V}$，其中的元素称为向量或点，
+用粗体字母表示，以便和代表数的量区分：
+\begin{enumerate}
+    \item 加法结合律：$\forall \,\, \mathbf{a}, \mathbf{b}, \mathbf{c} \in \mathbb{V}$，$\mathbf{a}+ (\mathbf{b} + \mathbf{c}) = (\mathbf{a} + \mathbf{b}) + \mathbf{c}$。
+    \item 加法交换律：$\forall \,\, \mathbf{a}, \mathbf{b} \in \mathbb{V}$，$\mathbf{a} + \mathbf{b} = \mathbf{b} + \mathbf{a}$。
+    \item 存在零向量：$\forall \,\, \mathbf{a} \in \mathbb{V}$，$\mathbf{a} + \mathbf{0} = \mathbf{a}$。
+    \item 放缩和四则运算相容：$\forall \,\, \mathbf{a} \in \mathbb{V}$，$1\cdot \mathbf{a} = \mathbf{a}$。$\forall s, t \in \mathbb{R}$，$(s + t)\cdot\mathbf{a} = (s\cdot\mathbf{a}) + (t\cdot\mathbf{a})$，$(s \cdot t)\cdot \mathbf{a} = s \cdot (t\cdot \mathbf{a})$。
+    \item 放缩和平移相容：$\forall \,\, \mathbf{a}, \mathbf{b} \in \mathbb{V}$，$\forall \,\, t \in \mathbb{R}$，$t\cdot(\mathbf{a} + \mathbf{b}) = t\cdot\mathbf{a} + t\cdot\mathbf{b}$。
+\end{enumerate}
+从以上法则出发，我们可以定义直线：
+
+\begin{df}
+    过原点的直线是非零向量放缩得到的集合。不过原点的直线是过原点的直线按一点平移得到的集合。
+\end{df}
+给定非零向量$\mathbf{a}$，$ \{t\mathbf{a} \, | \, t\in\mathbb{R}\}$是一条过原点的直线。
+给定向量$\mathbf{b}$，$ \{t\mathbf{a}+\mathbf{b} \, | \, t\in\mathbb{R}\}$是一条过$\mathbf{b}$点的直线。
+要注意的是，这样定义的直线是一条数轴，自然带有正方向和单位长度。
+
+类比可以定义线段和射线：给定非零向量$\mathbf{a}$和向量$\mathbf{b}$，
+$ \{t\mathbf{a}+\mathbf{b} \, | \, t\in [0, 1]\}$是端点为$\mathbf{b}, \mathbf{a} + \mathbf{b}$的线段，
+$ \{t\mathbf{a}+\mathbf{b} \, | \, t \geqslant 0 \}$是以$\mathbf{b}$为端点，以$\mathbf{a}$为方向的射线。
+
+给定非零向量$\mathbf{a}$，如果向量$\mathbf{b}$可以通过$\mathbf{a}$放缩得到，
+或者说$\mathbf{b}\in \{t\mathbf{a} \, | \, t\in\mathbb{R}\}$，就称两者\textbf{共线}。
+共线的向量，通过数轴，可以方便地讨论相互的位置关系。不共线的向量之间，
+如何讨论位置关系呢？为此，我们要引入\textbf{平面的根本性质}：
+\begin{enumerate}
+    \item 给定任何非零向量$\mathbf{a}$，总有另一个向量$\mathbf{b}$，不在直线$ \{t\mathbf{a} \, | \, t\in\mathbb{R}\}$上。我们说两者\textbf{不共线}。
+    \item 从不共线的向量$\mathbf{a}, \mathbf{b}$出发，经过放缩、平移，可以得到平面中任何向量。具体来说，
+    任何向量都可以表示成$s\mathbf{a} + t\mathbf{b}$的形式，集合$\{s\mathbf{a} + t\mathbf{b} | s, t, \in\mathbb{R}\}$就是整个平面。
+    这样的$\mathbf{a}, \mathbf{b}$称为平面的一组\textbf{基}或\textbf{基底}。
+\end{enumerate}
+
+举例来说，在直角坐标系中，我们选择了原点重合、互相垂直的两条数轴，以每条数轴上数$1$对应的点（记为$\mathbf{e}_x, \mathbf{e}_y$）出发，通过放缩和平移，
+就得到平面所有的点。平面中任一点可以写成$x\mathbf{e}_x + y\mathbf{e}_y$，其中$x,y$就是点的坐标。
+直角坐标系其实是一种用向量描述平面的方法。$\mathbf{e}_x, \mathbf{e}_y$就是一组基。
+
+\begin{xt}\label{xt:0-0-10}
+    \mbox{} \\
+    \indent 1. 证明：零向量只有一个，任何向量乘$0$得到零向量。\\
+    \indent 2. 证明：零向量乘任何数得到零向量。\\
+    \indent 3. 证明：任何向量$\mathbf{a}$都有唯一的反向量$\mathbf{b}$，满足$\mathbf{a} + \mathbf{b} = \mathbf{0}$。\\
+    \indent 4. 设$\mathbf{a}, \mathbf{b}$不共线，如果$s\mathbf{a} + t\mathbf{b} = \mathbf{0}$，证明：$s = t = 0$。\\
+    直角坐标系$xOy$中，设$\mathbf{a} = 4\mathbf{e}_x + \mathbf{e}_y$，$\mathbf{b} = \mathbf{e}_x - 2\mathbf{e}_y$
+    ，$\mathbf{b} = -\mathbf{e}_x + 2\mathbf{e}_y$。\\
+    \indent 4. 在坐标轴上标出$\mathbf{a}$，$\mathbf{b}$和$\mathbf{c}$。\\
+    \indent 5. 用$\mathbf{a}$和$\mathbf{b}$表示$\mathbf{e}_x$、$\mathbf{e}_y$和点$(3,0)$。\\
+    \indent 6. 用$\mathbf{a}$和$\mathbf{b}$表示它们的中点以及它们所在的直线。\\
+    \indent 7. 用$\mathbf{a}, \mathbf{b}, \mathbf{c}$表示顶点为$\mathbf{a}, \mathbf{b}, \mathbf{c}$的三角形三边和重心。
+\end{xt}
+
+\section{角度与长度}
+根据平面的根本性质，任何向量都可以用两个不共线向量表示。接下来，我们仿照角度，给出两个向量之间的关系。
+% 构造一个把两个向量对应到一个数的映射$f$。我们希望$f$具有这样的性质：
+% \begin{enumerate}
+%     \item 顺序不影响关系大小：$\forall \,\, \mathbf{a}, \mathbf{b} \in \mathbb{V}$，$f(\mathbf{a}, \mathbf{b}) = f(\mathbf{b}, \mathbf{a})$。
+%     \item 零向量和任意向量关系为$0$：$\forall \,\, \mathbf{a} \in \mathbb{V}$，$f(\mathbf{a}, \mathbf{0}) = f(\mathbf{0}, \mathbf{a}) = 0$。
+%     \item 非零向量与自身的关系总是正的：$\forall \,\, \mathbf{a} \in \mathbb{V}\setminus\{\mathbf{0}\}$，$f(\mathbf{a}, \mathbf{a}) > 0$。
+%     \item 和向量放缩相容：$\forall \,\, \mathbf{a}, \mathbf{b} \in \mathbb{V},\,\,\, t\in\mathbb{R}$，$f(\mathbf{a}, t\mathbf{b}) = f(t\mathbf{a}, \mathbf{b}) = tf(\mathbf{a}, \mathbf{b})$。
+%     \item 和向量平移相容：$\forall \,\, \mathbf{a}, \mathbf{b}, \mathbf{c} \in \mathbb{V}$，$f(\mathbf{a}, \mathbf{b}+\mathbf{c}) = f(\mathbf{a}, \mathbf{b}) + f(\mathbf{a}, \mathbf{c})$。
+% \end{enumerate}
+给定平面基底$\mathbf{e}_1, \mathbf{e}_2$，我们给出这样一个映射$f$：
+$$ \forall \,\, s_1, s_2, t_1, t_2 \in \mathbb{R}, \quad f(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, t_1\mathbf{e}_1 + t_2\mathbf{e}_2) = s_1t_1 + s_2 t_2.$$
+$f$把两个向量对应到一个实数。它满足以下五个性质：
+\begin{enumerate}
+    \item 顺序不影响关系大小：
+    \begin{align}
+         & f(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, t_1\mathbf{e}_1 + t_2\mathbf{e}_2) \notag \\
+        =& s_1t_1 + s_2 t_2 = t_1s_1 + t_2s_2 \notag \\
+        =& f(t_1\mathbf{e}_1 + t_2\mathbf{e}_2, s_1\mathbf{e}_1 + s_2\mathbf{e}_2). \notag
+    \end{align}
+    \item 零向量和任意向量关系为$0$：
+    $$f(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, \mathbf{0}) = f(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, 0\mathbf{e}_1 + 0\mathbf{e}_2) = s_1\cdot 0 + s_2\cdot 0 = 0.$$
+    \item 非零向量与自身的关系总是正的：$s_1, s_2$不全为零时，
+    $$f(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, s_1\mathbf{e}_1 + s_2\mathbf{e}_2) = s_1^2 + s_2^2  > 0.$$
+    \item 和向量放缩相容：
+    \begin{align}
+        & f(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, t(t_1\mathbf{e}_1 + t_2\mathbf{e}_2)) \notag \\
+        =& s_1tt_1 + s_2 tt_2 = t(s_1t_1 + s_2t_2) \notag \\
+        =& tf(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, t_1\mathbf{e}_1 + t_2\mathbf{e}_2). \notag 
+    \end{align}
+    \item 和向量平移相容：
+    \begin{align}
+         & f(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, (t_1\mathbf{e}_1 + t_2\mathbf{e}_2) + (r_1\mathbf{e}_1 + r_2\mathbf{e}_2)) \notag \\
+        &= s_1(t_1 + r_1) + s_2 (t_2 + r_2) = (s_1t_1 + s_2t_2) + (s_1r_1 + s_2r_2) \notag \\
+        &= f(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, t_1\mathbf{e}_1 + t_2\mathbf{e}_2) + f(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, r_1\mathbf{e}_1 + r_2\mathbf{e}_2). \notag
+    \end{align}     
+\end{enumerate}
+满足以上五个条件的映射$f$称为平面向量的\textbf{内积}。从第四个性质可知，向量与自身的内积总是正数。
+我们把这个数的平方根叫做向量的长度，记为：
+$$ \forall \,\, \mathbf{a} \in \mathbb{V}, \quad \| \mathbf{a}\| = \sqrt{f(\mathbf{a}, \mathbf{a})}. $$
+两个向量之差的长度，称为向量之间的距离。
+$$ \forall \,\, \mathbf{a}, \mathbf{b} \in \mathbb{V}, \quad \| \mathbf{a} - \mathbf{b}\| = \sqrt{f(\mathbf{a} - \mathbf{b}, \mathbf{a} - \mathbf{b})}. $$
+如果基底$\mathbf{e}_1, \mathbf{e}_2$是直角坐标系的基，那么
+\begin{align}
+    \forall \,\, \mathbf{a} = x_A\mathbf{e}_x &+ y_A\mathbf{e}_y , \notag \\
+    \| \mathbf{a}\| &= \sqrt{x_A^2 + y_A^2}, \notag \\
+    \forall \,\, \mathbf{a} = x_A\mathbf{e}_x &+ y_A\mathbf{e}_y,\,\,\, \mathbf{b} = x_B\mathbf{e}_x + y_B\mathbf{e}_y , \notag \\
+    \| \mathbf{a} - \mathbf{b}\| &= \sqrt{(x_A - x_B)^2 + (y_A - y_B)^2}. \notag
+\end{align}
+如果记$A, B$为向量$\mathbf{a}, \mathbf{b}$对应的点，$\| \mathbf{a} \|$就是点$A$到原点的距离$|OA|$，
+$\|\mathbf{a} - \mathbf{b}\|$就是$A,B$两点之间的距离$|AB|$，也就是线段$AB$的长度。
+也就是说，我们这样定义的$f$，分别与直观经验中长度和距离的概念相符合。
+
+那么，$f$本身有什么含义呢？我们来计算$ \frac{|OA|^2 + |OB|^2 - |AB|^2}{2}.$
+\begin{align}
+    \frac{|OA|^2 + |OB|^2 - |AB|^2}{2} &= \frac{x_A^2 + y_A^2 + x_B^2 + y_B^2 - (x_A - x_B)^2 - (y_A - y_B)^2}{2} \notag \\
+    &= x_Ax_B + y_Ay_B = f(\mathbf{a}, \mathbf{b}). \notag 
+\end{align}
+另一方面，余弦定理告诉我们，$ \frac{|OA|^2 + |OB|^2 - |AB|^2}{2} = |OA||OB|\cos \angle AOB$。
+也就是说，$f(\mathbf{a}, \mathbf{b}) = \|\mathbf{a}\| \|\mathbf{b}\| \cos \angle AOB$。% \langle \mathbf{a}, \mathbf{b}\rangle 
+内积$f$的本质是向量夹角的余弦与向量长度的乘积。通过内积，我们把角度和长度统一起来了。
+
+向量夹角的余弦值总在$-1$和$1$之间，所以向量的内积的绝对值不大于向量长度的乘积：
+$$ |x_Ax_B + y_Ay_B| \leqslant \sqrt{x_A^2 + y_A^2} \sqrt{x_A^2 + y_A^2}.$$
+可以验证这个关系对任意$x_A, y_A, x_B, y_B$成立。从这个关系出发，可以得到：
+$$ |AB| = \sqrt{(x_A - x_B)^2 + (y_A - y_B)^2} \leqslant \sqrt{x_A^2 + y_A^2} + \sqrt{x_A^2 + y_A^2} = |OA| + |OB|.$$
+可以直观理解为“三角形两边之和大于第三边”或“两点之间线段距离最短”。
+
+内积为$0$，就表示向量夹角的余弦为$0$，这时，我们说两个向量垂直。
+比如令$\mathbf{a} = 2\mathbf{e}_x - \mathbf{e}_y$，$\mathbf{b} = \mathbf{e}_x + 2\mathbf{e}_y$，
+那么$f(\mathbf{a}, \mathbf{b}) = 2\cdot 1 - 1\cdot 2 = 0$。在平面上画出对应的点$A,B$，
+可以验证$\angle AOB = 90^\circ$。
+
+再来看另一个映射$f_2$：
+$$ \forall \,\, s_1, s_2, t_1, t_2 \in \mathbb{R}, \quad f(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, t_1\mathbf{e}_1 + t_2\mathbf{e}_2) = 2s_1t_1 + s_2 t_2.$$
+可以验证，$f_2$也满足$f$满足的五个性质。从$f_2$出发，我们也可以定义距离和长度：
+$$ \forall \,\, \mathbf{a} = x_A\mathbf{e}_x + y_A\mathbf{e}_y, \quad \| \mathbf{a} \|_2 = f_2(\mathbf{a}, \mathbf{a}) = 2x_A^2 + y_A^2. $$
+这样定义的距离和长度和我们直观经验中有些不一样，不过，我们可以验证，这样定义的距离也满足“两点之间线段最短”的性质。
+$$ |2x_Ax_B + y_Ay_B| \leqslant \sqrt{2x_A^2 + y_A^2} \sqrt{2x_A^2 + y_A^2}.$$
+因此，$f_2$也是内积。我们把符合直观经验的内积$f$称为\textbf{经典内积}，一般称内积都默认指经典内积；把对应的长度称为向量的\textbf{模}或\textbf{范}。
+$\mathbf{a}, \mathbf{b}$的经典内积记为$(\mathbf{a}\, | \, \mathbf{b})$\footnote{不至于混淆时，也常称为点积，记为$\mathbf{a} \cdot \mathbf{b}$}，模记为$|\mathbf{a}|$、$|\mathbf{b}|$。
+
+既然有余弦，自然有正弦。记$\mathbf{a}, \mathbf{b}$夹角为$\alpha$，
+则$(\mathbf{a}\, | \, \mathbf{b}) = |\mathbf{a}||\mathbf{b}| \cos \alpha$，
+于是，
+$$ |\mathbf{a}|^2|\mathbf{b}|^2 \sin^2 \alpha = |\mathbf{a}|^2|\mathbf{b}|^2 - (\mathbf{a}\, | \, \mathbf{b})^2 $$
+记$\mathbf{a} = x_A\mathbf{e}_x &+ y_A\mathbf{e}_y$，$\mathbf{b} = x_B\mathbf{e}_x + y_B\mathbf{e}_y$，
+则
+\begin{align}
+    (x_A^2 + y_A^2)(x_A^2 + y_A^2) \sin^2 \alpha &= (x_A^2 + y_A^2)(x_A^2 + y_A^2) - (x_Ax_B + y_Ay_B)^2 \notag \\
+    &= (x_Ay_B - x_By_A)^2 \notag \\
+    |\sin \alpha| &= \frac{|x_Ay_B - x_By_A|}{\sqrt{x_A^2 + y_A^2} \sqrt{x_A^2 + y_A^2}} \notag
+\end{align}
+我们得出了夹角正弦的绝对值。
+
 
 \chapter{三段论（下）}
 \section{三段论的规则}

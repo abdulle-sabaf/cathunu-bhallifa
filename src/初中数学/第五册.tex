@@ -563,7 +563,6 @@ $\angle DBA = \angle DCA$。如果对角线$AC$和$BD$交于点$P$，仍然有$\
     \vspace{-90pt}
     \flushright
     \includegraphics[width=0.48\textwidth]{垂心与外心1.png}
-    \caption*{\texttt{垂心组}}
 \end{wrapfigure}
 
 考虑锐角三角形$ABC$，把顶点到对边的垂足分别记作$H_A, H_B, H_C$，垂心为$H$。
@@ -1204,7 +1203,7 @@ $$ \sin(\alpha) = \sin(\alpha - \beta + \beta) = \sin (\alpha - \beta) \cos \bet
     &= \sin\beta (\sin\alpha \sin \beta +  \cos \alpha \cos \beta) \notag
  \end{align}
 两边约去$\sin \beta$，就得到：
-$$ \cos(\alpha - \beta) = \sin\alpha \sin \beta +  \cos \alpha \cos \beta. $$
+$$ \forall \,\, 0 <  \beta < \alpha < 90^\circ , \,\,\, \cos(\alpha - \beta) = \sin\alpha \sin \beta +  \cos \alpha \cos \beta. $$
 这就是两锐角之差余弦值的公式，简称\textbf{差角余弦公式}。
 
 同理，假设$\alpha$、$\beta$、$\alpha + \beta$都是锐角，从差角正弦公式出发，可以得到：
@@ -1256,9 +1255,68 @@ $$ -\cos \beta = - \sin(90^\circ - \beta) = \cos(180^\circ - \beta). $$
 查表知锐角$180^\circ - C \approx 86.2^\circ$，即$\angle C \approx 93.8^\circ$。
 同理，可以算得$\angle A \approx 29.9^\circ$，$\angle B \approx 56.3^\circ$。
 
+我们用和角余弦公式定义了钝角的余弦。用同样的思路，我们考虑差角正弦公式：
+$$ \sin(\alpha - \beta) = \sin\alpha \cos \beta - \cos \alpha \sin\beta $$
+上式对$0 \leqslant \beta \leqslant \alpha \leqslant 90^\circ$成立。现在我们把它扩展到$\alpha < \beta$的情况。
+也就是说，对小于零角的角度$\alpha - \beta$，我们定义$\sin (\alpha - \beta)$是关于$x$的方程：
+$$ x = \sin\alpha \cos \beta - \cos \alpha \sin\beta $$
+的唯一解。令$\alpha = 0$，就得到：
+$$ \forall 0 \leqslant \beta \leqslant 90^\circ , \,\,\, \sin(- \beta) = -\sin\beta. $$
+我们再把这个关系扩展到钝角。这样，我们就定义了负平角到正平角之间所有角度的正弦值。
+
+最后，考虑差角余弦公式：
+$$ \cos(\alpha - \beta) = \sin\alpha \sin \beta +  \cos \alpha \cos \beta. $$
+比照差角正弦公式，对小于零角的角度$\alpha - \beta$，我们同样可以定义$\sin (\alpha - \beta)$是关于$x$的方程：
+$$ x = \sin\alpha \sin \beta +  \cos \alpha \cos \beta $$
+的唯一解。令$\alpha = 0$，就得到：
+$$ \forall 0 \leqslant \beta \leqslant 90^\circ , \,\,\, \cos(- \beta) = \cos \beta. $$
+同样把这个关系扩展到钝角，我们就定义了负平角到正平角之间所有角度的余弦值。
+
+注意到负平角到正平角经历了整个周角，因此，定义了负平角到正平角的正弦和余弦值，
+实际上就定义了所有角度的正弦和余弦值。至此，我们可以从锐角出发，
+得到所有角度的正弦、余弦，而且它们的关系与和差角公式相容。
+
+\begin{ex}
+    \mbox{} \\
+    \indent 1. 求$500^\circ$的正弦、余弦值。\\
+    \indent 2. 求$-465^\circ$的正弦、余弦值。
+\end{ex}
+\begin{so}
+    \mbox{} \\
+    \indent 1. 首先加减周角，让角度落在负平角和正平角之间：
+    $$\sin 500^\circ = \sin 140^\circ, \quad \cos 500^\circ = \cos 140^\circ.$$
+    $140^\circ$是正钝角，因此取补角得到锐角：
+    $$\sin 140^\circ = \sin 40^\circ, \quad \cos 140^\circ = -\cos 40^\circ.$$
+    查表得到$\sin 500^\circ = \sin 40^\circ \approx 0.6428$，$\cos 500^\circ = -\cos 40^\circ \approx -0.766$。\\
+    \indent 2. 首先加减周角，让角度落在负平角和正平角之间：
+    $$\sin -465^\circ = \sin -105^\circ, \quad \cos -465^\circ = \cos -165^\circ.$$
+    $140^\circ$是负钝角，取相反数变为正角，再取补角得到锐角：
+    \begin{align}
+        \sin -105^\circ = -\sin 105^\circ = -\sin 75^\circ, \notag \\
+        \cos -105^\circ = \cos 105^\circ = -\cos 75^\circ. \notag 
+    \end{align}
+    查表得到$\sin -465^\circ = -\sin 75^\circ \approx -0.9659$，$\cos -465^\circ = -\cos 75^\circ \approx -0.2588$。
+\end{so}
+
+综上所述，可以这样总结任意角的正余弦与锐角正余弦的关系：
+\begin{center}
+    \fbox{
+        \shortstack[l]{
+            求任意角的正弦：\\
+            1. 不断加减周角，直到角度落在$(-180^\circ, 180^\circ]$中。\\
+            2. 如果是负角，取相反数变正角，结果取相反数。\\
+            3. 如果是钝角，取补角变锐角，结果不变。\\
+            求任意角的余弦：\\
+            1. 不断加减周角，直到角度落在$(-180^\circ, 180^\circ]$中。\\
+            2. 如果是负角，取相反数变正角，结果不变。\\
+            3. 如果是钝角，取补角变锐角，结果取相反数。
+        }
+    }
+\end{center}
+
 \begin{xt}\label{xt:2-4-10}
     \mbox{} \\
-    \indent 1. 验证：和角、差角公式对边界情形（零角、直角等情况）成立。 \\
+    \indent 1. 验证：和角、差角公式对负平角到正平角中的角度成立。 \\
     \indent 2. 证明正弦和余弦的\textbf{倍角公式}：
     \begin{align}
         \forall \,\, 0 \leqslant \alpha \leqslant 90^\circ , \,\,\, & \sin 2\alpha = 2\sin \alpha \cos \alpha \notag \\
@@ -1308,36 +1366,32 @@ $\tan\angle AOP = |AQ|$，\textbf{余切}（\textbf{值}）为$\cot\angle AOP = 
 
 不难证明：
 $$ \forall \,\, 0 < \alpha < 90^\circ, \,\,\, \tan \alpha = \frac{\sin \alpha}{\cos \alpha}, \,\,\, \cot \alpha = \frac{\cos \alpha}{\sin \alpha}$$
-
-换句话说，可以用锐角的正弦和余弦定义它的正切和余切。零角的正切是$0$，直角的余切是$0$。
+换句话说，可以用锐角的正弦和余弦定义它的正切和余切。不难推出：
+$$ \forall \,\, 0 < \alpha < 90^\circ, \,\,\, \tan (90^\circ - \alpha) = \cot \alpha, \,\,\, \cot (90^\circ - \alpha) = \tan \alpha. $$
+零角的正切是$0$，直角的余切是$0$。
 从零角开始，随着角度增大，正切值不断增大。从直角开始随着角度减小，余切值不断减小。
 $\cos 45^\circ = \sin (90^\circ - 45^\circ) = \sin 45^\circ $，
 因此$\tan 45^\circ = \cot 45^\circ = 1$。
 
 反过来，也可以用锐角的正切和余切定义它的正弦和余弦：
 $$ \forall \,\, 0 < \alpha < 90^\circ, \,\,\, \sin \alpha = \sqrt{\frac{1}{1 + \cot^2 \alpha}}, \,\,\, \cos \alpha = \sqrt{\frac{1}{1 + \tan^2 \alpha}}$$
-对于钝角，我们希望保持正切、余切和正弦、余弦的关系，因此，定义
-$$ \forall \,\, 90^\circ < \alpha < 180^\circ, \,\,\, \tan \alpha = \frac{\sin \alpha}{\cos \alpha}, \,\,\, \cot \alpha = \frac{\cos \alpha}{\sin \alpha}$$
-于是，补角的正切和余切满足以下关系：
-$$ \tan (180^\circ - \alpha) = -\tan \alpha, \,\,\, \cot (180^\circ - \alpha) = -\cot \alpha$$
-也就是说，钝角的正切和余切都小于$0$。
+
+对其他角度，我们保持正切、余切和正弦、余弦的关系，定义
+$$ \forall \,\,  \alpha, \,\,\, \tan \alpha = \frac{\sin \alpha}{\cos \alpha}, \,\,\, \cot \alpha = \frac{\cos \alpha}{\sin \alpha}$$
+这样，除去分母为零的情况，我们定义了任意角的正切和余切。
 
 从正弦和余弦的和差角公式，可以推出正切和余切的和差角公式：
 \begin{align}
     \forall 0 \leqslant \alpha, \beta < 90^\circ, & \notag \\
     \tan (\alpha + \beta) &= \frac{\sin (\alpha + \beta)}{\cos (\alpha + \beta)} = \frac{\sin\alpha \cos \beta + \cos \alpha \sin\beta}{\cos \alpha \cos \beta - \sin\alpha \sin \beta} \notag \\
-    &= \frac{\tan \alpha + \tan \beta}{1 - \tan \alpha \tan \beta} \notag    
-\end{align}
-\begin{align}
+    &= \frac{\tan \alpha + \tan \beta}{1 - \tan \alpha \tan \beta} \notag   \\ 
     \tan (\alpha - \beta) &= \frac{\sin (\alpha - \beta)}{\cos (\alpha - \beta)} = \frac{\sin\alpha \cos \beta - \cos \alpha \sin\beta}{\cos \alpha \cos \beta + \sin\alpha \sin \beta} \notag \\
     &= \frac{\tan \alpha - \tan \beta}{1 + \tan \alpha \tan \beta} \notag 
 \end{align}
 \begin{align}
     \forall 0 < \alpha, \beta \leqslant 90^\circ, & \notag \\
     \cot (\alpha + \beta) &= \frac{\cos (\alpha + \beta)}{\sin (\alpha + \beta)} = \frac{\cos \alpha \cos \beta - \sin\alpha \sin \beta}{\sin\alpha \cos \beta + \cos \alpha \sin\beta} \notag \\
-    &= \frac{\cot \alpha \cot \beta - 1}{\cot \alpha + \cot \beta} \notag 
-\end{align}
-\begin{align}
+    &= \frac{\cot \alpha \cot \beta - 1}{\cot \alpha + \cot \beta} \notag  \\
     \cot (\alpha - \beta) &= \frac{\cos (\alpha - \beta)}{\sin (\alpha - \beta)} = \frac{\cos \alpha \cos \beta + \sin\alpha \sin \beta}{\sin\alpha \cos \beta - \cos \alpha \sin\beta} \notag \\
     &= \frac{\cot \alpha \cot \beta + 1}{\cot \alpha - \cot \beta}  \notag 
 \end{align}
@@ -1346,6 +1400,7 @@ $$ \tan (180^\circ - \alpha) = -\tan \alpha, \,\,\, \cot (180^\circ - \alpha) = 
     \tan (\alpha \pm \beta) &= \frac{\tan \alpha \pm \tan \beta}{1 \mp \tan \alpha \tan \beta} \notag \\
     \cot (\alpha \pm \beta) &= \frac{\cot \alpha \cot \beta \mp 1}{\cot \alpha \pm \cot \beta} \notag
 \end{align}
+除去分母为零的情况，任意角的正切和余切也满足以上的和差角公式。
 
 三角形中，内角之和为平角。因此，两角之和的正切值是第三个角正切值的相反数：
 \begin{align}
