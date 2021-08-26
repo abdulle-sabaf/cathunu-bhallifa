@@ -192,30 +192,30 @@ $$ \frac{1 - t}{t} = k$$
 下面我们定义一种关系，把长度、距离和角度统一起来。
 
 给定平面基底$\mathbf{e}_1, \mathbf{e}_2$，我们给出这样一个二元映射$f$：
-$$ \forall \,\, s_1, s_2, t_1, t_2 \in \mathbb{R}, \quad f(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, t_1\mathbf{e}_1 + t_2\mathbf{e}_2) = s_1t_1 + s_2 t_2.$$
+$$ \forall \,\, \mathbf{a} = x_A\mathbf{e}_1 + y_A\mathbf{e}_2, \,\, \mathbf{b} = x_B\mathbf{e}_1 + y_B\mathbf{e}_2, \,\, \in \mathbb{R}, \quad f(\mathbf{a}, \mathbf{b}) = x_Ax_B + y_Ay_B.$$
 $f$把两个向量对应到一个实数。它满足以下五个性质：
 \begin{enumerate}
     \item 向量的顺序不影响关系大小：
     \begin{align}
-         & f(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, t_1\mathbf{e}_1 + t_2\mathbf{e}_2) \notag \\
-        =& s_1t_1 + s_2 t_2 = t_1s_1 + t_2s_2 \notag \\
-        =& f(t_1\mathbf{e}_1 + t_2\mathbf{e}_2, s_1\mathbf{e}_1 + s_2\mathbf{e}_2). \notag
+         & f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, x_B\mathbf{e}_1 + y_B\mathbf{e}_2) \notag \\
+        =& x_Ax_B + y_A y_B = x_Bx_A + y_By_A \notag \\
+        =& f(x_B\mathbf{e}_1 + y_B\mathbf{e}_2, x_A\mathbf{e}_1 + y_A\mathbf{e}_2). \notag
     \end{align}
     \item 零向量和任意向量关系为$0$：
-    $$f(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, \mathbf{0}) = f(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, 0\mathbf{e}_1 + 0\mathbf{e}_2) = s_1\cdot 0 + s_2\cdot 0 = 0.$$
-    \item 非零向量与自身的关系总是正的：$s_1, s_2$不全为零时，
-    $$f(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, s_1\mathbf{e}_1 + s_2\mathbf{e}_2) = s_1^2 + s_2^2  > 0.$$
+    $$f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, \mathbf{0}) = f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, 0\mathbf{e}_1 + 0\mathbf{e}_2) = x_A\cdot 0 + y_A\cdot 0 = 0.$$
+    \item 非零向量与自身的关系总是正的：$x_A, y_A$不全为零时，
+    $$f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, x_A\mathbf{e}_1 + y_A\mathbf{e}_2) = x_A^2 + y_A^2  > 0.$$
     \item 和向量的放缩相容：
     \begin{align}
-        & f(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, t(t_1\mathbf{e}_1 + t_2\mathbf{e}_2)) \notag \\
-        =& s_1tt_1 + s_2 tt_2 = t(s_1t_1 + s_2t_2) \notag \\
-        =& tf(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, t_1\mathbf{e}_1 + t_2\mathbf{e}_2). \notag 
+        & f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, t(x_B\mathbf{e}_1 + y_B\mathbf{e}_2)) \notag \\
+        =& x_Atx_B + y_A ty_B = t(x_Ax_B + y_Ay_B) \notag \\
+        =& tf(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, x_B\mathbf{e}_1 + y_B\mathbf{e}_2). \notag 
     \end{align}
     \item 和向量的平移相容：
     \begin{align}
-         & f(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, (t_1\mathbf{e}_1 + t_2\mathbf{e}_2) + (r_1\mathbf{e}_1 + r_2\mathbf{e}_2)) \notag \\
-        &= s_1(t_1 + r_1) + s_2 (t_2 + r_2) = (s_1t_1 + s_2t_2) + (s_1r_1 + s_2r_2) \notag \\
-        &= f(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, t_1\mathbf{e}_1 + t_2\mathbf{e}_2) + f(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, r_1\mathbf{e}_1 + r_2\mathbf{e}_2). \notag
+         & f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, (x_B\mathbf{e}_1 + y_B\mathbf{e}_2) + (x_C\mathbf{e}_1 + y_C\mathbf{e}_2)) \notag \\
+        &= x_A(x_B + x_C) + y_A (y_B + y_C) = (x_Ax_B + y_Ay_B) + (x_Ax_C + y_Ay_C) \notag \\
+        &= f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, x_B\mathbf{e}_1 + y_B\mathbf{e}_2) + f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, x_C\mathbf{e}_1 + y_C\mathbf{e}_2). \notag
     \end{align}     
 \end{enumerate}
 满足以上五个条件的映射$f$称为平面向量的\textbf{内积}。从第四个性质可知，向量与自身的内积总是正数。
@@ -244,9 +244,9 @@ $\|\mathbf{a} - \mathbf{b}\|$就是$|AB|$。
 内积$f$的本质是向量夹角的余弦与向量长度的乘积。通过内积，我们把角度和长度统一起来了。
 
 向量夹角的余弦值总在$-1$和$1$之间，所以向量的内积的绝对值不大于向量长度的乘积：
-$$ |x_Ax_B + y_Ay_B| \leqslant \sqrt{x_A^2 + y_A^2} \sqrt{x_A^2 + y_A^2}.$$
+$$ |x_Ax_B + y_Ay_B| \leqslant \sqrt{x_A^2 + y_A^2} \sqrt{x_B^2 + y_B^2}.$$
 可以验证这个关系对任意$x_A, y_A, x_B, y_B$成立。从这个关系出发，可以得到：
-$$ |AB| = \sqrt{(x_A - x_B)^2 + (y_A - y_B)^2} \leqslant \sqrt{x_A^2 + y_A^2} + \sqrt{x_A^2 + y_A^2} = |OA| + |OB|.$$
+$$ |AB| = \sqrt{(x_A - x_B)^2 + (y_A - y_B)^2} \leqslant \sqrt{x_A^2 + y_A^2} + \sqrt{x_B^2 + y_B^2} = |OA| + |OB|.$$
 这符合直观经验中“三角形两边之和大于第三边”或“两点之间线段距离最短”的性质。
 
 内积为$0$，就表示向量夹角的余弦为$0$，即两个向量垂直。
@@ -255,7 +255,7 @@ $$ |AB| = \sqrt{(x_A - x_B)^2 + (y_A - y_B)^2} \leqslant \sqrt{x_A^2 + y_A^2} + 
 可以验证$\angle AOB = 90^\circ$。
 
 内积映射并不是唯一的，我们看另一个映射$f_2$：
-$$ \forall \,\, s_1, s_2, t_1, t_2 \in \mathbb{R}, \quad f(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, t_1\mathbf{e}_1 + t_2\mathbf{e}_2) = 2s_1t_1 + s_2 t_2.$$
+$$ \forall \,\, x_A, y_A, x_B, y_B \in \mathbb{R}, \quad f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, x_B\mathbf{e}_1 + y_B\mathbf{e}_2) = 2x_Ax_B + y_A y_B.$$
 可以验证，$f_2$也满足$f$满足的五个性质。从$f_2$出发，我们也可以定义距离和长度：
 $$ \forall \,\, \mathbf{a} = x_A\mathbf{e}_x + y_A\mathbf{e}_y, \quad \| \mathbf{a} \|_2 = f_2(\mathbf{a}, \mathbf{a}) = 2x_A^2 + y_A^2. $$
 这样定义的距离和长度和我们直观经验中有些不一样，不过，我们可以验证，这样定义的距离也满足“两点之间线段最短”的性质。
@@ -263,10 +263,10 @@ $$ |2x_Ax_B + y_Ay_B| \leqslant \sqrt{2x_A^2 + y_A^2} \sqrt{2x_A^2 + y_A^2}.$$
 因此，$f_2$也是内积。
 
 我们把符合直观经验的内积$f$称为\textbf{经典内积}，一般称内积都默认指经典内积；
-把对应的长度称为向量的\textbf{模}或\textbf{范}。
+把对应的长度称为向量的\textbf{模}。
 我们把$\mathbf{a}, \mathbf{b}$的（经典）内积记为$(\mathbf{a}\, | \, \mathbf{b})$，
 不至于混淆时，也常称为\textbf{点积}，记为$\mathbf{a} \cdot \mathbf{b}$；
-把模记为$|\mathbf{a}|$、$|\mathbf{b}|$。
+把它们的模记为$|\mathbf{a}|$、$|\mathbf{b}|$。
 
 既然有余弦，自然有正弦。记$\alpha = \angle AOB$，
 则$(\mathbf{a}\, | \, \mathbf{b}) = |\mathbf{a}||\mathbf{b}| \cos \alpha$，
@@ -275,9 +275,9 @@ $$ |\mathbf{a}|^2|\mathbf{b}|^2 \sin^2 \alpha = |\mathbf{a}|^2|\mathbf{b}|^2 - (
 记$\mathbf{a} = x_A\mathbf{e}_x + y_A\mathbf{e}_y$，$\mathbf{b} = x_B\mathbf{e}_x + y_B\mathbf{e}_y$，
 则
 \begin{align}
-    (x_A^2 + y_A^2)(x_A^2 + y_A^2) \sin^2 \alpha &= (x_A^2 + y_A^2)(x_A^2 + y_A^2) - (x_Ax_B + y_Ay_B)^2 \notag \\
+    (x_A^2 + y_A^2)(x_B^2 + y_B^2) \sin^2 \alpha &= (x_A^2 + y_A^2)(x_B^2 + y_B^2) - (x_Ax_B + y_Ay_B)^2 \notag \\
     &= (x_Ay_B - x_By_A)^2 \notag \\
-    |\sin \alpha| &= \frac{|x_Ay_B - x_By_A|}{\sqrt{x_A^2 + y_A^2} \sqrt{x_A^2 + y_A^2}} \notag
+    |\sin \alpha| &= \frac{|x_Ay_B - x_By_A|}{\sqrt{x_A^2 + y_A^2} \sqrt{x_B^2 + y_B^2}} \notag
 \end{align}
 我们得出了夹角$\angle AOB$正弦的绝对值。
 
@@ -288,17 +288,19 @@ $x_Ax_B + y_Ay_B$与差角余弦公式形式相似，$x_Ay_B - x_By_A$与差角�
 不难得出$\angle AOB = 60^\circ$。我们用以上公式计算$\angle AOB$的正弦和余弦：
 $$ \frac{x_Ay_B - x_By_A}{\sqrt{x_A^2 + y_A^2}\sqrt{x_B^2 + y_B^2}} = \frac{\sqrt{3}}{2}, \quad \frac{x_Ax_B + y_Ay_B}{\sqrt{x_A^2 + y_A^2} \sqrt{x_B^2 + y_B^2}} = \frac{1}{2}. $$
 把$P$的坐标换成$(0,\,\,1)$、$(-\frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2})$、$(\frac{\sqrt{3}}{2},-\frac{1}{2})$等，
-可以验证，通过以上两个公式得到的值，就是直观角度的正弦、余弦值。
-如果我们定义向量$A(x_A,\,\, y_A)$、$B(x_B,\,\, y_B)$，记$\angle AOB = \alpha$，那么：
+我们发现，通过以上两个公式得到的值，就是$\angle AOB$的正弦、余弦值。
+记$\angle AOB = \alpha$，那么：
 $$ \sin \alpha = \frac{x_Ay_B - x_By_A}{\sqrt{x_A^2 + y_A^2}\sqrt{x_B^2 + y_B^2}}, \quad \cos \alpha = \frac{x_Ax_B + y_Ay_B}{\sqrt{x_A^2 + y_A^2} \sqrt{x_B^2 + y_B^2}}. $$
-要注意的是，以上公式成立，是因为直角坐标系$xOy$的$x$轴和$y$轴沿逆时针顺序摆放，同时规定逆时针方向为角度的正方向。
-如果直角坐标系的坐标轴摆放顺序和角度的正方向相反，以上的公式就要改为：
-$$ \sin \alpha = \frac{x_By_A - x_Ay_B}{\sqrt{x_A^2 + y_A^2}\sqrt{x_B^2 + y_B^2}}, \quad \cos \alpha = \frac{x_Ax_B + y_Ay_B}{\sqrt{x_A^2 + y_A^2} \sqrt{x_B^2 + y_B^2}}. $$
 
-正弦对应着平行四边形的面积。比如，邻边为$OA$和$OB$的平行四边形，面积是$|OA||OB|\sin \angle AOB$。
-对照上面正弦的表达式，可以发现这个面积等于$x_By_A - x_Ay_B$。我们就把对应的映射
-$$ (A, \,\,B) \mapsto x_By_A - x_Ay_B. $$
-称为向量$A, B$的\textbf{面积}，记为$A \wedge B$。
+% 要注意的是，以上公式成立，是因为直角坐标系$xOy$的$x$轴和$y$轴沿逆时针顺序摆放，同时规定逆时针方向为角度的正方向。
+% 如果直角坐标系的坐标轴摆放顺序和角度的正方向相反，以上的公式就要改为：
+% $$ \sin \alpha = \frac{x_By_A - x_Ay_B}{\sqrt{x_A^2 + y_A^2}\sqrt{x_B^2 + y_B^2}}, \quad \cos \alpha = \frac{x_Ax_B + y_Ay_B}{\sqrt{x_A^2 + y_A^2} \sqrt{x_B^2 + y_B^2}}. $$
+
+我们是通过面积定义正弦的。比如，邻边为$OA$和$OB$的平行四边形，面积是$|OA||OB|\sin \angle AOB$。
+对照上面正弦的表达式，可以发现这个面积等于$x_Ay_B - x_By_A$。于是，我们把对应的映射
+$$ (\mathbf{a}, \,\,\mathbf{b}) \mapsto x_Ay_B - x_By_A. $$
+称为向量$A, B$的\textbf{面积}，记为$\mathbf{a} \wedge \mathbf{b}$。
+
 向量的面积和内积，分别对应正弦和余弦。两向量面积为零，当且仅当它们共线；两向量内积为零，当且仅当它们互相垂直。
 
 \begin{xt}
@@ -318,7 +320,12 @@ $$ (A, \,\,B) \mapsto x_By_A - x_Ay_B. $$
 
 \section{直线和圆的方程}
 
-直角坐标系中，二元一次方程的解集对应平面中一条直线。下面我们用向量的语言，给出符合不同条件的直线的方程。
+直角坐标系中，任意给定二元一次方程
+$$ ax + by + c = 0,$$
+它的解集都对应平面中一条直线。我们把这个二元一次方程称为直线的\textbf{一般式}方程。
+比如，$3x - 2y + 1 = 0$就是一条直线的一般式方程。不过，从这个式子，我们不容易看出相应的直线有什么性质。
+
+下面我们用向量的语言，给出有不同直观性质的直线的方程。
 
 \textbf{点向式}：已知直线过点$A(x_A,\,\, y_A) = \mathbf{a}$，方向为$\mathbf{b} = (x_B,\,\, y_B)$。
 考虑直线上一点$P(x,\,\, y) = \mathbf{p}$，$\mathbf{p} - \mathbf{a}$和$\mathbf{b}$共线，所以面积为$0$。
