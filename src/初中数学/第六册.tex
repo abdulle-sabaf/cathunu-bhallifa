@@ -119,8 +119,7 @@
 \end{df}
 给定非零向量$A = \mathbf{a}$，$ \{t\mathbf{a} \, | \, t\in\mathbb{R}\}$是一条过原点$O$和$A$的直线$OA$。
 给定向量$B = \mathbf{b}$，$ \{t\mathbf{a}+\mathbf{b} \, | \, t\in\mathbb{R}\}$是一条过$B$的直线；
-而$ \{t\mathbf{a}+(1 - t)\mathbf{b} \, | \, t\in\mathbb{R}\}$就是直线$AB$；
-要注意的是，这样定义的直线是一条数轴，自然带有正方向和单位长度。
+而$ \{t\mathbf{a}+(1 - t)\mathbf{b} \, | \, t\in\mathbb{R}\}$就是直线$AB$。
 
 给定非零向量$\mathbf{a}$，如果向量$\mathbf{b}$可以通过$\mathbf{a}$放缩得到，
 或者说$\mathbf{b}\in \{t\mathbf{a} \, | \, t\in\mathbb{R}\}$，就称两者\textbf{共线}。
@@ -189,20 +188,14 @@ $$ \frac{1 - t}{t} = k$$
 \end{xt}
 
 \section{角度与长度}
-根据平面的根本性质，任何向量都可以用两个不共线向量表示。接下来，我们仿照角度，给出两个向量之间的一种关系。
-% 构造一个把两个向量对应到一个数的映射$f$。我们希望$f$具有这样的性质：
-% \begin{enumerate}
-%     \item 顺序不影响关系大小：$\forall \,\, \mathbf{a}, \mathbf{b} \in \mathbb{V}$，$f(\mathbf{a}, \mathbf{b}) = f(\mathbf{b}, \mathbf{a})$。
-%     \item 零向量和任意向量关系为$0$：$\forall \,\, \mathbf{a} \in \mathbb{V}$，$f(\mathbf{a}, \mathbf{0}) = f(\mathbf{0}, \mathbf{a}) = 0$。
-%     \item 非零向量与自身的关系总是正的：$\forall \,\, \mathbf{a} \in \mathbb{V}\setminus\{\mathbf{0}\}$，$f(\mathbf{a}, \mathbf{a}) > 0$。
-%     \item 和向量放缩相容：$\forall \,\, \mathbf{a}, \mathbf{b} \in \mathbb{V},\,\,\, t\in\mathbb{R}$，$f(\mathbf{a}, t\mathbf{b}) = f(t\mathbf{a}, \mathbf{b}) = tf(\mathbf{a}, \mathbf{b})$。
-%     \item 和向量平移相容：$\forall \,\, \mathbf{a}, \mathbf{b}, \mathbf{c} \in \mathbb{V}$，$f(\mathbf{a}, \mathbf{b}+\mathbf{c}) = f(\mathbf{a}, \mathbf{b}) + f(\mathbf{a}, \mathbf{c})$。
-% \end{enumerate}
-给定平面基底$\mathbf{e}_1, \mathbf{e}_2$，我们给出这样一个映射$f$：
+根据平面的根本性质，任何向量都可以用两个不共线向量表示。如何讨论它们的位置关系呢？
+下面我们定义一种关系，把长度、距离和角度统一起来。
+
+给定平面基底$\mathbf{e}_1, \mathbf{e}_2$，我们给出这样一个二元映射$f$：
 $$ \forall \,\, s_1, s_2, t_1, t_2 \in \mathbb{R}, \quad f(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, t_1\mathbf{e}_1 + t_2\mathbf{e}_2) = s_1t_1 + s_2 t_2.$$
 $f$把两个向量对应到一个实数。它满足以下五个性质：
 \begin{enumerate}
-    \item 顺序不影响关系大小：
+    \item 向量的顺序不影响关系大小：
     \begin{align}
          & f(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, t_1\mathbf{e}_1 + t_2\mathbf{e}_2) \notag \\
         =& s_1t_1 + s_2 t_2 = t_1s_1 + t_2s_2 \notag \\
@@ -212,13 +205,13 @@ $f$把两个向量对应到一个实数。它满足以下五个性质：
     $$f(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, \mathbf{0}) = f(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, 0\mathbf{e}_1 + 0\mathbf{e}_2) = s_1\cdot 0 + s_2\cdot 0 = 0.$$
     \item 非零向量与自身的关系总是正的：$s_1, s_2$不全为零时，
     $$f(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, s_1\mathbf{e}_1 + s_2\mathbf{e}_2) = s_1^2 + s_2^2  > 0.$$
-    \item 和向量放缩相容：
+    \item 和向量的放缩相容：
     \begin{align}
         & f(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, t(t_1\mathbf{e}_1 + t_2\mathbf{e}_2)) \notag \\
         =& s_1tt_1 + s_2 tt_2 = t(s_1t_1 + s_2t_2) \notag \\
         =& tf(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, t_1\mathbf{e}_1 + t_2\mathbf{e}_2). \notag 
     \end{align}
-    \item 和向量平移相容：
+    \item 和向量的平移相容：
     \begin{align}
          & f(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, (t_1\mathbf{e}_1 + t_2\mathbf{e}_2) + (r_1\mathbf{e}_1 + r_2\mathbf{e}_2)) \notag \\
         &= s_1(t_1 + r_1) + s_2 (t_2 + r_2) = (s_1t_1 + s_2t_2) + (s_1r_1 + s_2r_2) \notag \\
@@ -239,7 +232,7 @@ $$ \forall \,\, \mathbf{a}, \mathbf{b} \in \mathbb{V}, \quad \| \mathbf{a} - \ma
 \end{align}
 给定向量$A = \mathbf{a}$、$B =\mathbf{b}$，$\| \mathbf{a} \|$就是$|OA|$，
 $\|\mathbf{a} - \mathbf{b}\|$就是$|AB|$。
-也就是说，我们这样定义的$f$，分别与直观经验中长度和距离的概念相符合。
+也就是说，我们这样定义的映射$f$，分别与直观经验中长度和距离的概念相符合。
 
 那么，$f$本身有什么含义呢？我们来计算$ \frac{|OA|^2 + |OB|^2 - |AB|^2}{2}.$
 \begin{align}
@@ -254,22 +247,26 @@ $\|\mathbf{a} - \mathbf{b}\|$就是$|AB|$。
 $$ |x_Ax_B + y_Ay_B| \leqslant \sqrt{x_A^2 + y_A^2} \sqrt{x_A^2 + y_A^2}.$$
 可以验证这个关系对任意$x_A, y_A, x_B, y_B$成立。从这个关系出发，可以得到：
 $$ |AB| = \sqrt{(x_A - x_B)^2 + (y_A - y_B)^2} \leqslant \sqrt{x_A^2 + y_A^2} + \sqrt{x_A^2 + y_A^2} = |OA| + |OB|.$$
-可以直观理解为“三角形两边之和大于第三边”或“两点之间线段距离最短”。
+这符合直观经验中“三角形两边之和大于第三边”或“两点之间线段距离最短”的性质。
 
-内积为$0$，就表示向量夹角的余弦为$0$，这时，我们说两个向量垂直。
+内积为$0$，就表示向量夹角的余弦为$0$，即两个向量垂直。
 比如令$\mathbf{a} = 2\mathbf{e}_x - \mathbf{e}_y$，$\mathbf{b} = \mathbf{e}_x + 2\mathbf{e}_y$，
 那么$f(\mathbf{a}, \mathbf{b}) = 2\cdot 1 - 1\cdot 2 = 0$。在平面上画出对应的点$A,B$，
 可以验证$\angle AOB = 90^\circ$。
 
-再来看另一个映射$f_2$：
+内积映射并不是唯一的，我们看另一个映射$f_2$：
 $$ \forall \,\, s_1, s_2, t_1, t_2 \in \mathbb{R}, \quad f(s_1\mathbf{e}_1 + s_2\mathbf{e}_2, t_1\mathbf{e}_1 + t_2\mathbf{e}_2) = 2s_1t_1 + s_2 t_2.$$
 可以验证，$f_2$也满足$f$满足的五个性质。从$f_2$出发，我们也可以定义距离和长度：
 $$ \forall \,\, \mathbf{a} = x_A\mathbf{e}_x + y_A\mathbf{e}_y, \quad \| \mathbf{a} \|_2 = f_2(\mathbf{a}, \mathbf{a}) = 2x_A^2 + y_A^2. $$
 这样定义的距离和长度和我们直观经验中有些不一样，不过，我们可以验证，这样定义的距离也满足“两点之间线段最短”的性质。
 $$ |2x_Ax_B + y_Ay_B| \leqslant \sqrt{2x_A^2 + y_A^2} \sqrt{2x_A^2 + y_A^2}.$$
-因此，$f_2$也是内积。我们把符合直观经验的内积$f$称为\textbf{经典内积}，一般称内积都默认指经典内积；
+因此，$f_2$也是内积。
+
+我们把符合直观经验的内积$f$称为\textbf{经典内积}，一般称内积都默认指经典内积；
 把对应的长度称为向量的\textbf{模}或\textbf{范}。
-$\mathbf{a}, \mathbf{b}$的经典内积记为$(\mathbf{a}\, | \, \mathbf{b})$\footnote{不至于混淆时，也常称为点积，记为$\mathbf{a} \cdot \mathbf{b}$}，模记为$|\mathbf{a}|$、$|\mathbf{b}|$。
+我们把$\mathbf{a}, \mathbf{b}$的（经典）内积记为$(\mathbf{a}\, | \, \mathbf{b})$，
+不至于混淆时，也常称为\textbf{点积}，记为$\mathbf{a} \cdot \mathbf{b}$；
+把模记为$|\mathbf{a}|$、$|\mathbf{b}|$。
 
 既然有余弦，自然有正弦。记$\alpha = \angle AOB$，
 则$(\mathbf{a}\, | \, \mathbf{b}) = |\mathbf{a}||\mathbf{b}| \cos \alpha$，
@@ -301,7 +298,8 @@ $$ \sin \alpha = \frac{x_By_A - x_Ay_B}{\sqrt{x_A^2 + y_A^2}\sqrt{x_B^2 + y_B^2}
 正弦对应着平行四边形的面积。比如，邻边为$OA$和$OB$的平行四边形，面积是$|OA||OB|\sin \angle AOB$。
 对照上面正弦的表达式，可以发现这个面积等于$x_By_A - x_Ay_B$。我们就把对应的映射
 $$ (A, \,\,B) \mapsto x_By_A - x_Ay_B. $$
-称为向量$A, B$的\textbf{面积}。向量的面积和内积，分别对应正弦和余弦。两向量面积为零，当且仅当它们共线；两向量内积为零，当且仅当它们互相垂直。
+称为向量$A, B$的\textbf{面积}，记为$A \wedge B$。
+向量的面积和内积，分别对应正弦和余弦。两向量面积为零，当且仅当它们共线；两向量内积为零，当且仅当它们互相垂直。
 
 \begin{xt}
     \mbox{} \\
