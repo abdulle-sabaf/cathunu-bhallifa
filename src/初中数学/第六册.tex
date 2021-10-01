@@ -804,6 +804,21 @@ $$ a^{n-1} \equiv_n 1 .$$
 
 \chapter{用数据说话}
 数据是客观事物的定量记录。比如，以下列表中有某班级学生的身高数据。
+
+\begin{center}
+    \begin{tabular}{ p{4em}<{\centering} !{\color{white} \vrule width 2pt} p{3em}<{\centering} !{\color{white} \vrule width 2pt} p{6em}<{\centering} }
+        \rowcolor{gd} \textbf{姓名} & \textbf{学号} & \textbf{身高（厘米）} \\ [0.5ex] 
+        \noalign{{\color{white}\hrule height 2pt}} % \hline\hline
+        \rowcolor{gl} 张三 & $214092$ & $166.4$ \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gd} 李四 & $214033$ & $171.5$ \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gl} 王五 & $210819$ & $164.8$ \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gd} $\vdots$ & $\vdots$ & $\vdots$ \\  
+    \end{tabular}
+\end{center}
+
 生产生活中，我们常常以数量等形式记录客观事物的特征和属性。以合理的方式组织、呈现的数据，能帮助我们了解事物的本质，成为我们讨论、判断、决策的依据。
 
 数据一般由\textbf{义}和\textbf{值}两部分构成。比如，我国2020年国民生产总值为101兆5986亿元人民币。这个数据的义是“我国2020年国民生产总值”，值是“101兆5986亿元人民币”。
@@ -843,7 +858,7 @@ $$ a^{n-1} \equiv_n 1 .$$
 转化数据形态，就是把数据的值用另一种形式呈现。转化数据形态往往是为了从另一个角度看待数据的值。
 比如，收集$100$名学生的肺活量：
 \begin{center}
-    \begin{tabular}{ p{3em}<{\centering} p{7em}<{\centering} }
+    \begin{tabular}{ p{3em}<{\centering} !{\color{white} \vrule width 2pt} p{7em}<{\centering} }
         \rowcolor{gd} \textbf{姓名} & \textbf{肺活量（毫升）} \\ [0.5ex] 
         \noalign{{\color{white}\hrule height 2pt}} % \hline\hline
         \rowcolor{gl} 张三 & 2800 \\  
@@ -860,16 +875,75 @@ $$ a^{n-1} \equiv_n 1 .$$
 
 我们可以把数据转为：
 % 按1000ml分箱
+\begin{center}
+    \begin{tabular}{ p{3em}<{\centering} !{\color{white} \vrule width 2pt} p{3em}<{\centering} !{\color{white} \vrule width 2pt} p{3em}<{\centering}!{\color{white} \vrule width 2pt} p{3em}<{\centering}!{\color{white} \vrule width 2pt} p{3em}<{\centering}!{\color{white} \vrule width 2pt} p{3em}<{\centering}!{\color{white} \vrule width 2pt} p{3em}<{\centering} }
+        \rowcolor{gd} \textbf{姓名} & $[0,\,\, 1)$ & $[1,\,\, 2)$ & $[2,\,\, 3)$ & $[3,\,\, 4)$ & $[4,\,\, 5)$ & $> 5$ \\ [0.5ex] 
+        \noalign{{\color{white}\hrule height 2pt}} % \hline\hline
+        \rowcolor{gl} 张三 & $0$ & $0$ & $1$ & $0$ & $0$ & $0$  \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gd} 李四 & $0$ & $0$ & $0$ & $1$ & $0$ & $0$  \\
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gl} 王五 & $0$ & $0$ & $0$ & $0$ & $1$ & $0$  \\
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gd} $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gl} 钱六 & $0$ & $0$ & $0$ & $1$ & $0$ & $0$  \\
+    \end{tabular}
+\end{center}
+
+我们以升为单位，把肺活量的范围分划为几个区间，每个人的肺活量的值落在哪个区间，就在对应的列记$1$，其他列记$0$。
+这让我们用另一种角度来观察肺活量数据。
 
 变换数据结构，是指用另一种方式组织数据。原始数据不容易理解，可能是因为数据组织的方式不合其义。
 组织数据的方式越符合其义，我们就越容易通过数据理解事物的本质。
-比如，我们收集某些影视演员的出演数据，研究演员之间的关系。原始数据是各个演员的作品列表：
+比如，我们收集某些影视演员的出演影视作品的数据，研究演员之间的关系。原始数据是各个演员的作品列表：
+% 演员作品表
+\begin{center}
+    \begin{tabular}{ p{4em}<{\centering} !{\color{white} \vrule width 2pt} p{22em}<{\centering} }
+        \rowcolor{gd} \textbf{姓名} & \textbf{作品} \\ [0.5ex] 
+        \noalign{{\color{white}\hrule height 2pt}} % \hline\hline
+        \rowcolor{gl} 周比利 & 《少年陈真》、《精武英雄》、《鼠胆龙威》、…… \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gd} 斯琴高娃 & 《北京爱情故事》、《骆驼祥子》、《香魂女》、 …… \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gl} 朱咪咪 & 《百变星君》、《审死官》、《唐伯虎点秋香》、…… \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gd} $\vdots$ & $\vdots$ \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gl} 李绮虹 & 《西贡的童话》、《爱未央》、《圣诞玫瑰》、…… \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gd} 张涵予 & 《风声》、《智取威虎山》、《红海行动》、…… \\  
+    \end{tabular}
+\end{center}
 
 我们可以根据共演关系，把数据结构改为下图。每个圆点代表一个演员。曾经共演的演员之间连线，否则不连线。
-% 图结构
+% 演员关系图
+\begin{figure}[H] %this figure will be at the right
+    \vspace{8pt}
+    \centering
+    \includegraphics[width=0.3\textwidth]{演员关系图1.png}
+\end{figure}
 
-我们也可以把共演关系用数表的方式呈现。曾经共演的演员，相应的格子中填入共演作品数目，否则填$0$：
-% 关联表结构
+从图中我们能够看出不同演员之间的合作关系。我们也可以把共演关系用数表的方式呈现。曾经共演的演员，
+相应的格子中填入共演作品数目，否则填$0$：
+% 相关矩阵
+\begin{center}
+    \begin{tabular}{ | p{3.2em}<{\centering} | p{3.2em}<{\centering} | p{3.2em}<{\centering} | p{3.2em}<{\centering} | p{3.2em}<{\centering} | p{2em}<{\centering} | }
+        \hline
+           & 朱咪咪 & 吴孟达 & 古天乐 & 吴京 & $\cdots$ \\ [0.5ex]
+        \hline
+        朱咪咪 & - & $3$ & $0$ & $0$ & $\cdots$ \\  
+        \hline
+        吴孟达 & $3$ & - & $3$ & $1$ & $\cdots$ \\  
+        \hline
+        古天乐 & $0$ & $3$ & - & $4$ & $\cdots$ \\ 
+        \hline
+        吴京 & $0$ & $1$ & $4$ & - & $\cdots$ \\ 
+        \hline
+        $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ &  \\  
+        \hline
+    \end{tabular}
+\end{center}
 
 新造特征，就是从原始数据的某些特征出发，构造新的数据。
 比如，从身高和体重数据出发，用体重除以身高的平方，就得到新特征：体质指数。
@@ -881,7 +955,8 @@ $$ a^{n-1} \equiv_n 1 .$$
 \section{描述和分析}
 上一节的例子中，我们收集了$100$名学生的身高、体重、肺活量、血压数据。如何通过这些数据，了解这些学生的身体素质情况呢？
 我们可以查看每个学生的数据。然而，人的认知和理解能力是有限的。我们无法直接把这$400$个数值直接反映在头脑中。
-为此，我们希望用更少的信息来描述这些数据，让我们对这些数据有大概的认识。这种手段叫作描述统计。
+为此，我们希望用更少的信息来描述这些数据，让我们对这些数据有大概的认识。这种手段叫作\textbf{描述统计}。
+描述统计中最基本的方式，是从数据出发算得一个数量，来描述数据。我们把这样的数量称为\textbf{统计量}。以下是一些常见的统计量。
 
 \textbf{极值}：某特征所有样本值中最大的，称为该特征的\textbf{极大值}；所有样本值中最小的，称为该特征的\textbf{极小值}。
 比如，我们可以查看所有学生的体重，找出其中最大的值和最小的值。
@@ -933,6 +1008,7 @@ $a$从某个$x_i$离开，运动到$x_{i+1}$期间，$n^-$是不变的。$a$到�
         \hline
     \end{tabular}
 \end{center}
+
 可以看出，学生身高在$40\%$到$50\%$阶段较为集中，在$80\%$到$90\%$阶段较为稀疏。
 
 % 144 148.7 153.4 158.1 162.8 167.5 172.2 176.9 181.6 186.3 191
@@ -957,7 +1033,7 @@ $a$从某个$x_i$离开，运动到$x_{i+1}$期间，$n^-$是不变的。$a$到�
 \begin{figure}[h] %this figure will be at the right
     \vspace{8pt}
     \centering
-    \includegraphics[width=0.64\textwidth]{直方图1.png}
+    \includegraphics[width=0.5\textwidth]{直方图1.png}
 \end{figure}
 
 直方图比分位数表格更直观、更容易理解。我们可以直接看出，学生身高在$[158.1, \,\, 162.8)$区间最为集中，共有$17$人的身高落在这个区间里；
@@ -978,6 +1054,96 @@ $a$从某个$x_i$离开，运动到$x_{i+1}$期间，$n^-$是不变的。$a$到�
 \end{xt}
 
 \section{数据的结构}
+上一节中我们描述、分析数据的时候，并未考虑数据本身的结构。什么是数据的结构？
+数据结构是不同数据样本之间因数据自身含义产生的联系的总和。
+用适合的方式展现数据的结构，有助于我们理解数据包含的信息，描述并分析数据。
+
+一种常见的数据结构是时空结构：不同的数据样本代表了不同时间不同地点的信息。
+用合适的方式展现这种时空结构，对我们研究相关事物大有帮助。
+
+举例来说，下表中有我国部分地区的日均气温数据。
+% 各地气温
+\begin{center}
+    \begin{tabular}{ p{4em}<{\centering} !{\color{white} \vrule width 2pt} p{4.6em}<{\centering} !{\color{white} \vrule width 2pt} p{4.4em}<{\centering} !{\color{white} \vrule width 2pt} p{4.4em}<{\centering} !{\color{white} \vrule width 2pt} p{4.6em}<{\centering} }
+        \rowcolor{gd} \textbf{地区编号} & \textbf{日期} & \textbf{经度} & \textbf{纬度} & \textbf{气温(°C)} \\ [0.5ex] 
+        \noalign{{\color{white}\hrule height 2pt}} % \hline\hline
+        \rowcolor{gl} $291027$ & $2021$-$01$-$01$ & $121.101681$ & $22.754986$ & $15.9$  \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gd} $291027$ & $2021$-$01$-$02$ & $121.101681$ & $22.754986$ & $18.9$  \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gl} $291027$ & $2021$-$01$-$03$ & $121.101681$ & $22.754986$ & $19.3$  \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gd} $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ \\  
+    \end{tabular}
+\end{center}
+
+从列表中难以看出数据之间的联系。
+如果把相关的数据展示在对应的地理位置上，形成下图：
+% 热力图
+\begin{figure}[H] %this figure will be at the right
+    \vspace{0pt}
+    \centering
+    \includegraphics[width=0.5\textwidth]{全国日均气温1.png}
+\end{figure}
+
+我们就能比较直观地看出各地气温之间的关系。
+
+以上是空间地域结构的展示。再来看时间结构的展示。下表是$2005$年至$2010$年成都市月均降水量和气温数据。
+% 月降水量和气压数据
+\begin{center}
+    \begin{tabular}{ p{4em}<{\centering} !{\color{white} \vrule width 2pt} p{7em}<{\centering} !{\color{white} \vrule width 2pt} p{7em}<{\centering} }
+        \rowcolor{gd} \textbf{时间} & \textbf{气温(°C)} & \textbf{降水量(毫米)} \\ [0.5ex] 
+        \noalign{{\color{white}\hrule height 2pt}} % \hline\hline
+        \rowcolor{gl} $2005$-$01$ & $\,\,\,7.9$ & $10.3$ \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gd} $2005$-$02$ & $10.0$ & $27.5$ \\ 
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gl} $2005$-$03$ & $14.3$ & $69.3$ \\ 
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gd} $\vdots$ & $\vdots$ & $\vdots$ \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gl} $2010$-$12$ & $\,\,\,9.5$ & $35.5$ \\ 
+    \end{tabular}
+\end{center}
+
+从列表中难以看出数据之间的联系。如果把相关的数据按时间顺序排列，形成下图：
+% 时间序列
+\begin{figure}[H] %this figure will be at the right
+    \vspace{8pt}
+    \centering
+    \includegraphics[width=0.9\textwidth]{时间序列1.png}
+\end{figure}
+我们就容易看出当地降水量和气温数据随时间变化的方式。
+
+另一个例子涉及更复杂的关系。下表中有某工厂完成一个项目所需的任务和各项任务预计所需的时间。  
+% 事务列表
+\begin{center}
+    \begin{tabular}{ p{4em}<{\centering} !{\color{white} \vrule width 2pt} p{4em}<{\centering} !{\color{white} \vrule width 2pt} p{4em}<{\centering} !{\color{white} \vrule width 2pt} p{4em}<{\centering} }
+        \rowcolor{gd} \textbf{任务编号} & \textbf{预计用时} & \textbf{前置任务} & \textbf{后继任务} \\ [0.5ex] 
+        \noalign{{\color{white}\hrule height 2pt}} % \hline\hline
+        \rowcolor{gl} $1$ & $7$ & $3, \,\, 4$ & $2, \,\, 10$ \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gd} $2$ & $8$ & $1$ & $12$ \\ 
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gl} $3$ & $4$ & - & $1$ \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gd} $4$ & $5$ & - & $1, \,\, 9$ \\ 
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gl} $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ \\  
+    \end{tabular}
+\end{center}
+
+从列表中难以判断应该如何组织工作。如果把各项任务的关系连接起来，形成下图：
+% 事务关系有向图
+\begin{figure}[H] %this figure will be at the right
+    \vspace{8pt}
+    \centering
+    \includegraphics[width=0.4\textwidth]{流程图1.png}
+\end{figure}
+
+图中将任务用圆盘表示，圆盘直径和任务预计用时成正比。用箭头把每个任务指向它的后继任务（必须完成前者才能开始后者）。
+据此，我们就能更好地理解完成任务的必要次序，更合理地安排工作。
+
 
 \chapter{运动和优化}
 \section{函数、图像和运动}
