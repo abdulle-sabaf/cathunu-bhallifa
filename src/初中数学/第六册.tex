@@ -1024,7 +1024,7 @@ $a$从某个$x_i$离开，运动到$x_{i+1}$期间，$n^-$是不变的。$a$到�
 
 % 144 148.7 153.4 158.1 162.8 167.5 172.2 176.9 181.6 186.3 191
 
-直方图是另一种展示样本分布情况的方法。我们取定某个包含了所有样本值的区间，然后将其均匀划分为若干份。
+直方图是另一种展示样本分布情况的方法。我们取定某个包含了所有样本值的区间，然后将其均匀分划为若干份。
 比如，我们取学生身高的极小值和极大值构建区间$[144, \,\,191]$，将其均匀划分成$10$份，每份长为$\frac{191-144}{10}=4.7$。
 数轴上，左起第一个区间是$[144, \,\,148.7)$，第二个区间是$[148.7, \,\,153.4)$，等等。最右边的区间是$[186.3, \,\, 191]$。
 把这$10$个区间从左到右编号，每个样本的身高值恰好属于其中一个。
@@ -1033,9 +1033,9 @@ $a$从某个$x_i$离开，运动到$x_{i+1}$期间，$n^-$是不变的。$a$到�
 \begin{center}
     \begin{tabular}{ | p{4em}<{\centering} | p{1.7em}<{\centering} | p{1.7em}<{\centering} | p{1.7em}<{\centering} | p{1.7em}<{\centering} | p{1.7em}<{\centering} | p{1.7em}<{\centering} | p{1.7em}<{\centering} | p{1.7em}<{\centering} | p{1.7em}<{\centering} | p{1.7em}<{\centering} | }
         \hline
-            区间序号   & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ & $10$ \\ [0.5ex] 
+        区间序号 & $1$ & $2$  & $3$  & $4$  & $5$  & $6$  & $7$  & $8$ & $9$ & $10$ \\ [0.5ex] 
         \hline
-        样本数 & $8$ & $10$ & $12$ & $17$ & $13$ & $12$ & $10$ & $9$ & $7$ & $2$ \\  
+        样本数   & $8$ & $10$ & $12$ & $17$ & $13$ & $12$ & $10$ & $9$ & $7$ & $2$  \\  
         \hline
     \end{tabular}
 \end{center}
@@ -1105,11 +1105,11 @@ $a$从某个$x_i$离开，运动到$x_{i+1}$期间，$n^-$是不变的。$a$到�
     \begin{tabular}{ p{4em}<{\centering} !{\color{white} \vrule width 2pt} p{7em}<{\centering} !{\color{white} \vrule width 2pt} p{7em}<{\centering} }
         \rowcolor{gd} \textbf{时间} & \textbf{气温(°C)} & \textbf{降水量(毫米)} \\ [0.5ex] 
         \noalign{{\color{white}\hrule height 2pt}} % \hline\hline
-        \rowcolor{gl} $2005$-$01$ & $\,\,\,7.9$ & $10.3$ \\  
-        \noalign{{\color{white}\hrule height 2pt}}% \hline
-        \rowcolor{gd} $2005$-$02$ & $10.0$ & $27.5$ \\ 
-        \noalign{{\color{white}\hrule height 2pt}}% \hline
         \rowcolor{gl} $2005$-$03$ & $14.3$ & $69.3$ \\ 
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gd} $2005$-$01$ & $\,\,\,7.9$ & $10.3$ \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gl} $2005$-$02$ & $10.0$ & $27.5$ \\ 
         \noalign{{\color{white}\hrule height 2pt}}% \hline
         \rowcolor{gd} $\vdots$ & $\vdots$ & $\vdots$ \\  
         \noalign{{\color{white}\hrule height 2pt}}% \hline
@@ -1117,14 +1117,16 @@ $a$从某个$x_i$离开，运动到$x_{i+1}$期间，$n^-$是不变的。$a$到�
     \end{tabular}
 \end{center}
 
-从列表中难以看出数据之间的联系。如果把相关的数据按时间顺序排列，形成下图：
+从列表中难以看出数据之间的联系。可以把数据按时间先后顺序排列，这样得到的数据称为\textbf{时间序列}。
+以时间轴为$x$轴，以降水量和气温为$y$轴，按照时间先后顺序，把每个时刻的降水量和气温值对应的点用线段连起来，
+就形成下图：
 % 时间序列
 \begin{figure}[H] %this figure will be at the right
     \vspace{8pt}
     \centering
     \includegraphics[width=0.9\textwidth]{时间序列1.png}
 \end{figure}
-我们就容易看出当地降水量和气温数据随时间变化的方式。
+从图中，我们容易看出当地降水量和气温数据随时间变化的方式。这种呈现数据的方式称为\textbf{折线图}。
 
 另一个例子涉及更复杂的关系。下表中有某工厂完成一个项目所需的任务和各项任务预计所需的时间： 
 % 事务列表
@@ -1152,7 +1154,7 @@ $a$从某个$x_i$离开，运动到$x_{i+1}$期间，$n^-$是不变的。$a$到�
     \includegraphics[width=0.4\textwidth]{流程图1.png}
 \end{figure}
 
-图中将任务用圆盘表示，圆盘直径和任务预计用时成正比。用箭头把每个任务指向它的后继任务（必须完成前者才能开始后者）。
+这个展示数据的方法称为\textbf{流程图}。图中将任务用圆盘表示，圆盘直径和任务预计用时成正比。用箭头把每个任务指向它的后继任务（必须完成前者才能开始后者）。
 据此，我们就能更好地理解完成任务的必要次序，更合理地安排工作。
 
 
