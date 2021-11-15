@@ -117,16 +117,18 @@
 \begin{df}
     过原点的直线是非零向量放缩得到的集合。不过原点的直线是过原点的直线按一点平移得到的集合。
 \end{df}
-给定非零向量$A = \mathbf{a}$，$ \{t\mathbf{a} \, | \, t\in\mathbb{R}\}$是一条过原点$O$和$A$的直线$OA$。
-给定向量$B = \mathbf{b}$，$ \{t\mathbf{a}+\mathbf{b} \, | \, t\in\mathbb{R}\}$是一条过$B$的直线；
+给定非零向量$A = \mathbf{a}$，$ \{t\mathbf{a} \, | \, t\in\mathbb{R}\}$是一条过原点$O$和$A$的直线$OA$，
+称为$A$\textbf{引出}的直线，记为$\mathbb{R}\mathbf{a}$。
+给定向量$B = \mathbf{b}$，$ \{t\mathbf{a}+\mathbf{b} \, | \, t\in\mathbb{R}\}$是一条过$B$的直线，
+记为$\mathbb{R}\mathbf{a}+\mathbf{b}$，其中$\mathbb{R}\mathbf{a}$称为它的线性部分；
 而$ \{t\mathbf{a}+(1 - t)\mathbf{b} \, | \, t\in\mathbb{R}\}$就是直线$AB$。
 
 给定非零向量$\mathbf{a}$，如果向量$\mathbf{b}$可以通过$\mathbf{a}$放缩得到，
-或者说$\mathbf{b}\in \{t\mathbf{a} \, | \, t\in\mathbb{R}\}$，就称两者\textbf{共线}。
+或者说$\mathbf{b}\in \mathbb{R}\mathbf{a}$，就称两者\textbf{共线}。
 
 类比可以定义线段和射线：给定非零向量$A = \mathbf{a}$和向量$B =\mathbf{b}$，
-$ \{t\mathbf{a}+(1 - t)\mathbf{b} \, | \, t\in [0, 1]\}$是端点为$\mathbf{a}, \mathbf{b}$的线段$AB$，
-$ \{t\mathbf{a}+(1 - t)\mathbf{b} \, | \, t \geqslant 0 \}$是以$B$为端点，经过$A$的射线。
+$ \{(1 - t)\mathbf{a}+t\mathbf{b} \, | \, t\in [0, 1]\}$是线段$AB$，
+$ \{(1 - t)\mathbf{a}+t\mathbf{b} \, | \, t \geqslant 0 \}$是射线$AB$。
 
 这样定义的线段和射线，也具备了数轴的性质。比如，在线段$\{t\mathbf{a}+(1 - t)\mathbf{b} \, | \, t\in [0, 1]\}$
 中，$t$的不同值就对应了不同的点：$t = 0$对应点$\mathbf{b}$，$t=1$对应点$\mathbf{a}$。对一般的$t\in (0, 1)$，
@@ -159,11 +161,12 @@ $$ \frac{1 - t}{t} = k$$
 \begin{enumerate}
     \item 给定任何非零向量$A$，平面中总有另一个向量$B$，不在直线$OA$上。我们说两者\textbf{不共线}。
     \item 从不共线的向量$A, B$出发，经过放缩、平移，可以得到平面中任何向量。具体来说，
-    任何向量都可以表示成$sA + tB$的形式，集合$\{sA + tB | s, t, \in\mathbb{R}\}$就是整个平面。
+    任何向量都可以表示成$sA + tB$的形式，集合$\{sA + tB \,|\, s, t, \in\mathbb{R}\}$就是整个平面。
     这样的$A, B$称为平面的一组\textbf{基}或\textbf{基底}。
 \end{enumerate}
 
-举例来说，在直角坐标系中，我们选择了原点重合、互相垂直的两条数轴，以每条数轴上数$1$对应的点（记为$\mathbf{e}_x, \mathbf{e}_y$）出发，通过放缩和平移，
+举例来说，在直角坐标系中，我们选择了原点重合、互相垂直的两条数轴，
+以每条数轴上数$1$对应的点（记为$\mathbf{e}_x, \mathbf{e}_y$）出发，通过放缩和平移，
 就得到平面所有的点。平面中任一点可以写成$x\mathbf{e}_x + y\mathbf{e}_y$，其中$x,y$就是点的坐标。
 直角坐标系其实是一种用向量描述平面的方法。$\mathbf{e}_x, \mathbf{e}_y$就是一组基。
 
