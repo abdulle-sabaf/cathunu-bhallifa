@@ -935,9 +935,136 @@ $h(0.5) = (0.25, \,\,2)$，而$g$不经过$(0.25, \,\,2)$。
 
 \section{变与不变}
 % 不变量。不动点。
+运动是对变化的描述。以下运动中，哪些量变了，哪些没变？
+\begin{enumerate}
+    \item $ t \,\,\,\mapsto (3t+1, \,\, 4)$，$t\in[0,1]$。
+    \item $ t \,\,\,\mapsto (\cos{t}, \,\, \sin{t})$，$t\in[0,180^\circ]$。
+    \item $ t \,\,\,\mapsto (1 - 2t, \,\, 2 - t)$，$t\in[0,180^\circ]$。
+\end{enumerate}
+第一个运动中，随着$t$变化，横坐标在变，纵坐标不变。
+第二个运动中，随着$t$变化，纵横坐标在变，但两者的平方和总是$1$，即点到$(0,\,\,0)$的距离不变。
+第三个运动中，随着$t$变化，纵横坐标在变，但纵坐标的两倍与横坐标的差总是$3$，即“纵坐标的两倍与横坐标的差”不变。
+
+运动中保持不变的量，称为运动的\textbf{不变量}。在变化中保持不变的量，很可能对我们理解事物的本质有帮助。
+
+\begin{et}
+    如图，正方形$ABCD$的边长为$8$。点$E$沿边$AB$从$A$往$B$运动。在$BC$有一点$F$，使得$|AE| = |BF|$。$CE$、$DF$交于点$P$。求$|BP|$的最小值。
+\end{et}
+
+\begin{figure}[H] %this figure will be at the right
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.8\textwidth]{不变量1.png}
+\end{figure}
+
+\begin{so}
+    任何时刻，总有$\triangle EBC \simeq \triangle FCD$。因此$\angle PCB = \angle PDC$，$\angle CPD$为直角。这说明$P$总在以$CD$为直径的圆上，
+    即$E$运动时，$P$到$CD$中点$M$的距离总为$4$。也就是说，$\triangle BPM$中，$|PM| = 4$、$|BM| = 4\sqrt{5}$都是定值。于是
+    $$ |BP| \geqslant |BM| - |PM| = 4\sqrt{5} - 4.$$
+    这个最小值是可以达到的。作以$CD$为直径的圆，和线段$BM$交于点$Q$。延长$CQ$与$AB$交于$E_0$，则$E$运动到$E_0$时，$P=Q$，这时$B,P,M$三点共线，
+    因此$|BP| = |BM| - |PM|$，达到最小值。
+\end{so}
+
+\begin{et}
+    如图，点$P_1$在抛物线$y = \frac{x^2}{4}$上从左到右运动。直线$OP_2$垂直于$OP_1$，并且和抛物线交于点$P_2$。
+    过原点$O$作$P_1P_2$的垂线，垂足为$D$。当$P_1$运动时，求点$D$的轨迹。
+\end{et}
+
+\begin{figure}[H] %this figure will be at the right
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.6\textwidth]{不变量2.png}
+\end{figure}
+
+\begin{so}
+    选几个不同的$P_1$点，作对应的直线$P_1P_2$。通过观察，可以发现这些点和$y$轴似乎交于同一点。猜测这是一个不变量。
+    给定$P_1$，连接$P_1P_2$，交$y$轴于点$Q$。设直线$OP_1$的斜率为$a$，则它的方程为
+    $$ y = ax. $$
+    和抛物线方程联立求解，得到$P_1$坐标为$(a, \,\, \frac{a^2}{4})$。
+    设直线$OP_2$斜率为$b$，则它的方程为
+    $$ y = bx. $$
+    同理解得$P_1$坐标为$(b, \,\, \frac{b^2}{4})$。于是$P_1P_2$的两点式方程为：
+    $$ (x - a)(\frac{b^2}{4} - \frac{a^2}{4}) - (y - \frac{a^2}{4})(b - a) = 0$$
+    令$x=0$，就得到直线$P_1P_2$和$y$轴交点的纵坐标：$y_Q = -\frac{ab}{4}$。
+    由于$OP_1 \perp OP_2$，两者的方向向量内积为$0$。
+    分别选方向向量$(1,\,\,\frac{a}{4})$、$(1,\,\,\frac{b}{4})$，就得到$1 + \frac{ab}{16} = 0$，即$ab = -16$。代入$Q$的纵坐标，
+    就得到$y_Q = 4$。即$P_1P_2$与$y$轴的交点总是$Q(0,\,\,4)$。
+
+    过$O$作$P_1P_2$的垂线，垂足为$D$，那么$\triangle ODQ$是直角三角形，$\angle ODQ$是直角。
+    因此$D$总在以$OQ$为直径的圆：$x^2 + y(y-4) = 0$上。
+
+    另一方面，给定以$OQ$为直径的圆上一点$D\neq Q$，连接$DQ$，交抛物线于两点：$P_1,P_2$。
+    $DQ$的两点式方程为：
+    $$ (x - x_D)(4 - y_D) - (y - y_D)(0 - x_D) = 0.$$
+    将$y = \frac{x^2}{4}$代入，得到关于$x$的一元二次方程：
+    $$ \frac{x_D}{4}x^2 + \left(4 - y_D\right)x - 4x_D = 0.$$
+    只要$x_D\neq 0$，二次方程的判别式：
+    $$ (4 - y_D)^2 - 4\cdot \frac{x_D}{4}\cdot(- 4x_D) = (4 - y_D)^2 + 4x_D^2 > 0.$$
+    于是方程总有两个解。它的两个解就是$P_1,P_2$的横坐标$a,b$。因此根据根与系数的关系，$P_1,P_2$的横坐标乘积为
+    $$ab = -4x_D \div \frac{x_D}{4} = -16.$$
+    而$P_1,P_2$的纵坐标分别是$\frac{a^2}{4}$、$\frac{b^2}{4}$，于是两直线方向向量的内积为：
+    $$ ab + \frac{a^2}{4}\cdot\frac{b^2}{4} = ab(1 + \frac{ab}{16}) = 0.$$
+    即$OP_1 \perp OP_2$。
+    
+    如果$D=Q$，则$OD$垂直于抛物线上两点：$P_1(-4,\,\,4)$和$P_2(4,\,\,4)$的连线。
+    可以验证$OP_1\perp OP_2$。于是点$Q$也在轨迹上。
+    
+    综上可知，一方面$D$的轨迹总在以$OQ$为直径的圆上。另一方面，除了原点$O$，以$OQ$为直径的圆都在$D$的轨迹上。
+    因此，$D$的轨迹是：
+    $$\{(x,\,\,y) \, | \, x^2 + y(y-4) = 0, \,\, (x,\,\,y)\neq (0,\,\,0)\}.$$
+\end{so}
+
+% TODO 补上习题
 
 \section{平面形的变换}
 % 平移。缩放和位似。反射和对称。旋转。变换的复合。
+点运动形成轨迹。平面形，作为点的集合，其运动称为变换。我们熟悉的变换包括平移、缩放和旋转。
+下面我们从点集运动的角度讨论平面形的各种变换。
+
+设平面形为点集$S$，那么它的变换可以用二元映射$f$表示：
+\begin{align}
+    f: \,\, S\times[0,\,\,1] \,\,&\rightarrow \mathbb{R}^2 \notag \\
+    (\mathbf{s},\,\, t) \quad &\mapsto f(\mathbf{s},\,\,t) \notag
+\end{align}
+具体来说，对$S$中每一点$\mathbf{s}$，$f$都定义了它的运动：$t\,\,\mapsto f(\mathbf{s},\,\,t)$。
+
+比如，设$S$是以$(0,\,\,0)$、$(1,\,\,0)$、$(1,\,\,1)$、$(0,\,\,1)$为顶点的正方形。
+定义变换
+$$f:\,\, (\mathbf{s}, \,\,t) \mapsto \mathbf{s} + t(0.5, \,\, -0.5). $$
+$f$表示正方形中每一点$\mathbf{s}$沿着方向向量$(0.5, \,\, -0.5)$直线运动，即按该向量平移。
+比如点$(0.2,\,\,0.35)$就沿着该方向直线运动到$(0.7, \,\,-0.15)$。
+
+另一方面，对给定的$t$，我们可以定义$S(t) = \{f(x,\,\,t) \, | \, x\in S\}$为变换的过程中，
+$S$在$t$时刻所处的位置。上一个例子中，$S(0.6)$就是一个以$(0.3,\,\,-0.3)$、$(1.3,\,\,-0.3)$、
+$(1.3,\,\,0.7)$、$(0.3,\,\,0.7)$为顶点的正方形。
+
+从例子中可以看到，按向量$\mathbf{u}$的平移变换可以表示为：
+\begin{align}
+    f: \,\, S\times[0,\,\,1] \,\,&\rightarrow \mathbb{R}^2 \notag \\
+    (\mathbf{s},\,\, t) \quad &\mapsto \mathbf{s} + t\mathbf{u}. \notag
+\end{align}
+
+另一种比较简单的变换叫做\textbf{位似变换}。\textbf{位似}是一种特殊的相似关系。
+举例来说，设$\triangle ABC$相似于$\triangle A'B'C$。
+如果直线$AA'$、$BB'$、$CC'$交于一点$U$，就说两个三角形位似，$U$是\textbf{位似中心}。
+
+位似变换可以表示为：
+\begin{align}
+    f: \,\, S\times[0,\,\,1] \,\,&\rightarrow \mathbb{R}^2 \notag \\
+    (\mathbf{s},\,\, t) \quad &\mapsto \mathbf{u} + (1 - kt)(\mathbf{s} - \mathbf{u}) = (1 - kt)\mathbf{s} + kt\mathbf{u}. \notag
+\end{align}
+其中$\mathbf{u}$是位似中心，$k$是终点时的相似比。
+从$S$中一点$\mathbf{s}$来看，向量$\mathbf{s} - \mathbf{u}$不断放缩，最终变成原来的$k$倍大小。
+我们说$S$按照$\mathbf{u}$放缩，最终变成原来$k$倍大小。
+
+我们学习过点和图形的轴对称。把图形变成它的轴对称图形，这样的变换叫做反射变换。
+反射变换可以表示为：
+\begin{align}
+    f: \,\, S\times[0,\,\,1] \,\,&\rightarrow \mathbb{R}^2 \notag \\
+    (\mathbf{s},\,\, t) \quad &\mapsto 2(\mathbf{s}\cdot\mathbf{u})\mathbf{u} - \mathbf{s}. \notag
+\end{align}
+其中$\mathbf{u}$是对称轴所在直线的方向向量，长度为$1$。
+
 
 \chapter{用数据说话}
 数据是客观事物的定量记录。比如，以下列表中有某班级学生的身高数据。
