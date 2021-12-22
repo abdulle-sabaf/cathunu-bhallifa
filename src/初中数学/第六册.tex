@@ -1015,7 +1015,6 @@ $h(0.5) = (0.25, \,\,2)$，而$g$不经过$(0.25, \,\,2)$。
 \end{so}
 
 % TODO 补上习题
-
 \section{平面形的变换}
 % 平移。缩放和位似。反射和对称。旋转。变换的复合。
 点运动形成轨迹。平面形，作为点的集合，其运动称为变换。我们熟悉的变换包括平移、缩放和旋转。
@@ -1028,42 +1027,434 @@ $h(0.5) = (0.25, \,\,2)$，而$g$不经过$(0.25, \,\,2)$。
 \end{align}
 具体来说，对$S$中每一点$\mathbf{s}$，$f$都定义了它的运动：$t\,\,\mapsto f(\mathbf{s},\,\,t)$。
 
-比如，设$S$是以$(0,\,\,0)$、$(1,\,\,0)$、$(1,\,\,1)$、$(0,\,\,1)$为顶点的正方形。
+比如，设$S$是以$(0,\,\,0)$、$(1,\,\,0)$、$(1,\,\,1)$、$(0,\,\,1)$为顶点的正方形（下面称为标准单位正方形）。
 定义变换
 $$f:\,\, (\mathbf{s}, \,\,t) \mapsto \mathbf{s} + t(0.5, \,\, -0.5). $$
 $f$表示正方形中每一点$\mathbf{s}$沿着方向向量$(0.5, \,\, -0.5)$直线运动，即按该向量平移。
 比如点$(0.2,\,\,0.35)$就沿着该方向直线运动到$(0.7, \,\,-0.15)$。
 
-另一方面，对给定的$t$，我们可以定义$S(t) = \{f(x,\,\,t) \, | \, x\in S\}$为变换的过程中，
-$S$在$t$时刻所处的位置。上一个例子中，$S(0.6)$就是一个以$(0.3,\,\,-0.3)$、$(1.3,\,\,-0.3)$、
+\begin{figure}[h] %this figure will be at the right
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.6\textwidth]{平移变换例1.png}
+\end{figure}
+
+另一方面，对给定的$t$，我们可以定义$S(t) = \{f(\mathbf{s},\,\,t) \, | \, \mathbf{s}\in S\}$为变换的过程中，
+$S$在$t$时刻的样子。上一个例子中，$S(0.6)$就是一个以$(0.3,\,\,-0.3)$、$(1.3,\,\,-0.3)$、
 $(1.3,\,\,0.7)$、$(0.3,\,\,0.7)$为顶点的正方形。
 
-从例子中可以看到，按向量$\mathbf{u}$的平移变换可以表示为：
+从例子中可以看到，图形$S$按向量$U$的\textbf{平移变换}可以表示为：
 \begin{align}
-    f: \,\, S\times[0,\,\,1] \,\,&\rightarrow \mathbb{R}^2 \notag \\
-    (\mathbf{s},\,\, t) \quad &\mapsto \mathbf{s} + t\mathbf{u}. \notag
+    \mathrm{Py}_U: \,\, S\times[0,\,\,1] \,\,&\rightarrow \mathbb{R}^2 \notag \\
+    (\mathbf{s},\,\, t) \quad &\mapsto \mathbf{s} + tU. \notag
 \end{align}
 
-另一种比较简单的变换叫做\textbf{位似变换}。\textbf{位似}是一种特殊的相似关系。
+平移变换不改变图形的大小和形状，只改变图形的位置。大部分的变换对图形的大小、形状和位置都有改变。比如给定一个长度为$1$的向量（称为单位向量）$\mathbf{u}$，
+考虑以下变换：
+\begin{align}
+    \mathrm{Ty}_\mathbf{u}: \,\, S\times[0,\,\,1] \,\,&\rightarrow \mathbb{R}^2 \notag \\
+    (\mathbf{s},\,\, t) \quad &\mapsto t(\mathbf{s}\,|\,\mathbf{u})\mathbf{u} + (1 - t)\mathbf{s}. \notag
+\end{align}
+用一个例子来看这个变换的作用。给定向量$\mathbf{u} = (1,\,\,0)$，考虑点$\mathbf{s}$在变换中的运动情况。对给定的点$\mathbf{s}$来说，
+它运动的轨迹是线段：
+$$\{t(\mathbf{s}\,|\,\mathbf{u})\mathbf{u} + (1 - t)\mathbf{s} \, | \, t\in[0,1]\}.$$
+$t=0$时，点从初始位置出发。
+$t=1$时，点到达$(\mathbf{s}\,|\,\mathbf{u})\mathbf{u}$。我们注意到，变换把任何点变为和$\mathbf{u}$共线的向量。
+
+具体来说，如果设点$\mathbf{s}$的坐标为$(x,\,\,y)$，那么运动的终点为$(x,\,\,0)$。
+直观上看，如果把$x$轴看作地面，那么$(x,\,\,0)$可以看作$(x,\,\,y)$在竖直阳光下的影子。
+所以，我们把这样的变换称为（正）\textbf{投影变换}。指定一个方向，投影变换把点垂直投影到这个方向上，
+把点集变为它在这个方向上的“影子”。用数学的语言来说，投影变换捕捉出点在指定方向的分量。
+我们一般把$\mathbf{u}$称为投影变换的（单位）方向向量。
+
+举例来说，设$S$是标准单位正方形，$S$中任一点$(x,\,\,y)$在变换中的运动为$t\,\,\mapsto (x,\,\,\ (1 - t)y)$。
+因此，$S$在$t$时刻的样子$S(t)$是一个长为$1$，宽为$1 - t$的长方形，最终变成从原点到$(1,\,\,0)$的线段。
+这就是标准单位正方形在$(1,\,\,0)$方向的投影。
+
+\begin{figure}[h] %this figure will be at the right
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.75\textwidth]{投影变换例1.png}
+\end{figure}
+
+如果方向向量换成$(\frac{1}{2},\,\,\frac{\sqrt{3}}{2})$，
+那么$S$中任一点$(x,\,\,y)$在变换中的运动为
+$$t\,\,\mapsto (x,\,\,\ y) + t\left(\frac{\sqrt{3}}{4}y - \frac{3}{4}x,\,\,\ \frac{\sqrt{3}}{4}x - \frac{1}{4}y\right).$$
+因此$t=1$时，$(x,\,\,y)$最终运动到点$\left(\frac{1}{2}x + \frac{\sqrt{3}}{2}y\right)(\frac{1}{2},\,\,\frac{\sqrt{3}}{2})$。
+我们知道$x,\,\,y\in[0,1]$，因此$\frac{1}{2}x + \frac{\sqrt{3}}{2}y$最小为$0$，最大为$\frac{\sqrt{3}+1}{2}$。
+也就是说，$S$变为从原点到$(\frac{\sqrt{3} + 1}{4},\,\,\frac{3 + \sqrt{3}}{4})$的线段。
+这就是标准单位正方形在$(\frac{1}{2},\,\,\frac{\sqrt{3}}{2})$方向的投影。
+
+另一种简单的变换是\textbf{位似变换}。
+\textbf{位似}是一种特殊的相似关系。
 举例来说，设$\triangle ABC$相似于$\triangle A'B'C$。
 如果直线$AA'$、$BB'$、$CC'$交于一点$U$，就说两个三角形位似，$U$是\textbf{位似中心}。
 
 位似变换可以表示为：
 \begin{align}
-    f: \,\, S\times[0,\,\,1] \,\,&\rightarrow \mathbb{R}^2 \notag \\
-    (\mathbf{s},\,\, t) \quad &\mapsto \mathbf{u} + (1 - kt)(\mathbf{s} - \mathbf{u}) = (1 - kt)\mathbf{s} + kt\mathbf{u}. \notag
+    \mathrm{Ws}_{(U, \,\,k)}: \,\, S\times[0,\,\,1] \,\,&\rightarrow \mathbb{R}^2 \notag \\
+    (\mathbf{s},\,\, t) \quad &\mapsto \mathbf{s} + t(1 - k)(U - \mathbf{s}). \notag
 \end{align}
-其中$\mathbf{u}$是位似中心，$k$是终点时的相似比。
-从$S$中一点$\mathbf{s}$来看，向量$\mathbf{s} - \mathbf{u}$不断放缩，最终变成原来的$k$倍大小。
-我们说$S$按照$\mathbf{u}$放缩，最终变成原来$k$倍大小。
+其中$U$是位似中心，$k$是终点时图形与初始图形的相似比。
+我们说$S$以$U$为中心放缩，最终变成原来$k$倍大小。
+从$S$中一点$\mathbf{s}$来看，它从$\mathbf{s}$出发，不断向$U$运动，最终到达$k\mathbf{s} + (1 - k)U$。
 
-我们学习过点和图形的轴对称。把图形变成它的轴对称图形，这样的变换叫做反射变换。
+\begin{wrapfigure}[9]{r}{0.42\textwidth} %this figure will be at the right
+    \vspace{-12pt}
+    \flushright
+    \includegraphics[width=0.4\textwidth]{位似变换例1.png}
+\end{wrapfigure}
+
+举例来说。设$S$是标准单位正方形，四个顶点分别是$A(0,\,\,0)$、$B(1,\,\,0)$、$C(1,\,\,1)$、$D(0,\,\,1)$。
+指定位似中心$U(-1,\,\,-1)$，相似比$k=0.4$。于是位似变换中$A$沿直线运动到$A'(-0.6,\,\,-0.6)$，$B$沿直线运动到$B'(-0.2,\,\,-0.6)$。
+线段$AB$上一点$(x,\,\,0)$沿直线运动到$(0.4x - 0.6, \,\, -0.6)$。于是线段$AB$变成线段$A'B'$。
+同理线段$BC$、$CD$、$DA$变成线段$B'C'$、$C'D'$、$D'A'$，其中$C'=(-0.2,\,\, -0.2)$，$D'=(-0.6,\,\,-0.2)$。
+于是标准单位正方形$S$变成边长为$0.4$的正方形$A'B'C'D'$。
+
+我们学习过点和图形的轴对称。把图形变成它的轴对称图形，这样的变换叫做\textbf{反射变换}。
 反射变换可以表示为：
 \begin{align}
-    f: \,\, S\times[0,\,\,1] \,\,&\rightarrow \mathbb{R}^2 \notag \\
-    (\mathbf{s},\,\, t) \quad &\mapsto 2(\mathbf{s}\cdot\mathbf{u})\mathbf{u} - \mathbf{s}. \notag
+    \mathrm{Fs}_\mathbf{u}: \,\, S\times[0,\,\,1] \,\,&\rightarrow \mathbb{R}^2 \notag \\
+    (\mathbf{s},\,\, t) \quad &\mapsto 2t(\mathbf{s}\,|\,\mathbf{u})\mathbf{u} + (1 - 2t)\mathbf{s}. \notag
 \end{align}
-其中$\mathbf{u}$是对称轴所在直线的方向向量，长度为$1$。
+其中$\mathbf{u}$是对称轴所在直线的单位方向向量。
+
+\begin{wrapfigure}[7]{r}{0.42\textwidth} %this figure will be at the right
+    \vspace{-42pt}
+    \flushright
+    \includegraphics[width=0.4\textwidth]{反射变换例1.png}
+\end{wrapfigure}
+
+举例来说，设方向向量$\mathbf{u} = \left(-\frac{\sqrt{2}}{2},\,\,\frac{\sqrt{2}}{2}\right)$，标准单位正方形经历变换$\mathrm{Fs}_\mathbf{u}$，其中的点$(x,\,\,y)$的运动为：
+\begin{align}
+    t \,\, \mapsto &\quad (t(x-y), \,\,t(y-x)) + (1 - 2t)(x, \,\,y) \notag \\
+    & = (x, \,\,y) - t(x+y)(1, \,\, 1) \notag
+\end{align}
+$t=1$时，点$(x,\,\,y)$到达$(-y,\,\,-x)$，即它关于直线$x+y=0$的对称点。于是$\mathrm{Fs}_\mathbf{u}$将标准单位正方形变换为它关于$x+y=0$的对称图形，即
+以$(0,\,\,0)$、$(0,\,\,-1)$、$(-1,\,\,-1)$、$(-1,\,\,0)$为顶点的正方形。
+
+最后来看\textbf{旋转变换}。旋转变换指的是以给定角的顶点为中心，把某个图形按该角旋转。
+
+首先来看一点的旋转。
+给定角$\alpha$，顶点为$U$。平面中一点$P$关于$\alpha$旋转的结果，
+是唯一使得$\angle PUQ = \alpha$且$|UP| = |UQ|$的点$Q$\footnote{如果$P=U$，则旋转后仍为$P$。}。
+以$U$为圆心，以$|UP|$为半径作圆，则$P$沿圆弧运动到$Q$。
+顶点$U$称为\textbf{旋转中心}，$\alpha$称为\textbf{旋转角}。
+
+最简单的情况是$U$为原点。这时，设点$P$的坐标为$(x,\,\,y)$，$|UP| = r = \sqrt{x^2 + y^2}$。
+取$x$轴上的点$S(1,\,\,0)$为基准，设$\angle SUP = \theta$，容易验证，$|x| = r|\cos{\theta}|$，
+$|y| = r|\sin{\theta}|$。对比各个象限中$x$、$y$和$\cos{\theta}$、$\sin{\theta}$的正负号，可以发现：
+任何情况下，$x$总与$\cos{\theta}$同正负，$y$总与$\sin{\theta}$同正负。
+
+\begin{tm}
+    设$P(x,\,\,y)$是平面上原点外一点，设以$x$轴正半轴为始边、射线$OP$为终边的角为$\theta$，则
+    $$ x = r\cos{\theta},\quad y = r\sin{\theta}.$$
+    其中$r = \sqrt{x^2 + y^2}$。
+\end{tm}
+这个定理将点的坐标和角度联系起来，是我们讨论平面角度和旋转问题的关键。
+
+\begin{wrapfigure}[7]{r}{0.42\textwidth} %this figure will be at the right
+    \vspace{-42pt}
+    \flushright
+    \includegraphics[width=0.4\textwidth]{旋转变换例1.png}
+\end{wrapfigure}
+
+如果将$P$按角$\alpha$旋转，那么与$x$轴正半轴张成的角应该从$\theta$变为$\theta + \alpha$。
+也就是说，用角度来描述旋转运动，就是：$t \mapsto \theta + t\alpha$。回到具体位置上，
+$t$时刻$UP$的长度仍然是$r$，而角度是$\theta + t\alpha$，因此，它的坐标是$(r\cos{(\theta + t\alpha)},\,\,r\sin{(\theta + t\alpha)})$。
+使用和角公式，可以将它转化为：
+$$(r\cos{\theta}\cos{(t\alpha)} - r\sin{\theta}\sin{(t\alpha)},\,\,r\cos{\theta}\sin{(t\alpha)} + r\sin{\theta}\cos{(t\alpha)}).$$
+用$x,y$表示，旋转运动就是：
+$$ t \mapsto \left(x\cos{(t\alpha)} - y\sin{(t\alpha)}, \,\,x\sin{(t\alpha)} + y\cos{(t\alpha)}\right).$$
+
+如果$U$不是原点，坐标是$(x_U, \,\,y_U)$，那么$\vv{UP} = (x - x_U, \,\, y - y_U)$。$\vv{UP}$旋转变为$\vv{UQ}$的运动和前面类似。
+因此通过$Q = U + \vv{UQ}$就可得到$Q$。于是旋转运动可以表示为：
+\begin{align}
+    t \mapsto (x_U,\,\,y_U) + &\big((x - x_U)\cos{(t\alpha)} - (y - y_U)\sin{(t\alpha)},\notag \\
+    &\,\,\,(x - x_U)\sin{(t\alpha)} + (y - y_U)\cos{(t\alpha)}\big).\notag
+\end{align}
+
+因此，旋转变换可以表示为：
+\begin{align}
+    \mathrm{Xz}_{(U,\,\,\alpha)}: \,\, S\times[0,\,\,1] \,\,&\rightarrow \mathbb{R}^2 \notag \\
+    ((x,\,\,y),\,\, t) \quad &\mapsto (x_U,\,\,y_U)+\big((x - x_U)\cos{(t\alpha)} - (y - y_U)\sin{(t\alpha)},\notag \\
+    &\qquad\qquad\qquad\quad(x - x_U)\sin{(t\alpha)} + (y - y_U)\cos{(t\alpha)}\big). \notag
+\end{align}
+
+\begin{wrapfigure}[7]{r}{0.42\textwidth} %this figure will be at the right
+    \vspace{-22pt}
+    \flushright
+    \includegraphics[width=0.4\textwidth]{旋转变换例2.png}
+\end{wrapfigure}
+
+可以看到，旋转变换的表示形式繁琐。这是向量和直角坐标系的性质决定的。
+
+直角坐标系与向量的共线性质和内积相关。共线性、内积的基本性质都只和向量的加法、数乘运算相关。
+而向量定义中的加法和数乘运算，分别对应平移和放缩变换。
+向量定义中并没有与旋转对应的运算，共线性、内积的性质也不包括旋转，
+因此，要通过向量在直角坐标系下的坐标表示旋转，自然不是简单的事情。
+
+一种折中的方法是使用极坐标系。极坐标系是科学家研究南北极地时发明的。在南北极圈中，各条经线汇于极点。
+人们发现，使用到极点的距离和经度描述位置，比使用经纬度更精确、更方便。
+
+\begin{figure}[h] %this figure will be at the right
+    % \vspace{4pt}
+    \centering
+    \includegraphics[width=0.8\textwidth]{极坐标例1南北极地图2.jpg}
+    \caption*{\texttt{使用极坐标系的极地地图}}
+\end{figure}
+如下图所示，一点$P$在极坐标系中的坐标称为极坐标，它由模长和辐角组成。模长就是点$P$到原点$O$的距离，
+辐角是$x$轴正半轴到$\vv{OP}$所构成的角。比如，直角坐标系中坐标为$(1,\,\,1)$的点，在极坐标系中可以表示为
+$(\sqrt{2},\,\, 45^\circ)$。
+
+\begin{figure}[h] %this figure will be at the right
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.5\textwidth]{极坐标例2.png}
+\end{figure}
+
+使用极坐标系，可以比较方便地描述以原点为中心的旋转运动。比如，直角坐标系中，
+点$(1,\,\,1)$以原点为中心顺时针旋转$25^\circ$，可以用极坐标系描述为：
+$$ t\,\, \mapsto (\sqrt{2}, \,\, 45^\circ + t \cdot 25^\circ)$$
+然而，用极坐标系描述平移、放缩等运动就比较复杂。因此，用极坐标描述以非原点为中心的旋转，仍然繁琐。
+
+\begin{et}
+    直角坐标系中，设$A$、$B$坐标分别为$(2,\,\, -1)$、$(1,\,\, 3)$。考虑线段$AB$，
+    以原点为中心，将其旋转$45^\circ$，然后以原点为中心，将其放大为原来的$2$倍，再按$(0,\,\, -2)$平移。最终得到的图形是什么？
+\end{et}
+\begin{so}
+    线段$AB$经历了$3$个变换，分别可以记为$\mathrm{Xz}_{(O,\,\,\alpha)}$、$\mathrm{Ws}_{(O,\,\, 2)}$和$\mathrm{Py}_{M}$，
+    其中$\alpha = 45^\circ$，$M = (0,\,\,-2)$。
+
+    首先看第一个变换。$\mathrm{Xz}_{(O,\,\,\alpha)}$可以表示为：
+    \begin{align}
+        ((x,\,\,y),\,\, t) \,\,\, \mapsto \left(x\cos{(t\alpha)} - y\sin{(t\alpha)},\,\,x\sin{(t\alpha)} + y\cos{(t\alpha)}\right). \notag
+    \end{align}
+    因此$t=1$时，$(x,\,\,y)$运动到$\left(\frac{\sqrt{2}}{2}(x-y),\,\,\frac{\sqrt{2}}{2}(x+y)\right).$
+    计算可得，$A$经过旋转变成$A_1 = \left(\frac{3\sqrt{2}}{2},\,\, \frac{\sqrt{2}}{2}\right)$，
+    $B$经过旋转变成$B_1 = \left(-\sqrt{2},\,\, 2\sqrt{2}\right)$。线段$AB$经过旋转变为线段$A_1B_1$。
+
+    接着进行第二个变换。$\mathrm{Ws}_{(O,\,\, 2)}$可以表示为：
+    \begin{align}
+        (\mathbf{s},\,\, t) \,\,\, \mapsto \mathbf{s} - t(O - \mathbf{s}). \notag
+    \end{align}
+    因此$t=1$时，$\mathbf{s}$运动到$2\mathbf{s}$。计算可得，$A_1$经过放缩变成$A_2 = \left(3\sqrt{2},\,\, \sqrt{2}\right)$，
+    $B$经过放缩变成$B_2 = \left(-2\sqrt{2},\,\, 4\sqrt{2}\right)$。线段$A_1B_1$经过旋转变为线段$A_2B_2$。
+
+    最后进行平移变换。$\mathrm{Py}_{M}$可以表示为：
+    $$ (\mathbf{s},\,\, t) \,\,\, \mapsto \mathbf{s} + tM. $$
+    因此$t=1$时，$\mathbf{s}$运动到$\mathbf{s} + M$。计算可得，点$A_2$经过平移变成$A_3 = \left(3\sqrt{2},\,\, \sqrt{2}-2\right)$，
+    $B$经过平移变成$B_3 = \left(-2\sqrt{2},\,\, 4\sqrt{2}-2\right)$。线段$A_2B_2$经过旋转变为线段$A_3B_3$。
+
+    综上所述，线段$AB$经过三个变换，最终得到线段$A_3B_3$。
+\end{so}
+
+\begin{sk}
+    \mbox{}\\
+    \indent 1. 如何描述图形关于某点的中心对称变换？ \\
+    \indent 2. 如果一个变换的任意时刻，图形中任两点的距离不变，就说它是保距变换。本节提到的变换中，哪些变换是保距变换？\\
+    \indent 3. 如果一个变换的任意时刻，图形中的角的角度不变，就说它是保角变换。本节提到的变换中，哪些变换是保角变换？
+\end{sk}
+
+\begin{xt}
+    \mbox{}\\
+    \indent 1. 将标准单位正方形以原点为中心，按$45^\circ$顺时针旋转，最终得到的图形是什么？详细描述这个变换。\\
+    \indent 2. 设点$A$、$B$、$C$的坐标分别是$(0,\,\, 4)$、$(-1,\,\, 0)$、$(1,\,\,1)$。\\
+    \indent 2.1. 以原点为中心，把$\triangle ABC$按$90^\circ$顺时针旋转，然后以原点为中心，将其放大为原来的$3$倍，再按$(-5, \,\, 0)$平移。最终得到的图形是什么？\\
+    \indent 2.2. 把$\triangle ABC$按$\mathbb{R}\left(\frac{1}{2},\,\, \frac{\sqrt{3}}{2}\right)$作反射变换，再按$(0,\,\, 6)$平移。最终得到的图形是什么？\\
+    \indent 2.3. 以原点为中心，把$\triangle ABC$分别按$30^\circ$、$120^\circ$顺时针旋转，然后投影到$\left(\frac{2\sqrt{5}}{5},\,\, -\frac{\sqrt{5}}{5}\right)$方向上。最终分别得到什么图形？\\
+    \indent 3. 某工厂的机械臂要完成一个平面动作，可以简单描述为把端点为$A(1,\,\, 2)$、$B(-2,\,\, 1)$的线段，
+    变换为端点为$A'(-4,\,\, 4)$、$B'(-4,\,\, -6)$的线段。机械臂可以进行$3$种操作：以原点为中心的旋转变换、按任一向量的平移变换、
+    以线段一端为中心的位似变换。\\
+    \indent 3.1. 请设计一种操作组合，把$AB$移动到$A'B'$。\\
+    \indent 3.2. 请设计一种操作组合，把$AB$移动到$A'B'$，并确保$AB$的中点经过点$(-2,\,\, -2)$。\\
+    \indent 3.3. 已知机械臂的每种操作成本。旋转变换的成本与线段中点经过的距离成正比，每单位长度$0.65$元；
+    平移变换的成本和平移距离成正比，每单位长度$0.4$元；位似变换的成本和变换前后线段长度的差值成正比，每单位长度$0.8$元。请设计一种操作方式，使成本最低。\\
+    \indent 3.4. 同上，如果要确保$AB$的中点经过点$(-2,\,\, -2)$，那么怎样操作成本最低？
+\end{xt}
+
+\chapter{从平面到立体}
+
+我们已经初步了解了简单平面图形的性质。下面我们来认识立体形状。
+
+我们生活的世界是立体空间。人类自身和自然万物，都是立体的。立体形状是我们最常接触的形状。
+不过，人类的眼睛和大脑并不能直接处理立体形状，只能感知立体事物的平面图像，在大脑中还原事物的形状。
+因此，人类总是通过平面图像来了解立体事物，通过平面图像还原、表现现实。
+
+\begin{figure}[h] %this figure will be at the right
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=1\textwidth]{景色1.jpg}
+    \caption*{\texttt{平面图像与现实}}
+\end{figure}
+
+\section{多面体}
+观察以下的物品，它们有什么相似之处？
+
+\begin{figure}[h] %this figure will be at the right
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.6\textwidth]{多面体例1.jpg}
+\end{figure}
+
+如果立体形状是几个平面围成的，就说它是\textbf{多面体}。多面体的每个面都是多边形。
+
+我们按照多面体的面数来称呼它。比如，由四个面围成的多面体叫四面体，由九个面围成的多面体叫九面体。
+
+\begin{figure}[h] %this figure will be at the right
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.8\textwidth]{多面体2.png}
+\end{figure}
+
+多面体相邻两面相交的部分总是线段，这些线段叫做\textbf{多面体的棱}。三条或以上的棱交会在共同的端点上。
+这些点也是多面体相邻的几个面的共同点，称为\textbf{多面体的顶点}。
+
+数一数，上图中的多面体有几条棱？有几个顶点？
+
+\begin{sk}
+    \mbox{}\\
+    \indent 1. 日常生活中，你还见过哪些多面体？\\
+    \indent 2. 多面体的顶点有没有可能只是两条棱的共同端点？\\
+    \indent 3. 多面体相邻两面的交点是否一定是线段？多面体的棱有没有可能是三个或以上的相邻面的共同部分？    
+\end{sk}
+
+\begin{wrapfigure}[3]{r}{0.29\textwidth} %this figure will be at the left
+    \vspace{-50pt}
+    \flushright
+    \includegraphics[width=0.25\textwidth]{正方体1.png}
+\end{wrapfigure}
+
+下面来认识几种特殊的多面体。
+
+右图中的多面体由六个正方形组成。它叫做\textbf{正方体}或\textbf{正六面体}。
+观察正方体，你能总结出什么特征？
+
+\begin{wrapfigure}[4]{l}{0.3\textwidth} %this figure will be at the left
+    \vspace{-20pt}
+    \flushright
+    \includegraphics[width=0.25\textwidth]{长方体1.png}
+\end{wrapfigure}
+
+把正方体按某条棱的方向延长或压缩，得到的多面体叫做\textbf{长方体}。正方体就是一种特殊的长方体。
+显然，长方体也是六面体。观察长方体，你能总结出什么特征？
+
+\begin{sk}
+    \mbox{}\\
+    \indent 1. 正方体有几条棱？棱与棱之间有什么关系？\\
+    \indent 2. 正方体有几个顶点？顶点与顶点之间有什么关系？\\
+    \indent 3. 正方体是否是对称形状？你能说出正方体的哪些对称性质？长方体呢？
+\end{sk}
+
+观察下图中的多面体，它们有什么共同特征？
+
+\begin{figure}[h] %this figure will be at the right
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.8\textwidth]{棱柱1.png}
+\end{figure}
+
+把一个多边形朝指定方向平移，可以得到多面体。这样的多面体叫做\textbf{棱柱}。
+平移的多边形叫做\textbf{棱柱的底面}。其它面叫做\textbf{棱柱的侧面}。
+
+\begin{sk}
+    \mbox{}\\
+    \indent 1. 棱柱的侧面有什么特征？\\
+    \indent 2. 正方体和长方体是棱柱吗？\\
+    \indent 3. 你能说出生活中见过的棱柱吗？\\
+    \indent 4.《九章算术》刘徽注：“邪（斜）解立方得两堑堵，邪解堑堵，其一为阳马，一为鳖臑，阳马居二，鳖臑居一，不易之率也。合两鳖臑成一阳马，合三阳马而成一立方，故三而一。”
+    其中的“立方“就是正方体。已知“堑堵”和“阳马”是五面体、“鳖臑”是四面体，自行探究：刘徽说的“堑堵”、“阳马”、“鳖臑”分别是什么？如何理解刘徽说的话？
+\end{sk}
+
+\section{旋转体和球}
+
+观察以下的物品，它们有什么相似之处？
+
+\begin{figure}[h] %this figure will be at the right
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.8\textwidth]{旋转体例1.jpg}
+\end{figure}
+
+如果立体形状是某个平面图形绕着定轴旋转一周而成的，就说它是\textbf{旋转体}。
+
+多面体可以是旋转体吗？
+
+任何点绕定轴旋转一周，必然形成一个圆。考虑多面体表面的点，它们旋转之后是否能留在所属的平面上？
+
+\begin{wrapfigure}[9]{r}{0.22\textwidth} %this figure will be at the left
+    \vspace{-10pt}
+    \flushright
+    \includegraphics[width=0.2\textwidth]{圆锥1.png}
+
+    \vspace{20pt}
+    \includegraphics[width=0.2\textwidth]{球体1.png}
+\end{wrapfigure}
+
+观察右图中的旋转体，它有几个面？它的面和多面体的面有什么不同？
+
+直角三角形绕着直角边所在的直线旋转一周，形成的立体形状叫做\textbf{圆锥}。圆锥有两个面，
+一个面是平的，一个面是曲面。我们把平的面叫做\textbf{圆锥的底面}，把曲面叫做\textbf{圆锥的侧面}。侧面的顶端叫做\textbf{圆锥的锥顶}。
+
+矩形绕着它某条边所在的直线旋转一周，形成的立体形状叫做\textbf{圆柱}。圆柱有三个面，
+其中两个面是平的，一个面是曲面。我们把平的面叫做\textbf{圆柱的底面}，把曲面叫做\textbf{圆柱的侧面}。
+
+\begin{wrapfigure}[6]{l}{0.22\textwidth} %this figure will be at the left
+    \vspace{-16pt}
+    \flushleft
+    \includegraphics[width=0.2\textwidth]{圆柱2.png}
+\end{wrapfigure}
+
+圆形绕着过圆心的直线旋转一周，形成的立体形状叫做\textbf{球}或\textbf{球体}。球只有一个面，叫做\textbf{球面}。
+
+\begin{sk}
+    \mbox{}\\
+    \indent 1. 日常生活中，你还见过哪些旋转体？\\
+    \indent 2. 圆锥、圆柱的底面是什么形状？为什么？\\
+    \indent 3. 圆柱和棱柱有什么相似之处？能不能用别的方式定义圆柱？\\
+    \indent 4. 圆锥、圆柱和球是否是对称形状？你能说出它们的哪些对称性质？
+\end{sk}
+
+\section{在平面上表示立体形状}
+
+让我们在平面上还原我们看到的立体事物。为什么图中的$A$显得远，$B$显得近？
+
+% 近大远小的画例子
+
+大脑还原事物的形状时，遵循“近大远小”的规律。
+
+同一个物体，离眼睛越远，就显得越小；离眼睛越近，就显得越大。物体在人眼中的大小，大致和它到眼睛的距离成正比。
+
+在平面中，可以使用“近大远小”的方法，表现立体事物的远近。这种表现方法称为\textbf{透视法}。在平面中表现立体形状的技法，
+叫做\textbf{作图法}，因为传统上我们用画图的方法来表现现实世界中的立体形状。大部分写实绘画的作图法中都会用到透视法，
+让平面中表现的立体景象显得更真实。
+
+透视法有两个基本要诀，一个是“近大远小”，另一个是“向前缩短”。“近大远小”我们已经介绍过了，
+“向前缩短”指的是往远方的线并不会真的无限延伸，因此会显得比实际长度短一些。
+“向前缩短”可以说是“近大远小”和人的视力有限造成的现象。
+
+最简单的透视法是\textbf{直线透视法}。直线透视法认为，现实世界中的平行线，在平面作图时会交于同一点，即便在图中没有相交，其延长线也一定交于同一点。
+这个点代表着我们的视力能看到的最远极限，叫做\textbf{灭点}或\textbf{消失点}。灭点可以是一个、两个或三个。
+对应的透视法称为单点透视、两点透视和三点透视。
+
+一点透视指图中有一个灭点。观察一点透视的图画，你觉得图中哪些线是现实世界中的平行线？相比现实，它们有什么变化？
+
+% 单点透视例子
+
+两点透视指图中有两个灭点。观察两点透视的图画，你觉得图中哪些线是现实世界中的平行线？相比现实，它们有什么变化？
+
+% 两点透视例子
+
+三点透视指图中有三个灭点。观察三点透视的图画，你觉得图中哪些线是现实世界中的平行线？相比现实，它们有什么变化？
+
+% 三点透视例子
+
+\begin{sk}
+    \mbox{}\\
+    \indent 1. 如何理解“近大远小”现象？请试着将学过的知识推广到立体空间中，来解释“近大远小”现象。\\
+    \indent 2. 如何理解单点透视、两点透视、三点透视之间的区别和联系？为什么它们都可以反映真实的立体景象？\\
+    \indent 3. 你还知道哪些透视法？自行探究并比较各种透视法，它们和以上介绍的透视法有什么不同？
+\end{sk}
 
 
 \chapter{用数据说话}
