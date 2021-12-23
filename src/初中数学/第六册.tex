@@ -1151,16 +1151,16 @@ $|y| = r|\sin{\theta}|$。对比各个象限中$x$、$y$和$\cos{\theta}$、$\si
     $$ x = r\cos{\theta},\quad y = r\sin{\theta}.$$
     其中$r = \sqrt{x^2 + y^2}$。
 \end{tm}
-这个定理将点的坐标和角度联系起来，是我们讨论平面角度和旋转问题的关键。
+这个定理将点的坐标和角度联系起来，是我们讨论平面角度和旋转问题的关键。 
 
-\begin{wrapfigure}[7]{r}{0.42\textwidth} %this figure will be at the right
-    \vspace{-42pt}
+\begin{wrapfigure}[7]{r}{0.36\textwidth} %this figure will be at the right
+    \vspace{-40pt}
     \flushright
-    \includegraphics[width=0.4\textwidth]{旋转变换例1.png}
+    \includegraphics[width=0.3\textwidth]{旋转变换例1.png}
 \end{wrapfigure}
 
 如果将$P$按角$\alpha$旋转，那么与$x$轴正半轴张成的角应该从$\theta$变为$\theta + \alpha$。
-也就是说，用角度来描述旋转运动，就是：$t \mapsto \theta + t\alpha$。回到具体位置上，
+用角度来描述旋转运动，就是：$t \mapsto \theta + t\alpha$。回到点的具体位置，
 $t$时刻$UP$的长度仍然是$r$，而角度是$\theta + t\alpha$，因此，它的坐标是$(r\cos{(\theta + t\alpha)},\,\,r\sin{(\theta + t\alpha)})$。
 使用和角公式，可以将它转化为：
 $$(r\cos{\theta}\cos{(t\alpha)} - r\sin{\theta}\sin{(t\alpha)},\,\,r\cos{\theta}\sin{(t\alpha)} + r\sin{\theta}\cos{(t\alpha)}).$$
@@ -1203,8 +1203,8 @@ $$ t \mapsto \left(x\cos{(t\alpha)} - y\sin{(t\alpha)}, \,\,x\sin{(t\alpha)} + y
     \includegraphics[width=0.8\textwidth]{极坐标例1南北极地图2.jpg}
     \caption*{\texttt{使用极坐标系的极地地图}}
 \end{figure}
-如下图所示，一点$P$在极坐标系中的坐标称为极坐标，它由模长和辐角组成。模长就是点$P$到原点$O$的距离，
-辐角是$x$轴正半轴到$\vv{OP}$所构成的角。比如，直角坐标系中坐标为$(1,\,\,1)$的点，在极坐标系中可以表示为
+如下图所示，一点$A$在极坐标系中的坐标称为极坐标，它由模长和辐角组成。模长就是点$A$到原点$O$的距离，
+辐角是$x$轴正半轴到$\vv{OA}$所构成的角。比如，直角坐标系中坐标为$(1,\,\,1)$的点，在极坐标系中可以表示为
 $(\sqrt{2},\,\, 45^\circ)$。
 
 \begin{figure}[h] %this figure will be at the right
@@ -1307,10 +1307,10 @@ $$ t\,\, \mapsto (\sqrt{2}, \,\, 45^\circ + t \cdot 25^\circ)$$
     \includegraphics[width=0.8\textwidth]{多面体2.png}
 \end{figure}
 
-多面体相邻两面相交的部分总是线段，这些线段叫做\textbf{多面体的棱}。三条或以上的棱交会在共同的端点上。
+多面体相邻两面相交的部分总是线段，这些线段叫做\textbf{多面体的棱}。三条或以上的棱，交会在共同的端点上，
 这些点也是多面体相邻的几个面的共同点，称为\textbf{多面体的顶点}。
 
-数一数，上图中的多面体有几条棱？有几个顶点？
+数一数，上图中的多面体各有几个面？有几条棱？有几个顶点？
 
 \begin{sk}
     \mbox{}\\
@@ -1417,42 +1417,59 @@ $$ t\,\, \mapsto (\sqrt{2}, \,\, 45^\circ + t \cdot 25^\circ)$$
 
 \section{在平面上表示立体形状}
 
-让我们在平面上还原我们看到的立体事物。为什么图中的$A$显得远，$B$显得近？
+让我们在平面上还原我们看到的立体事物。为什么下图中的$A$显得远，$B$显得近？
 
-% 近大远小的画例子
+\begin{figure}[h] %this figure will be at the right
+    % \vspace{4pt}
+    \centering
+    \includegraphics[width=0.6\textwidth]{透视1.png}
+    \caption*{\texttt{近大远小}}
+\end{figure}
 
 大脑还原事物的形状时，遵循“近大远小”的规律。
 
-同一个物体，离眼睛越远，就显得越小；离眼睛越近，就显得越大。物体在人眼中的大小，大致和它到眼睛的距离成正比。
+同一个物体，离眼睛越远，就显得越小；离眼睛越近，就显得越大。
 
 在平面中，可以使用“近大远小”的方法，表现立体事物的远近。这种表现方法称为\textbf{透视法}。在平面中表现立体形状的技法，
-叫做\textbf{作图法}，因为传统上我们用画图的方法来表现现实世界中的立体形状。大部分写实绘画的作图法中都会用到透视法，
+叫做\textbf{作图法}，因为传统上，我们用画图的方法来表示现实世界中的立体形状。大部分写实绘画的作图法中都会用到透视法，
 让平面中表现的立体景象显得更真实。
 
 透视法有两个基本要诀，一个是“近大远小”，另一个是“向前缩短”。“近大远小”我们已经介绍过了，
 “向前缩短”指的是往远方的线并不会真的无限延伸，因此会显得比实际长度短一些。
 “向前缩短”可以说是“近大远小”和人的视力有限造成的现象。
 
+\begin{figure}[h] %this figure will be at the right
+    % \vspace{4pt}
+    \centering
+    \includegraphics[width=0.6\textwidth]{单点透视.png}
+    \caption*{\texttt{单点透视}}
+\end{figure}
+
 最简单的透视法是\textbf{直线透视法}。直线透视法认为，现实世界中的平行线，在平面作图时会交于同一点，即便在图中没有相交，其延长线也一定交于同一点。
 这个点代表着我们的视力能看到的最远极限，叫做\textbf{灭点}或\textbf{消失点}。灭点可以是一个、两个或三个。
 对应的透视法称为单点透视、两点透视和三点透视。
 
-一点透视指图中有一个灭点。观察一点透视的图画，你觉得图中哪些线是现实世界中的平行线？相比现实，它们有什么变化？
+\begin{figure}[h] %this figure will be at the right
+    \vspace{-4pt}
+    \centering
+    \includegraphics[width=0.6\textwidth]{两点透视.png}
+    \caption*{\texttt{两点透视}}
+\end{figure}
 
-% 单点透视例子
+观察单点透视、两点透视和三点透视的图画，你觉得图中哪些线是现实世界中的平行线？相比现实，它们有什么变化？
 
-两点透视指图中有两个灭点。观察两点透视的图画，你觉得图中哪些线是现实世界中的平行线？相比现实，它们有什么变化？
+\begin{figure}[h] %this figure will be at the right
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.6\textwidth]{三点透视.png}
+    \caption*{\texttt{三点透视}}
+\end{figure}
 
-% 两点透视例子
-
-三点透视指图中有三个灭点。观察三点透视的图画，你觉得图中哪些线是现实世界中的平行线？相比现实，它们有什么变化？
-
-% 三点透视例子
 
 \begin{sk}
     \mbox{}\\
     \indent 1. 如何理解“近大远小”现象？请试着将学过的知识推广到立体空间中，来解释“近大远小”现象。\\
-    \indent 2. 如何理解单点透视、两点透视、三点透视之间的区别和联系？为什么它们都可以反映真实的立体景象？\\
+    \indent 2. 如何理解单点透视、两点透视、三点透视之间的区别和联系？为什么它们都可以反映真实的立体景象？你觉得哪种透视更接近真实？\\
     \indent 3. 你还知道哪些透视法？自行探究并比较各种透视法，它们和以上介绍的透视法有什么不同？
 \end{sk}
 
