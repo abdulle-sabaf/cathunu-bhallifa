@@ -74,6 +74,9 @@
 \setlength{\columnsep}{2pt}%
 % 新函数
 \renewcommand\parallel{\mathrel{/\mskip-4mu/}}
+\newcommand\parasbx{%
+    \mathord{\text{%
+        \tikz[baseline] \draw (0,.1ex) -- (.8em,.1ex) -- (1em,1.6ex) -- (.2em,1.6ex) -- cycle;}}}
 % 章节字体大小
 \titleformat{\section}{\zihao{-2}\bfseries}{ \thesection }{16pt}{}
 % 封面
@@ -775,12 +778,157 @@ $$ \angle A_1A_2A_3 + \angle A_2A_3A_4 + \cdots + \angle A_{n-2}A_{n-1}A_{n} + \
     \indent 2. 设有整数$1 \leqslant i,j,k,l \leqslant n$，圆内接$n$边形$A_1A_2\cdots A_n$中，$\angle A_iA_kA_j$和$\angle A_iA_lA_j$有什么关系？
 \end{xt}
 
-% \section{弧长和面积}
-% 直观上，我们知道圆和圆弧的形状。我们已经学过，半径为$r$的圆，面积是$\pi r^2$，周长是$2\pi r$。
-% 其中的$\pi$是常数，叫圆周率，大约等于$3.14$。在公理体系中，如何证明这一点呢？
+\section{弧长与面积}
+我们已经学习过圆的周长和面积：圆的周长和直径成正比，比率大约是$3.14$。
+这个比率对任意圆都一样，称为\textbf{圆周率}，一般记为$\pi$。
+圆的面积则与圆的直径的平方成正比，比率为$\frac{\pi}{4}$。
+如果已知圆的半径$r$，圆的周长是它的$2\pi$倍，圆的面积则是$\pi r^2$。
+我们是这样求圆的面积的：
+\begin{enumerate}
+    \item 将圆按圆心均匀分成$n$份，每份是一个小扇形。
+    \item 将$n$个小扇形上下交错地排成一排。
+    \item $n$很大时，小扇形排成一排后近似一个矩形。它的长是圆周长的一半，宽是圆的半径。
+    \item 因此圆的面积等于矩形面积，也就是周长乘半径的一半，或者说半径平方的$\pi$倍。
+\end{enumerate}
 
-% 这些知识看似不难，但要从基本的定义和公理出发，得到
+以上的思路中，不少部分是模糊的，比如“$n$很大”、“近似矩形”等等。
+下面，我们从更严格的角度重新认识圆的弧长和面积。
 
+圆是曲线图形。我们知道，圆弧作为圆的一部分，它的长度和半径以及圆心角成正比。设圆的半径为$r$，
+圆心角为$m$度，则弧长为$\frac{m\pi r}{180}$。比如，圆心角为直角，对应的弧长就是$\frac{\pi r}{2}$。
+另一方面，圆的面积和半径的平方成正比。这是无法从已有公理得到的。我们需要一条新的公理：
+
+\begin{po}{\textbf{相似形面积公理}}
+    相似形面积之比是相似比的平方。
+\end{po}
+
+圆的定义只涉及圆心和半径，而圆心的位置移动时，圆的大小不变。因此，圆的大小只和半径有关。
+而圆的形状与大小无关，也就是说所有圆都相似，而相似比是半径的比。
+因此，根据相似形面积公理，相似的圆，面积之比是相似比的平方，也就是半径比的平方。
+如果设半径为$1$的圆的面积是$S_1$，那么半径为$r$的圆，面积是$S_1r^2$。
+
+\begin{figure}[H] 
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.5\textwidth]{圆面积2.png}
+\end{figure}
+
+下面来论证$S_1 = \pi$。为此，我们需要详细讨论前面提到的小扇形的面积。
+
+如上图，单位圆的圆心为$O$，半径$|OA|=1$，圆心角$\angle AOB = \frac{360^\circ}{n}$，
+小扇形$AOB$的面积是圆$O$面积的$n$分之一。它大于三角形$AOB$的面积。
+过$B$作$OA$的垂线，记垂足为$H$，则
+$$ S_{\text{扇形}AOB} > S_{\triangle AOB} = \frac12 |OA| \cdot |BH| = \frac12 |BH|. $$
+
+另一方面，作$A$、$B$的中垂线交线段$AB$于点$T$，交圆$O$在$A$点的切线于$P$，则$BP$是
+圆$O$在$B$点的切线。小扇形$AOB$的面积小于三角形$AOP$面积与三角形$BOP$面积之和。
+
+过$P$作$BH$的垂线，垂足为$U$，则
+$$ |AP|+|BP| = |HU| + |BP| < |HU| + |PU| + |BU| = |BH| + |AH|. $$
+因此，
+\begin{align}
+    S_{\text{扇形}AOB} &< S_{\triangle AOP} + S_{\triangle BOP} \notag \\
+    &= \frac12 \left( |OA| \cdot |AP| + |OB| \cdot |BP|\right) \notag \\
+    &= \frac12 (|AP| +|BP|) \notag \\
+    &< \frac12 (|BH| + |AH|). \notag
+\end{align}
+
+我们知道圆弧$\widearc{AB}$的长度为$\frac{2\pi}{n}$。$|BH| < |AB|$，而$AB$作为线段，长度小于$\widearc{AB}$。
+如果可以证明$\widearc{AB}$的长度小于等于$|AP| + |BP|$，那么就有
+$$ |BH| < \frac{2\pi}{n} \leqslant |AP| + |BP| < |BH| + |AH|.$$
+而从图中我们可以猜测，$\angle AOB$接近零角的时候，$|AH|$比$|BH|$小得多。
+这个猜测不无道理，实际上，
+$$|AH| = |OA| - |AH| = 1 - \sqrt{1 - |BH|^2},$$
+而我们可以证明，当$0<x<1$时，$1 - \sqrt{1 - x} < x$，因此，
+$$ |AH| < |BH|^2 < \frac{4\pi^2}{n^2}. $$
+于是
+$$ |BH| > \frac{2\pi}{n} - |AH| > \frac{2\pi}{n} - \frac{4\pi^2}{n^2}. $$
+
+小扇形$AOB$的面积是单位圆面积的$n$分之一，因此，从前面讨论可以得到：
+$$ \frac{n}{2} |BH| < n\cdot S_{\text{扇形}AOB} = S_1 < \frac{n}{2} (|BH| + |AH|). $$
+因此，单位圆的面积在以下范围内：
+$$ \pi - \frac{2\pi^2}{n} < S_1 < \pi + \frac{2\pi^2}{n}. $$
+这个结论对任何$n$成立，所以可以写成：
+$$ \forall n\in\mathbb{N}, \quad | S_1 - \pi | < \frac{2\pi^2}{n}. $$
+无论$n$多大，单位圆的面积和圆周率$\pi$之间的差别总小于$\frac{2\pi^2}{n}$。
+这说明单位圆的面积只能等于$\pi$。否则，设$| S_1 - \pi | > 0$，则
+当$n$为比$\frac{2\pi^2}{| S_1 - \pi |}$大的整数时，就会有$| S_1 - \pi | \geqslant \frac{2\pi^2}{n}$，产生矛盾。
+
+最后，我们还需要解决一个问题，就是证明$\widearc{AB}$的长度小于等于$|AP| + |BP|$。
+这需要我们对曲线长度有更多的了解。要知道，至今为止，
+我们对曲线长度的唯一认识，就是从“两点之间线段最短”推出的“连接两点的曲线总比两点之间的线段长”。
+曲线什么时候比线段短呢？我们需要引入一个新的公理：
+
+\begin{po}{\textbf{曲线长公理}}
+    设$\gamma$是连接两点$A$、$B$的曲线。给定正实数$c$。
+    如果对$\gamma$上任意依次选取的若干点$A = A_0, A_1, \cdots , A_m = B$，
+    总有
+    $$ |A_0A_1| + |A_1A_2| + \cdots + |A_{m-1}A_m| \leqslant c,$$
+    那么曲线$\gamma$的长度小于等于$c$。
+\end{po}
+通常把线段$A_0A_1$、$A_1A_2$等合称为曲线$\gamma$上的折线，记为$A_0A_1\ldots A_m$。曲线长公理说明，
+曲线的长度就是曲线上折线长度的上限。
+
+来看圆弧的长度。
+\begin{tm}\label{tm:1-5-0}
+    给定圆$O$，设圆心与圆上两点$B$、$C$的连线分别交圆在圆上一点
+    的切线于$D$、$P$，则$|BC| < |DP|$。
+\end{tm}
+\begin{proof2}
+    如下图左，我们过$D$作$DE \parallel BC$交$OP$于$E$，
+    则$\triangle BOC \sim \triangle DOE$。$|OD| > |OB|$，因此
+    $|BC| < |DE|$。
+    另外，$\triangle DOE$也是等腰三角形，因此$\angle OED = \angle EDO$。于是
+    \begin{align}
+        \angle OPD &= 180^\circ - \angle DOP - \angle PDO \notag \\
+        &> 180^\circ - \angle EDO \notag \\
+        &= 180^\circ - \angle OED = \angle DEP \notag
+    \end{align}
+    这说明$\triangle EDP$中，$|DE| < |DP|$。于是
+    $$ |BC| < |DE| < |DP|. $$
+\end{proof2}
+
+\begin{figure}[H] 
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.8\textwidth]{圆面积3.png}
+\end{figure}
+
+下面证明$\widearc{AB}$的长度小于等于$|AP| + |BP|$。设$OP$交圆于$Q$，如上图右，设有$\widearc{AQ}$上的折线
+$AA_1A_2\cdots A_{m-1}Q$。从圆心出发经过折线各端点的射线分别交$AP$于$P_1$、$P_2$、$P_{m-1}$、$P_m=P$，
+根据定理$\ref{tm:1-5-0}$，
+$$|AA_1| < |AP_1|, \,\, |A_1A_2| < |P_1P_2|, \,\, \cdots , \,\, |A_{m-1}Q| < |P_{m-1}P|.$$
+因此折线长度小于$|AP|$。根据曲线长公理，$\widearc{AQ}$的长度小于等于$|AP|$。
+同理，$\widearc{QB}$的长度小于等于$|BP|$。因此$\widearc{AB}$的长度小于等于$|AP|+|BP|$。
+
+总结以上的讨论，我们从圆周率$\pi$出发，说明了圆的面积等于半径平方的$\pi$倍。那么，圆周率本身是否存在呢？
+我们仍然可以从曲线长公理和定理$\ref{tm:1-5-0}$出发讨论。
+
+\begin{figure}[H] 
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.5\textwidth]{圆面积1.png}
+\end{figure}
+
+如果一个多边形覆盖一个圆，且每条边都和它相切，就说这个多边形是圆的\textbf{外切多边形}。
+我们可以做出圆的内接正$n$边形和外切正$n$边形。上图是$n=12$的情形。
+
+圆的周长总大于等于其内接多边形的周长，而根据定理$\ref{tm:1-5-0}$，圆的周长总小于等于其外切正多边形的周长。
+因此，我们总能得到圆周率的范围。比如，$n=4$时，我们可以得出$2\sqrt{2} < \pi < 4$。
+随着$n$增大，直观上圆的外切正$n$边形和内接正$n$边形的相似比将越来越接近$1$，它们的周长之差将越来越小，
+因此越来越接近圆的周长。最终两者将趋于同一个值，也就是圆的周长。
+
+\begin{sk}
+    以上证明圆的面积的过程中 \\
+    \indent 1. 是否有别的方法证明$|AH| < |BH|^2$？\\
+    \indent 2. 是否能证明$\widearc{AB}$的长度小于$|AP| + |BP|$？
+\end{sk}
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 证明：对$0<x<1$，总有$1 - x < \sqrt{1 - x} .$\\
+    \indent 2. 证明：延长等腰三角形$OAB$两腰至$C,D$，则$|AB| < |CD|$。
+\end{xt}
 
 \chapter{三角函数}
 通过研究点、直线、角和三角形、四边形、圆形，我们对简单的平面图形有了更多的认识。
@@ -1467,24 +1615,33 @@ $$ \forall \,\,  \alpha, \,\,\, \tan \alpha = \frac{\sin \alpha}{\cos \alpha}, \
 \end{align}
 
 另一个例子是正多边形。设单位圆$O$的内接正$n$边形边长为$b_n$，
-连接圆心$O$和相邻两顶点$A,B$，$\triangle OAB$是等腰三角形。
+连接圆心$O$和相邻两顶点$A$、$B$，$\triangle OAB$是等腰三角形。
 正$n$边形内角为$\alpha_n = \frac{(n-2)180^\circ}{n}$，
 因此$\angle OAB = -\angle OBA = \frac{\alpha_n}{2} = \frac{(n-2)90^\circ}{n}$，
 $\angle AOB = \frac{360^\circ}{n}$。根据正弦定理，
 $$ \frac{b_n}{\sin \angle AOB} = \frac{1}{\sin \angle OAB}.$$
 因此
-$$b_n = \frac{\sin \frac{360^\circ}{n}}{\sin \frac{(n-2)90^\circ}{n}} = \frac{\sin \frac{360^\circ}{n}}{\cos \frac{180^\circ}{n}}.$$
+$$b_n = \frac{\sin \frac{360^\circ}{n}}{\sin \frac{(n-2)90^\circ}{n}} = \frac{\sin \frac{360^\circ}{n}}{\cos \frac{180^\circ}{n}} = \frac{2\sin \frac{180^\circ}{n}\cos \frac{180^\circ}{n}}{\cos \frac{180^\circ}{n}} = 2\sin \frac{180^\circ}{n}.$$
 
-为了方便，记$\beta_n = \frac{180^\circ}{n}$，则$b_n = \frac{\sin 2\beta_n}{\cos \beta_n} = 2\sin \beta_n$。
-于是，正$n$边形的周长是$nb_n = 2n\sin \beta_n$。
+\begin{figure}[h] %this figure will be at the right
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.5\textwidth]{圆内接多边形1.png}
+\end{figure}
+
+为了方便，记$\beta_n = \frac{360^\circ}{n}$，则$b_n = 2\sin \frac{\beta_n}{2}$。
+于是，单位圆内接正$n$边形的周长是$nb_n = 2n\sin \frac{\beta_n}{2}$。
+
+过$B$作$OA$的垂线，垂足为$H$，则$\triangle AOB$的面积为$\frac12 |BH|$，即$\frac12 \sin{\beta_n}$。
+因此单位圆内接正$n$边形的面积是$\frac{n}{2} \sin{\beta_n}$。
 
 \begin{xt}\label{xt:2-6-10}
     \mbox{} \\
     \indent 1. 求单位圆内接正$12$边形的周长。\\
-    设圆内接四边形$ABCD$面积为$S$，周长为$2p$，\\
-    \indent 2. 证明$S = \frac12 \sin \angle ABC (|AB||BC| + |CD||DA|)$。 \\
-    \indent 3. 证明$S^2 = (p - |AB|)(p - |BC|)(p - |CD|)(p - |DA|)$。\\
-    \indent 4. 对一般的四边形$ABCD$，如何用$|AB|, |BC|, |CD|, |DA|$和$\frac{\angle ABC + \angle CDA}{2}$表示它的面积$S$？
+    \indent 2. 设圆内接四边形$ABCD$面积为$S$，周长为$2p$，\\
+    \indent 2.1. 证明$S = \frac12 \sin \angle ABC (|AB||BC| + |CD||DA|)$。 \\
+    \indent 2.2. 证明$S^2 = (p - |AB|)(p - |BC|)(p - |CD|)(p - |DA|)$。\\
+    \indent 2.3. 对一般的四边形$ABCD$，如何用$|AB|, |BC|, |CD|, |DA|$和$\frac{\angle ABC + \angle CDA}{2}$表示它的面积$S$？
 \end{xt}
 
 \chapter{从或许到确定}
@@ -1525,7 +1682,7 @@ $$b_n = \frac{\sin \frac{360^\circ}{n}}{\sin \frac{(n-2)90^\circ}{n}} = \frac{\s
 “骰子点数是偶数”对应$\{2,4,6\}$这个子集。事物发展的终态如果在子集里，就说明事件发生了，否则事件没有发生。
 
 单元集也对应着事件。我们把这些事件叫做\textbf{基本事件}。
-不是任何其他事件的交集的事件，叫做基本事件。比如$\{1\}$对应的“骰子点数是$1$”就是基本事件。
+\textbf{不是任何其他事件的交集的事件，叫做基本事件}。比如$\{1\}$对应的“骰子点数是$1$”就是基本事件。
 基本事件是各种事件的“基本单元”，它们通过合并形成别的事件。基本事件之间是互斥事件，它们是终集的分划。
 
 终集可以是有限的，也可以是无限的。目前我们只讨论有限的情况。
