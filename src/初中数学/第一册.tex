@@ -30,8 +30,11 @@
 \renewcommand\thesection{\arabic{chapter}.\arabic{section}}
 \newtheorem{df}{定义}[section] 
 \newtheorem{pp}{命题}[section]
+\newtheorem{tm}{定理}[section]
 \newtheorem{ex}{例子}[section]
+\newtheorem{et}{例题}[section]
 \newtheorem{sk}{思考}[section]
+\newtheorem{po}{公理}
 \newtheorem*{so}{解答}
 \newenvironment{proof2}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
 \newtheorem{xt}{习题}[section]
@@ -263,6 +266,44 @@ $1.84\times x - 3$可以写成$1.84 x - 3$或$1.84\cdot x - 3$
 
 如果某一项是另一项乘以某个（不是零的）数，就说它们是\textbf{同类项}。同类项的变量部分相同，因此根据乘法分配律，可以合并，规则是把系数相加。
 比如，$3.52x^2y$可以和$0.19x^2y$合并，得到$3.71x^2y$。\textbf{合并同类项}也是代数式化简的一部分。
+\begin{et}
+    对以下代数式合并同类项：\\
+    \indent 1. $3x^2y - y^22x + 1 + yx^2 - 6y\cdot (xy + 4)$ \\
+    \indent 2. $aha - 5a(h + ah) + 4ha^2 + hab$ \\
+    \indent 3. $\frac{a + 2b}{a - b} + \frac{2a^2 - b}{(a - b)(a + b)}$ 
+\end{et}
+\begin{so}
+    \mbox{}\\
+    1. 首先用乘法分配律将每一项展开出来，
+    \begin{align}
+             & 3x^2y - y^22x + 1 + yx^2 - 6y\cdot (xy + 4) \notag \\
+        =\,\,& 3x^2y - y^22x + 1 + yx^2 - 6yxy + 6\cdot 4. \notag
+    \end{align}
+    然后按同一顺序把每项的字母排好，最左边是系数，然后按字母表顺序排列。比如：$y^22x$改写为$2xy^2$。这样，我们就能方便地找出同类项，然后合并。
+    \begin{align}
+             &3x^2y - y^22x + 1 + yx^2 - 6yxy + 6\cdot 4 \notag \\
+        =\,\,&3x^2y - 2xy^2 + 1 + x^2y - 6xy^2 + 24 \notag \\
+        =\,\,&(3x^2y + x^2y) + (- 2xy^2 - 6xy^2) + (1 + 24) \notag \\
+        =\,\,&4x^2y - 8xy^2 + 25 \notag
+    \end{align}
+    2. 同上，
+    \begin{align}
+             & aha - 5a(h + ah) + 4ha^2 + hab \notag \\
+        =\,\,& a^2h - 5ah - 5a^2h + 4a^2h + abh \notag \\
+        =\,\,& (a^2h  - 5a^2h + 4a^2h) - 5ah + abh \notag \\
+        =\,\,& 0a^2h - 5ah + abh \notag \\
+        =\,\,& - 5ah + abh \notag 
+    \end{align}
+    这里几个$a^2h$相关的同类项合并之后系数为$0$，这说明几个同类项相互抵消了。同类项抵消是代数式化简的主要原因。\\
+    3. 分式的化简需要考虑分子和分母。为了方便，通常会先进行通分，然后对分子做合并同类项，最后约分。
+    \begin{align}
+             & \frac{a + 2b}{a - b} + \frac{2a^2 - b}{(a - b)(a + b)} \notag \\
+        =\,\,& \frac{(a + 2b)(a + b) + 2a^2 - b}{(a - b)(a + b)} \notag \\
+        =\,\,& \frac{a^2 + 2ba + ab + 2b^2 + 2a^2 - b}{(a - b)(a + b)} \notag \\
+        =\,\,& \frac{(a^2 + 2a^2) + (2ab + ab) + 2b^2 - b}{(a - b)(a + b)} \notag \\
+        =\,\,& \frac{3a^2 + 3ab + 2b^2 - b}{(a - b)(a + b)} \notag 
+    \end{align}
+\end{so}
 
 一项中所有变量的指数的和，叫做它的\textbf{次数}。比如$3.71x^2y$的次数是$3$，它可以叫$3$次项。
 不含变量部分的项叫\textbf{常数项}。常数项次数为$0$。
@@ -271,7 +312,8 @@ $1.84\times x - 3$可以写成$1.84 x - 3$或$1.84\cdot x - 3$
 合并同类项后，如果只剩下一项，就说它是\textbf{单项式}。一般来说剩下不止一项，称为\textbf{多项式}。
 多项式的每一项都是单项式。多项式次数最高的项叫做\textbf{最高次项}。最高次项的次数就叫多项式的\textbf{次数}。
 如果多项式每一项的次数都相等，就称它为\textbf{齐次多项式}。
-\begin{xt}\label{xt:1-0-0}
+
+\begin{xt}\label{xt:1-1-0}
     \mbox{} \\
     1. 合并同类项：\begin{itemize}
         \item $3 + 9x^3 + 5x - 7x^3 - 3.32 - 1.05x$
@@ -296,10 +338,20 @@ $1.84\times x - 3$可以写成$1.84 x - 3$或$1.84\cdot x - 3$
 等式的基本性质：两边同时加、减、乘、除同一个量，成立的等式仍然成立。
 
 为了解决生活中的问题，我们学过简单的方程。把未知的数，用变量表示。问题中的相等关系，就变成了含变量的等式，
-称为\textbf{方程}。解决这个问题，求出使得等式成立的变量值，称为\textbf{解方程}。变量的值称为\textbf{方程的解}。
+称为\textbf{方程}。解决这个问题，求出使得等式成立的变量值，称为\textbf{解方程}，这时变量的值称为\textbf{方程的解}。
 
 如果问题中的条件是不等关系，我们就得到了含变量的\textbf{不等式}。解决这个问题，求出使得不等式成立的变量值，
 称为\textbf{解不等式}。变量的值称为\textbf{不等式的解}。
+
+\begin{xt}\label{xt:1-2-0}
+    以下哪些是等式？哪些是不等式？哪些是方程？
+    $$
+    \begin{array}{lll}
+        (1). \,\,\, 3x + 1 = 4, \quad & (2). \,\,\, 6 = 4, \quad & (3). \,\,\, a = b = c+1  \\
+        (4). \,\,\, v \leqslant 4r^2 - v, \quad & (5). \,\,\, 2 > 3, \quad & (6). \,\,\, h \geqslant f > g - f 
+    \end{array}
+    $$
+\end{xt}
 
 \chapter{集合和映射}
 \section{集合}
@@ -335,6 +387,13 @@ $B$是$A$的\textbf{母集}，记为$B\supseteq A$。
 讨论问题的时候，我们可能会默认某个集合是问题涉及的所有事物的集合，其他集合都是它的子集。这样的集合一般称为\textbf{全集}。
 全集存在的时候，集合$A$在全集中的补集可以简称为$A$的补集，记为$\bar{A}$或$A^c$。
 
+\begin{ex}\label{ex:2-0-10}
+    \mbox{} \\ 
+    \indent 1. 集合$\{1,2\}$是集合$\{1,2,3\}$的真子集，集合$\{1,2,3\}$是集合$\{1,2\}$的真母集：$\{1,2\}\subset \{1,2,3\}$，$\{1,2,3\}\supset \{1,2\}$。\\
+    \indent 2. 任何集合$S$总是空集$\varnothing$的母集：$\varnothing \subseteq S$。\\
+    \indent 3. $\{1,2\}$在集合$\{1,2,3\}$中的补集是$\{3\}$。$\{3\}$在集合$\{1,2,3\}$中的补集是$\{1,2\}$。
+\end{ex}
+
 自然数集、整数集、分数集和有理数集有以下关系：
 \begin{align}
     \mathbb{N}\subset\mathbb{Z}\subset\mathbb{Q} \notag \\
@@ -346,8 +405,15 @@ $B$是$A$的\textbf{母集}，记为$B\supseteq A$。
 由属于所有集合的元素构成的集合，称为这些集合的\textbf{交集}。
 两个集合$A, B$的并集记为$A\cup B$，交集记为$A\cap B$。
 
-几个集合交集为空集，就说它们\textbf{不相交}。几个集合中任取两个，都不相交，就说它们两两不相交。
+几个集合交集为空集，就说它们\textbf{不相交}，否则就说它们相交。几个集合中任取两个，都不相交，就说它们两两不相交。
 如果集合$A$的一些子集两两不相交，而且它们的并集是$A$，就说这些集合是$A$的\textbf{分划}。
+
+\begin{ex}\label{ex:2-0-20}
+    \mbox{} \\ 
+    \indent 1. 集合$\{1,2\}$和$\{2,3\}$的并集是集合$\{1,2,3\}$，$\{1,2\}$和$\{2,3\}$的交集是$\{2\}$。\\
+    \indent 2. 集合$A = \{1,2\}$、$B = \{3,4\}$、$C = \{5,6\}$两两不相交。它们的并集是$S = \{1,2,3,4,5,6\}$。$A,B,C$是$S$的分划。\\
+    \indent 3. 集合$ \{1,2,3\}$、$\{3,4,5\}$、$\{1,5,6\}$两两的交集都不是空集，但它们的交集为空集。它们不相交，但不是两两不相交。
+\end{ex}
 
 \section{判断和集合}
 判断和集合有密切的关系。把一个判断涉及的个体看作全集，使判断为真的个体就是全集的一个子集，使判断为假的个体就是它的补集。
@@ -398,7 +464,7 @@ $$ \{x \,|\, \exists i \in I, x \in S_i \} $$
 
 右图中，联言判断对应着所有圈交叠的区域（颜色最深的部分），而或言判断对应着所有蓝色的区域的总和。
 
-\begin{xt}\label{xt:2-0-0}
+\begin{xt}\label{xt:2-1-0}
     验证集合满足以下性质：
     \begin{itemize}
         \item $A \cup B = B \cup A$
@@ -413,22 +479,39 @@ $$ \{x \,|\, \exists i \in I, x \in S_i \} $$
     \end{itemize}  
 \end{xt}
 
-\begin{sk}\label{sk:2-0-1}
+\begin{sk}\label{sk:2-1-1}
      有个理发师，坚持只给那些不给自己理发的人理发。那么，他是否该给自己理发呢？
 \end{sk}
 
 \section{映射}
 我们用\textbf{映射}表示事物之间的对应关系。把一个事物对应到另一个事物，可以理解为事物的变换或对事物进行操作。
-因此映射也叫做\textbf{变换}或\textbf{操作}。\textbf{函数}是把数量对应到数量的映射。
+因此映射也叫做\textbf{变换}或\textbf{操作}。把数量对应到数量的映射，叫做\textbf{函数}。
 
 我们把映射涉及的事物用两个集合记录：\textbf{出发集}和\textbf{到达集}。映射把出发集的一个元素对应到到达集的一个元素。
 用变量$x$指代出发集的元素，$x$的取值在出发集里变化时，映射对应的元素也在到达集里变化，可以用变量$y$表示。
-一般称$x$为\textbf{自变量}，$y$为\textbf{应变量}。
+一般称$x$为\textbf{自变量}，$y$为\textbf{应变量}。出发集和到达集都是数集的时候，映射就叫做函数。
 
 如果把映射记作$f$，那么可以用$y = f(x)$或$f:x\mapsto y$表达“映射把出发集的元素和到达集的元素对应起来”这件事。
 
 出发集中，某个映射涉及的元素集合称为映射的\textbf{定义域}；
 到达集里，某个映射涉及的元素集合则称为映射的\textbf{值域}。定义域是出发集的子集，值域是到达集的子集。
+
+\begin{ex}\label{ex:2-2-0}
+    \mbox{} \\ 
+    \indent 1. 把现有《道德经》各个版本和它的字数对应起来，就是一个映射：
+    $$
+    \begin{array}{lll}
+        \mbox{王弼《老子道德经注》（通行本）} &\longrightarrow &\quad 5162\mbox{字} \\
+        \mbox{河上公《道德经章句》} &\longrightarrow &\quad 5201\mbox{字} \\ 
+        \mbox{傅奕《道德经古本》} &\longrightarrow &\quad 5450\mbox{字} \\
+        \mbox{马王堆帛书甲本} &\longrightarrow &\quad 5344\mbox{字} \\
+        \mbox{马王堆帛书乙本} &\longrightarrow &\quad 5342\mbox{字} \\
+        \mbox{郭店楚墓本} &\longrightarrow &\quad 2046\mbox{字}
+    \end{array}
+    $$
+    \indent 2. 把事物对应到自己的映射叫做\textbf{恒等映射}或\textbf{等映射}。比如，把每个自然数对应到自己的映射就叫自然数集上的恒等映射，也叫恒等函数。任何非空集合上都有恒等映射。恒等映射的定义域和值域相同。\\
+    \indent 3. 把事物对应到同一个对象的映射叫做\textbf{恒映射}或\textbf{常映射}。比如，把每个自然数对应到$0$的映射就是恒映射。
+\end{ex}
 
 需要强调的是，映射可以把多个元素对应到同一个元素，但不会把一个元素对应到多个元素。
 
@@ -441,7 +524,7 @@ $$ \forall x\in\mathbb{N}, \quad x \mapsto 4-0.3x+9x^2+\frac{(1-x+2.69x^4)}{0.5x
 确定了定义域后，每个含有变量的判断也可以定义一个映射。比如，设定定义域是$\{1,2,5,6\}$后，“$3n+1$能被$5$整除”就可以定义映射：
 $$ \forall n\in \{1,2,5,6\} , \quad n \mapsto 3n+1\,\mbox{能被}\,5\,\mbox{整除。} $$
 
-\begin{sk}\label{sk:2-0-2}
+\begin{sk}\label{sk:2-2-0}
     全判断$\forall x \in A, \, P(x)$和映射$x \mapsto P(x)$之间存在什么关系？
 \end{sk}
 
@@ -460,6 +543,37 @@ $$ b - (-a) = b - (0 - a) = b + a$$
 两者可以用同一句话描述：\textbf{减去一个数，等于加上它的相反数。}
 
 于是，有理数的减法总可以转化为有理数的加法。
+
+\begin{ex}
+    \indent 1. 计算：
+    $$
+    \begin{array}{ll}
+        (1). \quad 3.4 - (-2.1) \quad & \quad (2). \quad 2.8 - (-5) \\
+        (3). \quad 9.1 - (-4.6) \quad & \quad (4). \quad 1.2 - (-4.4) 
+    \end{array}
+    $$
+    \indent 2. 把以下减法改为加法：
+    $$
+    \begin{array}{ll}
+        (1). \quad 3.4 - 2.1 \quad & \quad (2). \quad 2.8 - 5 \\
+        (3). \quad -9.1 - (-4.6) \quad & \quad (4). \quad -1.2 - (-4.4) 
+    \end{array}
+    $$
+
+\end{ex}
+\begin{so}
+    \mbox{}\\
+    \indent 1. \\
+    \indent $(1). \quad 3.4 - (-2.1) = 3.4 + 2.1 = 5.5$ \\
+    \indent $(2). \quad 2.8 - (-5) = 2.8 + 5 = 7.8$ \\
+    \indent $(3). \quad 9.1 - (-4.6) = 9.1 + 4.6 = 13.7$ \\
+    \indent $(4). \quad 1.2 - (-4.4) = 1.2 + 4.4 = 5.6$ \\
+    \indent 2. \\
+    \indent $(1). \quad 3.4 - 2.1 = 3.4 + (-2.1)$ \\
+    \indent $(2). \quad 2.8 - 5 = 2.8 + (-5)$ \\
+    \indent $(3). \quad -9.1 - (-4.6) = -9.1 + 4.6$ \\
+    \indent $(4). \quad -1.2 - (-4.4) = -1.2 + 4.4$ 
+\end{so}
 
 再来看两个有理数的加法。如果两者都是正数，就是我们熟悉的分数加法。
 如果被加数是正数，加数是负数，那么和等于被加数减加数的相反数：
@@ -496,6 +610,25 @@ $$ (-a) + (-b) = 0 - a + (0 - b) = 0 - a - b$$
         }
     }
 \end{center}
+
+\begin{ex}
+    计算：
+    $$
+    \begin{array}{lll}
+        (1). \quad 3.4 - (-2.1) \quad & \quad (2). \quad 2.8 - 5 \quad & \quad (3). \quad -7 + 2.3 \\
+        (4). \quad -9.1 + (-4.6) \quad & \quad (5). \quad -1.2 + 4.4 \quad & \quad (6). \quad -0.9 - 3.4
+    \end{array}
+    $$
+\end{ex}
+\begin{so}
+    \mbox{}\\
+    \indent $(1). \quad 3.4 - (-2.1) = 3.4 + 2.1 = 5.5$ \\
+    \indent $(2). \quad 2.8 - 5 = 2.8 + (-5) = -(5 - 2.8) = -2.2$ \\
+    \indent $(3). \quad -7 + 2.3 = -(7 - 2.3) = -4.7$ \\
+    \indent $(4). \quad -9.1 + (-4.6) = -(9.1 + 4.6) = -13.7$ \\
+    \indent $(5). \quad -1.2 + 4.4 = 4.4 - 1.2 = 3.2$ \\
+    \indent $(6). \quad -0.9 - 3.4 = -0.9 + (-3.4) = -(0.9 + 3.4) = -4.3 $ 
+\end{so}
 
 \begin{xt}\label{xt:3-0-0}
     算一算：\\
@@ -555,8 +688,26 @@ $$ (-a) \times \left(-\frac{1}{a}\right) = (-1)\times (-1) \times a \times \frac
         }
     }
 \end{center}
+\begin{ex}
+    计算：
+    $$
+    \begin{array}{lll}
+        (1). \quad 3.3 \times (-5) \quad & \quad (2). \quad -\frac{3}{7} \times (- \frac{5}{6}) \quad & \quad (3). \quad (-2.4) \times \frac{1}{6} \\
+        (4). \quad 4.8 \div (-1.6) \quad & \quad (5). \quad -\frac{3}{7} \div (- \frac{5}{14}) \quad & \quad (6). \quad (-2.8) \div \frac{2}{3}
+    \end{array}
+    $$
+\end{ex}
+\begin{so}
+    \mbox{}\\
+    \indent $(1). \quad 3.3 \times (-5) = -(3.3 \times 5) = -16.5$ \\
+    \indent $(2). \quad -\frac{3}{7} \times (- \frac{5}{6}) = \frac{3}{7} \times \frac{5}{6} = \frac{5}{14}$ \\
+    \indent $(3). \quad (-2.4) \times \frac{1}{6} = -(2.4 \times \frac{1}{6}) = -0.4$ \\
+    \indent $(4). \quad 4.8 \div (-1.6) =  4.8 \times (-\frac{5}{8}) = -(4.8 \times \frac{5}{8}) = -3$ \\
+    \indent $(5). \quad -\frac{3}{7} \div (- \frac{5}{14}) = -\frac{3}{7} \times (- \frac{14}{5}) = \frac{3}{7} \times \frac{14}{5} = 1.2$ \\
+    \indent $(6). \quad (-2.8) \div \frac{2}{3} = (-2.8) \times \frac{3}{2} = -(2.8 \times \frac{3}{2}) = -4.2 $ 
+\end{so}
 
-\begin{xt}\label{xt:3-0-1}
+\begin{xt}\label{xt:3-1-0}
     \mbox{}\\
     \indent 算一算：\\
     \indent $4.51 \times (-2.2)$，$(-1.2) \times (-3.9)$，$(-1.8)\times 0.8.$ \\
@@ -574,38 +725,43 @@ $$ (-a) \times \left(-\frac{1}{a}\right) = (-1)\times (-1) \times a \times \frac
 乘法交换律，以及乘法对加法的分配律。
 
 \section{整式的运算}
-\begin{ex}\label{ex:5-0-0}
-    计算：\\
-    1. $(a + b)(a - b)$\\
-    \textbf{解}：
-    \begin{align}
-        (a + b)(a - b) &= a\cdot (a - b) + b\cdot (a - b) \notag \\
-        &= a\cdot a - a\cdot b + b\cdot a - b\cdot b \notag \\
-        &= a^2 + (-1 + 1)ab - b^2 \notag \\
-        &= a^2 - b^2 \notag
-    \end{align}
-    2. $(a^2 + ab + b^2)(a - b)$\\
-    \textbf{解}：
-    \begin{align}
-        (a^2 + ab + b^2)(a - b) &= a^2\cdot (a - b) + ab\cdot (a - b) + b^2\cdot (a - b) \notag \\
-        &= a^2\cdot a - a^2\cdot b + ab\cdot a - ab\cdot b + b^2\cdot a - b^2 \cdot b \notag \\
-        &= a^3 + (-1 + 1)a^2b + (-1 + 1)ab^2 - b^3\notag \\
-        &= a^3 - b^3 \notag
-    \end{align}
-\end{ex}
+
 与整式有关的计算，一个常见的目标是把式子\textbf{展开}，也就是把几个整式的乘积转成一个整式：单项式或多项式。
 展开整式，可以按照以下步骤操作：
 \begin{enumerate}
     \item 用分配律把整式乘积转为整式中各项的乘积之和。
     \item 合并同类项（用到结合律和交换律）。
 \end{enumerate}
-比如，在第一个例子中，我们首先把$a - b$看成一个整体，把$a + b$看成两项相加。
+\begin{ex}\label{ex:5-0-0}
+    计算：\\
+    1. 展开并化简$(a + b)(a - b)$\\
+    \textbf{解}：
+    \begin{align}
+        (a + b)(a - b) &= a\cdot (a - b) + b\cdot (a - b) \notag \\
+        &= a\cdot a - a\cdot b + b\cdot a - b\cdot b \notag \\
+        &= a^2 + (-1 + 1)ab - b^2 \notag \\
+        &= a^2 + 0ab - b^2 \notag \\
+        &= a^2 - b^2 \notag
+    \end{align}
+    2. 展开并化简$(a^2 + ab + b^2)(a - b)$\\
+    \textbf{解}：
+    \begin{align}
+        (a^2 + ab + b^2)(a - b) &= a^2\cdot (a - b) + ab\cdot (a - b) + b^2\cdot (a - b) \notag \\
+        &= a^2\cdot a - a^2\cdot b + ab\cdot a - ab\cdot b + b^2\cdot a - b^2 \cdot b \notag \\
+        &= a^3 + (-1 + 1)a^2b + (-1 + 1)ab^2 - b^3\notag \\
+        &= a^3 + 0a^2b + 0ab^2 - b^3\notag \\
+        &= a^3 - b^3 \notag
+    \end{align}
+\end{ex}
+
+在第一个例子中，我们首先把$a - b$看成一个整体，把$a + b$看成两项相加。
 使用分配律，就把$(a + b)(a - b)$转为$a\cdot (a - b)$与$b\cdot (a - b)$的和。
 接下来，我们把$a - b$看成两项相减，再次使用分配律，就把$(a + b)(a - b)$完全转成若干项的和：
 $$ a\cdot a - a\cdot b + b\cdot a - b\cdot b$$
 接着，我们合并同类项。使用交换律，可以知道$ab = ba$，所以这两项是同类项，可以合并。合并后，
 系数是$-1 + 1 = 0$，所以这$ab$项被消去了。剩下的两项无法合并同类项了。于是我们最后得到：
 $$(a + b)(a - b) = a^2 - b^2. $$
+第二个例子中的计算步骤也是如此。
 
 另一种常见的代数式计算叫做\textbf{变量代换}。我们知道，变量是用来代替数的。其实，变量也可以用来代替变量。
 用变量代替变量，可以变化代数式的形式，很多时候，可以帮助我们更好地理解事物间的关系。
@@ -615,34 +771,48 @@ $$(a + b)(a - b) = a^2 - b^2. $$
 于是，我们可以把$a - 2b$看成一个整体，把$1$看成一个整体。我们用变量$x$代替$a - 2b$，$y$代替$1$，
 那么原式就变成了$(x + y)(x - y)$，于是等于$x^2 - y^2$。
 
-我们再把$x$和$y$代替的变量和数代回去，就得到$(a - 2b)^2 - 1^2$。$1^2 = 1$，
-所以我们现在只需要展开$(a - 2b)^2$了。
-
-数学中常用的整式等式：
+我们再把$x$和$y$代替的变量和数代回去，就得到原式等于$(a - 2b)^2 - 1^2$。$1^2 = 1$，
+所以我们现在只需要展开$(a - 2b)^2$了。展开$(a - 2b)^2$：
 \begin{align}
-    &(a + b)^2 = a^2 + b^2 + 2ab \notag \\
-    &(a - b)^2 = a^2 + b^2 - 2ab \notag \\
-    &(a + b)(a - b) = a^2 - b^2 \notag \\
-    &(a + b)^3 = a^3 + 3a^2b + 3ab^2 + b^3 \notag \\
-    &(a - b)^3 = a^3 - 3a^2b + 3ab^2 - b^3 \notag \\
-    &a^3 + b^3 = (a^2 - ab + b^2)(a + b) \notag \\
-    &a^3 - b^3 = (a^2 + ab + b^2)(a - b) \notag \\
-    &(a + b + c)^2 = a^2 + b^2 + c^2 + 2ab + 2bc + 2ca \notag \\
-    &(a + b)(a + c) = a^2 + ab + ac + bc \notag \\
-    &(a + b)(b + c)(c + a) + abc = (a + b + c)(ab + bc + ca) \notag \\
-    &a^3+b^3+c^3 - 3abc = (a + b + c)(a^2+b^2+c^2-ab-bc-ca) \notag 
+    (a - 2b)^2 &= (a - 2b)(a - 2b) \notag \\
+    &= (a - 2b)\cdot a - (a - 2b) \cdot 2b \notag \\
+    &= a^2 -2b\cdot a -a\cdot 2b + 2b\cdot 2b \notag \\
+    &= a^2 + (-2 -2) ab + 4b^2 \notag \\
+    &= a^2 - 4ab + b^2 \notag
 \end{align}
+因此，
+$$ (a - 2b + 1)(a - 2b - 1) = (a - 2b)^2 - 1 = a^2 - 4ab + b^2 - 1.$$
+
+数学中常用的整式等式：\\
+\indent $1. \quad (a + b)^2 = a^2 + b^2 + 2ab $ \\
+\indent $2. \quad (a - b)^2 = a^2 + b^2 - 2ab $ \\
+\indent $3. \quad (a + b)(a - b) = a^2 - b^2 $ \\
+\indent $4. \quad (a + b)^3 = a^3 + 3a^2b + 3ab^2 + b^3 $ \\
+\indent $5. \quad (a - b)^3 = a^3 - 3a^2b + 3ab^2 - b^3 $ \\
+\indent $6. \quad a^3 + b^3 = (a^2 - ab + b^2)(a + b) $ \\
+\indent $7. \quad a^3 - b^3 = (a^2 + ab + b^2)(a - b) $ \\
+\indent $8. \quad (a + b + c)^2 = a^2 + b^2 + c^2 + 2ab + 2bc + 2ca $ \\
+\indent $9. \quad (a + b)(a + c) = a(a + b + c) + bc $ \\
+\indent $10. \quad (a + b)(b + c)(c + a) + abc = (a + b + c)(ab + bc + ca) $ \\
+\indent $11.\quad  a^3+b^3+c^3 - 3abc = (a + b + c)(a^2+b^2+c^2-ab-bc-ca) $ 
+
 \begin{xt}\label{xt:5-0-0}
-    验证以下等式：\\
-    1. $(a + b)^2 + (a - b)^2 = 2a^2+2b^2.$\\
-    2. $a^4 + a^2 + 1 = (a^2+a+1)(a^2-a+1).$\\
-    3. $3(a-b)(b-c)(c-a) = (a-b)^3+(b-c)^3+(c-a)^3$\\
-    求以下代数式中$x^3$的系数：\\
-    1. $(x - 2)^5.$\\
-    2. $(x^2 - x + 1)(x^3 - x^2 +2x - 1).$
+    \mbox{}\\
+    \indent 1. 验证以下等式：\\
+    \indent 1.1. $(a + b)^2 + (a - b)^2 = 2a^2+2b^2.$\\
+    \indent 1.2. $a^4 + a^2 + 1 = (a^2+a+1)(a^2-a+1).$\\
+    \indent 1.3. $3(a-b)(b-c)(c-a) = (a-b)^3+(b-c)^3+(c-a)^3$\\
+    \indent 2. 求以下代数式中$x^3$的系数：\\
+    \indent 2.1. $(x - 2)^5.$\\
+    \indent 2.2. $(x^2 - x + 1)(x^3 - x^2 +2x - 1).$
 \end{xt}
 
 \section{分式的运算}
+
+和分数一样，分式运算常见的目的有约分和通分。约分是把分子和分母中共有的式子消去，让分式更简洁。
+无法继续约分的分式叫做既约分式。
+通分是让几个分式的分母相同，以便相加。约分和通分的方法和分数相同。
+
 \begin{ex}\label{ex:5-1-0}
     通分：\\
     1. $\frac{b+c}{a} + \frac{c+a}{b} + \frac{a+b}{c}$\\
@@ -651,6 +821,7 @@ $$(a + b)(a - b) = a^2 - b^2. $$
         \frac{b+c}{a} + \frac{c+a}{b} + \frac{a+b}{c} &= \frac{(b+c)bc+(a+c)ac+(a+b)ab}{abc}\notag \\
         &= \frac{ a^2b+b^2c+c^2a + ab^2+bc^2+ca^2}{abc} \notag
     \end{align}
+
     2. $\frac{a+2b}{a+b-1} - \frac{a+b+1}{a-b+1}$\\
     \textbf{解}：
     \begin{align}
@@ -660,17 +831,14 @@ $$(a + b)(a - b) = a^2 - b^2. $$
     \end{align}
 \end{ex}
 
-和分数一样，分式运算常见的目的有约分和通分。约分是把分子和分母中共有的式子消去，让分式更简洁。
-无法继续约分的分式叫做既约分式。
-通分是让几个分式的分母相同，以便相加。约分和通分的方法和分数相同。
-
 \begin{xt}\label{xt:5-1-0}
-    验证以下等式：\\
-    1. $\frac{1}{a+b} + \frac{1}{a-b} = \frac{2a}{a^2-b^2}.$\\
-    2. $\frac{a}{a+b} + \frac{b}{a-b} = \frac{a^2+b^2}{a^2-b^2}.$\\
-    求以下代数式中$x$的系数：\\
-    1. $(x^2 - \frac{1}{x})^5.$\\
-    2. $(x - x^2 - \frac{1}{x} + 1)(x^2 + x + 3 - \frac{2}{x}).$
+    \mbox{}\\
+    \indent 1. 验证以下等式：\\
+    \indent 1.1. $\frac{1}{a+b} + \frac{1}{a-b} = \frac{2a}{a^2-b^2}.$\\
+    \indent 1.2. $\frac{a}{a+b} + \frac{b}{a-b} = \frac{a^2+b^2}{a^2-b^2}.$\\
+    \indent 2. 求以下代数式中$x$的系数：\\
+    \indent 2.1. $(x^2 - \frac{1}{x})^5.$\\
+    \indent 2.2. $(x - x^2 - \frac{1}{x} + 1)(x^2 + x + 3 - \frac{2}{x}).$
 \end{xt}
 
 \chapter{从变量到方程（下）}
@@ -743,9 +911,15 @@ $ax$和$cx$都是只含有$x$的一次项，它们之间只差一个系数，所
     }
 \end{center}
 
+\begin{sk}\label{sk:4-0-0}
+    以下方程如何求解？
+    $$ \frac{ax + b}{cx + d} = 1$$
+    它的解有哪些情况？试和一元一次方程对比。
+\end{sk}
+
 \section{一元一次不等式}
 
-\begin{ex}\label{ex:4-0-0}
+\begin{ex}\label{ex:4-1-0}
     根据以下问题，设未知数并列出不等式：\\
     $(1).$ 海水的盐度是$0.351\%$，生理盐水的盐度是$0.9\%$，一千克海水中至少要加入多少克纯水，才能让盐度降到生理盐水的盐度以下？\\
     $(2).$ $100$亩地规划种植葡萄。食用葡萄每亩年收益为$0.4$万元，酿酒葡萄每亩年收益为$0.6$万元。规划年收益$52$万元。要如何安排种植？
@@ -763,7 +937,7 @@ $ax$和$cx$都是只含有$x$的一次项，它们之间只差一个系数，所
 一元一次不等式中，两个一元一次式有不等关系。区别在于，相等关系只有一种，而不等关系有两类四种。
 
 不等式的基本性质和等式有什么共同点，又有什么区别呢？
-\begin{ex}\label{ex:4-0-1}
+\begin{ex}\label{ex:4-1-10}
     观察以下不等式，你能发现什么规律？\\
     $(1).\quad 2 < 3, \quad 3 < 4, \quad 6 < 7$ \\
     $(2). \quad 4 \leqslant 7, \quad 6 \leqslant 10.5, \quad 1.2 \leqslant 2.1, \quad 28 \leqslant 49$ \\
@@ -780,7 +954,7 @@ $ax$和$cx$都是只含有$x$的一次项，它们之间只差一个系数，所
 
 为什么乘除法和加减法有这样的区别呢？因为大于、小于这些不等关系是按照加减法定义的。
 我们可以看以下的例子：
-\begin{ex}\label{ex:4-0-2}
+\begin{ex}\label{ex:4-1-20}
     观察以下的式子，不等关系之间有什么联系？\\
     $(1).\quad 2 < 3, \quad 3 > 2, \quad -2 > -3, \quad -3 < -2$ \\
     $(2). \quad 4 \leqslant 7, \quad 7 \geqslant 4, \quad -7 \leqslant -4, \quad -4 \geqslant -7$
@@ -838,6 +1012,7 @@ $ax$和$cx$都是只含有$x$的一次项，它们之间只差一个系数，所
 解完方程、不等式后，应该及时检验得到的解，看是否能让这些假设成立。
 
 综上所述，可以这样总结解一元一次不等式的方法：
+
 \begin{center}
     \fbox{
         \shortstack[l]{
@@ -848,8 +1023,14 @@ $ax$和$cx$都是只含有$x$的一次项，它们之间只差一个系数，所
             2.1. 如果不等式成立，则原不等式有任意解。\\
             2.2. 如果不等式不成立，则原不等式无解。\\
             3. 如果一次项系数大于$0$，将两边同时除以一次项系数，得到\\
-            不等式的解。\\
-            \vspace{2pt}\\
+            不等式的解。
+        }
+    }
+\end{center}
+
+\begin{center}
+    \fbox{
+        \shortstack[l]{
             \textbf{方法二：}\\
             1. 通过两边同时加减法，将一次项移到不等式一边，将常数项\\
             移到另一边。\\
@@ -863,5 +1044,11 @@ $ax$和$cx$都是只含有$x$的一次项，它们之间只差一个系数，所
         }
     }
 \end{center}
+
+\begin{sk}
+    以下不等式如何求解？
+    $$ \frac{ax + b}{cx + d} < 1$$
+    它的解和一元一次不等式有什么不同？
+\end{sk}
 
 \end{document}

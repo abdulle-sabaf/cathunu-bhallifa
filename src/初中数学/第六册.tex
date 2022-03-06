@@ -130,30 +130,66 @@
 $ \{(1 - t)\mathbf{a}+t\mathbf{b} \, | \, t\in [0, 1]\}$是线段$AB$，
 $ \{(1 - t)\mathbf{a}+t\mathbf{b} \, | \, t \geqslant 0 \}$是射线$AB$。
 
-这样定义的线段和射线，也具备了数轴的性质。比如，在线段$\{t\mathbf{a}+(1 - t)\mathbf{b} \, | \, t\in [0, 1]\}$
-中，$t$的不同值就对应了不同的点：$t = 0$对应点$\mathbf{b}$，$t=1$对应点$\mathbf{a}$。对一般的$t\in (0, 1)$，
-$t\mathbf{a}+(1 - t)\mathbf{b}$对应的点$P(t)$满足：$|AP(t)| = (1 - t)|AB|$，$|P(t)B| = t|AB|$。也就是说，
-$P(t)$是线段$AB$上使得$ \frac{|AP(t)|}{|P(t)B|} = \frac{1 - t}{t}$的点。
-$\vv{AP(t)}, \vv{P(t)B}$都和$\vv{AB}$共线。
+这样定义的线段和射线，也具备了数轴的性质。比如，在线段$\{(1 - t)A+tB \, | \, t\in [0, 1]\}$
+中，$t$的不同值就对应了不同的点：$t = 0$对应点$A$，$t=1$对应点$B$。对一般的$t\in (0, 1)$，
+$(1 - t)A+tB$对应的点$P$在$AB$上，可以看作数轴$AB$上的点。因此满足：
+$$
+\begin{array}{lll}
+    |AP| &= |P - A| = |tB - tA| &= t|AB|, \\
+    |PB| &= |B - P| = |(1 - t)B - (1 - t)A| &= (1 - t)|AB|.
+\end{array}
+$$
+% \begin{align}
+% \end{align}
+也就是说，
+$P$是线段$AB$上使得$ \frac{|AP|}{|PB|} = \frac{t}{1 - t}$的点。
 
-反过来，设$ \frac{|AP(t)|}{|P(t)B|}$等于定值$k > 0$，对应的点$P(t)$是什么点呢？
+反过来，设$ \frac{|AP|}{|PB|}$等于定值$k > 0$，对应的点$P$是什么点呢？
 这个问题实际上是求方程：
-$$ \frac{1 - t}{t} = k$$
-的解。容易解出这个方程的唯一解：$t = \frac{1}{k+1}$。因此我们得到结论：
+$$ \frac{t}{1 - t} = k$$
+的解。容易解出这个方程的唯一解：$t = \frac{k}{k+1}$。因此我们得到结论：
 \begin{tm}{\textbf{定比分点定理} }\label{tm:0-0-10}
     线段$AB$上到两端距离之比$\frac{|AP|}{|PB|}$为定值$k$的点$P$恰有一个，称为它的$k$\textbf{分点}。
 \end{tm}
-正数$k$越小，$k$分点距离$A$越近，$k$越大，$k$分点离$A$越远；$k=1$时，我们就得到线段的中点。
+正数$k$越小，$k$分点距离$A$越近，$k$越大，$k$分点离$B$越近；$k=1$时，我们就得到线段的中点。
+
+\begin{et}\label{et:0-0-10}
+    三角形$ABC$的边$AB$、$BC$上分别有点$P$、$Q$，使得：
+    $$ \frac{|AP|}{|PB|} = \frac{|BQ|}{|QC|} = 2,$$
+    定义点$X$：
+    $$ X = \frac{A + 2B + 4C}{7}.$$
+    验证：$X$是直线$AQ$和$PC$的交点。
+\end{et}
+\begin{so}
+    证明：设$P = (1 - t)A + tB$。$P$是线段$AB$的$2$分点，所以
+    $$ t = \frac{2}{2+1} = \frac23. $$
+    即：
+    $$ P = \frac13\, A + \frac23 \, B = \frac{A + 2B}{3}.$$
+    同理，设$Q = (1 - t)B + tC$，则$t = \frac23$，即：
+    $$ Q = \frac{1}{3} \, B + \frac{2}{3}\, C = \frac{B + 2C}{3}. $$
+    由于线段的定比分点在直线上，只要找出合适的参数$t$，使得$X = (1 - t)A + tQ$，就说明$X$在$AQ$上。
+    $$ X = (1 - t)A + tQ = (1 - t)A + \frac{t}{3}\,B + \frac{2t}{3}C,$$
+    因此，令$t = \frac{6}{7}$，就有$1 - t = \frac{1}{7}$、$\frac{t}{3} = \frac27$、$\frac{2t}{3} = \frac{4}{7}$。
+    即$(1 - t)A + \frac{t}{3} \, B + \frac{2t}{3} \, C = \frac{A + 2B + 4C}{7}$。这说明：
+    $$ X = (1 - \frac{6}{7})A + \frac{6}{7} \, Q. $$
+    也就是说，$X$在直线$AQ$上，是线段$AQ$的$\frac{6}{7}$分点。\\
+    同理可以验证，
+    $$ (1 - \frac{4}{7})\, P + \frac{4}{7}\, C = \frac{3}{7} \cdot \frac{B + 2C}{3} + \frac{4}{7} \, C = \frac{A + 2B + 4C}{7}. $$
+    这说明：
+    $$ X = (1 - \frac{4}{7}) \, P + \frac{4}{7} \, C. $$
+    也就是说，$X$在直线$PC$上，是线段$PC$的$\frac{4}{7}$分点。\\
+    综上所述，$X$既在直线$AQ$上也在直线$PC$上，是直线$AQ$和$PC$的交点。
+\end{so}
 
 以上我们讨论了$k>0$的情况，显然，$k=0$对应$P = A$。对于负数$k$，有没有对应的点呢？
-我们用平移的思想考虑这个问题，从$A$到$P(t)$经历的平移是$\vv{AP(t)} = (1 - t)\vv{AB}$，
-从$P(t)$到$B$经历的平移是$\vv{P(t)B} = t\vv{AB}$。它们的系数之比就是$ \frac{1 - t}{t}$。
+我们用平移的思想考虑这个问题，从$A$到$P$经历的平移是$\vv{AP} = t\vv{AB}$，
+从$P$到$B$经历的平移是$\vv{PB} = (1 - t)\vv{AB}$。它们的系数之比就是$ \frac{t}{1 - t}$。
 于是，我们可以对一般的$k$定义定比分点：如果$k$能使得方程
-$$ \frac{1 - t}{t} = k$$
-有唯一解，那么我们就把对应的点$P(t)$称为$AB$的$k$分点。
+$$ \frac{t}{1 - t} = k$$
+有唯一解，那么我们就把对应的点$P$称为$AB$的$k$分点。
 
-如果$k<-1$，那么$k$分点对应的$t = \frac{1}{k+1} < 0$，也就是说，$P(t)$在线段$BA$沿$B$的延长线上。
-如果$-1<k<0$，那么$k$分点对应的$t = \frac{1}{k+1} > 1$，也就是说，$P(t)$在线段$BA$沿$A$的延长线上。
+如果$k<-1$，那么$k$分点对应的$t = \frac{k}{k+1} > 1$，也就是说，$P$在线段$AB$沿$B$的延长线上。
+如果$-1<k<0$，那么$k$分点对应的$t = \frac{k}{k+1} < 0$，也就是说，$P$在线段$AB$沿$A$的延长线上。
 如果$k=-1$，以上方程无解，这说明$-1$分点不存在。
 
 共线的向量，通过数轴，可以方便地讨论相互的位置关系。不共线的向量之间，
@@ -169,12 +205,108 @@ $$ \frac{1 - t}{t} = k$$
 以每条数轴上数$1$对应的点（记为$\mathbf{e}_x, \mathbf{e}_y$）出发，通过放缩和平移，
 就得到平面所有的点。平面中任一点可以写成$x\mathbf{e}_x + y\mathbf{e}_y$，其中$x,y$就是点的坐标。
 直角坐标系其实是一种用向量描述平面的方法。$\mathbf{e}_x, \mathbf{e}_y$就是一组基底。
-给定基底后，平面上的点用两个实数构成的有序数对表示，所以平面也记为$\mathbb{R}^2$。
+给定基底后，平面中的点用两个实数构成的有序数对（也就是坐标）表示，所以平面也记为$\mathbb{R}^2$。
+
+我们知道，平面中的点的坐标是唯一的。从向量的角度来说，就是用基底$A, B$表示向量的方法只有一种。
+如果向量$P$既能写成$P = s_1A + t_1B$，又能写成$P = s_2A + t_2B$，那么$s_1 = s_2$、$t_1 = t_2$。
+我们说，作为基底的向量$A,B$是\textbf{自由}的或\textbf{线性无关}的：
+\begin{df}
+    考虑一组向量$\mathbf{a}_1, \mathbf{a}_2, \cdots , \mathbf{a}_n$和同样数量的系数$t_1, t_2, \cdots, t_n$。以下的向量：
+    $$ t_1\mathbf{a}_1 + t_2\mathbf{a}_2 + \cdots + t_n\mathbf{a}_n$$
+    称为这组向量（关于系数$t_1, t_2, \cdots, t_n$）的\textbf{线性组合}。$t_1, t_2, \cdots, t_n$称为线性组合的系数。
+    能表示为$\mathbf{a}_1, \mathbf{a}_2, \cdots , \mathbf{a}_n$的线性组合的向量，称为这组向量的\textbf{生成向量}，
+    所有生成向量的集合称为这组向量的\textbf{生成集}。
+
+    如果一组向量的生成向量只能用唯一的方式表示为它们的线性组合，就说这组向量是\textbf{自由}的或\textbf{线性无关}的，
+    否则就说这组向量是\textbf{有约束}的或\textbf{线性相关}的。
+\end{df}
+从这些定义出发，我们容易想到一些基本的性质。比如，一组向量的生成集总会包括这些向量自身，也总包括零向量。
+
+从平面的根本性质，可以得到：
+\begin{tm}{\textbf{平面基本定理}}\label{tm:0-0-20}
+    平面中不共线的两个向量总是自由的，生成集是整个平面。多于两个向量如果不共线，总是有约束的。
+\end{tm}
+\begin{proof2}
+    从平面的根本性质第二条可以直接得出：平面中不共线的两个向量，生成集是整个平面，称为平面的基底。
+    下面证明平面的基底总是自由的。
+    
+    使用反证法来证明。
+    反设某组基底$A,B$是有约束的，即有某个向量$P$可以用两种形式表示成$A,B$的线性组合：
+    $$ P = s_1A + t_1B = s_2A + t_2B. $$
+    且有序数对$(s_1, \,\,t_1)$和$(s_2, \,\,t_2)$不完全相等。不妨设$s_1 \neq s_2$。从上式可以得到零向量的表示：
+    $$ \mathbf{0} = (s_1 - s_2)A + (t_1 - t_2)B.$$
+    于是
+    $$ A = -\frac{t_1 - t_2}{s_1 - s_2} B.$$
+    $A, B$共线，矛盾！因此原命题成立：平面的基底总是自由的。
+
+    多于两个向量$P_1, P_2, \cdots , P_n$，如果不共线，那么至少有两个向量不共线。记为$P_1, P_2$，则$P_1, P_2$构成了平面的基底。
+    其他向量都可以表示成$P_1, P_2$的线性组合。
+    
+    考虑用这组向量生成零向量。
+    首先，令所有系数为$0$。零向量总能表示为关于系数$(0,0,\cdots,0)$的线性组合。
+    其次，在其他向量里面选一个，比如$P_k$，$P_k$可以表示为$P_1, P_2$的线性组合：$P_k = sP_1 + tP_2$。
+    于是令$P_1,P_2$的系数分别为$s,t$，$P_k$的系数为$-1$，其他向量系数为$0$。零向量表示为：
+    $$ \mathbf{0} = s\cdot P_1 + t\cdot P_2 + (-1)\cdot P_k + \sum_{i\neq 1,2,k} 0\cdot P_i$$
+    零向量表示方式不唯一，说明这组向量是有约束的。
+\end{proof2}
+
+从证明中可以看出，零向量的表示方式是判别向量自由与否的方便方法。这是因为生成集里面某向量表示不唯一，等于说零向量表示不唯一。
+而我们总知道零向量的一种表示方式：所有系数为$0$。这样，我们只需要讨论另一种表示方式是否存在。我们也可以把这个思考方法总结成：
+
+\begin{tm}{\textbf{自由向量组的判定}}\label{tm:0-0-25}
+    自由的向量组只能用系数全为零的方式表示零向量。只能用系数全为零的方式表示零向量的向量组是自由的。
+\end{tm}
+
+平面基底是自由的，也就是说，任何向量表示成基底的线性组合，方法是唯一的。
+使用恰当的基底，可以从更好的角度看问题。
+
+\begin{et}\label{et:0-0-20}
+    三角形$ABC$的边$AB$、$BC$上分别有点$P$、$Q$，使得：
+    $$ \frac{|AP|}{|PB|} = \frac{|BQ|}{|QC|} = 2,$$
+    试用$A,B,C$对应的向量，表示直线$AQ$和$PC$的交点。
+\end{et}
+\begin{so}
+    前面我们验证了这个交点存在。这里我们来思考：如果一开始不知道交点，如何把它求出来。
+    我们已经知道如何用$A,B,C$表示$P$和$Q$：
+    $$ P = \frac{A + 2B}{3}, \quad Q = \frac{B + 2C}{3}. $$
+    记交点为$X$。下面我们用$\vv{BA}$和$\vv{BC}$来表示$\vv{BP}$和$\vv{BQ}$，
+    然后分别用$\vv{BP}$和$\vv{BC}$、$\vv{BA}$和$\vv{BQ}$来表示交点$X$。
+    $\vv{BA}$和$\vv{BC}$不共线，所以构成平面的基底。
+    根据平面基本定理，这两种表示方式都可以归于$\vv{BA}$和$\vv{BC}$的线性组合，即归根结底是同一个方式。
+    这样，我们就能建立方程组，推出$X$的具体表示方式。
+
+    首先考虑$\vv{BP}$，
+    $$\vv{BP} = P - B = \frac{A + 2B}{3} - B = \frac{A - B}{3} = \frac13 \, \vv{BA},$$
+    同理，
+    $$\vv{BQ} = \frac23 \, \vv{BC}.$$
+    设$\vv{BX} = (1 - t)\vv{BP} + t\vv{BC} = (1 - s)\vv{BA} + s\vv{BQ}$，则：
+    \begin{align}
+        \frac{1 - t}{3}\vv{BA} + t\vv{BC} &= (1 - t)\vv{BP} + t\vv{BC} \notag \\
+        &= (1 - s)\vv{BA} + s\vv{BQ} = (1 - s)\vv{BA} + \frac{2s}{3}\,\vv{BC}. \notag 
+    \end{align}
+    两种表达方式一致，所以对应系数相同。因此有以下方程组：
+    $$
+    \left\{
+    \begin{array}{ll}
+        \frac{1 - t}{3} &= 1 - s \\
+        t &= \frac{2s}{3}
+    \end{array}
+    \right.
+    $$
+    解得$t = \frac{4}{7}$，$s = \frac{6}{7}$。代入上面$\vv{BX}$的表达式，可以求得：
+    $$\vv{BX} = (1 - t)\vv{BP} + t\vv{BC} = \frac{3}{7} \, \vv{BP} + \frac{4}{7} \, \vv{BC} = \frac17 \, \vv{BA} + \frac{4}{7} \, \vv{BC}. $$
+    即：
+    $$ X - B = \frac{A - B}{7} + \frac{4C - 4B}{7}.$$
+    于是：
+    $$ X = \frac{A + 2B + 4C}{7}.$$
+    这也是我们前面验证过的交点。    
+\end{so}
 
 \begin{sk}\label{sk:0-0-10}
     \mbox{}\\
-    1. 设平面上有两点$A,B$，以$OA, OB$为邻边作平行四边形$AOBC$。向量$\vv{OA}$和$\vv{BC}$是什么关系？\\
-    2. 设平面上有两点$A,B$，三角形$OAB$中，连接边$OA, OB$的中点$M,N$。向量$\vv{AB}$和$\vv{MN}$是什么关系？
+    \indent 1. 设平面上有两点$A,B$，以$OA, OB$为邻边作平行四边形$AOBC$。向量$\vv{OA}$和$\vv{BC}$是什么关系？\\
+    \indent 2. 设平面上有两点$A,B$，三角形$OAB$中，连接边$OA, OB$的中点$M,N$。向量$\vv{AB}$和$\vv{MN}$是什么关系？\\
+    \indent 3. 例题\ref{et:0-0-20}\ 的解答里，如果关于$s,t$的方程组无解，代表什么？是否存在无解的情况？
 \end{sk}
 \begin{xt}\label{xt:0-0-10}
     \mbox{} \\
@@ -188,7 +320,9 @@ $$ \frac{1 - t}{t} = k$$
     \indent 6. 用$\mathbf{a}$和$\mathbf{b}$表示$\mathbf{e}_x$、$\mathbf{e}_y$和点$(3,0)$。\\
     \indent 7. 用$\mathbf{a}$和$\mathbf{b}$表示它们的中点、$3$分点、$-0.5$分点、$-3$分点。
     写出这些点的坐标和直线的方程。\\
-    \indent 8. 用$\mathbf{a}, \mathbf{b}, \mathbf{c}$表示顶点为$\mathbf{a}, \mathbf{b}, \mathbf{c}$的三角形三边和重心。
+    \indent 8. 证明：向量组的生成集总包含向量组中的各个向量，以及零向量。\\
+    \indent 9. 证明：共线的向量总是有约束的。\\
+    \indent 10. 用$\mathbf{a}, \mathbf{b}, \mathbf{c}$表示顶点为$\mathbf{a}, \mathbf{b}, \mathbf{c}$的三角形三边和重心。
 \end{xt}
 
 \section{角度与长度}
@@ -196,30 +330,38 @@ $$ \frac{1 - t}{t} = k$$
 下面我们定义一种关系，把长度、距离和角度统一起来。
 
 给定平面基底$\mathbf{e}_1, \mathbf{e}_2$，我们给出这样一个二元映射$f$：
-$$ \forall \,\, \mathbf{a} = x_A\mathbf{e}_1 + y_A\mathbf{e}_2, \,\, \mathbf{b} = x_B\mathbf{e}_1 + y_B\mathbf{e}_2, \,\, \in \mathbb{R}, \quad f(\mathbf{a}, \mathbf{b}) = x_Ax_B + y_Ay_B.$$
+$$ \forall \,\, \mathbf{a} = x_A\mathbf{e}_1 + y_A\mathbf{e}_2, \,\, \mathbf{b} = x_B\mathbf{e}_1 + y_B\mathbf{e}_2 \,\, \in \mathbb{R}, \quad f(\mathbf{a}, \,\, \mathbf{b}) = x_Ax_B + y_Ay_B.$$
 $f$把两个向量对应到一个实数。它满足以下五个性质：
 \begin{enumerate}
     \item 向量的顺序不影响关系大小：
     \begin{align}
-         & f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, x_B\mathbf{e}_1 + y_B\mathbf{e}_2) \notag \\
-        =\,\,& x_Ax_B + y_A y_B = x_Bx_A + y_By_A \notag \\
-        =\,\,& f(x_B\mathbf{e}_1 + y_B\mathbf{e}_2, x_A\mathbf{e}_1 + y_A\mathbf{e}_2). \notag
+          & f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2,\,\, x_B\mathbf{e}_1 + y_B\mathbf{e}_2) \notag \\
+        =\,\,& x_Ax_B + y_A y_B \notag \\
+        =\,\,& x_Bx_A + y_By_A \notag \\
+        =\,\,& f(x_B\mathbf{e}_1 + y_B\mathbf{e}_2,\,\, x_A\mathbf{e}_1 + y_A\mathbf{e}_2). \notag
     \end{align}
     \item 零向量和任意向量关系为$0$：
-    $$f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, \mathbf{0}) = f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, 0\mathbf{e}_1 + 0\mathbf{e}_2) = x_A\cdot 0 + y_A\cdot 0 = 0.$$
+    \begin{align}
+        f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2,\,\, \mathbf{0}) &= f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2,\,\, 0\mathbf{e}_1 + 0\mathbf{e}_2) \notag \\
+        &= x_A\cdot 0 + y_A\cdot 0 \notag \\
+        &= 0. \notag
+    \end{align}
+    $$$$
     \item 非零向量与自身的关系总是正的：$x_A, y_A$不全为零时，
-    $$f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, x_A\mathbf{e}_1 + y_A\mathbf{e}_2) = x_A^2 + y_A^2  > 0.$$
+    $$f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2,\,\, x_A\mathbf{e}_1 + y_A\mathbf{e}_2) = x_A^2 + y_A^2  > 0.$$
     \item 和向量的放缩相容：
     \begin{align}
-        & f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, t(x_B\mathbf{e}_1 + y_B\mathbf{e}_2)) \notag \\
-        =\,\,& x_Atx_B + y_A ty_B = t(x_Ax_B + y_Ay_B) \notag \\
-        =\,\,& tf(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, x_B\mathbf{e}_1 + y_B\mathbf{e}_2). \notag 
+        & f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2,\,\, t\cdot (x_B\mathbf{e}_1 + y_B\mathbf{e}_2)) \notag \\
+        =\,\,& x_A\cdot t\cdot x_B + y_A\cdot t\cdot y_B \notag \\
+        =\,\,& t\cdot (x_Ax_B + y_Ay_B) \notag \\
+        =\,\,& t\cdot f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2,\,\, x_B\mathbf{e}_1 + y_B\mathbf{e}_2). \notag 
     \end{align}
     \item 和向量的平移相容：
     \begin{align}
-         & f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, (x_B\mathbf{e}_1 + y_B\mathbf{e}_2) + (x_C\mathbf{e}_1 + y_C\mathbf{e}_2)) \notag \\
-         =\,\,& x_A(x_B + x_C) + y_A (y_B + y_C) = (x_Ax_B + y_Ay_B) + (x_Ax_C + y_Ay_C) \notag \\
-         =\,\,& f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, x_B\mathbf{e}_1 + y_B\mathbf{e}_2) + f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, x_C\mathbf{e}_1 + y_C\mathbf{e}_2). \notag
+         & f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, \,\, (x_B\mathbf{e}_1 + y_B\mathbf{e}_2) + (x_C\mathbf{e}_1 + y_C\mathbf{e}_2)) \notag \\
+         =\,\,& x_A(x_B + x_C) + y_A (y_B + y_C) \notag \\
+         =\,\,& (x_Ax_B + y_Ay_B) + (x_Ax_C + y_Ay_C) \notag \\
+         =\,\,& f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, \,\,x_B\mathbf{e}_1 + y_B\mathbf{e}_2) + f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, \,\,x_C\mathbf{e}_1 + y_C\mathbf{e}_2). \notag
     \end{align}     
 \end{enumerate}
 满足以上五个条件的映射$f$称为平面向量的\textbf{内积}。从第四个性质可知，向量与自身的内积总是正数。
@@ -243,9 +385,27 @@ $\|\mathbf{a} - \mathbf{b}\|$就是$|AB|$。
     \frac{|OA|^2 + |OB|^2 - |AB|^2}{2} &= \frac{x_A^2 + y_A^2 + x_B^2 + y_B^2 - (x_A - x_B)^2 - (y_A - y_B)^2}{2} \notag \\
     &= x_Ax_B + y_Ay_B = f(\mathbf{a}, \mathbf{b}). \notag 
 \end{align}
-另一方面，余弦定理告诉我们，$ \frac{|OA|^2 + |OB|^2 - |AB|^2}{2} = |OA||OB|\cos \angle AOB$。
+
+\begin{wrapfigure}[8]{r}{0.32\textwidth} 
+    \vspace{-16pt}
+    \flushright
+    \includegraphics[width=0.3\textwidth]{内积1.png}
+\end{wrapfigure}
+
+另一方面，余弦定理告诉我们，
+$$ \frac{|OA|^2 + |OB|^2 - |AB|^2}{2} = |OA||OB|\cos \angle AOB.$$
 也就是说，$f(\mathbf{a}, \mathbf{b}) = \|\mathbf{a}\| \|\mathbf{b}\| \cos \angle AOB$。% \langle \mathbf{a}, \mathbf{b}\rangle 
 内积$f$的本质是向量夹角的余弦与向量长度的乘积。通过内积，我们把角度和长度统一起来了。
+
+\begin{et}
+    给定向量$A(2,\,\, -1)$和$B(3,\,\, 1)$，求它们的内积。
+\end{et}
+\begin{so}
+    向量$A$和$B$的内积为$2\cdot 3 + (-1)\cdot 1 = 5$。如右图，如果计算线段$OA$和$OB$长度，
+    可得：$|OA| = \sqrt{5}$，$|OB| = \sqrt{10}$。于是
+    $$\cos{\angle AOB} = \frac{f(\vv{OA},\,\,\vv{OB})}{|OA|\cdot|OB|} = \frac{5}{\sqrt{5}\cdot\sqrt{10}} = \frac{\sqrt{2}}{2}. $$
+    即$\angle AOB = 45^\circ$。
+\end{so}
 
 向量夹角的余弦值总在$-1$和$1$之间，所以向量的内积的绝对值不大于向量长度的乘积：
 $$ |x_Ax_B + y_Ay_B| \leqslant \sqrt{x_A^2 + y_A^2} \sqrt{x_B^2 + y_B^2}.$$
@@ -253,22 +413,28 @@ $$ |x_Ax_B + y_Ay_B| \leqslant \sqrt{x_A^2 + y_A^2} \sqrt{x_B^2 + y_B^2}.$$
 $$ |AB| = \sqrt{(x_A - x_B)^2 + (y_A - y_B)^2} \leqslant \sqrt{x_A^2 + y_A^2} + \sqrt{x_B^2 + y_B^2} = |OA| + |OB|.$$
 这符合直观经验中“三角形两边之和大于第三边”或“两点之间线段距离最短”的性质。
 
+\begin{wrapfigure}[8]{r}{0.32\textwidth} 
+    \vspace{-16pt}
+    \flushright
+    \includegraphics[width=0.3\textwidth]{内积2.png}
+\end{wrapfigure}
+
 内积为$0$，就表示向量夹角的余弦为$0$，即两个向量垂直。
-比如令$\mathbf{a} = 2\mathbf{e}_x - \mathbf{e}_y$，$\mathbf{b} = \mathbf{e}_x + 2\mathbf{e}_y$，
-那么$f(\mathbf{a}, \mathbf{b}) = 2\cdot 1 - 1\cdot 2 = 0$。在平面上画出对应的点$A,B$，
+比如，令$\mathbf{a} = 2\mathbf{e}_x - \mathbf{e}_y$，$\mathbf{b} = \mathbf{e}_x + 2\mathbf{e}_y$，
+那么$f(\mathbf{a}, \,\, \mathbf{b}) = 2\cdot 1 - 1\cdot 2 = 0$。在平面上画出对应的点$A,B$，
 可以验证$\angle AOB = 90^\circ$。
 
-内积映射并不是唯一的，我们看另一个映射$f_2$：
-$$ \forall \,\, x_A, y_A, x_B, y_B \in \mathbb{R}, \quad f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, x_B\mathbf{e}_1 + y_B\mathbf{e}_2) = 2x_Ax_B + y_A y_B.$$
+内积映射并不是唯一的，我们来看另一个内积映射$f_2$：
+$$ \forall \,\, x_A, y_A, x_B, y_B \in \mathbb{R}, \quad f_2(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, x_B\mathbf{e}_1 + y_B\mathbf{e}_2) = 2x_Ax_B + y_A y_B.$$
 可以验证，$f_2$也满足$f$满足的五个性质。从$f_2$出发，我们也可以定义距离和长度：
 $$ \forall \,\, \mathbf{a} = x_A\mathbf{e}_x + y_A\mathbf{e}_y, \quad \| \mathbf{a} \|_2 = f_2(\mathbf{a}, \mathbf{a}) = 2x_A^2 + y_A^2. $$
 这样定义的距离和长度和我们直观经验中有些不一样，不过，我们可以验证，这样定义的距离也满足“两点之间线段最短”的性质。
-$$ |2x_Ax_B + y_Ay_B| \leqslant \sqrt{2x_A^2 + y_A^2} \sqrt{2x_A^2 + y_A^2}.$$
+$$ |2x_Ax_B + y_Ay_B| \leqslant \sqrt{2x_A^2 + y_A^2} \sqrt{2x_B^2 + y_B^2}.$$
 因此，$f_2$也是内积。
 
 我们把符合直观经验的内积$f$称为\textbf{经典内积}，一般称内积都默认指经典内积；
 把对应的长度称为向量的\textbf{模}。
-我们把$\mathbf{a}, \mathbf{b}$的（经典）内积记为$(\mathbf{a}\, | \, \mathbf{b})$，
+我们把向量$\mathbf{a}, \mathbf{b}$的（经典）内积记为$(\mathbf{a}\, | \, \mathbf{b})$，
 不至于混淆时，也常称为\textbf{点积}，记为$\mathbf{a} \cdot \mathbf{b}$；
 把它们的模记为$|\mathbf{a}|$、$|\mathbf{b}|$。
 
@@ -295,10 +461,6 @@ $$ \frac{x_Ay_B - x_By_A}{\sqrt{x_A^2 + y_A^2}\sqrt{x_B^2 + y_B^2}} = \frac{\sqr
 我们发现，通过以上两个公式得到的值，分别是$\angle AOB$的正弦、余弦值。
 记$\angle AOB = \alpha$，那么：
 $$ \sin \alpha = \frac{x_Ay_B - x_By_A}{\sqrt{x_A^2 + y_A^2}\sqrt{x_B^2 + y_B^2}}, \quad \cos \alpha = \frac{x_Ax_B + y_Ay_B}{\sqrt{x_A^2 + y_A^2} \sqrt{x_B^2 + y_B^2}}. $$
-
-% 要注意的是，以上公式成立，是因为直角坐标系$xOy$的$x$轴和$y$轴沿逆时针顺序摆放，同时规定逆时针方向为角度的正方向。
-% 如果直角坐标系的坐标轴摆放顺序和角度的正方向相反，以上的公式就要改为：
-% $$ \sin \alpha = \frac{x_By_A - x_Ay_B}{\sqrt{x_A^2 + y_A^2}\sqrt{x_B^2 + y_B^2}}, \quad \cos \alpha = \frac{x_Ax_B + y_Ay_B}{\sqrt{x_A^2 + y_A^2} \sqrt{x_B^2 + y_B^2}}. $$
 
 我们是通过面积定义正弦的。比如，邻边为$OA$和$OB$的平行四边形，面积是$|OA||OB|\sin \angle AOB$。
 对照上面正弦的表达式，可以发现这个面积等于$x_Ay_B - x_By_A$。于是，我们把对应的映射
