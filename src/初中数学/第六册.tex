@@ -40,7 +40,8 @@
 \newtheorem{sk}{思考}[section]
 \newtheorem{po}{公理}
 \newtheorem*{so}{解答}
-\newenvironment{proof2}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
+\renewenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
+% \newenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
 \newtheorem{xt}{习题}[section]
 \newtheorem{cor}{推论}[pp]
 \renewcommand{\proofname}{\indent\bf 证明}
@@ -207,7 +208,7 @@ $$ \frac{t}{1 - t} = k$$
 直角坐标系其实是一种用向量描述平面的方法。$\mathbf{e}_x, \mathbf{e}_y$就是一组基底。
 给定基底后，平面中的点用两个实数构成的有序数对（也就是坐标）表示，所以平面也记为$\mathbb{R}^2$。
 
-我们知道，平面中的点的坐标是唯一的。从向量的角度来说，就是用基底$A, B$表示向量的方法只有一种。
+我们知道，平面中的点的坐标是唯一的。从向量的角度来说，可以表达成：用基底$A, B$表示向量的方法只有一种。
 如果向量$P$既能写成$P = s_1A + t_1B$，又能写成$P = s_2A + t_2B$，那么$s_1 = s_2$、$t_1 = t_2$。
 我们说，作为基底的向量$A,B$是\textbf{直无关}的：
 \begin{df}
@@ -226,7 +227,7 @@ $$ \frac{t}{1 - t} = k$$
 \begin{tm}{\textbf{平面基本定理}}\label{tm:0-0-20}
     平面中不共轴的两个向量总是直无关的，生成集是整个平面。多于两个向量如果不共轴，总是直约束的。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     从平面的根本性质第二条可以直接得出：平面中不共轴的两个向量，生成集是整个平面，称为平面的基底。
     下面证明平面的基底总是直无关的。
     
@@ -248,7 +249,7 @@ $$ \frac{t}{1 - t} = k$$
     于是令$P_1,P_2$的系数分别为$s,t$，$P_k$的系数为$-1$，其他向量系数为$0$。零向量表示为：
     $$ \mathbf{0} = s\cdot P_1 + t\cdot P_2 + (-1)\cdot P_k + \sum_{i\neq 1,2,k} 0\cdot P_i$$
     零向量表示方式不唯一，说明这组向量是直约束的。
-\end{proof2}
+\end{proof}
 
 从证明中可以看出，零向量的表示方式是判别向量是否直相关的方便方法。这是因为生成集里面某向量表示不唯一，等于说零向量表示不唯一。
 而我们总知道零向量的一种表示方式：所有系数为$0$。这样，我们只需要讨论另一种表示方式是否存在。我们也可以把这个思考方法总结成：
@@ -256,6 +257,11 @@ $$ \frac{t}{1 - t} = k$$
 \begin{tm}{\textbf{直无关向量组的判定}}\label{tm:0-0-25}
     直无关的向量组只能用系数全为零的方式表示零向量。只能用系数全为零的方式表示零向量的向量组是直无关的。
 \end{tm}
+
+换句话说，给定$n$个向量$\mathbf{a}_1, \mathbf{a}_2, \cdots , \mathbf{a}_n$，
+如果存在不全为零的实数$t_1, t_2, \cdots , t_n$，
+使得直组合$t_1\mathbf{a}_1 + t_2\mathbf{a}_2 + \cdots + t_1\mathbf{a}_n$是零向量，
+那么这$n$个向量直相关。如果不存在这样一组实数，那么这$n$个向量直无关。
 
 平面基底是直无关的，也就是说，任何向量表示成基底的直组合，方法是唯一的。
 使用恰当的基底，可以从更好的角度看问题。
@@ -1436,14 +1442,14 @@ $$ \overline{a} + \overline{b} = \overline{a + b}$$
 
 可以验证，同余类的加法也满足结合律和交换律。这里我们只证明同余类的加法满足结合律，交换律的证明留做习题：
 
-\begin{proof2}
+\begin{proof}
     由上可知$ \overline{a} + \overline{b} = \overline{a + b}$，所以
     $$ (\overline{a} + \overline{b}) + \overline{c} = \overline{a + b}+ \overline{c} = \overline{a + b + c}.$$
     类似可得：
     $$ \overline{a} + (\overline{b} + \overline{c}) = \overline{a}+ \overline{b + c} = \overline{a + b + c}.$$
     于是
     $$ \quad \quad \quad (\overline{a} + \overline{b}) + \overline{c}  = \overline{a + b + c} = \overline{a} + (\overline{b} + \overline{c}). \quad \qedhere$$
-\end{proof2}
+\end{proof}
 
 类似可以定义同余类的减法和乘法：
 $$ \overline{a} - \overline{b} = \overline{a - b}, \,\,\, \overline{a} \cdot \overline{b} = \overline{a \cdot b}$$
@@ -1550,7 +1556,7 @@ $$ \frac{a}{b} \times 6 = a \times \frac{6}{b} $$
 \begin{tm}\label{tm:3-2-0}
     给定正整数$n$，在模$n$的简化同余系中可以定义乘法和除法。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     模$n$同余类的乘法已经定义好了。我们只需要说明：简化同余系中的同余类相乘，仍然在简化同余系中。
     这是因为与$n$互素的整数相乘，结果还是与$n$互素。\\
     接下来定义除法。除法是乘法的逆运算。比照数的除法：$a \div b = a \times \frac{1}{b}$。
@@ -1568,7 +1574,7 @@ $$ \frac{a}{b} \times 6 = a \times \frac{6}{b} $$
     $$ b_i(b_j - b_k)p + nq(b_j - b_k) = b_j - b_k.$$
     等式左边是$n$的倍数，因此$b_j$和$b_k$模$n$同余，这与它们的定义矛盾。\\
     因此命题的否定为假，原命题为真。
-\end{proof2}
+\end{proof}
 
 简化同余系的除法和整数不同，任何同余类都能整除另一个同余类，不需要余数、带余除法的概念。
 每个同余类都有自己的“倒数”，比如在模$6$简化同余系中，$\overline{5}\times\overline{5} = \overline{1}$。
@@ -1593,7 +1599,7 @@ $$ \frac{a}{b} \times 6 = a \times \frac{6}{b} $$
 比如，模$10$简化同余系有$4$个元素：$\overline{1}, \overline{3},\overline{7},\overline{9}$。
 $7$属于同余类$\overline{7}$，则$7^4 \equiv_{10} 1$。
 
-\begin{proof2}
+\begin{proof}
     我们把模$n$简化同余系中的同余类用小于$n$且与$n$互素的正整数来代表，记为
     $$1 = b_1 < b_2 < \cdots < b_{\varphi(n)} = n-1.$$
     它们两两不同余。把它们各自乘以$a$，得到$\varphi(n)$个整数：$ab_1, ab_2, \cdots , ab_{\varphi(n)}$。
@@ -1604,7 +1610,7 @@ $7$属于同余类$\overline{7}$，则$7^4 \equiv_{10} 1$。
     $$b_1 b_2 \cdots b_{\varphi(n)} \equiv_n (ab_1) (ab_2) \cdots (ab_{\varphi(n)}) \equiv_n a^{\varphi(n)} b_1 b_2 \cdots b_{\varphi(n)}.$$
     由于$b_1 b_2 \cdots b_{\varphi(n)}$也与$n$互素，我们把等式两边除以$b_1 b_2 \cdots b_{\varphi(n)}$，就得到：
     $$ a^{\varphi(n)} \equiv_n 1 . $$
-\end{proof2}
+\end{proof}
 
 如果$n$是素数，那么$1,2, \cdots , n-1$都和它互素，
 于是模$n$的简化同余系就是$\{\overline{1},\overline{2}, \cdots , \overline{n-1}\}$，$\varphi(n) = n-1$。
