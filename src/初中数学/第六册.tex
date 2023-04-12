@@ -8,16 +8,18 @@
 \usepackage[table, dvipsnames, svgnames, x11names]{xcolor}
 \usepackage{colortbl}% 
 \usepackage{tabularx}
-\usepackage{amsmath}
+\usepackage{amsmath, tikz}
 \usepackage{amssymb}
 \usepackage{xfrac}
 \usepackage{eucal}
 \usepackage{titlesec}
 \usepackage{amsthm}
+\usepackage{ifthen}
 \usepackage{tikz-cd}
 \usepackage{enumitem}
 \usepackage{verbatim}
 \usepackage{fontspec,xunicode,xltxtra}
+\usepackage{pifont}
 \usepackage{xeCJK} 
 \usepackage[b]{esvect}
 
@@ -40,12 +42,12 @@
 \newtheorem{sk}{思考}[section]
 \newtheorem{po}{公理}
 \newtheorem*{so}{解答}
-\renewenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
-% \newenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
 \newtheorem{xt}{习题}[section]
 \newtheorem{cor}{推论}[pp]
-\renewcommand{\proofname}{\indent\bf 证明}
-\renewcommand{\qedsymbol}{\hfill$\square$}
+\renewenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
+% \renewcommand{\proofname}{\indent\bf 证明}
+% \renewcommand{\qedsymbol}{\hfill$\square$}
+\newcommand{\tong}[1]{\overset{#1}{\equiv\joinrel\equiv}}
 % 列举环境的行间距
 \setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
 \setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
@@ -70,7 +72,7 @@
 \chapter{向量}
 第五册中，我们学习了用三角函数解三角形。三角函数是定量研究平面形的利器。
 不过，三角函数本身并不是简单的函数。我们目前只能通过查表的方式得到函数值。
-这让我们思考，能不能打造一种更方便定量研究的体系呢？
+这让我们思考，能不能打造一种更方便定量研究的体系呢？ 
 
 回顾我们对平面形的研究，我们从几条公理出发，得出点、直线、三角形、圆等形状之间的定性关系。
 公理体系的缺陷在于没有与数紧密结合。比如，“两点之间直线最短”，除了定性的“最短”，没有提供别的信息。
@@ -736,7 +738,229 @@ $y + (- 2 + \sqrt{6}) x - \sqrt{6} = 0$、$y + (- 2 - \sqrt{6}) x + \sqrt{6} = 0
     2. 如果点$P(x_P, \,\,y_P)$到$(1, \,\,-2)$的距离位$3$，是否总存在实数$\theta$，使得$x_P = 1 + 3\cos\theta$、$y_P = -2 + 3\sin\theta$？
 \end{sk}
 
-\chapter{运动与变换}
+\section{平面形的变换}
+% 平移。缩放和位似。反射和对称。旋转。变换的复合。
+我们已经学习过一些平面形的变换。用向量的语言，我们可以把这些变换做一次总结。
+
+首先，定义这样一类映射。它们把平面的点（向量）映射到平面的点。我们称之为平面的\textbf{点映射}。
+
+平面形的变换，就可以看作点映射的效果。
+
+具体来说，平面形作为平面的子集，经过点映射，变成平面的另一个子集，这就是平面形的变换。
+因此，我们也把平面的点映射称为平面上的\textbf{变换}。
+
+举例来说，设有平面$\gamma$，那么以下映射就是一个点映射：
+\begin{align}
+    \gamma \,\,&\rightarrow \,\, \gamma \notag \\
+    P &\mapsto \,\, P + U \notag
+\end{align}
+它将平面上每一点$P$按向量$U$（或者记作$\mathbf{u}$）平移。
+
+% 如果平面上已经建立了直角坐标系，那么可以将它记为$\mathbb{R}^2$。
+% 为了方便讨论，以下假设平面$P$上已经建立了直角坐标系，记为$\mathbb{R}^2$。
+
+\begin{figure}[h] %this figure will be at the right
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.6\textwidth]{平移变换例2.png}
+\end{figure}
+
+设$S$是以$(0,\,\,0)$、$(1,\,\,0)$、$(1,\,\,1)$、$(0,\,\,1)$为顶点的正方形（下面称为标准单位正方形）。
+$S$可以写作：
+$$ S = \{ (x,\,\, y) \, | \, 0\leqslant x, y \leqslant 1\} $$
+设$U = (0.5, \,\, -0.5)$，那么点映射：
+$$ P \mapsto P + U $$
+就把$S$映射成以$(0.5,\,\,-0.5)$、$(1.5,\,\,-0.5)$、$(1.5,\,\,0.5)$、$(0.5,\,\,0.5)$为顶点的正方形。
+我们知道，这样的点映射叫做\textbf{平移变换}。
+
+从例子中可以看到，按向量$U$的平移变换可以表示为：
+\begin{align}
+    \mathrm{Py}_U : \,\, \gamma\,\,&\rightarrow \,\, \gamma \notag \\
+    P &\mapsto \,\, P + U \notag
+\end{align}
+
+平移变换不改变图形的大小和形状，只改变图形的位置。大部分的变换对图形的大小、形状和位置都有改变。
+比如给定一个长度为$1$的向量$U$，
+考虑以下变换：
+\begin{align}
+    \mathrm{Ty}_U : \,\, \gamma\,\,&\rightarrow \,\, \gamma \notag \\
+    P &\mapsto \,\, (P\,|\,U)U \notag
+\end{align}
+用一个例子来看这个变换的作用。给定向量$U(1,\,\,0)$，点$P(x_P, \,\, y_P)$经过变换，
+变成$(x_P,\,\, 0)$。我们注意到，它把任何点变为和$U$共轴的向量。
+
+直观上看，如果把$x$轴看作地面，那么$(x_P,\,\,0)$可以看作$(x_P,\,\,y_P)$在竖直阳光下的影子。
+所以，我们把这样的变换称为（正）\textbf{投影变换}。指定一个方向，投影变换把点垂直投影到这个方向上，
+把点集变为它在这个方向上的“影子”。用数学的语言来说，投影变换把向量变换为指定方向的分量。
+我们一般把$U$称为投影变换的（单位）方向向量。
+
+设$S$是标准单位正方形，$S$中任一点$(x,\,\,y)$变换后为$(x,\,\,\ 0)$。
+因此，$S$变成从原点到$(1,\,\,0)$的线段。
+这就是标准单位正方形在$(1,\,\,0)$方向的投影。
+
+如果方向向量换成$\left(\frac{1}{2},\,\,\frac{\sqrt{3}}{2}\right)$，
+那么$(x,\,\,y)$将变为$\left(\frac{1}{2}x + \frac{\sqrt{3}}{2}y\right)(\frac{1}{2},\,\,\frac{\sqrt{3}}{2})$。
+也就是说，$S$变为从原点到$\left(\frac{\sqrt{3} + 1}{4},\,\,\frac{3 + \sqrt{3}}{4}\right)$的线段。
+这就是标准单位正方形在$\left(\frac{1}{2},\,\,\frac{\sqrt{3}}{2}\right)$方向的投影。
+
+我们学习过点和图形的轴对称。把图形变成它的轴对称图形，这样的变换叫做\textbf{反射变换}。
+
+给定数轴$l$，设$U$是$l$的单位方向向量。设平面上的点$P$关于$l$的对称点是$Q$。
+那么，$PQ\perp l$。记直线$PQ$与$l$交于$H$，则$H$是$P$到$l$的垂足。
+$\vv{OH}$是$\vv{OP}$在$l$上的投影，而$\vv{PH}$和$\vv{QH}$是大小相等、方向相反的向量。
+因此：
+$$ \vv{OH} = \mathrm{Ty}_U(P) = (P\,|\,U)U $$
+
+反射变换可以表示为：
+\begin{align}
+    \mathrm{Fs}_{U} : \,\, \gamma\,\,&\rightarrow \,\, \gamma \notag \\
+    P &\mapsto \,\, 2(P\,|\,U)U - P \notag
+\end{align}
+其中$U$是对称轴所在直线的单位方向向量。
+
+\begin{wrapfigure}[7]{r}{0.42\textwidth} %this figure will be at the right
+    \vspace{-42pt}
+    \flushright
+    \includegraphics[width=0.4\textwidth]{反射变换例1.png}
+\end{wrapfigure}
+
+举例来说，设方向向量为$U\left(-\frac{\sqrt{2}}{2},\,\,\frac{\sqrt{2}}{2}\right)$，标准单位正方形经历变换$\mathrm{Fs}_U$，
+点$(x,\,\,y)$变为$(-y,\,\,-x)$，即它关于直线$x+y=0$的对称点。于是$\mathrm{Fs}_U$将标准单位正方形变换为它关于$x+y=0$的对称图形，即
+以$(0,\,\,0)$、$(0,\,\,-1)$、$(-1,\,\,-1)$、$(-1,\,\,0)$为顶点的正方形。
+
+另一种简单的变换是\textbf{位似变换}。
+\textbf{位似}是一种特殊的相似关系。
+举例来说，设$\triangle ABC$相似于$\triangle A'B'C$。
+如果直线$AA'$、$BB'$、$CC'$交于一点$U$，就说两个三角形位似，$U$是\textbf{位似中心}。
+
+位似变换可以表示为：
+\begin{align}
+    \mathrm{Ws}_{U, k} : \,\, \gamma\,\,&\rightarrow \,\, \gamma \notag \\
+    P &\mapsto \,\, kP + (1 - k)U \notag
+\end{align}
+其中$U$是位似中心，$k$是变换前后的相似比。
+我们说平面形以$U$为中心放缩，变成原来$k$倍大小。
+
+\begin{wrapfigure}[9]{r}{0.42\textwidth} %this figure will be at the right
+    \vspace{-12pt}
+    \flushright
+    \includegraphics[width=0.4\textwidth]{位似变换例1.png}
+\end{wrapfigure}
+
+举例来说。设$S$是标准单位正方形，四个顶点分别是$A(0,\,\,0)$、$B(1,\,\,0)$、$C(1,\,\,1)$、$D(0,\,\,1)$。
+指定位似中心$U(-1,\,\,-1)$，相似比$k=0.4$。于是位似变换中，$A$变为$A'(-0.6,\,\,-0.6)$，$B$变为$B'(-0.2,\,\,-0.6)$。
+线段$AB$上一点$(x,\,\,0)$变为$(0.4x - 0.6, \,\, -0.6)$。于是线段$AB$变成线段$A'B'$。
+同理线段$BC$、$CD$、$DA$变成线段$B'C'$、$C'D'$、$D'A'$，其中$C'=(-0.2,\,\, -0.2)$，$D'=(-0.6,\,\,-0.2)$。
+标准单位正方形$S$变成边长为$0.4$的正方形$A'B'C'D'$。
+
+最后来看\textbf{旋转变换}。旋转变换指的是以给定角的顶点为中心，把某个图形按该角旋转。
+
+首先来看一点的旋转。
+给定角$\alpha$，顶点为$U$。平面中一点$P$关于$\alpha$旋转的结果，
+是唯一使得$\angle PUQ = \alpha$且$|UP| = |UQ|$的点$Q$\footnote{如果$P=U$，则旋转后仍为$P$。}。
+以$U$为圆心，以$|UP|$为半径作圆，则$P$沿圆弧运动到$Q$。
+顶点$U$称为\textbf{旋转中心}，$\alpha$称为\textbf{旋转角}。
+
+最简单的情况是$U$为原点。这时，设点$P$的坐标为$(x_P,\,\,y_P)$，$|UP| = r = \sqrt{x_P^2 + y_P^2}$。
+取$x$轴上的点$S(1,\,\,0)$为基准，设$\angle SUP = \theta$，容易验证，$|x_P| = r|\cos{\theta}|$，
+$|y_P| = r|\sin{\theta}|$。对比各个象限中$x_P$、$y_P$和$\cos{\theta}$、$\sin{\theta}$的正负号，可以发现：
+任何情况下，$x_P$总与$\cos{\theta}$同正负，$y_P$总与$\sin{\theta}$同正负。
+
+\begin{tm}
+    设$P(x_P,\,\,y_P)$是平面上原点外一点，设以$x$轴正半轴为始边、射线$OP$为终边的角为$\theta$，则
+    $$ x_P = r\cos{\theta},\quad y_P = r\sin{\theta}.$$
+    其中$r = \sqrt{x_P^2 + y_P^2}$。
+\end{tm}
+
+\begin{wrapfigure}[7]{r}{0.36\textwidth} %this figure will be at the right
+    \vspace{-40pt}
+    \flushright
+    \includegraphics[width=0.3\textwidth]{旋转变换例1.png}
+\end{wrapfigure}
+
+这个定理将点的坐标和角度联系起来，是我们讨论平面角度和旋转问题的关键。 
+
+如果将$P$按角$\alpha$旋转，那么与$x$轴正半轴张成的角应该从$\theta$变为$\theta + \alpha$。
+它的长度仍然是$r$，而角度是$\theta + \alpha$，因此，它的坐标是$\left(r\cos{(\theta + \alpha)},\,\,r\sin{(\theta + \alpha)}\right)$。
+使用和角公式，可以将它转化为：
+$$\left(r\cos{\theta}\cos{(\alpha)} - r\sin{\theta}\sin{(\alpha)},\,\,r\cos{\theta}\sin{(\alpha)} + r\sin{\theta}\cos{(\alpha)}\right).$$
+用$x,y$表示，旋转变换就是：
+
+$$ (x,\,\,y) \mapsto \,\, \left(x\cos{(\alpha)} - y\sin{(\alpha)}, \,\,x\sin{(\alpha)} + y\cos{(\alpha)}\right). $$
+
+如果$U$不是原点，坐标是$(x_U, \,\,y_U)$，那么$\vv{UP} = (x_P - x_U, \,\, y_P - y_U)$。$\vv{UP}$旋转变为$\vv{UQ}$的运动和前面类似。
+因此通过$Q = U + \vv{UQ}$就可得到$Q$。于是旋转变换可以表示为：
+\begin{align}
+    \mathrm{Xz}_{(U,\,\,\alpha)} : \,\, \gamma\,\,&\rightarrow  \,\,\gamma \notag \\
+    (x,\,\,y)  &\mapsto \,\, (x_U,\,\,y_U) +\big((x - x_U)\cos{(\alpha)} - (y - y_U)\sin{(\alpha)},\notag \\
+    &\qquad (x - x_U)\sin{(\alpha)} + (y - y_U)\cos{(\alpha)}\big). \notag
+\end{align}
+
+\begin{wrapfigure}[7]{r}{0.42\textwidth} %this figure will be at the right
+    \vspace{-22pt}
+    \flushright
+    \includegraphics[width=0.4\textwidth]{旋转变换例2.png}
+\end{wrapfigure}
+
+可以看到，旋转变换的表示形式繁琐。这是向量和直角坐标系的性质决定的。
+
+直角坐标系与向量的共轴性质和内积相关。共轴性质、内积的基本性质都只和向量的加法、数乘运算相关。
+而向量定义中的加法和数乘运算，分别对应平移和放缩变换。
+向量定义中并没有与旋转对应的运算，共轴性、内积的性质也不包括旋转，
+因此，要通过向量在直角坐标系下的坐标表示旋转，自然不是简单的事情。
+
+一种折中的方法是使用极坐标系。极坐标系是科学家研究南北极地时发明的。在南北极圈中，各条经线汇于极点。
+人们发现，使用到极点的距离和经度描述位置，比使用经纬度更精确、更方便。
+
+\begin{figure}[h] %this figure will be at the right
+    % \vspace{4pt}
+    \centering
+    \includegraphics[width=0.8\textwidth]{极坐标例1南北极地图2.jpg}
+    \caption*{\texttt{使用极坐标系的极地地图}}
+\end{figure}
+如下图所示，极坐标系由一条射线构成。这条射线上配备了单位向量，形成数轴的正半轴。
+为了方便起见，我们同样称它为$x$轴。
+一点$A$在极坐标系中的坐标称为\textnormal{极坐标}，它由\textbf{模长}和\textbf{辐角}组成。模长就是点$A$到原点$O$的距离，
+辐角是$x$轴正半轴到$\vv{OA}$所构成的角。比如，直角坐标系中坐标为$(1,\,\,1)$的点，在极坐标系中可以表示为
+$\left(\sqrt{2},\,\, 45^\circ\right)$。
+
+\begin{figure}[h] %this figure will be at the right
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.5\textwidth]{极坐标例2.png}
+\end{figure}
+
+使用极坐标系，可以比较方便地描述以原点为中心的旋转运动。比如，直角坐标系中，
+点$(1,\,\,1)$以原点为中心逆时针旋转$25^\circ$，可以用极坐标系描述为：
+$$ \left(\sqrt{2}, \,\, 45^\circ\right) \mapsto \,\, \left(\sqrt{2}, \,\, 70^\circ\right)$$
+然而，用极坐标系描述平移、放缩等运动就比较复杂。因此，用极坐标描述以非原点为中心的旋转，仍然繁琐。
+
+\begin{sk}
+    \mbox{}\\
+    \indent 1. 如何描述图形关于某点的中心对称变换？ \\
+    \indent 2. 如何描述一般的相似变换？\\
+    \indent 3. 如果平面中任两点之间的距离经过某个变换后都不变，就说这个变换是\textbf{保距变换}。本节提到的变换中，哪些变换是保距变换？\\
+    \indent 4. 如果平面中任意角经过某个变换后角度都不变，就说这个变换是\textbf{保角变换}。本节提到的变换中，哪些变换是保角变换？
+\end{sk}
+
+\begin{xt}
+    \mbox{}\\
+    \indent 1. 将标准单位正方形以原点为中心，按$45^\circ$顺时针旋转，最终得到的图形是什么？\\
+    \indent 2. 设点$A$、$B$、$C$的坐标分别是$(0,\,\, 4)$、$(-1,\,\, 0)$、$(1,\,\,1)$。\\
+    \indent 2.1. 以原点为中心，把$\triangle ABC$按$90^\circ$顺时针旋转，然后以原点为中心，将其放大为原来的$3$倍，再按$(-5, \,\, 0)$平移。最终得到的图形是什么？\\
+    \indent 2.2. 把$\triangle ABC$按$\mathbb{R}\left(\frac{1}{2},\,\, \frac{\sqrt{3}}{2}\right)$作反射变换，再按$(0,\,\, 6)$平移。最终得到的图形是什么？\\
+    \indent 2.3. 以原点为中心，把$\triangle ABC$分别按$30^\circ$、$120^\circ$顺时针旋转，然后投影到$\left(\frac{2\sqrt{5}}{5},\,\, -\frac{\sqrt{5}}{5}\right)$方向上。最终分别得到什么图形？\\
+    \indent 3. 某工厂的机械臂要完成一个平面动作，可以简单描述为把端点为$A(1,\,\, 2)$、$B(-2,\,\, 1)$的线段，
+    变换为端点为$A'(-4,\,\, 4)$、$B'(-4,\,\, -6)$的线段。机械臂可以进行$3$种操作：以原点为中心的旋转变换、按任一向量的平移变换、
+    以线段一端为中心的位似变换。\\
+    \indent 3.1. 请设计一种操作组合，把$AB$移动到$A'B'$。\\
+    \indent 3.2. 请设计一种操作组合，把$AB$移动到$A'B'$，并确保$AB$的中点经过点$(-2,\,\, -2)$。\\
+    \indent 3.3. 已知机械臂的每种操作成本。旋转变换的成本与线段中点经过的距离成正比，每单位长度$0.65$元；
+    平移变换的成本和平移距离成正比，每单位长度$0.4$元；位似变换的成本和变换前后线段长度的差值成正比，每单位长度$0.8$元。请设计一种操作方式，使成本最低。\\
+    \indent 3.4. 同上，如果要确保$AB$的中点经过点$(-2,\,\, -2)$，那么怎样操作成本最低？
+\end{xt}
+
+\chapter{平面中的运动}
 在前面的学习中，我们已经接触过运动的概念。比如，我们说点运动形成了线。
 这一章我们来初步讨论各种和运动相关的问题。
 
@@ -905,7 +1129,7 @@ $h(0.5) = (0.25, \,\,2)$，而$g$不经过$(0.25, \,\,2)$。
     \mbox{} \\
     \indent 1. 设$c$为正实数，$k$是大于$1$的实数。考虑平面上的点$C_+ = (c,\,\, 0)$和直线$l_+ : x = k^2c$。
     考虑集合：
-    $$T = \left\{P\,| \, \frac{P\mbox{到}l_+的距离}{|PC_+|} = k\right\}.$$
+    $$T = \left\{P\,\left| \, \frac{P\mbox{到}l_+\mbox{的距离}}{|PC_+|} = k\right.\right\}.$$
     \indent 1.1. 证明：$T$包含点$(ck, \,\,0)$、$(-ck,\,\,0)$。\\
     \indent 1.2. 记$C_- = (-c,\,\,0)$。$P = (x,\,\, y)$是$T$中一点。证明：
     $$ |PC_-|^2 - |PC_+|^2 = 4cx.$$
@@ -915,262 +1139,104 @@ $h(0.5) = (0.25, \,\,2)$，而$g$不经过$(0.25, \,\,2)$。
     证明：$T = S$。
 \end{xt}
 
-\section{平面形的变换}
-% 平移。缩放和位似。反射和对称。旋转。变换的复合。
-点运动形成轨迹。平面形，作为点的集合，其运动称为变换。我们熟悉的变换包括平移、缩放和旋转。
-下面我们从点集运动的角度讨论平面形的各种变换。
+\section{运动的速度}
+生活中，我们常用快慢来描述运动。比如，从商店回家，骑自行车比走路更快；
+从某城市到另一个城市，坐飞机比开汽车更快。等等。
+我们用长度来刻画事物的长短。对于运动的快慢，我们也希望用某种方法来刻画。
 
-设平面形为点集$S$，那么它的变换可以用二元映射$f$表示：
-\begin{align}
-    f: \,\, S\times[0,\,\,1] \,\,&\rightarrow \mathbb{R}^2 \notag \\
-    (\mathbf{s},\,\, t) \quad &\mapsto f(\mathbf{s},\,\,t) \notag
-\end{align}
-具体来说，对$S$中每一点$\mathbf{s}$，$f$都定义了它的运动：$t\,\,\mapsto f(\mathbf{s},\,\,t)$。
-
-比如，设$S$是以$(0,\,\,0)$、$(1,\,\,0)$、$(1,\,\,1)$、$(0,\,\,1)$为顶点的正方形（下面称为标准单位正方形）。
-定义变换
-$$f:\,\, (\mathbf{s}, \,\,t) \mapsto \mathbf{s} + t(0.5, \,\, -0.5). $$
-$f$表示正方形中每一点$\mathbf{s}$沿着方向向量$(0.5, \,\, -0.5)$直线运动，即按该向量平移。
-比如点$(0.2,\,\,0.35)$就沿着该方向直线运动到$(0.7, \,\,-0.15)$。
-
-\begin{figure}[h] %this figure will be at the right
-    \vspace{4pt}
-    \centering
-    \includegraphics[width=0.6\textwidth]{平移变换例1.png}
-\end{figure}
-
-另一方面，对给定的$t$，我们可以定义$S(t) = \{f(\mathbf{s},\,\,t) \, | \, \mathbf{s}\in S\}$为变换的过程中，
-$S$在$t$时刻的样子。上一个例子中，$S(0.6)$就是一个以$(0.3,\,\,-0.3)$、$(1.3,\,\,-0.3)$、
-$(1.3,\,\,0.7)$、$(0.3,\,\,0.7)$为顶点的正方形。
-
-从例子中可以看到，图形$S$按向量$U$的\textbf{平移变换}可以表示为：
-\begin{align}
-    \mathrm{Py}_U: \,\, S\times[0,\,\,1] \,\,&\rightarrow \mathbb{R}^2 \notag \\
-    (\mathbf{s},\,\, t) \quad &\mapsto \mathbf{s} + tU. \notag
-\end{align}
-
-平移变换不改变图形的大小和形状，只改变图形的位置。大部分的变换对图形的大小、形状和位置都有改变。比如给定一个长度为$1$的向量（称为单位向量）$\mathbf{u}$，
-考虑以下变换：
-\begin{align}
-    \mathrm{Ty}_\mathbf{u}: \,\, S\times[0,\,\,1] \,\,&\rightarrow \mathbb{R}^2 \notag \\
-    (\mathbf{s},\,\, t) \quad &\mapsto t(\mathbf{s}\,|\,\mathbf{u})\mathbf{u} + (1 - t)\mathbf{s}. \notag
-\end{align}
-用一个例子来看这个变换的作用。给定向量$\mathbf{u} = (1,\,\,0)$，考虑点$\mathbf{s}$在变换中的运动情况。对给定的点$\mathbf{s}$来说，
-它运动的轨迹是线段：
-$$\{t(\mathbf{s}\,|\,\mathbf{u})\mathbf{u} + (1 - t)\mathbf{s} \, | \, t\in[0,1]\}.$$
-$t=0$时，点从初始位置出发。
-$t=1$时，点到达$(\mathbf{s}\,|\,\mathbf{u})\mathbf{u}$。我们注意到，变换把任何点变为和$\mathbf{u}$共轴的向量。
-
-具体来说，如果设点$\mathbf{s}$的坐标为$(x,\,\,y)$，那么运动的终点为$(x,\,\,0)$。
-直观上看，如果把$x$轴看作地面，那么$(x,\,\,0)$可以看作$(x,\,\,y)$在竖直阳光下的影子。
-所以，我们把这样的变换称为（正）\textbf{投影变换}。指定一个方向，投影变换把点垂直投影到这个方向上，
-把点集变为它在这个方向上的“影子”。用数学的语言来说，投影变换捕捉出点在指定方向的分量。
-我们一般把$\mathbf{u}$称为投影变换的（单位）方向向量。
-
-举例来说，设$S$是标准单位正方形，$S$中任一点$(x,\,\,y)$在变换中的运动为$t\,\,\mapsto (x,\,\,\ (1 - t)y)$。
-因此，$S$在$t$时刻的样子$S(t)$是一个长为$1$，宽为$1 - t$的长方形，最终变成从原点到$(1,\,\,0)$的线段。
-这就是标准单位正方形在$(1,\,\,0)$方向的投影。
-
-\begin{figure}[h] %this figure will be at the right
-    \vspace{4pt}
-    \centering
-    \includegraphics[width=0.75\textwidth]{投影变换例1.png}
-\end{figure}
-
-如果方向向量换成$(\frac{1}{2},\,\,\frac{\sqrt{3}}{2})$，
-那么$S$中任一点$(x,\,\,y)$在变换中的运动为
-$$t\,\,\mapsto (x,\,\,\ y) + t\left(\frac{\sqrt{3}}{4}y - \frac{3}{4}x,\,\,\ \frac{\sqrt{3}}{4}x - \frac{1}{4}y\right).$$
-因此$t=1$时，$(x,\,\,y)$最终运动到点$\left(\frac{1}{2}x + \frac{\sqrt{3}}{2}y\right)(\frac{1}{2},\,\,\frac{\sqrt{3}}{2})$。
-我们知道$x,\,\,y\in[0,1]$，因此$\frac{1}{2}x + \frac{\sqrt{3}}{2}y$最小为$0$，最大为$\frac{\sqrt{3}+1}{2}$。
-也就是说，$S$变为从原点到$(\frac{\sqrt{3} + 1}{4},\,\,\frac{3 + \sqrt{3}}{4})$的线段。
-这就是标准单位正方形在$(\frac{1}{2},\,\,\frac{\sqrt{3}}{2})$方向的投影。
-
-另一种简单的变换是\textbf{位似变换}。
-\textbf{位似}是一种特殊的相似关系。
-举例来说，设$\triangle ABC$相似于$\triangle A'B'C$。
-如果直线$AA'$、$BB'$、$CC'$交于一点$U$，就说两个三角形位似，$U$是\textbf{位似中心}。
-
-位似变换可以表示为：
-\begin{align}
-    \mathrm{Ws}_{(U, \,\,k)}: \,\, S\times[0,\,\,1] \,\,&\rightarrow \mathbb{R}^2 \notag \\
-    (\mathbf{s},\,\, t) \quad &\mapsto \mathbf{s} + t(1 - k)(U - \mathbf{s}). \notag
-\end{align}
-其中$U$是位似中心，$k$是终点时图形与初始图形的相似比。
-我们说$S$以$U$为中心放缩，最终变成原来$k$倍大小。
-从$S$中一点$\mathbf{s}$来看，它从$\mathbf{s}$出发，不断向$U$运动，最终到达$k\mathbf{s} + (1 - k)U$。
-
-\begin{wrapfigure}[9]{r}{0.42\textwidth} %this figure will be at the right
-    \vspace{-12pt}
-    \flushright
-    \includegraphics[width=0.4\textwidth]{位似变换例1.png}
-\end{wrapfigure}
-
-举例来说。设$S$是标准单位正方形，四个顶点分别是$A(0,\,\,0)$、$B(1,\,\,0)$、$C(1,\,\,1)$、$D(0,\,\,1)$。
-指定位似中心$U(-1,\,\,-1)$，相似比$k=0.4$。于是位似变换中$A$沿直线运动到$A'(-0.6,\,\,-0.6)$，$B$沿直线运动到$B'(-0.2,\,\,-0.6)$。
-线段$AB$上一点$(x,\,\,0)$沿直线运动到$(0.4x - 0.6, \,\, -0.6)$。于是线段$AB$变成线段$A'B'$。
-同理线段$BC$、$CD$、$DA$变成线段$B'C'$、$C'D'$、$D'A'$，其中$C'=(-0.2,\,\, -0.2)$，$D'=(-0.6,\,\,-0.2)$。
-于是标准单位正方形$S$变成边长为$0.4$的正方形$A'B'C'D'$。
-
-我们学习过点和图形的轴对称。把图形变成它的轴对称图形，这样的变换叫做\textbf{反射变换}。
-反射变换可以表示为：
-\begin{align}
-    \mathrm{Fs}_\mathbf{u}: \,\, S\times[0,\,\,1] \,\,&\rightarrow \mathbb{R}^2 \notag \\
-    (\mathbf{s},\,\, t) \quad &\mapsto 2t(\mathbf{s}\,|\,\mathbf{u})\mathbf{u} + (1 - 2t)\mathbf{s}. \notag
-\end{align}
-其中$\mathbf{u}$是对称轴所在直线的单位方向向量。
-
-\begin{wrapfigure}[7]{r}{0.42\textwidth} %this figure will be at the right
-    \vspace{-42pt}
-    \flushright
-    \includegraphics[width=0.4\textwidth]{反射变换例1.png}
-\end{wrapfigure}
-
-举例来说，设方向向量$\mathbf{u} = \left(-\frac{\sqrt{2}}{2},\,\,\frac{\sqrt{2}}{2}\right)$，标准单位正方形经历变换$\mathrm{Fs}_\mathbf{u}$，其中的点$(x,\,\,y)$的运动为：
-\begin{align}
-    t \,\, \mapsto &\quad (t(x-y), \,\,t(y-x)) + (1 - 2t)(x, \,\,y) \notag \\
-    & = (x, \,\,y) - t(x+y)(1, \,\, 1) \notag
-\end{align}
-$t=1$时，点$(x,\,\,y)$到达$(-y,\,\,-x)$，即它关于直线$x+y=0$的对称点。于是$\mathrm{Fs}_\mathbf{u}$将标准单位正方形变换为它关于$x+y=0$的对称图形，即
-以$(0,\,\,0)$、$(0,\,\,-1)$、$(-1,\,\,-1)$、$(-1,\,\,0)$为顶点的正方形。
-
-最后来看\textbf{旋转变换}。旋转变换指的是以给定角的顶点为中心，把某个图形按该角旋转。
-
-首先来看一点的旋转。
-给定角$\alpha$，顶点为$U$。平面中一点$P$关于$\alpha$旋转的结果，
-是唯一使得$\angle PUQ = \alpha$且$|UP| = |UQ|$的点$Q$\footnote{如果$P=U$，则旋转后仍为$P$。}。
-以$U$为圆心，以$|UP|$为半径作圆，则$P$沿圆弧运动到$Q$。
-顶点$U$称为\textbf{旋转中心}，$\alpha$称为\textbf{旋转角}。
-
-最简单的情况是$U$为原点。这时，设点$P$的坐标为$(x,\,\,y)$，$|UP| = r = \sqrt{x^2 + y^2}$。
-取$x$轴上的点$S(1,\,\,0)$为基准，设$\angle SUP = \theta$，容易验证，$|x| = r|\cos{\theta}|$，
-$|y| = r|\sin{\theta}|$。对比各个象限中$x$、$y$和$\cos{\theta}$、$\sin{\theta}$的正负号，可以发现：
-任何情况下，$x$总与$\cos{\theta}$同正负，$y$总与$\sin{\theta}$同正负。
-
-\begin{tm}
-    设$P(x,\,\,y)$是平面上原点外一点，设以$x$轴正半轴为始边、射线$OP$为终边的角为$\theta$，则
-    $$ x = r\cos{\theta},\quad y = r\sin{\theta}.$$
-    其中$r = \sqrt{x^2 + y^2}$。
-\end{tm}
-这个定理将点的坐标和角度联系起来，是我们讨论平面角度和旋转问题的关键。 
-
-\begin{wrapfigure}[7]{r}{0.36\textwidth} %this figure will be at the right
-    \vspace{-40pt}
-    \flushright
-    \includegraphics[width=0.3\textwidth]{旋转变换例1.png}
-\end{wrapfigure}
-
-如果将$P$按角$\alpha$旋转，那么与$x$轴正半轴张成的角应该从$\theta$变为$\theta + \alpha$。
-用角度来描述旋转运动，就是：$t \mapsto \theta + t\alpha$。回到点的具体位置，
-$t$时刻$UP$的长度仍然是$r$，而角度是$\theta + t\alpha$，因此，它的坐标是$(r\cos{(\theta + t\alpha)},\,\,r\sin{(\theta + t\alpha)})$。
-使用和角公式，可以将它转化为：
-$$(r\cos{\theta}\cos{(t\alpha)} - r\sin{\theta}\sin{(t\alpha)},\,\,r\cos{\theta}\sin{(t\alpha)} + r\sin{\theta}\cos{(t\alpha)}).$$
-用$x,y$表示，旋转运动就是：
-$$ t \mapsto \left(x\cos{(t\alpha)} - y\sin{(t\alpha)}, \,\,x\sin{(t\alpha)} + y\cos{(t\alpha)}\right).$$
-
-如果$U$不是原点，坐标是$(x_U, \,\,y_U)$，那么$\vv{UP} = (x - x_U, \,\, y - y_U)$。$\vv{UP}$旋转变为$\vv{UQ}$的运动和前面类似。
-因此通过$Q = U + \vv{UQ}$就可得到$Q$。于是旋转运动可以表示为：
-\begin{align}
-    t \mapsto (x_U,\,\,y_U) + &\big((x - x_U)\cos{(t\alpha)} - (y - y_U)\sin{(t\alpha)},\notag \\
-    &\,\,\,(x - x_U)\sin{(t\alpha)} + (y - y_U)\cos{(t\alpha)}\big).\notag
-\end{align}
-
-因此，旋转变换可以表示为：
-\begin{align}
-    \mathrm{Xz}_{(U,\,\,\alpha)}: \,\, S\times[0,\,\,1] \,\,&\rightarrow \mathbb{R}^2 \notag \\
-    ((x,\,\,y),\,\, t) \quad &\mapsto (x_U,\,\,y_U)+\big((x - x_U)\cos{(t\alpha)} - (y - y_U)\sin{(t\alpha)},\notag \\
-    &\qquad\qquad\qquad\quad(x - x_U)\sin{(t\alpha)} + (y - y_U)\cos{(t\alpha)}\big). \notag
-\end{align}
-
-\begin{wrapfigure}[7]{r}{0.42\textwidth} %this figure will be at the right
-    \vspace{-22pt}
-    \flushright
-    \includegraphics[width=0.4\textwidth]{旋转变换例2.png}
-\end{wrapfigure}
-
-可以看到，旋转变换的表示形式繁琐。这是向量和直角坐标系的性质决定的。
-
-直角坐标系与向量的共轴性质和内积相关。共轴性、内积的基本性质都只和向量的加法、数乘运算相关。
-而向量定义中的加法和数乘运算，分别对应平移和放缩变换。
-向量定义中并没有与旋转对应的运算，共轴性、内积的性质也不包括旋转，
-因此，要通过向量在直角坐标系下的坐标表示旋转，自然不是简单的事情。
-
-一种折中的方法是使用极坐标系。极坐标系是科学家研究南北极地时发明的。在南北极圈中，各条经线汇于极点。
-人们发现，使用到极点的距离和经度描述位置，比使用经纬度更精确、更方便。
-
-\begin{figure}[h] %this figure will be at the right
-    % \vspace{4pt}
-    \centering
-    \includegraphics[width=0.8\textwidth]{极坐标例1南北极地图2.jpg}
-    \caption*{\texttt{使用极坐标系的极地地图}}
-\end{figure}
-如下图所示，一点$A$在极坐标系中的坐标称为极坐标，它由模长和辐角组成。模长就是点$A$到原点$O$的距离，
-辐角是$x$轴正半轴到$\vv{OA}$所构成的角。比如，直角坐标系中坐标为$(1,\,\,1)$的点，在极坐标系中可以表示为
-$(\sqrt{2},\,\, 45^\circ)$。
-
-\begin{figure}[h] %this figure will be at the right
-    \vspace{4pt}
-    \centering
-    \includegraphics[width=0.5\textwidth]{极坐标例2.png}
-\end{figure}
-
-使用极坐标系，可以比较方便地描述以原点为中心的旋转运动。比如，直角坐标系中，
-点$(1,\,\,1)$以原点为中心顺时针旋转$25^\circ$，可以用极坐标系描述为：
-$$ t\,\, \mapsto (\sqrt{2}, \,\, 45^\circ + t \cdot 25^\circ)$$
-然而，用极坐标系描述平移、放缩等运动就比较复杂。因此，用极坐标描述以非原点为中心的旋转，仍然繁琐。
-
-\begin{et}
-    直角坐标系中，设$A$、$B$坐标分别为$(2,\,\, -1)$、$(1,\,\, 3)$。考虑线段$AB$，
-    以原点为中心，将其旋转$45^\circ$，然后以原点为中心，将其放大为原来的$2$倍，再按$(0,\,\, -2)$平移。最终得到的图形是什么？
-\end{et}
-\begin{so}
-    线段$AB$经历了$3$个变换，分别可以记为$\mathrm{Xz}_{(O,\,\,\alpha)}$、$\mathrm{Ws}_{(O,\,\, 2)}$和$\mathrm{Py}_{M}$，
-    其中$\alpha = 45^\circ$，$M = (0,\,\,-2)$。
-
-    首先看第一个变换。$\mathrm{Xz}_{(O,\,\,\alpha)}$可以表示为：
+\begin{df}
+    设$P$是平面$\mathbb{R}^2$中某个点的运动：
     \begin{align}
-        ((x,\,\,y),\,\, t) \,\,\, \mapsto \left(x\cos{(t\alpha)} - y\sin{(t\alpha)},\,\,x\sin{(t\alpha)} + y\cos{(t\alpha)}\right). \notag
+        P: \mathbb{R} &\rightarrow \mathbb{R}^2 \notag \\
+             t \, &\mapsto P(t) \notag
     \end{align}
-    因此$t=1$时，$(x,\,\,y)$运动到$\left(\frac{\sqrt{2}}{2}(x-y),\,\,\frac{\sqrt{2}}{2}(x+y)\right).$
-    计算可得，$A$经过旋转变成$A_1 = \left(\frac{3\sqrt{2}}{2},\,\, \frac{\sqrt{2}}{2}\right)$，
-    $B$经过旋转变成$B_1 = \left(-\sqrt{2},\,\, 2\sqrt{2}\right)$。线段$AB$经过旋转变为线段$A_1B_1$。
+    给定两数$t_1 < t_2$，则$P$在$[t_1,\,\,t_2]$上的\textbf{速度}是：
+    $$ \frac{P(t_2) - P(t_1)}{t_2 - t_1}.$$
+\end{df}
+显然，这里的自变量是日常生活中时间概念的抽象，我们一般认为自变量属于某个数轴，
+称为\textbf{时间轴}，称具体的$t$为\textbf{时刻}，轴上的区间为\textbf{时间段}。
+而以上定义的速度是某个时间段$[t_1,\,\,t_2]$上的速度，
+也称为这段时间的\textbf{平均速度}。它是两个量的商。作为被除数的$P(t_2) - P(t_1)$是平面上的向量，
+从$t_1$时刻所在的点指向$t_2$时刻所在的点，表示点在这段时间的位置的改变量，或者说移动情况，
+因此称为点（在该时间段的）\textbf{位移}。作为除数的$t_2 - t_1$是时长。
 
-    接着进行第二个变换。$\mathrm{Ws}_{(O,\,\, 2)}$可以表示为：
-    \begin{align}
-        (\mathbf{s},\,\, t) \,\,\, \mapsto \mathbf{s} - t(O - \mathbf{s}). \notag
-    \end{align}
-    因此$t=1$时，$\mathbf{s}$运动到$2\mathbf{s}$。计算可得，$A_1$经过放缩变成$A_2 = \left(3\sqrt{2},\,\, \sqrt{2}\right)$，
-    $B$经过放缩变成$B_2 = \left(-2\sqrt{2},\,\, 4\sqrt{2}\right)$。线段$A_1B_1$经过旋转变为线段$A_2B_2$。
+换句话说，某段时间里，\textbf{点运动的（平均）速度等于位移除以时长}。
 
-    最后进行平移变换。$\mathrm{Py}_{M}$可以表示为：
-    $$ (\mathbf{s},\,\, t) \,\,\, \mapsto \mathbf{s} + tM. $$
-    因此$t=1$时，$\mathbf{s}$运动到$\mathbf{s} + M$。计算可得，点$A_2$经过平移变成$A_3 = \left(3\sqrt{2},\,\, \sqrt{2}-2\right)$，
-    $B$经过平移变成$B_3 = \left(-2\sqrt{2},\,\, 4\sqrt{2}-2\right)$。线段$A_2B_2$经过旋转变为线段$A_3B_3$。
+类似的定义还出现在很多地方。比如，材料科学中，会考虑温度的改变对材料电阻的影响。
+实践中，考虑电阻率关于温度的函数：
+\begin{align}
+    R: \mathbb{R} &\rightarrow \mathbb{R} \notag \\
+         t \, &\mapsto R(t) \notag
+\end{align}
+这里的自变量是温度，而应变量是电阻率$R$。可以认为温度作为变量也属于某个数轴，
+如果我们试图描述温度改变时电阻率$R$改变的快慢，那么可以尝试用类似的方式描述：
+$$ \frac{R(t_2) - R(t_1)}{t_2 - t_1}.$$
+其中$t_1 < t_2$表示起始和最终温度，$R(t_2) - R(t_1)$就是温度从$t_1$增加到$t_2$时电阻率的改变量。
 
-    综上所述，线段$AB$经过三个变换，最终得到线段$A_3B_3$。
-\end{so}
+要注意的是，以上两个例子中，时间作为自变量，增长是不可逆的，而温度是可上升也可下降的。
+因此，两者并不完全等同。但我们在讨论变化的快慢时，用到了同样的方法，
+即用映射的应变量的改变量除以自变量的改变量。我们把这个比率称为实变映射（在某个区间上的）\textbf{变率}。
 
-\begin{sk}
-    \mbox{}\\
-    \indent 1. 如何描述图形关于某点的中心对称变换？ \\
-    \indent 2. 如果一个变换的任意时刻，图形中任两点的距离不变，就说它是保距变换。本节提到的变换中，哪些变换是保距变换？\\
-    \indent 3. 如果一个变换的任意时刻，图形中的角的角度不变，就说它是保角变换。本节提到的变换中，哪些变换是保角变换？
-\end{sk}
+\begin{df}{\textbf{实变映射的变率}}
+    设$f$是定义在实数集上的映射，给定实数$t_1 < t_2$，则$f$在$[t_1,\,\,t_2]$上的\textbf{变率}是：
+    $$ \frac{f(t_2) - f(t_1)}{t_2 - t_1}.$$
+\end{df}
+
+速度可以用来描述一段时间内运动的状态。最容易想到的是这样的运动：任意时间段的速度都是一样的。
+我们把这样的运动称为\textbf{匀速运动}。显然，如果时间轴是整个数轴，匀速运动的轨迹就是直线。
+直线的方向向量就是速度向量。记匀速运动的速度为$\mathbf{v}$，则时间段$[t_1,\,\,t_2]$里，
+位移就是$(t_2 - t_1)\mathbf{v}$。设点在初始时刻$t_0$的位置是$P_0$，则它在$t$时刻的位置是：
+$$P(t) = P_0 + (t - t_0)\mathbf{v}.$$
+
+对于上面电阻率的例子来说，电阻率$R$随温度的变化也可以是匀速的。如果经实验证明，在某个温度范围$I$内，
+给定任意温度$t_1, t_2 \in I$，变率
+$$ \frac{R(t_2) - R(t_1)}{t_2 - t_1} $$
+都等于某个常数$q$，就说相关材料的电阻率是匀速变化的。
+如果已知物体在某个温度$t_0\in I$下的电阻率为$R_0$，那么，对任意$t\in I$，
+$$ R(t) = R_0 + q(t - t_0). $$
+
+再来看另一类简单的运动：给定圆$\odot_{O, r}$，点从$(r,\,\, 0)$出发，逆时针方向沿圆周运动。
+这时，我们发现，任意时间段里的位移方向一直在改变。为此，我们改为研究点经过的路程。
+路程是物体某段时间内运动轨迹的长度。它是一个数，而不是向量。
+显然，同样的位移，可以通过走不同的路来达到，而对应轨迹的长度是不一样的。
+也就是说，同样的位移可以对应不同的路程。
+
+路程，作为时间的函数，可以定义其变率。我们把路程关于时间的变率叫做\textbf{速率}，和速度相区别。
+它们的主要区别和路程与位移的区别是一样的。速率是数，而速度是向量。
+
+对于圆周运动，我们可以讨论它的速率，就是运动的路程关于时间的变率。
+最简单的圆周运动，任意时间段的速率是定值。我们把这样的运动叫做\textbf{匀速圆周运动}。
+要注意的是，这里的“速”指“速率”。
+
+在上面的例子中，我们可以假设运动的速率总是$a$。
+$t_0$时刻，点从$(r,\,\, 0)$出发，于是点在$t$时刻经历的路程为$a(t - t_0)$。
+也就是说，物体沿圆周走过的弧长为$a(t - t_0)$。
+于是，$t = \frac{2\pi r}{a} + t_0$时，点走过的路程为$2\pi r$，即转动了一周。
+
+我们可以把这个路程换算成点对应的向量和$t_0$时的向量的夹角。
+这样，我们就得到角度关于时间的函数$\theta$：
+$$ \theta : \,\,\, t \mapsto \frac{a(t - t_0)\cdot 360^\circ}{2\pi r} = \frac{a(t - t_0)\cdot 180^\circ}{\pi r}.$$
+注意到角度关于时间的变率也是常数：
+$$ \frac{\theta(t_2) - \theta(t_1)}{t_2 - t_1} = \frac{a \cdot 180^\circ}{\pi r}.$$
+我们把这个变率称为圆周运动的\textbf{角速率}，把弧长对应的速率$a$称为\textbf{线速率}。
+圆周运动的线速率和角速率成正比。角速率不变的圆周运动是匀速圆周运动。
+
+角速率在描述多个点的圆周运动时比较方便。比如，几个点绕着同一个圆心作圆周运动，但半径不相同。
+这时，考虑各个点的角速率，就容易理解点之间的关系。
 
 \begin{xt}
-    \mbox{}\\
-    \indent 1. 将标准单位正方形以原点为中心，按$45^\circ$顺时针旋转，最终得到的图形是什么？详细描述这个变换。\\
-    \indent 2. 设点$A$、$B$、$C$的坐标分别是$(0,\,\, 4)$、$(-1,\,\, 0)$、$(1,\,\,1)$。\\
-    \indent 2.1. 以原点为中心，把$\triangle ABC$按$90^\circ$顺时针旋转，然后以原点为中心，将其放大为原来的$3$倍，再按$(-5, \,\, 0)$平移。最终得到的图形是什么？\\
-    \indent 2.2. 把$\triangle ABC$按$\mathbb{R}\left(\frac{1}{2},\,\, \frac{\sqrt{3}}{2}\right)$作反射变换，再按$(0,\,\, 6)$平移。最终得到的图形是什么？\\
-    \indent 2.3. 以原点为中心，把$\triangle ABC$分别按$30^\circ$、$120^\circ$顺时针旋转，然后投影到$\left(\frac{2\sqrt{5}}{5},\,\, -\frac{\sqrt{5}}{5}\right)$方向上。最终分别得到什么图形？\\
-    \indent 3. 某工厂的机械臂要完成一个平面动作，可以简单描述为把端点为$A(1,\,\, 2)$、$B(-2,\,\, 1)$的线段，
-    变换为端点为$A'(-4,\,\, 4)$、$B'(-4,\,\, -6)$的线段。机械臂可以进行$3$种操作：以原点为中心的旋转变换、按任一向量的平移变换、
-    以线段一端为中心的位似变换。\\
-    \indent 3.1. 请设计一种操作组合，把$AB$移动到$A'B'$。\\
-    \indent 3.2. 请设计一种操作组合，把$AB$移动到$A'B'$，并确保$AB$的中点经过点$(-2,\,\, -2)$。\\
-    \indent 3.3. 已知机械臂的每种操作成本。旋转变换的成本与线段中点经过的距离成正比，每单位长度$0.65$元；
-    平移变换的成本和平移距离成正比，每单位长度$0.4$元；位似变换的成本和变换前后线段长度的差值成正比，每单位长度$0.8$元。请设计一种操作方式，使成本最低。\\
-    \indent 3.4. 同上，如果要确保$AB$的中点经过点$(-2,\,\, -2)$，那么怎样操作成本最低？
+    \mbox{} \\
+    \indent 1. 点$P$沿单位圆逆时针运动，$t=0$时从$(1,\,\,0)$出发，
+    $t=3$时到达$\left(-\frac{1}{2},\,\,\frac{\sqrt{3}}{2}\right)$。
+    这段时间里，它的位移是多少？经过的路程是多少？平均速度、线速率和角速率分别是多少？\\
+    \indent 2. 给定平面上的极坐标系。$t=0$时，点$P$从$(1,\,\,0)$出发。
+    它的模长和辐角是关于时间的函数：
+    \begin{align}
+        r &: \,\,\, t \mapsto 1 + 2t^2 - 2.4t, \notag \\
+        \theta &: \,\,\, t\mapsto 120^\circ t. \notag
+    \end{align}
+    \indent 2.1. $[0, \,\, 3]$这段时间里，点$P$的位移是多少？平均速度、平均角速率分别是多少？\\
+    \indent 2.2. 圆$C$以原点为圆心，半径为$4.2$。$P$的轨迹与圆$C$有几个交点？在什么时刻相交？求交点的坐标。
 \end{xt}
 
 \chapter{从平面到立体}
@@ -1389,9 +1455,11 @@ $$ t\,\, \mapsto (\sqrt{2}, \,\, 45^\circ + t \cdot 25^\circ)$$
 \end{so}
 
 从这个例子可以看出，两个整数除以同一个数得到相同的余数，是一个重要的性质。我们把这种性质称为\textbf{同余}。
-比如，$65$和$1$除以$4$余数都是$1$，我们就说$65$和$1$模$4$同余。$7^{65}$和$7^1$除以$10$余数都是$7$，
+比如，$65$和$1$除以$4$余数都是$1$，我们就说$65$和$1$模$4$同余，记为：
+$$ 65 \tong{4} 1. $$
+$7^{65}$和$7^1$除以$10$余数都是$7$，
 我们说$7^{65}$和$7^1$模$10$同余，记为：
-$$ 7^{65} \equiv_{10} 7^1 $$
+$$ 7^{65} \tong{10} 7^1. $$  % \underset{10}{\equiv} 
 
 \section{同余类}
 整数除以$3$，余数有$0,1,2$三种可能。整数除以$10$，余数有$0,1,\cdots , 9$十种可能。
@@ -1408,14 +1476,14 @@ $$\overline{0},\overline{1},\cdots,\overline{n-1}$$
 $$\overline{0}^n,\overline{1}^n,\cdots,\overline{n-1}^n$$
 
 给定整数$m$，我们可以把它对应到某个模$n$同余类，称为对$n$\textbf{取模}。
-比如$n=5$时，$24 \equiv_5 4$，我们把$24$对应到$\overline{4}^5$，
+比如$n=5$时，$24 \tong{5} 4$，我们把$24$对应到$\overline{4}^5$，
 或者说，$24$对$5$取模，得$\overline{4}^5$。
 
 同余关系和相等关系很像，它们是否有一样的性质呢？我们可以验证，同余关系满足以下的性质：
 \begin{enumerate}
-    \item $\forall \,\, a\in \mathbb{Z}, \quad a \equiv_n a$；
-    \item $\forall \,\, a, b \in \mathbb{Z}$，如果$a \equiv_n b$，那么$b \equiv_n a$；
-    \item $\forall \,\, a, b \in \mathbb{Z}$，如果$a \equiv_n b$，$b \equiv_n c$，那么$a \equiv_n c$。
+    \item $\forall \,\, a\in \mathbb{Z}, \quad a \tong{n} a$；
+    \item $\forall \,\, a, b \in \mathbb{Z}$，如果$a \tong{n} b$，那么$b \tong{n} a$；
+    \item $\forall \,\, a, b \in \mathbb{Z}$，如果$a \tong{n} b$，$b \tong{n} c$，那么$a \tong{n} c$。
 \end{enumerate}
 
 满足以上三个性质的二元关系称为\textbf{等价关系}。数与数的相等关系是一种等价关系，数与数的同余关系
@@ -1428,9 +1496,9 @@ $$\overline{0}^n,\overline{1}^n,\cdots,\overline{n-1}^n$$
 
 整数之间有四则运算，模$n$同余类之间，也可以进行运算。以$n=5$为例子。
 我们分别计算$24$和$37$除以$5$的余数，以及它们的和$61$除以$5$的余数：
-$$ 24 \equiv_5 4, \,\,\, 37 \equiv_5 2 , \,\,\, 61 \equiv_5 1$$
+$$ 24 \tong{5} 4, \,\,\, 37 \tong{5} 2 , \,\,\, 61 \tong{5} 1$$
 
-可以发现：$ 4 + 2 \equiv_5 1$，也就是说，取模和加法可以交换顺序。
+可以发现：$ 4 + 2 \tong{5} 1$，也就是说，取模和加法可以交换顺序。
 可以验证，两个同余类中各取一个元素相加，和所在的同余类，就是两者模$n$余数的和所在的同余类。
 用集合的语言，可以写成：
 $$\{kn + a + ln + b \, | \, k\in\mathbb{Z}, \, l\in\mathbb{Z} \} = \{kn + a + b \, | \, k\in\mathbb{Z} \}$$
@@ -1565,9 +1633,9 @@ $$ \frac{a}{b} \times 6 = a \times \frac{6}{b} $$
     $$1 = b_1 < b_2 < \cdots < b_{\varphi(n)} = n-1.$$
     其中$\varphi(n)$是模$n$简化同余系的元素个数。考虑任一元素$b_i$，我们接下来会证明：
     $b_ib_1, b_ib_2, \cdots, b_ib_{\varphi(n)}$模$n$两两不同余。
-    于是，它们中恰有一个模$n$余$1$。设$b_ib_j \equiv_n 1$，那么$b_j$就是$b_i$的“倒数”。\\
+    于是，它们中恰有一个模$n$余$1$。设$b_ib_j \tong{n} 1$，那么$b_j$就是$b_i$的“倒数”。\\
     最后用反证法证明命题：$b_ib_1, b_ib_2, \cdots, b_ib_{\varphi(n)}$模$n$两两不同余。\\
-    反设命题不成立，即存在$b_j, b_k$使得$b_ib_j \equiv_n b_ib_k$。这说明$n | b_i(b_j - b_k)$。
+    反设命题不成立，即存在$b_j, b_k$使得$b_ib_j \tong{n} b_ib_k$。这说明$n | b_i(b_j - b_k)$。
     由于$b_i$和$n$互素，根据倍和析因定理，存在整数$p, q$，使得：
     $$ b_ip + nq = 1.$$
     两边乘以$b_j - b_k$，就得到：
@@ -1593,11 +1661,11 @@ $$ \frac{a}{b} \times 6 = a \times \frac{6}{b} $$
 与模$n$简化同余系密切相关的一个定理是方余定理\footnote{这个定理也称为欧拉定理。但以欧拉命名的定理太多了。为了避免混淆，这里不采用。}。
 \begin{tm}{\textbf{方余定理} }\label{tm:3-3-0}
     设$a$是模$n$简化同余系中某个同余类中的元素，则：
-    $$ a^{\varphi(n)} \equiv_n 1 $$
+    $$ a^{\varphi(n)} \tong{n} 1 $$
     其中$\varphi(n)$是模$n$简化同余系中同余类的个数。
 \end{tm}
 比如，模$10$简化同余系有$4$个元素：$\overline{1}, \overline{3},\overline{7},\overline{9}$。
-$7$属于同余类$\overline{7}$，则$7^4 \equiv_{10} 1$。
+$7$属于同余类$\overline{7}$，则$7^4 \tong{10} 1$。
 
 \begin{proof}
     我们把模$n$简化同余系中的同余类用小于$n$且与$n$互素的正整数来代表，记为
@@ -1607,27 +1675,27 @@ $7$属于同余类$\overline{7}$，则$7^4 \equiv_{10} 1$。
     这说明这$\varphi(n)$个整数也分别代表模$n$简化同余系中的各个同余类。\\
     考虑乘积：$b_1 b_2 \cdots b_{\varphi(n)}$。$(ab_1) (ab_2) \cdots (ab_{\varphi(n)})$和它同余。
     也就是说：
-    $$b_1 b_2 \cdots b_{\varphi(n)} \equiv_n (ab_1) (ab_2) \cdots (ab_{\varphi(n)}) \equiv_n a^{\varphi(n)} b_1 b_2 \cdots b_{\varphi(n)}.$$
+    $$b_1 b_2 \cdots b_{\varphi(n)} \tong{n} (ab_1) (ab_2) \cdots (ab_{\varphi(n)}) \tong{n} a^{\varphi(n)} b_1 b_2 \cdots b_{\varphi(n)}.$$
     由于$b_1 b_2 \cdots b_{\varphi(n)}$也与$n$互素，我们把等式两边除以$b_1 b_2 \cdots b_{\varphi(n)}$，就得到：
-    $$ a^{\varphi(n)} \equiv_n 1 . $$
+    $$ a^{\varphi(n)} \tong{n} 1 . $$
 \end{proof}
 
 如果$n$是素数，那么$1,2, \cdots , n-1$都和它互素，
 于是模$n$的简化同余系就是$\{\overline{1},\overline{2}, \cdots , \overline{n-1}\}$，$\varphi(n) = n-1$。
 根据方余定理，只要$a$不是$n$的倍数，就有：
-$$ a^{n-1} \equiv_n 1 .$$
+$$ a^{n-1} \tong{n} 1 .$$
 这个结论也叫做费马小定理。
 
 \begin{xt}\label{xt:3-3-0}
     \mbox{}\\
-    给定素数$n$，证明：\\
-    \indent 1. 除了$\overline{1}$和$\overline{n-1}$，其它同余类的逆都不是自己。\\
-    \indent 2. $(n-1)! \equiv_n -1.$ \\
-    设$a$与$n$互素，称使得$a^m \equiv_n 1$的最小正整数$m$为$a$模$n$的\textbf{阶}。\\
-    \indent 3. 证明$a$的阶整除$\varphi(n)$。\\
-    \indent 4. 如果$a$的阶等于$\varphi(n)$，就说$a$是模$n$的\textbf{原根}。证明：如果$a$是模$n$的原根，
+    \indent 1. 给定素数$n$，证明：\\
+    \indent 1.1. 除了$\overline{1}$和$\overline{n-1}$，其它同余类的逆都不是自己。\\
+    \indent 1.2. $(n-1)! \tong{n} -1.$ \\
+    \indent 2. 设$a$与$n$互素，称使得$a^m \tong{n} 1$的最小正整数$m$为$a$模$n$的\textbf{阶}。\\
+    \indent 2.1. 证明$a$的阶整除$\varphi(n)$。\\
+    \indent 2.2. 如果$a$的阶等于$\varphi(n)$，就说$a$是模$n$的\textbf{原根}。证明：如果$a$是模$n$的原根，
     那么模$n$简化同余系可以写成：$\{\overline{a^0}, \overline{a^1}, \cdots , \overline{a^{\varphi(n)-1}}\}$。\\
-    \indent 5. 找出所有模$7$的原根。
+    \indent 2.3. 找出所有模$7$的原根。
 \end{xt}
 
 \chapter{用数据说话}
@@ -1886,7 +1954,7 @@ $a$从某个$x_i$离开，运动到$x_{i+1}$期间，$n^-$是不变的。$a$到�
 当然，我们从直方图可以看出，学生的身高差距并非“不多”。
 因此，我们引入\textbf{方差}的概念，描述样本值的集中程度。
 方差和平均数一起，可以粗略呈现样本分布的情况。样本的方差定义为样本值与均值之差的平方的均值。给定$N$个样本值：
-$x_1, x_2, \cdots, x_N$，记它们的均值为$u$，方差为$v$，则：
+$x_1, x_2, \cdots, x_N$，记它们的均值为$\mathbf{u}$，方差为$v$，则：
 $$ v = \frac{1}{N}\sum_{i=1}^N \left(x_i - u\right)^2.$$
 由于$u = \frac{1}{N}\sum_{i=1}^N x_i$，可以推出：
 $$v = \frac{1}{N}\sum_{i=1}^N x_i^2 - u^2.$$
@@ -2044,6 +2112,7 @@ $$ \frac{(1 - 3)^2 + (2 - 3)^2 + (3 - 3)^2 + (4 - 3)^2 + (5 - 3)^2}{5} = 2.$$
 
 实验中，我们观察某些事件发生的情况，把我们关心的部分用数据记录下来，这样就得到一个数据样本。
 这样记录的叫做实验的\textbf{终态}或\textbf{结果}。
+所有可能的终态构成的集合称为终集。终态是终集的元素。
 
 \section{随机变量}
 
@@ -2069,7 +2138,7 @@ f \,\,\, : \,\,\, \{1,2,3,4,5,6\} &\rightarrow \{10,20,30,40,50,60\} \notag \\
 
 一般来说，设试验的终集为$S$，如果某个映射把终集里的每个终态映射到另一个集合$X$里，
 就说这个映射是$S$上的$X$–随机映射或随机变量。如果集合$X$是有限集合或有理数集的子集，
-就说随机映射是\textbf{离散}的；如果集合$X$是实数集或区间，就说随机映射是\textbf{连续}的。
+就说随机变量是\textbf{离散}的；如果集合$X$是实数集或区间，就说随机变量是\textbf{连续}的。
 
 我们把随机变量背后随机事件的概率分布，称为\textbf{随机变量的分布}或随机变量遵循的分布。
 可以看出，随机变量的性质与其分布有关。
@@ -2077,7 +2146,7 @@ f \,\,\, : \,\,\, \{1,2,3,4,5,6\} &\rightarrow \{10,20,30,40,50,60\} \notag \\
 \begin{ex}
     考虑这样的映射$\mathbb{E}$：它将离散随机变量$f$映射为
     $$ \mathbb{E}(f) = \sum_{s\in S} f(s) \mathbb{P}(\{s\}).$$
-    这个映射称为随机变量的期望。比如，对以上掷骰子试验的随机变量$f$，它的期望为：
+    这个映射称为\textbf{随机变量的期望}。比如，对以上掷骰子试验的随机变量$f$，它的期望为：
     $$ \mathbb{E}(f) = \sum_{i=1}^6 10\cdot i \mathbb{P}(\{i\}).$$
     如果投骰子的分布是均匀分布，那么对任何$i$​，$\mathbb{P}(\{i\})$​总是$\frac{1}{6}$​，于是：
     $$ \mathbb{E}(f) = \sum_{i=1}^6 \frac{10\cdot i}{6} = 35. $$
@@ -2089,7 +2158,7 @@ f \,\,\, : \,\,\, \{1,2,3,4,5,6\} &\rightarrow \{10,20,30,40,50,60\} \notag \\
     考虑这样的映射$\mathrm{Var}$：它将离散随机变量$f$映射为
 
     $$ \mathrm{Var}(f) = \sum_{s\in S} \left(f(s) - \mathbb{E}(f)\right)^2 \mathbb{P}(\{s\}).$$
-    这个映射称为随机变量的变差。比如，对以上掷骰子试验的随机变量$f$，它的期望为：
+    这个映射称为\textbf{随机变量的变差}。比如，对以上掷骰子试验的随机变量$f$，它的期望为：
     $$ \mathrm{Var}(f) = \sum_{i=1}^6 \left(10i - \mathbb{E}(f)\right)^2 \mathbb{P}(\{i\}).$$
     如果投骰子的分布是均匀分布，那么对任何$i$，$\mathbb{P}(\{i\})$总是$\frac{1}{6}$，于是$\mathbb{E}(f) = 35$，因此：
     $$\mathrm{Var}(f) = \sum_{i=1}^6 \frac{\left(10i - 35\right)^2}{6} = \frac{875}{3} \approx 291.67$$    
@@ -2264,7 +2333,7 @@ $$\mathbb{P}(A_1\cap A_2\cap \cdots \cap A_n) = \mathbb{P}(A_1) \mathbb{P}(A_2) 
 独立重复实验是寻找随机事件规律的常用手段。比如，我们对投掷这枚骰子时各面朝上的概率一无所知，
 只有一份$100$次独立重复的投掷实验的结果。这时，如果要讨论下一次投掷的结果，我们如何给出合理的预测呢？
 
-对于这$100$次独立重复实验，我们可以定义随机变量$f_1,f_2,\cdots , f_{100}$，来表示每次实验的结果。
+对于这$100$次独立重复实验，我们可以定义随机变量$f_1,f_2,\cdots , f_{100}$来表示各次实验。
 由于我们假设这些随机变量相互独立，而且遵循相同的分布，
 我们说这$100$个随机变量是\textbf{独立同分布}的。
 
@@ -2286,7 +2355,7 @@ $$\mathbb{P}(A_1\cap A_2\cap \cdots \cap A_n) = \mathbb{P}(A_1) \mathbb{P}(A_2) 
 而随机变量的期望，可以用来估计下一次实验的结果。
 
 以上面投掷骰子的实验为例。设$100$次投掷实验的结果为$Y_1, Y_2, \cdots , Y_{100}$。它们分别是$100$个独立同分布的随机变量
-$f_1, f_2, \cdots, f_{N}$的值。设下一次投掷实验的收益用独立同分布的随机变量$f$表示。根据大数定律，平均数
+$f_1, f_2, \cdots, f_{100}$的值。设下一次投掷实验的收益用独立同分布的随机变量$f$表示。根据大数定律，平均数
 $$\overline{Y}_{100} = \frac{1}{100}(Y_1 + Y_2 + \cdots + Y_{100})$$
 接近$f$的期望。因此，我们可以用$\overline{Y}_{100}$代表$f$的期望。比如，如果算得$\overline{Y}_{100} = 34.4$，
 那么可以估计下一次投掷实验的预期收益是$34.4$。
@@ -2294,12 +2363,17 @@ $$\overline{Y}_{100} = \frac{1}{100}(Y_1 + Y_2 + \cdots + Y_{100})$$
 再来看掷硬币实验，它对应的随机变量$h$将正面朝上映射到$1$，反面朝上映射到$0$。
 已知正反面朝上的概率$p_{\text{正}}$和$p_{\text{反}}$，可以算得$h$的期望为：
 $$ \mathbb{E}(h) = 1 \cdot p_{\text{正}} + 0 \cdot p_{\text{反}} = p_{\text{正}}.$$
-所以，$h$的期望就是$p_{\text{正}}$。因此，如果投掷$1000$次硬币，其中$447$次正面朝上，
-那么$h$的期望就接近于$\frac{447}{1000} = 0.447$。于是我们可以估计$p_{\text{正}} = 0.447$。
-再掷一次硬币，正面朝上的概率是$44.7\%$。
+所以，$h$的期望就是$p_{\text{正}}$。因此，如果投掷$1000$次硬币，其中$487$次正面朝上，
+那么$h$的期望就接近于$\frac{487}{1000} = 0.487$。于是我们可以估计$p_{\text{正}} = 0.487$。
+再掷一次硬币，正面朝上的概率是$48.7\%$。
+
+这个实验中，我们用随机变量$h$“揭示”了概率$p_{\text{正}}$的性质，我们把这样设计的随机变量称为（$p_{\text{正}}$的）\textbf{示性随机变量}。
+“示性”这个词，我们将在不少地方碰到，指用来揭示某些对象性质的数学工具。
 
 从掷硬币实验的例子，还可以得到估计某事件概率的方法。如果能够作独立重复实验来观察事件$A$是否发生，那么我们把$n$次独立重复实验中
-事件$A$的次数与试验次数$n$的比值称为该实验中$A$的频率，记为$q_A$。考虑把“事件$A$发生”映射到$1$，把“$A$不发生”映射到$0$的示性随机变量$f_A$，
+事件$A$发生的次数与试验次数$n$的比值称为该实验中$A$的\textbf{频率}，记为$q_A$：
+$$ q_A = \frac{\mbox{事件}A\mbox{发生的次数}}{\mbox{总试验次数}}.$$
+考虑把“事件$A$发生”映射到$1$，把“$A$不发生”映射到$0$的示性随机变量$f_A$，
 那么频率$q_A$就是$n$个与$f_A$同分布的独立随机变量的平均数。根据大数定律，$n$很大的时候，$q_A$就接近$f_A$的期望，也就是$\mathbb{P}(A)$。
 于是，通过记录多次实验中事件的频率，我们就可以估计事件发生的概率。
 
@@ -2320,5 +2394,6 @@ $$ \mathbb{E}(h) = 1 \cdot p_{\text{正}} + 0 \cdot p_{\text{反}} = p_{\text{�
     \indent 2.3. 试估计下一次抛掷时点数不超过$3$的概率是多少？\\
     \indent 2.4. 试估计单次掷骰子结果的分布。
 \end{xt}
+
 
 \end{document}

@@ -61,11 +61,11 @@
 \newtheorem{po}{公理}
 \newtheorem*{ex*}{例子}
 \newtheorem*{so}{解答}
-\newtheorem*{proof2}{证明}
 \newtheorem{xt}{习题}[section]
 \newtheorem{cor}{推论}[pp]
-\renewcommand{\proofname}{\indent\bf 证明}
-\renewcommand{\qedsymbol}{\hfill$\square$}
+\renewenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
+% \renewcommand{\proofname}{\indent\bf 证明}
+% \renewcommand{\qedsymbol}{\hfill$\square$}
 % 列举环境的行间距
 \setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
 \setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
@@ -874,7 +874,7 @@ $$ \forall n\in\mathbb{N}, \quad | S_1 - \pi | < \frac{2\pi^2}{n}. $$
     给定圆$O$，设圆心与圆上两点$B$、$C$的连线分别交圆在圆上一点
     的切线于$D$、$P$，则$|BC| < |DP|$。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     如下图左，我们过$D$作$DE \parallel BC$交$OP$于$E$，
     则$\triangle BOC \sim \triangle DOE$。$|OD| > |OB|$，因此
     $|BC| < |DE|$。
@@ -886,7 +886,7 @@ $$ \forall n\in\mathbb{N}, \quad | S_1 - \pi | < \frac{2\pi^2}{n}. $$
     \end{align}
     这说明$\triangle EDP$中，$|DE| < |DP|$。于是
     $$ |BC| < |DE| < |DP|. $$
-\end{proof2}
+\end{proof}
 
 \begin{figure}[H] 
     \vspace{4pt}
