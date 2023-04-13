@@ -782,51 +782,129 @@ $$ P \mapsto P + U $$
 平移变换不改变图形的大小和形状，只改变图形的位置。大部分的变换对图形的大小、形状和位置都有改变。
 比如给定一个长度为$1$的向量$U$，
 考虑以下变换：
-\begin{align}
-    \mathrm{Ty}_U : \,\, \gamma\,\,&\rightarrow \,\, \gamma \notag \\
-    P &\mapsto \,\, (P\,|\,U)U \notag
-\end{align}
-用一个例子来看这个变换的作用。给定向量$U(1,\,\,0)$，点$P(x_P, \,\, y_P)$经过变换，
-变成$(x_P,\,\, 0)$。我们注意到，它把任何点变为和$U$共轴的向量。
+$$ T: \,\,\, (x, \,\, y) \mapsto (x,\,\, 0)$$
+对平面中一点$P(x_P, \,\, y_P)$，$T$把它映射到$(x_P,\,\,0)$，也就是它到$x$轴的垂足。
+直观上，如果把$x$轴看作“地面”，想象光线从正上方照射，那么$T$把点映射到它在“地面”上的投影。
+我们把这样的变换称为投影变换。
 
-直观上看，如果把$x$轴看作地面，那么$(x_P,\,\,0)$可以看作$(x_P,\,\,y_P)$在竖直阳光下的影子。
-所以，我们把这样的变换称为（正）\textbf{投影变换}。指定一个方向，投影变换把点垂直投影到这个方向上，
-把点集变为它在这个方向上的“影子”。用数学的语言来说，投影变换把向量变换为指定方向的分量。
-我们一般把$U$称为投影变换的（单位）方向向量。
+更一般地来说，可以这样定义投影变换：
+\begin{df}
+    给定平面基底$\mathbf{u}, \mathbf{v}$，平面中任意向量$P$都能唯一表示成$\mathbf{u}, \mathbf{v}$的直组合：
+    $$ P = a\mathbf{u} + b\mathbf{v}.$$
+    其中$a, b$是相应的分量。那么，把$P$映射到$a\mathbf{u}$的点变换
+    \begin{align}
+        \mathrm{Ty}_\mathbf{u} : \,\, \gamma\,\,&\rightarrow \,\, \gamma \notag \\
+        P &\mapsto \,\, a\mathbf{u} \notag
+    \end{align}
+    就称为沿$\mathbf{v}$到$\mathbf{u}$的\textbf{投影变换}。
+    它把任何向量映射到直线$\mathbb{R}\mathbf{u}$上。
+    $\mathbf{u}$称为$\mathrm{Ty}_\mathbf{u}$的\textbf{方向向量}，$\mathbf{v}$称为\textbf{投影向量}。
+\end{df}
+直角坐标系中，记基向量为$\mathbf{e}_x, \mathbf{e}_y$。
+上面的例子中，$T$就是沿$\mathbf{e}_y$到$\mathbf{e}_x$的投影变换。
 
 设$S$是标准单位正方形，$S$中任一点$(x,\,\,y)$变换后为$(x,\,\,\ 0)$。
 因此，$S$变成从原点到$(1,\,\,0)$的线段。
 这就是标准单位正方形在$(1,\,\,0)$方向的投影。
 
-如果方向向量换成$\left(\frac{1}{2},\,\,\frac{\sqrt{3}}{2}\right)$，
-那么$(x,\,\,y)$将变为$\left(\frac{1}{2}x + \frac{\sqrt{3}}{2}y\right)(\frac{1}{2},\,\,\frac{\sqrt{3}}{2})$。
+$T$的投影向量垂直于方向向量，就好像正午的阳光一样。我们把这样的投影变换称为\textbf{正投影}。
+
+% 怎样求a, b（内积）
+以上定义中，没有说明怎样得到$a, b$。如果平面上定义了内积，我们可以用内积求出$a, b$的值。
+已知$P$在基底$\mathbf{u}, \mathbf{v}$下的分解：
+$$ P = a\mathbf{u} + b\mathbf{v}.$$
+等式两边与$\mathbf{u}, \mathbf{v}$做内积，得到：
+$$ 
+  \left\{ \begin{array}{lc}
+    (\mathbf{u}\,|\,P) &= a(\mathbf{u}\,|\,\mathbf{u}) + b(\mathbf{u}\,|\,\mathbf{v}) \\
+    (P\,|\,\mathbf{v}) &= a(\mathbf{u}\,|\,\mathbf{v}) + b(\mathbf{v}\,|\,\mathbf{v})
+  \end{array}\right.
+$$
+解这个关于$a, b$的二元一次方程组，得到：
+$$ 
+  \left\{ \begin{array}{cc}
+    a &= \frac{(\mathbf{v}\,|\,\mathbf{v})(\mathbf{u}\,|\,P) - (\mathbf{u}\,|\,\mathbf{v})(\mathbf{P}\,|\,\mathbf{v})}{(\mathbf{u}\,|\,\mathbf{u})(\mathbf{v}\,|\,\mathbf{v}) - (\mathbf{u}\,|\,\mathbf{v})^2} \\
+    b &= \frac{(\mathbf{u}\,|\,\mathbf{v})(\mathbf{u}\,|\,P) - (\mathbf{u}\,|\,\mathbf{u})(\mathbf{P}\,|\,\mathbf{v})}{(\mathbf{u}\,|\,\mathbf{v})^2 - (\mathbf{u}\,|\,\mathbf{u})(\mathbf{v}\,|\,\mathbf{v})}
+  \end{array}\right.
+$$
+也就是说，投影变换可以写为：
+$$ \mathrm{Ty}_\mathbf{u} :\,\,\, P \mapsto \,\, \frac{(\mathbf{v}\,|\,\mathbf{v})(\mathbf{u}\,|\,P) - (\mathbf{u}\,|\,\mathbf{v})(\mathbf{P}\,|\,\mathbf{v})}{(\mathbf{u}\,|\,\mathbf{u})(\mathbf{v}\,|\,\mathbf{v}) - (\mathbf{u}\,|\,\mathbf{v})^2}\mathbf{u}. $$
+
+如果$\mathbf{u}, \mathbf{v}$是标准直角坐标系的基底，那么
+\begin{align}
+    (\mathbf{u}\,|\,\mathbf{v}) &= 0 \notag \\
+    (\mathbf{u}\,|\,\mathbf{u}) = (\mathbf{v}\,|\,\mathbf{v}) &= 1 \notag
+\end{align}
+于是
+$$ 
+  \left\{ \begin{array}{lc}
+    a &= (\mathbf{u}\,|\,P) \\
+    b &= (P\,|\,\mathbf{v})
+  \end{array}\right.
+$$
+投影变换写为：
+$$ \mathrm{Ty}_\mathbf{u} :\,\,\, P \mapsto \,\, (\mathbf{u}\,|\,P)\mathbf{u}. $$
+
+同样考虑正投影。如果方向向量换成$\mathbf{u} = \left(\frac{1}{2},\,\,\frac{\sqrt{3}}{2}\right)$，
+投影向量换成$\mathbf{v} = \left(-\frac{\sqrt{3}}{2},\,\,\frac{1}{2}\right)$。那么两者构成标准直角坐标系的基底。
+平面中的点$P(x,\,\,y)$经过投影变换，就变为
+\begin{align}
+    (\mathbf{u}\,|\,P)\mathbf{u} &= \left(\frac{1}{2}x + \frac{\sqrt{3}}{2}y\right)\mathbf{u} \notag \\
+    &= \left(\frac{x + \sqrt{3}y}{4},\,\, \frac{\sqrt{3}x + 3y}{4}\right) \notag
+\end{align}
 也就是说，$S$变为从原点到$\left(\frac{\sqrt{3} + 1}{4},\,\,\frac{3 + \sqrt{3}}{4}\right)$的线段。
-这就是标准单位正方形在$\left(\frac{1}{2},\,\,\frac{\sqrt{3}}{2}\right)$方向的投影。
+这就是标准单位正方形在$\left(\frac{1}{2},\,\,\frac{\sqrt{3}}{2}\right)$方向的正投影。
 
 我们学习过点和图形的轴对称。把图形变成它的轴对称图形，这样的变换叫做\textbf{反射变换}。
 
-给定数轴$l$，设$U$是$l$的单位方向向量。设平面上的点$P$关于$l$的对称点是$Q$。
-那么，$PQ\perp l$。记直线$PQ$与$l$交于$H$，则$H$是$P$到$l$的垂足。
-$\vv{OH}$是$\vv{OP}$在$l$上的投影，而$\vv{PH}$和$\vv{QH}$是大小相等、方向相反的向量。
-因此：
-$$ \vv{OH} = \mathrm{Ty}_U(P) = (P\,|\,U)U $$
-
-反射变换可以表示为：
+投影变换和反射变换有密切关系。给定长度为$1$的方向向量$\mathbf{u}$\footnote{也叫做\textbf{单位方向向量}。}，
+平面中一点$P$以及它关于$\mathbb{R}\mathbf{u}$的对称点$Q$，
+到$\mathbf{u}$的正投影是重合的。设$P$到$\mathbf{u}$的正投影为点$H$，则：
+$$ \vv{OH} = \mathrm{Ty}_\mathbf{u}(P) = (\mathbf{u}\,|\,P)\mathbf{u},  $$
+$H$是$P$到$\mathbb{R}\mathbf{u}$的垂足，而$\vv{PH}$和$\vv{QH}$大小相等、方向相反。因此：
 \begin{align}
-    \mathrm{Fs}_{U} : \,\, \gamma\,\,&\rightarrow \,\, \gamma \notag \\
-    P &\mapsto \,\, 2(P\,|\,U)U - P \notag
+    \qquad \vv{OQ} &= \vv{OH} + \vv{HQ} \notag \\
+            &= \vv{OH} + \vv{PH} \notag \\
+            &= \vv{OH} + \vv{OH} - \vv{OP} \notag \\
+            &= (\mathbf{u}\,|\,P)\mathbf{u} + (\mathbf{u}\,|\,P)\mathbf{u} - P \notag \\
+            &= 2(\mathbf{u}\,|\,P)\mathbf{u} - P \notag
 \end{align}
-其中$U$是对称轴所在直线的单位方向向量。
 
-\begin{wrapfigure}[7]{r}{0.42\textwidth} %this figure will be at the right
-    \vspace{-42pt}
+\begin{wrapfigure}[6]{r}{0.42\textwidth} %this figure will be at the right
+    \vspace{-40pt}
     \flushright
     \includegraphics[width=0.4\textwidth]{反射变换例1.png}
 \end{wrapfigure}
 
-举例来说，设方向向量为$U\left(-\frac{\sqrt{2}}{2},\,\,\frac{\sqrt{2}}{2}\right)$，标准单位正方形经历变换$\mathrm{Fs}_U$，
-点$(x,\,\,y)$变为$(-y,\,\,-x)$，即它关于直线$x+y=0$的对称点。于是$\mathrm{Fs}_U$将标准单位正方形变换为它关于$x+y=0$的对称图形，即
+也就是说，给定单位方向向量$\mathbf{u}$，关于直线$\mathbb{R}\mathbf{u}$的反射变换可以表示为：
+\begin{align}
+    \mathrm{Fs}_\mathbf{u} : \,\, \gamma\,\,&\rightarrow \,\, \gamma \notag \\
+    P &\mapsto \,\, 2(\mathbf{u}\,|\,P)\mathbf{u} - P \notag
+\end{align}
+其中$\mathbf{u}$是对称轴的单位方向向量。
+
+\vspace{1.5em}
+
+举例来说，设方向向量为$\mathbf{u} = \left(-\frac{\sqrt{2}}{2},\,\,\frac{\sqrt{2}}{2}\right)$，
+标准单位正方形经过关于$\mathbb{R}\mathbf{u}$的轴对称变换，
+点$P(x,\,\,y)$变为
+\begin{align}
+    2(\mathbf{u}\,|\,P)\mathbf{u} - P &= 2\cdot \left(-\frac{\sqrt{2}}{2}x + \frac{\sqrt{2}}{2}y \right)\mathbf{u} - P \notag \\
+    &= (x - y,\,\, y - x) - (x,\,\, y) \notag \\
+    &= (-y, \,\, -x) \notag
+\end{align}
+
+即它关于直线$x+y=0$的对称点。于是$\mathrm{Fs}_\mathbf{u}$将标准单位正方形变换为它关于$x+y=0$的对称图形，即
 以$(0,\,\,0)$、$(0,\,\,-1)$、$(-1,\,\,-1)$、$(-1,\,\,0)$为顶点的正方形。
+
+如果对称轴不过原点，可以通过平移变换将它移到过原点的位置。比如，设对称轴为$\mathbb{R}\mathbf{u} + \mathbf{v}$，
+点$P$经过反射变换变为$Q$，则$P - \mathbf{v}$和$Q - \mathbf{v}$关于$\mathbb{R}\mathbf{u}$对称。因此：
+$$ Q - \mathbf{v} = 2(\mathbf{u}\,|\,P - \mathbf{v})\mathbf{u} - P + \mathbf{v}. $$
+也就是说，一般的反射变换可以写成：
+\begin{align}
+    \mathrm{Fs}_{\mathbf{u}, \mathbf{v}} : \,\, \gamma\,\,&\rightarrow \,\, \gamma \notag \\
+    P &\mapsto \,\, 2(\mathbf{u}\,|\,P - \mathbf{v})\mathbf{u} - P + 2\mathbf{v}. \notag
+\end{align}
 
 另一种简单的变换是\textbf{位似变换}。
 \textbf{位似}是一种特殊的相似关系。
@@ -909,7 +987,7 @@ $$ (x,\,\,y) \mapsto \,\, \left(x\cos{(\alpha)} - y\sin{(\alpha)}, \,\,x\sin{(\a
 向量定义中并没有与旋转对应的运算，共轴性、内积的性质也不包括旋转，
 因此，要通过向量在直角坐标系下的坐标表示旋转，自然不是简单的事情。
 
-一种折中的方法是使用极坐标系。极坐标系是科学家研究南北极地时发明的。在南北极圈中，各条经线汇于极点。
+一种折中的方法是使用\textbf{极坐标系}。极坐标系是科学家研究南北极地时发明的。在南北极圈中，各条经线汇于极点。
 人们发现，使用到极点的距离和经度描述位置，比使用经纬度更精确、更方便。
 
 \begin{figure}[h] %this figure will be at the right
@@ -918,10 +996,13 @@ $$ (x,\,\,y) \mapsto \,\, \left(x\cos{(\alpha)} - y\sin{(\alpha)}, \,\,x\sin{(\a
     \includegraphics[width=0.8\textwidth]{极坐标例1南北极地图2.jpg}
     \caption*{\texttt{使用极坐标系的极地地图}}
 \end{figure}
+
 如下图所示，极坐标系由一条射线构成。这条射线上配备了单位向量，形成数轴的正半轴。
 为了方便起见，我们同样称它为$x$轴。
 一点$A$在极坐标系中的坐标称为\textnormal{极坐标}，它由\textbf{模长}和\textbf{辐角}组成。模长就是点$A$到原点$O$的距离，
-辐角是$x$轴正半轴到$\vv{OA}$所构成的角。比如，直角坐标系中坐标为$(1,\,\,1)$的点，在极坐标系中可以表示为
+辐角是$x$轴正半轴到$\vv{OA}$的角。
+
+比如，直角坐标系中的点$(1,\,\,1)$，在极坐标系中可以表示为
 $\left(\sqrt{2},\,\, 45^\circ\right)$。
 
 \begin{figure}[h] %this figure will be at the right
@@ -933,14 +1014,15 @@ $\left(\sqrt{2},\,\, 45^\circ\right)$。
 使用极坐标系，可以比较方便地描述以原点为中心的旋转运动。比如，直角坐标系中，
 点$(1,\,\,1)$以原点为中心逆时针旋转$25^\circ$，可以用极坐标系描述为：
 $$ \left(\sqrt{2}, \,\, 45^\circ\right) \mapsto \,\, \left(\sqrt{2}, \,\, 70^\circ\right)$$
-然而，用极坐标系描述平移、放缩等运动就比较复杂。因此，用极坐标描述以非原点为中心的旋转，仍然繁琐。
+然而，用极坐标系描述平移、反射等变换就比较复杂。用极坐标描述中心非原点的旋转变换，仍然繁琐。
 
 \begin{sk}
     \mbox{}\\
     \indent 1. 如何描述图形关于某点的中心对称变换？ \\
     \indent 2. 如何描述一般的相似变换？\\
-    \indent 3. 如果平面中任两点之间的距离经过某个变换后都不变，就说这个变换是\textbf{保距变换}。本节提到的变换中，哪些变换是保距变换？\\
-    \indent 4. 如果平面中任意角经过某个变换后角度都不变，就说这个变换是\textbf{保角变换}。本节提到的变换中，哪些变换是保角变换？
+    \indent 3. 给定向量$\mathbf{u}, \mathbf{v}$，能否用$\mathrm{Fs}_{\mathbf{u}}$和$\mathrm{Ty}_{\mathbf{u}}$表示$\mathrm{Fs}_{\mathbf{u}, \mathbf{v}}$？\\
+    \indent 4. 如果平面中任两点之间的距离经过某个变换后都不变，就说这个变换是\textbf{保距变换}。本节提到的变换中，哪些变换是保距变换？\\
+    \indent 5. 如果平面中任意角经过某个变换后角度都不变，就说这个变换是\textbf{保角变换}。本节提到的变换中，哪些变换是保角变换？
 \end{sk}
 
 \begin{xt}
