@@ -18,11 +18,15 @@
 
 ### 初中部分
 
-- [序言](./初中数学/序.md)
-- [第一册.pdf](./%E5%88%9D%E4%B8%AD%E6%95%B0%E5%AD%A6/%E7%AC%AC%E4%B8%80%E5%86%8C.pdf)
-- [第二册.pdf](./%E5%88%9D%E4%B8%AD%E6%95%B0%E5%AD%A6/%E7%AC%AC%E4%BA%8C%E5%86%8C.pdf)
-- [第三册.pdf](./%E5%88%9D%E4%B8%AD%E6%95%B0%E5%AD%A6/%E7%AC%AC%E4%B8%89%E5%86%8C.pdf)
-- [第四册.pdf](./%E5%88%9D%E4%B8%AD%E6%95%B0%E5%AD%A6/%E7%AC%AC%E5%9B%9B%E5%86%8C.pdf)
-- [第五册.pdf](./%E5%88%9D%E4%B8%AD%E6%95%B0%E5%AD%A6/%E7%AC%AC%E4%BA%94%E5%86%8C.pdf)
-- [第六册.pdf](./%E5%88%9D%E4%B8%AD%E6%95%B0%E5%AD%A6/%E7%AC%AC%E5%85%AD%E5%86%8C.pdf)
+- [序言](./悟数学/序.md)
+- [术语对照表](./%E6%82%9F%E6%95%B0%E5%AD%A6/%E6%9C%AF%E8%AF%AD%E5%AF%B9%E7%85%A7%E8%A1%A8.md)
+- [第一册.pdf](./%E6%82%9F%E6%95%B0%E5%AD%A6/%E5%88%9D%E4%B8%AD%E7%AC%AC%E4%B8%80%E5%86%8C.pdf)
+- [第二册.pdf](./%E6%82%9F%E6%95%B0%E5%AD%A6/%E5%88%9D%E4%B8%AD%E7%AC%AC%E4%BA%8C%E5%86%8C.pdf)
+- [第三册.pdf](./%E6%82%9F%E6%95%B0%E5%AD%A6/%E5%88%9D%E4%B8%AD%E7%AC%AC%E4%B8%89%E5%86%8C.pdf)
+- [第四册.pdf](./%E6%82%9F%E6%95%B0%E5%AD%A6/%E5%88%9D%E4%B8%AD%E7%AC%AC%E5%9B%9B%E5%86%8C.pdf)
+- [第五册.pdf](./%E6%82%9F%E6%95%B0%E5%AD%A6/%E5%88%9D%E4%B8%AD%E7%AC%AC%E4%BA%94%E5%86%8C.pdf)
+- [第六册.pdf](./%E6%82%9F%E6%95%B0%E5%AD%A6/%E5%88%9D%E4%B8%AD%E7%AC%AC%E5%85%AD%E5%86%8C.pdf)
 
+### 高中部分（写作中）
+
+- [第一册.pdf](./%E6%82%9F%E6%95%B0%E5%AD%A6/%E9%AB%98%E4%B8%AD%E7%AC%AC%E4%B8%80%E5%86%8C.pdf)
