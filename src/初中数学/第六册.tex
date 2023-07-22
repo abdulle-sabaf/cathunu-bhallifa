@@ -800,6 +800,13 @@ $$ T: \,\,\, (x, \,\, y) \mapsto (x,\,\, 0)$$
     它把任何向量映射到直线$\mathbb{R}\mathbf{u}$上。
     $\mathbf{u}$称为$\mathrm{Ty}_\mathbf{u}$的\textbf{方向向量}，$\mathbf{v}$称为\textbf{投影向量}。
 \end{df}
+
+\begin{figure}[h] %this figure will be at the right
+    % \vspace{4pt}
+    \centering
+    \includegraphics[width=0.6\textwidth]{投影变换例2.png}
+\end{figure}
+
 直角坐标系中，记基向量为$\mathbf{e}_x, \mathbf{e}_y$。
 上面的例子中，$T$就是沿$\mathbf{e}_y$到$\mathbf{e}_x$的投影变换。
 
@@ -861,10 +868,10 @@ $$ \mathrm{Ty}_\mathbf{u} :\,\,\, P \mapsto \,\, (\mathbf{u}\,|\,P)\mathbf{u}. $
 平面中一点$P$以及它关于$\mathbb{R}\mathbf{u}$的对称点$Q$，
 到$\mathbf{u}$的正投影是重合的。设$P$到$\mathbf{u}$的正投影为点$H$，则：
 $$ \vv{OH} = \mathrm{Ty}_\mathbf{u}(P) = (\mathbf{u}\,|\,P)\mathbf{u},  $$
-$H$是$P$到$\mathbb{R}\mathbf{u}$的垂足，而$\vv{PH}$和$\vv{QH}$大小相等、方向相反。因此：
+$H$是$P$到$\mathbb{R}\mathbf{u}$的垂足，而$\vv{HP}$和$\vv{HQ}$大小相等、方向相反。因此：
 \begin{align}
     \qquad \vv{OQ} &= \vv{OH} + \vv{HQ} \notag \\
-            &= \vv{OH} + \vv{PH} \notag \\
+            &= \vv{OH} - \vv{HP} \notag \\
             &= \vv{OH} + \vv{OH} - \vv{OP} \notag \\
             &= (\mathbf{u}\,|\,P)\mathbf{u} + (\mathbf{u}\,|\,P)\mathbf{u} - P \notag \\
             &= 2(\mathbf{u}\,|\,P)\mathbf{u} - P \notag
