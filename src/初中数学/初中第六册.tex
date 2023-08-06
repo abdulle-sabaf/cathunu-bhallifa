@@ -54,6 +54,7 @@
 \setdescription{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
 \setlength{\intextsep}{2pt}%
 \setlength{\columnsep}{2pt}%
+\setlength{\abovecaptionskip}{0.1cm}
 % 新函数
 \renewcommand\parallel{\mathrel{/\mskip-4mu/}}
 % 章节字体大小
@@ -578,7 +579,8 @@ $ax - (-b)y = S$。由于$P$在直线$ax - (-b)y = S$上，$P$满足$ax_P - (-b)
 $ax - (-b)y = ax_P - (-b)y_P$。显然，$ax_P - (-b)y_P = -c$时，两直线重合，不符合平行线定义。
 
 因此，$ax_P - (-b)y_P = -c$（$P$在直线上）时无平行线；其他情况下，恰有一条平行线：$ax - (-b)y = ax_P - (-b)y_P$。
-化简后的方程为：$ax + by = ax_P + y_P$。
+化简后的方程为：
+$$ax + by = ax_P + y_P.$$
 
 \textbf{另解：}首先把直线方程转为等垂式：$ax + by = -c$，它表示与点$M(a, b)$的内积为$-c$的直线，
 也就是垂直于$OM$，垂足$Q$满足$\vv{OQ} = \frac{-c}{|OM|^2}\vv{OM}$的直线。
@@ -587,9 +589,10 @@ $ax - (-b)y = ax_P - (-b)y_P$。显然，$ax_P - (-b)y_P = -c$时，两直线重
 
 另一方面，考察$l' : \,\, ax + by = ax_P + y_P$，它垂直于$OM$，所以与$l$平行或重合。容易验证，两线重合当且仅当$ax_P + by_P = -c$。
 
-因此，$ax_P + by_P = -c$（$P$在直线上）时无平行线；其他情况下，恰有一条平行线：$ax + by = ax_P + y_P$。
+因此，$ax_P + by_P = -c$（$P$在直线上）时无平行线；其他情况下，恰有一条平行线：
+$$ax + by = ax_P + y_P.$$
 
-我们发现，与$ax + by + c = 0$平行的直线，总可以写成$ax + by + c' = 0$的形式。我们把$ax + by$称为直线的头。
+我们发现，与$ax + by + c = 0$平行的直线，总可以写成$ax + by + c' = 0$的形式。我们把$ax + by$称为\textbf{直线的头}。
 头相同的直线相互平行或重合。
 \end{so}
 
@@ -662,7 +665,7 @@ $$x^2 + y^2 = 4$$
 $$ (x - x_W)^2 + (y - y_W)^2 = (x_A - x_W)^2 + (y_A - y_W)^2.$$
 我们把它称为圆的点心式方程。
 
-\textbf{直径式}：已知$A(x_A,\,\,y_A)$、$B(x_B,\,\,y_B)$为圆的直径，那么对圆上任一点$P$，$AP\perp BP$，因此两向量内积为$0$。于是可得到方程：
+\textbf{直径式}：已知$A(x_A,\,\,y_A)$、$B(x_B,\,\,y_B)$连成的线段为圆的直径，那么对圆上任一点$P$，$AP\perp BP$，因此两向量内积为$0$。于是可得到方程：
 $$ (x - x_A)(x - x_B) + (y - y_A)(y - y_B) = 0.$$
 我们把这个方程称为圆的直径式方程。比如，以两点$(0,\,\,0)$、$(1,\,\,2)$为直径的圆，方程为：
 $ (x - 0)(x - 1) + (y - 0)(y - 2) = 0$，即$x^2 + y^2 - x - 2y = 0$。
@@ -801,11 +804,12 @@ $$ T: \,\,\, (x, \,\, y) \mapsto (x,\,\, 0)$$
     $\mathbf{u}$称为$\mathrm{Ty}_\mathbf{u}$的\textbf{方向向量}，$\mathbf{v}$称为\textbf{投影向量}。
 \end{df}
 
-\begin{figure}[h] %this figure will be at the right
-    % \vspace{4pt}
-    \centering
-    \includegraphics[width=0.6\textwidth]{投影变换例2.png}
-\end{figure}
+\begin{wrapfigure}[9]{r}{0.38\textwidth} %this figure will be at the right
+    \vspace{-20pt}
+    \flushright
+    \includegraphics[width=0.36\textwidth]{投影变换例2.png}
+    \caption*{\texttt{沿}$V$\texttt{到}$U$\texttt{的投影变换}}
+\end{wrapfigure}
 
 直角坐标系中，记基向量为$\mathbf{e}_x, \mathbf{e}_y$。 
 上面的例子中，$T$就是沿$\mathbf{e}_y$到$\mathbf{e}_x$的投影变换。
@@ -913,6 +917,31 @@ $$ Q - \mathbf{v} = 2(\mathbf{u}\,|\,P - \mathbf{v})\mathbf{u} - P + \mathbf{v}.
     P &\mapsto \,\, 2(\mathbf{u}\,|\,P - \mathbf{v})\mathbf{u} - P + 2\mathbf{v}. \notag
 \end{align}
 
+更一般地来说，可以这样定义反射变换：
+\begin{df}
+    给定平面基底$\mathbf{u}, \mathbf{v}$，平面中任意向量$P$都能唯一表示成$\mathbf{u}, \mathbf{v}$的直组合：
+    $$ P = a\mathbf{u} + b\mathbf{v}.$$
+    其中$a, b$是相应的分量。那么，把$P$映射到$a\mathbf{u}$的点变换
+    \begin{align}
+        \mathrm{Ty}_\mathbf{u} : \,\, \gamma\,\,&\rightarrow \,\, \gamma \notag \\
+        P &\mapsto \,\, a\mathbf{u} - b\mathbf{v}\notag
+    \end{align}
+    就称为沿$\mathbf{v}$到$\mathbf{u}$的\textbf{反射变换}。
+\end{df}
+
+直观上，沿$\mathbf{v}$到$\mathbf{u}$的反射变换和投影变换分别是：
+
+\begin{figure}[H]
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.8\textwidth]{投影和反射1.png}
+    \caption*{\texttt{投影变换（左）和反射变换（右）的关系}}
+\end{figure}
+
+虽然这个定义已经脱离了轴对称，直观上看，仍然与投影变换有密切联系。
+如果$\mathbf{u}, \mathbf{v}$是标准直角坐标系的基底（对应正投影），
+以上定义的反射变换就是关于坐标轴的轴对称变换。
+
 另一种简单的变换是\textbf{位似变换}。
 \textbf{位似}是一种特殊的相似关系。
 举例来说，设$\triangle ABC$相似于$\triangle A'B'C$。
@@ -927,7 +956,7 @@ $$ Q - \mathbf{v} = 2(\mathbf{u}\,|\,P - \mathbf{v})\mathbf{u} - P + \mathbf{v}.
 我们说平面形以$U$为中心放缩，变成原来$k$倍大小。
 
 \begin{wrapfigure}[9]{r}{0.42\textwidth} %this figure will be at the right
-    \vspace{-12pt}
+    \vspace{-25pt}
     \flushright
     \includegraphics[width=0.4\textwidth]{位似变换例1.png}
 \end{wrapfigure}
@@ -1183,8 +1212,8 @@ $h(0.5) = (0.25, \,\,2)$，而$g$不经过$(0.25, \,\,2)$。
     和抛物线方程联立求解，得到$P_1$坐标为$(a, \,\, \frac{a^2}{4})$。
     设直线$OP_2$斜率为$b$，则它的方程为
     $$ y = bx. $$
-    同理解得$P_1$坐标为$(b, \,\, \frac{b^2}{4})$。于是$P_1P_2$的两点式方程为：
-    $$ (x - a)(\frac{b^2}{4} - \frac{a^2}{4}) - (y - \frac{a^2}{4})(b - a) = 0$$
+    同理解得$P_2$坐标为$(b, \,\, \frac{b^2}{4})$。于是$P_1P_2$的两点式方程为：
+    $$ (x - a)\left(\frac{b^2}{4} - \frac{a^2}{4}\right) - \left(y - \frac{a^2}{4}\right)(b - a) = 0$$
     令$x=0$，就得到直线$P_1P_2$和$y$轴交点的纵坐标：$y_Q = -\frac{ab}{4}$。
     由于$OP_1 \perp OP_2$，两者的方向向量内积为$0$。
     分别选方向向量$(1,\,\,\frac{a}{4})$、$(1,\,\,\frac{b}{4})$，就得到$1 + \frac{ab}{16} = 0$，即$ab = -16$。代入$Q$的纵坐标，
@@ -1210,7 +1239,7 @@ $h(0.5) = (0.25, \,\,2)$，而$g$不经过$(0.25, \,\,2)$。
     可以验证$OP_1\perp OP_2$。于是点$Q$也在轨迹上。
     
     综上可知，一方面$D$的轨迹总在以$OQ$为直径的圆上。另一方面，除了原点$O$，以$OQ$为直径的圆都在$D$的轨迹上。
-    因此，$D$的轨迹是：
+    因此，$D$的轨迹是圆：
     $$\{(x,\,\,y) \, | \, x^2 + y(y-4) = 0, \,\, (x,\,\,y)\neq (0,\,\,0)\}.$$
 \end{so}
 
@@ -1231,7 +1260,7 @@ $h(0.5) = (0.25, \,\,2)$，而$g$不经过$(0.25, \,\,2)$。
 \section{运动的速度}
 生活中，我们常用快慢来描述运动。比如，从商店回家，骑自行车比走路更快；
 从某城市到另一个城市，坐飞机比开汽车更快。等等。
-我们用长度来刻画事物的长短。对于运动的快慢，我们也希望用某种方法来刻画。
+我们用长度来刻画事物的长短。对于运动的快慢，我们也希望用某种方法来具体描述。
 
 \begin{df}
     设$P$是平面$\mathbb{R}^2$中某个点的运动：
@@ -1239,7 +1268,7 @@ $h(0.5) = (0.25, \,\,2)$，而$g$不经过$(0.25, \,\,2)$。
         P: \mathbb{R} &\rightarrow \mathbb{R}^2 \notag \\
              t \, &\mapsto P(t) \notag
     \end{align}
-    给定两数$t_1 < t_2$，则$P$在$[t_1,\,\,t_2]$上的\textbf{速度}是：
+    给定两数$t_1 < t_2$，则$P$在区间$[t_1,\,\,t_2]$上的\textbf{速度}是：
     $$ \frac{P(t_2) - P(t_1)}{t_2 - t_1}.$$
 \end{df}
 显然，这里的自变量是日常生活中时间概念的抽象，我们一般认为自变量属于某个数轴，
@@ -1285,7 +1314,8 @@ $$ \frac{R(t_2) - R(t_1)}{t_2 - t_1} $$
 $$ R(t) = R_0 + q(t - t_0). $$
 
 再来看另一类简单的运动：给定圆$\odot_{O, r}$，点从$(r,\,\, 0)$出发，逆时针方向沿圆周运动。
-这时，我们发现，任意时间段里的位移方向一直在改变。为此，我们改为研究点经过的路程。
+这时，我们发现，任意时间段里的位移方向一直在改变。为此，我们改为研究点经过的\textbf{路程}。
+
 路程是物体某段时间内运动轨迹的长度。它是一个数，而不是向量。
 显然，同样的位移，可以通过走不同的路来达到，而对应轨迹的长度是不一样的。
 也就是说，同样的位移可以对应不同的路程。
@@ -1312,6 +1342,13 @@ $$ \frac{\theta(t_2) - \theta(t_1)}{t_2 - t_1} = \frac{a \cdot 180^\circ}{\pi r}
 
 角速率在描述多个点的圆周运动时比较方便。比如，几个点绕着同一个圆心作圆周运动，但半径不相同。
 这时，考虑各个点的角速率，就容易理解点之间的关系。
+
+\begin{sk}
+    \mbox{}\\
+    \indent 1. 除了上文给出的例子，你还能说出哪些有意义的变率？\\
+    \indent 2. 我们常说“某个时刻的速度”，这种说法和以上定义的速度是否冲突？你觉得可以怎样定义“某个时刻的速度”？
+
+\end{sk}
 
 \begin{xt}
     \mbox{} \\
@@ -1556,13 +1593,21 @@ $$ 7^{65} \tong{10} 7^1. $$  % \underset{10}{\equiv}
 因此，按除以$n$的余数，可以把整数集分成$n$类。同属一类的数，模$n$同余，所以这$n$类数叫作模$n$\textbf{同余类}。
 所有模$n$同余类的集合，叫作模$n$\textbf{同余系}。
 
-每个模$n$同余类，可以写成$\{kn + a \, | \, k\in\mathbb{Z} \}$的形式。也就是说，可以看成某个数$a$不断加上或减去$n$得到的所有数的集合。这个集合是无穷的。不同的模$n$同余类，交集是空集，并集是$\mathbb{Z}$。也就是说，它们是$\mathbb{Z}$的分划。
+每个模$n$同余类，可以写成$\{kn + a \, | \, k\in\mathbb{Z} \}$的形式。
+也就是说，可以看成某个数$a$不断加上或减去$n$得到的所有数的集合。这个集合是无穷的。
 
-为了方便，我们从每个模$n$同余类中选一个元素，代表这个同余类。一般来说，可以选$0,1,\cdots,n-1$个数。我们给它们加个上划线，以和作为整数的$0,1,\cdots,n-1$区分：
+不同的模$n$同余类，交集是空集，并集是$\mathbb{Z}$。也就是说，它们是$\mathbb{Z}$的分划。
+
+为了方便，我们从每个模$n$同余类中选一个元素，代表这个同余类。一般来说，可以选$0,1,\cdots,n-1$个数。我们给它们加个上划线，以便和作为整数的$0,1,\cdots,n-1$区分：
 $$\overline{0},\overline{1},\cdots,\overline{n-1}$$
 
 如果要强调$n$，可以把$n$加在右上角：
 $$\overline{0}^n,\overline{1}^n,\cdots,\overline{n-1}^n$$
+
+举例来说，当$n=3$时，我们可以把全体整数分为三个模$3$同余类，分别记作$\overline{0}$、$\overline{1}$、$\overline{2}$，
+它们分别表示除以$3$余数是$0$、$1$、$2$的三类整数。比如说，$\overline{1}$就表示集合$\{3k + 1 \, | \, k\in\mathbb{Z} \}$，
+也就是$1, 4, 7,\cdots$这样的数的集合。而这三个模$3$同余类的集合：$\left\{\overline{0},\overline{1},\overline{2}\right\}$，
+就叫做模$3$同余系。
 
 给定整数$m$，我们可以把它对应到某个模$n$同余类，称为对$n$\textbf{取模}。
 比如$n=5$时，$24 \tong{5} 4$，我们把$24$对应到$\overline{4}^5$，
@@ -1614,7 +1659,7 @@ $$ \overline{a} - \overline{b} = \overline{a - b}, \,\,\, \overline{a} \cdot \ov
 可以验证，同余类的减法性质和整数减法一样，同余类的乘法也满足结合律、交换律和分配律。
 
 能否定义同余类的除法呢？我们来看一个例子。设$n=6$，考虑等式$12 \div 4 = 3$。
-$12$、$4$和$3$对$6$取模，得到$0$、$4$和$3$。考虑等式$60 \div 10 = 6$。$60$、$10$和$6$对$6$取模，
+$12$、$4$和$3$分别对$6$取模，得到$0$、$4$和$3$。考虑等式$60 \div 10 = 6$。$60$、$10$和$6$分别对$6$取模，
 得到$0$、$4$和$0$。也就是说，两个模$6$同余类中各取元素相除，商所在的同余类不是唯一的。
 所以，我们没法定义模$6$同余类的除法。
 
@@ -2337,8 +2382,11 @@ $$ \mathbb{E}(h) = 10p_1 + 20p_2 + \cdots + 60p_6. $$
 这里我们把台风靠近与否作为明天杭州下雨的前提条件。以上两句话可以记作：
 $$ \mathbb{P} (\{\mbox{下雨}\} \, | \, \{\mbox{台风靠近}\}) = 0.9, \quad \mathbb{P} (\{\mbox{不下雨}\} \, | \, \{\mbox{台风转向}\}) = 0.4$$
 
-从中可以推出，如果台风靠近，那么不下雨的概率是$10\%$；如果台风转向，那么下雨的概率是$60\%$。
-我们可以把这些概率用表格的形式表示：
+这个记法称为条件概率。其中分隔符“$|$”左边是结果对应的事件，
+右边是前提条件对应的事件，合起来表示在前提条件下，结果发生的概率。
+
+如果台风靠近，那么不下雨的概率是$10\%$；如果台风转向，那么下雨的概率是$60\%$。
+我们也可以把这些概率用表格的形式表示：
 
 % 条件概率表格
 \begin{center}
@@ -2358,7 +2406,18 @@ $$ \mathbb{P} (\{\mbox{下雨}\} \, | \, \{\mbox{台风靠近}\}) = 0.9, \quad \
 $$
 \mathbb{P}(A \, | \, B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)}
 $$
-我们称$\mathbb{P}(A \, | \, B)$为“$B$时$A$的概率”。要注意的是，这个公式没有考虑$\mathbb{P}(B) = 0$的情况。如果$B$的概率是$0$，那么讨论$B$发生时$A$有多大可能发生没有意义。这时候我们不定义条件概率$\mathbb{P}(A \, | \, B)$。
+
+\begin{figure}[h] %this figure will be at the right
+    \vspace{4pt}
+    \centering
+    \captionsetup{justification=centering}
+    \includegraphics[width=0.6\textwidth]{条件概率1.png}
+    \caption*{\texttt{把“}$B$\texttt{发生”作为前提条件，}$A$\texttt{发生的概率，就是}$A,B$\texttt{同时发生的概率，除以}$B$\texttt{发生的概率}}
+\end{figure}
+\vspace{0.5em}
+
+我们称$\mathbb{P}(A \, | \, B)$为“$B$时$A$的概率”。要注意的是，这个公式没有考虑$\mathbb{P}(B) = 0$的情况。
+如果$B$的概率是$0$，那么讨论$B$发生时$A$的概率比较困难。这里我们暂时不定义条件概率$\mathbb{P}(A \, | \, B)$。
 
 从映射的角度来看，从事件$A$到$B$时$A$的概率形成这样一个映射：
 
@@ -2387,12 +2446,22 @@ $5$角硬币正面朝上的概率是$60\%$，反面朝上的概率是$40\%$。�
 
 如果两个实验的结果互不影响，就说两者\textbf{相互独立}。一般来说，当我们讨论实验中发生的事件时，也说两个事件相互独立。
 
+\begin{figure}[h] %this figure will be at the right
+    % \vspace{4pt}
+    \centering
+    \captionsetup{justification=centering}
+    \includegraphics[width=0.6\textwidth]{条件概率2.png}
+    \caption*{\texttt{前提条件可能会改变不同事件发生的概率，也可能不会改变}}
+\end{figure}
+% \vspace{0.5em}
+
 如果事件$A,B$相互独立，那么$B$时$A$的概率应该和$A$的概率一样。也就是说，
 $$\mathbb{P}(A) = \mathbb{P}(A \, | \, B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)}.$$
 即：
 $$\mathbb{P}(A \cap B) = \mathbb{P}(A) \cdot \mathbb{P}(B).$$
 同样地，
 $$\mathbb{P}(B \, | \, A) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(A)} = \frac{\mathbb{P}(A) \cdot \mathbb{P}(B)}{\mathbb{P}(A)} = \mathbb{P}(B).$$
+
 多个事件之间也可能相互独立。给定$n$个事件$A_1, A_2, \cdots, A_n$，如果它们的交集的概率等于各自概率的乘积：
 $$\mathbb{P}(A_1\cap A_2\cap \cdots \cap A_n) = \mathbb{P}(A_1) \mathbb{P}(A_2) \cdots \mathbb{P}(A_n),$$
 就说它们相互独立。
