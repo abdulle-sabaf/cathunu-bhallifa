@@ -144,7 +144,7 @@ $$
 
 让我们从另一种角度看这个问题。
 
-\section{平映射和直映射}
+\section{直变换和维直变换}
 前面求解的时候，我们首先考虑圆心为原点的情况。为什么可以这么考虑呢？
 因为如果圆心$C$不在原点，我们可以先考虑从$C$到原点的平移，把所有图形移过去，
 计算好切线的方程，然后再通过从原点到$C$的平移，把所有图形移回来，得到真正的切线方程。
@@ -232,7 +232,7 @@ $$f_2: (x, y) \mapsto \left(\frac{r^2}{x},\,\, -\frac{r\sqrt{x^2 - r^2}}{x}\righ
 只有这样，我们才可能通过出发点和切点讨论变换前后的切线。如果映射不总把直线变成直线，
 比如切线经过映射变成了曲线，我们就没法用出发点和切点确定切线了。
 
-我们来定义这样一类映射。它们把平面的点（向量）映射到平面的点。我们称之为平面的\textbf{点映射}。
+我们已经定义过，把平面的点（向量）映射到平面的点的映射，叫做平面的\textbf{点映射}。
 点映射大致可以用来描述平面形的变换。
 
 如果平面的点映射满足以下性质：
@@ -240,23 +240,23 @@ $$f_2: (x, y) \mapsto \left(\frac{r^2}{x},\,\, -\frac{r\sqrt{x^2 - r^2}}{x}\righ
     \item 与平移操作可以交换顺序。
     \item 与过原点的放缩操作可以交换顺序。
 \end{enumerate}
-就比较好研究。我们把这类映射称为\textbf{直映射}。具体来说，直映射$f$满足：
+就比较好研究。我们把这类映射称为\textbf{直映射}或\textbf{直变换}。具体来说，直变换$f$满足：
 \begin{enumerate}
     \item $\forall \,\,\mathbf{u}, \,\,\mathbf{v}$，$f(\mathbf{u} + \mathbf{v}) = f(\mathbf{u}) + f(\mathbf{v})$
     \item $\forall \,\,k, \,\, \mathbf{u}$，$f(k\cdot \mathbf{u}) = k \cdot f(\mathbf{u})$
 \end{enumerate}
-直映射有以下的基本性质：
+直变换有以下的基本性质：
 \begin{tm}
-    直映射总把原点映射到原点。
+    直变换总把原点映射到原点。
 \end{tm}
 \begin{proof}
     $$f(\mathbf{0}) = f(0\cdot \mathbf{0}) = 0 \cdot f(\mathbf{0}) = \mathbf{0}.$$
 \end{proof}
 \begin{tm}
-    直映射总把直线映射为直线或点。
+    直变换总把直线映射为直线或点。
 \end{tm}
 \begin{proof}
-    设有直映射$f$，直线$l: \mathbb{R}\mathbf{a} + \mathbf{b}$。
+    设有直变换$f$，直线$l: \mathbb{R}\mathbf{a} + \mathbf{b}$。
     给定直线中任一点$t\mathbf{a} + \mathbf{b}$，它经过映射$f$变为：$f(t\mathbf{a} + \mathbf{b})$。
     按照$f$的性质：
     $$ f(t\mathbf{a} + \mathbf{b}) = tf(\mathbf{a}) + f(\mathbf{b}).$$
@@ -272,15 +272,15 @@ $$f_2: (x, y) \mapsto \left(\frac{r^2}{x},\,\, -\frac{r\sqrt{x^2 - r^2}}{x}\righ
 \end{proof}
 
 显然，只要$f$把任一个非零向量映射为零向量，它就会把相应方向的直线映射为点。
-因此，直映射$f$总把直线映射为直线，当且仅当它是满射。
+因此，直变换$f$总把直线映射为直线，当且仅当它是满射。
 
 进一步还可以发现，
 \begin{tm}
-    直映射如果是满射，那么总把数轴变换为数轴。
+    直变换如果是满射，那么总把数轴变换为数轴。
 \end{tm}
-因此，直映射也称为\textbf{轴映射}。
+因此，直变换也称为\textbf{轴映射}或\textbf{轴变换}。
 \begin{proof}
-    首先直映射总把原点映射到原点。给定直映射$f$。如果$f$是满射，那么它总将直线映射为直线。
+    首先直变换总把原点映射到原点。给定直变换$f$。如果$f$是满射，那么它总将直线映射为直线。
     设有数轴$l$，它是一条过原点的直线$l: \mathbb{R}\mathbf{a}$，正方向和单位长度由向量$\mathbf{a}$表示。
     $f$将它映射为直线$\mathbb{R}f(\mathbf{a})$。
 
@@ -290,31 +290,31 @@ $$f_2: (x, y) \mapsto \left(\frac{r^2}{x},\,\, -\frac{r\sqrt{x^2 - r^2}}{x}\righ
     新数轴的正方向和单位长度由向量$f(\mathbf{a})$表示。
 \end{proof}
 
-哪些点映射是直映射呢？
+哪些点映射是直变换呢？
 
-以原点为中心的旋转映射就是一种直映射。
-除了旋转映射，以过原点的直线为对称轴的轴对称变换和以原点为中心的位似映射也是直映射，
-而平移映射则不是直映射。不过，由于平移映射也把直线映射为直线，我们可以考虑直映射和平移映射的复合。
+以原点为中心的旋转映射就是一种直变换。
+除了旋转映射，以过原点的直线为对称轴的轴对称变换和以原点为中心的位似映射也是直变换，
+而平移映射则不是直变换。不过，由于平移映射也把直线映射为直线，我们可以考虑直变换和平移映射的复合。
 
 \begin{df}
-    如果一个映射能表示为平移映射与直映射的复合，
-    就说它是\textbf{平映射}。具体来说，平映射$f$总可以写成：
+    如果一个映射能表示为平移映射与直变换的复合，
+    就说它是\textbf{维直变换}。具体来说，维直变换$f$总可以写成：
     $$ f: \,\, \vv{x} \mapsto a(\vv{x}) + \vv{b} $$
-    其中$a$是直映射，$\vv{b}$是平移的向量。
+    其中$a$是直变换，$\vv{b}$是平移的向量。
 \end{df}
-不难发现，平映射也总把直线映射为直线或点。平映射是满射，当且仅当它总把直线映射为直线。
+不难发现，维直变换也总把直线映射为直线或点。维直变换是满射，当且仅当它总把直线映射为直线。
 
-怎样的映射是直映射呢？我们从平面的基底出发进行思考。给定平面基底$B = (\mathbf{e}_1, \mathbf{e}_2)$，
+怎样的映射是直变换呢？我们从平面的基底出发进行思考。给定平面基底$B = (\mathbf{e}_1, \mathbf{e}_2)$，
 平面中任何向量$\mathbf{u}$都可以表示为基底的直组合：
 $$ \mathbf{u} = u_1 \mathbf{e}_1 + u_2 \mathbf{e}_2.$$
-其中$u_1, u_2$是向量$\mathbf{u}$关于该基底的坐标。考虑$\mathbf{u}$经过直映射$f$的结果$f(\mathbf{u})$。
+其中$u_1, u_2$是向量$\mathbf{u}$关于该基底的坐标。考虑$\mathbf{u}$经过直变换$f$的结果$f(\mathbf{u})$。
 按照$f$的性质：
 $$ f(\mathbf{u}) = f(u_1 \mathbf{e}_1 + u_2 \mathbf{e}_2) = u_1 f(\mathbf{e}_1) + u_2 f(\mathbf{e}_2).$$
 其中$f(\mathbf{e}_1)$、$f(\mathbf{e}_2)$是基向量经过$f$映射得到的向量。
-因此，只要知道了直映射在某个基底上的效果，就能知道直映射对任意向量的效果。
-\textbf{直映射的性质由它在某个基底上的映射结果确定}。
+因此，只要知道了直变换在某个基底上的效果，就能知道直变换对任意向量的效果。
+\textbf{直变换的性质由它在某个基底上的映射结果确定}。
 
-具体来说，怎样描述直映射的性质呢？
+具体来说，怎样描述直变换的性质呢？
 从上面的结论继续思考。$f(\mathbf{e}_1)$、$f(\mathbf{e}_2)$这两个向量也可以表示成$\mathbf{e}_1, \mathbf{e}_2$的直组合：
 \begin{align}
     f(\mathbf{e}_1) &= a_{11} \mathbf{e}_1 + a_{21} \mathbf{e}_2 \notag \\
@@ -341,7 +341,7 @@ $$
 $$ \begin{bmatrix}
     x\\ y
 \end{bmatrix}$$
-于是，向量$\mathbf{u}$经过直映射$f$得到新向量可以写成：
+于是，向量$\mathbf{u}$经过直变换$f$得到新向量可以写成：
 $$ f\left(\begin{bmatrix}
     u_1\\ u_2
 \end{bmatrix}\right) = u_1\begin{bmatrix}
@@ -351,8 +351,8 @@ $$ f\left(\begin{bmatrix}
 \end{bmatrix} = \begin{bmatrix}
     u_1a_{11} + u_2a_{12}\\ u_1a_{21} + u_2a_{22} 
 \end{bmatrix}.$$
-可以看到，给定基底$B$之后，直映射$f$可以用系数$a_{11}$、$a_{12}$、$a_{21}$、$a_{22}$来表示，
-因此，为了方便，我们可以把直映射$f$记为：
+可以看到，给定基底$B$之后，直变换$f$可以用系数$a_{11}$、$a_{12}$、$a_{21}$、$a_{22}$来表示，
+因此，为了方便，我们可以把直变换$f$记为：
 $$
 [\,f\,]_B = 
 \begin{bmatrix}
@@ -360,14 +360,14 @@ $$
 \end{bmatrix}
 $$
 即把基向量经过$f$得到的新向量左右合并起来。
-我们把这样的阵列称为\textbf{矩阵}，这种表示直映射的方法称为直映射在给定基底$B$上的\textbf{矩阵表示}。
+我们把这样的阵列称为\textbf{矩阵}，这种表示直变换的方法称为直变换在给定基底$B$上的\textbf{矩阵表示}。
 
 $f$的矩阵有两行两列，可以说它是一个$2\times 2$矩阵。
 广泛意义上说，向量表示为
 $$ \begin{bmatrix}
     x\\ y
 \end{bmatrix}$$
-也可以看成一个$2\times 1$矩阵（两行一列）。因此我们可以用矩阵记录向量经历直映射的过程：
+也可以看成一个$2\times 1$矩阵（两行一列）。因此我们可以用矩阵记录向量经历直变换的过程：
 $$ \begin{bmatrix}
     a_{11} & a_{12} \\ a_{21} & a_{22}
 \end{bmatrix}\begin{bmatrix}
@@ -382,13 +382,13 @@ $$ \begin{bmatrix}
 
 反过来，给定基底$B = (\mathbf{e}_1, \,\,\mathbf{e}_2)$之后，任意给定四个数$a_{11}$、$a_{12}$、$a_{21}$、$a_{22}$，都可以构造映射$f$：
 $$ \forall \,\, u_1, u_2 \in \mathbb{R}, \quad  f(u_1\mathbf{e}_1 + u_2\mathbf{e}_2) = (u_1a_{11} + u_2a_{12}) \mathbf{e}_1 + (u_1a_{21} + u_2a_{22}) \mathbf{e}_2.$$
-可以验证，这样定义的映射是直映射。这说明，固定平面的基底时，
-每个直映射恰好对应一个$2\times 2$矩阵。
+可以验证，这样定义的映射是直变换。这说明，固定平面的基底时，
+每个直变换恰好对应一个$2\times 2$矩阵。
 
 \begin{sk}
     \mbox{} \\
-    \indent 1. 映射$f$把平面上的点映射到平面上的点。如果$f$总把直线变成直线，$f$是否总能表示成直映射和平移映射的复合？\\
-    \indent 2. 直映射在不同基底上的矩阵是否总是不一样？对于不同的基底，同一个矩阵是否总对应不同的直映射？
+    \indent 1. 映射$f$把平面上的点映射到平面上的点。如果$f$总把直线变成直线，$f$是否总能表示成直变换和平移映射的复合？\\
+    \indent 2. 直变换在不同基底上的矩阵是否总是不一样？对于不同的基底，同一个矩阵是否总对应不同的直变换？
 \end{sk}
 
 \begin{xt}
@@ -396,8 +396,8 @@ $$ \forall \,\, u_1, u_2 \in \mathbb{R}, \quad  f(u_1\mathbf{e}_1 + u_2\mathbf{e
     \indent 1. 在求切线方程的例子中，补全用另一个切点对应的映射$f_2$求出切 \\
     \indent 点的过程。\\
     \indent 2. 给定基底$B = (\mathbf{e}_1,\,\, \mathbf{e}_2)$和四个数$a_{11}$、$a_{12}$、$a_{21}$、$a_{22}$，补全映射$f$
-    \indent 是直映射的证明。\\
-    \indent 3. 写出以下直映射的矩阵；\\
+    \indent 是直变换的证明。\\
+    \indent 3. 写出以下直变换的矩阵；\\
     \indent 3.1. $f: \,\, (x,\,\, y) \mapsto (x + 2y,\,\, y - 3x)$ \\
     \indent 3.2. $f: \,\, f(\mathbf{e}_1) = -\mathbf{e}_1 - \mathbf{e}_2,\,\,\, f(\mathbf{e}_2) = \mathbf{e}_1 - \mathbf{e}_2$ \\
     \indent 3.3, $f: \,\, f(\mathbf{e}_1 + \mathbf{e}_2) = \mathbf{e}_1 - \mathbf{e}_2,\,\,\, f(\mathbf{e}_2 - \mathbf{e}_1) = \mathbf{e}_1 + \mathbf{e}_2$ \\
@@ -428,12 +428,12 @@ $$ \forall \,\, u_1, u_2 \in \mathbb{R}, \quad  f(u_1\mathbf{e}_1 + u_2\mathbf{e
                 $$
 \end{xt}
 
-\section{各种直映射}
-定义了直映射之后，我们来看一些具体的例子。
+\section{各种直变换}
+定义了直变换之后，我们来看一些具体的例子。
 首先是把所有向量映射到零向量的\textbf{零映射}，和把所有向量映射到自身的\textbf{恒等映射}。
-不难验证，这两种映射都是直映射。
+不难验证，这两种映射都是直变换。
 
-以原点为中心的\textbf{位似映射}也是直映射：
+以原点为中心的\textbf{位似映射}也是直变换：
 $$ F_k : \mathbf{u} \mapsto k\mathbf{u}.$$
 它的矩阵是：
 $$
@@ -454,7 +454,7 @@ $$
 它把直角坐标系的基向量$\mathbf{e}_1 = (1,\,\,0)$和$\mathbf{e}_2 = (0,\,\,1)$分别映射到
 $(\cos{\theta},\,\,\sin{\theta})$和$(-\sin{\theta},\,\,\cos{\theta})$，也就是矩阵的两列对应的向量。
 
-不难验证，$T_{\theta}$是直映射。 
+不难验证，$T_{\theta}$是直变换。 
 \begin{proof}
     首先，对任意$\mathbf{u} = (u_1,\,\, u_2)$、$\mathbf{v} = (v_1,\,\,v_2)$，
     \begin{align}
@@ -470,7 +470,7 @@ $(\cos{\theta},\,\,\sin{\theta})$和$(-\sin{\theta},\,\,\cos{\theta})$，也就�
         &= k(u_1\cos{\theta} - u_2\sin{\theta},\,\,u_2\cos{\theta} + u_1\sin{\theta})\notag \\
         &= kT_{\theta} (\mathbf{u}). \notag
     \end{align}  
-    综上所述，$T_{\theta}$是直映射。
+    综上所述，$T_{\theta}$是直变换。
 \end{proof}
 
 再来看\textbf{投影映射}。
@@ -482,7 +482,7 @@ $$ \mathrm{Ty}_{\mathbf{a}, \mathbf{b}} : \,\,\, \mathbf{u} \mapsto u_a \mathbf{
 $$ P: (x,\,\, y) \mapsto (x,\,\,0)$$
 它将向量$(x,\,\, y)$的纵坐标变成$0$。
 
-可以验证，投影映射是直映射。
+可以验证，投影映射是直变换。
 \begin{proof}
     首先，对任意向量$\mathbf{u}$、$\mathbf{v}$，将其分别用唯一方式写成$\mathbf{a}$、$\mathbf{b}$的直组合：
     $$ \mathbf{u} = u_a \mathbf{a} + u_b \mathbf{b},\quad \mathbf{v} = v_a \mathbf{a} + v_b \mathbf{b}.$$
@@ -498,7 +498,7 @@ $$ P: (x,\,\, y) \mapsto (x,\,\,0)$$
     这就是$k\mathbf{u}$写成$\mathbf{a}$、$\mathbf{b}$的直组合的唯一方式。
     于是，
     $$ \mathrm{Ty}_{(\mathbf{a},\mathbf{b})} (k\mathbf{u}) = ku_a \mathbf{a} = k \mathrm{Ty}_{(\mathbf{a},\mathbf{b})} (\mathbf{u}). $$
-    综上所述，$\mathrm{Ty}_{(\mathbf{a},\mathbf{b})}$是直映射。
+    综上所述，$\mathrm{Ty}_{(\mathbf{a},\mathbf{b})}$是直变换。
 \end{proof}
 
 投影映射$\mathrm{Ty}_{(\mathbf{a},\mathbf{b})}$的矩阵是什么样子的呢？
@@ -521,7 +521,7 @@ $$ \mathrm{Fs}_{\mathbf{a}} : \,\,\, \mathbf{u} \mapsto u_a \mathbf{a} - u_b \ma
 $$ S: (x,\,\,y) \mapsto (x,\,\, -y) $$
 就是以$x$轴为对称轴的反射映射。
 
-可以验证，反射映射也是直映射。
+可以验证，反射映射也是直变换。
 \begin{proof}
     首先，对任意向量$\mathbf{u}$、$\mathbf{v}$，将其在基底$\mathbf{a}$、$\mathbf{b}$上分解：
     $$ \mathbf{u} = u_a \mathbf{a} + u_b \mathbf{b},\quad \mathbf{v} = v_a \mathbf{a} + v_b \mathbf{b}.$$
@@ -535,7 +535,7 @@ $$ S: (x,\,\,y) \mapsto (x,\,\, -y) $$
     $$ k\mathbf{u} = ku_a \mathbf{a} + ku_b \mathbf{b}.$$
     于是，
     $$ \mathrm{Fs}_{(\mathbf{a},\mathbf{b})} (k\mathbf{u}) = ku_a \mathbf{a} - ku_b \mathbf{b} = k \mathrm{Fs}_{(\mathbf{a},\mathbf{b})} (\mathbf{u}). $$
-    综上所述，$\mathrm{Fs}_{(\mathbf{a},\mathbf{b})}$是直映射。
+    综上所述，$\mathrm{Fs}_{(\mathbf{a},\mathbf{b})}$是直变换。
 \end{proof}
 
 反射映射$\mathrm{Fs}_{(\mathbf{a},\mathbf{b})}$的矩阵是什么样子的呢？
@@ -560,7 +560,7 @@ $$ H_{(\mathbf{a},\mathbf{b})}^{s, t}: \mathbf{u} \mapsto su_a\mathbf{a} + tu_b\
     \item 令$s = 1$、$t = 0$，我们得到投影映射；
     \item 令$s = 1$、$t = -1$，我们得到反射映射；
 \end{enumerate}
-按照类似的方法，我们可以证明$s,t$取任何值的时候，$H_{(\mathbf{a},\mathbf{b})}^{s, t}$都是直映射：
+按照类似的方法，我们可以证明$s,t$取任何值的时候，$H_{(\mathbf{a},\mathbf{b})}^{s, t}$都是直变换：
 \begin{proof}
     首先，对任意向量$\mathbf{u}$、$\mathbf{v}$，将其在基底$\mathbf{a}$、$\mathbf{b}$上分解：
     $$ \mathbf{u} = u_a \mathbf{a} + u_b \mathbf{b},\quad \mathbf{v} = v_a \mathbf{a} + v_b \mathbf{b}.$$
@@ -574,7 +574,7 @@ $$ H_{(\mathbf{a},\mathbf{b})}^{s, t}: \mathbf{u} \mapsto su_a\mathbf{a} + tu_b\
     $$ k\mathbf{u} = ku_a \mathbf{a} + ku_b \mathbf{b}.$$
     于是，
     $$ H_{(\mathbf{a},\mathbf{b})}^{s, t} (k\mathbf{u}) = ksu_a \mathbf{a} + ktu_b \mathbf{b} = k H_{(\mathbf{a},\mathbf{b})}^{s, t} (\mathbf{u}). $$
-    综上所述，$H_{(\mathbf{a},\mathbf{b})}^{s, t}$是直映射。
+    综上所述，$H_{(\mathbf{a},\mathbf{b})}^{s, t}$是直变换。
 \end{proof}
 
 $H_{(\mathbf{a},\mathbf{b})}^{s, t}$的矩阵是什么样子的呢？
@@ -652,13 +652,13 @@ $$ x_P'^2 = x_P'^2 (\cos^2{\alpha} + \sin^2{\alpha}) = x_P^2 + y_P^2. $$
 不难看出，这里的旋转角$\alpha$是前面旋转映射的旋转角$\theta$的相反数：
 $$ \alpha = -\theta.$$
 这并不难理解。保持平面不变，把平面中的图形按$\theta$旋转，和保持平面中的图形不变，
-把整个平面按反方向旋转同样的角度，效果是一样的。旋转映射是直映射，保持原点不变、直线仍是直线、
+把整个平面按反方向旋转同样的角度，效果是一样的。旋转映射是直变换，保持原点不变、直线仍是直线、
 长度比例不变。直观上说，平面经过旋转，仍然是平的，直线仍然是直的，坐标轴仍然是坐标轴。
 
 除了旋转映射，可以验证，以原点为中心的位似映射和以过原点直线为轴的轴对称映射也满足这些性质。
 实际上，我们可以把这一类映射归结为基底的变换。
 
-一般来说，把平面的一组基底变为另一组基底的直映射，叫做\textbf{基底变换}，简称\textbf{基变换}或\textbf{基变更}。
+一般来说，把平面的一组基底变为另一组基底的直变换，叫做\textbf{基底变换}，简称\textbf{基变换}或\textbf{基变更}。
 直观上看，基变换就是把两条数轴变换成另外两条数轴。
 
 怎样用基变换描述坐标的变换呢？
@@ -723,7 +723,7 @@ $P$在新基底上的坐标为$(0.5, \,\, -3)$。我们可以从上图中直接�
 
 \begin{xt}
     \mbox{} \\
-    \indent 1. 证明：基底变换总是满射。直映射是基底变换，当且仅当它是满射。\\
+    \indent 1. 证明：基底变换总是满射。直变换是基底变换，当且仅当它是满射。\\
     \indent 2. 设基变换的矩阵为：
     $$
     \begin{bmatrix}
@@ -738,7 +738,7 @@ $P$在新基底上的坐标为$(0.5, \,\, -3)$。我们可以从上图中直接�
     \end{bmatrix}
     $$
     \indent 某点在新基底的坐标为$(-3,\,\,1)$，求它在原基底的坐标。\\
-    \indent 4. 设有平面上的直映射$f$。它在基底$B$上的矩阵为：
+    \indent 4. 设有平面上的直变换$f$。它在基底$B$上的矩阵为：
     $$
     \left[f\right]_{B} = 
     \begin{bmatrix}
