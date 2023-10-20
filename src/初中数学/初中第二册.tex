@@ -39,7 +39,8 @@
 \newtheorem{sk}{思考}[section]
 \newtheorem{po}{公理}
 \newtheorem*{so}{解答}
-\newenvironment{proof2}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
+% \newenvironment{proof2}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
+\renewenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
 \newtheorem{xt}{习题}[section]
 \newtheorem{cor}{推论}[pp]
 \renewcommand{\proofname}{\indent\bf 证明}
@@ -155,7 +156,7 @@ $A,B$把直线分成三部分。$A,B$与它们之间的部分合起来，叫做\
     \indent \textbf{5.3.} 线段$AC$上有点$B$，线段$A'C'$上有点$B'$，且线段$|AB| = |A'B'|$，线段$|BC| = |B'C'|$，那么$|AC| = |A'C'|$。
 \end{po}
 第一条公理告诉我们，可以在任意直线的任意位置上复现一条等长的线段。第二条公理告诉我们长度和具体的线段无关，是普遍的性质。
-第三条公理告诉我们长度可以相加。设线段$AC$上有一点$B$，我们说线段$AB$与线段$BC$（长度）之和线段$AC$（的长度）。
+第三条公理告诉我们长度可以相加。设线段$AC$上有一点$B$，我们说线段$AB$与线段$BC$（长度）之和是线段$AC$（的长度）。
 这样，给定了原点、单位长度和方向，我们就可以画出一条数轴了。
 
 \section{角和角度}
@@ -873,7 +874,7 @@ $\angle CBA = \angle A'B'C'$，$\angle ACB = \angle B'C'A'$。
     $\angle CBA = \angle C'B'A'$成立或$\angle BAC = \angle C'A'B'$、$\angle CBA = \angle A'B'C'$成立，
     那么$\triangle ABC$和$\triangle A'B'C'$全等。    
 \end{tm}
-\begin{proof2}
+\begin{proof}
     根据等长公理，射线$A'C'$上有一点$D$使得$|A'D| = |AC|$。$\angle BAC = \angle B'A'C'$时，
     根据三角形全等公理，
     $\triangle ABC \simeq \triangle A'B'D$。于是$\angle CBA = \angle DB'A'$。
@@ -883,7 +884,7 @@ $\angle CBA = \angle A'B'C'$，$\angle ACB = \angle B'C'A'$。
     $\angle BAC = \angle C'A'B'$时，$\triangle ABC \backsimeq \triangle A'B'D$。
     于是$\angle CBA = \angle A'B'D$，而$\angle CBA = \angle A'B'C'$，从而同样有射线$B'D$和$B'C'$重合，
     因此$\triangle ABC \backsimeq \triangle A'B'C'$。
-\end{proof2}
+\end{proof}
 
 这个定理和全等公理很像。全等公理要求两边和夹角相等，这个定理要求两角和角的公共边相等。
 我们把前者简称为“边角边”，后者简称为“角边角”。“角边角”也包含同角和反角两种情况。
@@ -891,10 +892,10 @@ $\angle CBA = \angle A'B'C'$，$\angle ACB = \angle B'C'A'$。
 \begin{tm}{\textbf{等边对等角}}\label{tm:3-0-1}
     如果三角形的两条边等长（称为\textbf{等腰三角形}），那么它们的对角相等。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     设有三角形$ABC$，$|AB|=|AC|$。考虑三角形$ACB$，由于$|AB|=|AC|$，$|AC|=|AB|$，$\angle BAC = \angle BAC$，
     根据三角形全等公理，$\triangle ABC \backsimeq \triangle ACB$。于是$\angle ABC = \angle BCA$。
-\end{proof2}
+\end{proof}
 
 等腰三角形可以帮助我们理解等距点的性质。给定两点$A,B$，考虑到两点距离相等的点的集合$\mathfrak{M}$。
 首先，线段$AB$的中点$M$属于$\mathfrak{M}$。其次，如果某点$P$属于$\mathfrak{M}$，考虑三角形$ABP$，
@@ -930,7 +931,7 @@ $\triangle MAO \backsimeq \triangle MBO$。所以，$\angle AOM = -\angle BOM$�
     如果$\triangle ABC$和$\triangle A'B'C'$满足$|AB| = |A'B'|$，$|AC| = |A'C'|$，$|BC| = |B'C'|$，
     那么$\triangle ABC$和$\triangle A'B'C'$全等。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     作射线$AD$使得$|\angle DAB| = |\angle C'A'B'|$并且与$\angle BAC$异号，并使$|AD| = |A'D'|$。
     这样得到的点$D$和$C$分处直线$AB$两侧。
     由于$|AB| = |A'B'|$，根据“边角边”，$\triangle ABD \cong \triangle A'B'C'$。\\
@@ -938,7 +939,7 @@ $\triangle MAO \backsimeq \triangle MBO$。所以，$\angle AOM = -\angle BOM$�
     作辅助线$CD$，交直线$AB$于点$P$。$\triangle APC \backsimeq \triangle APD$。于是$\angle PAC = -\angle PAD$，从而
     $\angle BAC = -\angle BAD$。
     因此，根据“边角边”，$\triangle ABC \cong \triangle ABD \cong \triangle A'B'C'$。
-\end{proof2}
+\end{proof}
 
 这个定理告诉我们，三边都对应相等的两个三角形是全等三角形。我们把这个结论简称为“边边边”。
 由于条件中没有角的情况，我们无法确定是同角全等还是反角全等。
@@ -957,7 +958,7 @@ $\triangle MAO \backsimeq \triangle MBO$。所以，$\angle AOM = -\angle BOM$�
     三角形的外角是另外两个内角的和。
 \end{tm}
 
-\begin{proof2}
+\begin{proof}
     如右图，我们想证明$\angle CBA$的外角等于$\angle BAC + \angle ACB$。\\
     在射线$AB$上找一点$E$，使得$|AB| = |BE|$。作线段$BC$的中点$M$，在射线$AM$上找一点$D$，
     使得$|AM| = |MD|$。
@@ -976,7 +977,7 @@ $\triangle MAO \backsimeq \triangle MBO$。所以，$\angle AOM = -\angle BOM$�
     $$ \frac{|BM|}{|DE|} = \frac12.$$
     也就是说，$|DE| = 2|BM| = |BC|$。而我们已知$|BE| = |AB|$，$|BD| = |AC|$。
     所以，根据“边边边”，$\triangle ABC \cong \triangle BED$。于是，$\angle EBD = \angle BAC$。
-\end{proof2}
+\end{proof}
 
 从这个定理，我们可以推出：三角形三个内角之和等于平角。这个结论，我们已经有直观感受。现在，我们从公理出发，
 严格证明了这个结论。
@@ -993,13 +994,13 @@ $\triangle MAO \backsimeq \triangle MBO$。所以，$\angle AOM = -\angle BOM$�
     垂直于同一直线的两条直线平\\
     行或重合。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     设直线$m,n$都垂直于直线$l$。\\
     如果$m,n$分别与$l$相交于不同的两点，如右图，$\angle 1$和$\angle 2$都是直角，
     而且是同位角。于是根据同位角的性质，$m \parallel n$。\\
     如果$m,n$与$l$相交于同一点$O$，以$l$在$O$任一侧的射线为始边，以$m$在$O$的任一侧为终边，形成的角是直角；
     同样，以$n$在$O$的任一侧为终边，形成的也是直角。因此它们的终边重合。也就是说，直线$m,n$重合。
-\end{proof2}
+\end{proof}
 
 类似的结论还有：
 \begin{itemize}
@@ -1010,25 +1011,25 @@ $\triangle MAO \backsimeq \triangle MBO$。所以，$\angle AOM = -\angle BOM$�
 \begin{tm}{\textbf{垂线定理}}\label{tm:3-1-1}
     过一点有唯一的直线与给定直线垂直，称为点到给定直线的\textbf{垂线}。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     设有直线$l$和点$P$，我们要找一条直线$m$，使得$P$在$m$上，且$m\perp l$，并且要证明这样的直线只有一条。\\
     首先找到这样的直线$m$。过$l$上两点，可以作垂直平分线$p$，按定义$p \perp l$。\\
     如果$P$在$p$上，那么$m=p$。如果$P$不在$p$上，那么过$P$有唯一直线$m$与$p$平行。于是$m\perp l$。\\
     再证明这样的直线是唯一的。设$m$和$l$相交于点$H$，在$l$上找另一点$A$，作$AH$的垂直平分线$n$。$n\perp l$，而且$H$不在$n$上，
     所以$n \parallel m$，且$P$不在$n$上。如果过$P$的直线垂直于$l$，那么它平行于$n$，根据平行公理，这样的直线是唯一的。
-\end{proof2}
+\end{proof}
 
 我们把垂线$m$与直线$l$的交点$H$称为$P$或$m$到$l$的\textbf{垂足}。
 
 \begin{tm}{\textbf{角平分线定理}}\label{tm:3-1-20}
     作$\angle AOB$的角平分线上任一点$P$到角的始边和终边的垂线，垂足分别为$A$和$B$，则$|PA| = |PB|$
 \end{tm}
-\begin{proof2}
+\begin{proof}
     $\triangle APO$和$\triangle BPO$都是直角三角形。$\angle PAO$和$\angle PBO$都是直角。
     而$OP$平分$\angle AOB$，所以$\angle AOP = \angle POB$。因此第三个角也相等：$\angle APO = \angle OPB$。
     两个三角形有共同的边$|PO| = |PO|$，根据“角边角”，$\triangle APO \backsimeq \triangle BPO$。
     于是$|PA| = |PB|$。
-\end{proof2}
+\end{proof}
 
 这个定理可以简单说成：角平分线上的点到两边距离相等。角平分线定理的证明中$\triangle APO \backsimeq \triangle BPO$，
 所以还可以得出$|AO| = |BO|$。
@@ -1060,17 +1061,17 @@ $\angle CBA = \angle ABC$，所以$\angle AMB = \angle CMA$。
 \begin{tm}{\textbf{等角对等边}}\label{tm:4-0-0}
     如果三角形有两内角相等，那么它们对边也相等。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     设$\triangle ABC$中$\angle CBA$和$\angle ACB$相等。考虑$\triangle ACB$。
     $\angle CBA = \angle ACB$，$\angle ACB = \angle CBA$，$|BC| = |CB|$，所以根据“角边角”，
     $\triangle ABC \backsimeq \triangle ACB$，因此$|AB| = |AC|$。
-\end{proof2}
+\end{proof}
 
 \begin{tm}\label{tm:4-0-1}
     三角形中，较长的边对角较大。
 \end{tm}
 
-\begin{proof2}
+\begin{proof}
     设三角形$ABC$的边$AC$比$AB$长，下面证明$\angle CBA > \angle ACB$。\\
     由于$|AC| > |AB|$，在线段$AC$上可以找到点$B'$使得$|AB'| = |AB|$。
     $\triangle ABB'$是等腰三角形，因此$\angle B'BA = \angle AB'B$。
@@ -1078,7 +1079,7 @@ $\angle CBA = \angle ABC$，所以$\angle AMB = \angle CMA$。
     而$\angle CBA = \angle CBB' + \angle B'BA$。因此
     $$ \angle CBA = \angle CBB' + \angle B'BA = \angle CBB' + \angle AB'B = \angle B'CB + 2\angle CBB'.$$
     这就说明$\angle CBA > \angle B'CB = \angle ACB$。
-\end{proof2}
+\end{proof}
 
 \begin{sk}\label{sk:4-0-0}
     \mbox{}\\
@@ -1120,13 +1121,13 @@ $\angle CBA = \angle ABC$，所以$\angle AMB = \angle CMA$。
 \begin{tm}\label{tm:4-1-0}
     直角三角形斜边长度是直角顶点到斜边中点距离的两倍。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     设直角三角形$AOB$中$\angle O$是直角。记斜边$AB$中点为$M$，直角边$OA$中点为$N$。
     连接$OM$、$MN$。射线$AB$、$AO$上有：
     $$ \frac{|AN|}{|AO|} = \frac{|AM|}{|AB|} = \frac12.$$
     根据放缩公理，$MN \parallel OB$。因此$MN \perp OA$。这说明$MN$是线段$OA$的垂直平分线。
     因此$|OM| = |AM|$，$|AB| = 2|AM| = 2|OM|$。
-\end{proof2}
+\end{proof}
 
 可以观察到，斜边中点和直角顶点的连线（称为斜边上的中线）是两条直角边的垂直平分线的交点。
 $\triangle MOB$、$\triangle MOA$都是等腰三角形。
@@ -1136,14 +1137,14 @@ $\triangle MOB$、$\triangle MOA$都是等腰三角形。
 \begin{tm}\label{tm:4-1-1}
     两个直角三角形斜边等长，且有一条直角边等长，那么它们是全等三角形。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     设直角$\triangle ABC$和$\triangle A'B'C'$满足：斜边$|BC| = |B'C'|$，直角边$|AC| = |A'C'|$。
     延长线段$BA$，在直线$BA$上找一点$D$使得$|AD| = |A'B'|$，并且$B,D$处于$A$的两侧。
     $\angle DAC$是直角$\angle CAB$的补角，因此也是直角。根据“边角边”，
     $\triangle DAC \cong \triangle B'A'C'$。于是，$|DC| = |B'C'| = |BC|$。这说明点$C$在线段$BD$的垂直平分线上。
     而$CA \perp BD$，所以$AC$就是线段$BD$的垂直平分线。这说明$A$是$BD$的中点。$|AB| = |AD|$。
     因此根据“边角边”，$\triangle ABC \cong \triangle ADC \cong \triangle A'B'C'.$
-\end{proof2}
+\end{proof}
 
 如果一个三角形既是等腰三角形，又是直角三角形，就称它是\textbf{等腰直角三角形}。
 等腰直角三角形的腰只能是直角边，也就是说，顶角是直角。两个底角之和是直角，所以底角是$45$度角。
@@ -1191,17 +1192,17 @@ $$ \overline{0}, \overline{1}, \cdots , \overline{n-1}.$$
 \end{xt}
 
 \section{辗转相除法}
-任意正整数$n$总有两个因数：，$1$和它自己。如果$n$还有别的因数，就称为它的\textbf{真因数}。
+任意正整数$n$总有两个因数：$1$和它自己。如果$n$还有别的正因数，就称为它的\textbf{真因数}。
 比如，$6$有两个真因数：$2$和$3$。正整数$n$的因数不会大于$n$，真因数严格介于$1$和$n$之间。
 
-如果整数$p$既是整数$n$的因数，又是整数$m$的因数，那么就说$p$是$n$和$m$的\textbf{公因数}。同理，
-如果整数$p$既是整数$n$的倍数，又是整数$m$的倍数，那么就说$p$是$n$和$m$的\textbf{公倍数}。
-显然，对任何两个整数$n,m$来说，$1$总是它们的公因数，$nm$总是它们的公倍数。我们更关心$n,m$的公因数中最大的数，
-和公倍数中最小的数。它们分别叫做整数$n,m$的最大公因数和最小公倍数。
+如果正整数$p$既是正整数$n$的因数，又是正整数$m$的因数，那么就说$p$是$n$和$m$的\textbf{公因数}。同理，
+如果正整数$p$既是正整数$n$的倍数，又是正整数$m$的倍数，那么就说$p$是$n$和$m$的\textbf{公倍数}。
+显然，对任何两个正整数$n,m$来说，$1$总是它们的公因数，$nm$总是它们的公倍数。我们更关心$n,m$的公因数中最大的数，
+和公倍数中最小的数。它们分别叫做正整数$n,m$的最大公因数和最小公倍数。
 
 如果两个数的最大公因数是$1$，就说它们\textbf{互素}。
 
-如何求整数$n,m$的最大公因数？不妨设$n\leqslant m$（否则把它俩换个顺序）。如果$m$是$n$的倍数，那么$n$就是它们的最大公因数。
+如何求正整数$n,m$的最大公因数呢？不妨设$n\leqslant m$（否则把它俩换个顺序）。如果$m$是$n$的倍数，那么$n$就是它们的最大公因数。
 如果$m$不是$n$的倍数，那么我们考虑$m$除以$n$得到的余数$r$。设$m = nq + r$。设$d$是$n,m$的公因数，
 那么有整数$a,b$使得$m = ad$，$n = bd$。于是
 $$ d(a - qb) = r.$$
@@ -1209,15 +1210,30 @@ $$ d(a - qb) = r.$$
 于是$d$也是$m$的因数。
 这说明$n,m$的最大公因数就是$r,n$的最大公因数。
 
-这样，我们可以把求整数$n,m$最大公因数的目标改为求$r,n$的最大公因数。根据余数的定义，$r < n$。
+这样，我们可以把求整数$n,m$最大公因数，转化为求$r,n$的最大公因数。根据余数的定义，$r < n$。
 所以，经过这样一步转化，我们要处理的数更小了，目标却没有变。
 
 这样一步步下来，每一步之后，两个数里较大的数比前一步至少减少了$1$。所以，要么在某一步时我们发现一个数是另一个的倍数，
 这样就求出了最大公因数；要么经过至多$m-1$步后，两个数最终都小于$2$，因此一个是$0$，一个是$1$。这时最大公因数就是$1$。
 
-这个求最大公因数的方法，称为\textbf{辗转相除法}。给定整数$n\leqslant m$，
+这个求最大公因数的方法，称为\textbf{辗转相除法}。
+
+\begin{et}
+    给定两个正整数$252$、$88$，求它们的最大公约数。
+\end{et}
+
+\begin{so}
+    从$252$、$88$出发。\\
+    作带余除法得到：$252 = 2 \times 88 + 76$。于是转为求$88$和$76$的最大公因数。\\
+    作带余除法得到：$88 = 1 \times 76 + 12$。于是转为求$76$和$12$的最大公因数。\\
+    作带余除法得到：$76 = 6 \times 12 + 4$。于是转为求$12$和$4$的最大公因数。\\
+    作带余除法得到：$12 = 3 \times 4$。这说明$12$和$4$的最大公因数就是$4$。\\
+    因此，$252$和$88$的最大公因数是$4$。
+\end{so}
+
+总结一下，给定正整数$n\leqslant m$，用辗转相除法求它们最大公因数的步骤如下：
 \begin{enumerate}
-    \item $m$对$n$做带余除法：$m = q n + r$。
+    \item $m$对$n$做带余除法：$m = q \cdot n + r$。
     \item 如果$r = 0$，那么最大公因数就是$n$。
     \item 如果$r > 0$，那么对$r$和$n$重复步骤$1$。
 \end{enumerate}
@@ -1227,9 +1243,10 @@ $$ d(a - qb) = r.$$
     \indent 1. 为什么$n,m$的最大公因数就是$n,r$的最大公因数？\\
     \indent 2. 为什么每步之后，两个数里较大的数比前一步时至少减少了$1$？\\
     算一算：\\
-    \indent 1. 用辗转相除法求$376$和$488$的最大公因数。\\
-    \indent 2. 用辗转相除法求$144$和$209$的最大公因数。\\
-    证明：正整数$n$和$n+1$互素。
+    \indent 3. 用辗转相除法求$376$和$488$的最大公因数。\\
+    \indent 4. 用辗转相除法求$144$和$209$的最大公因数。\\
+    证明：\\
+    \indent 5. 正整数$n$和$n+1$互素。
 \end{xt}
 
 \section{更相分益法}
@@ -1243,33 +1260,64 @@ $$ d(a - qb) = r.$$
 \begin{align}
     6 &= 42 - 2 \times 18 \notag \\
     &= 42 - 2 \times (60 - 1 \times 42) \notag \\
-    &= (1 + 2\times 1) \times 42 + (-2) \times 60 \notag 
+    &= (1 + 2\times 1) \times 42 + (-2) \times 60 \notag \\
+    &= 3 \times 42 + (-2) \times 60 \notag 
 \end{align}
-我们把$42$和$60$的最大公因数$6$用$42$和$60$的倍数表示了出来。一般来说，我们也可以这么做。
+这样，我们把$42$和$60$的最大公因数$6$用$42$和$60$的倍数表示了出来。一般来说，我们也可以这么做。
 \begin{tm}{\textbf{倍和析因定理}}\label{tm:5-1-0}
-    可以用两个整数$n,m$的倍数之和表示它们的最大公因数。
+    可以用两个正整数$n,m$的倍数之和表示它们的最大公因数。
 \end{tm}
-\begin{proof2}
-    先用辗转相除法，$k$步求出整数$n,m$的最大公因数$d$。设每步处理的两个数分别是$n_1=n,n_0=m$、$n_2, n_1$、$n_3, n_2$，直到$n_k, n_{k-1}$。
-    于是$d = n_k$。\\
-    辗转相除法最后一步可以改写为$n_{k-1} = sd $。倒数第二步可以写成$n_{k-2} = q_{k-1}n_{k-1} + d$，
-    因此$d = n_{k-2} -q_{k-1}n_{k-1}$。也就是说，$d$可以表示为$n_{k-2}$和$n_{k-1}$的倍数的和，。\\
+\begin{proof}
+    先用辗转相除法，$k$步求出正整数$n\geqslant m$的最大公因数$d$。
+
+    辗转相除法每一步都把两个整数转化为另两个整数，其中较大的数是转化之前的较小数。
+    也就是说，设第一步处理的两个数是$n_0=n,n_1=m$，那么转化后变成$n_1=m,n_2$，其中$n_2 < n_1$。
+    第二步处理$n_1=m,n_2$，转化后变成$n_2,n_3$，其中$n_3 < n_2$。等等。
+    
+    以此操作，直到第$k$步转化后变成$n_{k-1}, n_k$。这时$n_{k-1}$是$n_k$的倍数。
+    于是最大公因数$d = n_k$。
+
+    辗转相除法最后一步可以写为等式$n_{k-1} = q_{k}d $，其中$q_{k}$是整数。
+
+    倒数第二步可以写成$n_{k-2} = q_{k-1}n_{k-1} + d$，
+    因此$d = n_{k-2} -q_{k-1}n_{k-1}$。也就是说，$d$可以表示为$n_{k-2}$与$n_{k-1}$的倍数的和。
+
     再往前一步，有$n_{k-3} = q_{k-2}n_{k-2} + n_{k-1}$。
-    于是$n_{k-1} = n_{k-3} - q_{k-2}n_{k-2}$可以表示为$n_{k-3}$和$n_{k-2}$倍数的和，
+    于是$n_{k-1} = n_{k-3} - q_{k-2}n_{k-2}$可以表示为$n_{k-3}$与$n_{k-2}$倍数的和，
     因而可以把$d$写成：
-    $$d = n_{k-2} - q_{k-1}n_{k-1} = n_{k-2} - q_k(n_{k-3} - q_{k-2}n_{k-2}).$$
-    $d$可以表示为$n_{k-3}$和$n_{k-2}$倍数的和。\\
-    如此进行下去，$k$次后，就能把$d$表示成$n_1,n_0$（也就是$n,m$）倍数的和。
-\end{proof2}
+    \begin{align}
+        d &= n_{k-2} - q_{k-1}n_{k-1} \notag \\
+          &= n_{k-2} - q_{k-1}(n_{k-3} - q_{k-2}n_{k-2}) \notag \\ 
+          &= (- q_{k-1})n_{k-3} + (1 - q_{k-1}q_{k-2})n_{k-2}. \notag
+    \end{align}
+    $d$可以表示为$n_{k-3}$与$n_{k-2}$倍数的和。
+
+    如果对于某个$0$与$k$之间的整数$i$，$d$可以表示为$n_{k-i}$与$n_{k-i+1}$倍数的和：
+    $$ d = An_{k-i} + Bn_{k-i+1}. $$
+    那么按照定义：
+    $$n_{k-i-1} = q_{k-i}n_{k-i} + n_{k-i+1},$$
+    其中$q_{k-i}$是整数。于是$n_{k-i+1} = n_{k-i-1} - q_{k-i}n_{k-i}$，即：
+    $$ d = An_{k-i} + B(n_{k-i-1} - q_{k-i}n_{k-i}) = Bn_{k-i-1} + (A - Bq_{k-i})n_{k-i}.$$
+    $d$可以表示为$n_{k-i-1}$和$n_{k-i}$倍数的和。
+
+    如此进行下去，$k$次后，就能把$d$表示成$n_0,n_1$（也就是$n,m$）倍数的和。
+\end{proof}
 
 这个方法叫做\textbf{更相分益法}。简单来说，就是把辗转相除法倒过来。
 
 如果$n,m$互素，倍和析因定理告诉我们，可以找到它们的倍数，相加为$1$。
 
+
 \begin{xt}\label{xt:5-1-1}
     算一算：\\
     \indent 1. 用更相分益法把$376$和$488$的最大公因数表示成它们倍数的和。\\
-    \indent 2. 用更相分益法把$144$和$209$的最大公因数表示成它们倍数的和。
+    \indent 2. 用更相分益法把$144$和$209$的最大公因数表示成它们倍数的和。\\
+    考虑正整数$n,m$及它们的最大公因数$d$。\\
+    \indent 3. 如果$n > m > d$，将$d$用$m,n$的倍数之和表示：$d = an + bm$，其中$a, b$是整数。是否能找
+    合适的$a, b$使得等式成立，且$a$的绝对值小于$m$，$b$的绝对值小于$n$？\\
+    \indent 4. 同上，设$n = pd$、$m = qd$，其中$p, q$是整数。是否能找
+    合适的$a, b$使得等式成立，且$a$的绝对值小于$m$，$b$的绝对值小于$n$？\\
+    \indent 5. 对于一般的整数$n,m$及它们的最大公因数$d$，是否能找到满足以上条件的$a, b$？
 \end{xt}
 
 \end{document}
