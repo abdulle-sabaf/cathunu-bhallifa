@@ -69,6 +69,53 @@
 \newpage
 
 \chapter{平面的变换}
+
+% \begin{ex}\label{ex:0-0-0}
+%     考虑平面上点的集合$H$：$\{(x,\,\, y) \, | \, x^2 - y^2 = 1\}$。这是一个怎样的集合？
+% \end{ex}
+
+% 考虑一些特定的点，比如令$x = \pm 1, \pm 2, \pm 3$，可以算出相应的$y$。要注意的是，对每个$x$的值，
+% 我们可以找到两个符合条件的$y$值。比如，$x = 1$时，$y = \sqrt{2}$和$y = -\sqrt{2}$都符合条件。
+
+% 使用足够多的特定点，可以画出以下的图像：
+
+% % x^2 - y^2 = 1
+
+% 如果我们把$H$的图像和我们已知的图像做对比，会发现它和反比例函数$F: \,\,y = \frac{1}{2x}$的图像形状很像。
+% 实际上，以原点为中心，把$H$的图像逆时针旋转$45^\circ$，两者的形状就几乎一样了。
+
+% 如何严格说明这一点呢？
+
+% 取$H$中一点：$P(x_P, \,\,y_P)$，则$x_P^2 - y_P^2 = 1$。我们把这一点按原点逆时针旋转$45^\circ$。
+% 平面的旋转变换为：
+% $$ (x,\,\,y) \mapsto \,\, \left(x\cos{(\alpha)} - y\sin{(\alpha)}, \,\,x\sin{(\alpha)} + y\cos{(\alpha)}\right). $$
+% 其中$\alpha = 45^\circ$，将它对应的正弦值、余弦值代入，得到$(x_P, \,\,y_P)$旋转变换后的点$Q$的坐标：
+% $$ (x_Q,\,\, y_Q) = \left(\frac{\sqrt{2}}{2}x_P - \frac{\sqrt{2}}{2}y_P, \,\,\frac{\sqrt{2}}{2}x_P + \frac{\sqrt{2}}{2}y_P\right) $$
+% 因此：
+% \begin{align}
+%     x_Q y_Q &= \left(\frac{\sqrt{2}}{2}x_P - \frac{\sqrt{2}}{2}y_P\right)\left(\frac{\sqrt{2}}{2}x_P + \frac{\sqrt{2}}{2}y_P\right) \notag \\
+%     &= \frac12 x_P^2 - \frac12 y_P^2 \notag \\
+%     &= \frac12 \notag
+% \end{align}
+% 从而$y_Q = \frac{1}{2x_Q}$，$Q$在反比例函数$F$的图像中。
+
+% 反之，对$F$的图像中的点$Q$，可以按原点顺时针旋转$45^\circ$得到点$P$：
+% $$ 
+%   \left\{ \begin{array}{cl}
+%     x_P &= \frac{\sqrt{2}}{2}x_Q + \frac{\sqrt{2}}{2}y_Q \\
+%     y_P &= -\frac{\sqrt{2}}{2}x_Q + \frac{\sqrt{2}}{2}y_Q
+%   \end{array}\right.
+% $$
+% 而
+% \begin{align}
+%     x_P^2 - y_P^2 &= \left(\frac{\sqrt{2}}{2}x_Q + \frac{\sqrt{2}}{2}y_Q\right)^2 - \left(-\frac{\sqrt{2}}{2}x_Q + \frac{\sqrt{2}}{2}y_Q\right)^2 \notag \\
+%     &= 2 x_Q y_Q \notag \\
+%     &= 1 \notag
+% \end{align}
+% 因此$P$在$H$中。这就说明$F$的图像是$H$的图像按原点逆时针旋转$45^\circ$的结果。
+
+
+
 \begin{ex}\label{ex:0-0-0}
     设从圆外一点$P(x_P, \,\,y_P)$出发，到以$C(x_C,\,\,y_C)$为圆心，$r$为半径的圆的切线为$l_1$、$l_2$。
     求$l_1$、$l_2$的方程。
@@ -314,6 +361,8 @@ $$ f(\mathbf{u}) = f(u_1 \mathbf{e}_1 + u_2 \mathbf{e}_2) = u_1 f(\mathbf{e}_1) 
 因此，只要知道了直变换在某个基底上的效果，就能知道直变换对任意向量的效果。
 \textbf{直变换的性质由它在某个基底上的映射结果确定}。
 
+\section{直变换的矩阵表示}
+
 具体来说，怎样描述直变换的性质呢？
 从上面的结论继续思考。$f(\mathbf{e}_1)$、$f(\mathbf{e}_2)$这两个向量也可以表示成$\mathbf{e}_1, \mathbf{e}_2$的直组合：
 \begin{align}
@@ -362,12 +411,21 @@ $$
 即把基向量经过$f$得到的新向量左右合并起来。
 我们把这样的阵列称为\textbf{矩阵}，这种表示直变换的方法称为直变换在给定基底$B$上的\textbf{矩阵表示}。
 
-$f$的矩阵有两行两列，可以说它是一个$2\times 2$矩阵。
-广泛意义上说，向量表示为
+一般来说，矩阵就是把数写成行列的形式。
+\begin{df}{\textbf{矩阵}}
+    \mbox{}\\
+    设$m,n$为正整数。把$m \times n$个元素写成$m$行，每行$n$个，对齐为$n$列。
+    就说这是一个$m$行$n$列的\textbf{矩阵}，也叫做$m \times n$的矩阵。\\
+    矩阵自上起第$i$行、左起第$j$列的元素叫做矩阵第$i$行第$j$列的元素，一般用下标$ij$或$i,j$指示。
+\end{df}
+
+$f$的矩阵有两行两列，可以说它是一个$2\times 2$的矩阵。
+
+广泛意义上说，把向量表示为
 $$ \begin{bmatrix}
     x\\ y
-\end{bmatrix}$$
-也可以看成一个$2\times 1$矩阵（两行一列）。因此我们可以用矩阵记录向量经历直变换的过程：
+\end{bmatrix},$$
+也可以看成一个$2\times 1$的矩阵（两行一列）。因此我们可以用矩阵记录向量经历直变换的过程：
 $$ \begin{bmatrix}
     a_{11} & a_{12} \\ a_{21} & a_{22}
 \end{bmatrix}\begin{bmatrix}
@@ -382,8 +440,29 @@ $$ \begin{bmatrix}
 
 反过来，给定基底$B = (\mathbf{e}_1, \,\,\mathbf{e}_2)$之后，任意给定四个数$a_{11}$、$a_{12}$、$a_{21}$、$a_{22}$，都可以构造映射$f$：
 $$ \forall \,\, u_1, u_2 \in \mathbb{R}, \quad  f(u_1\mathbf{e}_1 + u_2\mathbf{e}_2) = (u_1a_{11} + u_2a_{12}) \mathbf{e}_1 + (u_1a_{21} + u_2a_{22}) \mathbf{e}_2.$$
-可以验证，这样定义的映射是直变换。这说明，固定平面的基底时，
-每个直变换恰好对应一个$2\times 2$矩阵。
+这样定义的映射是直变换。
+
+\begin{proof}
+    首先，对任意$\mathbf{u} = (u_1,\,\, u_2)$、$\mathbf{v} = (v_1,\,\,v_2)$，
+    \begin{align}
+        f (\mathbf{u} + \mathbf{v}) &= f \big((u_1 + v_1,\,\, u_2 + v_2)\big) \notag \\
+        &= \Big((u_1 + v_1)a_{11} + (u_2 + v_2)a_{12},\,\,(u_1 + v_1)a_{21} + (u_2 + v_2)a_{22}\Big)\notag \\
+        &= (u_1a_{11} + u_2a_{12},\,\,u_1a_{21} + u_2a_{22}) + (v_1a_{11} + v_2a_{12},\,\,v_1a_{21} + v_2a_{22})\notag \\
+        &= f (\mathbf{u}) + f (\mathbf{v}). \notag
+    \end{align}
+    其次，对任意向量$\mathbf{u}$和任意实数$k$，
+    \begin{align}
+        f (k\mathbf{u}) &= f \big((ku_1,\,\, ku_2)\big) \notag \\
+        &= (ku_1a_{11} + ku_2a_{12},\,\,ku_1a_{21} + ku_2a_{22})\notag \\
+        &= k(u_1a_{11} + u_2a_{12},\,\,u_1a_{21} + u_1a_{22})\notag \\
+        &= kf (\mathbf{u}). \notag
+    \end{align}  
+    综上所述，$f$是直变换。
+\end{proof}
+
+也就是说，给定$2\times 2$的矩阵，那么它对应一个直变换。
+
+这说明，固定平面的基底时，每个直变换恰好对应一个$2\times 2$矩阵。
 
 \begin{sk}
     \mbox{} \\
@@ -395,14 +474,12 @@ $$ \forall \,\, u_1, u_2 \in \mathbb{R}, \quad  f(u_1\mathbf{e}_1 + u_2\mathbf{e
     \mbox{} \\
     \indent 1. 在求切线方程的例子中，补全用另一个切点对应的映射$f_2$求出切 \\
     \indent 点的过程。\\
-    \indent 2. 给定基底$B = (\mathbf{e}_1,\,\, \mathbf{e}_2)$和四个数$a_{11}$、$a_{12}$、$a_{21}$、$a_{22}$，补全映射$f$
-    \indent 是直变换的证明。\\
-    \indent 3. 写出以下直变换的矩阵；\\
-    \indent 3.1. $f: \,\, (x,\,\, y) \mapsto (x + 2y,\,\, y - 3x)$ \\
-    \indent 3.2. $f: \,\, f(\mathbf{e}_1) = -\mathbf{e}_1 - \mathbf{e}_2,\,\,\, f(\mathbf{e}_2) = \mathbf{e}_1 - \mathbf{e}_2$ \\
-    \indent 3.3, $f: \,\, f(\mathbf{e}_1 + \mathbf{e}_2) = \mathbf{e}_1 - \mathbf{e}_2,\,\,\, f(\mathbf{e}_2 - \mathbf{e}_1) = \mathbf{e}_1 + \mathbf{e}_2$ \\
-    \indent 4. 给定基底$B$，写出以下矩阵对应的点映射$f$，以及向量$\mathbf{v}$经过该映射的结果。\\
-    \indent 4.1. $$
+    \indent 2. 写出以下直变换的矩阵；\\
+    \indent 2.1. $f: \,\, (x,\,\, y) \mapsto (x + 2y,\,\, y - 3x)$ \\
+    \indent 2.2. $f: \,\, f(\mathbf{e}_1) = -\mathbf{e}_1 - \mathbf{e}_2,\,\,\, f(\mathbf{e}_2) = \mathbf{e}_1 - \mathbf{e}_2$ \\
+    \indent 2.3, $f: \,\, f(\mathbf{e}_1 + \mathbf{e}_2) = \mathbf{e}_1 - \mathbf{e}_2,\,\,\, f(\mathbf{e}_2 - \mathbf{e}_1) = \mathbf{e}_1 + \mathbf{e}_2$ \\
+    \indent 3. 给定基底$B$，写出以下矩阵对应的点映射$f$，以及向量$\mathbf{v}$经过该映射的结果。\\
+    \indent 3.1. $$
                 [\,f\,]_B = 
                 \begin{bmatrix}
                     5 & -1 \\ 0 & 2
@@ -410,7 +487,7 @@ $$ \forall \,\, u_1, u_2 \in \mathbb{R}, \quad  f(u_1\mathbf{e}_1 + u_2\mathbf{e
                     1\\ 3
                 \end{bmatrix}
                 $$
-    \indent 4.2. $$
+    \indent 3.2. $$
                 [\,f\,]_B = 
                 \begin{bmatrix}
                     -2 & 4 \\ -3 & 1
@@ -418,7 +495,7 @@ $$ \forall \,\, u_1, u_2 \in \mathbb{R}, \quad  f(u_1\mathbf{e}_1 + u_2\mathbf{e
                     -7\\ 1
                 \end{bmatrix}
                 $$
-    \indent 4.3. $$
+    \indent 3.3. $$
                 [\,f\,]_B = 
                 \begin{bmatrix}
                     0 & 3 \\ 3 & 2
@@ -454,24 +531,7 @@ $$
 它把直角坐标系的基向量$\mathbf{e}_1 = (1,\,\,0)$和$\mathbf{e}_2 = (0,\,\,1)$分别映射到
 $(\cos{\theta},\,\,\sin{\theta})$和$(-\sin{\theta},\,\,\cos{\theta})$，也就是矩阵的两列对应的向量。
 
-不难验证，$T_{\theta}$是直变换。 
-\begin{proof}
-    首先，对任意$\mathbf{u} = (u_1,\,\, u_2)$、$\mathbf{v} = (v_1,\,\,v_2)$，
-    \begin{align}
-        T_{\theta} (\mathbf{u} + \mathbf{v}) &= T_{\theta} \big((u_1 + v_1,\,\, u_2 + v_2)\big) \notag \\
-        &= \Big((u_1 + v_1)\cos{\theta} - (u_2 + v_2)\sin{\theta},\,\,(u_2 + v_2)\cos{\theta} + (u_1 + v_1)\sin{\theta}\Big)\notag \\
-        &= (u_1\cos{\theta} - u_2\sin{\theta},\,\,u_2\cos{\theta} + u_1\sin{\theta}) + (v_1\cos{\theta} - v_2\sin{\theta},\,\,v_2\cos{\theta} + v_1\sin{\theta})\notag \\
-        &= T_{\theta} (\mathbf{u}) + T_{\theta}(\mathbf{v}). \notag
-    \end{align}
-    其次，对任意向量$\mathbf{u}$和任意实数$k$，
-    \begin{align}
-        T_{\theta} (k\mathbf{u}) &= T_{\theta} \big((ku_1,\,\, ku_2)\big) \notag \\
-        &= (ku_1\cos{\theta} - ku_2\sin{\theta},\,\,ku_2\cos{\theta} + ku_1\sin{\theta})\notag \\
-        &= k(u_1\cos{\theta} - u_2\sin{\theta},\,\,u_2\cos{\theta} + u_1\sin{\theta})\notag \\
-        &= kT_{\theta} (\mathbf{u}). \notag
-    \end{align}  
-    综上所述，$T_{\theta}$是直变换。
-\end{proof}
+根据上一节的结论，$T_{\theta}$是直变换。 
 
 再来看\textbf{投影映射}。
 给定不共轴的向量$\mathbf{a}$、$\mathbf{b}$，沿$\mathbf{b}$到$\mathbf{a}$的投影映射为：
@@ -482,28 +542,8 @@ $$ \mathrm{Ty}_{\mathbf{a}, \mathbf{b}} : \,\,\, \mathbf{u} \mapsto u_a \mathbf{
 $$ P: (x,\,\, y) \mapsto (x,\,\,0)$$
 它将向量$(x,\,\, y)$的纵坐标变成$0$。
 
-可以验证，投影映射是直变换。
-\begin{proof}
-    首先，对任意向量$\mathbf{u}$、$\mathbf{v}$，将其分别用唯一方式写成$\mathbf{a}$、$\mathbf{b}$的直组合：
-    $$ \mathbf{u} = u_a \mathbf{a} + u_b \mathbf{b},\quad \mathbf{v} = v_a \mathbf{a} + v_b \mathbf{b}.$$
-    于是，
-    $$ \mathbf{u} + \mathbf{v} = (u_a + v_a) \mathbf{a} + (u_b + v_b) \mathbf{b}. $$
-    但$\mathbf{u} + \mathbf{v}$写成$\mathbf{a}$、$\mathbf{b}$的直组合的方式是唯一的，因此就是上面的方式。
-    于是，
-    $$ \mathrm{Ty}_{(\mathbf{a},\mathbf{b})} (\mathbf{u} + \mathbf{v}) = (u_a + v_a) \mathbf{a} = \mathrm{Ty}_{(\mathbf{a},\mathbf{b})} (\mathbf{u}) + \mathrm{Ty}_{(\mathbf{a},\mathbf{b})} (\mathbf{v}).$$
-    其次，对任意向量$\mathbf{u}$和任意实数$k$，将$\mathbf{u}$用唯一方式写成$\mathbf{a}$、$\mathbf{b}$的直组合：
-    $$ \mathbf{u} = u_a \mathbf{a} + u_b \mathbf{b},$$
-    就得到
-    $$ k\mathbf{u} = ku_a \mathbf{a} + ku_b \mathbf{b}.$$
-    这就是$k\mathbf{u}$写成$\mathbf{a}$、$\mathbf{b}$的直组合的唯一方式。
-    于是，
-    $$ \mathrm{Ty}_{(\mathbf{a},\mathbf{b})} (k\mathbf{u}) = ku_a \mathbf{a} = k \mathrm{Ty}_{(\mathbf{a},\mathbf{b})} (\mathbf{u}). $$
-    综上所述，$\mathrm{Ty}_{(\mathbf{a},\mathbf{b})}$是直变换。
-\end{proof}
-
-投影映射$\mathrm{Ty}_{(\mathbf{a},\mathbf{b})}$的矩阵是什么样子的呢？
 $\mathrm{Ty}_{(\mathbf{a},\mathbf{b})}$把$\mathbf{a}$映射到自身，而把$\mathbf{b}$映射到零向量。
-于是，以$\mathbf{a}$、$\mathbf{b}$为基底时，我们可以写出它的矩阵：
+于是，以$\mathbf{a}$、$\mathbf{b}$为基底时，我们可以把它写成矩阵的形式：
 $$
 \begin{bmatrix}
     1 & 0 \\ 0 & 0
@@ -511,6 +551,8 @@ $$
 $$
 
 矩阵的两列分别表示$\mathbf{a}$、$\mathbf{b}$投影后的结果。
+
+根据上一节的结论，投影变换也是直变换。
 
 最后来看反射映射。
 给定向量$\mathbf{a}$、$\mathbf{b}$，沿$\mathbf{b}$到$\mathbf{a}$的反射映射为：
@@ -521,31 +563,15 @@ $$ \mathrm{Fs}_{\mathbf{a}} : \,\,\, \mathbf{u} \mapsto u_a \mathbf{a} - u_b \ma
 $$ S: (x,\,\,y) \mapsto (x,\,\, -y) $$
 就是以$x$轴为对称轴的反射映射。
 
-可以验证，反射映射也是直变换。
-\begin{proof}
-    首先，对任意向量$\mathbf{u}$、$\mathbf{v}$，将其在基底$\mathbf{a}$、$\mathbf{b}$上分解：
-    $$ \mathbf{u} = u_a \mathbf{a} + u_b \mathbf{b},\quad \mathbf{v} = v_a \mathbf{a} + v_b \mathbf{b}.$$
-    于是，
-    $$ \mathbf{u} + \mathbf{v} = (u_a + v_a) \mathbf{a} + (u_b + v_b) \mathbf{b}. $$
-    于是，
-    $$ \mathrm{Fs}_{(\mathbf{a},\mathbf{b})} (\mathbf{u} + \mathbf{v}) = (u_a + v_a) \mathbf{a} - (u_b + v_b) \mathbf{b} = \mathrm{Fs}_{(\mathbf{a},\mathbf{b})} (\mathbf{u}) + \mathrm{Fs}_{(\mathbf{a},\mathbf{b})} (\mathbf{v}).$$
-    其次，对任意向量$\mathbf{u}$和任意实数$k$，将$\mathbf{u}$在基底$\mathbf{a}$、$\mathbf{b}$上分解：
-    $$ \mathbf{u} = u_a \mathbf{a} + u_b \mathbf{b},$$
-    就得到
-    $$ k\mathbf{u} = ku_a \mathbf{a} + ku_b \mathbf{b}.$$
-    于是，
-    $$ \mathrm{Fs}_{(\mathbf{a},\mathbf{b})} (k\mathbf{u}) = ku_a \mathbf{a} - ku_b \mathbf{b} = k \mathrm{Fs}_{(\mathbf{a},\mathbf{b})} (\mathbf{u}). $$
-    综上所述，$\mathrm{Fs}_{(\mathbf{a},\mathbf{b})}$是直变换。
-\end{proof}
-
-反射映射$\mathrm{Fs}_{(\mathbf{a},\mathbf{b})}$的矩阵是什么样子的呢？
 $\mathrm{Fs}_{(\mathbf{a},\mathbf{b})}$把$\mathbf{a}$映射到自身，而把$\mathbf{b}$映射到$-\mathbf{b}$。
-于是，以$\mathbf{a}$、$\mathbf{b}$为基底时，我们可以写出它的矩阵：
+于是，以$\mathbf{a}$、$\mathbf{b}$为基底时，我们可以把它写成矩阵的形式
 $$
 \begin{bmatrix}
     1 & 0 \\ 0 & -1
 \end{bmatrix}
 $$
+
+因此，反射映射也是直变换。
 
 以上几种点映射，除了旋转映射，都可以看作以下这种映射的特例：
 $$ H_{(\mathbf{a},\mathbf{b})}^{s, t}: \mathbf{u} \mapsto su_a\mathbf{a} + tu_b\mathbf{b}.$$
@@ -558,26 +584,9 @@ $$ H_{(\mathbf{a},\mathbf{b})}^{s, t}: \mathbf{u} \mapsto su_a\mathbf{a} + tu_b\
     \item 令$s = t = 1$，我们得到恒等映射；
     \item 令$s = t = k$，我们得到相似比为$k$的位似映射；
     \item 令$s = 1$、$t = 0$，我们得到投影映射；
-    \item 令$s = 1$、$t = -1$，我们得到反射映射；
+    \item 令$s = 1$、$t = -1$，我们得到反射映射。
 \end{enumerate}
-按照类似的方法，我们可以证明$s,t$取任何值的时候，$H_{(\mathbf{a},\mathbf{b})}^{s, t}$都是直变换：
-\begin{proof}
-    首先，对任意向量$\mathbf{u}$、$\mathbf{v}$，将其在基底$\mathbf{a}$、$\mathbf{b}$上分解：
-    $$ \mathbf{u} = u_a \mathbf{a} + u_b \mathbf{b},\quad \mathbf{v} = v_a \mathbf{a} + v_b \mathbf{b}.$$
-    于是，
-    $$ \mathbf{u} + \mathbf{v} = (u_a + v_a) \mathbf{a} + (u_b + v_b) \mathbf{b}. $$
-    于是，
-    $$ H_{(\mathbf{a},\mathbf{b})}^{s, t} (\mathbf{u} + \mathbf{v}) = s(u_a + v_a) \mathbf{a} + t(u_b + v_b) \mathbf{b} = H_{(\mathbf{a},\mathbf{b})}^{s, t} (\mathbf{u}) + H_{(\mathbf{a},\mathbf{b})}^{s, t} (\mathbf{v}).$$
-    其次，对任意向量$\mathbf{u}$和任意实数$k$，将$\mathbf{u}$在基底$\mathbf{a}$、$\mathbf{b}$上分解：
-    $$ \mathbf{u} = u_a \mathbf{a} + u_b \mathbf{b},$$
-    就得到
-    $$ k\mathbf{u} = ku_a \mathbf{a} + ku_b \mathbf{b}.$$
-    于是，
-    $$ H_{(\mathbf{a},\mathbf{b})}^{s, t} (k\mathbf{u}) = ksu_a \mathbf{a} + ktu_b \mathbf{b} = k H_{(\mathbf{a},\mathbf{b})}^{s, t} (\mathbf{u}). $$
-    综上所述，$H_{(\mathbf{a},\mathbf{b})}^{s, t}$是直变换。
-\end{proof}
 
-$H_{(\mathbf{a},\mathbf{b})}^{s, t}$的矩阵是什么样子的呢？
 $H_{(\mathbf{a},\mathbf{b})}^{s, t}$把$\mathbf{a}$映射到$s\mathbf{a}$，而把$\mathbf{b}$映射到$t\mathbf{b}$。
 于是，以$\mathbf{a}$、$\mathbf{b}$为基底时，我们可以写出它的矩阵：
 $$
@@ -589,13 +598,34 @@ $$
 我们把这样的矩阵称为\textbf{对角矩阵}，把$H_{(\mathbf{a},\mathbf{b})}^{s, t}$称为
 （关于$\mathbf{a}$、$\mathbf{b}$构成的基底的）\textbf{对角映射}，
 把$s,t$称为它的\textbf{变化系数}。
+
+按照上一节的结论，对角映射总是直变换。
+
 零映射、恒等映射、位似映射、投影映射、反射映射都是对角映射。
+
+除了旋转映射和对角映射，还有一类基本的直变换。给定基底$\mathbf{e}_x, \mathbf{e}_y$和实数$t$，考虑矩阵为：
+$$
+\begin{bmatrix}
+    1 & t \\ 0 & 1
+\end{bmatrix}
+$$
+的变换$T$。它把基向量$\mathbf{e}_x$映射为$\mathbf{e}_x + t\mathbf{e}_y$，
+把基向量$\mathbf{e}_y$映射到自身。给定标准单位正方形，$T$把它变为同底等高的平行四边形。
+
+% 错切变换：正方形变为同底等高的平行四边形
+
+现实的工程问题中常常会遇到这个变换。
+它可以用来描述物体的不同位置受到两个大小相同、方向相反的力，
+而产生形变的过程，比如用剪刀裁剪物体，尚未剪断时物体形状的变化。
+因此，我们把这种变换叫做\textbf{剪映射}或\textbf{错切映射}。
+
+% 剪刀示意图
 
 \begin{sk}
     \mbox{} \\
-    \indent 1. 零映射、恒等映射、位似映射、旋转映射、投影映射、反射映射，哪些是单射，哪些是满射，哪些是双射？\\
+    \indent 1. 零映射、恒等映射、位似映射、旋转映射、投影映射、反射映射、剪映射，哪些是单射，哪些是满射，哪些是双射？\\
     \indent 2. 一个点映射是否可能既是旋转映射，又是反射映射？既是旋转映射，又是位似映射？反射映射，又是位似映射？\\
-    \indent 3. 零映射、恒等映射、位似映射、旋转映射、投影映射、反射映射是否有逆映射？如果有的话，是什么样的映射？
+    \indent 3. 零映射、恒等映射、位似映射、旋转映射、投影映射、反射映射、剪映射是否有逆映射？如果有的话，是什么样的映射？
 \end{sk}
 
 \begin{xt}
@@ -605,13 +635,21 @@ $$
     \indent 3. 给定直角坐标系，写出沿$(1,\,\,3)$到$(2,\,\,0)$的投影映射。求$(2,\,\,-1)$经过映射的结果。\\
     \indent 4. 给定直角坐标系，写出关于$(-1,\,\,-4)$的反射映射。求$(2,\,\,-1)$经过映射的结果。\\
     \indent 5. 给定直角坐标系。关于直角坐标系基底的对角映射$f$把向量$(3,\,\,1)$映射到$(-4,\,\,2)$。
-               求$f$的变化系数，写出它的矩阵。求$(2,\,\,-1)$经过映射的结果。
+               求$f$的变化系数，写出它的矩阵。求$(2,\,\,-1)$经过映射的结果。\\
+    \indent 6. 给定平面基底，直变换$f$可以写成矩阵的形式：
+                $$
+                \begin{bmatrix}
+                    1 & 0 \\ t & 1
+                \end{bmatrix}
+                $$
+                其中$t$是实数。那么，$f$是怎样的映射？
 \end{xt}
 
 \section{基底变换}
 
 让我们再换一个角度看一开始的求切线问题。变换是相对的。我们把图形变换位置，相对的是平面的坐标系。
 那么，我们能否把这些变换看成坐标系的变换呢？
+
 考虑平面中图形的关系时，我们可以根据图形特点，选择合适的坐标系，在这个坐标系中讨论，讨论完毕后再变换到另一个坐标系，展示讨论的结果。
 
 从这个角度来看，之前的讨论可以看作是对平面的坐标系进行变换。
@@ -874,7 +912,7 @@ $P$在新基底上的坐标为$(0.5, \,\, -3)$。我们可以从上图中直接�
     但$P\in n$，因此$P\in m\cap l_1$，这与$m\parallel l_1$矛盾。因此$n\parallel m$。
     
     $n$与$l_1$都平行于$m$，且有公共点$P$，所以$n = l_1$。所以$l_1\parallel l_2$。
-
+    
 \end{proof}
 
 接下来回顾直线与平面的关系。从补充后的平行公理，可以得出直线与平面平行的判定方法：
@@ -921,9 +959,9 @@ $P$在新基底上的坐标为$(0.5, \,\, -3)$。我们可以从上图中直接�
 
 上面提到，两平面要么无公共点，要么相交，要么重合。我们把无公共点的平面称为\textbf{平行平面}，也用$\parallel$表记。
 平面中，平行公理告诉我们，过直线外一点，恰有一条直线与之平行。空间中的平面，也有类似的结论：
-\begin{tm}
+\begin{tm}\label{tm:1-0-50}
     过平面外一点，恰有一平面与之平行。
-\end{tm}\label{tm:1-0-50}
+\end{tm}
 \begin{proof}
     设平面$\alpha$外有点$P$。在$\alpha$上选一点$A$，过$A$作两相交直线$l,m$（交点为$A$）。
     根据平行公理，过$P$恰有直线$l', m'$分别与$l,m$平行。$l',m'$相交于点$P$，确定平面$\alpha'$。
@@ -1523,7 +1561,7 @@ $$ n_xx + n_yy + n_zz = 0, $$
 那么按向量$B(x_b, y_b,z_b)$平移之后得到的点就满足方程：
 $$ \mbox{}\qquad\qquad n_x(x - x_b) + n_y(y - y_b) + n_z(z - z_b) = 0. \quad\quad (*)$$
 因此，任何平面总是某个三元一次方程的解集。反之，任何三元一次方程$ax+by+cz+d = 0$总能写成
-$(*)$的形式，于是解集为某个平面。我们将$ax+by+cz+d = 0$称为平面的一般式，将$(*)$称为平面的点法式，
+$(*)$的形式，于是解集为某个平面。我们将$ax+by+cz+d = 0$称为\textbf{平面的一般式}，将$(*)$称为\textbf{平面的点法式}，
 即经过$B(x_b, y_b,z_b)$且垂直于向量$\mathbf{n} = (n_x, n_y, n_z)$。
 
 三元一次方程的解集是平面，因此，我们也用它来定义平面。
@@ -1535,6 +1573,74 @@ $$ (x - x_1)^2 + (y - y_1)^2 + (z - z_1)^2 = (x - x_2)^2 + (y - y_2)^2 + (z - z_
 方程两边消去$x^2 + y^2 + z^2$，得到关于$x,y,z$的三元一次方程：
 $$ 2(x_1-x_2)x + 2(y_1-y_2)y + 2(z_1-z_2)z = x_1^2+y_1^2+z_1^2 - x_2^2-y_2^2-z_2^2. $$
 因此，到两点距离相等的点构成一个平面，称为这两点的\textbf{垂直平分面}。
+
+
+\begin{et}\label{et:1-3-20}
+    平面$\gamma$中有直角梯形$ABCD$，$AB \perp BC$，$BC \perp CD$，$|AB|= 2$、$|BC| = 1$、$|CD| = 4$。
+    平面外的点$P$满足$PA \perp AB$。\\
+    证明：$|PC| = |PD|$。
+    % 2. 已知$|PA| = 1$，求$PAC$与$PCD$夹角的最大值。
+\end{et}
+\begin{so}
+    $PA \perp AB$，$AB \parallel CD$，所以$PA \perp CD$。根据勾股定理，$|AC| = \sqrt{5} = |AD|$，所以$\triangle ACD$是等腰三角形。
+    记$CD$中点为$M$，则$AM \perp CD$，所以$CD \perp PAM$。于是$CD \perp PM$。因此，根据勾股定理，
+    $$ |PC| = \sqrt{|PM|^2 + |CM|^2} = \sqrt{|PM|^2 + |DM|^2} = |PD|.$$
+    对平面$PAM$中任意点$Q$，连接$QM$，可以用这个方法证明$|QC| = |QD|$。也就是说，平面$PAM$是$C$、$D$的垂直平分面。\\
+    % 2. 以$M$为原点建立空间直角坐标系，以$\vv{CD}$方向的单位向量为$\mathbf{e}_x$，
+    % 以$\vv{CB}$方向的单位向量为$\mathbf{e}_y$\footnote{$\mathbf{e}_z$的取法有两种可能，不过不妨碍解题。}。\\
+    % 不难看出平面$PAM$的法向量是$CD$的方向向量。因此，平面$PAM$可以写成$x = 0$。而$P$满足$|PA| = 1$，
+    % 所以它在平面$PAM$中以$A$为圆心，半径为$1$的圆上：$x_P = 0$，$(y_P - 1)^2 + z_P^2 = 1$。\\
+    % 设平面$PAC$的单位法向量为$\mathbf{n}_1:(x_1,\,\,y_1,\,\,z_1)$，则
+    % $$
+    % \left\{
+    % \begin{array}{rl}
+    %     \| n_1 \| &= 1 \\
+    %     n_1\cdot \vv{AC} &= 0 \\
+    %     n_1\cdot \vv{AP} &= 0 
+    % \end{array}
+    % \right.
+    % $$
+    % $\vv{AC} = C - A = (2,\,\,1\,\,0)$，$\vv{AP} = P - A = (0,\,\,y_P - 1,\,\,z_P)$。
+    % $$
+    % \left\{
+    % \begin{array}{rl}
+    %     x_1^2 + y_1^2 + z_1^2 &= 1 \\
+    %     2x_1 + y_1 &= 0 \\
+    %     (y_P - 1) y_1 + z_P z_1 &= 0 
+    % \end{array}
+    % \right.
+    % $$
+    % 从后两式解出$x_1,y_1,z_1$的比例关系，代入第一式，可以解出：
+    % $$
+    % \left\{
+    % \begin{array}{rl}
+    %     x_1 &= \frac{-z_P}{\sqrt{5z_P^2 + 4(y_P - 1)^2}} \\
+    %     y_1 &= \frac{2z_P}{\sqrt{5z_P^2 + 4(y_P - 1)^2}} \\
+    %     z_1 &= \frac{-2(y_P - 1)}{\sqrt{5z_P^2 + 4(y_P - 1)^2}} 
+    % \end{array}
+    % \right.
+    % $$
+    % 同理，设平面$PAD$的单位法向量为$\mathbf{n}_2:(x_2,\,\,y_2,\,\,z_2)$，可以解出：
+    % $$
+    % \left\{
+    % \begin{array}{rl}
+    %     x_2 &= \frac{z_P}{\sqrt{5z_P^2 + 4(y_P - 1)^2}} \\
+    %     y_2 &= \frac{2z_P}{\sqrt{5z_P^2 + 4(y_P - 1)^2}} \\
+    %     z_2 &= \frac{-2(y_P - 1)}{\sqrt{5z_P^2 + 4(y_P - 1)^2}} 
+    % \end{array}
+    % \right.
+    % $$
+    % 因此两法向量夹角$\theta$的余弦值为$\mathbf{n}_1$、$\mathbf{n}_2$的内积：
+    % $$ \cos{\theta} = \mathbf{n}_1 \cdot \mathbf{n}_2 = \frac{3z_P^2 + 4(y_P - 1)^2}{5z_P^2 + 4(y_P - 1)^2}.$$
+    % 考虑$P$满足的条件：$(y_P - 1)^2 + z_P^2 = 1$，即$(y_P - 1)^2 = 1 - z_P^2$。代入消去$(y_P - 1)^2$相关项，得到：
+    % $$ \cos{\theta} = \frac{7 - z_P^2}{7 + z_P^2} = \frac{14}{7 + z_P^2} - 1.$$
+    % 显然$z_P$在区间$[-1,1]$上取值，且$z_P \neq 0$。因此$0 < z_P^2 \leqslant 1$。于是根据反比例函数的性质，
+    % $$ \frac{3}{4} \leqslant \cos{\theta} < 1$$
+    % 余弦函数在$[0,\pi]$上单调递减。因此，根据余弦函数的性质，$\theta$最大值为$\arccos{\frac{3}{4}}$。
+    % 这时点$P$为$(0,\,\, 1,\,\, 1)$。\\
+    % 可以发现这时$PA$垂直于平面$\gamma$，因而也垂直于$AC$和$AD$。两平面的夹角就是$\angle CAD$的补角。
+    
+\end{so}
 
 最后来看平面与平面的位置关系。我们定义两个平面的夹角为它们的法向量的夹角。
 两个平面相互垂直，指它们的法向量相互垂直。
@@ -1578,10 +1684,14 @@ $$ 2(x_1-x_2)x + 2(y_1-y_2)y + 2(z_1-z_2)z = x_1^2+y_1^2+z_1^2 - x_2^2-y_2^2-z_2
     \indent 1.3. 证明：如果直线与平面中两条相交直线垂直，就垂直于这个平面。\\     
     \indent 2. 给定两个直无关的向量$A,B$。\\
     \indent 2.1. 如果$A,B$是单位向量，证明$A+B \perp A-B$。\\
-    \indent 2.2. 以第一问的结论为基础，给出另一种正交归一的方法。\\
+    \indent 2.2. 以上一问的结论为基础，给出另一种正交归一的方法。\\
     \indent 3. 求与$(2,-1,1)$、$(0,1,2)$垂直的单位向量。\\
     \indent 4. 求过$(1,0,0)$且垂直于$\mathbb{R}(0,1,0)+(1,-1,1)$的平面。\\
-    \indent 4. 试将平面$\{s(1,-1,0) + t(-2,1,1) + (0,0,1) \, | \, s,t\in\mathbb{R}\}$表示为三元一次方程的解集。
+    \indent 5. 试将平面$\{s(1,-1,0) + t(-2,1,1) + (0,0,1) \, | \, s,t\in\mathbb{R}\}$表示为三元一次方程的解集。\\
+    \indent 6. 设平面$\alpha, \beta$交于直线$l$，过$l$上一点，分别在$\alpha, \beta$中作垂直于$l$的直线。证明：这两条直线的夹角就是$\alpha, \beta$的夹角。\\
+    \indent 7. 平面$\gamma$上有直角梯形$ABCD$，其中$BC$为直角腰：$BC\perp AB$、$BC\perp CD$。$|AB| = 1$、$|BC| = 3$、$|CD| = 4$。\\
+    \indent 7.1. 平面$\gamma$外一点$P$满足$PA \perp \gamma$，$|PA| = 3$，求平面$PCA$和$PCD$的夹角。\\
+    \indent 7.2. 平面$\gamma$外一点$Q$满足$QA \perp AB$，平面$QAC$垂直于平面$QDC$。求$AQ$和$AD$的夹角\footnote{提示：作$C$到$AQ$的垂线。设垂足为$H$，考察$\triangle HCD$。}。
 \end{xt}
 
 
@@ -1595,7 +1705,7 @@ $$ 2(x_1-x_2)x + 2(y_1-y_2)y + 2(z_1-z_2)z = x_1^2+y_1^2+z_1^2 - x_2^2-y_2^2-z_2
 $$ \vv{AP}\cdot \vv{BP} = 0.$$
 即
 $$ (t\mathbf{v} + B - A)\cdot t\mathbf{v} = 0.$$
-解得$t = \frac{\mathbf{v}(A-B)}{\|\mathbf{v}\|^2}$。不妨设$\mathbf{v}$是单位向量，那么$t=\mathbf{v}\cdot(A-B)$。
+解得$t = \frac{\mathbf{v}\cdot(A-B)}{\|\mathbf{v}\|^2}$。不妨设$\mathbf{v}$是单位向量，那么$t=\mathbf{v}\cdot(A-B)$。
 于是$A$到$l$的距离为$|AP| = \| t\mathbf{v} + B - A\| = \| \vv{AB} - (\mathbf{v}\cdot \vv{AB})\mathbf{v}\|$。
 直观来看，这表示$|AP| = |AB|\sin{\angle ABP}$。
 
@@ -1737,7 +1847,8 @@ $ABB'A'$、$BCC'B'$、$CDD'C'$、$DAA'D'$、$A'B'C'D'$六个面，$AB$、$B'C'$�
 $A,B,C,D$等八个顶点。多面体不同顶点之间的连线，如果不在多面体任何一面中，就称为\textbf{多面体的对角线}。
 上图的六面体中，$AC'$和$B'D$是对角线，$AB'$和$B'D'$不是对角线。
 
-多面体的面总是多边形。如果多面体每一面都是凸多边形，就说它是\textbf{凸多面体}。
+多面体的面总是多边形。多面体每一面所在平面都把空间分为两半。
+如果多面体总在其中一侧，就说它是\textbf{凸多面体}。凸多面体的面总是凸多边形。
 以下我们只讨论凸多面体，凡提到多面体，都是指凸多面体。
 
 围成多面体的平面数目，一般用来为多面体命名。比如六个平面围成的多面体，叫做六面体；
@@ -1923,6 +2034,62 @@ $$ \big\{uA+vB+wC \, | \, u,v,w\in\{0,1\}\big\}.$$
 $$\forall i\in[1,\cdots ,n],\,\,\,\vv{PB_i} = t\vv{PA_i}.$$
 正棱锥截得的棱台叫作\textbf{正棱台}。正棱锥的侧棱长度相等，所以正棱台的侧棱长度也相等。
 
+\section{正多面体}
+我们知道平面形中有正多边形。正多边形是所有边长相等、所有内角相等的多边形。空间中也可以定义正多面体。
+
+\begin{df}
+    所有面都是全等的正多边形，且每个顶点都由相同个数的棱与面交汇而成的多面体，称为\textbf{正多面体}。
+\end{df}
+
+这样定义的正多面体符合我们的直观理解。要注意的是，它的定义比平面中的正多边形更严格。
+正多边形有无穷多种，任给大于等于$3$的整数$n$，都可以画出正$n$边形。但空间中的正多面体只有有限多个。
+
+考虑正多面体的某个顶点。它是若干条棱、若干个面的交点。根据定义，每面的两条棱的夹角都一样大。
+假设它是$k$个面的交点，那么$k \geqslant 3$。
+
+这个夹角是每个面的正多边形的内角。设正多边形有$m$个边，那么$m \geqslant 3$。
+它的内角为$\frac{(m - 2)\cdot 180^\circ}{m}$。
+$k$个内角的和小于周角。也就是说，
+$$ \frac{(m - 2)\cdot 180^\circ}{m} < \frac{360^\circ}{k}.$$
+解这个方程，得到$m < \frac{2k}{k - 2}$。于是
+$$ \frac{2k}{k - 2} > 3.$$
+解得$k < 6$。于是$k$的值只可能是$3$、$4$或$5$。
+
+$k = 5$时，解得$m < \frac{10}{3}$，所以$m$的值只可能为$3$。
+
+$k = 4$时，解得$m < 4$，所以$m$的值只可能为$3$。
+
+$k = 3$时，解得$m < 6$，所以$m$的值可能为$3$、$4$或$5$。
+
+以上一共有五种可能。也就是说，空间中一共只可能有五种正多面体。它们分别是以下形状：
+
+% 正多面体
+\begin{figure}[h]
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.8\textwidth]{正多面体1.png}
+    \captionsetup{justification=centering}
+\end{figure}
+
+\begin{sk}
+    \mbox{}\\
+    \indent 1. 如果把正多面体的定义放宽，不限定每个顶点都由相同个数的棱与面交汇而成，是否有别的正多面体？试举例说明。\\
+    \indent 2. 如果把正多面体的定义放宽，只要求每个面都是全等的多边形，是否有别的正多面体？试举例说明。
+\end{sk}
+
+\begin{xt}
+    \mbox{}\\
+    \indent 1. 设有底面是正方形的正四棱锥，侧棱与底边等长。把两个这样的正四棱锥底面重合，使两者的顶点关于底面所在平面对称。证明：这样得到的多面体是正八面体。\\
+    \indent 2. 如上得到的正八面体，记重合的底面的四个顶点为$A$、$B$、$C$、$D$，记关于正方形$ABCD$对称的两顶点为$P$、$Q$。\\
+    \indent 2.1. 证明：$\triangle PAC$是等腰直角三角形。\\
+    \indent 2.2. 设正八面体棱长为$a$，证明：它的表面积为$2\sqrt{3}a^2$。\\
+    \indent 2.3. 证明：正八面体的体积为$\frac{\sqrt{2}}{3}a^3$。\\
+    \indent 3. 正十二面体有几个顶点？正二十面体有几个顶点？\\
+    \indent 4. 把正十二面体相邻的面的中心连起来，证明：得到的多面体是正二十面体。\\
+    \indent 5. 把正二十面体相邻的面的中心连起来，证明：得到的多面体是正十二面体。
+\end{xt}
+
+
 \chapter{旋转体}
 
 多面体是一类简单的立体形状。另一种容易想到的立体形状是\textbf{旋转体}。
@@ -1989,18 +2156,18 @@ $$
 则它对应的点$P$满足
 $$
 \left\{
-\begin{array}{rl}
-    p_x^2+p_y^2 &= a_x^2+a_y^2 = t^2\cos^2{\theta} \\
-    p_z &= a_z = t\sin{\theta}
+\begin{array}{rll}
+    p_x^2+p_y^2 &= a_x^2+a_y^2 &= t^2\cos^2{\theta} \\
+    p_z &= a_z &= t\sin{\theta}
 \end{array}
 \right.
 $$
 因此，全圆锥面是以下方程的解集：
-$$ x^2 + y^2 = z^2\cot^2{\theta}$$
+$$ x^2 + y^2 = \frac{z^2}{\tan^2{\theta}}$$
 其中$\theta$是轴和母线的夹角。而圆锥可以看做全圆锥面的锥顶$( 0,0,0)$和平面$z=z_0$之间的部分，也可以写作：
-$$ x^2 + y^2 \leqslant z^2\cot^2{\theta} , \quad 0\leqslant z \leqslant z_0.$$
+$$ x^2 + y^2 \leqslant \frac{z^2}{\tan^2{\theta}} , \quad 0\leqslant z \leqslant z_0.$$
 圆台可以看做全圆锥面在平行平面$z=z_0>0$和$z=z_1 > z_0$之间的部分，也可以写作：
-$$ x^2 + y^2 \leqslant z^2\cot^2{\theta} , \quad z_0\leqslant z \leqslant z_1.$$
+$$ x^2 + y^2 \leqslant \frac{z^2}{\tan^2{\theta}} , \quad z_0\leqslant z \leqslant z_1.$$
 类似地，设全圆柱面的母线为$m = \mathbb{R}(0,0,1)+(a,0,0)$，$m$中一点$A$的坐标为$(a, 0, t)$，则它对应的点$P$满足
 $$
 \left\{
@@ -2132,7 +2299,7 @@ $$ V = abc.$$
     \item $V(\mathbf{a},\mathbf{a},\mathbf{c}) = 0$，$V(\mathbf{a},\mathbf{b},\mathbf{a})=0$，$V(\mathbf{a},\mathbf{b},\mathbf{b})=0$。
 \end{enumerate}
 前两个性质对应两条公理和方元体积为$1$的设定。第三个性质说明点、线、面体积为$0$。从第三个性质出发，可以推出：
-\begin{tm}{体积的反称性}\label{tm:3-0-0}
+\begin{tm}{\textbf{体积的反称性}}\label{tm:3-0-0}
     给定向量$\mathbf{a},\mathbf{b},\mathbf{c}$，则它们相关的平行六面体体积满足以下性质：
     \begin{align}
         V(\mathbf{a},\mathbf{b},\mathbf{c}) &= -V(\mathbf{a},\mathbf{c},\mathbf{b}). \notag \\
@@ -2148,8 +2315,8 @@ $V(\mathbf{e}_x, \mathbf{e}_y, \mathbf{e}_z) = 1$ ，因此
 $$ V(\mathbf{e}_x, \mathbf{e}_z, \mathbf{e}_y) = V(\mathbf{e}_y, \mathbf{e}_x, \mathbf{e}_z)  = V(\mathbf{e}_z, \mathbf{e}_y, \mathbf{e}_x)  = -1.$$
 于是
 $$ V(\mathbf{e}_z, \mathbf{e}_x, \mathbf{e}_y) = V(\mathbf{e}_y, \mathbf{e}_z, \mathbf{e}_x)   = 1.$$
-我们把方元分成了两类，一类的有向体积为$1$，另一类为$-1$。可以看出，有向体积为$1$，对应向量遵循右手法则；
-有向体积为$-1$，对应向量遵循左手法则。
+我们把方元分成了两类，一类的有向体积为$1$，另一类为$-1$。
+%可以看出，有向体积为$1$，对应向量遵循右手法则；有向体积为$-1$，对应向量遵循左手法则。
 
 一般来说，设$\mathbf{a} = a_x\mathbf{e}_x + a_y\mathbf{e}_y + a_z\mathbf{e}_z$、
 $\mathbf{b} = b_x\mathbf{e}_x + b_y\mathbf{e}_y + b_z\mathbf{e}_z$、
@@ -2175,6 +2342,12 @@ $\mathbf{c} = c_x\mathbf{e}_x + c_y\mathbf{e}_y + c_z\mathbf{e}_z$，则根据�
     体积为$0.75$。
 \end{so}
 
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 空间基向量的有向体积和它们的顺序有什么关系？  \\
+    \indent 2. 空间向量的体积和平面向量的面积有什么类似的地方？
+\end{sk}
+
 \section{等积原理}
 
 从平行六面体的体积出发，能否得到其它多面体和立体形状的体积呢？这里介绍一个有力的结论：\textbf{等积原理}。
@@ -2187,7 +2360,7 @@ $\mathbf{c} = c_x\mathbf{e}_x + c_y\mathbf{e}_y + c_z\mathbf{e}_z$，则根据�
 例如：左侧多面体$X$和右侧多面体$Y$分别被平行于平面$\gamma_1,\gamma_2$的平面所截，
 前者的截面是五边形，后者的截面是三角形。
 如果不论被$\gamma_1,\gamma_2$之间的哪个平行于$\gamma_1,\gamma_2$的平面所截，
-截出来的五边形和三角形面积总相等，那么根据等积原理，$X$和$Y$在$\gamma_1,\gamma_2$之间的部分体积相等。
+截出来的五边形和三角形面积总相等，那么根据等积原理，$X$和$Y$在$\gamma_1,\gamma_2$之间的部分的体积相等。
 
 据唐代李淳风记载，等积原理是南朝梁数学家祖暅发现的。祖暅利用等积原理，解决了球体积计算的问题。
 因此，后世也把这个定理称为\textbf{祖暅原理}。等积原理可以看做平面中“同底等高面积相同”结论的“升级版”。
@@ -2248,6 +2421,14 @@ $\gamma_1,\gamma_2$之间任意平行于它们的平面截棱柱和长方体，�
 其中，四面体$A'B'C'C$可以看作底面为$A'B'C'$，锥顶为$C$的三棱锥。它的底面积和棱锥$A'ABC$底面积相同，高相等，
 所以根据定理\ref{tm:3-2-10}，它的体积和四面体$A'ABC$的体积相等。
 
+% 三棱柱体积
+\begin{figure}[h]
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.8\textwidth]{三棱柱体积1.png}
+    \captionsetup{justification=centering}
+\end{figure}
+
 另一方面，四面体$A'B'BC$和$A'B'C'C$都可以看作底面在平面$B'C'CB$上，锥顶为$A'$的三棱锥。
 它们的底面：$\triangle B'BC \simeq \triangle B'C'C$，所以根据定理\ref{tm:3-2-10}，体积相等。
 这说明，三棱柱由三个体积相等的四面体组成，因此它的体积是四面体$A'ABC$的三倍。
@@ -2255,8 +2436,7 @@ $\gamma_1,\gamma_2$之间任意平行于它们的平面截棱柱和长方体，�
 根据等积定理，三棱锥和三棱柱如果底面积相等，高相等，则棱锥的体积是棱柱体积的三分之一。
 
 对于一般的棱柱和棱锥，我们可以将它们的底面剖分为三角形，因此，
-它们的体积分别等于相应的三棱柱和三棱锥体积之和，也就是相应的三角形面积之和乘以高。
-因此，对于一般的棱柱和棱锥，也有：
+它们的体积分别等于相应的三棱柱和三棱锥体积之和。因此，对于一般的棱柱和棱锥，也有：
 \begin{tm}\label{tm:3-2-20}
     如果棱柱和棱锥的底面积相等，高相等，则棱锥的体积是棱柱体积的三分之一。
 \end{tm}
@@ -2373,12 +2553,16 @@ $$
 圆心为原点、半径为$r$的球的方程可以写为：
 $$ x^2 + y^2 + z^2 = r^2.$$
 用离圆心$z_0$的平面$z = z_0$截球，得到半径为$\sqrt{r^2 - z_0^2}$的圆盘，
-面积为$\pi(r^2 - z_0^2)$。考虑锥顶在原点、上底在$z=r$平面、半径为$r$、高为$r$的圆锥，
+面积为$\pi(r^2 - z_0^2)$。
+
+考虑下底在$Oxy$平面、上底在$z=r$平面，半径为$r$、高为$r$的圆柱：
+$$ x^2 + y^2 = r^2, \quad 0\leqslant z \leqslant r $$
+平面$z = z_0$截该圆柱得到的截面面积为$\pi r^2$。
+
+考虑锥顶在原点、上底在$z=r$平面、半径为$r$、高为$r$的圆锥，
 $$ x^2 + y^2 = z^2, \quad 0\leqslant z \leqslant r $$
 平面$z = z_0$截该圆锥得到的截面面积为$\pi z_0^2$。
-考虑下底在$Oxy$平面、上底在$z=r$平面，半径为$r$、方程为
-$$ x^2 + y^2 = r^2, \quad 0\leqslant z \leqslant r $$
-的圆柱，平面$z = z_0$截该圆锥得到的截面面积为$\pi r^2$。
+
 因此，考虑圆柱中挖去圆锥得到的形状，根据等积原理，它的体积等于半个球（$z>0$部分）的体积。
 于是，
 \begin{align}
@@ -2402,7 +2586,7 @@ $$ x^2 + y^2 = r^2, \quad 0\leqslant z \leqslant r $$
     \indent 1. 从棱长为$4$的正方体中挖出一个最大的球，剩余部分的体积是多少？\\
     \indent 2. 全圆柱面$y^2+z^2=r^2$和$x^2+z^2=r^2$围成的形状称为\textbf{牟合方盖}。求牟合方盖的体积。\\
     \indent 3. 圆心为原点、半径为$r$的球在平面$z = z_0$和$z = r$之间的部分，称为球缺。求球缺的体积。 \\
-    \indent 4. 方程为$(x - 4)^2 + z^2 = 4$的圆绕$z$轴旋转一周，围成的空间形状称为\textbf{镯}。\\
+    \indent 4. 平面$y = 0$上有方程为$(x - 4)^2 + z^2 = 4$的圆，将它绕$z$轴旋转一周围成的空间形状称为\textbf{镯}。\\
     \indent 4.1. 求该镯的方程。\\
     \indent 4.2. 求平面$z = z_0$截该镯的截面面积。\\ 
     \indent 4.3. 试通过与平放的圆柱对比，求该镯的体积。\\
@@ -2581,31 +2765,31 @@ $l_2$中的点$t\mathbf{a} + \mathbf{b}_2 = t\mathbf{a} + 0\cdot(\mathbf{b}_1 - 
 
 % \chapter{brouillon}
 
-从直观上看，把$x$看成大地，$(x,\,\,y)$看作空中的一点，
-那么$P(x,\,\, y)$就好像它在竖直阳光下的影子。
-$P$的特点是：
-\begin{enumerate}
-    \item 本来就在“大地”（$x$轴）上的向量，经过$P$映射不变。
-    \item 垂直于$x$轴的向量（形如$(0,\,\,y)$的），经过$P$映射为零向量。
-    \item 任何向量经过$P$映射后，总在$x$轴上。
-\end{enumerate}
+% 从直观上看，把$x$看成大地，$(x,\,\,y)$看作空中的一点，
+% 那么$P(x,\,\, y)$就好像它在竖直阳光下的影子。
+% $P$的特点是：
+% \begin{enumerate}
+%     \item 本来就在“大地”（$x$轴）上的向量，经过$P$映射不变。
+%     \item 垂直于$x$轴的向量（形如$(0,\,\,y)$的），经过$P$映射为零向量。
+%     \item 任何向量经过$P$映射后，总在$x$轴上。
+% \end{enumerate}
 
-一般来说，给定两个不共轴的向量$\mathbf{a}$、$\mathbf{b}$，它们形成平面的基底。
-因此，平面中任意向量$\mathbf{u}$总能以唯一的方式写成$\mathbf{a}$、$\mathbf{b}$的直组合：
-$$ \mathbf{u} = u_a \mathbf{a} + u_b \mathbf{b}.$$
-我们把这个写法称为向量$\mathbf{u}$在基底$\mathbf{a}$、$\mathbf{b}$上的分解。
-或者说，实系数对$(u_a,\,\, u_b)$是$\mathbf{u}$在$\mathbf{a}$、$\mathbf{b}$构成的坐标系中的坐标。
-于是，我们可以定义\textbf{沿}$\mathbf{b}$\textbf{到}$\mathbf{a}$\textbf{的投影映射}。：
-$$ \mathrm{Ty}_{(\mathbf{a},\mathbf{b})} : \mathbf{u} \mapsto u_a \mathbf{a}.$$
+% 一般来说，给定两个不共轴的向量$\mathbf{a}$、$\mathbf{b}$，它们形成平面的基底。
+% 因此，平面中任意向量$\mathbf{u}$总能以唯一的方式写成$\mathbf{a}$、$\mathbf{b}$的直组合：
+% $$ \mathbf{u} = u_a \mathbf{a} + u_b \mathbf{b}.$$
+% 我们把这个写法称为向量$\mathbf{u}$在基底$\mathbf{a}$、$\mathbf{b}$上的分解。
+% 或者说，实系数对$(u_a,\,\, u_b)$是$\mathbf{u}$在$\mathbf{a}$、$\mathbf{b}$构成的坐标系中的坐标。
+% 于是，我们可以定义\textbf{沿}$\mathbf{b}$\textbf{到}$\mathbf{a}$\textbf{的投影映射}。：
+% $$ \mathrm{Ty}_{(\mathbf{a},\mathbf{b})} : \mathbf{u} \mapsto u_a \mathbf{a}.$$
 
-当$\mathbf{a}$、$\mathbf{b}$是直角坐标系的基向量$\mathbf{e}_1$、$\mathbf{e}_2$时，
-$\mathrm{Ty}_{(\mathbf{a},\mathbf{b})}$就是前面提到的$P$。
+% 当$\mathbf{a}$、$\mathbf{b}$是直角坐标系的基向量$\mathbf{e}_1$、$\mathbf{e}_2$时，
+% $\mathrm{Ty}_{(\mathbf{a},\mathbf{b})}$就是前面提到的$P$。
 
-如图，当$\mathbf{a}=(3,\,\,1)$、$\mathbf{b}=(1,\,\,3)$时，$\mathrm{Ty}_{(\mathbf{a},\mathbf{b})}$
-把点$(4,\,\,4)$沿经过$(4,\,\,4)$并且与$\mathbf{b}$平行的直线移动，直到和直线$\mathbb{R}\mathbf{a}$相交。
-得到的点就是$(4,\,\,4)$沿$\mathbf{b}$到$\mathbf{a}$的投影。
-直观上看，就好像日光斜照，把$(4,\,\,4)$投射到“大地”$\mathbb{R}\mathbf{a}$上，形成的影子。而
-日光的方向由$\mathbf{b}$决定。
+% 如图，当$\mathbf{a}=(3,\,\,1)$、$\mathbf{b}=(1,\,\,3)$时，$\mathrm{Ty}_{(\mathbf{a},\mathbf{b})}$
+% 把点$(4,\,\,4)$沿经过$(4,\,\,4)$并且与$\mathbf{b}$平行的直线移动，直到和直线$\mathbb{R}\mathbf{a}$相交。
+% 得到的点就是$(4,\,\,4)$沿$\mathbf{b}$到$\mathbf{a}$的投影。
+% 直观上看，就好像日光斜照，把$(4,\,\,4)$投射到“大地”$\mathbb{R}\mathbf{a}$上，形成的影子。而
+% 日光的方向由$\mathbf{b}$决定。
 
 
 \end{document}
