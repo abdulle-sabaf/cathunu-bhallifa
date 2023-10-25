@@ -609,10 +609,18 @@ $$
     1 & t \\ 0 & 1
 \end{bmatrix}
 $$
-的变换$T$。它把基向量$\mathbf{e}_x$映射为$\mathbf{e}_x + t\mathbf{e}_y$，
-把基向量$\mathbf{e}_y$映射到自身。给定标准单位正方形，$T$把它变为同底等高的平行四边形。
+的变换$J_t$。它把基向量$\mathbf{e}_x$映射为$\mathbf{e}_x + t\mathbf{e}_y$，
+把基向量$\mathbf{e}_y$映射到自身。给定标准单位正方形，$J_t$把它变为同底等高的平行四边形。
 
 % 错切变换：正方形变为同底等高的平行四边形
+\begin{figure}[h]
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.6\textwidth]{剪变换1.png}
+    \captionsetup{justification=centering}
+    \caption*{\texttt{剪变换}$J_t$\texttt{把\textcolor[RGB]{162,69,22}{标准单位正方形}变换为\textcolor[RGB]{218,183,74}{平行四边形}}}
+
+\end{figure}
 
 现实的工程问题中常常会遇到这个变换。
 它可以用来描述物体的不同位置受到两个大小相同、方向相反的力，
