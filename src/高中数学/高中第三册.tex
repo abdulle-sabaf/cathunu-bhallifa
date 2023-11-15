@@ -34,6 +34,17 @@
 \newcommand{\lian}[1]{
     \underset{#1}{\operatorname{lian}\,}
 }
+% developpements limites
+\newcommand{\oveq}[1]{\overset{#1}{=}} 
+\newcommand{\olim}[1]{\mathit{o}\left(#1\right)}  % petit o
+\newcommand{\Olim}[1]{\mathcal{O}\left(#1\right)}  % grand O
+\newcommand{\Tlim}[1]{\mathcal{\Theta}\left(#1\right)}  % grand theta
+\newcommand{\eqlim}[1]{\overset{#1}{\sim}}  % equivalence
+\newcommand{\vect}[1]{\left\langle #1 \right\rangle}
+
+
+\renewenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
+
 \newtheorem{df}{定义}[section] 
 \newtheorem{pp}{命题}[section]
 \newtheorem{tm}{定理}[section]
@@ -42,7 +53,6 @@
 \newtheorem{sk}{思考}[section]
 \newtheorem*{po}{公理}
 \newtheorem*{so}{解答}
-\renewenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
 \newtheorem{xt}{习题}[section]
 \newtheorem{cor}{推论}[pp]
 
@@ -83,7 +93,6 @@
     \item 子集的势不多于母集的势；真子集的势小于真母集的势。
     \item 集合$A$在集合$B$中补集的势，加上$A$的势，等于$B$的势。
 \end{enumerate}
-
 
 \section{无穷集合的势}
 
@@ -466,7 +475,7 @@ $$ v(t_0) = \lian{t\to t_0} \frac{p(t) - p(t_0)}{t - t_0}.$$
 
 对于一般的函数，我们也可以用这个方法描述它在一点变化的快慢。
 
-\begin{df}\label{df:2-0-0}
+\begin{df}\label{df:2-1-0}
 给定在某一点$a$附近有定义的函数$f$，如果当$x$趋于$a$时，
 $f$在$a$到$x$的变率收敛到某个极限，就说函数$f$在$a$处\textbf{可微}。
 我们把这个极限叫做函数$f$在点$a$处的\textbf{微变率}，简称\textbf{微变}，
@@ -615,7 +624,14 @@ $$ t \mapsto f(t_0) + \partial f(t_0) \cdot(t - t_0)$$
     \indent 4.1. 按照左可微的定义，定义\textbf{右可微}。\\
     \indent 4.2. 证明：函数$f$在$a$点可微，当且仅当它在$a$处左可微且右可微，且左右微变相等。
     这时$f$在$a$点的微变就是相等的左微变和右微变。\\
-    \indent 4.3. 考虑绝对值函数：$f:x\mapsto |x|$。它在$0$处是否可微？
+    \indent 4.3. 考虑绝对值函数：$f:x\mapsto |x|$。它在$0$处是否可微？\\
+    \indent 5. 已知函数$f$在$a$附近有定义，在$a$处可微，微变率大于零。
+    证明：存在$x_1 < a < x_2$，使得$f(x_1) < f(a) < f(x_2)$。\\
+    \indent 6. 已知函数$f$在点$a$处可微，证明以下函数在$a$处有极限：
+    $$ x \mapsto \frac{xf(a) - af(x)}{x - a}.$$
+    \indent 7. 已知函数在包含$0$的开区间$I$上连续，并且有
+    $$ \lian{x\to 0} \frac{f(2x) - f(x)}{x} = 0.$$
+    \indent 证明：$f$在$0$处可微。
 \end{xt}
 
 \section{微变的运算法则}
@@ -799,9 +815,8 @@ $a = 0$时，函数不可微。
     &= p \cdot a^{\frac{p - 1}{q}} \cdot \frac{1}{q} \cdot a^{\frac{1}{q} - 1} \notag \\
     &= \frac{p}{q} a^{\frac{p}{q} - 1} \notag    
 \end{align}
-综上可知，对非零有理数$r$，如果函数$x \mapsto x^r$在一点$a$附近有定义，那么其微变为：
+综上可知，对非零有理数$r$，如果函数$x \mapsto x^r$在点$a>0$的微变为：
 $$ \partial (x^r) (a) = r a^{r-1}. $$
-要注意的是，“在一点$a$附近有定义”的要求是必需的，它包括了$a \neq 0$的要求。
 
 再来看三角函数的微变。我们需要用到之前的结论：
 $$ \lian{x\to 0} \frac{\sin{x}}{x} = 1.$$
@@ -810,15 +825,14 @@ $$ \lian{x\to 0} \frac{\sin{x}}{x} = 1.$$
 \begin{align}
     \partial \sin(a) &= \lian{h\to 0} \frac{\sin{a + h} - \sin{a}}{h} \notag \\
     &= \lian{h\to 0} \frac{\sin{a}\cos{h} + \cos{a}\sin{h} - \sin{a}}{h} \notag \\
-    &= \sin{a} \lian{h\to 0} \frac{\cos{h} - 1}{h} + \cos{a} \lian{h\to 0}\frac{\sin{h}}{h} \notag \\
+    &= \sin{a} \lian{h\to 0} \frac{\cos{h} - 1}{h} + \cos{a} \lian{h\to 0}\frac{\sin{h}}{h} \notag
 \end{align}
 这里我们要计算两个极限，第二个极限可以直接使用上面的结论，结果是$1$。
 对于第一个极限，我们把分子转化为关于$\sin$的表达式。
 \begin{align}
     \lian{h\to 0} \frac{\cos{h} - 1}{h} &= \lian{h\to 0} \frac{\cos^2{h} - 1}{h(\cos{h} + 1)} \notag \\
     &= \lian{h\to 0} -\frac{\sin{h}}{h} \cdot \lian{h\to 0} \frac{\sin{h}}{\cos{h} + 1} \notag \\
-    &= -1 \cdot \frac{0}{1 + 1} \notag \\
-    &= 0.
+    &= -1 \cdot \frac{0}{1 + 1} = 0.  \notag
 \end{align}
 因此，正弦函数$\sin$在一点$a$的微变为：
 $$ \partial \sin(a) = \cos{a} $$
@@ -866,7 +880,7 @@ $$c_2^h = c_1^{\frac{log{c_2}}{\log{c_1}}\cdot h}.$$
 
 考虑通项公式如下的数列$\{e_n\}$：
 $$ \forall n\in\mathbb{Z}^+,\quad e_n = \left(1 + \frac{1}{n}\right)^n.$$
-可以证明，数列$\{e_n\}$有极限$e$。而$e$满足：
+可以证明，数列$\{e_n\}$有极限$e$，而$e$满足（见附录B）：
 $$ \lian{t\to 0} \frac{e^{t} - 1}{t} = 1.$$
 因此，对任意底数$c$，指数函数$x\mapsto c^x$在$0$处可微，微变率是：
 $$ \lian{h\to 0} \frac{c^h - 1}{h} = \log_e{c}.$$
@@ -921,75 +935,1683 @@ $$ \partial \log_e (a) = \frac{1}{a}.$$
 
 \end{so}
 
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 求以下函数在给定点处的微变率。\\
+    \indent 1.1. $f: \,\, x \mapsto \cos{(3 - 5x)}$在点$x = 2$处的微变率。\\
+    \indent 1.2. $f: \,\, x \mapsto 2^{(3 - x)\log_2\left(x^2 + 1\right) + \frac{\sin(x)}{1 + x^2}}$在点$x = 1$处的微变率。\\
+    \indent 1.3. $f: \,\, x \mapsto (\tan^2{x} - e^{\frac{1}{1-x}})^{5 - \ln(3 - x)}$在点$x = 0$处的微变率。\\
+    \indent 2. 求反正弦函数$\arcsin$和反余弦函数$\arccos$在一点$a$的微变。\\
+    \indent 3. 从结论
+    $$ \lian{x\to 0} \frac{e^x - 1}{x} = 1$$
+    \indent 出发，证明：
+    $$ \lian{x\to 0} \frac{\ln{(1 + x)}}{x} = 1.$$
+    \indent 4. 证明：对任意非零实数$r$，任意实数$a>0$，幂函数$x \mapsto x^r$在$a>0$处可微，
+    微变率为$ra^{r-1}$。
+    \indent 5. 设有函数
+    $$f: \,\,\, x \mapsto \left\{
+        \begin{array}{cl}
+            x\sin{\frac{1}{x}}  & \mbox{如果}x \neq 0 \\
+            0 & \mbox{如果}x = 0
+        \end{array}\right.
+    $$
+    \indent 5.1. 证明：函数$f$在$0$处连续。\\
+    \indent 5.2. 证明：函数$f$在$0$处不可微。
+\end{xt}
+
+\section{微变函数}
+% 中值定理
+从前面几节可以看出，常见的显式函数，在定义域中大致可微。因此，我们可以引入微变函数的概念：
+\begin{df}{\textbf{微变函数}}\label{df:2-4-0}
+    \mbox{} \\
+    如果函数$f$在集合$D$中各点都可微，那么在$D$上可以定义它的微变函数：
+    $$ \partial f : \,\,\, x \mapsto \partial f(x). $$
+    $f$的微变函数把$x$映射到$f$在$x$处的微变率。
+\end{df}
+
+许多显式函数，其微变函数仍然是常见的显式函数。
+
+整式函数、分式函数的微变函数仍然是整式函数、分式函数。
+正弦函数、余弦函数的微变函数分别是余弦函数、正弦函数。
+正切、余切函数的微变函数仍然是三角函数。
+幂函数、指数函数的微变函数仍然是幂函数、指数函数。
+而对数函数的微变函数是反比例函数。
+
+通过微变函数，我们可以讨论关于函数整体变化的一些性质。
+
+\begin{tm}{\textbf{微变零值定理}}\label{tm:2-4-0}
+    如果函数$f$在闭区间$[a, b]$上连续，在开区间$(a, b)$上可微，并且$f(a) = f(b)$，
+    那么，存在一点$t\in(a, b)$，使得
+    $$ \partial f(t) = 0.$$
+\end{tm}
+
+这个定理让我们看到了“微变为零”的直观意义。函数在一点微变为$0$，那么它在这一点的切线是水平的。
+也就是说，在这点附近的最佳近似直线是水平直线。函数在这点附近几乎是水平。
+
+那么，函数怎样的情况下会变得水平呢？一种情况就是“掉头”，即函数从左到右逼近这一点时，
+函数值不断变大，但过了这一点，就不断变小了。或者反过来，从左到右逼近这一点时，不断变小，
+但过了这一点，就不断变大了。
+
+也就是说，函数在这一点附近达到局部的极大值或极小值。
+
+对于定理中提到的函数$f$，我们知道$f(a) = f(b)$。也就是说，把$a$看作起点，把$b$看作终点，
+那么函数经历了一段变化后，函数值又回到了起始的水平。那么，直觉上，要么函数值一直不变，
+要么总有“掉头”的一刻。
+比如说，如果函数值一开始不断变大，那么，为了在终点变回原值，一定要在某一点“掉头”变小。
+而该点就是微变为$0$的点。
+
+要注意的是，这样的情形之所以存在，是因为函数满足“在闭区间$[a, b]$上连续，在开区间$(a, b)$上可微”的条件。
+否则，我们想象中的“不断变大”、“掉头”都有可能因为函数“跳跃”、“突转”而不存在。
+
+下面给出定理的证明：
+\begin{proof}
+    记$f(a) = f(b) = v$。如果$f$在$[a,b]$上恒等于$v$，那么任意挑选$(a, b)$中一点即可。
+
+    否则，由于$f$在$[a,b]$上连续，根据闭区间极值定理，$f$在区间上有极大值$v_{\text{大}}$和极小值$v_{\text{小}}$。
+    而这两个值不全等于$v$。不妨设极大值$v_{\text{大}}$不等于$v$。设$v_{\text{大}} = f(t)$，
+    则$t\in(a, b)$。
+
+    考虑$t$附近的变率：
+    $$ \frac{f(x) - f(t)}{x - t}. $$
+    由于$f$在$t$处有极大值，所以总有$f(x) \leqslant f(t)$。
+    因此，$x<t$时，变率大于等于$0$；$x>t$时，变率小于等于$0$。
+    $\partial f(t)$是$x$趋于$t$时，该变率的极限。
+    根据极限传递不等关系的性质，变率在该点的左极限大于等于$0$，右极限小于等于$0$。
+    而$f$在该点可微，因此左极限等于右极限，故都等于$0$。
+    
+    这就说明，$ \partial f(t) = 0$。
+\end{proof}
+
+我们研究的函数，不一定能满足$f(a) = f(b)$的条件。
+不过，我们可以用一点技巧，把这个结论拓展到更一般的情况。
+
+\begin{tm}{\textbf{微变中值定理}}\label{tm:2-4-10}
+    如果函数$f$在闭区间$[a, b]$上连续，在开区间$(a, b)$上可微，
+    那么，存在一点$t\in(a, b)$，使得
+    $$ \partial f(t) = \frac{f(b) - f(a)}{b - a}.$$
+\end{tm}
+
+去掉了$f(a) = f(b)$的条件，相当于允许函数在该段区间有一个整体的变化趋势。
+我们可以把这个整体的变化趋势用变率表示：$k = \frac{f(b) - f(a)}{b - a}$。
+而中值定理告诉我们，区间中有一点，函数在其附近的变化趋势和整体趋势一样。
+
+如果令$f(a) = f(b)$，那么$k=0$，这时我们得到微变零值定理。
+如何把一般情况变为这种特殊情况呢？我们可以用过$f$在区间两端点的直线，大致描述函数的整体变化趋势：
+$$ y = f(a) + k(x - a).$$
+$x = a$时，$y = f(a)$，$x = b$时，$y = f(b)$。
+那么，在函数中“剔除”这个趋势即可。
+
+我们把函数“拆分”成两部分，一部分描述整体趋势，一部分描述函数在其中的“内部变化”。
+$$ f(x) = {\color{magenta} f(a) + k(x - a)} + {\color{ForestGreen} g(x)}. $$
+其中$g$的定义就是$g(x) = f(x) - f(a) - k(x - a)$。
+
+那么，$f(a) + k(x - a)$就是$f$的趋势部分，$g$就是内部变化部分。$g(a) = g(b) = 0$。
+对$g$运用微变零值定理可知，存在$t\in(a,b)$，使得$\partial g(t) = 0$。
+然而，$\partial g = \partial f - k$。也就是说，$ \partial f(t) - k = 0$，即：
+$$ \partial f(t) = k.$$
+于是我们找到了满足要求的$t$，微变中值定理成立。
+
+以上推理过程中，我们看到了函数变化和微变函数的关系。函数的单调性也能用微变描述。
+\begin{tm}{\textbf{微变单调定理}}\label{tm:2-4-20}
+    如果函数$f$在区间$I$上可微，那么$f$在$I$上单调递增（递减），
+    当且仅当它在$I$上的微变总大于等于（小于等于）零。
+\end{tm}
+
+\begin{proof}
+    如果$f$在$I$上单调递增，那么变率总大于等于$0$，因此微变作为变率的极限也总大于等于$0$。
+    
+    同理，$f$在$I$上单调递减，那么微变总小于等于$0$。
+
+    反之，如果$f$在$I$上的微变总大于等于$0$，那么，对于$I$中任意两点$a < b$，根据微变中值定理，
+    总有$c\in(a, b)$使得：
+    $$f(b) - f(a) = \partial f(c) \cdot (b - a).$$
+    而等式右边的项都大于等于$0$，所以$f(b) \geqslant f(a)$。这说明$f$在$I$上单调递增。
+    
+    同理，如果$f$在$I$上的微变总大于等于$0$，那么$f$在$I$上单调递减。
+\end{proof}
+
 \begin{sk}
     \mbox{} \\
-    \indent 1. 有理函数在哪些地方可微？哪些地方不可微？\\
-    \indent 2. \\
-    \indent 3. 对于把实数变量映射到向量的映射，能否定义在某个实数$t$的微变率？如何在直观上解释你定义的微变率？\\
-    \indent 4. 对于把向量映射到向量的映射，也就是点映射，能否定义在某个点的微变率？如何在直观上解释你定义的微变率？
+    \indent 1. 微变零值定理中，如果去掉“在$(a, b)$上可微”，结论是否还成立？如果不成立，举一个反例。\\
+    \indent 2. 微变单调定理中，如果要使得$f$在$I$上严格单调递增（递减），需要什么条件？\\
+    \indent 3. 函数在一点微变率为$0$，是否说明该点是$f$在附近局部的极小值或极大值？
+\end{sk}
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 证明：每个整式函数都是某个函数的微变函数。\\
+    \indent 2. 已知函数$f$为：
+    $$ f: \,\,\, x\mapsto \frac{\sin{x} + \cos{x}}{2 + \cos^2{x} - \sin{x}}.$$
+    \indent 证明：对任意实数$a$，$f$在区间$(a, a + 2\pi)$上总有一处微变为$0$。\\
+    \indent 3. 设函数$f$、$g$在区间$[a, b]$上连续，在$(a, b)$上可微。$g(a) \neq g(b)$，且$f$、$g$在任一点的微变率不同时为$0$。\\
+    \indent 3.1. 设$k_f$为$f$从$a$到$b$的变率，$k_g$为$g$从$a$到$b$的变率，作函数：
+    $$ h : \,\,\, x \mapsto k_g \cdot (f(x) - f(a)) - k_f \cdot (g(x) - g(a))$$
+    \indent 证明：$h$在区间$[a, b]$上连续，在$(a, b)$上可微，且$h(a) = h(b) = 0$。\\
+    \indent 3.2. 证明：存在$t\in(a, b)$，使得：
+    $$ \frac{\partial f (t)}{\partial g (t)} = \frac{f(b) - f(a)}{g(b) - g(a)}.$$
+    \indent 4.1. 证明：
+    $$ \forall x > 0, \,\,\, \frac{1}{x+1} < \ln{(x+1)} - \ln{x} < \frac{1}{x}.$$
+    \indent 4.2. 证明：函数$f: \,\,\,x \mapsto \left(1 + \frac{1}{x}\right)^x$在$(0,\infty)$上单调递增，
+    函数$g: \,\,\,x \mapsto \left(1 + \frac{1}{x}\right)^{x+1}$在$(0,\infty)$上单调递减。（提示：考虑复合函数$\ln{f}$和$\ln{g}$。）\\
+    \indent 4.3. 证明：$x$趋于正无穷时，函数$f$、$g$有极限，并给出这个极限的值。\\
+    \indent 4.4. 设数列$\{v_n\}_{n\in\mathbb{N}}$的通项为：
+    $$ \forall \,\, n\in\mathbb{N},\,\,\, v_n = \frac{1}{n+1} + \frac{1}{n+2} + \cdots + \frac{1}{2n}. $$
+    证明：
+    $$ \ln{(2n + 1)} - \ln{(n + 1)}  < v_n < \ln{(2n)} - \ln{(n)}. $$
+    从而证明数列$\{v_n\}$收敛，并给出它的极限。\\
+    \indent 5. 设有界函数$f$在实数集上可微，且它的微变函数$\partial f$在正无穷有极限$c$。证明：$c = 0$。（提示：使用反证法。）\\
+    \indent 6. 设函数$f$在$a$处可微，且微变$\partial f(a) \neq 0$。
+    \indent 6.1. 证明：存在$h>0$，使得对区间$(a-h,a+h)$中任意$x$，$f(x) = f(a)$当且仅当$x = a$。\\
+    \indent 6.2. 如果函数$f$还在$a$附近可微，且微变函数$\partial f$在$a$处连续，证明：存在$h>0$，使得$f$在区间上是单射。\\
+\end{xt}
+
+\section{多次微变}
+% 多次微变，k阶光滑
+既然对可微的函数，可以定义它的微变函数，那么，如果微变函数仍然可微，我们就可以继续定义它的微变函数。
+也就是说，只要条件允许，我们可以定义函数的多次微变函数。
+
+举例来说，正弦函数$\sin$的微变函数是余弦函数$\cos$。而余弦函数$\cos$的微变函数是$-\sin$。
+因此，我们可以说，正弦函数$\sin$的二次微变函数是$-\sin$。对于一点$a$，我们说正弦函数在$a$处
+二次可微，二次微变率为$\sin{a}$。
+
+一般来说，我们可以这样定义：
+\begin{df}{\textbf{多次微变}}
+    \mbox{} \\
+    设函数$f$在区间$I$上可微。如果它的微变函数$\partial f$在$I$上仍然可微，就说$f$\textbf{二次可微}。
+    $\partial f$在$I$上的微变函数称为$f$的\textbf{二次微变函数}，简称\textbf{二次微变}，记作$\partial^2 f$。
+    
+    依此类推，对正整数$k$，如果$f$的$k$次微变函数$\partial^k f$在$I$上仍然可微，就说$f$是$\boldsymbol{k+1}$\textbf{次可微}的。
+    $\partial^k f$的微变函数称为$f$的$\boldsymbol{k+1}$\textbf{次微变函数}，简称$\boldsymbol{k+1}$\textbf{次微变}，记作$\partial^{k+1} f$。
+
+    对于$I$中一点$a$来说，如果$f$是$k$次可微的，且$\partial^k f$在$a$处可微，
+    就说$f$在$a$处$\boldsymbol{k+1}$\textbf{次可微}，微变率称为$f$在$a$处的$\boldsymbol{k+1}$\textbf{次微变率}。
+
+    如果对任意正整数$k$，$f$都是$k$次可微的，就说$k$\textbf{无穷可微}。
+\end{df}
+
+可以验证，前几节提及的显式函数，都是无穷可微的。
+因为它们的微变总是由常见显式函数通过四则运算、复合、取反函数的方式组成。
+
+比如，单项式函数$x\mapsto x^n$的$k$次微变为：
+$$ \partial^k (x^n) = \left\{
+    \begin{array}{ll}
+        x\mapsto n(n-1)\cdots(n-k+1) x^{n-k} & \mbox{如果} k \leqslant n \\
+        x\mapsto 0 & \mbox{如果} k > n
+    \end{array}\right.
+$$
+
+指数函数$x\mapsto a^x$的$k$次微变为$x\mapsto (\ln{a})^k a^x$。
+特别地，$x\mapsto e^x$的任意次微变都是自己。
+
+正弦、余弦函数的多次微变和次数的奇偶性相关。
+\begin{align}
+    \forall \,\,n\,\,\in\,\,\mathbb{Z}^+,\notag \\
+    \partial^{2n-1} \sin(x) &= (-1)^{n-1} \cos{x}, & \partial^{2n} \sin(x) &= (-1)^{n} \sin{x}, \notag \\
+    \partial^{2n-1} \cos(x) &= (-1)^{n} \sin{x}, & \partial^{2n} \cos(x) &= (-1)^{n} \cos{x}, \notag 
+\end{align}
+
+两个$k$次可微函数$f$、$g$的和与差，仍然是$k$次可微函数，其$k$次微变函数为：
+$$ \partial^k (f \pm g) = \partial^k f \pm \partial^k g $$
+而它们的乘积也依然是$k$次可微函数，其$k$次微变函数为：
+\begin{align}
+    \partial^k (f \cdot g) &= \partial^k f \cdot g + C_k^1 \partial^{k-1} f \cdot \partial g + \cdots + C_k^i \cdot \partial^{k-i} f \cdot  \partial^i g + \cdots + \cdot \partial^{k} g \notag \\
+    &= \sum_{i=0}^k C_k^i \partial^{k-i} f \cdot  \partial^i g \notag
+\end{align}
+这个表达式和二项式的展开一样，因为函数乘积的微变就是（一次的）二项式。
+
+对于多次可微的函数，使用多次微变，可以给出类似微变中值定理的结论。
+回顾微变中值定理，我们可以把它用来理解函数在一点附近的行为。对于符合条件的函数$f$，我们可以写出：
+$$ f(a + h) = f(a) + \partial f(a + t) h.$$
+其中$0<t<h$。我们把$f$在$a$附近的函数值$f(a+h)$表达为关于$h$的一次式，相比直接使用$a$处的微直观：
+$$ f(a + h) \approx f(a) + \partial f(a) h,$$
+使用$\partial f(a + t)$可以得到精确的关系，但这时$h$的系数是随着$h$变化的。
+这与我们用平均速度来近似一样。我们希望$h$的系数只与$a$有关。
+比如，如果可以把$f(a + h)$表示成：
+$$ f(a + h) = f(a) + \partial f(a) h + w_2\partial^2 f(a + t) h^2,$$
+其中$0<t<h$，$w_2$为常数系数。这样，我们就能具体地估计函数的微直观与精确值的误差。
+当$h$很接近$0$的时候，$h^2$比$h$小得多，我们就可以忽略这一项。
+
+一般来说，如果$f$多次可微，我们希望能有这样的近似表达式：
+$$ f(a + h) = f(a) + \partial f(a) h + c_2 \partial^2 f(a) h^2 + \cdots + c_n \partial^n f(a) h^n + w_{n+1}\partial^{n+1} f(a + t) h^{n+1}.$$
+即用关于$h$的多项式来近似表示$f(a + h)$的值。其中$c_2, \cdots c_n$是常数系数。
+而$w_{n+1}\partial^{n+1} f(a + t) h^{n+1}$和$h$的$n+1$次方成正比，当$h$接近$0$时，就变成一个很小的误差项，
+比前面次数更低的项小得多。这样，我们就可以通过关于$h$的多项式来估计$f(a + h)$的值。
+
+\begin{tm}{\textbf{微变展开定理}}
+    设$n$为正整数。已知函数$f$在包含实数$a$的区间$I$中$n+1$次可微，那么，对于$I$中另一个数$x$，
+    存在介于$a$与$x$之间的数$c$，使得下式成立：
+    \begin{align}
+        f(x) &= f(a) + \sum_{k=1}^n \frac{\partial^k f (a)}{k!}(x - a)^k + \frac{\partial^{n+1} f (c)}{(n+1)!}(x - a)^{n+1}. \notag \\
+        &= P_n(x - a) + Y_n(x - a). \notag
+    \end{align}
+    上式称为$f$在$a$处的$\boldsymbol{n}$\textbf{次微变展开}。
+    其中$P_n$称为$f$在$a$处的$\boldsymbol{n}$\textbf{次微变展开多项式}，
+    $Y_n$称为$f$在$a$处展开的$\boldsymbol{n}$\textbf{次余项}。
+    
+\end{tm}
+
+这个定理可以通过多次使用微变零值定理和中值定理得到（见附录$B$），可以看作微分中值定理的增强版本。
+下面通过实际例子来看它的应用。
+
+\begin{et}
+    计算$\sin{\frac{\pi}{36}}$的值，精确到小数点后$5$位。
+\end{et}
+
+\begin{so}
+    观察正弦函数的图像，它在$0$到$\frac{\pi}{2}$上单调递增。$\frac{\pi}{36}$相对于$\frac{\pi}{2}$很小。
+    我们可以在$0$作多次微变展开，求$\sin{\frac{\pi}{36}}$的近似值。
+
+    记$h = \frac{\pi}{36}$。由于正弦函数无穷可微，根据微变展开定理，把它在$0$处作$n$次展开，可得：
+    $$ \sin{h} = \sin{0} + \sum_{k=1}^n \frac{\partial^k \sin (0)}{k!}h^k + Y_n. $$
+    其中余项$Y_n$为：
+    $$ Y_n = \frac{\partial^{n+1} \sin (c)}{(n+1)!}h^{n+1}. $$
+
+    按题目要求，计算结果精确到小数点后$5$位。对此，我们希望使用前面的多项式来计算近似值，而余项$Y_n$就是近似误差。
+    因此，我们要估计余项的大小。
+    
+    正弦函数的多次微变要么是余弦函数，要么是正弦函数，至多相差一个正负号，因此绝对值小于等于$1$。
+    $h$的值大约在$0.08$到$0.1$之间，因此，$h^5$小于$10^{-5}$。考虑到余项中还有作为分母的$(n+1)!$，
+    我们可以尝试令$n=3$。这时：
+    \begin{align}
+        | Y_n| &= \left|\frac{\partial^{n+1} \sin (c)}{(n+1)!}h^{n+1}\right| \notag \\
+        &= \frac{\left|\partial^{4} \sin (c)\right|}{4!}|h|^4 \notag \\
+        &\leqslant \frac{|h|^4}{4!} \notag \\
+        &< \frac{10^{-4}}{24} < 5 \cdot 10^{-6}. \notag
+    \end{align}
+    具体计算可知，$\frac{|h|^4}{4!} \approx 0.0000024$。
+    因此误差足够小。
+
+    % \sin(h) = 0.0871557427476581735580642708374735513777011561497026726137433675
+    % h - h^3/6 = 0.0871557005802538165941859519079872293392595591884392781071638682
+    % h = 0.0872664625997164788461845384244306356721435944270862728048595720
+
+    接下来计算展开多项式$P_3(h)$的值。
+    \begin{align}
+        P_3(h) &= \sin{0} + \frac{\cos (0)}{1!}h^1 - \frac{\sin (0)}{2!}h^2 - \frac{\cos (0)}{3!}h^3 \notag \\
+        &= h - \frac{h^3}{6} \notag \\
+        &\approx 0.08716. \notag
+    \end{align}
+    
+    实际上，$\sin{\frac{\pi}{36}}$的值约为$0.08715574$，精确到小数点后$5$位为$0.08716$。
+    因此近似计算结果是正确的。
+\end{so}
+
+一般来说，实践中，我们使用显式函数作为经验公式来描述、总结某些实验现象。
+这时，如果显式函数多次可微，并且多次的微变大小可控（比如上面的正弦函数），
+那么，通过合理估计余项的大小，我们可以把显式函数的值用整式近似，从而简化计算。
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 两函数的商的多次微变是否有规律？能否总结成统一的表达式？\\
+    \indent 2. 两函数的复合函数的多次微变是否有规律？\\
+    \indent 3. 函数可微次数是否越多越“好”？可微次数多代表什么？无穷可微的函数有什么“优点”？
+\end{sk}
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 证明两函数乘积的多次微变公式。（提示：使用归纳法。）\\
+    \indent 2. 求以下函数的多次微变函数。\\
+    \indent 2.1. 求正切函数的$5$次微变函数。\\
+    \indent 2.2. 求幂函数$x\mapsto x^r$的$k$次微变函数。\\
+    \indent 2.3. 给定实数$a$，求函数$x\mapsto e^{ax}$的$k$次微变函数。\\
+    \indent 2.4. 求函数$x \mapsto (ax^2 + bx + c)e^x$的$k$次微变函数。\\
+    \indent 2.5. 求函数$x \mapsto x^2\ln{x}$的$k$次微变函数。\\
+    \indent 3. 证明：对任意正整数$n$，函数$x\mapsto x^n e^{\frac{1}{x}}$的$n+1$次微变函数是
+    $$x\mapsto \frac{(-1)^{n+1}}{x^{n+2}}e^{\frac{1}{x}}.$$
+    \indent 4. $n$为正整数。$f$在区间$[a, b]$上$n$次可微。\\
+    \indent 4.1. 证明：如果$f$在$[a, b]$中有$n+1$个不同的零点，那么有$c\in(a, b)$\\
+    \indent 使得$\partial^n f(c) = 0$。\\
+    \indent 4.2. 函数$f$在$[a, b]$上$n$次可微。证明：如果
+    $$f(a) = \partial f(a) = \partial^2 f(a) = \cdots = \partial^{n-1} f(a) = f(b) = 0,$$
+    \indent 那么有$c\in(a, b)$使得$\partial^n f(c) = 0$。\\
+\end{xt}
+
+\chapter{研究连续函数}
+
+我们很早就学习了用平面上的曲线表示函数的方法来直观地理解函数。
+函数的图像就是平面上的曲线。
+
+不过，由于缺乏严谨描述实数和曲直质的语言，我们只用描点法来描述函数的图像。
+画出函数图像上足够多的点，然后用线段将相邻的点连起来，并假设这样能近似表示函数的图像。
+
+通过这样的近似图像，我们可以大致了解函数的性质，但无法严谨地讨论。
+
+对于简单的函数，我们可以直接利用函数的表达式分析函数的性质。对于比较复杂的函数，
+我们就需要更有力的工具。
+学习了函数的微变之后，使用微变的知识，我们可以用严谨的方式，讨论曲线的直观性质。
+
+\section{增减与极值}
+
+我们学习过单调递增和单调递减函数的概念。函数的增减是我们希望了解的基本性质。
+
+我们已经了解过一些基本的常见函数的增减性，比如正比例函数、反比例函数、幂函数、三角函数等。
+对于较为复杂的函数，我们通过“增函数的复合仍然是增函数”、“增函数的反函数是增函数”等方法，可以推断一些函数的单调性。
+
+微变是讨论函数局部变化的有力工具。使用微变的概念，我们可以讨论更一般的情况下，函数的增减变化。
+
+对于可微的函数，我们有以下结论：
+\begin{tm}{\textbf{微变率与函数增减的关系}}\label{tm:3-1-0}
+    函数$f$在区间$I$上可微。
+    \begin{itemize}
+        \item 函数$f$在$I$上为常数函数，当且仅当$\partial f$在$I$上恒等于$0$。
+        \item 函数$f$在$I$上单调递增（单调递减），当且仅当$\partial f$在$I$上总大于等于$0$（小于等于$0$）。
+        \item 如果$\partial f$在$I$上总大于$0$（小于$0$），那么函数$f$在$I$上严格单调递增（严格单调递减）。
+    \end{itemize} 
+\end{tm}
+以上结论可以使用微变率的定义和微变中值定理得到。可以看到，函数在一段区间内的增减变化，
+与它在这段区间上的微变的正负性质是紧密相关的。
+这是判定函数增减的有力工具。
+
+\begin{et}
+    研究函数$f:\,\,x\mapsto x + \frac{1}{x}$的增减性。
+\end{et}
+
+\begin{so}
+    $f$在$\mathbb{R}^*$上有定义。易知$f$在定义域上可微。
+
+    函数的增减性质与微变函数的正负性质相关。因此，求$f$的微变函数，得到：
+    $$ \partial f(x) = 1 - \frac{1}{x^2} = \frac{x^2 - 1}{x^2}.$$
+    分母$ x^2 $总大于$0$，因此$ \partial f $的正负性取决于二次函数$x^2 - 1$的正负性。
+    
+    根据二次函数的性质，$x^2 - 1$的正负性质为：
+    $$ x^2 - 1 \left\{
+        \begin{array}{cl}
+            < 0 & \mbox{如果}x \in (-1, 1) \\
+            = 0 & \mbox{如果}x = -1 \mbox{或} x = 1 \\
+            > 0 & \mbox{如果}x \in (-\infty, -1)\cup (1, +\infty)\\
+        \end{array}\right.
+    $$
+    因此，$f$在区间$(-\infty, -1]$上单调递增，在$x = -1$处达到极大值；
+    然后在$[-1, 0)$上单调递减；$[-1, 0)$上单调递减；在$x = 1$处达到极小值；
+    之后在$[1, +\infty)$上单调递增。
+
+    可以看出，$f$在$-\infty$、$-1$、$0$、$1$、$+\infty$的情况，是我们了解$f$的几个“关键点”。
+    容易算出在$-1$、$1$处，函数值分别为$f(-1) = -2$、$f(1) = 2$。
+    
+    $x$趋于负无穷时，$x$趋于负无穷，$\frac{1}{x}$趋于$0$，因此$f$趋于负无穷。
+
+    $x$趋于正无穷时，$x$趋于正无穷，$\frac{1}{x}$趋于$0$，因此$f$趋于正无穷。
+
+    $x$从左侧趋于$0$时，$\frac{1}{x}$趋于负无穷，因此$f$趋于负无穷。
+    
+    $x$从右侧趋于$0$时，$\frac{1}{x}$趋于正无穷，因此$f$趋于正无穷。
+
+    综上，我们可以这样描述$f$的增减：随着$x$增大，$f$在区间$(-\infty, -1]$上从负无穷单调递增，
+    在$x = -1$处达到极大值$f(-1) = -2$；
+    然后在$[-1, 0)$上单调递减，在$x$趋于$0$时趋于负无穷。
+    $f$在$(0, 1]$上从正无穷单调递减，在$x = 1$处达到极小值$f(1) = 2$；
+    之后在$[1, +\infty)$上单调递增，趋于正无穷。
+\end{so}
+
+\begin{et}
+    研究函数$f:\,\,x\mapsto x^2 e^{-2x}$的增减性。
+\end{et}
+
+\begin{so}
+    $f$在$\mathbb{R}$上有定义。作为基本显式函数的复合函数，易知$f$在$\mathbb{R}$上可微。
+
+    函数的增减性质与微变函数的正负性质相关。因此，求$f$的微变函数，得到：
+    $$ \partial f(x) = (-2x^2 + 2x) e^{-2x}.$$
+    指数函数$ e^{-2x} $总大于$0$，因此$ \partial f $的正负性取决于二次函数$-2x^2 + 2x$的正负性。
+    
+    根据二次函数的性质，$-2x^2 + 2x$的正负性质为：
+    $$ -2x^2 + 2x \left\{
+        \begin{array}{cl}
+            > 0 & \mbox{如果}x \in (0, 1) \\
+            = 0 & \mbox{如果}x = 0 \mbox{或} x = 1 \\
+            < 0 & \mbox{如果}x \in (-\infty, 0)\cup (1, +\infty)\\
+        \end{array}\right.
+    $$
+    因此，$f$在区间$(-\infty, 0]$上单调递减，在$x = 0$处达到极小值；
+    然后在$(0, 1)$上单调递增，在$x = 1$处达到极大值；
+    之后在$(1, +\infty)$上单调递减。
+
+    可以看出，$f$在$-\infty$、$0$、$1$、$+\infty$的情况，是我们了解$f$的几个“关键点”。
+    容易算出在$0$、$1$处，函数值分别为$f(0) = 0$、$f(1) = e^{-2} \approx 0.135$。
+    
+    $x$趋于负无穷时，$x^2$趋于正无穷，$e^{-2x}$趋于正无穷，因此$f$趋于正无穷。
+
+    $x$趋于正无穷时，$x^2$趋于正无穷，$e^{2x}$趋于正无穷。需要研究两者的比值。
+    $x > 1$时，$e^{2x} > 4^x$
+    \begin{align}
+        f(x) &= \frac{x^2}{e^{2x}} < \frac{x^2}{2^x} \cdot \frac{1}{2^x}, \notag
+    \end{align} 
+    而我们知道，对于正整数$n$，总有$2^n \geqslant n^2$。因此，
+    $f(n) < 2^{-n}$，这说明$n$趋于无穷时，$f(n)$趋于$0$。
+    而$f$在$(1,+\infty)$上单调递减且大于$0$，
+    因此有极限。这个极限就是$f(n)$的极限，也就是$0$。
+
+    综上，我们可以这样描述$f$的增减：随着$x$增大，$f$在区间$(-\infty, 0]$上从正无穷单调递减，在$x = 0$处达到极小值$f(0) = 0$；
+    然后在$(0, 1)$上单调递增，在$x = 1$处达到极大值$f(1) = e^{-2} \approx 0.135$；
+    之后在$(1, +\infty)$上单调递减，趋于$0$。
+\end{so}
+
+从例题可以知道，研究可微函数的增减可以分为几个固定步骤：
+\begin{enumerate}
+    \item 确定函数的定义域。
+    \item 确定函数可微，求出函数的微变函数。
+    \item 求处微变函数的零点，确定微变函数的正负性质。微变函数零点之中，使得正负号改变的点，就是函数的极值点。
+    \item 根据微变函数的正负性质，确定函数的增减。
+    \item 研究函数在正负无穷的极限、极值点处的值。
+    \item 根据以上信息，描述函数的增减。
+\end{enumerate}
+
+\begin{et}
+    研究函数$f:\,\,x\mapsto \ln(1 + \sin^2{x})$的增减性。
+\end{et}
+
+\begin{so}
+    对任意实数$x$，$1 + \sin^2{x} > 0$，所以$f$在$\mathbb{R}$上有定义。
+
+    作为基本显式函数的复合函数，易知$f$在$\mathbb{R}$上可微。
+
+    函数的增减性质与微变函数的正负性质相关。因此，求$f$的微变函数，得到：
+    $$ \partial f(x) = \frac{2\sin{x}\cos{x}}{1 + \sin^2{x}} = \frac{\sin{2x}}{1 + \sin^2{x}}.$$
+    从$ \partial f $的表达式可知，分母总大于$0$。
+    因此$ \partial f $的正负性就是分子，也就是$\sin{2x}$的正负性。
+
+    根据正弦函数的性质，$\sin{2x}$是以$\pi$为周期的周期函数，它的正负性如下：
+    $$ \sin{2x} \left\{
+        \begin{array}{cl}
+            > 0 & \mbox{如果}x \in (k\pi, k\pi + \frac{\pi}{2}),\,\,\, k\in\mathbb{Z} \\
+            = 0 & \mbox{如果}x = \frac{k\pi}{2}, \,\,\,k\in\mathbb{Z} \\
+            < 0 & \mbox{如果}x \in (k\pi - \frac{\pi}{2}, k\pi), \,\,\,k\in\mathbb{Z} \\
+        \end{array}\right.
+    $$
+    因此，$f$的增减性质也是周期性的，以$\pi$为周期。以一个周期$[0, \pi]$为例。
+    随着$x$增大，$f$在$[0, \frac{\pi}{2}]$上单调递增，在$\frac{\pi}{2}$处达到极大值，然后在$[\frac{\pi}{2}, \pi]$上单调递减。
+    在$\pi$处达到极小值。
+    
+\end{so}
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 知道了函数的增减性质，能否画出函数图像？你认为还有哪些性质，能帮我们把函数的图像画得更好一点？\\
+    \indent 2. 微变函数等于$0$的点，是否一定是极值点？如果不是的话，它有什么性质？    
+\end{sk}
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 证明定理\ref{tm:3-1-0}。\\
+    \indent 2. 研究以下函数的增减性质。\\
+    \indent 2.1. $x\mapsto x^3 - x^5$。\\
+    \indent 2.2. $x\mapsto \tan{\left(x - \frac{\pi}{6}\right)}$。\\
+    \indent 2.2. $x\mapsto (1 - x^2) e^x$。\\
+    \indent 2.3. $x\mapsto \frac{x^2 - 2}{(x + 1)(x - 3)}$。\\
+    \indent 2.4. $x\mapsto e^{-\frac{1}{x}}$。\\
+    \indent 2.5. $x\mapsto e^{-3x} \sin{(2x)}$。\\
+    \indent 3. 设$I$为实数区间，$X$是$I$的子集。
+    如果对$I$中任意$a < b$，都有$x\in I$使得$a<x<b$，就说$X$在$I$中\textbf{稠密}。
+    设$f$在$I$上可微，微变函数$\partial f$在$I$上总大于等于$0$。
+    记$A^+$为$I$中微变函数$\partial f$大于$0$的点的集合。\\
+    \indent 3.1. 证明：如果$A^+$在$I$中稠密，那么$f$在$I$上严格单调递增。\\
+    \indent 3.2. 证明：如果$f$在$I$上严格单调递增，那么$A^+$在$I$中稠密。
+    
+\end{xt}
+
+
+ \section{局部性质}
+ % 高阶无穷小
+
+研究函数的增减性质时，我们发现，需要关注函数在一些“关键点”的行为。
+如果函数在“关键点”有定义，那么我们只需要取函数值即可。
+如果“关键点”是正负无穷，或者函数在“关键点”没有定义，那么我们需要特别研究函数在这些地方附近的行为。
+我们把这样的性质称为函数的局部性质。
+
+为此，我们再次说明“附近”的严格定义：\textbf{一点“附近”指它的某个邻域}。
+而邻域的概念我们已经学习过了，这里再严谨地定义一次：
+\begin{df}{\textbf{邻域}}
+    对于实数$a$，我们把包含$a$的开区间$I$称为$a$的\textbf{邻域}。为了方便，我们一般取对称的开区间$(a-h, a+h)$，
+    其中$h>0$是足够小的实数，以免涉及到别的区域。这样邻域记为$I_h(a)$。
+
+    如果涉及函数$f$，那么在提及$a$的邻域时，一般考虑以上区间和$f$定义域的交集。
+    但记法不变，仍然是$I_h(a)$。读者需要理解，这里指的是关于$f$有定义的部分。
+
+    比如，如果$f$在$a$附近有定义，但在$a$处无定义，
+    那么交集就是在$a$的邻域中去掉$a$得到的子集，称为$a$的\textbf{去心邻域}。
+
+    显然，去心邻域就是$a$左右的两个开区间。
+    比如，$(a-h, a+h)$对应的去心邻域就是$(a-h, a)\cup(a, a+h)$。
+    这种情况可以记为$\overset{\circ}{I}_h(a)$。
+
+    如果我们只希望讨论$a$的一侧，那么可以只取$a$的邻域小于等于$a$或大于等于$a$的部分，
+    称为$a$的\textbf{左邻域}、\textbf{右邻域}。
+
+    对于正负无穷，我们把形如$[H, +\infty)$、$(H, +\infty)$或$(-\infty, H]$、$(-\infty, H)$的
+    区间称为它们的邻域，记为$I_H(+\infty)$、$I_H(-\infty)$。
+\end{df}
+
+研究函数的局部行为，也就是研究函数在特定点或者无穷远点附近的行为。
+
+\begin{ex}
+    \indent 1. 比较函数$f_1: x\mapsto x$和$f_2: x\mapsto x^2$在$0$附近的行为。\\
+    \indent 2. 比较函数$f_1: x\mapsto \frac{1}{x}$和$f_2: x\mapsto \frac{1}{x^2}$在$0$附近的行为。
+\end{ex}
+
+对于第一个例子中的两个函数，我们知道，两者在$x$沿右侧趋于$0$时都趋于$0$。但$f_2$比$f_1$要快得多。比如，令$x=0.01$，
+则$f_1(x) = 0.01$，而$f_2(x) = 0.0001$；令$x=0.001$，则$f_1(x) = 0.001$，而$f_2(x) = 0.0000\dlim{01}$。
+
+对于第二个例子中的两个函数，我们知道，两者在$x$沿右侧趋于$0$时都趋于正无穷。但$f_2$比$f_1$要快得多。比如，令$x=0.01$，
+则$f_1(x) = 100$，而$f_2(x) = 1\dlim{0000}$；令$x=0.001$，则$f_1(x) = 1000$，而$f_2(x) = 100\dlim{0000}$。
+
+为了比较不同函数的局部行为，我们需要把“趋于无穷”、“趋于零”更细分。
+
+\begin{df}{\textbf{无穷的阶}}
+    设$f$、$g$是从区间$I$到$\mathbb{R}$的函数，$a\in I$。\footnote{注意：这里的$a$也包括正负无穷。}
+
+    \indent 1. 如果对任意$r>0$，都有$a$的邻域$I_a(h)$，使得
+    $$ \forall x \in I_a(h), \,\,\, |f(x)| \leqslant r |g(x)|,$$
+    \indent 就说相比于$g$，$f$在$a$附近\textbf{可以忽略}。记为：
+    $$ f \oveq{a} \olim{g}$$
+    \indent 如果$x$趋于$a$时，$f$、$g$都趋于无穷，就说$g$是$f$的\textbf{高阶无穷大}。\\
+    \indent 如果$x$趋于$a$时，$f$、$g$都趋于零，就说$f$是$g$的\textbf{高阶无穷小}。
+
+    \indent 2. 如果有$a$的邻域$I_a(h)$和$M > 0$，使得
+    $$ \forall x \in I_a(h), \,\,\, |f(x)| \leqslant M |g(x)|,$$
+    \indent 就说$f$在$a$附近\textbf{受限于}$g$。记为：
+    $$ f \oveq{a} \Olim{g}$$
+    \indent 3. 如果$f$在$a$附近受限于$g$，而$g$也受限于$f$，就说两者等阶。\\
+    \indent $f$是$g$的\textbf{同阶无穷大}或\textbf{同阶无穷小}。记为：
+    $$ f \oveq{a} \Tlim{g}$$
+
+    \indent 4. 如果$f - g$相比$g$可以忽略，就说$f$和$g$在$a$附近\textbf{等价}，\\
+    \indent $f$是$g$的\textbf{等价无穷大}或\textbf{等价无穷小}。
+    $$ f \eqlim{a} g$$
+
+\end{df}
+
+简单来说，越高阶的无穷大（无穷小），表示趋于无穷（零）的速度不是一个级别的。
+同阶的无穷，趋于无穷（零）的速度虽然有快慢，但仍然在同一个级别。
+等价的无穷，趋于无穷（零）的速度相同。
+
+在前面第一个例子中，$f_1: x\mapsto x$和$f_2: x\mapsto x^2$在$0$附近都是无穷小，但
+对任意$r > 0$，我们都可以设$h = r$，这样，只要$|x| < r$，就有$|x^2| < r|x|$。
+这说明$f_2$是$f_1$的高阶无穷小。
+
+同理，第二个例子中，$f_1: x\mapsto \frac{1}{x}$和$f_2: x\mapsto \frac{1}{x^2}$在$0$附近都是无穷大。
+但对任意$r > 0$我们都可以设$h = r$，这样，只要$|x| < r$，就有$|\frac{1}{x}| < r|\frac{1}{x^2}|$。
+这说明$f_2$是$f_1$的高阶无穷大。
+
+从定义来看，无穷的阶和极限很相似。两个函数在局部的无穷关系，也可以用两者比值的极限来表示：
+\begin{itemize}
+    \item $f$在$a$附近相比$g$可以忽略，当且仅当$\lian{x\to a} \frac{f}{g} = 0.$
+    \item $f$在$a$附近与$g$等价，当且仅当$\lian{x\to a} \frac{f}{g} = 1.$
+    \item 如果$\lian{x\to a} \frac{f}{g} > 0$，那么$f$在$a$附近是$g$的同阶无穷大。
+\end{itemize}
+
+我们可以把已知的说法转换成无穷的阶的“语言”。
+比如，函数$f \oveq{a} \olim{1}$，表示$f$在$a$处趋于$0$。
+又如，函数$f \oveq{a} \Olim{1}$，表示$f$在$a$附近有界。
+
+根据无穷的阶的定义，我们还可以“开发”出一些“运算法则”。当然，它们只是用无穷的阶的“语言”，
+把按照极限定义得到的直接推论复述一遍。
+\begin{enumerate}
+    \item 如果$f_1 \oveq{a} \olim{g_1}$，$f_2 \oveq{a} \olim{g_2}$，那么$f_1 f_2 \oveq{a} \olim{g_1 g_2}$。
+    \item 如果$f_1 \oveq{a} \Olim{g_1}$，$f_2 \oveq{a} \Olim{g_2}$，那么$f_1 f_2 \oveq{a} \Olim{g_1 g_2}$。
+    \item 如果$f \oveq{a} \Olim{g}$，那么对任意正整数$n$，$f^n \Olim{a}{g^n}$。
+\end{enumerate}
+
+我们可以用无穷的阶来更细致地刻画函数的局部性质。比如，在上一章中，我们研究了正弦函数在$0$附近的近似表示。
+在$0$附近使用微变展开定理，正弦函数可以写成：
+$$ \sin{h} = \sin{0} + \sum_{k=1}^n \frac{\partial^k \sin (0)}{k!}h^k + Y_n. $$
+其中余项$Y_n$为：
+$$ Y_n = \frac{\partial^{n+1} \sin (c)}{(n+1)!}h^{n+1}. $$
+这说明正弦函数可以表示成多项式函数$P_n :h \mapsto \sin{0} + \sum_{k=1}^n \frac{\partial^k \sin (0)}{k!}h^k$与余项函数$h\mapsto Y_n(h)$
+的和。而我们已经证明了这个余项函数受限于$h\mapsto h^{n+1}$，因此是$P_n$任一项的高阶无穷小。
+因此，正弦函数在$0$附近可以用$P_n$来近似表示。
+
+把函数用多项式近似表示，有什么好处呢？
+把不同的函数统一用多项式近似表示，我们就能够（在局部）比较各种不同的函数了。
+
+比如，我们知道$\sin{x}$和$\ln{(1+x)}$在$0$附近都约等于$0$。
+那么比值$\frac{\sin{x}}{\ln{(1 + x)}}$在$0$附近是什么样子的呢？
+
+首先利用微变展开定理把两者用多项式和余项表示。
+\begin{align}
+    \sin{x} &= \sin{0} + \sum_{k=1}^n \frac{\partial^k \sin (0)}{k!}x^k + \mathit{o}(x^n). \notag \\
+    \ln{(1 + x)} &= \ln{1} + \sum_{k=1}^n \frac{\partial^k \ln (1)}{k!}x^k + \mathit{o}(x^n). \notag 
+\end{align}
+然后从最“低阶”的无穷小开始对比。
+\begin{align}
+    \sin{x} &= x - \frac{x^3}{6} + \frac{x^5}{120} + \cdots + \mathit{o}(x^n). \notag \\
+    \ln{(1 + x)} &= x - \frac{x^2}{2} + \frac{x^3}{3} + \cdots + \mathit{o}(x^n). \notag
+\end{align}
+$\sin{x}$和$\ln{(1+x)}$的“最大项”都是$x$，之后$\ln{(1+x)}$是$- \frac{x^2}{2}$，而$\sin{x}$是$- \frac{x^3}{6}$。
+因此，我们可以写出它们的比值：
+\begin{align}
+    \frac{\sin{x}}{\ln{(1 + x)}} &= \frac{x - \frac{x^3}{6} + \olim{x^3}}{x - \frac{x^2}{2} + \olim{x^2}} \notag \\
+    &= \frac{1 - \olim{x}}{1 - \frac{x}{2} + \olim{x}} \notag \\
+    &= \frac{(1 - \olim{x})\left(1 + \frac{x}{2} + \olim{x}\right)}{\left(1 - \frac{x}{2} + \olim{x}\right)\left(1 + \frac{x}{2} + \olim{x}\right)} \notag \\
+    &= \frac{1 + \frac{x}{2} + \olim{x}}{1 + \olim{x}} \notag \\
+    &= \left(1 + \frac{x}{2} + \olim{x}\right)(1 + \olim{x}) \notag \\
+    &= 1 + \frac{x}{2} + \olim{x} \notag
+\end{align}
+也就是说，在$0$附近，$\sin{x}$和$\ln{(1+x)}$的比值大约是$1 + \frac{x}{2}$，余项是关于$x$的高阶无穷小。
+
+把函数在$0$附近用一次整式和高阶无穷小表示，我们把这样的结果称为函数在$0$附近的一次展开。
+
+我们把上面的方法称为\textbf{局部展开法}。简单来说，如果能够把函数在局部表示成多项式与高阶无穷小的和，
+那么，通过无穷的阶的运算，我们可以细致地分析函数的局部性质。从一些常见函数的局部展开（见附录$B$）出发，
+我们可以比较准确地刻画较为复杂的函数的局部性质。
+
+\begin{et}
+    求极限：
+    $$ \lian{x\to +\infty} \frac{\left(1 + \frac{1}{x}\right)^{x^2}}{e^x}.$$
+\end{et}
+
+\begin{so}
+    要求极限的函数由分子分母两部分组成。分子看起来很像$\left(1 + \frac{1}{x}\right)^{x}$，
+    也就是$x$趋于正无穷时极限为$e$。不过指数从$x$换成了$x^2$。
+
+    既然分子分母都和指数函数有关，我们可以把整个函数取对数，得到：
+    $$ \ln{\frac{\left(1 + \frac{1}{x}\right)^{x^2}}{e^x}} = x^2 \ln{\left(1 + \frac{1}{x}\right)} - x.$$
+    显然，等式右边比较难估计的是对数函数的部分。
+    $x$趋于正无穷时，$\frac{1}{x}$趋于$0$。我们把$\ln{\left(1 + \frac{1}{x}\right)}$展开，得到：
+    $$ \ln{\left(1 + \frac{1}{x}\right)} \oveq{+\infty} \frac{1}{x} - \frac{1}{2x^2} + \olim{\frac{1}{x^2}}$$
+    因此，
+    \begin{align}
+        x^2 \ln{\left(1 + \frac{1}{x}\right)} - x &\oveq{+\infty} x^2 \left(\frac{1}{x} - \frac{1}{2x^2} + \olim{\frac{1}{x^2}}\right) - x \notag \\
+        &\oveq{+\infty} x -\frac{1}{2} + \olim{1} - x \notag \\
+        &\oveq{+\infty} -\frac{1}{2} + \olim{1} \notag
+    \end{align}
+    也就是说，
+    $$ \lian{x\to +\infty} x^2 \ln{\left(1 + \frac{1}{x}\right)} - x = -\frac{1}{2}. $$
+    于是
+    $$ \lian{x\to +\infty} \frac{\left(1 + \frac{1}{x}\right)^{x^2}}{e^x} = e^{\lian{x\to +\infty}  x^2 \ln{\left(1 + \frac{1}{x}\right)} - x} = \frac{1}{\sqrt{e}}. $$
+\end{so}
+
+最后的问题：具有怎样性质的函数，才能在局部表示成多项式与高阶无穷小的和呢？我们有以下定理（证明见附录$B$）：
+\begin{tm}{\textbf{局部展开定理}}
+    设$n$为正整数。函数$f$在区间$I$上$n$次可微，且$n$次微变函数在$I$上连续。那么，对于$a\in I$，
+    $f$可以写成以下形式：
+    $$ \forall x \in I , \quad f(x) = f(a) + \sum_{k=1}^n \frac{\partial^k f (a)}{k!}(x - a)^k + (x - a)^n h(x). $$
+    其中$h$是一个在$I$上连续，在$a$处趋于$0$的函数。
+\end{tm}
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 说明：等价无穷大（无穷小）是一种等价关系。\\
+    \indent 2. 你认为，我们已知的关系中，什么关系和函数“可忽略”、“受限于”的关系最像？给出你的理由。\\
+    \indent 3. 函数在局部是否一定可以用多项式近似表示？如果是，说明理由。如果不是，给出反例。\\\
+    \indent 4. 如果$f_1 \eqlim{a} g_1$，$f_2\eqlim{a} g_2$，是否有$f_1 + f_2\eqlim{a} g_1 + g_2$？
+\end{sk}
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 证明：\\
+    \indent 1.1. 如果$f \eqlim{a} g$，$g \oveq{a} \olim{h}$，那么$f \oveq{a} \olim{h}$。\\
+    \indent 1.2. 如果$f \eqlim{a} g$，$g \oveq{a} \Olim{h}$，那么$f \oveq{a} \Olim{h}$。\\
+    \indent 1.3. 如果$f \oveq{a} \olim{g}$，$g \oveq{a} \Olim{h}$，那么$f \oveq{a} \olim{h}$。\\
+    \indent 1.4. 如果$f \eqlim{a} \olim{g}$，$g \oveq{a} \Olim{h}$，那么$f \oveq{a} \olim{h}$。\\
+    \indent 2. 设$a, b$为正数。证明：\\
+    \indent 2.1. $x^a \oveq{+\infty} \olim{e^{bx}}$。\\
+    \indent 2.2. $e^{-bx} \oveq{+\infty} \olim{|x|^{-a}}$。\\
+    \indent 2.3. $\ln^{a}{x} \oveq{+\infty} \olim{x^{b}}$。\\
+    \indent 2.4. $|\ln{x}|^{a} \oveq{0} \olim{|x|^{-b}}$。\\
+    \indent 3. 证明：\\
+    \indent 3.1. 在$0$附近，$\frac{1}{1 - x^2} = 1 + x^2 + \olim{x^2}$。\\
+    \indent 3.2. 在$0$附近，$x^2 \cdot \olim{x^3} = \olim{x^5}$。\\
+    \indent 3.3. 在$0$附近，$e^x - \sqrt{1 + x} = \frac{x}{2} + \frac{5x^2}{8} + \frac{7x^3}{48} + \olim{x^3}$。\\
+    \indent 3.4. 在$0$附近，偶函数的局部展开只有偶数次项，奇函数的展开只有奇数次项。\\
+    \indent 4. 在局部展开以下函数：\\
+    \indent 4.1. 在$0$附近将$x\mapsto \frac{\sqrt{1 + x}}{1 - x^2}$作三次展开。\\
+    \indent 4.2. 在$0$附近将$x\mapsto \frac{\cos{x} - 1}{\ln^2{(1 + x)}}$作三次展开。\\
+    \indent 4.3. 在$0$附近将$x\mapsto \tan{(x)} - \frac{x}{1 + x}$作四次展开。\\
+    \indent 4.4. 在$0$附近将$x\mapsto (1 - \ln{(1 + x)})e^{-x}$作四次展开。\\
+    \indent 4.5. 在$2$附近将$x\mapsto x^2\ln{(x - 1)}$作三次展开。\\
+    \indent 4.6. 在$1$附近将$x\mapsto (1 - x)\ln{(x^2 - 1)}$作三次展开。\\
+    \indent 5. 使用局部展开法研究以下的极限：\\
+    $$
+    \begin{array}{ll}
+        1. \quad \lian{x\to 0} \frac{\cos{x} - 1}{x^2} & \qquad 2. \quad \lian{x\to 0} \frac{1}{x \left(e^x - 1\right)} - \frac{1}{x^2} \\
+        3. \quad \lian{x\to +\infty} \frac{1}{x}\ln{\left(\frac{e^x - 1}{x}\right)} & \qquad 4. \quad \lian{x\to 0} \frac{2x}{\ln{(1+x)} - \ln{(1-x)}} 
+    \end{array}
+    $$
+    \indent 6. 如果$x \mapsto \frac{e^{x} + e^{ax} - 2}{x^2}$在$0$处有极限，求实数$a$可能的取值，并计算相应的极限。
+\end{xt}
+
+\section{凹凸性质}
+% 凸函数，琴声不等式，拐点
+要了解函数的性质，仅靠增减性质是不够的。举例来说，
+$x\mapsto \sqrt{x}$和$x\mapsto x^2$在$[0,1]$上都是增函数，从$0$增长到$1$。
+但两者的图像有很大差异。前者的图像是向上凸出的曲线，后者则向下凸出。
+
+我们把函数形状分为两类，形如$x\mapsto \sqrt{x}$的称为\textbf{上凸}，
+把形如$x\mapsto x^2$的称为\textbf{下凸}。更严谨的定义如下：
+
+\begin{df}{\textbf{函数的凸性}}
+    \mbox{} \\
+    函数$f$区间$I$上有定义。
+    \begin{itemize}
+        \item 如果对$I$中任意两点$x$、$y$，以及任意$0 \leqslant c \leqslant 1$，都有
+        $$ f(cx + (1 - c)y) \leqslant cf(x) + (1 - c)f(y), $$
+        就说$f$在区间$I$\textbf{下凸}。
+        \item 如果对$I$中任意两点$x$、$y$，以及任意$0 < c < 1$，都有
+        $$ f(cx + (1 - c)y) < cf(x) + (1 - c)f(y), $$
+        就说$f$在区间$I$\textbf{严格下凸}。
+        \item 如果对$I$中任意两点$x$、$y$，以及任意$0 \leqslant c \leqslant 1$，都有
+        $$ f(cx + (1 - c)y) \geqslant cf(x) + (1 - c)f(y), $$
+        就说$f$在区间$I$\textbf{上凸}。
+        \item 如果对$I$中任意两点$x$、$y$，以及任意$0 < c < 1$，都有
+        $$ f(cx + (1 - c)y) > cf(x) + (1 - c)f(y), $$
+        就说$f$在区间$I$\textbf{严格上凸}。
+    \end{itemize}
+\end{df}
+
+不难验证，前面提及的$x\mapsto \sqrt{x}$和$x\mapsto x^2$分别在$[0,1]$严格上凸、严格下凸。
+
+设$z = cx + (1 - c)y$，可得$c = \frac{y - z}{y - x}$。带入凸性的定义，就可以得到用变率描述的版本。
+比如，下凸的定义变为：对$I$中任意三点$x < z < y$，都有
+$$ \frac{f(z) - f(x)}{z - x} \leqslant \frac{f(z) - f(y)}{y - z}. $$
+或者说，从$x$到$z$的变率，小于等于从$z$到$y$的变率。换句话说，\textbf{函数下凸，就是变率不断变大}。
+反之，\textbf{函数上凸，就是变率不断变小}。
+
+直观来看，设函数在$[a,b]$上有定义。
+考虑以函数在两端的点$(a,\,\, f(a))$、$(b,\,\, f(b))$连成的线段。
+如果函数下凸，那么在$(a,b)$上，函数图像总在线段下方；
+如果函数上凸，那么在$(a,b)$上，函数图像总在线段上方。
+
+对于简单的函数，可以按定义确定函数的凸性。
+比如，$x\mapsto x^n$在$n>1$时是下凸函数，$x\mapsto x^\frac{1}{n}$在$n>1$时是上凸函数。
+但对于比较复杂的函数，直接按定义较难确定函数的凸性。为此，我们需要更方便的判定方法。
+如果函数可微，从凸性和变率的关系，不难想到以下的判定方法（证明见附录$B$）：
+
+\begin{tm}{\textbf{凸性与微变}}
+    设函数$f$在区间$I$上可微。
+    \begin{itemize}
+        \item $f$在$I$下凸，当且仅当$\partial f$在$I$上单调递增。
+        \item $f$在$I$上凸，当且仅当$\partial f$在$I$上单调递减。
+        \item $f$在$I$严格下凸，当且仅当$\partial f$在$I$上严格单调递增。
+        \item $f$在$I$严格下凸，当且仅当$\partial f$在$I$上严格单调递减。
+    \end{itemize}
+\end{tm}
+
+如果函数$f$二次可微，那么我们有更简便的判定方法：
+\begin{tm}\textbf{凸性与二次微变}
+    设函数$f$在区间$I$上二次可微。
+    \begin{itemize}
+        \item $f$在$I$下凸，当且仅当$\partial^2 f$在$I$上总大于等于$0$。
+        \item $f$在$I$上凸，当且仅当$\partial^2 f$在$I$上总小于等于$0$。
+    \end{itemize}
+\end{tm}
+
+\begin{proof}
+    只需证明$\partial f$在$I$上单调递增当且仅当$\partial^2 f$在$I$上总大于等于$0$。
+    对可微函数$\partial f$使用定理\ref{tm:3-1-0}即可。
+\end{proof}
+
+用这个方法，我们能够轻松判定大多数常见显式函数的凸性，因为它们都二次可微。
+
+幂函数$x\mapsto x^a$当$a>1$时是下凸的，当$0<a<1$时是上凸的；$a<0$时，在$(0,+\infty)$上是下凸的。
+
+指数函数总是下凸的，对数函数总是上凸的。
+
+正弦函数在每个周期$[2k\pi, \,\, 2(k+1)\pi)$前半是上凸的，后半是下凸的。
+正切函数也是如此，在每个周期$(k\pi-\frac{\pi}{2}, \,\, k\pi+\frac{\pi}{2})$前半是上凸的，后半是下凸的。
+
+如果函数的二次微变在某点$a$变号，就说$a$是函数的\textbf{拐点}。
+比如，$x\mapsto x^3$在$0$处有拐点。它的二次微变在$x<0$时小于$0$，在$x>0$时大于$0$。
+随着$x$增大，函数在$0$处从上凸转为下凸。
+
+在函数的增减性质分析基础上，加入凸性的分析，就大致完成了对函数性质的初步分析。
+有了这些分析结果，我们就能大致画出函数的图像。
+% 完整的函数图像分析例子（加入凸性分析）。
+\begin{et}
+    研究函数$f:\,\,x\mapsto x^2 e^{-2x}$。
+\end{et}
+
+\begin{so}
+
+    之前我们已经研究了$f$的增减性质。随着$x$增大，$f$在区间$(-\infty, 0]$上从正无穷单调递减，在$x = 0$处达到极小值$f(0) = 0$；
+    然后在$(0, 1)$上单调递增，在$x = 1$处达到极大值$f(1) = e^{-2} \approx 0.135$；
+    之后在$(1, +\infty)$上单调递减，趋于$0$。
+
+    在此基础上，我们加上对函数凸性的研究。
+
+    $f$在$\mathbb{R}$上有定义。容易验证$f$在$\mathbb{R}$上二次可微。二次微变函数为：
+    $$ \partial^2 f (x) = 2(2x^2 - 4x + 1)e^{-2x}.$$
+    $e^{-2x}$总大于零，所以二次微变的零点为$2x^2 - 4x + 1$的根，即：
+    $$  
+        \left\{ 
+            \begin{array}{cl}
+                x_1 &= \frac{2 + \sqrt{2}}{2} \\
+                x_2 &= \frac{2 - \sqrt{2}}{2} 
+            \end{array}
+        \right.
+    $$
+    根据二次函数的性质，$f$的二次微变在$(-\infty, x_1)$、$(x_2, +\infty)$上大于零，
+    在$(x_1, x_2)$上小于零。因此，$x_1$、$x_2$是函数$f$的拐点。$f$在$(-\infty, x_1)$、$(x_2, +\infty)$下凸。
+    在$(x_1, x_2)$上凸。
+
+    最后，$f$在$x_1$、$x_2$处的值为：
+    $$ f(x_1) = \frac{3 + 2\sqrt{2}}{2} e^{-2-\sqrt{2}} \approx 0.1, \quad f(x_2) = \frac{3 - 2\sqrt{2}}{2} e^{-2+\sqrt{2}} \approx 0.05. $$
+    微变率分别是：
+    \begin{align}
+        \partial f(x_1) = -(\sqrt{2} + 1)e^{-2-\sqrt{2}} \approx -0.08, \quad  \partial f(x_2) = (\sqrt{2} - 1)e^{-2+\sqrt{2}} \approx 0.23. \notag
+    \end{align}
+    这样，我们可以大致画出$f$的图像。
+\end{so}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{研究函数2.png}
+\end{figure}
+
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 怎样用函数的二次微变判定它是否严格上凸（下凸）？\\
+    \indent 2. 在区间$I$上不连续的函数能否在$I$上凸或下凸？说明理由。
+\end{sk}
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 判断以下函数的凸性：
+    \begin{align}
+        1. \quad x \mapsto x^5 + 10x^2 - 1 \qquad 2. \quad x \mapsto \tan{x} + 2\ln{cos{x}} \notag \\
+        3. \quad x \mapsto (x+1)\ln{\left(1 - \frac{1}{x}\right)} \qquad 4. \quad x \mapsto \left(1 - x^2\right)e^{-\frac{x^2}{2}} 
+    \end{align}
+    \indent 2. 证明：如果函数下凸，那么对$I$中任意三点$x < z < y$，都有
+    $$ \frac{f(z) - f(x)}{z - x} \leqslant \frac{f(y) - f(x)}{y - x}  \leqslant \frac{f(y) - f(z)}{y - z}. $$
+    \indent 3. 函数$f$在区间$I$上可微且下凸。证明：$f$在$I$中任一点的切线总在$f$图像的下方。\\
+    \indent 4. 证明\textbf{凸心不等式}：如果函数$f$在区间$I$下凸，那么对$I$中$n$个不同的数$x_1, x_2, \cdots , x_n$，
+    以及大于等于零，和为$1$的$n$个系数$a_1, a_2, \cdots, a_n$，总有：
+    $$ f\left(\sum_{i=1}^n a_i x_i\right) \geqslant \sum_{i=1}^n a_i f(x_i). $$
+    \indent 5. 使用凸心不等式证明诸均值不等式。\\
+    \indent 6. 证明，对任意$x\in\left(0, \frac{\pi}{2}\right)$，总有：
+    $$ \frac{2}{\pi} x < \sin{x} < x.$$
+    \indent 7. 已知$f$、$g$是从$\mathbb{R}$到$\mathbb{R}$的下凸函数，$g$单调递增。
+    证明：复合函数$g\circ f$也是下凸函数。\\
+    \indent 8. $f$、$g$是区间$I$上的下凸函数。定义函数：
+    $$ f \wedge g : x \mapsto \left\{
+        \begin{array}{cl}
+            f(x) & \mbox{如果} f(x) > g(x) \\
+            g(x) & \mbox{如果} f(x) \leqslant g(x) \\
+        \end{array}
+    \right.
+    $$
+    \indent 函数$f \wedge g$的值总是$f$、$g$中较大者。$f \wedge g$是否是下凸函数？\\
+    \indent 如果定义函数$f \vee g$为$f$、$g$中较小者，$f \vee g$是否是下凸函数？
+
+\end{xt}
+
+% \section{曲线的性质}
+% % 参数方程曲线的局部性质研究
+
+\chapter{平直空间}
+%将平面和立体空间扩展为一般的平直空间
+平面和立体空间是我们熟悉的概念。为了讨论其中的点、线等形状，我们引入了向量的概念。
+我们发现，除了实际中的空间，数学中还有别的概念，遵循和平面向量类似的法则。
+
+\begin{ex}
+    \mbox{} \\
+    \indent 1. 设$\mathbb{K}$是某个数域（比如有理数集或实数集），考虑所有次数不超过$3$次的整式的集合：
+    $$\mathbb{K}_3[x] = \{ax^3 + bx^2 + cx + d \, | \, a, b, c, d \in \mathbb{K}\}$$
+    % \indent 证明：$\mathbb{K}_3[x]$中的元素可以唯一表示成$\{1, x, x^2, x^3\}$的直组合。
+
+    \indent 2. 考虑$S_2$是所有满足以下方程的实变函数的集合。
+    $$ \partial^2 f + f = 0$$
+\end{ex}
+
+第一个例子里，集合$\mathbb{K}_3[x]$的每个元素都可以唯一表示成$\{1, x, x^2, x^3\}$的直组合。
+如果我们把$\{1, x, x^2, x^3\}$看作“基底”，那么$\mathbb{K}_3[x]$中的元素就可以看成向量。
+
+第二个例子里，考虑$S_2$中元素$u$、$v$的直组合$au + bv$：
+$$ \partial^2 (au + bv) = a \partial^2 u + b \partial^2 v,$$
+所以
+\begin{align}
+    \partial^2 (au + bv) + au + bv &= a \partial^2 u + b \partial^2 v + au + bv \notag \\
+    &= a(\partial^2 u + u) + b(\partial^2 v + v) = 0. \notag 
+\end{align}
+于是，我们也可以把$S_2$中元素看作向量。比如，可以验证正弦函数$\sin$和余弦函数$\cos$都是$S_2$中元素，
+因此，其任意直组合$x\mapsto a\sin{x} + b\cos{x}$也是$S_2$中元素。
+
+就像日常计数中抽象出数和代数的概念一样，通过研究这些问题和平面、立体空间的共通之处，
+我们抽象出一种新概念，叫做\textbf{平直空间}。
+
+\begin{df}
+    给定作为系数的数域$\mathbb{K}$（如有理数或实数），$\mathbb{K}$上的\textbf{平直空间}$\mathbb{V}$是这样一个集合:
+
+    首先，$\mathbb{V}$上定义了两种二元运算：$\diamond$和$\bullet$。其中：
+    \begin{itemize}
+        \item $\diamond$运算将两个$\mathbb{V}$中的元素映射为$\mathbb{V}$中的另一个元素。
+        \item $\bullet$运算将一个$\mathbb{K}$中的元素和一个$\mathbb{V}$中的元素映射为$\mathbb{V}$中另一个元素。
+    \end{itemize}
+    其次，$\mathbb{K}$、$\mathbb{V}$和以上两种运算具有以下七种性质：
+    \begin{enumerate}
+        \item $\mathbb{V}$中元素对于$\diamond$运算满足交换律：
+        $$\forall \,\, \mathbf{u}, \, \mathbf{v} \, \in \mathbb{V}, \,\, \mathbf{u} \diamond \mathbf{v} = \mathbf{v} \diamond \mathbf{u}.$$
+        \item $\mathbb{V}$中元素对于$\diamond$运算满足结合律：
+        $$\forall \,\, \mathbf{u}, \, \mathbf{v}, \, \mathbf{w} \, \in \mathbb{V}, \,\, (\mathbf{u} \diamond \mathbf{v}) \diamond \mathbf{w} = \mathbf{u} \diamond (\mathbf{v} \diamond \mathbf{w}).$$
+        \item $\mathbb{V}$中元素对于$\diamond$运算存在零元素：
+        $$\exists \,\, \mathbf{0} \, \in \mathbb{V} \mbox{，使得}\,\,\, \forall \,\, \mathbf{u} \, \in \mathbb{V}, \,\, \mathbf{u} \diamond \mathbf{0} = \mathbf{u}.$$
+        \item $\mathbb{K}$中有$\bullet$运算的单位元$1_{\mathbb{V}}$：
+        $$\forall \,\, \mathbf{u} \, \in \mathbb{V}, \,\,\, 1_{\mathbb{V}} \bullet \mathbf{u} = \mathbf{u}. $$
+        % \item $\mathbb{V}$中元素对于$\diamond$运算存在逆元素：$\forall \,\, \mathbf{u} \, \in \mathbb{V}, \,\,\, \exists \,\, \mathbf{v} \, \in \mathbb{V}$ 使得 $\mathbf{u} \diamond \mathbf{v} = \mathbf{0}.$
+        \item $\mathbb{K}$中乘法$\cdot$和$\bullet$运算兼容：
+        $$\forall \,\, a, \, b \, \in \mathbb{K}, \,\,\, \forall \,\, \mathbf{u} \, \in \mathbb{V}, \,\, (a \cdot b)\bullet\mathbf{u} = a \bullet (b\bullet\mathbf{u}).$$
+        \item $\bullet$运算对$\mathbb{K}$中加法$+$满足分配律：
+        $$\forall \,\, a, \, b \, \in \mathbb{K}, \,\,\, \forall \,\, \mathbf{u} \, \in \mathbb{V}, \,\,\, (a + b)\bullet\mathbf{u} = (a \bullet \mathbf{u}) + (b \bullet \mathbf{u}). $$
+        \item $\mathbb{K}$中乘法$\cdot$对$\diamond$运算满足分配律：
+        $$\forall \,\, \mathbf{u}, \, \mathbf{v} \, \in \mathbb{V}, \,\,\, \forall \,\, a \, \in \mathbb{K}, \,\,\, a\cdot(\mathbf{u} \diamond \mathbf{v}) = (a \cdot \mathbf{u}) \diamond (a \cdot \mathbf{v}). $$
+    \end{enumerate}
+\end{df}
+
+以上的定义可能比较难理解。我们可以比照平面、立体空间的向量来逐步分析。
+
+以平面向量为例，作为系数的数域$\mathbb{K}$就是实数域$\mathbb{R}$。
+两种二元运算：$\diamond$和$\bullet$分别就是向量的加法和数乘。
+
+这样看来，七种性质的前三种和平面向量是一样的。
+第五、六种性质就是平面向量定义中的“放缩和四则运算相容”。
+第七种性质就是平面向量定义中的“放缩和平移相容”。
+
+总体来说，平直空间的定义是从平面、立体空间的向量衍生而来。
+新增的第四种性质是保证空间的尺度不变：乘以系数$1$不会改变向量的大小。
+
+可以验证，前面的两个例子：$\mathbb{K}_3[x]$和$S_2$，都是平直空间。
+
+一般来说，对任意正整数$n$，由次数不超过$n$的整式构成的集合：
+$$ \mathbb{K}_n[x] = \{a_0 + a_1 x + \cdots + a_n x^n \, | \, a_0, a_1, \cdots , a_n \in \mathbb{K}\} $$
+是平直空间。所有整式的集合$\mathbb{K}[x]$也是平直空间。
+
+给定整式$P(x) = a_0 + a_1 x + \cdots + a_n x^n$，它可以对应以下的方程：
+$$ a_0 f + a_1 \partial f + \cdots + a_n \partial^n f = 0. $$
+这个方程所有解的集合$S_P$也是平直空间。
+
+方便起见，平直空间的元素，也称为向量。对应的二元运算也称为加法、数乘。
+其他的概念也沿用平面、立体空间中的称呼。
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 证明：零向量只有一个，任何向量乘$0$得到零向量。\\
+    \indent 2. 证明：零向量乘任何数得到零向量。\\
+    \indent 3. 证明：任何向量$\mathbf{a}$都有唯一的反向量$\mathbf{b}$，满足$\mathbf{a} + \mathbf{b} = \mathbf{0}$。\\
+    \indent 4. 实数集是否是平直空间？有理数集、整数集呢？数轴上的区间是否是平直空间？\\
+    \indent 5. 给定正整数$n$，由次数为$n$的整式构成的集合是否是平直空间？\\
+    \indent 6. 所有有理数列的集合$\mathbb{Q}^\mathbb{N}$是否是平直空间？\\
+    \indent 7. 所有奇函数的集合是否是平直空间？所有偶函数的集合呢？\\
+    \indent 8. 所有有序数组$(a, b, c, d)$（其中元素为实数）的集合是否是平直空间？\\
+    \indent 9. 所有在区间$[0,1]$上连续的函数的集合是否是平直空间？所有有界函数的集合是否是平直空间？\\
+    \indent 10. 所有在区间$[0,1]$上$3$次可微的函数的集合是否是平直空间？\\
+    \indent 11. 平面中的直线是否是平直空间？立体空间中的平面是否是平直空间。
+\end{xt}
+
+\section{子空间与和空间}
+看了各种各样的平直空间，我们来了解它们之间的关系。
+
+首先，我们想知道平直空间的子集是否是平直空间。
+如果看平面和立体空间的例子，我们会发现，平面、立体空间的子集中，
+有些满足平直空间的定义，另一些则不满足。比如，可以验证，平面中，过原点的直线是平直空间，不过原点的不是；
+立体空间中，过原点的平面和直线是平直空间，不过原点的平面和直线不是平直空间。
+
+直觉上，平直空间的子集里的元素也是满足向量的性质的，
+唯一的问题是：子集中的向量运算后是否还在子集中。
+只要这一点能够满足，平直空间的子集应该就是平直空间了。
+
+\begin{df}{\textbf{子空间}}
+    平直空间的非空子集，如果（关于空间的运算）仍然是平直空间，就称为该平直空间的\textbf{子空间}。
+    其中，不等于平直空间自身的子空间称为该平直空间的\textbf{真子空间}。
+\end{df}
+
+\begin{tm}
+    平直空间的非空子集，如果关于空间的运算封闭（也就是说，子集的元素经过运算后仍在子集中），
+    就是子空间。
+\end{tm}
+
+显然，由于运算不变，平直空间子集的元素自动满足运算法则。唯一需要验证的是零向量也在子集里。
+这就要由运算封闭的性质来保证。对子集中元素$\mathbf{u}$，
+零向量可以写成$\mathbf{u} - \mathbf{u}$，因此根据封闭性质，还在子集中。
+
+用这个方法，可以验证$\mathbb{Q}_n[x]$是$\mathbb{R}[x]$的子空间，
+如果正整数$n<m$，那么$\mathbb{Q}_n[x]$是$\mathbb{R}_m[x]$的子空间。
+
+对于立体空间来说，过原点的平面是它的子空间，而过原点的直线是它的子空间，
+也是包含它的平面的子空间。可以证明：
+
+\begin{tm}
+    给定平直空间$\mathbb{V}$，$\mathbb{V}$的两个子空间的交集仍然是$\mathbb{V}$的子空间。
+\end{tm}
+
+所有子空间的交集是$\{\mathbf{0}\}$，它是任何平直空间都会有的子空间。我们也说它是\textbf{平凡}的。
+
+子空间的并集是否是子空间呢？比如，两个过原点的平面，并集是否是子空间呢？
+一般来说并不是，并集无法对向量的运算法则封闭。可以发现，并集要成为子空间的话，需要“更多的”向量。
+为此，我们引入类似于并集的概念。
+
+\begin{df}{\textbf{和空间}}
+    \mbox{} \\
+    给定平直空间$\mathbb{V}$以及它的两个子空间$\mathbb{U}_1$、$\mathbb{U}_2$，
+    $\mathbb{U}_1$、$\mathbb{U}_2$的\textbf{和空间}是：
+    $$ \{ \mathbf{u}_1 + \mathbf{u}_2\,|\, \mathbf{u}_1 \in \mathbb{U}_1,\,\,\, \mathbf{u}_2 \in \mathbb{U}_2\}.$$
+    记作$\mathbb{U}_1 + \mathbb{U}_2$。
+\end{df}
+可以验证，这样定义的和空间也是平直空间$\mathbb{V}$的子空间。
+
+子空间的和满足结合律和交换律。用归纳法不难得出，平直空间的有限个子空间也可以定义和空间。
+
+给定立体空间的两个子空间：过原点的直线$\mathbb{R}\mathbf{v}_1$、$\mathbb{R}\mathbf{v}_2$，
+它们的和空间就是$\mathbb{R}\mathbf{v}_1 + \mathbb{R}\mathbf{v}_2$。
+如果$\mathbf{v}_1$、$\mathbf{v}_2$不共轴，那么和空间是平面，否则是直线。
+
+给定立体空间的两个子空间：过原点的直线$\mathbb{R}\mathbf{v}_1$与平面$\gamma: \mathbb{R}\mathbf{v}_2 + \mathbb{R}\mathbf{v}_3$，
+它们的和空间就是$\mathbb{R}\mathbf{v}_1 + \mathbb{R}\mathbf{v}_2 \mathbb{R}\mathbf{v}_3$。
+如果$\mathbf{v}_1$在$\mathbb{R}\mathbf{v}_2 + \mathbb{R}\mathbf{v}_3$中，那么和空间就是$\gamma$。
+否则，和空间就是整个空间。
+
+给定立体空间的两个子空间：过原点的平面$\gamma_1: \mathbb{R}\mathbf{u}_1 + \mathbb{R}\mathbf{v}_1$、$\gamma_2: \mathbb{R}\mathbf{u}_2 + \mathbb{R}\mathbf{v}_2$，
+它们的和空间是$\mathbb{R}\mathbf{u}_1 + \mathbb{R}\mathbf{v}_1 + \mathbb{R}\mathbf{u}_2 + \mathbb{R}\mathbf{v}_2$。
+如果$\gamma_2$中有不在$\gamma_1$中的向量，那么和空间是整个空间。
+否则，和空间就是$\gamma_1$。
+
+如果平直空间$\mathbb{V} = \mathbb{U}_1 + \mathbb{U}_2$，且
+$\mathbb{U}_1 \cap \mathbb{U}_2 = \{\mathbf{0}\}$，就说$\mathbb{V}$
+是$\mathbb{U}_1$、$\mathbb{U}_2$的\textbf{直和}，记作。
+$$\mathbb{V} = \mathbb{U}_1 \oplus \mathbb{U}_2.$$
+要注意的是，这里的$\oplus$只是记录两个子空间交集为$\{\mathbf{0}\}$的性质，并不是一种运算。
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 子空间的交集、和空间，与子集的交集、并集有什么相似之处？有没有类似空集的概念？\\
+    \indent 2. 能否定义子空间“不相交”？能否把平直空间用子空间划分？\\
+    \indent 3. $\mathbb{Q}_3[x]$是$\mathbb{R}_3[x]$的子空间吗？$\mathbb{Q}^\mathbb{N}$是$\mathbb{R}^\mathbb{N}$的子空间吗？
+\end{sk}
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 给出以下平直空间的（非平凡的）子空间的例子。\\
+    $$
+    \begin{array}{ll}
+        1. \quad \mathbb{R}_3[x] & \qquad 2. \quad \{f: \mathbb{R} \rightarrow \mathbb{R} \, | f(0) = 0, \,\,\, f(1) = 0\} \\
+        3. \quad \{f \, | \, \partial^3 f = f\} & \qquad 4. \quad \{(a, b, c) \, | \, a, b, c \in \mathbb{R}\} \\
+        5. \quad \mathbb{R}^\mathbb{N} & \qquad 6. \quad \{f: [0,1] \rightarrow \mathbb{R} \, | \, f \mbox{可微，且} \partial f(0.5) = 0\}
+    \end{array}
+    $$
+    \indent 2. 设有立体空间中的向量$(1, 0, 0)$、$(0, 1, -1)$。求包含它们的最小子空间。\\
+    \indent 3. 证明：如果非常数整式$Q$是$P$的因式，那么$S_Q$是$S_P$的子空间。\\
+    \indent 4. 证明：如果$\mathbb{U}_1$、$\mathbb{U}_2$是$\mathbb{V}$的子空间，
+    那么$\mathbb{U}_1 + \mathbb{U}_2$是$\mathbb{V}$的子空间。\\
+    \indent 5. 证明：$\mathbb{V}$平直空间能写成两个子空间$\mathbb{U}_1$、$\mathbb{U}_2$的直和，
+    当且仅当$\mathbb{V}$中任意元素都能以唯一的方式写成$\mathbb{U}_1$中元素与$\mathbb{U}_2$中元素的和。
+\end{xt}
+
+\section{生成空间}
+以上的章节中，我们已经认识到，平直空间是一种特殊的集合。给定集合，我们可以将它补充成平直空间。
+\begin{df}{\textbf{生成空间}}
+    给定系数域为$\mathbb{K}$的平直空间$\mathbb{V}$的子集$A$，它的\textbf{生成空间}是\footnote{如果没有强调$A$是哪个平直空间的子集，一般来说，要约定系数域$\mathbb{K}$。我们约定：如果没有强调，系数域一般是实数集$\mathbb{R}$。}：
+    $$ \vect{A} = \left\{\left. \sum_{i=1}^n a_i \mathbf{u}_i \, \right| \, n\in\mathbb{Z}^+, \,\,\, \forall 1\leqslant i \leqslant n \,\,\, a_i \in \mathbb{K}, \,\,\, \mathbf{u}_i \in \mathbb{V} \, \right\} $$
+    即考虑集合中有限个元素的直组合，所有这样的直组合的集合就是它的生成空间。
+    
+    反之，如果某个集合$A$的生成空间是平直空间$\mathbb{U}$，就说$A$是$\mathbb{U}$的\textbf{生成集}。
+
+    约定空集的生成空间是平凡空间$\{\mathbf{0}\}$。
+\end{df}
+
+显然，集合$A$的生成空间是它的母集。
+
+容易看出，如果某个平直空间包含集合$A$，那么肯定也包含$A$的生成空间。
+因此，$A$的生成空间是所有包含$A$的平直空间的子空间。
+换句话说，$A$的生成空间是包含$A$的最小的平直空间。
+
+作为推论，不难得出：平直空间的生成空间就是自己。
+
+根据定义可以给定集合$A$、$B$，那么：
+\begin{itemize}
+    \item 如果$A\subset B$，那么$\vect{A}$是$\vect{B}$的子空间。
+    \item $\vect{A\cap B}$是$\vect{A}\cap\vect{B}$的子空间。
+    \item $\vect{A\cup B} = \vect{A} + \vect{B}$。
+\end{itemize}
+
+可以注意到，$A$中元素是否重复，不妨碍定义它的生成空间。
+因此，我们可以定义“允许元素重复的集合”：
+\begin{df}{\textbf{族}}
+    \mbox{} \\
+    设$A$为集合，在$A$中可重复地抽取元素，放在一起，称为\textbf{族}。族可以是有序的。
+\end{df}
+我们可以把生成空间的概念扩大到向量族的生成空间。
+这样定义的生成空间也有以上提到的基本性质。
+
+如果某个平直空间能通过有限个向量生成，就说它是\textbf{有限生成空间}。
+比如，$\mathbb{R}_3[x]$就是有限生成空间，因为每个向量都是$\{1, x, x^2, x^3\}$的直组合。
+可以验证
+$$\mathbb{R}_3[x] = \vect{\{1, x, x^2, x^3\}}.$$
+而$\mathbb{R}[x]$就不是有限生成空间。考虑$\mathbb{R}[x]$中$n$个元素，设它们之中最高的次数是$m$，
+那么它们的直组合的次数不会超过$m$，因此无法生成次数大于$m$的整式。
+
+平面和立体空间的基本定理说明，它们都是有限生成空间。
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 给定集合$A$、$B$，$\vect{A\cap B} = \vect{A}\cap\vect{B}$成立吗？\\
+    \indent 2. 所有$[0,1]$上的连续函数的集合，是否是有限生成空间？
+\end{sk}
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 求实系数多项式集合$\{x, 4x^3\}$的生成空间。\\
+    \indent 2. 设$E$是$(1, \,\,2, \,\,0)$、$(0, \,\,-1, \,\,1)$生成的空间。
+    把$E$写成一次方程的解集的形式，求该一次方程。\\
+    \indent 3. 求$\{(x,\,\,y,\,\,z)\in\mathbb{R}^3 \, | \, x + 2y + z = 0 \}$的生成集。
+    
+\end{xt}
+
+\section{基底和维数}
+
+如果我们考虑$1,x,x^2$这三个向量，
+它们生成的空间是$\mathbb{R}_2[x]$。
+那么$1,x,2x-1,x^2$这四个向量呢？它们生成的空间仍然是$\mathbb{R}_2[x]$。
+
+我们可以发现，相比$1,x,x^2$，加入$2x-1$这个向量，有点“多余”。为什么呢？
+因为$2x-1$本身就是$1, x$的直组合，加入之后并不能“贡献”什么新的东西。
+
+容易发现，用足够多的向量来生成空间并不是难事。比如，空间$\mathbb{V}$自己肯定可以生成$\mathbb{V}$。
+所以，我们比较关心的是最小生成集的问题，即：生成空间$\mathbb{V}$，最少要用多少个向量？
+
+平面和立体空间的基本定理说明，生成平面至少要两个向量，生成立体空间至少要三个向量。
+
+直觉上来看，向量个数增多会让它们“更相关”，数量减少则使它们更“不相关”。
+对平直空间来说，如果$A$是它的生成集，$B$是空间中一组直无关的向量，那么前者的元素应该比后者多。
+
+可以证明（见附录$C$）：
+\begin{tm}\label{tm:4-3-10}
+    有限生成空间中，任何一族直无关的向量，向量的个数都不多于任意一个生成族的向量个数。
+\end{tm}
+这是一个重要的结论。它告诉我们，有限生成空间中直无关的向量，个数有上限。
+因此，平直空间的最小生成族也就是最大的直无关族。
+
+\begin{df}{\textbf{平直空间的基底}}
+    平直空间的\textbf{基底}，就是它的直无关的生成族。基底的向量称为\textbf{基向量}。
+\end{df}
+
+这个定义和我们已经定义过的平面、立体空间的基底是一致的。
+
+$\mathbb{R}_3[x]$的一个基底是$(1, x, x^2, x^3)$。
+一般来说，$\{1, x, \cdots, x^n\}$是$\mathbb{R}_n[x]$的基底。
+
+和平面、立体空间一样，平直空间的基底也满足：
+\begin{tm}{\textbf{向量的唯一分解}}\label{tm:4-3-20}
+    $ \mathcal{B} = (\mathbf{e}_1, \mathbf{e}_2, \cdots , \mathbf{e}_n )$是平直空间$\mathbb{V}$的一组基，
+    当且仅当空间中每个元素$\mathbf{u}$都能以唯一的方式写成
+    $$ \mathbf{u} = a_1\mathbf{e}_1 +a_2 \mathbf{e}_2 + \cdots + a_n\mathbf{e}_n, \,\,\, a_1,\,a_2,\,\cdots,\, a_n \,\in\,\mathbb{F}.$$
+    称为$\mathbf{u}$的$\mathcal{B}$\textbf{分解}。$a_1, a_2, \cdots a_m$称为$\mathbf{u}$（在该分解下）的\textbf{分量}。
+\end{tm}
+
+有限生成空间必然有基底吗？直觉上，我们可以从空间的生成集出发，移除一些“多余”的向量，直到剩下的向量直无关为止。
+
+\begin{tm}\label{tm:4-3-40}
+    可以通过适当地移除元素，把有限生成空间$\mathbb{V}$的每个生成族变成基底。
+\end{tm}
+
+用具体的例子来说明。
+
+$\left((1,0),(8,2),(3,1),(0,4),(0,0)\right)$是$\mathbb{R}^2$的生成集。
+
+我们首先去除零向量，得到$\left((1,0),(8,2),(3,1),(0,4)\right)$。 
+这组向量直相关：
+$$ (8,2) = 2\cdot(1,0) + 2\cdot(3,1).$$
+去除$(8,2)$，得到$\left((1,0),(3,1),(0,4)\right).$ 这组向量仍然直相关：
+$$ (3,1) = 3\cdot(1,0) + 0.25\cdot(0,4).$$
+去除$(3,1)$，得到$\left((1,0),(0,4)\right).$ 现在我们得到了一组直无关的向量，
+而且能生成$\mathbb{R}^2$，即$\mathbb{R}^2$的一组基。
+
+从上面的定理可以推出：
+\begin{tm}\label{tm:4-3-50}
+    任意有限生成空间都有基底。
+\end{tm}
+
+空间的基底就是最小生成集，因此大小应该相同。我们可以用定理\ref{tm:4-3-10}来证明。
+选定同一空间的两个基底$\mathcal{B}_1$、$\mathcal{B}_2$，它们都是直无关的生成集。
+根据定理\ref{tm:4-3-10}，$\mathcal{B}_1$直无关，$\mathcal{B}_2$是生成集，
+所以$|\mathcal{B}_1| \leqslant |\mathcal{B}_2|$。
+同理可证，$|\mathcal{B}_2| \leqslant |\mathcal{B}_1|$。
+因此$|\mathcal{B}_1| = |\mathcal{B}_2|$。
+
+我们把有限生成空间$\mathbb{V}$基底的元素个数称为空间的\textbf{维数}，记为$\dim \mathbb{V}$。
+平直空间的维数是它的内禀性质，不依赖于附带的假设。
+
+平面的维数是$2$，所以也常称为二维空间。立体空间维数是$3$，所以也称为三维空间。
+过原点的直线作为子空间，维数是$1$，也称为一维空间。
+
+由于有限生成空间必然有维数，我们也称其为\textbf{有限维空间}。
+
+空间的任意生成集都可以缩减为它的基底。那么任意直无关的向量族能否扩充为基底呢？答案是肯定的。
+\begin{tm}\label{tm:4-3-60}
+    可以通过适当地添加元素，把有限生成空间$\mathbb{V}$的每一组直无关的向量变成基底。
+\end{tm}
+
+我们甚至有更具体的结论：
+\begin{tm}\label{tm:4-3-70}
+    给定有限生成空间$\mathbb{V}$的子空间$\mathbb{U}$，存在另一个子空间$\mathbb{W}$，使得
+    $$ \mathbb{V} = \mathbb{U} + \mathbb{W}.$$
+    且$\mathbb{U} \cap \mathbb{W} = \{\mathbb{0}\}$
+    $\mathbb{W}$称为子空间$\mathbb{U}$的\textbf{补空间}，一般记作$\mathbb{U}^c.$
+\end{tm}
+
+这让我们联想到集合的补集。实际上，我们还可以证明：
+
+\begin{tm}{\textbf{维数基本定理}}\label{tm:4-3-80}
+    设$\mathbb{U}$和$\mathbb{W}$是有限维空间$\mathbb{V}$的两个子空间，则它们的维数满足以下关系：
+    $$ \dim (\mathbb{U} + \mathbb{W}) = \dim \mathbb{U} + \dim \mathbb{W} - \dim (\mathbb{U} \cap \mathbb{W}).$$
+\end{tm}
+如果我们把空间的和比作集合的并，把空间的交比作集合的交，把空间的维数比作集合的元素个数，
+则这个关系和有限集合的关系是一致的。
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 能否把$\mathbb{R}$看作系数域为$\mathbb{Q}$的平直空间？它是否是有限维空间？\\
+    \indent 2. 
+\end{sk}
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 说明以下结论：\\
+    \indent 1.1. 有限维空间的生成集的元素个数不小于空间的维数。\\
+    \indent 1.2. 有限维空间的直无关向量族的元素个数不小于空间的维数。\\
+    \indent 1.3. 有限维空间的生成集的元素个数等于空间的维数，则生成集是空间的基底。\\
+    \indent 1.4. 有限维空间的直无关向量族的元素个数等于空间的维数，则直无关向量族是空间的基底。\\
+    \indent 2. 给出$\{(x,\,\,y,\,\,z)\in\mathbb{R}^3 \, | \, x + 2y + z = 0 \}$的一个补空间。\\
+    \indent 3. 请把$(1,\,\,1, \,\,1)$、$(0,\,\, -1, \,\,1)$扩充为$\mathbb{R}^3$的基底。\\
+    \indent 4. 设二次可微函数$f:\mathbb{R} \rightarrow \mathbb{R}$是方程$\partial^2 f + f = 0$的解，
+    并且$f(0) = \partial f(0) = 0$。\\
+    \indent 4.1. 对任意$x$，证明：存在$0$与$x$之间的数$c$，使得
+    $$ f(x) = -\frac{f(c)x^2}{2}. $$
+    \indent 4.2. 设$M$是$|f|$在$[0,1]$上的最大值。证明$M \leqslant \frac{M}{2}$，从而$M = 0$。\\
+    \indent 4.3. 证明$f$恒等于$0$。\\
+    \indent 5. 设$S_2$为满足方程$\partial^2 f + f = 0$的实变函数的集合。\\
+    \indent 5.1. 证明：如果$f,g\in S_2$满足$f(0) = g(0)$，$\partial f(0) = \partial g(0)$，那么$f = g$。\\
+    \indent 5.2. 分别找出$S_2$中满足$f(0) = 0, \,\,\, \partial f(0) = 1$以及$f(0) = 1, \,\,\, \partial f(0) = 0$的函数$f_1$、$f_2$。\\
+    \indent 5.3. 证明：$\{f_1, f_2\}$是$S_2$的基底。给出$S_2$的维数。
+\end{xt}
+
+\chapter{级数}
+研究连续函数时，我们讨论过分析函数在某点附近的行为的问题。
+我们的研究方法是：把函数在该点附近表示成多项式的形式。换句话说，我们把函数表示成一系列简单函数的和。
+比如，指数函数在$0$附近可以写成：
+$$e^x = 1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \cdots + \frac{x^n}{n!} + \olim{x^n}.$$
+那么，我们能不能把$e^x$直接写成无穷多个简单函数的和呢？
+
+具体来说，对于每个$x$，我们能不能说，$e^x$就是把“所有”$\frac{x^n}{n!}$这样的项加起来的和呢？
+
+我们并未定义过“无穷多个数的和”。不过，这个问题可以转化成一个数列的问题。
+学习数列的时候，我们研究了趋于极限或趋于无穷的数列。
+上面的问题，换句话说，就是问数列：
+$$ 1, 1+x, 1+x + \frac{x^2}{2}, \cdots , 1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \cdots + \frac{x^n}{n!}, \cdots $$
+有没有极限。
+
+传统上，我们把这样的数列用另一种方式表示，称为\textbf{级数}。
+
+\begin{df}{\textbf{级数}}
+    \mbox{} \\
+    给定数列$\{a_n\}_{n\in\mathbb{N}}$，表达式：
+    $$ a_0 + a_1 + a_2 + \cdots + a_n + \cdots $$
+    称为数列$\{a_n\}$的\textbf{级数}，简记为$\sum a_n$。$a_n$称为\textbf{级数的通项}。
+    
+    如果$\{a_n\}$的部分和序列：
+    $$ a_0, a_0 + a_1, \cdots , \sum_{i=0}^n a_i, \cdots $$
+    有极限，就说\textbf{级数收敛}，其极限称为\textbf{级数和}，记作：
+    $$ \sum_{i=0}^\infty a_i $$
+    否则说\textbf{级数发散}。
+    
+\end{df}
+
+对于数列$\left\{\frac{x^n}{n!}\right\}_{n\in\mathbb{N}}$来说，它的级数就是
+$$ 1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \cdots $$
+这个级数是否收敛，收敛的话，级数和是否是$e^x$，就是我们希望研究的内容。
+
+\section{正项级数}
+
+如果级数的通项都是正数或非负数，那么就说级数是\textbf{正项级数}。
+
+正项级数是最方便研究的级数。对一般级数的研究，通常会转化到正项级数。
+
+正项级数的部分和数列是单调递增数列。我们知道，单调递增数列要么有极限，要么趋于正无穷。
+这两种情况分别对应级数收敛、级数发散。
+
+举例来说，级数$\sum 2^{-n}$是正项级数。它的部分和$H_n$为：
+$$ H_n = 1 + \frac{1}{2} + \cdots + \frac{1}{2^n}.$$
+用归纳法可以证明：$H_n = 2 - 2^{-n}$。因此，部分和数列$\{H_n\}$趋于$2$。
+我们说级数$\sum 2^{-n}$收敛，级数和是$2$。
+
+同理，级数$\sum r^{-n}$的部分和$H_n$为
+$$ H_n = 1 + \frac{1}{r} + \cdots + \frac{1}{r^n} = \frac{1 - r^{n+1}}{1 - r}.$$
+因此，$r>1$时，部分和数列$\{H_n\}$趋于$\frac{1}{1 - r}$，级数和是$\frac{1}{1 - r}$。
+
+研究级数收敛，和研究数列收敛，有什么不同呢？实际上，级数是研究数列收敛的工具。
+
+研究数列$\{a_n\}$是否收敛时，我们发现，将数列相邻项作差：
+$$ a_0, a_1 - a_0, a_2 - a_1, \cdots $$
+这样得到的数列的性质，对研究数列是否收敛更有用。我们把作差得到的数列称为原数列的\textbf{差分数列}。
+可以验证，数列$\{a_n\}$的差分数列的部分和为：
+$$ H_n = a_0 + (a_1 - a_0) + (a_2 - a_1) + \cdots + (a_n - a_{n-1}) = a_n. $$
+也就是说，\textbf{数列的差分数列的级数，就是原数列}。
+
+因此，研究数列是否收敛，就看它的差分数列。然后研究差分数列的级数是否有级数和。
+如果差分数列有级数和，那么级数和就是原数列的极限。
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 通过差分数列来研究数列性质的方法，
+    与通过研究函数的微变率、微变函数来研究函数性质的方法，有哪些共同之处？有哪些不同之处？
+\end{sk}
+
+\section{正项级数的收敛}
+那么，怎样的正项级数收敛呢？
+
+首先来看级数$\sum \frac{n}{n+1}$。这个级数的通项$\frac{n}{n+1}$趋于$1$。
+也就是说，$n$足够大时，每增加一项，就等于给部分和加$1$。这样看来，级数不收敛。
+
+下面严格来说明，由于
+$$\lian{n \to \infty }\frac{n}{n+1} = 1,$$
+因此，对于$0<r<1$，总存在正整数$N$，只要$n>N$，就有$\frac{n}{n+1} > 1 - r$。
+于是，部分和$H_n$可以写成：
+$$ H_n > H_N + (n - N) \cdot (1 - r).$$
+而数列$\{(n - N) \cdot (1 - r)\}$趋于正无穷，所以部分和$H_n$也趋于正无穷。也就是说，级数$\sum \frac{n}{n+1}$发散。
+
+从这个证明可以看出，只要正项级数的通项不收敛到$0$，就总会有比较大的项加到部分和里，
+于是级数就会发散。我们将其总结为：
+\begin{tm}
+    如果正项级数的通项没有极限或极限不为零，那么级数发散。
+\end{tm}
+\begin{proof}
+    设正项级数$\sum a_n$的通项数列不收敛到$0$，那么按照定义，存在$r>0$，使得对任意正整数$N$，
+    总有$n > N$，让$a_n \geqslant r$。
+
+    因此，我们可以找到第一个$n_1$，使得$a_{n_1} \geqslant r$。把$n_1$作为$N$，又可以找到$n_2 > n_1$，
+    使得$a_{n_2} \geqslant r$。以此类推，我们可以找到$\{a_n\}$的子列，其中每个元素都大于等于$r$。
+
+    考虑级数$\sum a_n$的部分和$H_n$，当$n$大于子列的第$m$个下标时，$H_n$就大于等于$mr$。因此，部分和趋于正无穷。
+    这说明级数不收敛。
+\end{proof}
+
+如果通项数列$\{a_n\}$收敛到$0$，级数是否就收敛呢？
+
+考虑级数$\sum \frac{1}{n+1}$，它的通项是$\frac{1}{n+1}$，因此趋于$0$。
+但我们可以证明，级数$\sum \frac{1}{n+1}$不收敛。
+
+考虑数列$\{\frac{1}{n+1}\}$的前$2^m$项，我们可以把它这样拆分：
+\begin{align}
+    1 \, &\geqslant \, 1 \notag \\
+    \frac{1}{2} &\geqslant \frac{1}{2} \notag \\
+    \frac{1}{3} + \frac{1}{4} &\geqslant 2 \cdot \frac{1}{4} = \frac{1}{2} \notag \\
+    \frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} &\geqslant 4 \cdot \frac{1}{8} = \frac{1}{2} \notag \\
+    \vdots \qquad & \qquad \vdots \notag
+    \frac{1}{2^{m-1}+1} + \frac{1}{2^{m-1}+2} + \cdots + \frac{1}{2^{m}} &\geqslant 2^{m-1} \cdot \frac{1}{2^{m}} = \frac{1}{2} \notag \\
+\end{align}
+
+因此，级数前$2^m$项的部分和大于等于$1 + \frac12 \cdot (m - 1) = \frac{m+1}{2}$。
+这说明级数不收敛。
+
+再看另一个级数：$\sum \frac{1}{(n+1)^2}$，它的通项是$\frac{1}{(n+1)^2}$，同样趋于$0$。
+然而，我们可以证明，这个级数是收敛的。
+这是因为对任意正整数$n$，
+$$ \frac{1}{(n+1)^2} < \frac{1}{n(n+1)} = \frac{1}{n} - \frac{1}{n+1}.$$
+因此，部分和$H_n$可以写为：
+$$ H_n = 1 + \sum_{i=1}^n \frac{1}{(n+1)^2} < 1 + \sum_{i=1}^n \left(\frac{1}{n} - \frac{1}{n+1}\right) = 2 - \frac{1}{n+1} < 2. $$
+部分和数列有界，因此收敛。
+
+从上面的讨论可以顺便推出：级数$\sum \frac{1}{(n+1)^a}$在$a\geqslant 2$时收敛，在$a\leqslant 1$时发散。
+直觉上理解，就是$\{\frac{1}{n+1}\}$收敛到$0$还不够快，导致部分和增长得太多；
+而$\sum \frac{1}{(n+1)^2}$、$\sum r^{-n}$收敛得足够快，因此部分和始终有限。
+
+怎样把“收敛得足够快”这件事用严谨的方式说明呢？比照无穷的阶的形式，我们来考虑通项数列相邻两项的比值：
+$$ q_n = \frac{a_n}{a_{n+1}} $$
+直觉来说，如果$q_n$趋于某个小于$1$的数，那么$\{a_n\}$大体来说是增长的，不收敛到$0$，于是级数发散。
+如果$q_n$趋于某个大于$1$的数$r$，那么$a_n$收敛到$0$，而且收敛得大致和$r^{-n}$一样快，于是级数收敛。
+
+不过，对级数$\sum \frac{1}{n+1}$、$\sum \frac{1}{(n+1)^2}$，比值$\{q_n\}$都收敛到$1$。
+因此，需要更细致的分析。遵循研究函数局部性质的思路，我们可以把它展开：
+$$ q_n = 1 + \frac{t_1}{n} + \frac{t_2}{n^2} + \cdots $$
+级数$\sum \frac{1}{n+1}$对应$t_1 = 1$，而$\sum \frac{1}{(n+1)^2}$对应$t_1 = 2$。
+
+我们把$q_n$写成
+$$ q_n = 1 + \frac{t_1}{n} + \olim{\frac{1}{n}}. $$
+也就是：
+$$ n(q_n - 1) = t_1 + \olim{1}.$$
+即$n(q_n - 1)$趋于$t_1$。
+
+如果$t_1 < 1$，那么按照极限的定义，总有$N$和$r<1$使得$n>N$时总有：$n(q_n - 1) < r$，即：
+$$ na_n - (n+1)a_{n+1} < 0. $$
+即$n>N$后，数列$\{na_n\}$单调递增。因此$a_n > \frac{Na_N}{n}$。
+于是，级数$\sum a_n$的部分和增长得比$Na_N\sum \frac{1}{n}$快，因此发散。
+
+如果$t_1 > 1$，那么按照极限的定义，总有$N$和$r>1$使得$n\geqslant N$时总有：$n(q_n - 1) > r$，
+即
+$$ na_n - (n+1)a_{n+1} \geqslant (r - 1)a_{n+1}.  $$
+同理，可以写出：
+\begin{align}
+    (n-1)a_{n-1} - na_n &\geqslant (r - 1)a_{n} \notag \\
+    (n-2)a_{n-2} - (n-1)a_{n-1} &\geqslant (r - 1)a_{n-1} \notag \\
+    \vdots \quad &\geqslant \quad \vdots \notag \\
+    Na_{N} - na_n &\geqslant (r - 1)a_{N+1} \notag
+\end{align}
+以上等式分边相加，就得到：
+$$ Na_{N} \geqslant Na_{N} - na_n \geqslant (r - 1)\sum_{i=N+1}^n a_i. $$
+于是部分和$H_n$可以写成：
+$$ H_n \leqslant H_N + Na_{N}.$$
+这说明级数收敛。
+
+$t_1 = 1$时，需要更精确的分析，这里就不继续展开了。我们把以上的内容总结一下：
+
+记正项级数$\sum a_n$的通项数列相邻两项的比值为：
+$$ q_n = \frac{a_n}{a_{n+1}} $$
+如果在$n$足够大的时候，总有以下情况，则可以做出正项级数是否收敛的判断。
+\begin{enumerate}
+    \item 如果$q_n$总大于某个大于$1$的数，那么级数收敛；
+    \item 如果$q_n$总小于某个小于$1$的数，那么级数发散；
+    \item 如果$q_n$可以写成$1 + \frac{A}{n} + \olim{\frac{1}{n}}$，且$A > 1$，那么级数收敛；
+    \item 如果$q_n$可以写成$1 + \frac{A}{n} + \olim{\frac{1}{n}}$，且$A < 1$，那么级数发散。
+\end{enumerate}
+
+来看一些具体的例子。
+
+级数$\sum \frac{1}{n!}$收敛，因为
+$$\forall n \geqslant 1,  \,\,\,q_n = \frac{(n+1)!}{n!} = n+1 \geqslant 2. $$
+
+$x>0$时，级数$\sum \frac{x^n}{n!}$收敛，因为
+$$\forall n \geqslant x,  \,\,\,q_n = \frac{x^n (n+1)!}{n! x^{n+1}} = \frac{n+1}{x} \geqslant 1 + \frac{1}{x}. $$
+
+
+$x>1$时，级数$\sum \frac{n^k}{x^n}$收敛，因为
+$$\forall n \geqslant 1,  \,\,\,q_n = \frac{n^k x^{n+1}}{x^n (n+1)^{k}} = x\left(1 + \frac{1}{n}\right)^{-k}. $$
+而数列$\left\{\left(1 + \frac{1}{n}\right)^k\right\}$趋于$1$，因此$q_n$趋于$x>1$。
+
+级数$\sum n^a$的收敛情况跟$a$有关。比值$q_n = \left(1 + \frac{1}{n}\right)^{-a}$。
+\begin{itemize}
+    \item 如果$a\leqslant 0$，那么级数发散。
+    \item 如果$a<0$，那么$q_n = \left(1 + \frac{1}{n}\right)^{-a} = 1 - \frac{a}{n} + \olim{\frac{1}{n}}$。
+    \item 如果$-1 < a < 0$，那么级数发散。
+    \item $a = -1$，级数发散。
+    \item $a < -1$，级数收敛。
+\end{itemize}
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 看了研究级数收敛性质的方法，对你研究函数的性质，有什么启发？\\
+    \indent 2. 如果数列从某一项开始都是正数，这样的数列能否通过研究正项级数来讨论收敛性？
+    进一步来说，数列的负项如果更多的话，如何转为正项级数来研究？
+\end{sk}
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 以下级数是否收敛？说明原因。
+    $$
+    \begin{array}{ll}
+        1. \quad \sum \frac{2}{n^2 - 3n + 3} \qquad &2. \quad \sum \frac{n!}{n^n} \\
+        3. \quad \sum \frac{1}{\sqrt{n + 1}} \qquad &4. \quad \sum \frac{4^n (n!)^2}{(2n + 1)!} 
+    \end{array}
+    $$
+    \indent 2. 给定$x>0$，证明：级数$\sum \frac{x^n}{n!}$收敛，级数和为$e^x$。\\
+    \indent 3. 考虑正项级数$\sum a_n$。如果有正数列$\{B_n\}$，正数$c$，以及正整数$N$，使得
+    $$ \forall n > N, \,\,\, B_n \frac{a_n}{a_{n+1}} - B_{n+1} \geqslant c. $$
+    证明：级数$\sum a_n$收敛。\\
+    \indent 4. 证明：如果正项级数$\sum a_n$收敛，
+    那么可以找到正数列$\{B_n\}$，正数$c$，以及正整数$N$，使得
+    $$ \forall n > N, \,\,\, B_n \frac{a_n}{a_{n+1}} - B_{n+1} \geqslant c. $$
+    \indent 5. 如果正项级数$\sum a_n$从某一项起总有
+    $$ \frac{a_{n+1}}{a_n} \geqslant 1 - \frac{1}{n},$$
+    那么级数$\sum a_n$发散。\\
+
+\end{xt}
+
+\section{一般级数的收敛}
+上一节我们讨论了正项级数的收敛性质。对于一般的级数，怎么判断它是否收敛呢？
+
+最简单的方法是考虑“绝对值”。我们级数的绝对值定义为给通项取绝对值得到的级数。
+这样定义之下，级数的绝对值肯定是正项级数。
+
+\begin{tm}
+    如果级数的绝对值收敛，那么级数收敛。
+\end{tm}
+
+\begin{proof}
+    给定级数$\sum a_n$，它的绝对值是正项级数$\sum |a_n|$。
+    如果后者收敛，那么对应的部分和数列是自敛数列。因此，对任意$r>0$，存在正整数$N$，
+    只要$n>m>N$，就有
+    $$ \sum_{i=m+1}^n |a_i| < r. $$
+    因此
+    $$ \left|\sum_{i=m+1}^n a_i \right| \leqslant \sum_{i=m+1}^n |a_i| < r. $$
+    这说明级数$\sum a_n$的部分和数列是自敛数列。也就是说，级数$\sum a_n$收敛。
+\end{proof}
+
+如果级数的绝对值收敛，就说它\textbf{绝对收敛}。正项级数显然都是绝对收敛的。
+给收敛的正项级数的通项随意加上正负号，得到的级数也绝对收敛。
+比如，从正项级数$\sum \frac{1}{2^n}$收敛，可以推出$\sum \frac{(-1)^{n}}{2^n}$绝对收敛。
+
+如果级数的绝对值发散，级数还能收敛吗？这样的级数也是存在的。我们称它们为\textbf{相对收敛}的级数。
+
+举例来说，级数$\sum \frac{(-1)^{n}}{(n+1)}$不是绝对收敛的，因为它的绝对值$\sum \frac{1}{(n+1)}$发散。
+但我们可以证明$\sum \frac{(-1)^{n}}{(n+1)}$收敛。
+
+考虑部分和数列的子列：$\{H_{2m}\}_{m\in\mathbb{N}}$和$\{H_{2m+1}\}_{m\in\mathbb{N}}$。
+我们证明两者都趋于同一个极限$X$，因此部分和数列也趋于$X$。
+
+数列的偶数项大于等于$0$，奇数项小于等于$0$。
+\begin{align}
+    H_{2m+2} = H_{2m} - \frac{1}{2m+2} + \frac{1}{2m+3} &\leqslant H_{2m}, \notag \\
+    H_{2m+3} = H_{2m+1} + \frac{1}{2m+3} - \frac{1}{2m+4} &\geqslant H_{2m+1}. \notag
+\end{align}
+即$\{H_{2m}\}$单调递减，$\{H_{2m+1}\}$单调递增。即$H_{2m} \leqslant H_2 $，$H_{2m+1} \geqslant H_1$。
+
+两者的通项之差为$ H_{2m} - H_{2m+1} = \frac{1}{2m+1} \geqslant 0$，所以
+$$ H_1 \leqslant H_{2m+1} \leqslant H_{2m} \leqslant H_2. $$
+即两者都是有界单调数列，因此都有极限。
+而它们的差$\frac{1}{2m+1}$趋于$0$，因此极限相等。
+
+以上的情形可以稍做推广：
+\begin{tm}
+    如果级数$\sum a_n$的通项正负交替，且绝对值单调递减，趋于$0$，那么级数收敛。
+\end{tm}
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 如果级数的通项正负交替且趋于$0$，但绝对值不单调递减，级数是否也收敛？\\
+    \indent 2. 如果级数$\sum a_n$的通项绝对值单调递减且趋于$0$，且有无穷多个正项和负项，是否收敛？正负项的排列满足怎样的条件时收敛？
+    给出你的想法。
     
 \end{sk}
 
 \begin{xt}
     \mbox{} \\
-    \indent 1. 求以下函数在给定点处的微变率。\\
-    \indent 1.1. $f: \,\, x \mapsto (2x - 1)(x -4)(x^2 + 3)$在点$x = 2$处的微变率。\\
-    \indent 1.2. $f: \,\, x \mapsto \frac{(x + 1)(x^2 + 1)}{x^3 - 2x + 3}$在点$x = 1$处的微变率。\\
-    \indent 1.3. $f: \,\, x \mapsto (2x - \frac{1}{x + 1})^5$在点$x = 0$处的微变率。\\
-    \indent 2. 函数$x \mapsto x^{\frac{1}{3}}$在$x = 0$处是否可微？\\
-    \indent 3. 考虑以下函数：
-    $$ f: \,\,\, x\mapsto \left\{
-        \begin{array}{cl}
-            x & \mbox{如果}x\mbox{为有理数} \\
-            -x & \mbox{如果}x\mbox{为无理数} 
-        \end{array}\right.
+    \indent 1. 以下数列绝对收敛吗？相对收敛吗？\\
     $$
-    \indent 3.1. 证明：$f$在$x = 0$处可微。\\
-    \indent 3.2. 证明：$f$在$x = 1$处不可微。\\
-    \indent 3.3. 找出$f$所有可微的点，并给出证明。
+    \begin{array}{ll}
+        1. \quad \sum \frac{(-1)^n}{(n + 2)\sqrt{n + 1}} \qquad &2. \quad \sum \left(1 - \cos{\left(\frac{\pi}{n}\right)}\right) \\
+        3. \quad \sum \frac{\sin{\frac{n\pi}{6}}}{n} \qquad &4. \quad \sum \frac{\sqrt{n}\sin{n}}{n^2 + 1} 
+    \end{array}
+    $$ 
+    \indent 2. 考虑两个数列$\{u_n\}$、$\{v_n\}$，我们要研究级数$\sum u_n v_n$的收敛性质。
+    记$\{u_n\}$的部分和数列为$\{s_n\}$。\\
+    \indent 2.1. 设$p \leqslant q$为正整数，证明以下恒等式。
+    $$ \sum_{i=p}^q u_i v_i = s_q v_q - s_{p-1} v_p + \sum_{i=p}^{q-1} s_i (v_i - v_{i+1}). $$
+    \indent 2.2. 如果$\{s_n\}$是有界数列，$\{v_n\}$是单调递减且趋于$0$的正项数列，
+    证明：级数$\sum u_n v_n$收敛。\\
+    \indent 2.3. 使用以上结论，研究级数：
+    $$ \sum \frac{\sin{(n\theta)}}{\sqrt{n}}$$
+    的收敛性质。
+    \indent 3. 比较两个级数。\\
+    \indent 3.1. 证明：级数$\frac{(-1)^n}{\sqrt{n + 1}}$收敛。\\
+    \indent 3.2. 证明：
+    $$\frac{(-1)^n}{\sqrt{n + 1} + (-1)^n} = \frac{(-1)^n}{\sqrt{n + 1}} - \frac{1}{(n + 1)} + \frac{(-1)^n}{(n + 1)\sqrt{n + 1}} + \olim{\frac{1}{n\sqrt{n}}}$$
+    \indent 3.3. 级数$\frac{(-1)^n}{\sqrt{n + 1} + (-1)^n}$是否收敛？从中可以得到什么结论？
+    
 \end{xt}
 
+% \section{函数的级数}
+% 级数除了可以用来研究数列的收敛性质，也可以用来研究函数的收敛性质。这也是级数方法更常见的应用。
+% 比起数列的极限，我们更希望用简单的函数来近似模拟复杂的函数。
+% 函数的局部展开定理，就是用较为简单的整式函数，近似模拟更复杂的函数。
+% 不过局部展开定理只是在一点附近有意义。对于不同的点，展开的结果也不同。
+% 因此，我们希望研究用宏观的全局的方式来近似模拟一般的函数。
 
+% 给定区间$I$，我们把在$I$上有定义的实函数的集合记为$\mathcal{A}_I(\mathbb{R})$，
+% 把其中连续函数的集合记为$\mathcal{L}_I(\mathbb{R})$，
+% 其中$k$次可微的函数的集合记为$\mathcal{W}_I^k(\mathbb{R})$。
 
+% 定义函数列为可数个函数按顺序的排列。也就是说，函数列和数列基本一样，只不过组成的元素是函数。
+% 比如一个由$[0,1]$上的连续实函数组成的数列：
+% $$ (x^2, x, 3x, 5x, \cdots (2n+1)x, \cdots )$$
+% 它属于集合$\mathcal{L}_I(\mathbb{R})^{\mathbb{N}}$。
 
+% 函数列的元素是函数，因此，相比数列，函数列的极限更加复杂，有多种定义。这里只介绍两种常用的定义。
+% \begin{df}{\textbf{函数列逐点收敛}}
+%     设有定义在区间$I$上的函数列\footnote{即“由定义在区间$I$上的函数构成的函数列”，为了方便，做一定省略。下同。}$\{f_n\}$。
+%     如果有定义在$I$上的函数$f$，使得对任意$r>0$，任意$x\in I$，都有正整数$N_x$，使得只要$n>N_x$，
+%     就有：
+%     $$ |f_n(x) - f(x) | < r.$$
+%     就说函数列$\{f_n\}$\textbf{逐点收敛}到函数$f$，$f$是$\{f_n\}$的\textbf{逐点极限}。
+% \end{df}
 
-\section{微变函数的性质}
-% 中值定理
-\section{多次微变}
-% 多次微变，k阶光滑
+% \begin{df}{\textbf{函数列一致收敛}}
+%     设有定义在区间$I$上的函数列\footnote{即“由定义在区间$I$上的函数构成的函数列”，为了方便，做一定省略。下同。}$\{f_n\}$。
+%     如果有定义在$I$上的函数$f$，使得对任意$r>0$，都有正整数$N$，使得只要$n>N$，
+%     就有：
+%     $$ \forall x\in I, \,\,\,|f_n(x) - f(x) | < r.$$
+%     就说函数列$\{f_n\}$\textbf{一致收敛}到函数$f$，$f$是$\{f_n\}$的\textbf{一致极限}。
+% \end{df}
 
-\chapter{研究函数}
-\section{增减与极值}
-% 一阶微变
-\section{凹凸性质}
-% 凸函数，琴声不等式，拐点
-\section{局部性质}
-% 高阶无穷小、泰勒公式
-\section{曲线的性质}
-% 参数方程曲线的局部性质研究
-
-\chapter{平直空间}
-%将平面和立体空间扩展为一般的平直空间
-\section{平直空间的基本性质}
-\section{子空间与和空间}
-\section{生成空间}
-\section{基底和维数}
+% 对比两种收敛方式，可以看出，一致收敛的要求更高。逐点收敛时，对不同的$x$，可以有不同的$N_x$，
+% 也就是说，不同的点收敛的步调可以不一致。而一致收敛则要求所有点同步逼近目标。
 
 \chapter{连续函数的和}
+小学的学习中，我们定义了有限个数的和。通过定义级数，我们学习了无穷多个数的求和。
+不过，正如我们所知，无穷也有可数与不可数之分。级数定义了可数多个数的求和。
+那么，是否能对不可数多个数求和呢？
+
+举例来说，实数集是不可数集合，实数区间中的点也是不可数集合。
+给定定义在实数集或某个区间$I$上的实变函数$f$，它将集合中每个点映射到函数值$f(x)$。
+那么，能否对这些函数值求和呢？
+
+这个问题比可数多个数的求和更为复杂，但在实际生活与生产中经常出现。
+比如，我们通常假设时间是连续变量，而评估各种物理作用的效果时，通常需要研究一段时间内作用的效果。
+例如，物体受的力在一定时间内的效果，称为冲量。它是物体导致速度变化的因素。
+设物体在$t$时刻受力为$F(t)$，那么，
+一段时间$[t_1, t_2]$上的冲量就是函数$F(t)$在$[t_1, t_2]$的累积。
+
+另一个例子是带电物体的电荷累计。我们假设物体表面每个点上的电荷是连续分布的，一点$P$上的电荷密度是$g(P)$。
+那么，物体表面的总电荷就是表面所有点上电荷密度的累积。
+
+因此，我们有必要定义函数在区间、平面区域乃至更复杂的形体上的求和。
+良好的定义并不是显而易见的。为这类求和给出符合实际生产生活中的需要的定义，
+是一门深奥的学问。在当前阶段，我们只给出简要的介绍，研究特定情形下的求和工具，不作更深入的探索。
+
 \section{函数图像的面积}
+以
+
 \section{函数的定合}
 \section{合函数}
-
-\chapter{级数}
-\section{正项级数}
-\section{收敛与发散}
-\section{函数的级数}
-
 
 
 \begin{appendix}
 
 \chapter{序、序数和集合的势}
+
+\begin{df}{\textbf{像和原像}}
+    给定映射$f$，记$f$的定义域为$D$。
+    $f$将集合$A\subseteq D$映射得到的集合，称为$A$经过$f$映射的\textbf{像}，记作$f(A)$。
+    给定$f$值域的子集$B$，将集合：
+    $$ \{x \in D \, | \, f(x) \in B \}$$
+    称为$B$的\textbf{原像}。
+\end{df}
 
 \begin{tm}
     实数集$\mathbb{R}$和$2^\mathbb{N}$等势。
@@ -1219,6 +2841,386 @@ $u_{r^\text{下},n} < u_{x,n} < u_{r^\text{上},n}$。
     这就说明：
     $$\lian{x\to 0} \frac{e^x - 1}{x} = 1.$$
 \end{proof}
+
+\subsection{常见函数的微变}
+
+\section{研究函数}
+
+\begin{tm}{\textbf{微变展开定理}}
+    设$n$为正整数。已知函数$f$在包含实数$a$的区间$I$中$n+1$次可微，那么，对于$I$中另一个数$x$，
+    存在介于$a$与$x$之间的数$c$，使得下式成立：
+    \begin{align}
+        f(x) &= f(a) + \sum_{k=1}^n \frac{\partial^k f (a)}{k!}(x - a)^k + \frac{\partial^{n+1} f (c)}{(n+1)!}(x - a)^{n+1}. \notag \\
+        &= P_n(x) + Y_n(x). \notag
+    \end{align}
+    上式称为$f$在$a$处的$\boldsymbol{n}$\textbf{次微变展开}。
+    其中$P_n$称为$f$在$a$处的$\boldsymbol{n}$\textbf{次微变展开多项式}，
+    $Y_n$称为$f$在$a$处展开的$\boldsymbol{n}$\textbf{次余项}。
+    
+\end{tm}
+
+\begin{proof}
+    首先证明一个引理：
+
+    函数$f$在$[a, b]$上$n+1$次可微。如果
+    $$f(a) = \partial f(a) = \partial^2 f(a) = \cdots = \partial^{n} f(a) = f(b) = 0,$$
+    那么有$c\in(a, b)$使得$\partial^{n+1} f(c) = 0$。
+
+    引理的证明：多次使用微变零值定理。$f(a) = f(b) = 0$，因此，存在$c_1\in(a, b)$使得$\partial f (c_1) = 0$。
+    接下来，由于$\partial f(a) = \partial f(c_1) = 0$，因此，存在$c_2\in(a, c_1)\subset(a, b)$使得$\partial^2 f (c_2) = 0$。
+    依此不断，最终得到，存在$c_{n+1}\in(a, b)$使得$\partial^{n+1} f (c_{n+1}) = 0$。$c_{n+1}$就是我们要找的$c$。
+
+    下面使用这个结论来证明微变展开定理。
+
+    可以验证，给定$x$，$f(x)$和$P_n(x)$在$a$处的值相等，不仅如此，它们在$a$处的$1$到$n$次微变率也相等。
+    但$f(x) \neq P_n(x)$。因此，构造函数：
+    $$ F\,\,: \,\, t \mapsto f(t) - P_n(t) - q(t - a)^{n+1}. $$
+    可以验证，$F(a) = \partial F(a) = \cdots = \partial^n F(a) = 0$，
+    $F(x) = f(a) - P_n(x) - q(x - a)^{n+1}$。因此，取
+    $$ q = \frac{f(x) - P_n(x)}{(x - a)^{n+1}}, $$
+    这样，就有$F(x) = 0$。于是，根据上面的引理，存在$c\in(a, x)$，使得$\partial^{n+1} F(c) = 0$。
+    将$\partial^{n+1} F(c)$具体计算出来：
+    $$ \partial^{n+1} F(c) = \partial^{n+1} f(c) - (n+1)! q.$$
+    因此有：
+    $$ \frac{f(x) - P_n(x)}{(x - a)^{n+1}} = q = \frac{\partial^{n+1} f(c)}{(n+1)!}, $$
+    也就是：
+    $$ f(x) = P_n(x) + \frac{\partial^{n+1} f(c)}{(n+1)!} (x - a)^{n+1}. $$
+    这就是我们需要的结论。
+\end{proof}
+
+可以看出，这个证明有模仿微变零值定理和中值定理的痕迹。
+首先证明微变零值定理的加强版本，然后构造函数，把一般情况下转为零值定理成立的特殊情况。
+
+如果我们细看函数的$n$次微变展开，多项式$P_n$中的每一项，都对应$f$的某次微变。
+如果单看函数$p_k: x\mapsto \frac{\partial^k f (a)}{k!}(x - a)^k$，
+它在$a$处的值和前$k-1$次微变率都是$0$，而$k$次微变率等于$f$在$a$处的$k$次微变率，但$k+1$次及之后的微变率又等于$0$了。
+$P_n$的各项互不相干扰，而加起来，就模拟了$f$在$a$处的各次微变率。
+
+局部展开定理其实比微变展开定理要稍微“弱”一点。
+因为它不要求具体指出余项的形式，只需要刻画余项函数的性质。
+
+\begin{tm}{\textbf{局部展开定理}}
+    设$n$为正整数。函数$f$在区间$I$上$n$次可微，且$n$次微变函数在$I$上连续。那么，对于$a\in I$，
+    $f$可以写成以下形式：
+    $$ \forall x \in I , \quad f(x) = f(a) + \sum_{k=1}^n \frac{\partial^k f (a)}{k!}(x - a)^k + (x - a)^n h(x). $$
+    其中$h$是一个在$I$上连续，在$a$处趋于$0$的函数。
+\end{tm}
+
+\begin{proof}
+    对$n$使用归纳法证明。
+
+    $n=1$时，我们需要证明：
+    $$ f(x) = f(a) + \partial f(a) (x - a) + (x - a) h(x). $$
+    其中$h$是一个在$I$上连续，在$a$处趋于$0$的函数。
+    
+    这个结论我们已经在讨论函数的微直观的时候证明了。具体来说，按照微变率的定义，函数
+    $$ h : \,\,\, x \mapsto \frac{f(x) - f(a)}{x - a} - \partial f(a) $$
+    在$I\setminus\{a\}$上连续，且在$a$处趋于$0$。于是，补上$h(a) = 0$即可。
+
+    假设对于正整数$n$，局部展开定理成立。对于$n+1$的情形，
+    已知条件为：函数$f$在区间$I$上$n+1$次可微，且$n+1$次微变函数$\partial^{n+1} f$在$I$上连续。
+    
+    写出$h$的具体形式：
+    $$ h(x) = \frac{f(x) - P_{n+1}(x)}{(x - a)^{n+1}} $$
+    我们要证明$h$在$I$上连续，且在$a$处趋于$0$。按照条件，$h$在$I\setminus\{a\}$上连续，
+    因此，只需证明它在$a$处趋于$0$。
+
+    使用微变展开定理，我们可以把$f(x)$写成：
+    $$ f(x) = P_n(x) + \frac{\partial^{n+1} f(c)}{(n + 1)!}(x - a)^{n+1}. $$
+    其中$c$介于$a$和$x$之间。于是
+    $$ h(x) = \frac{\partial^{n+1} f(c) - \partial^{n+1} f(a)}{(n + 1)!}. $$
+    $\partial^{n+1} f$在$a$处连续。因此，对于任意$r>0$，都有$d > 0$，
+    使得只要$|x - a| < d$，就有
+    $$ \left| \partial^{n+1} f(x) - \partial^{n+1} f(a) \right| < r. $$
+    因此，只要$|x - a| < d$，那么$|c - a| < d$，于是
+    $$ |h(x)| = \left| \frac{\partial^{n+1} f(c) - \partial^{n+1} f(a)}{(n + 1)!} \right| < r .$$
+    这说明$h$在$a$处趋于$0$。
+
+    综上可知，对任意正整数$n$，结论都成立。这就证明了局部展开定理。
+\end{proof}
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 只讨论一点$a$处的局部展开的话，是否可以把局部展开定理的条件：
+    “函数$f$在区间$I$上$n$次可微，且$n$次微变函数在$I$上连续”变成更宽松的条件？\\
+\end{sk}
+
+\begin{tm}{\textbf{凸性与微变}}
+    设函数$f$在区间$I$上可微。
+    \begin{itemize}
+        \item $f$在$I$下凸，当且仅当$\partial f$在$I$上单调递增。
+        \item $f$在$I$上凸，当且仅当$\partial f$在$I$上单调递减。
+        \item $f$在$I$严格下凸，当且仅当$\partial f$在$I$上严格单调递增。
+        \item $f$在$I$严格下凸，当且仅当$\partial f$在$I$上严格单调递减。
+    \end{itemize}
+\end{tm}
+
+\begin{proof}
+    首先，如果函数在$I$下凸，那么任取$I$内四点$a < t_1 < t_2 < b$，则变率满足：
+    $$ \frac{f(t_1) - f(a)}{t_1 - a} \leqslant \frac{f(t_2) - f(t_1)}{t_2 - t_1} \leqslant \frac{f(b) - f(t_2)}{b - t_2}. $$
+    令$t_1$趋于$a$，$t_2$趋于$b$，就得到：
+    $$ \partial f(a) \leqslant \partial f(b).$$
+    于是$\partial f$在$I$上单调递增。
+
+    反之，如果$\partial f$在$I$上单调递增，那么任取$I$内三点$a < t < b$，根据微变中值定理定理，
+    存在$a < c_1 < t < c_2 < b$，使得：
+    $$ \frac{f(t) - f(a)}{t - a} = \partial f(c_1) \leqslant  \partial f(c_2) = \frac{f(b) - f(t)}{b - t}. $$
+    这说明函数在$I$下凸。
+
+    同理可证，$f$在$I$上凸，当且仅当$\partial f$在$I$上单调递减。
+
+    如果函数在$I$严格下凸，我们希望证明$\partial f$在$I$上严格单调递增。
+    由于小于号取极限后会变成小于等于，我们需要给小于关系加一道“防线”。
+    比如，取$I$内四点$a < s_1 = \frac{2a + b}{3} < s_2 = \frac{a + 2b}{3} < b$，
+    $$ \frac{f(s_1) - f(a)}{s_1 - a} < \frac{f(s_2) - f(s_1)}{s_2 - s_1} < \frac{f(b) - f(s_2)}{b - s_2}. $$
+    然后再取$a < t_1 < s_1$，则
+    $$ \frac{f(t_1) - f(a)}{t_1 - a} < \frac{f(s_1) - f(t_1)}{s_1 - t_1}. $$
+    % $$ (f(t_1) - f(a))(s_1 - t_1) < (f(s_1) - f(t_1))(t_1 - a) $$
+    % $$ (f(t_1) - f(a))(t_1 - a) = (f(t_1) - f(a))(t_1 - a) $$
+    上式变形可得到：
+    $$ \frac{f(t_1) - f(a)}{t_1 - a} < \frac{f(s_1) - f(a)}{s_1 - a}. $$
+    因此令$t_1$趋于$a$，就有：
+    $$ \partial f(a) \leqslant \frac{f(s_1) - f(a)}{s_1 - a}.$$
+    同理，取$s_2 < t_2 < b$，可得到：
+    $$ \frac{f(b) - f(s_2)}{b - s_2} < \frac{f(b) - f(t_1)}{b - t_1}. $$
+    因此令$t_2$趋于$b$，就有：
+    $$ \frac{f(b) - f(s_2)}{b - s_2} \leqslant \partial f(b).$$
+    因此：
+    $$ \partial f(a) \leqslant \frac{f(s_1) - f(a)}{s_1 - a} < \frac{f(b) - f(s_2)}{b - s_2} \leqslant \partial f(b).$$
+    这说明$\partial f$在$I$上严格单调递增。
+    
+    反之，如果$\partial f$在$I$上严格单调递增，那么任取$I$内三点$a < t < b$，根据微变中值定理定理，
+    存在$a < c_1 < t < c_2 < b$，使得：
+    $$ \frac{f(t) - f(a)}{t - a} = \partial f(c_1) < \partial f(c_2) = \frac{f(b) - f(t)}{b - t}. $$
+    这说明函数在$I$严格下凸。
+
+    同理可证，$f$在$I$下凸，当且仅当$\partial f$在$I$上严格单调递减。
+
+\end{proof}
+
+\subsection{常见函数的局部展开}
+
+\chapter{平直空间}
+
+\section{基底与维数}
+
+\begin{tm}\label{tm:c-1-20}
+    设有不全为零的一组向量$\mathbf{v}_1, \mathbf{v}_2 , \cdots , \mathbf{v}_m$直相关。不妨设$\mathbf{v}_1 \neq 0$，那么存在下标$j \in \{2,3, \cdots, m\}$满足以下性质：
+    \begin{enumerate}
+    \item $\mathbf{v}_j \in \langle \mathbf{v}_1, \mathbf{v}_2 , \cdots , \mathbf{v}_{j-1}\rangle$
+    \item 如果从$\mathbf{v}_1, \mathbf{v}_2 , \cdots , \mathbf{v}_m$中移除$\mathbf{v}_j$，剩余向量生成的空间与原来$m$个向量生成的空间相同。
+    \end{enumerate}
+\end{tm}
+
+\begin{proof}
+    按直相关的定义，存在不全为零的标量系数$a_1, a_2, \cdots, a_m$使得：
+    $$ a_1\mathbf{v}_1+a_2\mathbf{v}_2+\cdots+a_m\mathbf{v}_m = \mathbf{0}. $$
+    由于$\mathbf{v}_1 \neq 0$，所以$a_2, \cdots, a_m$不全为0. 否则可推出$a_1\mathbf{v}_1 = \mathbf{0}$，从而$a_1$也是0，矛盾。\\
+    假设$j$是$a_2, \cdots, a_m$中不为0的数的下标中最大的那个，也就是说$\forall k > j, a_k = 0$. 这表示$ a_1\mathbf{v}_1+a_2\mathbf{v}_2+\cdots+a_j\mathbf{v}_j = \mathbf{0}. $
+    所以
+    $$ \mathbf{v}_j = -\frac{a_1}{a_j}\mathbf{v}_1-\frac{a_2}{a_j}\mathbf{v}_2-\cdots-\frac{a_{j-1}}{a_j}\mathbf{v}_{j-1} \in \langle \mathbf{v}_1, \mathbf{v}_2 , \cdots , \mathbf{v}_{j-1}\rangle. $$
+    由于$ \mathbf{v}_j$可以表示为$\mathbf{v}_1, \mathbf{v}_2 , \cdots , \mathbf{v}_{j-1}$的直组合，设某个向量是$\mathbf{v}_1, \mathbf{v}_2 , \cdots , \mathbf{v}_m$的直组合：
+    $$ \mathbf{u} = b_1\mathbf{v}_1+b_2\mathbf{v}_2+\cdots+b_m\mathbf{v}_m$$
+    把右侧表达式中的$\mathbf{v}_j$替换为$\mathbf{v}_1, \mathbf{v}_2 , \cdots , \mathbf{v}_{j-1}$的直组合，就得到了不含$\mathbf{v}_j$的直组合表达式。\\
+    所以，去除$\mathbf{v}_j$，整组向量的生成空间不变\footnote{其实我们只证明了一个方向的归属关系，不过另一个方向比较显然，留给读者思考。}。\\
+\end{proof}
+
+\begin{tm}\label{tm:c-1-30}
+    有限生成空间中，任何一族直无关的向量，向量的个数都不多于任意一个生成族的向量个数。
+\end{tm}
+
+\begin{proof}
+    
+    设$\mathfrak{F}_{\mathbf{u}} = (\mathbf{u}_1, \mathbf{u}_2, \cdots , \mathbf{u}_n )$是平直空间$\mathbb{V}$中一组直无关的向量，
+    $\mathfrak{F}_{\mathbf{v}} = (\mathbf{v}_1, \mathbf{v}_2, \cdots , \mathbf{v}_m )$是$\mathbb{V}$的生成族。
+    我们要证明$n \leq m$. 
+
+    我们把$\mathfrak{F}_{\mathbf{v}}$中的元素逐一替换成$\mathfrak{F}_{\mathbf{u}}$中元素，一共替换$n$次。
+    如果以上步骤能完成，说明$\mathfrak{F}_{\mathbf{v}}$的长度不少于$n$，就完成了证明。
+
+    第一步替换具体操作为：
+
+    将$\mathbf{u}_1$添加到$(\mathbf{v}_1, \mathbf{v}_2, \cdots , \mathbf{v}_m )$左侧，形成
+    $$\mathfrak{F}_{\mathbf{v}}^{(1)} = (\mathbf{u}_1, \mathbf{v}_1, \mathbf{v}_2, \cdots , \mathbf{v}_m ).$$
+    由于$\mathfrak{F}_{\mathbf{v}}$是$\mathbb{V}$的生成族，$\mathbf{u}_1$可以表示为$\mathbf{v}_1, \mathbf{v}_2, \cdots , \mathbf{v}_m$的直组合。
+    即$\mathfrak{F}_{\mathbf{v}}^{(1)}$是直相关的。所以根据定理\ref{tm:c-1-20}，
+    我们可以去掉某个$\mathbf{v}$，使得其生成空间不变（仍然为$\mathbb{V}$）.
+    这样$\mathfrak{F}_{\mathbf{v}}^{(1)}$变为一组元素个数为$m$的向量，并且仍然是$\mathbb{V}$的生成族。
+    
+    此后第$j$步，具体操作为：
+
+    将$\mathbf{u}_j$添加到$\mathfrak{F}_{\mathbf{v}}^{(j-1)}$中$\mathbf{u}_{j-1}$的右侧。
+    注意到$\mathfrak{F}_{\mathbf{v}}^{(j-1)}$是由左侧的$\mathbf{u}_1, \mathbf{u}_2, \cdots , \mathbf{u}_{j-1}$
+    和右侧的$\mathfrak{F}_{\mathbf{v}}$中元素拼接而成，
+    所以$\mathbf{u}_j$被放置在$\mathfrak{F}_{\mathbf{v}}^{(j-1)}$中原属于$\mathfrak{F}_{\mathbf{u}}$的元素
+    和原属于$\mathfrak{F}_{\mathbf{v}}$的元素的分界上。
+    放置之后形成的$\mathfrak{F}_{\mathbf{v}}^{(j)}$，“布局”和$\mathfrak{F}_{\mathbf{v}}^{(j-1)}$一样，
+    仍然是由左侧原属于$\mathfrak{F}_{\mathbf{}}$的元素和右侧原属于$\mathfrak{F}_{\mathbf{v}}$的元素构成。
+    
+    这时，通过和第一步同样的逻辑，我们知道$\mathfrak{F}_{\mathbf{v}}^{(j)}$是直相关的，所以根据定理\ref{tm:c-1-20}，
+    可以从中找到某个元素：它属于它之前的元素的生成空间，
+    并且去除这个元素后，$\mathfrak{F}_{\mathbf{v}}^{(j)}$生成的空间不变，仍然是$\mathbb{V}$。
+
+    注意由于$\mathfrak{F}_{\mathbf{u}}$是直无关的，我们找到的这个元素，
+    肯定不会是左侧原属于$\mathfrak{F}_{\mathbf{u}}$的元素，
+    因而只能是原属于$\mathfrak{F}_{\mathbf{v}}$的元素。
+
+    这样，每一步操作，我们都加入一个原属于$\mathfrak{F}_{\mathbf{u}}$的元素，去除一个原属于$\mathfrak{F}_{\mathbf{v}}$的元素。
+    元素个数不变，且最后形成的向量组仍然是$\mathbb{V}$的生成集。
+
+    那么，是否会在某一步操作时，发现已经没有原属于$\mathfrak{F}_{\mathbf{v}}$的元素可以去除呢？
+
+    如果这种情况发生，说明加入一个原属于$\mathfrak{F}_{\mathbf{u}}$的元素后，
+    只有原属于$\mathfrak{F}_{\mathbf{u}}$的元素了。
+    这时候向量组一方面仍然是直相关的，但同时元素全是$\mathfrak{F}_{\mathbf{u}}$中元素。
+    说明$\mathfrak{F}_{\mathbf{u}}$也是直相关的。矛盾！
+
+    所以每一步操作都可以完整进行，直到$\mathfrak{F}_{\mathbf{u}}$中所有元素放入完毕。
+    这样，我们就证明了$\mathfrak{F}_{\mathbf{v}}$的长度不少于$n$，即$n \leq m$.
+\end{proof}
+
+\begin{tm}\label{tm:c-1-40}
+    可以通过适当地移除元素，把有限生成空间$\mathbb{V}$的每个生成族变成基底。
+\end{tm}
+
+\begin{proof}
+    设$\mathcal{F}_{\mathbf{v}} = (\mathbf{v}_1, \mathbf{v}_2, \cdots , \mathbf{v}_m )$是$\mathbb{V}$的生成族。
+    
+    如果$\mathcal{F}_{\mathbf{v}}$直无关，则按照定义，$\mathcal{F}_{\mathbf{v}}$是一组基。
+
+    如果$\mathcal{F}_{\mathbf{v}}$直相关。我们进行如下操作：
+
+    首先移除$\mathcal{F}_{\mathbf{v}}$中所有的零向量。
+    如果$\mathcal{F}_{\mathbf{v}}$完全由零向量构成，说明$\mathbb{V} = \{\mathbf{0}\}$。
+    这时，$\mathcal{F}_{\mathbf{v}}$移除全部元素后剩下空集，直无关且生成$\mathbb{V}$。
+
+    如果$\mathcal{F}_{\mathbf{v}}$中还有若干非零向量，且仍直相关，
+    根据定理\ref{tm:c-1-20}，可以从其中找出一个向量，把它从$\mathcal{F}_{\mathbf{v}}$移除后，
+    生成空间不变，$\mathcal{F}_{\mathbf{v}}$仍旧是生成族。
+
+    如果$\mathcal{F}_{\mathbf{v}}$仍然直相关，则重复以上操作。
+    每次操作后，$\mathcal{F}_{\mathbf{v}}$中元素数量减少$1$。
+    所以，有限次操作之后，$\mathcal{F}_{\mathbf{v}}$变为直无关的生成族。
+    这时我们就得到了空间的基底。
+
+\end{proof}
+
+从上面的定理可以推出：
+\begin{tm}\label{tm:c-1-50}
+    任意有限生成空间都有基底。
+\end{tm}
+
+空间的任意生成集都可以缩减为它的基底。那么任意直无关的向量能否扩充为基底呢？
+\begin{tm}\label{tm:c-1-60}
+    可以通过适当地添加元素，把有限生成空间$\mathbb{V}$的每一组直无关的向量变成基底。
+\end{tm}
+
+\begin{proof}
+    设$\mathcal{F}_{\mathbf{v}} = (\mathbf{v}_1, \mathbf{v}_2, \cdots , \mathbf{v}_m )$是$\mathbb{V}$中一组直无关的向量。
+
+    如果$\mathcal{F}_{\mathbf{v}}$生成$\mathbb{V}$，则按照定义，$\mathcal{F}_{\mathbf{v}}$是一组基。
+
+    如果$\mathcal{F}_{\mathbf{v}}$生成的空间不是$\mathbb{V}$，则是$\mathbb{V}$的真子空间。
+
+    空间$\mathbb{V}$是有限生成空间，所以存在生成族：$\mathcal{F}_{\mathbf{u}} = (\mathbf{u}_1, \mathbf{u}_2, \cdots , \mathbf{u}_n )$. 我们进行以下操作：
+
+    逐个查看$(\mathbf{u}_1, \mathbf{u}_2, \cdots , \mathbf{u}_n )$，其中必然有一个元素不在$\langle\mathcal{F}_{\mathbf{v}}\rangle$中。
+
+    这是因为，反设$\mathcal{F}_{\mathbf{u}}$中每个元素都能写成$\mathcal{F}_{\mathbf{v}}$中元素的直组合，
+    那么由于$\mathbb{V}$中任一元素都能写成$\mathcal{F}_{\mathbf{u}}$中元素的直组合，
+    从而也能写成$\mathcal{F}_{\mathbf{v}}$中元素的直组合。
+    这说明$\mathcal{F}_{\mathbf{v}}$可以生成整个空间，矛盾！
+
+    所以，必然存在某个$\mathbf{u}_i$不在$\langle\mathcal{F}_{\mathbf{v}}\rangle$中。
+    我们将它添加到$\mathcal{F}_{\mathbf{v}}$里去，得到的仍然是一组直无关的向量。
+
+    每次操作，$\mathcal{F}_{\mathbf{v}}$中增加一个元素。所以，要么在有限次操作后，$\langle\mathcal{F}_{\mathbf{v}}\rangle = \mathbb{V}$，
+    我们得到$\mathbb{V}$的直无关的生成集（也就是基底）；
+    要么$\mathcal{F}_{\mathbf{v}}$中元素个数超过$n$，而这和定理\ref{tm:c-1-30}矛盾。
+
+\end{proof}
+
+我们甚至有更具体的结论：
+\begin{tm}\label{tm:c-1-70}
+    给定有限生成空间$\mathbb{V}$的子空间$\mathbb{U}$，存在另一个子空间$\mathbb{W}$，使得
+    $$ \mathbb{V} = \mathbb{U} + \mathbb{W}.$$
+    且$\mathbb{U} \cap \mathbb{W} = \{\mathbb{0}\}$
+    $\mathbb{W}$称为子空间$\mathbb{U}$的\textbf{补空间}，一般记作$\mathbb{U}^c.$
+\end{tm}
+
+\begin{proof}
+    设$\mathcal{B}_1$是子空间$\mathbb{U}$的基底。$\mathcal{B}_1$是直无关的。
+    所以可以通过适当添加元素，将$\mathcal{B}_1$扩充为$\mathbb{V}$的基底$\mathcal{B}$。
+
+    设$\mathcal{B}_2$是$\mathcal{B}_1$扩充到$\mathcal{B}$过程中添加的所有元素。
+    $\mathcal{B}_2$也是直无关的。考虑$\mathbb{W} = \langle\mathcal{B}_2\rangle$，可以验证：
+    $$ \mathbb{V} = \mathbb{U} + \mathbb{W}.$$
+
+    下面证明$ \mathbb{U} \cap \mathbb{W} = \{\mathbf{0}\}$。
+
+    设$\mathcal{B}_1 = (\mathbf{v}_1, \mathbf{v}_2, \cdots , \mathbf{v}_m )$，
+    $\mathcal{B}_2 = (\mathbf{v}_{m+1}, \cdots , \mathbf{v}_n )$。 
+    设$ \mathbf{u} \in \mathbb{U} \cap \mathbb{W}$，则：
+    $$ \mathbf{u} = a_1\mathbf{v}_1 + a_2\mathbf{v}_2 + \cdots + a_m\mathbf{v}_m = a_{m+1}\mathbf{v}_{m+1} + \cdots + a_n\mathbf{v}_n. $$
+    即：
+    $$a_1\mathbf{v}_1 + a_2\mathbf{v}_2 + \cdots + a_m\mathbf{v}_m + (-a_{m+1})\mathbf{v}_{m+1} + \cdots + (-a_{n})\mathbf{v}_{n} = \mathbf{0}. $$
+    然而$(\mathbf{v}_1, \mathbf{v}_2, \cdots , \mathbf{v}_n )$是直无关的。所以，
+    $$ a_1 = a_2 = \cdots = a_m = -a_{m+1} = \cdots = -a_n = 0.$$
+    所以$\mathbf{u} = \mathbf{0}$。
+    因此，$ \mathbb{U} \cap \mathbb{W} = \{\mathbf{0}\}$.
+
+\end{proof}
+
+关于子空间交集与和空间维数的定理：
+\begin{tm}{\textbf{维数基本定理}}\label{tm:c-1-80}
+    设$\mathbb{U}$和$\mathbb{W}$是有限维空间$\mathbb{V}$的两个子空间，则它们的维数满足以下关系：
+    $$ \dim (\mathbb{U} + \mathbb{W}) = \dim \mathbb{U} + \dim \mathbb{W} - \dim (\mathbb{U} \cap \mathbb{W}).$$
+\end{tm}
+
+\begin{proof}
+    记$\mathbb{T} = \mathbb{U} \cap \mathbb{W}$. 根据定理 \ref{tm:c-1-70}，
+    我们可以给$\mathbb{T}$在$\mathbb{U}$和$\mathbb{W}$里各自找一个补空间：
+    $$ \mathbb{U} = \mathbb{T} \oplus \mathbb{U}', \,\,\, \mathbb{W} = \mathbb{T} \oplus \mathbb{W}'.$$
+    记$\dim \mathbb{T} = h, \,\,\, \dim \mathbb{U}' = f, \,\,\, \dim \mathbb{W}' = g$。
+    我们考虑这三个空间的基：
+    $$ \mathcal{B}_T = (\mathbf{t}_1, \mathbf{t}_2, \cdots, \mathbf{t}_h), \,\,\, \mathcal{B}_{U'} = (\mathbf{u}_1, \mathbf{u}_2, \cdots, \mathbf{u}_f), \,\,\, \mathcal{B}_{W'} = (\mathbf{w}_1, \mathbf{w}_2, \cdots, \mathbf{w}_g). $$  
+    其中$\mathcal{B}_{U'}$和$\mathcal{B}_{W'}$分别是$\mathbb{T}$按照定理 
+    \ref{tm:c-1-70}证明中的方式扩充为$\mathbb{U}$和$\mathbb{W}$时得到的向量族。
+    这表示，$\mathcal{B}_T\cup\mathcal{B}_{U'}$是$\mathbb{U}$的基，
+    $\mathcal{B}_T\cup\mathcal{B}_{W'}$是$\mathbb{W}$的基。
+    所以，
+    $$\dim \mathbb{U} = h + f,\,\,\,\dim \mathbb{W} = h + g.$$
+    只需证明：$ \dim (\mathbb{U} + \mathbb{W}) = h + f + g.$
+
+    为此我们证明$\mathcal{B}_T\cup\mathcal{B}_{U'}\cup\mathcal{B}_{W'}$是$\mathbb{U} + \mathbb{W}$的一组基。
+
+    首先，$\mathcal{B}_T\cup\mathcal{B}_{U'}\cup\mathcal{B}_{W'}$可以生成$\mathbb{U}$，
+    也可以生成$\mathbb{W}$，所以可以生成$\mathbb{U} + \mathbb{W}$。
+
+    其次，证明$\mathcal{B}_T\cup\mathcal{B}_{U'}\cup\mathcal{B}_{W'}$直无关。
+
+    假设零向量可以分解为$\mathcal{B}_T\cup\mathcal{B}_{U'}\cup\mathcal{B}_{W'}$的直组合，
+    则说明零向量可以表示为：
+    $$ \mathbf{0} = \mathbf{t} + \mathbf{u} + \mathbf{w}. \,\,\,\mathbf{t}\in\mathbb{T},\,\,\mathbf{u}\in\mathbb{U}',\,\,\mathbf{w}\in\mathbb{W}'.$$
+    所以$\mathbf{u} = -\mathbf{t} - \mathbf{w} \in \mathbb{W}$.
+    也就是说，$\mathbf{u}\in \mathbb{U}'\cap\mathbb{W}$。
+
+    然而$\mathbb{U}'\cap\mathbb{W} \subset \mathbb{U}\cap\mathbb{W} = \mathbb{T}$，
+    所以$\mathbf{u}\in\mathbb{T}\cap\mathbb{U}' = \{\mathbf{0}\}$。
+
+    因此，$\mathbf{u} = \mathbf{0}.$
+
+    同理可得，$\mathbf{w} = \mathbf{0}.$ 所以$\mathbf{t} = \mathbf{0}.$
+
+    而$\mathcal{B}_T$、$\mathcal{B}_{U'}$和$\mathcal{B}_{W'}$分别是直无关的。
+    所以零向量分解为$\mathcal{B}_T\cup\mathcal{B}_{U'}\cup\mathcal{B}_{W'}$的直组合时，
+    每个分量系数都是0. 
+    这就证明$\mathcal{B}_T\cup\mathcal{B}_{U'}\cup\mathcal{B}_{W'}$直无关，
+    从而是$\mathbb{U} + \mathbb{W}$的一组基。
+
+\end{proof}
+
+从这个定理可以看出子空间和集合的相似之处。
 
 \end{appendix}
 
