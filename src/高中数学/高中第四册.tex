@@ -5,6 +5,9 @@
 \usepackage{wrapfig}
 \usepackage[table,dvipsnames]{xcolor}
 \usepackage{tabularx}
+\usepackage{longtable}
+% \let\tablecaption\caption
+% \let\caption\relax
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{xfrac}
@@ -16,11 +19,12 @@
 \usepackage{verbatim}
 \usepackage{fontspec,xunicode,xltxtra}
 \usepackage{xeCJK} 
+\usepackage{caption}
+\usepackage{thmtools, thm-restate}
 
 \definecolor{gl}{RGB}{246, 252, 240}
 \definecolor{gd}{RGB}{236, 244, 230}
 \definecolor{bg}{RGB}{242, 244, 228}
-
 
 \setCJKmainfont[BoldFont=STZhongsong]{STSong}
 \setCJKmonofont{simkai.ttf} % for \texttt
@@ -28,16 +32,34 @@
 \setlength\parskip{8pt}
 \setlength{\fboxsep}{12pt}
 \renewcommand\thesection{\arabic{chapter}.\arabic{section}}
+\newcommand{\arccot}{\operatorname{arccot}}
+\newcommand{\dlim}[1]{^{\color{gray}\prime}#1}
+\newcommand{\lian}[1]{
+    \underset{#1}{\operatorname{lian}\,}
+}
+\newcommand{\di}[1]{\,\mathrm{d}#1}
+% developpements limites
+\newcommand{\oveq}[1]{\overset{#1}{=}} 
+\newcommand{\olim}[1]{\mathit{o}\left(#1\right)}  % petit o
+\newcommand{\Olim}[1]{\mathcal{O}\left(#1\right)}  % grand O
+\newcommand{\Tlim}[1]{\mathcal{\Theta}\left(#1\right)}  % grand theta
+\newcommand{\eqlim}[1]{\overset{#1}{\sim}}  % equivalence
+\newcommand{\vect}[1]{\left\langle #1 \right\rangle}
+
+
+\renewenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
+
 \newtheorem{df}{定义}[section] 
 \newtheorem{pp}{命题}[section]
 \newtheorem{tm}{定理}[section]
 \newtheorem{ex}{例子}[section]
 \newtheorem{et}{例题}[section]
 \newtheorem{sk}{思考}[section]
+\newtheorem*{po}{公理}
 \newtheorem*{so}{解答}
-\newenvironment{proof2}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
 \newtheorem{xt}{习题}[section]
 \newtheorem{cor}{推论}[pp]
+
 % 列举环境的行间距
 \setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
 \setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
@@ -55,41 +77,200 @@
 \tableofcontents
 \newpage
 
-\chapter{平直空间}
-% 简介平直空间（线性空间）。
-% 直和
-% 基底
-% 维数
+\chapter{函数的级数}
 
-\section{平直空间的直映射}
-% 将作为点映射的直映射扩展为一般空间到空间的映射（线性映射）。
+级数除了可以用来研究数列的收敛性质，也可以用来研究函数的收敛性质。这也是级数方法更常见的应用。
+比起数列的极限，我们更希望用简单的函数来近似模拟复杂的函数。
+函数的局部展开定理，就是用较为简单的整式函数，近似模拟更复杂的函数。
+不过局部展开定理只是在一点附近有意义。对于不同的点，展开的结果也不同。
+因此，我们希望研究用宏观的全局的方式来近似模拟一般的函数。
 
-\section{直映射的容与核}
-% 介绍容(rank）与核（kernel），基本的
-我们知道，直映射可以把直线映射为直线或点。那么，直映射把整个平面映射成什么呢？
+给定区间$I$，我们把在$I$上有定义的实函数的集合记为$\mathcal{A}_I(\mathbb{R})$，
+把其中连续函数的集合记为$\mathcal{L}_I(\mathbb{R})$，
+其中$k$次可微的函数的集合记为$\mathcal{W}_I^k(\mathbb{R})$。
 
-前面已经说过，给定基底，直映射的性质由它在基底上的映射结果确定。
-因此，我们可以通过研究直映射对基底的映射结果，来理解直映射对整个平面的映射结果。
+定义函数列为可数个函数按顺序的排列。也就是说，函数列和数列基本一样，只不过组成的元素是函数。
+比如一个由$[0,1]$上的连续实函数组成的数列：
+$$ (x^2, x, 3x, 5x, \cdots (2n+1)x, \cdots )$$
+它属于集合$\mathcal{L}_I(\mathbb{R})^{\mathbb{N}}$。
 
-给定基底$B$：$\mathbf{e}_1, \mathbf{e}_2$，考虑直映射$f$作用在基底向量上的结果：
-$f(\mathbf{e}_1)$、$f(\mathbf{e}_2)$。平面的向量总是$\mathbf{e}_1$、$\mathbf{e}_2$的直组合，因此，
-经过$f$映射后也是$f(\mathbf{e}_1)$、$f(\mathbf{e}_2)$的直组合。
-$f(\mathbf{e}_1)$、$f(\mathbf{e}_2)$这两个向量是否共轴，决定了$f$的重要性质。
+函数列的元素是函数，因此，相比数列，函数列的极限更加复杂，有多种定义。这里只介绍两种常用的定义。
+\begin{df}{\textbf{函数列逐点收敛}}
+    设有定义在区间$I$上的函数列\footnote{即“由定义在区间$I$上的函数构成的函数列”，为了方便，做一定省略。下同。}$\{f_n\}$。
+    如果有定义在$I$上的函数$f$，使得对任意$r>0$，任意$x\in I$，都有正整数$N_x$，使得只要$n>N_x$，
+    就有：
+    $$ |f_n(x) - f(x) | < r.$$
+    就说函数列$\{f_n\}$\textbf{逐点收敛}到函数$f$，$f$是$\{f_n\}$的\textbf{逐点极限}。
+\end{df}
 
-如果$f(\mathbf{e}_1)$、$f(\mathbf{e}_2)$不共轴，说明$f(\mathbf{e}_1)$、$f(\mathbf{e}_2)$也是平面的基底。
-因此，它们的直组合就能生成平面任何向量。因此，$f$会把整个平面映射为平面。这时候我们说$f$是满射。
+\begin{df}{\textbf{函数列一致收敛}}
+    设有定义在区间$I$上的函数列\footnote{即“由定义在区间$I$上的函数构成的函数列”，为了方便，做一定省略。下同。}$\{f_n\}$。
+    如果有定义在$I$上的函数$f$，使得对任意$r>0$，都有正整数$N$，使得只要$n>N$，
+    就有：
+    $$ \forall x\in I, \,\,\,|f_n(x) - f(x) | < r.$$
+    就说函数列$\{f_n\}$\textbf{一致收敛}到函数$f$，$f$是$\{f_n\}$的\textbf{一致极限}。
+\end{df}
 
-如果$f(\mathbf{e}_1)$、$f(\mathbf{e}_2)$都是零向量，那么它们的直组合总是零向量。
-这说明无论什么向量，经过$f$映射都变成零向量。也就是说，$f$是零映射。
+对比两种收敛方式，可以看出，一致收敛的要求更高。逐点收敛时，对不同的$x$，可以有不同的$N_x$，
+也就是说，不同的点收敛的步调可以不一致。而一致收敛则要求所有点同步逼近目标。
 
-如果$f(\mathbf{e}_1)$、$f(\mathbf{e}_2)$共轴，但不都是零向量，那么它们的直组合总在一条过原点的直线上。
-这说明无论什么向量，经过$f$映射后都在这条直线上。反之，这条直线上任一点都是某个向量经过$f$映射的结果。
-也就是说，$f$把平面映射为一条（过原点的）直线。
 
-\section{值映射}
-% 把点映射到标量的映射（linear form）
+\chapter{连续函数的和}
+小学的学习中，我们定义了有限个数的和。通过定义级数，我们学习了无穷多个数的求和。
+不过，正如我们所知，无穷也有可数与不可数之分。级数定义了可数多个数的求和。
+那么，是否能对不可数多个数求和呢？
 
-\section{直映射的分解}
-% 三维空间中直映射的分解
+举例来说，实数集是不可数集合，实数区间中的点也是不可数集合。
+给定定义在实数集或某个区间$I$上的实变函数$f$，它将集合中每个点映射到函数值$f(x)$。
+那么，能否对这些函数值求和呢？
+
+这个问题比可数多个数的求和更为复杂，但在实际生活与生产中经常出现。
+比如，我们通常假设时间是连续变量，而评估各种物理作用的效果时，通常需要研究一段时间内作用的效果。
+例如，物体受的力在一定时间内的累计效果，称为冲量。它是物体导致速度变化的因素。
+设物体在$t$时刻受力为$F(t)$，那么，
+一段时间$[t_1, t_2]$上的冲量就是函数$F(t)$在$[t_1, t_2]$的累积。
+
+另一个例子是带电物体的电荷累计。我们假设物体表面每个点上的电荷是连续分布的，一点$P$上的电荷密度是$g(P)$。
+那么，物体表面的总电荷就是表面所有点上电荷密度的累积。
+
+因此，我们有必要定义函数在区间、平面区域乃至更复杂的形体上的求和。
+良好的定义并不是显而易见的。为这类求和给出符合实际生产生活中的需要的定义，
+是一门深奥的学问。在当前阶段，我们只给出简要的介绍，研究特定情形下的求和工具，不作更深入的探索。
+
+\section{函数图像的面积}
+
+首先来看一个物理学中的例子。设物体受到方向恒定，大小随时间$t$变化的力$F(t)$。
+定义$F(t)$在一段时间内的累积效果为冲量$I$。如果设物体刚受力时的冲量$I(0) = 0$，那么有定律：
+$$ I(t) - I(0) = m(v(t) - v(0)).$$
+其中$v$是物体的在受力方向上的速率。为了计算速率的改变量，我们希望计算$I(t)$，也就是$F(t)$的“和”。
+
+以时间为横轴，画出函数$F$的图像。如果$F$的大小也是恒定的，
+那么可以发现，$F$在一段时间$[t_1, t_2]$内的“总和”就是$F \cdot (t_2 - t_1)$。
+从图像来看，函数图像是水平的线段，$F(t)$的“和”就是函数图像下方（函数曲线与$x$之间的部分）矩形的面积。
+
+如果物体受力大小不恒定，但分段恒定，于是函数图像可以看作若干段水平线段。
+于是，按分段求多个矩形的面积，然后求和，就得到$I$的改变量。
+
+然而，更常见的情况是：$F$的大小随时间不断改变。这时候，我们如何求$F$的“和”呢？
+
+需要知道的是，对一般的函数$F$，我们并不能很好地定义$I$的改变量。不过，对于物理学中常见的模型
+以及当前我们接触的简单形状来说，可以用比较简单的方法，定义“函数曲线下方的面积”。
+
+具体来说，我们从$F$恒定或分段恒定的情形下，通过矩形面积计算的方法出发。给定一般的函数$F$，
+我们也希望用一系列的矩形来近似表示“函数曲线下方的面积”。
+
+\begin{figure}[h] %this figure will be at the right
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.4\textwidth]{积分定义5.png}
+    \caption*{\texttt{用矩形近似表示函数曲线下方的面积}}
+\end{figure}
+
+具体的方法有两种。一种是把区间$[t_1, t_2]$竖直分割成很多段，把每段的函数曲线近似看作水平线段，
+这样就得到一系列左右并排的、“竖直”的矩形。另一种是把函数曲线下方的区域横着分割，得到一系列上下相叠、高度相同，
+但长度不同（由函数性质决定）的矩形。
+
+无论用哪种方法，如果只要矩形足够“细”，矩形面积就趋于某个极限，那么我们就把这个极限看作$F$的“和”。
+
+那么，怎样严格地说明这个定义呢？两种方法中，第一种方法可以用我们已经学过的概念严格说明。
+因此，我们目前采用第一种方法来定义。
+
+\begin{df}{\textbf{区间的分割与取样和}}
+    \mbox{} \\
+    给定闭区间$I=[a, b]$及一列从小到大排列的数$a = x_0 < x_1 < \cdots < x_{n-1} < x_n = b$。
+    则把区间$I$分成$n$个子区间$[x_0, x_1], \,\,\, [x_1, x_2], \,\,\,\cdots, \,\,\,[x_{n-1}, x_n]$，就是这一列数对区间的分割。
+
+    如果区间的分割有$n$个子区间，就说它是区间的$\boldsymbol{n}$\textbf{阶分割}。
+    如果区间的分割使得所有子区间长度都不超过某个数$d$，就说它是区间的$\boldsymbol{d}$\textbf{–分割}。
+
+    设$f$是定义在$I$上的函数。给定区间的某个分割，
+    在该分割的各个子区间中取样$c_i\in [x_{i-1}, x_{i}]$，其函数值$f(c_i)$与区间长度的乘积的总和：
+    $$ \sum_{i=1}^n (x_i - x_{i-1}) f(c_i) $$
+    称为函数关于该分割的\textbf{取样和}。
+\end{df}
+
+\begin{figure}[h] %this figure will be at the right
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.5\textwidth]{积分定义4.png} %  KSmrq，CC BY-SA 3.0，https://commons.wikimedia.org/w/index.php?curid=2335935
+    \caption*{\texttt{函数关于区间分割的取样和}}
+\end{figure}
+
+直观上看，取样和就是在函数各个子区间的曲线上取一点作为高，以子区间长度为宽作矩形，
+然后把所有矩形的面积相加。这也就是我们上面提到的取一系列左右并排的、“竖直”的矩形的方法。
+
+\begin{df}{\textbf{函数的积合}}
+    设有定义在闭区间$I=[a, b]$上的函数$f$。如果有某个数$S$使得：对任意$r>0$，总有$d>0$，
+    使得$f$关于它在$I$上的所有$d$–分割的任意取样和，与$S$的差都小于$r$，
+    那么就说$S$是$f$在区间$I$上的\textbf{积合}或\textbf{合}，$f$在区间$I$上\textbf{可积}。
+    
+    $f$在区间$I$的积合记为
+    $$ \int_I f(x)\di{x} \quad \mbox{或} \quad \int_a^b f(x)\di{x} $$
+\end{df}
+
+\begin{figure}[h] %this figure will be at the right
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.5\textwidth]{积分定义6.png} % from KSmrq，CC BY-SA 3.0，https://commons.wikimedia.org/w/index.php?curid=2347919
+    \caption*{\texttt{不同的取样方法，随着分割越来越细，取样和面积收敛}}
+\end{figure}
+
+从定义中可以看出，我们并不保证函数在任何闭区间上都能定义积合。
+如果函数在某个区间上无法定义积合，就说它在该区间上不可积。
+不过，我们接下来会看到，很多我们接触过的常见显式函数，都是可积的。
+
+定义中，我们假设函数总在$x$轴上方。如果函数有小于$0$的值，如何定义积分呢？
+
+设函数在$[a,b]$上求积。首先，如果函数$f$总小于零，它的图像总在$x$轴下方。它与$x$轴之间的面积可以说是“函数曲线上方的面积”。
+我们可以定义它的积合是$-f$积合的相反数。
+
+如果函数值有正有负，$x$轴把函数曲线分为上下两个部分。我们可以把$x$轴上方部分和$x$轴之间的面积记为正面积，
+把$x$轴下方部分和$x$之间的面积记为负面积。定义函数在区间上的积合就是这两者的和。
+
+另一种定义方法是先把坐标轴往下平移，即用$y = -a $代替$x$轴。
+其中$a$是足够大的数，使得函数在区间上的值总大于$-a$。这样，我们定义
+
+具体来说，给定函数，如何求它在区间上的积合呢？
+
+从最简单的函数$f: x\mapsto x$出发。我们想知道它在区间$I = [0, 1]$上的合。
+
+把区间$I$做$n$–分割后取样，取样和为：
+$$ S_n = \sum_{i=1}^n (x_i - x_{i-1}) f(c_i) = \sum_{i=1}^n (x_i - x_{i-1}) c_i. $$
+其中$0 = x_0 < x_1 < \cdots < x_n = 1$，$x_{i-1} \leqslant c_i \leqslant x_i$。
+
+于是，
+$$ x_{i-1}^2 - x_i x_{i-1} = (x_i - x_{i-1}) x_{i-1} \leqslant (x_i - x_{i-1}) c_i \leqslant (x_i - x_{i-1}) x_i = x_i^2 - x_{i-1} x_i $$
+而
+$$ \sum_{i=1}^n x_i^2 - x_{i-1} x_i = \sum_{i=1}^n \frac{x_i^2 - x_{i-1}^2}{2} + \frac{(x_i - x_{i-1})^2}{2} = \frac{x_n^2 - x_0^2}{2} + \sum_{i=1}^n\frac{(x_i - x_{i-1})^2}{2}. $$
+$$ \sum_{i=1}^n x_{i-1}^2 - x_i x_{i-1} = \sum_{i=1}^n \frac{x_i^2 - x_{i-1}^2}{2} - \frac{(x_i - x_{i-1})^2}{2} = \frac{x_n^2 - x_0^2}{2} - \sum_{i=1}^n\frac{(x_i - x_{i-1})^2}{2}. $$
+所以，
+$$ \left| S_n - \frac{x_n^2 - x_0^2}{2} \right| \leqslant \sum_{i=1}^n\frac{(x_i - x_{i-1})^2}{2} $$
+注意到$x_0$、$x_n$是定值，而对于$d$分割来说，$x_i - x_{i-1}$总小于$d$。取$d = \frac{1}{n}$，就有
+$$ \left| S_n - \frac{x_n^2 - x_0^2}{2} \right| \leqslant \frac{1}{n}. $$
+因此，随着分割越来越细，$S_n$趋于$\frac{x_n^2 - x_0^2}{2} = \frac{1}{2}$。$f$在$I$上的合是$\frac{1}{2}$。
+
+对于一般区间$[a, b]$，同理可得$f$在$[a, b]$上的合是$\frac{b^2 - a^2}{2}$。
+
+可以看到，即便对最简单的函数，求合也不是显而易见的事情。我们在推导中也用到了一些技巧。
+那么，一般来说，对于更复杂的函数，如何求合呢？甚至，如何确定它们可积呢？
+且听下回分解。
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 对比函数的积合与微变，它们有哪些类似之处？有哪些不同之处？\\
+    \indent 2. 函数关于区间分割的取样和，与关于函数微变哪个定理有相似之处？你有什么想法？\\
+    \indent 3. 使用上下相叠的矩形来定义积合，需要注意哪些问题？\\
+    \indent 4. 如果函数在区间$[a, b]$上某点无定义，是否还能定义它在区间上的积合？要注意哪些问题？
+\end{sk}
+
+\section{函数的定合}
+\section{合函数}
+
+
+\begin{appendix}
+
+\chapter{函数的积合}
+
+\end{appendix}
 
 \end{document}
