@@ -2507,6 +2507,15 @@ $$\forall n \geqslant 1,  \,\,\,q_n = \frac{n^k x^{n+1}}{x^n (n+1)^{k}} = x\left
 给收敛的正项级数的通项随意加上正负号，得到的级数也绝对收敛。
 比如，从正项级数$\sum \frac{1}{2^n}$收敛，可以推出$\sum \frac{(-1)^{n}}{2^n}$绝对收敛。
 
+\begin{et}
+    证明：对任意实数$x$，$\sum_{n\in\mathbb{N}}\frac{x^{n}}{n!}$收敛。
+\end{et}
+\begin{so}
+    $x\geqslant 0$时，我们已经证明了正项级数$\sum_{n\in\mathbb{N}}\frac{x^{n}}{n!}$收敛。
+    对于一般的$x$，考虑级数的绝对值：$\sum_{n\in\mathbb{N}}\left|\frac{x^{n}}{n!}\right| = \sum_{n\in\mathbb{N}}\frac{|x|^{n}}{n!}$，
+    $|x|\geqslant 0$，因此又回到了正项级数的情况，于是级数的绝对值收敛。也就是说，$\sum_{n\in\mathbb{N}}\frac{x^{n}}{n!}$绝对收敛。
+\end{so}
+
 如果级数的绝对值发散，级数还能收敛吗？这样的级数也是存在的。我们称它们为\textbf{相对收敛}的级数。
 
 举例来说，级数$\sum \frac{(-1)^{n}}{(n+1)}$不是绝对收敛的，因为它的绝对值$\sum \frac{1}{(n+1)}$发散。
