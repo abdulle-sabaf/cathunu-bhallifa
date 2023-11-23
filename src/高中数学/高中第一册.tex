@@ -2854,22 +2854,26 @@ $t$趋于$2\pi$时，$(\cos{t}, \,\, \sin{t})$也趋于$(\cos{0}, \,\, \sin{0})$
 
 \chapter{不等式}
 
-\section{不等式的基本概念}
-
 我们已经接触过一元一次、一元二次和二元一次不等式。当变量取某些值的时候，不等式成立；
 取另一些值的时候，不等式不成立。这样的不等式称为\textbf{条件不等式}。如果无论变量取什么值，不等式都成立，
 这样的不等式称为\textbf{绝对不等式}。
 
-先来复习一下不等关系的基本规则：
-
-这些性质基于数的运算法则，对我们熟知的数域：$\mathbb{N}$、$\mathbb{Z}$、$\mathbb{Q}$、$\mathbb{R}$都成立。
-此外，从数的运算法则，还可以给出以下的不等关系：
+先来复习一下不等关系的定义和基本规则：
+\begin{enumerate}
+    \item 自反性：$\forall a, \,\,\, a \leqslant a$永远成立；
+    \item 反称性：$\forall a, b, \,\,\, a \leqslant b, \,\,\, b \leqslant a$至少有一个成立；
+    \item 传递性：$\forall a, b, c, \,\,\, \mbox{如果}\, a \leqslant b, \,\,\, b \leqslant c, \,\,\, \mbox{那么}\, a \leqslant c$；
+    \item $\forall a, b, \,\,\, a \geqslant b$就是$b \leqslant a$；
+    \item $\forall a, b, \,\,\, a < b$就是$a \leqslant b$且$a \neq b$，$ a > b$就是$a \geqslant b$且$a \neq b$。
+\end{enumerate}
+此外，从数的运算法则，可以得到以下定律：
 \begin{enumerate}
     \item 同号的数相乘大于$0$。异号的数相乘小于$0$。
     \item （从 1 推出）任何数的平方大于等于$0$。
 \end{enumerate}
+这两条定律基于数的运算法则，对我们熟知的数域：$\mathbb{N}$、$\mathbb{Z}$、$\mathbb{Q}$、$\mathbb{R}$都成立。
 
-利用这些性质，我们可以得出一些有用的结论，称为常用不等式。
+利用这些性质，我们可以得出一些有用的结论，称为\textbf{常用不等式}。
 
 \section{排序不等式}
 
