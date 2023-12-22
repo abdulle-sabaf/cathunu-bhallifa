@@ -170,17 +170,30 @@ $$ (x^2, x, 3x, 5x, \cdots (2n+1)x, \cdots )$$
 把想要的结果性质传递到原本的复杂的函数上去。
 但是，如果逐点收敛不能保持极限的连续性或可微性的话，那么很多性质也无法传递到极限$f$上去。
 
-如果函数列一致收敛的话，我们可以证明，连续函数的函数列，极限也是连续函数。更进一步：
-
-\begin{tm}{\textbf{一致收敛保持光滑性质}}
-    如果函数$f$在区间$I$上可微，且微变函数在$I$上连续，就说$f$在$I$上\textbf{一阶光滑}或\textbf{连续可微}。
-    如果$f$的前$k$次微变都在$I$上一阶光滑，就说$f$在$I$上$\boldsymbol{k}$\textbf{阶光滑}或$\boldsymbol{k}$\textbf{阶连续可微}。
-    如果对任意正整数$k$，$f$在$I$上$k$阶光滑，就说$f$在$I$上\textbf{光滑}。
-
-    如果函数列$\{f_n\}_{n\in\mathbb{N}}$中每一项都在区间$I$上连续可微，简单收敛到函数$f$，
-    且函数列$\{\partial f_n\}_{n\in\mathbb{N}}$一致收敛到函数$g$，那么$\{f_n\}_{n\in\mathbb{N}}$一致收敛到$f$，
-    $f$在$I$上连续可微，且其微变函数$\partial f = g$。
+如果函数列一致收敛的话，我们可以证明（见附录）：
+\begin{tm}\textbf{一致收敛保证极限}\\
+    已知区间$I$上的函数列$\{f_n\}_{n\in\mathbb{N}}$一致收敛到$f$，
+    且函数列的每一项$f_n$都在区间的一端$a$点处\footnote{也可以是无穷远处。}有极限$u_n$。
+    那么数列$\{u_n\}$收敛到某个数$u$，且$u$是$f$在$a$处的极限。
+    也就是说，在一定条件下，我们可以交换两种极限操作：
+    $$ \lian{n\to +\infty} \lian{x\to a} f_n(x) = \lian{x\to a} \lian{n\to +\infty} f_n(x). $$
 \end{tm}
+
+因此，连续函数的函数列如果一致收敛，极限也是连续函数。更进一步（证明见附录）：
+
+\begin{tm}{\textbf{微变的一致极限}}
+    已知函数列$\{f_n\}_{n\in\mathbb{N}}$中每一项都在区间$I$上可微，且微变函数连续。
+    设函数列逐点收敛到函数$f$，且函数列$\{\partial f_n\}_{n\in\mathbb{N}}$一致收敛到函数$g$，
+    那么$\{f_n\}_{n\in\mathbb{N}}$一致收敛到$f$，
+    $f$在$I$上可微，且其微变函数$\partial f = g$。
+\end{tm}
+
+也就是说，在函数列收敛，且其微变函数一致收敛时，我们可以交换微变操作和函数列的极限操作：
+$$ \lian{n\to +\infty} \partial f_n = \partial \lian{n\to +\infty} f_n. $$
+
+\section{幂级数}
+
+\section{收敛半径}
 
 \chapter{连续函数的和}
 小学的学习中，我们定义了有限个数的和。通过定义级数，我们学习了无穷多个数的求和。
@@ -333,10 +346,48 @@ $$ \left| S_n - \frac{x_n^2 - x_0^2}{2} \right| \leqslant \frac{1}{n}. $$
 \section{函数的定合}
 \section{合函数}
 
+\chapter{方程与空间}
+
+\chapter{复数}
 
 \begin{appendix}
 
-\chapter{方程}
+\chapter{函数的级数}
+\begin{tm}{\textbf{一致收敛保证极限}}
+    已知区间$I$上的函数列$\{f_n\}_{n\in\mathbb{N}}$一致收敛到$f$，
+    且函数列的每一项$f_n$都在区间的一端$a$点处\footnote{也可以是无穷远处。}有极限$u_n$。
+    那么数列$\{u_n\}$收敛到某个数$u$，且$u$是$f$在$a$处的极限。
+    $$ \lian{n\to +\infty} \lian{x\to a} f_n(x) = \lian{x\to a} \lian{n\to +\infty} f_n(x). $$
+\end{tm}
+
+\begin{tm}{\textbf{一致收敛传递连续性}}
+    连续函数的函数列如果一致收敛，极限也是连续函数。
+\end{tm}
+
+更进一步有：
+
+\begin{tm}
+    如果函数$f$在区间$I$上可微，且微变函数在$I$上连续，就说$f$在$I$上\textbf{一阶光滑}或\textbf{连续可微}。
+    如果$f$的前$k$次微变都在$I$上一阶光滑，就说$f$在$I$上$\boldsymbol{k}$\textbf{阶光滑}或$\boldsymbol{k}$\textbf{阶连续可微}。
+    如果对任意正整数$k$，$f$在$I$上$k$阶光滑，就说$f$在$I$上\textbf{光滑}。
+
+    已知函数列$\{f_n\}_{n\in\mathbb{N}}$中每一项都在区间$I$上可微，且微变函数连续。
+    设函数列逐点收敛到函数$f$，且函数列$\{\partial f_n\}_{n\in\mathbb{N}}$一致收敛到函数$g$，
+    那么$\{f_n\}_{n\in\mathbb{N}}$一致收敛到$f$，
+    $f$在$I$上可微，且其微变函数$\partial f = g$。
+
+    也就是说，在一定条件下，我们可以交换微变、极限和函数列的极限操作：
+    $$ \lian{n\to +\infty} \partial f_n = \partial \lian{n\to +\infty} f_n. $$
+
+    如果函数列$\{f_n\}_{n\in\mathbb{N}}$中每一项都在区间$I$上$k$阶连续可微，简单收敛到某个函数$f$，并且
+    \begin{enumerate}
+        \item 对任意$1 \leqslant i < k$，函数列$\{\partial^i f_n\}_{n\in\mathbb{N}}$简单收敛到函数$g_i$；
+        \item 对任意闭区间$B \subseteq I$，函数列$\{\partial^k f_n\}_{n\in\mathbb{N}}$在$B$上一致收敛到函数$g_k$。
+    \end{enumerate}
+    那么$f$在$I$上$k$阶连续可微，且其前$k$阶微变函数为$\partial^i f = g_i$（$1 \leqslant i\leqslant k$）。
+    此外，$\{f_n\}_{n\in\mathbb{N}}$在$I$中任意闭区间一致收敛到$f$。
+
+\end{tm}
 
 \end{appendix}
 
