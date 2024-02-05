@@ -20,6 +20,13 @@
 \usepackage{fontspec,xunicode,xltxtra}
 \usepackage{xeCJK} 
 
+% 修改脚注的编号为加圈样式，并且各页单独编号
+\usepackage{pifont}
+\usepackage[perpage,symbol*]{footmisc}
+\DefineFNsymbols{circled}{{\ding{192}}{\ding{193}}{\ding{194}}
+{\ding{195}}{\ding{196}}{\ding{197}}{\ding{198}}{\ding{199}}{\ding{200}}{\ding{201}}}
+\setfnsymbol{circled}
+
 \definecolor{gl}{RGB}{246, 252, 240}
 \definecolor{gd}{RGB}{236, 244, 230}
 \definecolor{bg}{RGB}{242, 244, 228}
@@ -195,7 +202,7 @@ $A,B$把直线分成三部分。$A,B$与它们之间的部分合起来，叫做\
 \begin{wrapfigure}{r}{0.3\textwidth} %this figure will be at the right
     \vspace{-15pt}
     \flushright
-    \includegraphics[width=0.24\textwidth]{角度1.png}
+    \includegraphics[width=0.24\textwidth]{tu/角度1.png}
 \end{wrapfigure}
 
 如右图，$\angle AOB$和$\angle AOC$谁更大？$\angle AOC$到底指哪个角？
@@ -215,7 +222,7 @@ $A,B$把直线分成三部分。$A,B$与它们之间的部分合起来，叫做\
 \begin{wrapfigure}{r}{0.3\textwidth} %this figure will be at the right
     \vspace{-5pt}     
     \flushright
-    \includegraphics[width=0.24\textwidth]{角度2.png}
+    \includegraphics[width=0.24\textwidth]{tu/角度2.png}
 \end{wrapfigure}
 
 给定直线$l$上点$O$为顶点的平角和对应的直角。直角所在的直线，把平面分为两侧。
@@ -226,7 +233,7 @@ $A,B$把直线分成三部分。$A,B$与它们之间的部分合起来，叫做\
 \begin{wrapfigure}{l}{0.4\textwidth} %this figure will be at the left
     \vspace{-5pt}     
     \flushleft
-    \includegraphics[width=0.36\textwidth]{角度3.png}
+    \includegraphics[width=0.36\textwidth]{tu/角度3.png}
     \caption*{\texttt{量角器\;\;\;\;\;}}
 \end{wrapfigure}
 
@@ -248,7 +255,7 @@ $A,B$把直线分成三部分。$A,B$与它们之间的部分合起来，叫做\
 \begin{wrapfigure}[5]{r}{0.24\textwidth} %this figure will be at the right
     \vspace{-20pt}
     \flushright
-    \includegraphics[width=0.21\textwidth]{角度0.png}
+    \includegraphics[width=0.21\textwidth]{tu/角度0.png}
     % \captionsetup{labelformat=empty}
     % \caption{对顶角}
 \end{wrapfigure}
@@ -273,7 +280,7 @@ $OA$到$OB$的交角，记为$\arcangle AOB$。每个交角对应一对顶角。
 
 \begin{wrapfigure}{r}{0.4\textwidth} %this figure will be at the right
     \flushright
-    \includegraphics[width=0.36\textwidth]{三线八角.png}
+    \includegraphics[width=0.36\textwidth]{tu/三线八角.png}
 \end{wrapfigure}
 
 观察$\angle 1$和$\angle 5$，我们说这种位置关系的一对角是\textbf{同位角}。它们的终边属于同一条直线，始边属于两条直线交这条直线的同侧。
@@ -301,7 +308,7 @@ $\angle 4$是$\angle 1$的补角，
 \begin{wrapfigure}[6]{r}{0.24\textwidth} %this figure will be at the right
     \vspace{50pt}
     \flushright
-    \includegraphics[width=0.2\textwidth]{675px-Diyarbakir_1050645_Droste_Effect.jpg}
+    \includegraphics[width=0.2\textwidth]{tu/675px-Diyarbakir_1050645_Droste_Effect.jpg}
 \end{wrapfigure}
 
 \section{相似和比例}
@@ -312,7 +319,7 @@ $\angle 4$是$\angle 1$的补角，
 \begin{wrapfigure}{l}{0.27\textwidth} %this figure will be at the right
     \vspace{-30pt}
     \flushleft
-    \includegraphics[width=0.24\textwidth]{比例1.png}
+    \includegraphics[width=0.24\textwidth]{tu/比例1.png}
 \end{wrapfigure}
 
 用量角器测量相似图形相应位置的角度，以及相似部分的长度，你有什么发现？
@@ -330,7 +337,7 @@ $\angle 4$是$\angle 1$的补角，
 \end{po}
 \begin{wrapfigure}{l}{0.27\textwidth} %this figure will be at the left
     % \vspace{-10pt}
-    \includegraphics[width=0.24\textwidth]{比例2.png}
+    \includegraphics[width=0.24\textwidth]{tu/比例2.png}
 \end{wrapfigure}
 
 放缩公理用“比例相等”表达相似的本质：“形状一样”。从比例相等得到同位角相等。
@@ -817,7 +824,7 @@ $$ p\leftarrow q,\quad \neg p,\quad\mbox{所以}\,\,\, \neg q.$$
 \section{认识三角形}
 \begin{wrapfigure}[4]{r}{0.32\textwidth} %this figure will be at the right
     \vspace{-35pt}
-    \includegraphics[width=0.32\textwidth]{三角形0.png}
+    \includegraphics[width=0.32\textwidth]{tu/三角形0.png}
 \end{wrapfigure}
 两点可以确定一条直线，三点可以确定什么呢？把三个点两两相连，得到三条线段。
 我们把这样的形状称为\textbf{三角形}。点$A,B,C$确定的三角形称为“三角形$ABC$”，记为$\triangle ABC$。
@@ -827,7 +834,7 @@ $$ p\leftarrow q,\quad \neg p,\quad\mbox{所以}\,\,\, \neg q.$$
 
 \begin{wrapfigure}[8]{l}{0.18\textwidth} %this figure will be at the right
     \vspace{-10pt}
-    \includegraphics[width=0.144\textwidth]{三角形1.png}
+    \includegraphics[width=0.144\textwidth]{tu/三角形1.png}
 \end{wrapfigure}
 
 点$A,B,C$称为三角形的\textbf{顶点}，线段$AB$，$BC$和$AC$称为三角形的\textbf{边}。
@@ -862,7 +869,7 @@ $\angle BAC = \angle B'A'C'$或$\angle BAC = \angle C'A'B'$成立，那么$\tria
 \begin{wrapfigure}{r}{0.35\textwidth} %this figure will be at the right
     \vspace{-15pt}
     \centering
-    \includegraphics[width=0.35\textwidth]{三角形3.png}
+    \includegraphics[width=0.35\textwidth]{tu/三角形3.png}
 \end{wrapfigure}
 
 注意全等公理包含两种情况。$\angle BAC = \angle B'A'C'$的情况下，两个三角形内角大小一样，
@@ -926,7 +933,7 @@ $\triangle MAO \backsimeq \triangle MBO$。所以，$\angle AOM = -\angle BOM$�
 \begin{wrapfigure}{r}{0.33\textwidth} %this figure will be at the right
     \vspace{-15pt}
     \centering
-    \includegraphics[width=0.33\textwidth]{三角形4.png}
+    \includegraphics[width=0.33\textwidth]{tu/三角形4.png}
 \end{wrapfigure}
 
 利用垂直平分线的性质，还可以证明另一种判定三角形全等的方法：
@@ -952,7 +959,7 @@ $\triangle MAO \backsimeq \triangle MBO$。所以，$\angle AOM = -\angle BOM$�
 \begin{wrapfigure}[4]{r}{0.6\textwidth} %this figure will be at the right
     \vspace{-15pt}
     \centering
-    \includegraphics[width=0.6\textwidth]{三角形5.png}
+    \includegraphics[width=0.6\textwidth]{tu/三角形5.png}
 \end{wrapfigure}
 
 三角形全等可以用来证明三角形的基本性质。
@@ -988,7 +995,7 @@ $\triangle MAO \backsimeq \triangle MBO$。所以，$\angle AOM = -\angle BOM$�
 \section{垂直和垂线}
 
 \begin{wrapfigure}[5]{r}{0.3\textwidth} %this figure will be at the right
-    \includegraphics[width=0.3\textwidth]{三角形6.png}
+    \includegraphics[width=0.3\textwidth]{tu/三角形6.png}
 \end{wrapfigure}
 垂直平分线定理告诉我们，到两点距离相等的点构成一条直线，它和两点所在的直线垂直。通过垂直平分线定理，
 我们可以了解更多与垂直有关的性质。

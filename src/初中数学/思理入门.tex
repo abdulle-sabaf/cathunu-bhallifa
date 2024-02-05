@@ -1,0 +1,580 @@
+\documentclass[12pt,UTF8,a4paper]{article}
+\usepackage{ctex}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage[table,dvipsnames]{xcolor}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xfrac}
+\usepackage{eucal}
+\usepackage{titlesec}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{verbatim}
+\usepackage{fontspec,xunicode,xltxtra}
+\usepackage{xeCJK} 
+\usepackage{caption}
+\usepackage{thmtools, thm-restate}
+\usepackage{tcolorbox}	
+\usepackage{geometry}
+\usepackage{fancyhdr} %设置全文页眉、页脚的格式
+
+\tcbuselibrary{breakable}
+\tcbuselibrary{most}
+% 修改脚注的编号为加圈样式，并且各页单独编号
+\usepackage{pifont}
+\usepackage[perpage,symbol*]{footmisc}
+\DefineFNsymbols{circled}{{\ding{192}}{\ding{193}}{\ding{194}}
+{\ding{195}}{\ding{196}}{\ding{197}}{\ding{198}}{\ding{199}}{\ding{200}}{\ding{201}}}
+\setfnsymbol{circled}
+
+\definecolor{gl}{RGB}{246, 252, 240}
+\definecolor{gd}{RGB}{236, 244, 230}
+\definecolor{bg}{RGB}{242, 244, 228}
+\definecolor{neonblue}{RGB}{30, 90, 255}
+
+\setCJKmainfont[BoldFont=STZhongsong, AutoFakeSlant=0.2]{STSong}
+\setCJKmonofont{simkai.ttf} % for \texttt
+\setCJKsansfont{simfang.ttf} % for \textsf
+\setlength\lineskip{6pt}
+\setlength\parskip{12pt}
+\setlength{\fboxsep}{12pt}
+% \renewcommand\thesection{\arabic{chapter}.\arabic{section}}
+\newcommand{\arccot}{\operatorname{arccot}}
+\newcommand{\dlim}[1]{^{\color{gray}\prime}#1}
+\newcommand{\lian}[1]{
+    \underset{#1}{\operatorname{lian}\,}
+}
+\newcommand{\di}[1]{\,\mathrm{d}#1}
+% developpements limites
+\newcommand{\oveq}[1]{\overset{#1}{=}} 
+\newcommand{\olim}[1]{\mathit{o}\left(#1\right)}  % petit o
+\newcommand{\Olim}[1]{\mathcal{O}\left(#1\right)}  % grand O
+\newcommand{\Tlim}[1]{\mathcal{\Theta}\left(#1\right)}  % grand theta
+\newcommand{\eqlim}[1]{\overset{#1}{\sim}}  % equivalence
+\newcommand{\vect}[1]{\left\langle #1 \right\rangle}
+
+
+\renewenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
+
+\newtheorem{df}{定义}[section] 
+\newtheorem{pp}{命题}[section]
+\newtheorem{tm}{定理}[section]
+\newtheorem{ex}{例子}[section]
+\newtheorem{et}{例题}[section]
+\newtheorem{sk}{思考}[section]
+\newtheorem*{po}{公理}
+\newtheorem*{so}{解答}
+\newtheorem{xt}{习题}[section]
+\newtheorem{cor}{推论}[pp]
+
+\newtcolorbox{blockin}[2][]
+  {colback = white, colframe = magenta!75!black, fonttitle = \bfseries,
+    colbacktitle = magenta!85!black, enhanced,
+    attach boxed title to top left={xshift=5mm, yshift=-2mm},breakable, 
+    title=#2, #1}
+
+\newtcolorbox{blockaft}[2][]
+{colback = white, colframe = neonblue!105!black, fonttitle = \bfseries,
+    colbacktitle = neonblue!125!black, enhanced,
+    attach boxed title to top left={xshift=5mm, yshift=-2mm},breakable, 
+    title=#2, #1}
+
+% 列举环境的行间距
+\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
+\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
+\setdescription{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
+% 章节字体大小
+\titleformat{\section}{\zihao{-2}\bfseries}{ \thesection }{16pt}{}
+% 封面
+\title{\zihao{0} \bfseries 思理入门}
+\author{\zihao{2} \texttt{大青花鱼}}
+% \date{\bfseries\today}
+\date{}
+
+% 正文
+\begin{document}
+\maketitle
+% \tableofcontents
+% \newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lhead{}% 页眉左边设为空
+\chead{}% 页眉中间设为空
+\rhead{}% 页眉右边设为空
+\lfoot{}% 页脚左边设为空
+\cfoot{\thepage}% 页脚中间显示页码
+\rfoot{}% 页脚右边设为空
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+人天生会思考，不过，不是每个人都能正确、有效地思考。有些人想问题很快，一下就能抓住重点；有些人想问题很慢，总是抓不住重点。
+这是因为思考的方式不同。
+
+在漫长的历史中，人类逐渐总结出一些思考的经验和方法。这些经验和方法对所有人适用，它们针对的不是思考的具体对象，而是思考的形式。
+我们把这些经验和方法称为思理。下面就来谈谈其中最基本的内容。
+
+\clearpage
+
+\tableofcontents
+
+\clearpage
+
+\section{属性和概念}
+
+世界上有种种事物，事物有各种各样的性质，事物之间有各种各样的联系。事物的性质和关系，都叫做\textbf{事物的属性}。
+
+事物总有属性。属性相同的事物形成一类，属性不同的事物分别形成不同的类。
+
+某类事物都有而其他类没有的属性，称为该类事物的\textbf{特性}。
+其中，决定这类事物和其他事物不同的，称为\textbf{本性}。
+
+我们通过看、听、闻、尝、触摸等方式认知事物。我们用感官从外部世界得到的感觉，形成了对单个事物的印象和记忆。
+随着印象和记忆不断增多，我们会对它们进行归纳、总结、分类。
+
+从印象和记忆中，我们可以进一步抽离出事物的属性，概括出一类事物的特有属性，并用语言来表记这类事物。
+于是，通过使用语言，我们形成了反映事物的概念。\textbf{概念是反映事物的特有属性的思维形式}。
+
+举例来说，人们在认识各种动物的时候，看见一只又一只兔子，形成了各种印象。
+经过思考，人们认识到各种各样的兔子可以归为一类。
+
+人们从对不同形状、大小、年龄、毛色的兔子的印象中，抽离出特有的属性，
+认为有这样特性的动物属于一类，并创造专门的词“兔子”，来命名这类动物。这样，我们就形成了“兔子”的概念。
+
+“兔子”的概念脱离了具体的印象。“兔子”并不就是具体的这只或那只兔子。我们说\textbf{概念是抽象的}。
+
+“兔子”的概念建立后，就适用于所有的兔子。我们再看到新的兔子的时候，就会用“兔子”的概念来考虑它、理解它。
+我们说\textbf{概念是普遍的}。
+
+要注意的是：概念并不一定正确反映一类事物的真实属性。概念的特性只是我们主观概括得到的。
+人类认识世界的能力是有局限的，很多概念都不一定正确反映了事物的真实属性。很多时候，我们对事物有了新的认识，
+就会发现原有的认识是错误的，偏颇的，片面的。
+
+很多时候，我们认识中的概念，客观世界里并不一定存在对应的事物。
+比如：古人认为月亮上有月宫，海中有龙王，人死了变成鬼，等等。
+“月宫”、“龙王”、“鬼”这些概念存在于人们的认知中，但并不正确反映客观世界的事物。
+
+这种概念称为\textbf{虚假概念}。虚假概念可能来自错误的感知，错误的印象，错误的抽象，错误的思考，
+错误的归纳概括，等等。
+
+人类不断探索、研究世界，就是不断修正虚假概念，形成新概念的过程。
+
+\begin{blockaft}{想一想}
+    你觉得以下哪些是虚假概念？\\
+    \begin{center}
+        \begin{tabular}{p{8em}<{\centering} p{8em}<{\centering} p{12em}<{\centering} }
+            孙悟空 & 黑洞 & 比$3$大比$4$小的自然数 \\
+            & & \\
+            最大的恒星 & 蓝色的苹果 & 一块谁也看不见的石头 \\
+        \end{tabular}
+    \end{center}
+\end{blockaft}
+
+人们使用\textbf{词语}来表记概念。\textbf{词语是概念的语言形式，概念是词语的思想内容}。
+
+同一个概念可能用不同的词语表记，同一个词语也可能表记不同的概念。
+
+日常语言不是完美的，语言使用中的混乱经常导致概念的混乱，而概念的混乱又会导致语言的混乱。
+因此，我们希望创造更好的语言形式，减少概念的混乱，方便思考。
+
+数学语言、计算机语言等，都是为了更好地表达和讨论复杂的概念而发明的语言。
+我们把这样的语言称为人工语言，把人类历史中自然形成的语言称为自然语言。
+
+\section{含义和范围}
+
+概念的\textbf{含义}，就是概念的特性，也叫概念的\textbf{内涵}。简单来说，就是“是什么”。
+
+概念的\textbf{范围}，就是具有概念特性的事物，也叫概念的\textbf{外延}。简单来说，就是“有哪些”。
+
+比如：“人”这个概念的含义，就是人的特性，比如能够制造和使用生产工具、有智慧、能用语言交流、两足直立的灵长类动物。
+而“人”的范围，就是张三、李四等一个个具体的人。
+“资本主义国家”的含义，就是由资产阶级专政的国家。
+而“资本主义国家”的范围，就是美国、日本、德国等一个个具体的资本主义国家。
+
+有些概念的范围是独一无二的，称为\textbf{单独概念}或\textbf{个别概念}。
+有些概念的外延是可以有很多的，称为\textbf{普遍概念}或\textbf{群体概念}。
+比如，“李白”、“马克思”是单独概念，“国家”、“三角形”是群体概念。
+
+\begin{blockaft}{想一想}
+    以下哪些概念是单独概念，哪些是普遍概念？\\
+    \begin{center}
+        \begin{tabular}{p{8em}<{\centering} p{8em}<{\centering} p{8em}<{\centering} }
+            工人 & 苹果 & 骆驼 \\
+            & & \\
+            张三 & 班长 & 一辆救护车\\
+        \end{tabular}
+    \end{center}
+\end{blockaft}
+
+\subsection{概念的关系}
+
+% 等同/全同/重合/同一、从属/包含、互斥/全异、矛盾
+不同的概念之间，有各种各样的关系。
+
+两个概念：甲、乙的范围如果完全相同，就说甲\textbf{等同于}乙。
+
+\begin{blockin}{例子}
+    “《狂人日记》的作者”和“鲁迅”都指同一个人，范围完全相同。
+    因此“《狂人日记》的作者”等同于“鲁迅”。
+\end{blockin}
+
+如果甲等同于乙，那么乙也等同于甲。反之亦然。因此也可以说甲乙\textbf{相等}或\textbf{相同}。
+这种关系叫\textbf{等同关系}。
+
+如果所有的甲都是乙，那么就说甲\textbf{从属于}乙，乙\textbf{包含}甲。
+这种关系叫\textbf{从属关系}或\textbf{包含关系}。
+
+\begin{blockin}{例子}
+    所有的兔子都是动物，因此“兔子”从属于“动物”，“动物”包含“兔子”。 
+\end{blockin}
+
+如果有些甲是乙，也有一些甲不是乙，就说甲、乙\textbf{交叉}。
+这种关系叫\textbf{交叉关系}。
+
+\begin{blockin}{例子}
+    有些面包是甜的，也有些面包不是甜的。于是“面包”和“甜的”是交叉关系。
+\end{blockin}
+
+如果任何甲都不是乙，任何乙也不是甲，就说甲、乙\textbf{全异}，或甲、乙\textbf{互斥}。
+这种关系叫\textbf{全异关系}或\textbf{互斥关系}。
+
+\begin{blockin}{例子}
+    任何兔子都不是荷花，任何荷花也不是兔子。我们说“兔子”和“荷花”全异或互斥。
+\end{blockin}
+
+全异关系中，有一种特殊的关系，叫做矛盾关系。如果甲、乙是互斥的概念，
+并且都从属于另一个概念丙，而任何的丙要么是甲，要么是乙，就说甲、乙是矛盾的。
+这种关系叫\textbf{矛盾关系}。
+
+\begin{blockin}{例子}
+    种子植物分为被子植物和裸子植物两类。“被子植物”和“裸子植物”都从属于“种子植物”，并且互斥。
+    因此，“被子植物”和“裸子植物”是矛盾关系。
+\end{blockin}
+
+\begin{blockaft}{想一想}
+    以下这些概念之间有什么关系？\\
+    \begin{center}
+        \begin{tabular}{p{8em}<{\centering} p{8em}<{\centering} p{8em}<{\centering} }
+            灌木和乔木 & 汽车和公交车 & 妇女和工人 \\
+            & & \\
+            玉米和苞米 & 生铁和钢 & 豆干和豆皮 \\
+        \end{tabular}
+    \end{center}
+\end{blockaft}
+
+\subsection{定义}
+
+定义是确定概念的含义的方法。
+
+怎样定义呢？我们可以直接用自然语言描述概念的含义。
+
+\begin{blockin}{例子}
+姨妈就是妈妈的姐妹。 
+\end{blockin}
+
+这里要定义的概念是“姨妈”，“妈妈的姐妹”是概念的含义，“就是”这个词把两者等同起来。
+
+\begin{blockin}{例子}
+    月球就是地球唯一的卫星。 
+\end{blockin}
+    
+这里要定义的概念是“月球”，“地球唯一的卫星”是概念的含义，“就是”这个词把两者等同起来。
+
+此外，我们可以通过列举概念的范围来定义。
+
+\begin{blockin}{例子}
+    夏季大三角就是织女星、河鼓二和天津四。
+\end{blockin}
+
+这里要定义的概念是“夏季大三角”，“织女星、河鼓二和天津四”是概念的范围，“就是”把两者等同起来。
+
+\begin{blockin}{例子}
+    五行就是金、木、水、火、土。
+\end{blockin}
+
+这里要定义的概念是“五行”，“金、木、水、火、土”是概念的范围，“就是”把两者等同起来。
+
+定义的方法有很多，还有一种常见的方法是“属加种差”。假设我们要定义甲，那么可以首先描述甲从属于某个更大的概念乙，
+表示它是乙的一种，然后描述它和其他从属于乙的概念的差别。
+
+\begin{blockin}{例子}
+    偶数就是能被$2$整除的数。
+\end{blockin}
+
+这里要定义的概念是“偶数”，“偶数”从属于“数”，是“数”的一种，“能被$2$整除”描述了“偶数”和其他数的差别。
+
+描述概念和其他事物的差别时，我们通常使用概念的属性，这些属性一般是概念的特性
+，也可以是很多个接近特有的属性。
+
+\begin{blockin}{例子}
+    丹顶鹤是一种鹤，体长通常在$1.2$至$1.6$米之间，大多通体白色，头顶鲜红色，喉和颈黑色，耳至头枕白色，脚黑色。
+\end{blockin}
+
+这里要定义的概念是“丹顶鹤”。通过描述丹顶鹤的大小、形态特征来区别于其他的鹤。
+
+\begin{blockaft}{想一想}
+    找一找，以下这些概念是怎么定义的？\\
+    \begin{center}
+        \begin{tabular}{p{8em}<{\centering} p{8em}<{\centering} p{8em}<{\centering} }
+            灌木 & 沸点 & 软钎焊 \\
+            & & \\
+            领事裁判权 & 乌托邦 & 分子生物学 \\
+        \end{tabular}
+    \end{center}
+\end{blockaft}
+
+\section{判断和命题}
+
+\textbf{判断，是对事物、情况表达肯定或否定的态度}。我们在生活中说的每一句话，大多都是判断。
+最简单的判断，只表达对一个概念的态度，称为\textbf{简单判断}。
+
+\textbf{表示判断的语句叫做命题}。不严格地说，每个陈述句，都可以看作是命题。
+命题可以表达一个判断，也可以包含不止一个判断。
+
+简单判断对应的命题叫做\textbf{简单命题}。简单命题一般只有一个概念作为主语，以及一个谓语。
+比如“鸟能飞”，其中主语是“鸟”，谓语是“能飞”。
+
+表达肯定态度的简单判断（命题），称为肯定判断（命题）；表达否定态度的简单判断（命题），称为否定判断（命题）。
+否定命题一般带有否定词，比如“不”、“没有”、“并非”等等。
+
+判断（命题）可以是真的，也可以是假的。是真是假，要看它是否符合客观世界的实际情况。
+比如，
+\begin{blockin}{例子}
+    \begin{enumerate}
+        \item “地球绕着太阳转”是真的。
+        \item “鱼能飞”是假的。
+    \end{enumerate}
+\end{blockin}
+
+我们约定，命题是可以讨论真假的语句。命题表示的判断，要么是真的，符合客观世界的真实情况，要么是假的。
+到底是真是假，也许由于我们的认知能力有限，无法确定，但两者必居其一。不可能既真又假，也不可能非真非假。
+不满足的语句，就不是命题。
+
+我们可以发现，判断（命题）之间在真假方面是有联系的。如果掌握了其中的规律，
+就可以通过已经知道是真的判断（命题），得知另一些判断（命题）的真假。我们把这种思考称为\textbf{推理}。
+
+思理不是研究判断本身真假的学问，而是研究这些判断（命题）之间的联系，探索其中规律的学问。
+不同的学科，研究的对象不同。但我们会发现，研究不同的对象时，所用到的思考规律和方法是共通的。
+掌握了这些规律和方法，可以用在各种各样的地方。
+
+因此，通过不断总结正确、有效的推理方式，我们就能更好更快地理解问题、分析问题、解决问题。
+
+\begin{blockaft}{想一想}
+    1. 假命题和虚假概念是一样的吗？\\
+    2. 以下的命题是真的还是假的？\\
+    2.1. 有的树叶是红的。 \\
+    2.2. 所有的树叶都是红的。\\
+    2.3. 只要明天不刮台风，公园就照常开放。
+\end{blockaft}
+
+\subsection{全判断和有判断}
+
+\begin{blockin}{例子}
+    鸟能飞。\\
+    所有鸟都能飞。\\
+    有的鸟能飞。
+\end{blockin}
+
+观察这三句话，它们有什么不同？
+
+思考“鸟能飞”的时候，我们可以给“鸟”这个概念加上两种描述。一种让我们思考“鸟”这个概念范围里的全体，
+一种让我们思考这个概念范围里的部分。
+
+“所有鸟都能飞”里，“所有鸟”表示“鸟”这个概念范围里的全体，我们称为“全称”。
+讨论全称的判断（命题），叫做\textbf{全判断}（\textbf{全命题}）。
+指示全称的修饰语有：“所有”、“全部”、“任何”、“一切”、“每个”、“总”、“都”等。
+
+“所有鸟都能飞”里，“有的鸟”表示“鸟”这个概念范围里的全体，我们称为“有称”。
+讨论有称的判断（命题），叫做\textbf{有判断}（\textbf{有命题}）。
+指示有称的修饰语有：“有的”、“有些”、“某些”、“存在”、“至少有一个”等。
+
+要注意的是，有称也可能指概念范围的全体。比如，某个学校一共有六个年级，
+当我们说“有的年级今天放假”的时候，可能有$1$、$2$、$3$、$4$、$5$、$6$个年级今天放假，
+其中就包括了“所有六个年级今天都放假”的情形。
+
+当概念的范围是独一无二（也就是单独概念）的时候，有称和全称没区别，我们称为“单称”，
+把讨论它的判断（命题）叫做\textbf{单判断}（\textbf{单命题}）。
+
+全判断、有判断、单判断，每个都可以表达肯定和否定的态度，因此简单判断一共六类：
+全肯定判断、全否定判断、有肯定判断、有否定判断、有肯定判断、有否定判断。对应的命题分别叫：
+全肯定命题、全否定命题、有肯定命题、有否定命题、有肯定命题、有否定命题。
+
+% \clearpage
+
+\begin{blockaft}{想一想}
+    说一说，以下的简单命题是哪种命题？\\
+    1. 有的树叶是红的。 \\
+    2. 所有的树叶都是红的。\\
+    3. 他不是小明的哥哥。\\
+    4. 我有两个足球。 \\
+    5. 无法在陆地生活的哺乳动物，也是有的。\\
+    6. 他至少有五十岁了。\\
+    7. 没有人能从那个摊主手里赢钱。 \\
+    8. 他谁也不认识。
+\end{blockaft}
+
+\subsection{否命题}
+
+一个简单命题的否命题，是形式上表达的态度和它相反的命题。
+
+单肯定命题的否命题，一般就是它对应的否定句；单否定命题的否命题，一般就是它对应的肯定句。
+
+\begin{blockin}{例子}
+    \begin{enumerate}
+        \item “小明是小红的哥哥”的否命题是“小明不是小红的哥哥”。
+        \item “他没有读过《三国演义》”的否命题是“他读过《三国演义》”。
+        \item “他每天至少刷两次牙”的否命题是“他每天至多刷一次牙”。
+    \end{enumerate}
+\end{blockin}
+
+简单命题的主语可以是全称和有称，它的否命题也可以分别是全称和有称。我们把它们分别称为全否命题和有否命题。
+
+全命题可以对应全否命题和有否命题。
+
+\begin{blockin}{例子}
+    “所有的鱼都能飞”对应的全否命题是“任何鱼都不能飞”，有否命题是“有的鱼不能飞”。
+\end{blockin}
+
+同样地，有命题也可以对应全否命题和有否命题。
+
+\begin{blockin}{例子}
+    “有的鱼能飞”对应的全否命题是“任何鱼都不能飞”，有否命题是“有的鱼不能飞”。
+\end{blockin}
+
+假设命题的内容相同，只有全称、有称和肯定否定的部分不同，
+对应的全命题、有命题、全否命题、有否命题之间有什么联系呢？已知其中一个的真假，能不能推断其他命题的真假？
+
+\begin{blockaft}{想一想}
+    请写出以下命题的否命题。\\
+    1. 有的树叶是绿的。 \\
+    2. 所有的树叶都是红的。\\
+    3. 他不是小明的哥哥。\\
+    4. 他家至少有两个孩子。 \\
+    5. 这种产品是否有防皱纹的效果，还有待研究。\\
+    6. 过了这座山，就能看到五彩湖了。\\
+    7. 天马上要亮了。 \\
+    8. 他谁也不认识。
+\end{blockaft}
+
+\subsection{真值表}
+
+为了方便、清楚地讨论命题之间的真假关系，我们常常使用叫做“真值表”的小工具，列举命题的真假。
+
+一个判断（命题）的“真值”表示它到底是真的还是假的。
+比如，我们说“地球绕着太阳转”的真值是“真”，“鱼能飞”的真值是“假”。
+
+假设我们要研究一些命题之间的关系，比如从其中一些命题的真假出发，是否能推断出另一些命题的真假。
+那么，我们可以列举作为出发点的命题的所有可能的真假情况，
+然后在每一种情况下，调查另一些命题的真假，把这些真值排列成一个表，就是真值表。
+
+\begin{blockin}{例子}
+    用字母$p$表示命题：“地球绕着太阳转”，$q$表示命题：“地球不绕着太阳转”。
+
+    我们想知道$p$的真假和$q$的关系。因此，我们从$p$出发，列举$p$所有可能的真假情况。
+    考虑每一种情况下，$q$的真假。最后把结果排列成下表：
+    
+\begin{center}
+    \begin{tabular}{ p{3em}<{\centering} p{3em}<{\centering}}
+        \rowcolor{gd} $p$ & $q$ \\ [0.5ex] 
+        \noalign{{\color{white}\hrule height 2pt}} % \hline\hline
+        \rowcolor{gl} 真 & 假 \\   
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gd} 假 & 真 \\
+    \end{tabular}
+\end{center}
+\end{blockin}
+
+从例子里的真值表可知，单命题的真假，总和它的否命题的真假相反。单命题为真，它的否命题就为假，反之亦然。
+
+
+\begin{blockaft}{想一想}
+    我们想要研究以下命题$p$和$q$的关系，请你画出真值表。\\
+    1. $p$：有的树叶是红的。$q$：所有的树叶都是红的。 \\
+    2. $p$：他不是小明的哥哥。$q$：他是小明的弟弟。\\
+    3. $p$：天马上要亮了。$q$：天还没亮。\\
+    4. $p$：他谁也不认识。$q$：他认识老张。
+\end{blockaft}
+
+\subsection{简单命题的否定}
+
+命题的否定，是一个真假和原来的命题恰好相反的命题。
+只要原来的命题是真的，它就是假的。
+只要原来的命题是假的，它就是真的。
+
+比如，命题“他至多有三支笔”的否定是“他至少有四只笔”。
+
+对自然语言中具体的命题来说，命题的否定可能有多种形式，和语言的种类、文体、措辞都有关系。
+数学上，如果把某个命题记作$p$，那么为了方便，把$p$的否定记为“非$p$”。
+
+\textbf{命题的否定是相互的}，假设命题$p$是$q$的否定，那么$q$也是$p$的否定。
+
+\begin{blockaft}{想一想}
+    相互矛盾的概念，和相互否定的命题，有什么相似之处，有什么不同之处，有什么联系？
+\end{blockaft}
+
+对简单命题来说，命题的否定取决于全称、有称还是单称。
+
+单命题的否定就是它的否命题。
+
+\begin{blockin}{例子}
+    \begin{enumerate}
+        \item “小明是小红的哥哥”的否定是“小明不是小红的哥哥”。
+        \item “他没有读过《三国演义》”的否定是“他读过《三国演义》”。
+        \item “他每天至少刷两次牙”的否定是“他每天至多刷一次牙”。
+    \end{enumerate}
+\end{blockin}
+
+全命题和有命题的否定，则要复杂一点。
+
+% \clearpage
+
+\begin{blockin}{例子}
+    用字母$p$表示命题：“四年级所有的学生都参加了校运会”，$q$表示命题：“四年级有些学生没有参加校运会”
+    ，$r$表示命题：“四年级所有的学生都没有参加校运会”。
+
+    考虑$p$的真假和$q$、$r$的关系，结果为下表：
+    
+\begin{center}
+    \begin{tabular}{ p{3em}<{\centering} p{3em}<{\centering} p{3em}<{\centering}}
+        \rowcolor{gd} $p$ & $q$ & $r$ \\ [0.5ex] 
+        \noalign{{\color{white}\hrule height 2pt}} % \hline\hline
+        \rowcolor{gl} 真 & 假 & 假 \\   
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gd} 假 & 真 & -- \\
+    \end{tabular}
+\end{center}
+\end{blockin}
+
+我们发现，当“四年级所有的学生都参加了校运会”为真的时候，“四年级所有的学生都没有参加校运会”为假；
+但“四年级所有的学生都参加了校运会”为假的时候，“四年级所有的学生都没有参加校运会”的真假无法判断。
+比如，有可能四年级大部分学生参加了校运会，但少数学生没有参加，这时候“四年级所有的学生都没有参加校运会”为假。
+但也有可能四年级确实没有任何学生参加校运会。
+
+不过，我们也可以看到，“四年级所有的学生都参加了校运会”和“四年级有些学生没有参加校运会”的真假恰好相反。
+
+一般来说，\textbf{全命题的否定是它对应的有否命题}。比如，“所有的甲是乙”的否定，是“有些甲不是乙”；
+“所有的甲都不是乙”的否定，是“有些甲是乙”。
+
+另一方面，\textbf{有命题的否定是它对应的全否命题}。比如，“有些甲是乙”的否定，是“所有的甲都不是乙”；
+“有些甲不是乙”的否定，是“所有的甲都是乙”。
+
+\begin{blockin}{例子}
+    “有的树秋天会落叶”的否命题是“所有的树秋天都不会落叶”，“有的树秋天不会落叶”的否命题是“所有的树秋天都会落叶”。
+\end{blockin}
+
+\begin{blockaft}{想一想}
+    请写出以下命题的否定。\\
+    1. 有的树叶是红的。\\
+    2. 所有的树叶都是红的。 \\
+    3. 他不是小明的哥哥。\\
+    4. 有些蚊子不咬人。\\
+    5. 无法在陆地生活的哺乳动物，也是有的。\\
+    6. 没人知道他去了哪里。
+\end{blockaft}
+
+
+
+
+\end{document}

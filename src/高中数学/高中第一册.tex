@@ -18,6 +18,12 @@
 \usepackage{xeCJK} 
 \usepackage{caption}
 \usepackage{thmtools, thm-restate}
+% 修改脚注的编号为加圈样式，并且各页单独编号
+\usepackage{pifont}
+\usepackage[perpage,symbol*]{footmisc}
+\DefineFNsymbols{circled}{{\ding{192}}{\ding{193}}{\ding{194}}
+{\ding{195}}{\ding{196}}{\ding{197}}{\ding{198}}{\ding{199}}{\ding{200}}{\ding{201}}}
+\setfnsymbol{circled}
 
 \definecolor{gl}{RGB}{246, 252, 240}
 \definecolor{gd}{RGB}{236, 244, 230}
@@ -512,7 +518,7 @@ $f_1$和$f_2$分别是一次和二次函数。
 \begin{figure}[h]
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{整幂函数1.png}
+    \includegraphics[width=0.8\textwidth]{tu/整幂函数1.png}
     \caption*{\texttt{整幂函数}$x\mapsto x^n$\texttt{的图像}}
 \end{figure}
 
@@ -613,7 +619,7 @@ $$ f_{-n} : \,\,\, x \mapsto \frac{1}{x^n}$$
 \begin{figure}[h]
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{整幂函数2.png}
+    \includegraphics[width=0.8\textwidth]{tu/整幂函数2.png}
     \caption*{\texttt{整幂函数}$x\mapsto x^{-n}$\texttt{的图像}}
 \end{figure}
 
@@ -658,7 +664,7 @@ $$ f_r : \quad x \mapsto x^{-\frac{p}{q}} = \frac{1}{\sqrt[q]{x^p}} . $$
 \begin{figure}[h]
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{分幂函数2.png}
+    \includegraphics[width=0.8\textwidth]{tu/分幂函数2.png}
     \caption*{\texttt{分幂函数}$x\mapsto x^\frac{p}{q}$\texttt{的图像}}
 \end{figure}
 
@@ -678,7 +684,7 @@ $$ f_r : \quad x \mapsto x^{-\frac{p}{q}} = \frac{1}{\sqrt[q]{x^p}} . $$
 \begin{figure}[h]
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{分幂函数3.png}
+    \includegraphics[width=0.8\textwidth]{tu/分幂函数3.png}
     \caption*{\texttt{分幂函数}$x\mapsto x^{-\frac{p}{q}}$\texttt{的图像}}
 \end{figure}
 
@@ -724,7 +730,7 @@ $$ x\mapsto \frac{\sqrt{ax + b}}{\sqrt{cx + d}}.$$
     \vspace{4pt}
     \centering
     \includegraphics[width=0.96
-    \textwidth]{无理函数1.png}
+    \textwidth]{tu/无理函数1.png}
     \caption*{\texttt{一些无理函数的图像}}
 \end{figure}
 
@@ -781,7 +787,7 @@ $$ x\mapsto \frac{\sqrt{ax + b}}{\sqrt{cx + d}}.$$
 \begin{figure}[h] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.96\textwidth]{三角函数1.png}
+    \includegraphics[width=0.96\textwidth]{tu/三角函数1.png}
 \end{figure}
 
 这里我们使用\textbf{弧度制}代替角度制。也就是说，我们的自变量不再是角度，而是弧度，
@@ -837,7 +843,7 @@ $$
 \begin{wrapfigure}[8]{r}{0.52\textwidth} %this figure will be at the right
     \vspace{-35pt}
     \flushright
-    \includegraphics[width=0.5\textwidth]{三角函数2.png}
+    \includegraphics[width=0.5\textwidth]{tu/三角函数2.png}
     \caption*{\texttt{正弦函数在}$[0,\,\,\pi]$\texttt{上的图像}}
 \end{wrapfigure}
 
@@ -858,7 +864,7 @@ $x$的正弦值增大得比$y=x$慢，到了$x=\frac{\pi}{2}$时不再继续增�
 \begin{figure}[h] %this figure will be at the right
     % \vspace{-4pt}
     \centering
-    \includegraphics[width=0.63\textwidth]{三角函数变化表1.png}
+    \includegraphics[width=0.63\textwidth]{tu/三角函数变化表1.png}
 \end{figure}
 
 余弦函数的增减规律和正弦函数几乎一样。发生在正弦函数$x=x_0$处的事情，
@@ -868,7 +874,7 @@ $x$的正弦值增大得比$y=x$慢，到了$x=\frac{\pi}{2}$时不再继续增�
 \begin{figure}[h] %this figure will be at the right
     % \vspace{-4pt}
     \centering
-    \includegraphics[width=0.48\textwidth]{三角函数变化表2.png}
+    \includegraphics[width=0.48\textwidth]{tu/三角函数变化表2.png}
 \end{figure}
 
 正切函数在单个周期内严格单调递增，但在整个定义域中并不是单调函数。
@@ -910,7 +916,7 @@ $g\circ f$的定义域是$[0,\,\, +\infty)$。
 \begin{figure}[h] %this figure will be at the right
     % \vspace{4pt}
     \centering
-    \includegraphics[width=0.64\textwidth]{反函数1.png}
+    \includegraphics[width=0.64\textwidth]{tu/反函数1.png}
     \caption*{\texttt{函数}$x\mapsto x^2$\texttt{与}$x\mapsto \sqrt{x}$}
 \end{figure}
 
@@ -948,7 +954,7 @@ $f(g(x)) = \left(\sqrt{x + 1}\right)^2 - 1 = x$。于是$f$和$g$互为反函数
 \begin{figure}[h] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.64\textwidth]{反函数2.png}
+    \includegraphics[width=0.64\textwidth]{tu/反函数2.png}
     \caption*{\texttt{函数}$x\mapsto x^2 - 1$\texttt{与}$x\mapsto \sqrt{x + 1}$}
 \end{figure}
 
@@ -1054,7 +1060,7 @@ $f(g(x)) = \left(\sqrt{x + 1}\right)^2 - 1 = x$。于是$f$和$g$互为反函数
 \begin{figure}[h] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{反正弦函数1.png}
+    \includegraphics[width=0.8\textwidth]{tu/反正弦函数1.png}
     \caption*{\texttt{反正弦函数}$x\mapsto \arcsin(x)$}
 \end{figure}
 
@@ -1092,7 +1098,7 @@ $$ \arccos : [-1,\,\, 1] \rightarrow [0,\,\,\pi] . $$
 \begin{figure}[h] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{反余弦函数1.png}
+    \includegraphics[width=0.8\textwidth]{tu/反余弦函数1.png}
     \caption*{\texttt{反余弦函数}$x\mapsto \arccos(x)$}
 \end{figure}
 
@@ -1117,7 +1123,7 @@ $$ \arctan : \mathbb{R} \rightarrow (-\frac{\pi}{2}, \,\, \frac{\pi}{2}) . $$
 \begin{figure}[h] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{反正切函数1.png}
+    \includegraphics[width=0.8\textwidth]{tu/反正切函数1.png}
     \caption*{\texttt{反正切函数}$x\mapsto \arctan(x)$}
 \end{figure}
 
@@ -1143,7 +1149,7 @@ $$ \arccot : \mathbb{R} \rightarrow (0, \,\, \pi) . $$
 \begin{figure}[h] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{反余切函数1.png}
+    \includegraphics[width=0.8\textwidth]{tu/反余切函数1.png}
     \caption*{\texttt{反余切函数}$x\mapsto \arccot(x)$}
 \end{figure}
 
@@ -1196,7 +1202,7 @@ $$\forall r > 0, \,\,\, \exists n,  \,\,\, \mbox{使得} \forall \,\, m \geqslan
 \begin{figure}[h] %this figure will be at the right
     % \vspace{4pt}
     \centering
-    \includegraphics[width=0.64\textwidth]{数列极限2.png}
+    \includegraphics[width=0.64\textwidth]{tu/数列极限2.png}
 \end{figure}
 
 每格颜色对应$Q(r, n)$的真假。每一行对应一个正数$r$，每一列对应数列的一个下标$n$。我们的想法是：
@@ -1214,7 +1220,7 @@ $$\{a_n\} \to x.$$
 \begin{figure}[h] %this figure will be at the right
     \vspace{-14pt}
     \centering
-    \includegraphics[width=0.54\textwidth]{数列极限1.png}
+    \includegraphics[width=0.54\textwidth]{tu/数列极限1.png}
     \caption*{\texttt{从某一项开始，数列的值总落在区间}$[x-r,x+r]$\texttt{中}}
 \end{figure}
 
@@ -1281,7 +1287,7 @@ $$\forall x, \,\,\, \exists n, \,\,\,\mbox{使得}\,\,\,\forall \,\, m \geqslant
 \begin{wrapfigure}[9]{r}{0.33\textwidth} %this figure will be at the right
     \vspace{-48pt}
     \flushright
-    \includegraphics[width=0.32\textwidth]{数列无穷大1.png}
+    \includegraphics[width=0.32\textwidth]{tu/数列无穷大1.png}
     \caption*{\texttt{趋于无穷大的数列}}
 \end{wrapfigure}
 
@@ -1686,7 +1692,7 @@ $$ |a_{n+1} - \sqrt{2}| = \frac{|a_n - \sqrt{2}|}{2|a_n|} \cdot |a_n - \sqrt{2}|
 \begin{figure}[h]
     \vspace{-4pt}
     \centering
-    \includegraphics[width=0.84\textwidth]{上确界1.png}
+    \includegraphics[width=0.84\textwidth]{tu/上确界1.png}
 \end{figure}
 
 如果如果单调递增数列$\{a_n\}$有上界，即有某个有理数$M$，
@@ -1867,7 +1873,7 @@ $a^kb^{n-k}$的系数和$a^{n-k}b^k$的系数总相同。
 \begin{figure}[h] %this figure will be at the right
     \vspace{-4pt}
     \centering
-    \includegraphics[width=0.72\textwidth]{二项式1.png}
+    \includegraphics[width=0.72\textwidth]{tu/二项式1.png}
 \end{figure}
 
 可以看到，每一行相邻的两个系数之和，等于下一行位于它们“中间”的数。
@@ -2086,7 +2092,7 @@ $n$次抛掷的终态有$n+1$个，其分布列为：
 \begin{figure}[h]
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.96\textwidth]{二项分布直方图.png}
+    \includegraphics[width=0.96\textwidth]{tu/二项分布直方图.png}
     \caption*{\texttt{二项分布的直方图（}$n=20,\,\,\, p=0.4$\texttt{）}}
 \end{figure}
 
@@ -2581,7 +2587,7 @@ $$ \forall x\in\mathbb{R}, \quad x\mapsto a^x.$$
 \begin{figure}[h]
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.96\textwidth]{指数函数1.png}
+    \includegraphics[width=0.96\textwidth]{tu/指数函数1.png}
     \caption*{\texttt{指数函数}$y = a^x$\texttt{的图像}}
 \end{figure}
 
@@ -2623,7 +2629,7 @@ $$ a^v = u \mbox{当且仅当} v = \log_a(u). $$
 \begin{figure}[h]
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.96\textwidth]{对数函数1.png}
+    \includegraphics[width=0.96\textwidth]{tu/对数函数1.png}
     \caption*{\texttt{对数函数}$y = \log_a(x)$\texttt{的图像}}
 \end{figure}
 
@@ -2665,7 +2671,7 @@ $$329700000 \times 42100000000$$
 \begin{figure}[h]
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.6\textwidth]{Logarithmorum_Chilias_Prima_page_0-67.jpg}
+    \includegraphics[width=0.6\textwidth]{tu/Logarithmorum_Chilias_Prima_page_0-67.jpg}
     \caption*{\texttt{一份以}$10$\texttt{为底数的对照数表（17世纪）。}}
 \end{figure}
 

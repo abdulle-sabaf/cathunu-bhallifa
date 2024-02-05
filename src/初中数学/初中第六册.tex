@@ -19,9 +19,15 @@
 \usepackage{enumitem}
 \usepackage{verbatim}
 \usepackage{fontspec,xunicode,xltxtra}
-\usepackage{pifont}
 \usepackage{xeCJK} 
 \usepackage[b]{esvect}
+
+% 修改脚注的编号为加圈样式，并且各页单独编号
+\usepackage{pifont}
+\usepackage[perpage,symbol*]{footmisc}
+\DefineFNsymbols{circled}{{\ding{192}}{\ding{193}}{\ding{194}}
+{\ding{195}}{\ding{196}}{\ding{197}}{\ding{198}}{\ding{199}}{\ding{200}}{\ding{201}}}
+\setfnsymbol{circled}
 
 \definecolor{gl}{RGB}{246, 252, 240}
 \definecolor{gd}{RGB}{236, 244, 230}
@@ -398,7 +404,7 @@ $\|\mathbf{a} - \mathbf{b}\|$就是$|AB|$。
 \begin{wrapfigure}[8]{r}{0.32\textwidth} 
     \vspace{-16pt}
     \flushright
-    \includegraphics[width=0.3\textwidth]{内积1.png}
+    \includegraphics[width=0.3\textwidth]{tu/内积1.png}
 \end{wrapfigure}
 
 另一方面，余弦定理告诉我们，
@@ -425,7 +431,7 @@ $$ |AB| = \sqrt{(x_A - x_B)^2 + (y_A - y_B)^2} \leqslant \sqrt{x_A^2 + y_A^2} + 
 \begin{wrapfigure}[8]{r}{0.32\textwidth} 
     \vspace{-16pt}
     \flushright
-    \includegraphics[width=0.3\textwidth]{内积2.png}
+    \includegraphics[width=0.3\textwidth]{tu/内积2.png}
 \end{wrapfigure}
 
 内积为$0$，就表示向量夹角的余弦为$0$，即两个向量垂直。
@@ -765,7 +771,7 @@ $y + (- 2 + \sqrt{6}) x - \sqrt{6} = 0$、$y + (- 2 - \sqrt{6}) x + \sqrt{6} = 0
 \begin{figure}[h] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.6\textwidth]{平移变换例2.png}
+    \includegraphics[width=0.6\textwidth]{tu/平移变换例2.png}
 \end{figure}
 
 设$S$是以$(0,\,\,0)$、$(1,\,\,0)$、$(1,\,\,1)$、$(0,\,\,1)$为顶点的正方形（下面称为标准单位正方形）。
@@ -807,7 +813,7 @@ $$ T: \,\,\, (x, \,\, y) \mapsto (x,\,\, 0)$$
 \begin{wrapfigure}[9]{r}{0.38\textwidth} %this figure will be at the right
     \vspace{-20pt}
     \flushright
-    \includegraphics[width=0.36\textwidth]{投影变换例2.png}
+    \includegraphics[width=0.36\textwidth]{tu/投影变换例2.png}
     \caption*{\texttt{沿}$V$\texttt{到}$U$\texttt{的投影变换}}
 \end{wrapfigure}
 
@@ -884,7 +890,7 @@ $H$是$P$到$\mathbb{R}\mathbf{u}$的垂足，而$\vv{HP}$和$\vv{HQ}$大小相�
 \begin{wrapfigure}[6]{r}{0.42\textwidth} %this figure will be at the right
     \vspace{-40pt}
     \flushright
-    \includegraphics[width=0.4\textwidth]{反射变换例1.png}
+    \includegraphics[width=0.4\textwidth]{tu/反射变换例1.png}
 \end{wrapfigure}
 
 也就是说，给定单位方向向量$\mathbf{u}$，关于直线$\mathbb{R}\mathbf{u}$的反射变换可以表示为：
@@ -934,7 +940,7 @@ $$ Q - \mathbf{v} = 2(\mathbf{u}\,|\,P - \mathbf{v})\mathbf{u} - P + \mathbf{v}.
 \begin{figure}[H]
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{投影和反射1.png}
+    \includegraphics[width=0.8\textwidth]{tu/投影和反射1.png}
     \caption*{\texttt{投影变换（左）和反射变换（右）的关系}}
 \end{figure}
 
@@ -958,7 +964,7 @@ $$ Q - \mathbf{v} = 2(\mathbf{u}\,|\,P - \mathbf{v})\mathbf{u} - P + \mathbf{v}.
 \begin{wrapfigure}[9]{r}{0.42\textwidth} %this figure will be at the right
     \vspace{-25pt}
     \flushright
-    \includegraphics[width=0.4\textwidth]{位似变换例1.png}
+    \includegraphics[width=0.4\textwidth]{tu/位似变换例1.png}
 \end{wrapfigure}
 
 举例来说。设$S$是标准单位正方形，四个顶点分别是$A(0,\,\,0)$、$B(1,\,\,0)$、$C(1,\,\,1)$、$D(0,\,\,1)$。
@@ -989,7 +995,7 @@ $|y_P| = r|\sin{\theta}|$。对比各个象限中$x_P$、$y_P$和$\cos{\theta}$�
 \begin{wrapfigure}[7]{r}{0.36\textwidth} %this figure will be at the right
     \vspace{-40pt}
     \flushright
-    \includegraphics[width=0.3\textwidth]{旋转变换例1.png}
+    \includegraphics[width=0.3\textwidth]{tu/旋转变换例1.png}
 \end{wrapfigure}
 
 这个定理将点的坐标和角度联系起来，是我们讨论平面角度和旋转问题的关键。 
@@ -1013,7 +1019,7 @@ $$ (x,\,\,y) \mapsto \,\, \left(x\cos{(\alpha)} - y\sin{(\alpha)}, \,\,x\sin{(\a
 \begin{wrapfigure}[7]{r}{0.42\textwidth} %this figure will be at the right
     \vspace{-22pt}
     \flushright
-    \includegraphics[width=0.4\textwidth]{旋转变换例2.png}
+    \includegraphics[width=0.4\textwidth]{tu/旋转变换例2.png}
 \end{wrapfigure}
 
 可以看到，旋转变换的表示形式繁琐。这是向量和直角坐标系的性质决定的。
@@ -1029,7 +1035,7 @@ $$ (x,\,\,y) \mapsto \,\, \left(x\cos{(\alpha)} - y\sin{(\alpha)}, \,\,x\sin{(\a
 \begin{figure}[h] %this figure will be at the right
     % \vspace{4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{极坐标例1南北极地图2.jpg}
+    \includegraphics[width=0.8\textwidth]{tu/极坐标例1南北极地图2.jpg}
     \caption*{\texttt{使用极坐标系的极地地图}}
 \end{figure}
 
@@ -1044,7 +1050,7 @@ $\left(\sqrt{2},\,\, 45^\circ\right)$。
 \begin{figure}[h] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.5\textwidth]{极坐标例2.png}
+    \includegraphics[width=0.5\textwidth]{tu/极坐标例2.png}
 \end{figure}
 
 使用极坐标系，可以比较方便地描述以原点为中心的旋转运动。比如，直角坐标系中，
@@ -1183,7 +1189,7 @@ $h(0.5) = (0.25, \,\,2)$，而$g$不经过$(0.25, \,\,2)$。
 \begin{figure}[H] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{不变量1.png}
+    \includegraphics[width=0.8\textwidth]{tu/不变量1.png}
 \end{figure}
 
 \begin{so}
@@ -1202,7 +1208,7 @@ $h(0.5) = (0.25, \,\,2)$，而$g$不经过$(0.25, \,\,2)$。
 \begin{figure}[H] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.6\textwidth]{不变量2.png}
+    \includegraphics[width=0.6\textwidth]{tu/不变量2.png}
 \end{figure}
 
 \begin{so}
@@ -1376,7 +1382,7 @@ $$ \frac{\theta(t_2) - \theta(t_1)}{t_2 - t_1} = \frac{a \cdot 180^\circ}{\pi r}
 \begin{figure}[h] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=1\textwidth]{景色1.jpg}
+    \includegraphics[width=1\textwidth]{tu/景色1.jpg}
     \caption*{\texttt{平面图像与现实}}
 \end{figure}
 
@@ -1386,7 +1392,7 @@ $$ \frac{\theta(t_2) - \theta(t_1)}{t_2 - t_1} = \frac{a \cdot 180^\circ}{\pi r}
 \begin{figure}[h] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.6\textwidth]{多面体例1.jpg}
+    \includegraphics[width=0.6\textwidth]{tu/多面体例1.jpg}
 \end{figure}
 
 如果立体形状是几个平面围成的，就说它是\textbf{多面体}。多面体的每个面都是多边形。
@@ -1396,7 +1402,7 @@ $$ \frac{\theta(t_2) - \theta(t_1)}{t_2 - t_1} = \frac{a \cdot 180^\circ}{\pi r}
 \begin{figure}[h] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{多面体2.png}
+    \includegraphics[width=0.8\textwidth]{tu/多面体2.png}
 \end{figure}
 
 多面体相邻两面相交的部分总是线段，这些线段叫做\textbf{多面体的棱}。三条或以上的棱，交会在共同的端点上，
@@ -1414,7 +1420,7 @@ $$ \frac{\theta(t_2) - \theta(t_1)}{t_2 - t_1} = \frac{a \cdot 180^\circ}{\pi r}
 \begin{wrapfigure}[3]{r}{0.29\textwidth} %this figure will be at the left
     \vspace{-50pt}
     \flushright
-    \includegraphics[width=0.25\textwidth]{正方体1.png}
+    \includegraphics[width=0.25\textwidth]{tu/正方体1.png}
 \end{wrapfigure}
 
 下面来认识几种特殊的多面体。
@@ -1425,7 +1431,7 @@ $$ \frac{\theta(t_2) - \theta(t_1)}{t_2 - t_1} = \frac{a \cdot 180^\circ}{\pi r}
 \begin{wrapfigure}[4]{l}{0.3\textwidth} %this figure will be at the left
     \vspace{-20pt}
     \flushright
-    \includegraphics[width=0.25\textwidth]{长方体1.png}
+    \includegraphics[width=0.25\textwidth]{tu/长方体1.png}
 \end{wrapfigure}
 
 把正方体按某条棱的方向延长或压缩，得到的多面体叫做\textbf{长方体}。正方体就是一种特殊的长方体。
@@ -1443,7 +1449,7 @@ $$ \frac{\theta(t_2) - \theta(t_1)}{t_2 - t_1} = \frac{a \cdot 180^\circ}{\pi r}
 \begin{figure}[h] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{棱柱1.png}
+    \includegraphics[width=0.8\textwidth]{tu/棱柱1.png}
 \end{figure}
 
 把一个多边形朝指定方向平移，可以得到多面体。这样的多面体叫做\textbf{棱柱}。
@@ -1465,7 +1471,7 @@ $$ \frac{\theta(t_2) - \theta(t_1)}{t_2 - t_1} = \frac{a \cdot 180^\circ}{\pi r}
 \begin{figure}[h] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{旋转体例1.jpg}
+    \includegraphics[width=0.8\textwidth]{tu/旋转体例1.jpg}
 \end{figure}
 
 如果立体形状是某个平面图形绕着定轴旋转一周而成的，就说它是\textbf{旋转体}。
@@ -1477,10 +1483,10 @@ $$ \frac{\theta(t_2) - \theta(t_1)}{t_2 - t_1} = \frac{a \cdot 180^\circ}{\pi r}
 \begin{wrapfigure}[9]{r}{0.22\textwidth} %this figure will be at the left
     \vspace{-10pt}
     \flushright
-    \includegraphics[width=0.2\textwidth]{圆锥1.png}
+    \includegraphics[width=0.2\textwidth]{tu/圆锥1.png}
 
     \vspace{20pt}
-    \includegraphics[width=0.2\textwidth]{球体1.png}
+    \includegraphics[width=0.2\textwidth]{tu/球体1.png}
 \end{wrapfigure}
 
 观察右图中的旋转体，它有几个面？它的面和多面体的面有什么不同？
@@ -1494,7 +1500,7 @@ $$ \frac{\theta(t_2) - \theta(t_1)}{t_2 - t_1} = \frac{a \cdot 180^\circ}{\pi r}
 \begin{wrapfigure}[6]{l}{0.22\textwidth} %this figure will be at the left
     \vspace{-16pt}
     \flushleft
-    \includegraphics[width=0.2\textwidth]{圆柱2.png}
+    \includegraphics[width=0.2\textwidth]{tu/圆柱2.png}
 \end{wrapfigure}
 
 圆形绕着过圆心的直线旋转一周，形成的立体形状叫做\textbf{球}或\textbf{球体}。球只有一个面，叫做\textbf{球面}。
@@ -1514,7 +1520,7 @@ $$ \frac{\theta(t_2) - \theta(t_1)}{t_2 - t_1} = \frac{a \cdot 180^\circ}{\pi r}
 \begin{figure}[h] %this figure will be at the right
     % \vspace{4pt}
     \centering
-    \includegraphics[width=0.6\textwidth]{透视1.png}
+    \includegraphics[width=0.6\textwidth]{tu/透视1.png}
     \caption*{\texttt{近大远小}}
 \end{figure}
 
@@ -1533,7 +1539,7 @@ $$ \frac{\theta(t_2) - \theta(t_1)}{t_2 - t_1} = \frac{a \cdot 180^\circ}{\pi r}
 \begin{figure}[h] %this figure will be at the right
     % \vspace{4pt}
     \centering
-    \includegraphics[width=0.6\textwidth]{单点透视.png}
+    \includegraphics[width=0.6\textwidth]{tu/单点透视.png}
     \caption*{\texttt{单点透视}}
 \end{figure}
 
@@ -1544,7 +1550,7 @@ $$ \frac{\theta(t_2) - \theta(t_1)}{t_2 - t_1} = \frac{a \cdot 180^\circ}{\pi r}
 \begin{figure}[h] %this figure will be at the right
     \vspace{-4pt}
     \centering
-    \includegraphics[width=0.6\textwidth]{两点透视.png}
+    \includegraphics[width=0.6\textwidth]{tu/两点透视.png}
     \caption*{\texttt{两点透视}}
 \end{figure}
 
@@ -1553,7 +1559,7 @@ $$ \frac{\theta(t_2) - \theta(t_1)}{t_2 - t_1} = \frac{a \cdot 180^\circ}{\pi r}
 \begin{figure}[h] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.6\textwidth]{三点透视.png}
+    \includegraphics[width=0.6\textwidth]{tu/三点透视.png}
     \caption*{\texttt{三点透视}}
 \end{figure}
 
@@ -1867,7 +1873,7 @@ $$ a^{n-1} \tong{n} 1 .$$
 \begin{wrapfigure}[10]{r}{0.29\textwidth} %this figure will be at the left
     \vspace{-20pt}
     \flushright
-    \includegraphics[width=0.27\textwidth]{问卷调查2.png}
+    \includegraphics[width=0.27\textwidth]{tu/问卷调查2.png}
 \end{wrapfigure}
 
 实际生活中，收集数据样本的方式多种多样。一种常见的方式是通过调查问卷获得数据。右图是一份关于电视剧的调查问卷（部分）。
@@ -1960,7 +1966,7 @@ $$ a^{n-1} \tong{n} 1 .$$
 \begin{figure}[H] %this figure will be at the right
     \vspace{8pt}
     \centering
-    \includegraphics[width=0.3\textwidth]{演员关系图1.png}
+    \includegraphics[width=0.3\textwidth]{tu/演员关系图1.png}
 \end{figure}
 
 从图中我们能够看出不同演员之间的合作关系。我们也可以把共演关系用数表的方式呈现。曾经共演的演员，
@@ -2074,7 +2080,7 @@ $a$从某个$x_i$离开，运动到$x_{i+1}$期间，$n^-$是不变的。$a$到�
 \begin{figure}[h] %this figure will be at the right
     \vspace{8pt}
     \centering
-    \includegraphics[width=0.5\textwidth]{直方图1.png}
+    \includegraphics[width=0.5\textwidth]{tu/直方图1.png}
 \end{figure}
 
 直方图比分位数表格更直观、更容易理解。我们可以直接看出，学生身高在$[158.1, \,\, 162.8)$区间最为集中，共有$17$人的身高落在这个区间里；
@@ -2102,7 +2108,7 @@ $$ \frac{(1 - 3)^2 + (2 - 3)^2 + (3 - 3)^2 + (4 - 3)^2 + (5 - 3)^2}{5} = 2.$$
 \begin{figure}[H] %this figure will be at the right
     \vspace{10pt}
     \centering
-    \includegraphics[width=0.96\textwidth]{直方图方差1.png}
+    \includegraphics[width=0.96\textwidth]{tu/直方图方差1.png}
 \end{figure}
 可以看出，虽然两年平均降水量差不多，但相比$2019$年，$2020$年的日均降雨量分布较为集中。
 计算得到的方差也说明这一点：$2019$年日均降雨量的方差为$3147.87$，而$2020$年日均降雨量的方差只有$1872.21$。
@@ -2153,7 +2159,7 @@ $$ \frac{(1 - 3)^2 + (2 - 3)^2 + (3 - 3)^2 + (4 - 3)^2 + (5 - 3)^2}{5} = 2.$$
 \begin{figure}[H] %this figure will be at the right
     \vspace{8pt}
     \centering
-    \includegraphics[width=0.5\textwidth]{全国日均气温1.png}
+    \includegraphics[width=0.5\textwidth]{tu/全国日均气温1.png}
 \end{figure}
 
 这种图叫\textbf{热力图}，能直观表现各地气温之间的关系。
@@ -2183,7 +2189,7 @@ $$ \frac{(1 - 3)^2 + (2 - 3)^2 + (3 - 3)^2 + (4 - 3)^2 + (5 - 3)^2}{5} = 2.$$
 \begin{figure}[H] %this figure will be at the right
     \vspace{8pt}
     \centering
-    \includegraphics[width=0.9\textwidth]{时间序列1.png}
+    \includegraphics[width=0.9\textwidth]{tu/时间序列1.png}
 \end{figure}
 从图中，我们容易看出当地降水量和气温数据随时间变化的方式。这种呈现数据的方式称为\textbf{折线图}。
 
@@ -2210,7 +2216,7 @@ $$ \frac{(1 - 3)^2 + (2 - 3)^2 + (3 - 3)^2 + (4 - 3)^2 + (5 - 3)^2}{5} = 2.$$
 \begin{figure}[H] %this figure will be at the right
     \vspace{8pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{流程图1.png}
+    \includegraphics[width=0.8\textwidth]{tu/流程图1.png}
 \end{figure}
 
 这个展示数据的方法称为\textbf{流程图}。图中将任务用圆角方块表示，
@@ -2411,7 +2417,7 @@ $$
     \vspace{4pt}
     \centering
     \captionsetup{justification=centering}
-    \includegraphics[width=0.6\textwidth]{条件概率1.png}
+    \includegraphics[width=0.6\textwidth]{tu/条件概率1.png}
     \caption*{\texttt{把“}$B$\texttt{发生”作为前提条件，}$A$\texttt{发生的概率，就是}$A,B$\texttt{同时发生的概率，除以}$B$\texttt{发生的概率}}
 \end{figure}
 \vspace{0.5em}
@@ -2450,7 +2456,7 @@ $5$角硬币正面朝上的概率是$60\%$，反面朝上的概率是$40\%$。�
     % \vspace{4pt}
     \centering
     \captionsetup{justification=centering}
-    \includegraphics[width=0.6\textwidth]{条件概率2.png}
+    \includegraphics[width=0.6\textwidth]{tu/条件概率2.png}
     \caption*{\texttt{前提条件可能会改变不同事件发生的概率，也可能不会改变}}
 \end{figure}
 % \vspace{0.5em}
