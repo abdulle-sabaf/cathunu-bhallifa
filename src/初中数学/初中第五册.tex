@@ -19,8 +19,14 @@
 \usepackage{enumitem}
 \usepackage{verbatim}
 \usepackage{fontspec,xunicode,xltxtra}
-\usepackage{pifont}
 \usepackage{xeCJK} 
+
+% 修改脚注的编号为加圈样式，并且各页单独编号
+\usepackage{pifont}
+\usepackage[perpage,symbol*]{footmisc}
+\DefineFNsymbols{circled}{{\ding{192}}{\ding{193}}{\ding{194}}
+{\ding{195}}{\ding{196}}{\ding{197}}{\ding{198}}{\ding{199}}{\ding{200}}{\ding{201}}}
+\setfnsymbol{circled}
 
 \definecolor{gl}{RGB}{246, 252, 240}
 \definecolor{gd}{RGB}{236, 244, 230}
@@ -118,7 +124,7 @@ $XY$叫做圆的\textbf{半径}，长度一般记为$r$。不至于混淆的时�
 \begin{figure}[h] %this figure will be at the right
     \vspace{8pt}
     \centering
-    \includegraphics[width=0.72\textwidth]{圆与直线1.png}
+    \includegraphics[width=0.72\textwidth]{tu/圆与直线1.png}
 \end{figure}
 
 \begin{enumerate}
@@ -143,7 +149,7 @@ $XY$叫做圆的\textbf{半径}，长度一般记为$r$。不至于混淆的时�
 % \begin{figure}[h] %this figure will be at the right
 %     \vspace{8pt}
 %     \centering
-%     \includegraphics[width=0.9\textwidth]{圆与圆1.png}
+%     \includegraphics[width=0.9\textwidth]{tu/圆与圆1.png}
 % \end{figure}
 
 % \begin{enumerate}
@@ -310,7 +316,7 @@ $$ |MA| \cdot |MB| = |MA|^2 = |MB|^2 = |MP| \cdot |MQ|.$$
 \begin{wrapfigure}[7]{r}{0.43\textwidth} %this figure will be at the right
     \vspace{-22pt}
     \flushright
-    \includegraphics[width=0.42\textwidth]{圆势1.png}
+    \includegraphics[width=0.42\textwidth]{tu/圆势1.png}
 \end{wrapfigure}
 
 如右图，可以发现，$\angle NDC$和$\angle NMC$都对应同一段弧，且$C,M$都在弧外，
@@ -330,7 +336,7 @@ $$|PA|\cdot|PB| = (|PO| - |AO|) \cdot (|PO| + |PB|) = |OP|^2 - r^2.$$
 \begin{wrapfigure}[12]{r}{0.43\textwidth} %this figure will be at the right
     \vspace{-18pt}
     \flushright
-    \includegraphics[width=0.42\textwidth]{圆势2.png}
+    \includegraphics[width=0.42\textwidth]{tu/圆势2.png}
 \end{wrapfigure}
 
 如右图，注意到$\angle BNA$和$\angle BMA$都对应半圆，所以都是直角。
@@ -412,7 +418,7 @@ $$ \frac{|PA|}{|PQ|} = \frac{|PQ|}{|PB|}.$$
 \begin{wrapfigure}[7]{r}{0.46\textwidth} %this figure will be at the right
     \vspace{-20pt}
     \flushright
-    \includegraphics[width=0.45\textwidth]{内切圆势1.png}
+    \includegraphics[width=0.45\textwidth]{tu/内切圆势1.png}
 \end{wrapfigure}
 
 除了内心，三角形还有旁心。旁心到三角形三边的距离也相等。因此，以每个旁心为圆心，以它到三遍的距离为圆心，
@@ -438,7 +444,7 @@ $\triangle ABC$和$\triangle BCD$的外接圆未必是同一个圆。所以，�
 \begin{wrapfigure}[3]{r}{0.32\textwidth} %this figure will be at the right
     \vspace{-40pt}
     \flushright
-    \includegraphics[width=0.3\textwidth]{圆内接四边形1.png}
+    \includegraphics[width=0.3\textwidth]{tu/圆内接四边形1.png}
 \end{wrapfigure}
 
 如右图，设$A$、$B$、$C$、$D$圆$(O,r)$上（相异的）四点，考察它们对应的圆弧。我们发现，
@@ -455,7 +461,7 @@ $\angle DBA = \angle DCA$。
 \begin{wrapfigure}[4]{r}{0.32\textwidth} %this figure will be at the right
     \vspace{-48pt}
     \flushright
-    \includegraphics[width=0.3\textwidth]{圆内接四边形1b.png}
+    \includegraphics[width=0.3\textwidth]{tu/圆内接四边形1b.png}
 \end{wrapfigure}
 
 如果$A$、$B$、$C$、$D$顺序改变，如右图，那么四边形$ABCD$就是蝶形。
@@ -568,7 +574,7 @@ $\angle DBA = \angle DCA$。如果对角线$AC$和$BD$交于点$P$，仍然有$\
 \begin{wrapfigure}[7]{r}{0.5\textwidth} %this figure will be at the right
     \vspace{-90pt}
     \flushright
-    \includegraphics[width=0.48\textwidth]{垂心与外心1.png}
+    \includegraphics[width=0.48\textwidth]{tu/垂心与外心1.png}
 \end{wrapfigure}
 
 考虑锐角三角形$ABC$，把顶点到对边的垂足分别记作$H_A, H_B, H_C$，垂心为$H$。
@@ -612,7 +618,7 @@ $$\angle CBO = 90^\circ - \frac{1}{2}\angle BOC = 90^\circ - \angle A = \angle H
 \begin{wrapfigure}[9]{r}{0.42\textwidth} %this figure will be at the right
     \vspace{-50pt}
     \flushright
-    \includegraphics[width=0.4\textwidth]{垂心与外心2.png}
+    \includegraphics[width=0.4\textwidth]{tu/垂心与外心2.png}
     % \caption*{\texttt{垂心和外接圆}}
 \end{wrapfigure}
 
@@ -632,7 +638,7 @@ $$ \angle H_CHB = 180^\circ - \angle H_BHH_C = \angle A.$$
 \begin{wrapfigure}[9]{r}{0.42\textwidth} %this figure will be at the right
     \vspace{-30pt}
     \flushright
-    \includegraphics[width=0.4\textwidth]{垂心外心重心3.png}
+    \includegraphics[width=0.4\textwidth]{tu/垂心外心重心3.png}
     % \caption*{\texttt{垂心和外接圆}}
 \end{wrapfigure}
 
@@ -683,7 +689,7 @@ $$ |MD_C| = |MM_C| = |MH_C| = \frac12 |OC'| = \frac{\mathtt{R}}{2}.$$
 \begin{wrapfigure}[7]{r}{0.42\textwidth} %this figure will be at the right
     \vspace{-20pt}
     \flushright
-    \includegraphics[width=0.4\textwidth]{九点圆1.png}
+    \includegraphics[width=0.4\textwidth]{tu/九点圆1.png}
     % \caption*{\texttt{垂心和外接圆}}
 \end{wrapfigure}
 
@@ -810,7 +816,7 @@ $$ \angle A_1A_2A_3 + \angle A_2A_3A_4 + \cdots + \angle A_{n-2}A_{n-1}A_{n} + \
 \begin{figure}[H] 
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.5\textwidth]{圆面积2.png}
+    \includegraphics[width=0.5\textwidth]{tu/圆面积2.png}
 \end{figure}
 
 下面来论证$S_1 = \pi$。为此，我们需要详细讨论前面提到的小扇形的面积。
@@ -891,7 +897,7 @@ $$ \forall n\in\mathbb{N}, \quad | S_1 - \pi | < \frac{2\pi^2}{n}. $$
 \begin{figure}[H] 
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{圆面积3.png}
+    \includegraphics[width=0.8\textwidth]{tu/圆面积3.png}
 \end{figure}
 
 下面证明$\widearc{AB}$的长度小于等于$|AP| + |BP|$。设$OP$交圆于$Q$，如上图右，设有$\widearc{AQ}$上的折线
@@ -907,7 +913,7 @@ $$|AA_1| < |AP_1|, \,\, |A_1A_2| < |P_1P_2|, \,\, \cdots , \,\, |A_{m-1}Q| < |P_
 \begin{figure}[H] 
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.5\textwidth]{圆面积1.png}
+    \includegraphics[width=0.5\textwidth]{tu/圆面积1.png}
 \end{figure}
 
 如果一个多边形覆盖一个圆，且每条边都和它相切，就说这个多边形是圆的\textbf{外切多边形}。
@@ -946,7 +952,7 @@ $$|AA_1| < |AP_1|, \,\, |A_1A_2| < |P_1P_2|, \,\, \cdots , \,\, |A_{m-1}Q| < |P_
 \begin{wrapfigure}[5]{r}{0.4\textwidth} %this figure will be at the right
     \vspace{-0pt}
     \flushright
-    \includegraphics[width=0.36\textwidth]{三角函数1.png}
+    \includegraphics[width=0.36\textwidth]{tu/三角函数1.png}
 \end{wrapfigure}
 我们的目标是解三角形：已知三角形部分边角的大小，求其余边角的值。
 
@@ -966,7 +972,7 @@ $$|AA_1| < |AP_1|, \,\, |A_1A_2| < |P_1P_2|, \,\, \cdots , \,\, |A_{m-1}Q| < |P_
 \begin{figure}[H] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{三角函数2.png}
+    \includegraphics[width=0.8\textwidth]{tu/三角函数2.png}
     % \caption*{\texttt{垂心和外接圆}}
 \end{figure}
 
@@ -997,7 +1003,7 @@ $P$到始边距离小于半径，因此面积小于$\frac{1}{2}$。
 \begin{figure}[H] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.5\textwidth]{正弦菱形1.png}
+    \includegraphics[width=0.5\textwidth]{tu/正弦菱形1.png}
     % \caption*{\texttt{垂心和外接圆}}
 \end{figure}
 
@@ -1061,7 +1067,7 @@ $$ y = \sin 37^\circ + \frac{\sin 38^\circ - \sin 37^\circ}{38 - 37} \cdot (x - 
 \begin{wrapfigure}[5]{r}{0.42\textwidth} %this figure will be at the right
     \vspace{-25pt}
     \flushright
-    \includegraphics[width=0.4\textwidth]{正弦习题1.png}
+    \includegraphics[width=0.4\textwidth]{tu/正弦习题1.png}
 \end{wrapfigure}
 
 想一想，如果要得到更精确的结果，
@@ -1094,7 +1100,7 @@ $$  \frac{2S_{\triangle ABC}}{abc} = \frac{\sin C}{c} = \frac{\sin B}{b} = \frac
 \begin{wrapfigure}[8]{r}{0.4\textwidth} %this figure will be at the right
     \vspace{-30pt}
     \flushright
-    \includegraphics[width=0.36\textwidth]{三角函数1.png}
+    \includegraphics[width=0.36\textwidth]{tu/三角函数1.png}
 \end{wrapfigure}
 
 上式告诉我们，三角形三个内角的正弦值和对边长度的比是定值$\frac{2S_{\triangle ABC}}{abc}$。
@@ -1235,7 +1241,7 @@ $|CH_A| = |AC|\cos C = b\cos (180^\circ - C)$。
 \begin{figure}[H] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{余弦定理1.png}
+    \includegraphics[width=0.8\textwidth]{tu/余弦定理1.png}
     % \caption*{\texttt{垂心和外接圆}}
 \end{figure}
 
@@ -1308,7 +1314,7 @@ $$ c^2 = a^2 + b^2 - 2ab \cos C.$$
 \begin{figure}[H] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.5\textwidth]{和角正弦公式1.png}
+    \includegraphics[width=0.5\textwidth]{tu/和角正弦公式1.png}
     % \caption*{\texttt{垂心和外接圆}}
 \end{figure}
 
@@ -1326,7 +1332,7 @@ $$ \forall \,\, 0 < \alpha, \beta < 90^\circ , \,\,\, \sin(\alpha + \beta) = \si
 \begin{wrapfigure}[7]{r}{0.25\textwidth} %this figure will be at the right
     \vspace{-45pt}
     \flushright
-    \includegraphics[width=0.24\textwidth]{差角正弦公式1.png}
+    \includegraphics[width=0.24\textwidth]{tu/差角正弦公式1.png}
 \end{wrapfigure}
 
 对于两锐角之差，可以用类似的方式推导。如右图，设$\alpha = \angle APO > \beta = \angle BPO$，
@@ -1509,7 +1515,7 @@ $\tan\angle AOP = |AQ|$，\textbf{余切}（\textbf{值}）为$\cot\angle AOP = 
 \begin{wrapfigure}[7]{r}{0.25\textwidth} %this figure will be at the right
     \vspace{-15pt}
     \flushright
-    \includegraphics[width=0.24\textwidth]{正切函数1.png}
+    \includegraphics[width=0.24\textwidth]{tu/正切函数1.png}
 \end{wrapfigure}
 
 和正弦、余弦一样，我们可以定义正切、余切函数。
@@ -1626,7 +1632,7 @@ $$b_n = \frac{\sin \frac{360^\circ}{n}}{\sin \frac{(n-2)90^\circ}{n}} = \frac{\s
 \begin{figure}[h] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.5\textwidth]{圆内接多边形1.png}
+    \includegraphics[width=0.5\textwidth]{tu/圆内接多边形1.png}
 \end{figure}
 
 为了方便，记$\beta_n = \frac{360^\circ}{n}$，则$b_n = 2\sin \frac{\beta_n}{2}$。
@@ -2227,7 +2233,7 @@ $g$是一个二次函数，最高次项是$-\frac{1}{a}$。$a>0$时，最高次�
 \begin{figure}[h] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.96\textwidth]{多元映射10.png}
+    \includegraphics[width=0.96\textwidth]{tu/多元映射10.png}
     \caption{$P(n,m)$对$n=3$一路为真}
 \end{figure}
 
@@ -2246,7 +2252,7 @@ $g$是一个二次函数，最高次项是$-\frac{1}{a}$。$a>0$时，最高次�
 \begin{figure}[H] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.96\textwidth]{多元映射12.png}
+    \includegraphics[width=0.96\textwidth]{tu/多元映射12.png}
     \caption{$P(n,m)$对$n$有求必允}
 \end{figure}
 

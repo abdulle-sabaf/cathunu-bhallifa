@@ -20,6 +20,12 @@
 \usepackage{xeCJK} 
 \usepackage{caption}
 \usepackage{thmtools, thm-restate}
+% 修改脚注的编号为加圈样式，并且各页单独编号
+\usepackage{pifont}
+\usepackage[perpage,symbol*]{footmisc}
+\DefineFNsymbols{circled}{{\ding{192}}{\ding{193}}{\ding{194}}
+{\ding{195}}{\ding{196}}{\ding{197}}{\ding{198}}{\ding{199}}{\ding{200}}{\ding{201}}}
+\setfnsymbol{circled}
 
 \definecolor{gl}{RGB}{246, 252, 240}
 \definecolor{gd}{RGB}{236, 244, 230}
@@ -255,7 +261,7 @@ $\mathbb{N}^2$的势与$\mathbb{N}$的势关系如何呢？
 \begin{figure}[h] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.4\textwidth]{无穷1.png}
+    \includegraphics[width=0.4\textwidth]{tu/无穷1.png}
     \caption*{\texttt{按照箭头方向，可以不重复不遗漏数遍}$\mathbb{N}^2$\texttt{中所有的点}}
 \end{figure}
 
@@ -493,7 +499,7 @@ $$ v(t_0) = \partial p(t_0).$$
 \begin{figure}[h]
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.7\textwidth]{导数1.png}
+    \includegraphics[width=0.7\textwidth]{tu/导数1.png}
 \end{figure}
 
 如何理解瞬时速度呢？上图是物体做直线运动时，位移关于时间的函数的图像。横坐标表示时间$t$，
@@ -993,7 +999,7 @@ $$ \partial \log_e (a) = \frac{1}{a}.$$
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\textwidth]{微变零值定理1.png}    
+    \includegraphics[width=0.6\textwidth]{tu/微变零值定理1.png}    
     \caption*{\texttt{函数满足}$f(a) = f(b)$\texttt{，于是会在某处附近变得水平。}}
 \end{figure}
 
@@ -1046,7 +1052,7 @@ $$ \partial \log_e (a) = \frac{1}{a}.$$
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\textwidth]{微变中值定理1.png}    
+    \includegraphics[width=0.6\textwidth]{tu/微变中值定理1.png}    
     \caption*{\texttt{可以把}$f(a) \neq f(b)$\texttt{视为考虑了整体变化的趋势。}}
 \end{figure}
 
@@ -1718,7 +1724,7 @@ $x\mapsto \sqrt{x}$和$x\mapsto x^2$在$[0,1]$上都是增函数，从$0$增长�
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{凹凸函数1.png}
+    \includegraphics[width=0.8\textwidth]{tu/凹凸函数1.png}
     \caption*{$x\mapsto x^2$\texttt{（左）严格下凸，}$x\mapsto \sqrt{x}$\texttt{（右）严格上凸。}}
 \end{figure}
 
@@ -1730,7 +1736,7 @@ $$ \frac{f(z) - f(x)}{z - x} \leqslant \frac{f(z) - f(y)}{y - z}. $$
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{凸函数变率1.png}
+    \includegraphics[width=0.8\textwidth]{tu/凸函数变率1.png}
 \end{figure}
 
 直观来看，设函数在$[a,b]$上有定义。
@@ -1821,7 +1827,7 @@ $$ \frac{f(z) - f(x)}{z - x} \leqslant \frac{f(z) - f(y)}{y - z}. $$
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{研究函数2.png}
+    \includegraphics[width=0.8\textwidth]{tu/研究函数2.png}
 \end{figure}
 
 % \newpage  % 为了适应 研究函数2.png 的位置

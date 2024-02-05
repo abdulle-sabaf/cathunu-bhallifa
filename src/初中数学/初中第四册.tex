@@ -22,6 +22,13 @@
 \usepackage{xeCJK} 
 \usepackage{tikz}
 
+% 修改脚注的编号为加圈样式，并且各页单独编号
+\usepackage{pifont}
+\usepackage[perpage,symbol*]{footmisc}
+\DefineFNsymbols{circled}{{\ding{192}}{\ding{193}}{\ding{194}}
+{\ding{195}}{\ding{196}}{\ding{197}}{\ding{198}}{\ding{199}}{\ding{200}}{\ding{201}}}
+\setfnsymbol{circled}
+
 \definecolor{gl}{RGB}{246, 252, 240}
 \definecolor{gd}{RGB}{236, 244, 230}
 \definecolor{bg}{RGB}{242, 244, 228}
@@ -82,7 +89,7 @@
 \begin{wrapfigure}[7]{r}{0.3\textwidth} %this figure will be at the right
     \vspace{-24pt}
     \centering
-    \includegraphics[width=0.3\textwidth]{平行四边形0.png}
+    \includegraphics[width=0.3\textwidth]{tu/平行四边形0.png}
 \end{wrapfigure}
 
 设有四边形$ABCD$，我们说$AB$、$CD$互为\textbf{对边}，$BC$、$DA$互为对边；
@@ -175,7 +182,7 @@ $$ (x_D, y_D) \mapsto (x_D + x_B, y_D + y_B).$$
 
 \begin{wrapfigure}[9]{r}{0.25\textwidth} %this figure will be at the right
     \centering
-    \includegraphics[width=0.24\textwidth]{特殊平行四边形.png}
+    \includegraphics[width=0.24\textwidth]{tu/特殊平行四边形.png}
 \end{wrapfigure}
 
 把菱形沿对角线“裁开”，得到的一对三角形都是等腰三角形。
@@ -214,7 +221,7 @@ $|BD|^2 = |AB|^2 + |AD|^2$。而$|BC| = |AD|$，所以$|AC| = |BD|$。即：
 \begin{wrapfigure}[8]{r}{0.38\textwidth} %this figure will be at the right
     \vspace{-35pt}
     \centering
-    \includegraphics[width=0.36\textwidth]{梯形1.png}
+    \includegraphics[width=0.36\textwidth]{tu/梯形1.png}
 \end{wrapfigure}
 
 如果四边形有一对边平行，就说它是\textbf{梯形}。如果梯形另一对边也平行，
@@ -260,7 +267,7 @@ $\angle BCD + \angle CDA = 180^\circ$。如果其中一个角是直角，这样�
 \begin{wrapfigure}[6]{r}{0.32\textwidth} %this figure will be at the right
     \vspace{-5pt}
     \centering
-    \includegraphics[width=0.32\textwidth]{筝形1.png}
+    \includegraphics[width=0.32\textwidth]{tu/筝形1.png}
 \end{wrapfigure}
 
 平行四边形可以“裁成”两个同角全等的三角形。或者说，一对同角全等的三角形可以拼出一个平行四边形。
@@ -304,7 +311,7 @@ $$\{(x,y) \,|\, 0\leqslant x, y \leqslant a\}.$$
 \begin{figure}[H] 
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{凹四边形1.png}
+    \includegraphics[width=0.8\textwidth]{tu/凹四边形1.png}
 \end{figure}
 
 给定四个点$A$、$B$、$C$、$D$，我们把线段$AB$、$BC$、$CD$、$DA$连起来的图形叫做四边形$ABCD$。
@@ -340,7 +347,7 @@ $$\{(x,y) \,|\, 0\leqslant x, y \leqslant a\}.$$
 \begin{wrapfigure}[4]{r}{0.36\textwidth} 
     \vspace{-30pt}
     \flushright
-    \includegraphics[width=0.32\textwidth]{面积_矩形1.png}
+    \includegraphics[width=0.32\textwidth]{tu/面积_矩形1.png}
 \end{wrapfigure}
 
 我们把正方形作为面积的单位。
@@ -365,7 +372,7 @@ $$\{(x,y) \,|\, 0\leqslant x, y \leqslant a\}.$$
 \begin{figure}[H] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.6\textwidth]{面积_平行四边形1.png}
+    \includegraphics[width=0.6\textwidth]{tu/面积_平行四边形1.png}
 \end{figure}
 
 \begin{itemize}
@@ -387,7 +394,7 @@ $$\{(x,y) \,|\, 0\leqslant x, y \leqslant a\}.$$
 \begin{figure}[H] 
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{面积_梯形1.png}
+    \includegraphics[width=0.8\textwidth]{tu/面积_梯形1.png}
 \end{figure}
 
 \begin{itemize}
@@ -408,7 +415,7 @@ $$\{(x,y) \,|\, 0\leqslant x, y \leqslant a\}.$$
 \begin{figure}[H] 
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{面积_鱼1.png}
+    \includegraphics[width=0.8\textwidth]{tu/面积_鱼1.png}
 \end{figure}
 
 上图中，我们把一张透明方格网纸放在图形上。图形的面积$S$大于等于它完整覆盖的方格数$N_{\text{内}}$，
@@ -427,7 +434,7 @@ $N_{\text{内}}S_1$和$N_{\text{外}}S_1$的差也逐渐缩小，那么我们就
     \begin{figure}[H] 
         \vspace{4pt}
         \centering
-        \includegraphics[width=0.45\textwidth]{塞瓦定理1.png}
+        \includegraphics[width=0.45\textwidth]{tu/塞瓦定理1.png}
     \end{figure}
 
     \indent 1. 给定三角形$ABC$及其内一点$P$，从三角形各个顶点出发的射线$AP$、$BP$、$CP$
@@ -1067,7 +1074,7 @@ $k$的正负对函数的性质有本质影响。
 \begin{wrapfigure}[8]{r}{0.64\textwidth} %this figure will be at the right
     \vspace{-20pt}
     \flushright
-    \includegraphics[width=0.6\textwidth]{反比例函数1.png}
+    \includegraphics[width=0.6\textwidth]{tu/反比例函数1.png}
 \end{wrapfigure}
 
 我们说反比例函数的图像是一条曲线。右图中，第一象限中的部分叫做反比例函数的\textbf{正支}，
@@ -1082,7 +1089,7 @@ $k>0$时，正支在第一象限，负支在第三象限；$k<0$时，正支在�
 \begin{figure}[h] %this figure will be at the right
     % \vspace{-20pt}
     \centering
-    \includegraphics[width=0.9\textwidth]{反比例函数2.png}
+    \includegraphics[width=0.9\textwidth]{tu/反比例函数2.png}
 \end{figure}
 
 首先，$k=3$的图像和$k=-3$的函数图像恰好关于$y$轴对称，也关于$x$轴对称。
@@ -1138,7 +1145,7 @@ $x > 0$是，$f(x)$大于$0$，且$x$越大，$f(x)$越大。
 \begin{figure}[h] %this figure will be at the right
     \vspace{8pt}
     \centering
-    \includegraphics[width=0.6\textwidth]{二次函数1.png}
+    \includegraphics[width=0.6\textwidth]{tu/二次函数1.png}
 \end{figure}
 
 观察图像，这是一条曲线。首先可以注意到，它关于$y$轴对称。这一点可以用前面得到的性质证明。给定图像上一点：
@@ -1157,7 +1164,7 @@ $(x, \,\,x^2)$，$(-x, \,\,x^2)$也在图像上，所以图像关于$y$轴对称
 \begin{figure}[h] %this figure will be at the right
     \vspace{8pt}
     \centering
-    \includegraphics[width=0.5\textwidth]{二次函数2.png}
+    \includegraphics[width=0.5\textwidth]{tu/二次函数2.png}
 \end{figure}
 
 对于一般的一元二次式$ax^2+bx+c$，二次函数$x\mapsto ax^2+bx+c$的图像是怎样的呢？
@@ -1177,7 +1184,7 @@ $$ 0.5x^2+0.8x-1 = 0.5\left(x + 0.8\right)^2 - 1.32$$
 
 \begin{figure}[ht] %this figure will be at the right
     \centering
-    \includegraphics[width=0.45\textwidth]{二次函数3.png}
+    \includegraphics[width=0.45\textwidth]{tu/二次函数3.png}
 \end{figure}
 
 用$x\mapsto 0.5x^2+0.8x-1$作例子，可以看到，原来$x\mapsto ax^2$的图像关于$y$轴对称。
@@ -1260,7 +1267,7 @@ $x$是不等式$\frac{8}{x} > x + 2$的一个解，当且仅当点$(x, \frac{8}{
 \begin{figure}[h]
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.5\textwidth]{一元二次不等式1.png}
+    \includegraphics[width=0.5\textwidth]{tu/一元二次不等式1.png}
 \end{figure}
 
 把$\frac{8}{x} = x + 2$两边乘以$x$，再把常数项$8$移到右边，就得到方程：

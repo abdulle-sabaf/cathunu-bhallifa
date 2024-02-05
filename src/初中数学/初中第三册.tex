@@ -20,6 +20,13 @@
 \usepackage{fontspec,xunicode,xltxtra}
 \usepackage{xeCJK} 
 
+% 修改脚注的编号为加圈样式，并且各页单独编号
+\usepackage{pifont}
+\usepackage[perpage,symbol*]{footmisc}
+\DefineFNsymbols{circled}{{\ding{192}}{\ding{193}}{\ding{194}}
+{\ding{195}}{\ding{196}}{\ding{197}}{\ding{198}}{\ding{199}}{\ding{200}}{\ding{201}}}
+\setfnsymbol{circled}
+
 \definecolor{gl}{RGB}{246, 252, 240}
 \definecolor{gd}{RGB}{236, 244, 230}
 \definecolor{bg}{RGB}{242, 244, 228}
@@ -70,7 +77,7 @@
 
 \begin{wrapfigure}{r}{0.26\textwidth} %this figure will be at the right
     \vspace{-26pt}
-    \includegraphics[width=0.26\textwidth]{比例1.png}
+    \includegraphics[width=0.26\textwidth]{tu/比例1.png}
 \end{wrapfigure}
 
 相似关系比全等关系的要求宽松一些。只要两个三角形全等，它们必然相似。反之，两个三角形相似，它们未必全等。
@@ -91,7 +98,7 @@
 
 % \begin{wrapfigure}{r}{0.28\textwidth} %this figure will be at the right
 %     \vspace{-10pt}
-%     \includegraphics[width=0.28\textwidth]{相似2.png}
+%     \includegraphics[width=0.28\textwidth]{tu/相似2.png}
 % \end{wrapfigure}
 
 反之，通过平行公理可以推出，如果从一点出发的两条射线被两条平行直线所截，那么截得的线段成相同的比例，截得的三角形相似。
@@ -155,7 +162,7 @@ $|AE| = |A'C'|$，根据“边角边”，$\triangle ADE \cong \triangle A'B'C'$
 
 \begin{wrapfigure}{r}{0.27\textwidth} %this figure will be at the right
     \vspace{-10pt}
-    \includegraphics[width=0.27\textwidth]{三角形8.png}
+    \includegraphics[width=0.27\textwidth]{tu/三角形8.png}
 \end{wrapfigure}
 
 相似三角形性质在研究一般三角形性质的时候很有用，因为，我们接下来会看到，三角形里面有很多有趣的相似现象。
@@ -175,7 +182,7 @@ $|AE| = |A'C'|$，根据“边角边”，$\triangle ADE \cong \triangle A'B'C'$
 
 \begin{wrapfigure}{r}{0.27\textwidth} %this figure will be at the right
     \vspace{-10pt}
-    \includegraphics[width=0.27\textwidth]{三角形9.png}
+    \includegraphics[width=0.27\textwidth]{tu/三角形9.png}
 \end{wrapfigure}
 
 $MN$也叫做关于边$BC$的中位线。另外要注意的是：我们只知道点$P$把中线分成长度$2:1$的两段，
@@ -195,7 +202,7 @@ $MN$也叫做关于边$BC$的中位线。另外要注意的是：我们只知道
 
 \begin{wrapfigure}{r}{0.27\textwidth} %this figure will be at the right
     \vspace{-80pt}
-    \includegraphics[width=0.27\textwidth]{三角形10.png}
+    \includegraphics[width=0.27\textwidth]{tu/三角形10.png}
 \end{wrapfigure}
 
 我们利用角平分线的性质构造了一个等腰三角形。这是与角平分线相关的问题中常见的思路。
@@ -294,7 +301,7 @@ $MN$也叫做关于边$BC$的中位线。另外要注意的是：我们只知道
 \begin{wrapfigure}[6]{r}{0.45\textwidth} %this figure will be at the right
     \vspace{-45pt}
     \flushright
-    \includegraphics[width=0.4\textwidth]{三角形7.png}
+    \includegraphics[width=0.4\textwidth]{tu/三角形7.png}
 \end{wrapfigure}
 
 垂线定理告诉我们，过三角形每个顶点，都有唯一垂直于对边的直线。
@@ -333,7 +340,7 @@ $MN$也叫做关于边$BC$的中位线。另外要注意的是：我们只知道
 \begin{wrapfigure}{r}{0.32\textwidth} %this figure will be at the right
     \vspace{-40pt}
     \flushright
-    \includegraphics[width=0.28\textwidth]{三角形内心.png}
+    \includegraphics[width=0.28\textwidth]{tu/三角形内心.png}
 \end{wrapfigure}
 
 三角形每个内角和外角都有角平分线，分别叫内角平分线和外角平分线。
@@ -353,7 +360,7 @@ $MN$也叫做关于边$BC$的中位线。另外要注意的是：我们只知道
 \begin{wrapfigure}{r}{0.32\textwidth} %this figure will be at the right
     \vspace{-30pt}
     \flushright
-    \includegraphics[width=0.28\textwidth]{三角形旁心.png}
+    \includegraphics[width=0.28\textwidth]{tu/三角形旁心.png}
 \end{wrapfigure}
 
 三角形的内心可以看作到三边距离相等的点。作为对比，外心是到三个顶点距离相等的点。
@@ -383,7 +390,7 @@ $MN$也叫做关于边$BC$的中位线。另外要注意的是：我们只知道
 \begin{figure}[h] %this figure will be at the right
     \centering
     \vspace{10pt}
-    \includegraphics[width=0.5\textwidth]{三角形内心旁心.png}
+    \includegraphics[width=0.5\textwidth]{tu/三角形内心旁心.png}
 \end{figure}
 
 \begin{xt}\label{xt:1-2-0}
@@ -400,7 +407,7 @@ $MN$也叫做关于边$BC$的中位线。另外要注意的是：我们只知道
 \section{中线和重心}
 \begin{wrapfigure}{r}{0.27\textwidth} %this figure will be at the right
     \vspace{-60pt}
-    \includegraphics[width=0.27\textwidth]{三角形重心证明.png}
+    \includegraphics[width=0.27\textwidth]{tu/三角形重心证明.png}
 \end{wrapfigure}
 三角形每个顶点和对边中点的连线，称为这个顶点到对边的\textbf{中线}或该边上的中线。我们已经学习过
 等腰三角形和直角三角形中线的性质。等腰三角形的三条中线交于一点。一般情况下，这件事也成立。
@@ -478,7 +485,7 @@ $MN$也叫做关于边$BC$的中位线。另外要注意的是：我们只知道
 
 \begin{wrapfigure}{r}{0.27\textwidth} %this figure will be at the left
     \vspace{10pt}
-    \includegraphics[width=0.27\textwidth]{反证法1.png}
+    \includegraphics[width=0.27\textwidth]{tu/反证法1.png}
 \end{wrapfigure}
 当原命题是“任何”、“不存在”这种全判断的时候，它的否定是“至少有一个”这种有判断。这时，使用反证法就可以对这个“有一个”
 的特例进行论证，非常方便。
@@ -856,7 +863,7 @@ $$\frac{\sqrt{q}}{\sqrt{r}} = \sqrt{\frac{q}{r}}.$$
 \begin{wrapfigure}[13]{r}{0.62\textwidth} %this figure will be at the right
     \vspace{-30pt}
     \centering
-    \includegraphics[width=0.6\textwidth]{坐标系2.png}
+    \includegraphics[width=0.6\textwidth]{tu/坐标系2.png}
     \caption*{\texttt{平面直角坐标系}}
 \end{wrapfigure}
 
@@ -901,7 +908,7 @@ $y_P$叫做它的\textbf{纵坐标}。
 \begin{wrapfigure}[6]{r}{0.3\textwidth} %this figure will be at the right
     \vspace{-30pt}
     \centering
-    \includegraphics[width=0.288\textwidth]{坐标系3.png}
+    \includegraphics[width=0.288\textwidth]{tu/坐标系3.png}
 \end{wrapfigure}
 
 “对称”是生活中常用的词。数学中，对称也是很重要的概念。讨论全等三角形的时候，我们用右图中的方法
@@ -928,7 +935,7 @@ $y_P$叫做它的\textbf{纵坐标}。
 \begin{wrapfigure}{r}{0.5\textwidth} %this figure will be at the right
     \vspace{-15pt}
     \centering
-    \includegraphics[width=0.5\textwidth]{轴对称1.png}
+    \includegraphics[width=0.5\textwidth]{tu/轴对称1.png}
 \end{wrapfigure}
 
 除了关于直线的对称，图形还可以关于点对称。证明三角形外角等于另外两内角之和的时候，
@@ -1051,7 +1058,7 @@ $k$的正负对函数的性质有本质影响。
 \begin{wrapfigure}{r}{0.35\textwidth} %this figure will be at the right
     \vspace{-10pt}
     \flushright
-    \includegraphics[width=0.32\textwidth]{正比例0.png}
+    \includegraphics[width=0.32\textwidth]{tu/正比例0.png}
 \end{wrapfigure}
 
 有没有更直观的方式可以了解正比例函数呢？我们可以用图形来表示正比例函数。
@@ -1072,7 +1079,7 @@ $k$的正负对函数的性质有本质影响。
 \begin{wrapfigure}[8]{r}{0.4\textwidth} %this figure will be at the right
     \vspace{-10pt}
     \flushright
-    \includegraphics[width=0.35\textwidth]{正比例1.png}
+    \includegraphics[width=0.35\textwidth]{tu/正比例1.png}
 \end{wrapfigure}
 
 下面我们来证明这一点。
@@ -1145,7 +1152,7 @@ $b$称为相应直线的\textbf{截距}。$b=0$的时候，一次函数就是正
 \begin{wrapfigure}[12]{r}{0.35\textwidth} %this figure will be at the right
     \vspace{-10pt}
     \flushright
-    \includegraphics[width=0.32\textwidth]{一次函数1.png}
+    \includegraphics[width=0.32\textwidth]{tu/一次函数1.png}
 \end{wrapfigure}
 
 可以发现，我们没有区分函数乘以函数和函数乘以常量。这是因为在函数的四则运算中，常函数可以看作和常数一样。
@@ -1303,7 +1310,7 @@ $ax + b > 0$。因此解集是$\{x \, | \, x > 1.5\}$。
 
 \begin{figure}[H] %this figure will be at the right
     \vspace{8pt}
-    \includegraphics[width=0.96\textwidth]{区间1.png}
+    \includegraphics[width=0.96\textwidth]{tu/区间1.png}
 \end{figure}
 
 怎么在数轴上表示区间呢？上图展示了两种表示区间的方法。一种是用方括号截断数轴，形成区间。
@@ -1357,7 +1364,7 @@ $$(-\infty, \frac{60}{1.3}] \cap [\frac{1100}{73.556}, +\infty)  = [\frac{1100}{
 \begin{figure}[H] %this figure will be at the right
     \vspace{8pt}
     \centering
-    \includegraphics[width=0.6\textwidth]{一元一次不等式组1.png}
+    \includegraphics[width=0.6\textwidth]{tu/一元一次不等式组1.png}
 \end{figure}
 
 由于箱数必然是整数，我们只考虑区间$[\frac{1100}{73.556}, \frac{60}{1.3}]$中的整数。
@@ -1620,7 +1627,7 @@ $x = 4$的解集是$\{(4, y) \,|\, y\in\mathbb{R}\}$，这是一条平行于$y$�
 \begin{wrapfigure}[12]{r}{0.5\textwidth} %this figure will be at the right
     \vspace{-15pt}
     \flushright
-    \includegraphics[width=0.48\textwidth]{二元一次方程组.png}
+    \includegraphics[width=0.48\textwidth]{tu/二元一次方程组.png}
 \end{wrapfigure}
 
 二元一次方程组的解集，是它包含的各个二元一次方程解集的交集。所以，以上方程组的解集，

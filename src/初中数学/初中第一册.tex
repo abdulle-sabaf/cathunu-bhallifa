@@ -18,6 +18,13 @@
 \usepackage{fontspec,xunicode,xltxtra}
 \usepackage{xeCJK} 
 
+% 修改脚注的编号为加圈样式，并且各页单独编号
+\usepackage{pifont}
+\usepackage[perpage,symbol*]{footmisc}
+\DefineFNsymbols{circled}{{\ding{192}}{\ding{193}}{\ding{194}}
+{\ding{195}}{\ding{196}}{\ding{197}}{\ding{198}}{\ding{199}}{\ding{200}}{\ding{201}}}
+\setfnsymbol{circled}
+
 \definecolor{gl}{RGB}{246, 252, 240}
 \definecolor{gd}{RGB}{236, 244, 230}
 \definecolor{bg}{RGB}{242, 244, 228}
@@ -447,7 +454,7 @@ $\exists$表示“存在”、“至少有一个”。对某个集合$A$中元�
 \begin{wrapfigure}[7]{r}{0.42\textwidth} %this figure will be at the right
     \vspace{-34pt}
     \flushright
-    \includegraphics[width=0.4\textwidth]{叠圈图0.png}
+    \includegraphics[width=0.4\textwidth]{tu/叠圈图0.png}
 \end{wrapfigure}
 
 复合判断也可以用集合的方式表达。
@@ -472,7 +479,7 @@ $$ \{x \,|\, \exists i \in I, x \in S_i \} $$
 \begin{wrapfigure}{r}{0.42\textwidth} %this figure will be at the right
     \vspace{-28pt}
     \flushright
-    \includegraphics[width=0.4\textwidth]{叠圈图1.png}
+    \includegraphics[width=0.4\textwidth]{tu/叠圈图1.png}
 \end{wrapfigure}
 
 右图中，联言判断对应着所有圈交叠的区域（颜色最深的部分），而或言判断对应着所有蓝色的区域的总和。
@@ -527,7 +534,7 @@ $$ \{x \,|\, \exists i \in I, x \in S_i \} $$
 \begin{figure}[h]
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.5\textwidth]{映射1.png}
+    \includegraphics[width=0.5\textwidth]{tu/映射1.png}
     \caption*{\texttt{映射把图形对应到它的颜色}}
 \end{figure}
 
