@@ -368,8 +368,51 @@
     2.4. 他的姐姐比他高。
 \end{blockaft}
 
-\subsection{性质判断和关系判断}
+\subsection{真值表}
+
+为了方便、清楚地讨论命题之间的真假关系，我们常常使用叫做\textbf{真值表}的小工具，列举命题的真假。
+
+一个判断（命题）的\textbf{真值}，表示它到底是真的还是假的。
+比如，我们说“地球绕着太阳转”的真值是“真”，“鱼能飞”的真值是“假”。
+
+假设我们要研究一些命题之间的关系，比如从其中一些命题的真假出发，是否能推断出另一些命题的真假。
+那么，我们可以列举作为出发点的命题的所有可能的真假情况，
+然后在每一种情况下，调查另一些命题的真假，把这些真值排列成一个表，就是真值表。
+
+\begin{blockin}{例子}
+    用字母$p$表示命题：“地球绕着太阳转”，$q$表示命题：“地球不绕着太阳转”。
+
+    我们想知道$p$的真假和$q$的关系。因此，我们从$p$出发，列举$p$所有可能的真假情况。
+    考虑每一种情况下，$q$的真假。最后把结果排列成下表：
+    
+\begin{center}
+    \begin{tabular}{ p{3em}<{\centering} p{3em}<{\centering}}
+        \rowcolor{gd} $p$ & $q$ \\ [0.5ex] 
+        \noalign{{\color{white}\hrule height 2pt}} % \hline\hline
+        \rowcolor{gl} 真 & 假 \\   
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gd} 假 & 真 \\
+    \end{tabular}
+\end{center}
+\end{blockin}
+
+从例子里的真值表可知，命题$p$的真假，总和$q$的真假相反。$p$为真，$q$就为假，反之亦然。
+
+
+\begin{blockaft}{想一想}
+    我们想要研究以下命题$p$和$q$的关系，请你画出真值表。\\
+    1. $p$：有的树叶是红的。$q$：所有的树叶都是红的。 \\
+    2. $p$：他不是小明的哥哥。$q$：他是小明的弟弟。\\
+    3. $p$：天马上要亮了。$q$：天还没亮。\\
+    4. $p$：他谁也不认识。$q$：他认识老张。
+\end{blockaft}
+
+\section{简单判断}
+
+我们首先来看简单判断（命题）。
 简单判断是不包含其他判断的判断。简单判断有两种，一种是\textbf{性质判断}，一种是\textbf{关系判断}。
+
+\subsection{性质判断和关系判断}
 
 性质判断就是断定某个事物是否具有某种属性的判断。对应的命题称为\textbf{性质命题}。
 性质判断一般只有一个概念作为主语，作为要判断的对象，以及一个谓语，作为要判断的内容。
@@ -441,43 +484,46 @@
     8. 他谁也不认识。
 \end{blockaft}
 
-\subsection{简单命题的否命题}
+\subsection{简单命题的反命题}
 
-简单命题的\textbf{否命题}，是形式上表达的态度和它相反的命题。
+简单命题的\textbf{反命题}，是形式上表达的态度和它相反的命题。
 
-单肯定命题的否命题，一般就是它对应的否定句；单否定命题的否命题，一般就是它对应的肯定句。
+性质命题的反命题，就是否定性质判断的谓语。关系命题的反命题，就是否定关系判断的述语。
+
+单肯定命题的反命题，一般就是它对应的否定句；单否定命题的反命题，一般就是它对应的肯定句。
 
 \begin{blockin}{例子}
     \begin{enumerate}
-        \item “小明是小红的哥哥”的否命题是“小明不是小红的哥哥”。
-        \item “他没有读过《三国演义》”的否命题是“他读过《三国演义》”。
-        \item “他每天至少刷两次牙”的否命题是“他每天至多刷一次牙”。
-        \item “他比我高”的否命题是“他不比我高”。
+        \item “小明是小红的哥哥”的反命题是“小明不是小红的哥哥”。
+        \item “他没有读过《三国演义》”的反命题是“他读过《三国演义》”。
+        \item “他每天至少刷两次牙”的反命题是“他每天至多刷一次牙”。
+        \item “他比我高”的反命题是“他不比我高”。
+        \item “有些蛇不吃青蛙”的反命题是“有些蛇吃青蛙”。
     \end{enumerate}
 \end{blockin}
 
-性质命题的主语可以是全称和有称，它的否命题也可以分别是全称和有称。我们把它们分别称为\textbf{全否命题}和\textbf{有否命题}。
+性质命题的主语可以是全称和有称，它的反命题也可以分别是全称和有称。我们把它们分别称为\textbf{全反命题}和\textbf{有反命题}。
 
-全命题可以对应全否命题和有否命题。
-
-\begin{blockin}{例子}
-    “所有的鱼都能飞”对应的全否命题是“任何鱼都不能飞”，有否命题是“有的鱼不能飞”。
-\end{blockin}
-
-同样地，有命题也可以对应全否命题和有否命题。
+全命题可以对应全反命题和有反命题。
 
 \begin{blockin}{例子}
-    “有的鱼能飞”对应的全否命题是“任何鱼都不能飞”，有否命题是“有的鱼不能飞”。
+    “所有的鱼都能飞”对应的全反命题是“任何鱼都不能飞”，有反命题是“有的鱼不能飞”。
 \end{blockin}
 
-关系命题的每个元都可以是全称和有称，因此，二元关系命题就对应四个命题和四个否命题，三元关系命题对应八个，依此类推。
-我们现在不研究关系命题的否命题。
+同样地，有命题也可以对应全反命题和有反命题。
+
+\begin{blockin}{例子}
+    “有的鱼能飞”对应的全反命题是“任何鱼都不能飞”，有反命题是“有的鱼不能飞”。
+\end{blockin}
+
+关系命题的每个元都可以是全称和有称，因此，二元关系命题就对应四个命题和四个反命题，三元关系命题对应八个，依此类推。
+我们现在不研究关系命题的反命题。
 
 假设性质命题的内容相同，只有全称、有称和肯定否定的部分不同，
-对应的全命题、有命题、全否命题、有否命题之间有什么联系呢？已知其中一个的真假，能不能推断其他命题的真假？
+对应的全命题、有命题、全反命题、有反命题之间有什么联系呢？已知其中一个的真假，能不能推断其他命题的真假？
 
 \begin{blockaft}{想一想}
-    请写出以下命题的否命题。\\
+    请写出以下命题的反命题。\\
     1. 有的树叶是绿的。 \\
     2. 所有的树叶都是红的。\\
     3. 他不是小明的哥哥。\\
@@ -486,45 +532,6 @@
     6. 过了这座山，就能看到五彩湖了。\\
     7. 天马上要亮了。 \\
     8. 他谁也不认识。
-\end{blockaft}
-
-\subsection{真值表}
-
-为了方便、清楚地讨论命题之间的真假关系，我们常常使用叫做\textbf{真值表}的小工具，列举命题的真假。
-
-一个判断（命题）的\textbf{真值}，表示它到底是真的还是假的。
-比如，我们说“地球绕着太阳转”的真值是“真”，“鱼能飞”的真值是“假”。
-
-假设我们要研究一些命题之间的关系，比如从其中一些命题的真假出发，是否能推断出另一些命题的真假。
-那么，我们可以列举作为出发点的命题的所有可能的真假情况，
-然后在每一种情况下，调查另一些命题的真假，把这些真值排列成一个表，就是真值表。
-
-\begin{blockin}{例子}
-    用字母$p$表示命题：“地球绕着太阳转”，$q$表示命题：“地球不绕着太阳转”。
-
-    我们想知道$p$的真假和$q$的关系。因此，我们从$p$出发，列举$p$所有可能的真假情况。
-    考虑每一种情况下，$q$的真假。最后把结果排列成下表：
-    
-\begin{center}
-    \begin{tabular}{ p{3em}<{\centering} p{3em}<{\centering}}
-        \rowcolor{gd} $p$ & $q$ \\ [0.5ex] 
-        \noalign{{\color{white}\hrule height 2pt}} % \hline\hline
-        \rowcolor{gl} 真 & 假 \\   
-        \noalign{{\color{white}\hrule height 2pt}}% \hline
-        \rowcolor{gd} 假 & 真 \\
-    \end{tabular}
-\end{center}
-\end{blockin}
-
-从例子里的真值表可知，单命题的真假，总和它的否命题的真假相反。单命题为真，它的否命题就为假，反之亦然。
-
-
-\begin{blockaft}{想一想}
-    我们想要研究以下命题$p$和$q$的关系，请你画出真值表。\\
-    1. $p$：有的树叶是红的。$q$：所有的树叶都是红的。 \\
-    2. $p$：他不是小明的哥哥。$q$：他是小明的弟弟。\\
-    3. $p$：天马上要亮了。$q$：天还没亮。\\
-    4. $p$：他谁也不认识。$q$：他认识老张。
 \end{blockaft}
 
 \subsection{简单命题的否定}
@@ -546,7 +553,7 @@
 
 对简单命题来说，命题的否定取决于全称、有称还是单称。现在我们只讨论性质命题的否定，不讨论关系命题的否定。
 
-\textbf{单命题的否定就是它的否命题}。
+\textbf{单命题的否定就是它的反命题}。
 
 \begin{blockin}{例子}
     \begin{enumerate}
@@ -582,10 +589,10 @@
 
 不过，我们也可以看到，“四年级所有的学生都参加了校运会”和“四年级有些学生没有参加校运会”的真假恰好相反。
 
-一般来说，\textbf{全命题的否定是它对应的有否命题}。比如，“所有的甲是乙”的否定，是“有些甲不是乙”；
+一般来说，\textbf{全命题的否定是它对应的有反命题}。比如，“所有的甲是乙”的否定，是“有些甲不是乙”；
 “所有的甲都不是乙”的否定，是“有些甲是乙”。
 
-另一方面，\textbf{有命题的否定是它对应的全否命题}。比如，“有些甲是乙”的否定，是“所有的甲都不是乙”；
+另一方面，\textbf{有命题的否定是它对应的全反命题}。比如，“有些甲是乙”的否定，是“所有的甲都不是乙”；
 “有些甲不是乙”的否定，是“所有的甲都是乙”。
 
 \begin{blockin}{例子}
@@ -652,6 +659,182 @@
     4. 你还知道哪些等价关系？\\
     4. 你还知道哪些偏序关系？
 \end{blockaft}
+
+\section{复合判断}
+
+复合判断（命题）就是包含了不止一个判断的判断（命题）。
+复合判断的真假，取决于它包含的判断的真假。
+
+常见的复合判断有\textbf{假言判断}、\textbf{或言判断}、\textbf{选言判断}和\textbf{联言判断}。
+
+
+\subsection{联言判断}
+联言判断是关于多个判断的全判断，它表示多个判断全是真的。对应的命题叫做联言命题。
+
+\begin{blockin}{例子}
+    这辆车不仅动力充足，外观也大气。
+\end{blockin}
+
+这句话提到了两个判断：“这辆车动力充足”和“这辆车外观大气”，它表达的意思是：这两个判断都是真的。
+汉语里，联言命题一般使用“既……又……”，“不仅……而且……”这样表示并列关系的连词，把各个判断连起来。
+每个判断称为它的\textbf{分支判断}。
+
+联言判断的真值表为：
+\begin{center}
+    \begin{tabular}{ p{3em}<{\centering} p{3em}<{\centering} p{8em}<{\centering} }
+        \rowcolor{gd} 甲 & 乙 & 甲，并且乙 \\ [0.5ex] 
+        \noalign{{\color{white}\hrule height 2pt}} % \hline\hline
+        \rowcolor{gl} 真 & 真 & 真  \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gd} 真 & 假 & 假  \\
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gl} 假 & 真 & 假 \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gd} 假 & 假 & 假 \\
+    \end{tabular}
+\end{center}
+
+\subsection{或言判断}
+或言判断是关于多个判断的有判断，它表示多个判断里至少有一个是真的。对应的命题叫做或言命题。
+
+\begin{blockin}{例子}
+    或许是你说错了，或许是我听错了。
+\end{blockin}
+
+这句话提到了两个判断：“你说错了”和“我听错了”，它表达的意思是：这两个判断至少有一个是真的。
+汉语里，或言命题一般使用“也许……也许……”，“……或者……”这样表示并列关系的连词，把各个判断连起来。
+每个判断称为它的分支判断。
+
+或言判断的真值表为：
+\begin{center}
+    \begin{tabular}{ p{3em}<{\centering} p{3em}<{\centering} p{8em}<{\centering} }
+        \rowcolor{gd} 甲 & 乙 & 甲，或者乙 \\ [0.5ex] 
+        \noalign{{\color{white}\hrule height 2pt}} % \hline\hline
+        \rowcolor{gl} 真 & 真 & 真  \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gd} 真 & 假 & 真  \\
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gl} 假 & 真 & 真 \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gd} 假 & 假 & 假 \\
+    \end{tabular}
+\end{center}
+
+\subsection{选言判断}
+选言判断也是关于多个判断的判断，它表示多个判断里恰有一个是真的。对应的命题叫做选言命题。
+
+\begin{blockin}{例子}
+    要么是你不对，要么是我不对。
+\end{blockin}
+
+这句话提到了两个判断：“你不对”和“我不对”，它表达的意思是：这两个判断恰有一个是真的。
+汉语里，选言命题一般使用“要么……要么……”，“或者……或者……”这样表示并列关系的连词，把各个判断连起来。
+每个判断称为它的分支判断。为了强调只有一个是真的，经常加上“两者不可得兼”、“两者必居其一”等说法。
+
+选言判断的真值表为：
+\begin{center}
+    \begin{tabular}{ p{3em}<{\centering} p{3em}<{\centering} p{8em}<{\centering} }
+        \rowcolor{gd} 甲 & 乙 & 要么甲，要么乙 \\ [0.5ex] 
+        \noalign{{\color{white}\hrule height 2pt}} % \hline\hline
+        \rowcolor{gl} 真 & 真 & 假  \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gd} 真 & 假 & 真  \\
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gl} 假 & 真 & 真 \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gd} 假 & 假 & 假 \\
+    \end{tabular}
+\end{center}
+
+\subsection{假言判断}
+假言判断是关于条件的判断，它涉及两个称为\textbf{前件}和\textbf{后件}的判断，并判断前件是后件成立的条件。
+假言判断并不对前件或后件做判断，只对两者的条件关系做判断，而条件关系又分为两种：\textbf{充分条件}和\textbf{必要条件}。
+
+充分条件假言判断想说的是：前件为真的时候，后件也为真。
+
+\begin{blockin}{例子}
+    人只要不吃东西，就会饿。
+\end{blockin}
+
+这个例子里，前件是“人不吃东西”，后件是“人会饿”。它表达的意思是：前件真的时候，后件一定也是真的。
+我们说，前件是后件的充分条件。这个例子里，“人不吃东西”是“人会饿”的充分条件。
+汉语里，我们一般使用“如果……那么……”，“只要……就……”等连词表达充分条件假言判断。
+
+\begin{blockaft}    
+    读这句话：“你要是考了满分，太阳要从西边升上来了！”\\
+    1. 这句话里，“你考了满分”和“太阳要从西边升上来”是什么关系？\\
+    2. “你”如果没考满分，这个关系还成立吗？这时“太阳要从西边升上来”和“太阳不会从西边升上来”对这个判断有什么影响？
+\end{blockaft}
+
+充分条件判断的真值表为：
+\begin{center}
+    \begin{tabular}{ p{3em}<{\centering} p{3em}<{\centering} p{8em}<{\centering} }
+        \rowcolor{gd} 甲 & 乙 & 如果甲，那么乙 \\ [0.5ex] 
+        \noalign{{\color{white}\hrule height 2pt}} % \hline\hline
+        \rowcolor{gl} 真 & 真 & 真  \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gd} 真 & 假 & 假  \\
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gl} 假 & 真 & 真 \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gd} 假 & 假 & 真 \\
+    \end{tabular}
+\end{center}
+
+必要条件假言判断想说的是：前件为假的时候，后件也为假。
+
+\begin{blockin}
+    人只有识字了，才能读书。
+\end{blockin}
+
+这个例子里，前件是“人识字”，后件是“人能读书”。不识字的人，不能读书。
+前件假的时候，后件也是假的，这说明必要条件关系是真的。
+我们说，前件是后件的必要条件。这个例子里，“识字”是“能读书”的必要条件。
+汉语里，我们一般使用“只有……才……”，“仅当……时，有……”等连词表达充分条件假言判断。
+
+\begin{blockaft}
+    读这句话：“只有到了晚上，才能看见满天的星星。”\\
+    1. 这句话里，“到了晚上”和“看见星星”是什么关系？\\
+    2. 有时，到了晚上也看不见星星。是否说明这个判断不成立呢？
+\end{blockaft}
+
+必要条件判断的真值表为：
+\begin{center}
+    \begin{tabular}{ p{3em}<{\centering} p{3em}<{\centering} p{8em}<{\centering} }
+        \rowcolor{gd} 甲 & 乙 & 只有甲，才有乙 \\ [0.5ex] 
+        \noalign{{\color{white}\hrule height 2pt}} % \hline\hline
+        \rowcolor{gl} 真 & 真 & 真  \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gd} 真 & 假 & 真  \\
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gl} 假 & 真 & 假 \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gd} 假 & 假 & 真 \\
+    \end{tabular}
+\end{center}
+
+如果前件既是后件的充分条件，也是后件的必要条件，就说前件是后件的\textbf{充要条件}。
+
+充要条件一般用“当且仅当”句式来表达。比如：“李四年纪比张三大，当且仅当张三年纪比李四小。”
+
+充要条件假言判断可以看成充分条件假言判断和必要条件假言判断的联言判断。因此，充要条件判断的真值，
+可以通过充分条件判断的真值和必要条件判断的真值得到：
+\begin{center}
+    \begin{tabular}{ p{3em}<{\centering} p{3em}<{\centering} p{7em}<{\centering} p{7em}<{\centering} p{7em}<{\centering} }
+        \rowcolor{gd} 甲 & 乙 & 如果甲，那么乙 & 只有甲，才有乙 & 甲，当且仅当乙 \\ [0.5ex] 
+        \noalign{{\color{white}\hrule height 2pt}} % \hline\hline
+        \rowcolor{gl} 真 & 真 & 真 & 真 & 真 \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gd} 真 & 假 & 假 & 真 & 假 \\
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gl} 假 & 真 & 真 & 假 & 假 \\  
+        \noalign{{\color{white}\hrule height 2pt}}% \hline
+        \rowcolor{gd} 假 & 假 & 真 & 真 & 真\\
+    \end{tabular}
+\end{center}
+可以看到，前件和后件都为真、都为假的时候，充要条件判断为真。前件和后件一真一假的时候，充要条件判断为假。
+
+\subsection{用复合判断推理}
 
 
 \end{document}

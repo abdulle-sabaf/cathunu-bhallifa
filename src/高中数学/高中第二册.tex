@@ -98,11 +98,11 @@
 % 其中$\alpha = 45^\circ$，将它对应的正弦值、余弦值代入，得到$(x_P, \,\,y_P)$旋转变换后的点$Q$的坐标：
 % $$ (x_Q,\,\, y_Q) = \left(\frac{\sqrt{2}}{2}x_P - \frac{\sqrt{2}}{2}y_P, \,\,\frac{\sqrt{2}}{2}x_P + \frac{\sqrt{2}}{2}y_P\right) $$
 % 因此：
-% \begin{align}
-%     x_Q y_Q &= \left(\frac{\sqrt{2}}{2}x_P - \frac{\sqrt{2}}{2}y_P\right)\left(\frac{\sqrt{2}}{2}x_P + \frac{\sqrt{2}}{2}y_P\right) \notag \\
-%     &= \frac12 x_P^2 - \frac12 y_P^2 \notag \\
-%     &= \frac12 \notag
-% \end{align}
+% \begin{align*}
+%     x_Q y_Q &= \left(\frac{\sqrt{2}}{2}x_P - \frac{\sqrt{2}}{2}y_P\right)\left(\frac{\sqrt{2}}{2}x_P + \frac{\sqrt{2}}{2}y_P\right)  \\
+%     &= \frac12 x_P^2 - \frac12 y_P^2  \\
+%     &= \frac12 
+% \end{align*}
 % 从而$y_Q = \frac{1}{2x_Q}$，$Q$在反比例函数$F$的图像中。
 
 % 反之，对$F$的图像中的点$Q$，可以按原点顺时针旋转$45^\circ$得到点$P$：
@@ -113,11 +113,11 @@
 %   \end{array}\right.
 % $$
 % 而
-% \begin{align}
-%     x_P^2 - y_P^2 &= \left(\frac{\sqrt{2}}{2}x_Q + \frac{\sqrt{2}}{2}y_Q\right)^2 - \left(-\frac{\sqrt{2}}{2}x_Q + \frac{\sqrt{2}}{2}y_Q\right)^2 \notag \\
-%     &= 2 x_Q y_Q \notag \\
-%     &= 1 \notag
-% \end{align}
+% \begin{align*}
+%     x_P^2 - y_P^2 &= \left(\frac{\sqrt{2}}{2}x_Q + \frac{\sqrt{2}}{2}y_Q\right)^2 - \left(-\frac{\sqrt{2}}{2}x_Q + \frac{\sqrt{2}}{2}y_Q\right)^2  \\
+%     &= 2 x_Q y_Q  \\
+%     &= 1 
+% \end{align*}
 % 因此$P$在$H$中。这就说明$F$的图像是$H$的图像按原点逆时针旋转$45^\circ$的结果。
 
 
@@ -128,10 +128,10 @@
 \end{ex}
 
 先考虑简单的情况。如果圆心在原点，出发点在$x$轴正半轴上（$y_P = 0$，$x_P>0$），设$l_1$、$l_2$的方程分别为：
-\begin{align}
-    l_1:\quad & y = k_1(x - x_P) \notag \\
-    l_2:\quad & y = k_2(x - x_P) \notag 
-\end{align}
+\begin{align*}
+    l_1:\quad & y = k_1(x - x_P)  \\
+    l_2:\quad & y = k_2(x - x_P)  
+\end{align*}
 我们知道两切线分别切圆于第一和第四象限。不妨设$l_1$与圆的切点在第一象限，记为$Q_1(x_1,\,\,y_1)$。
 $OQ_1\perp l_1$，因此，$\vv{OQ_1}$和$\vv{OP}$的内积是$r^2$。即：
 $$ x_1\cdot x_P + y_1\cdot 0 = r^2.$$
@@ -242,11 +242,11 @@ $$T_{-\theta}: (x,\,\, y) \mapsto (x\cos{\theta} + y\sin{\theta},\,\,y\cos{\thet
 于是，$P_1$对应的切点可以表示为：$T_{-\theta}\circ f\circ T_\theta(P_1)$，即$P_1$依次经过$T_\theta$、$f_1$、$T_{-\theta}$映射的结果。
 
 记$P_1$的坐标为$(x_P,\,\,y_P)$，则切点坐标为：
-\begin{align}
-    T_{-\theta}\circ f_1\circ T_\theta(P_1) &= T_{-\theta}\circ f_1(x_P\cos{\theta} - y_P\sin{\theta}) \notag \\
-    &= T_{-\theta}\left(\frac{r^2}{x_P\cos{\theta} - y_P\sin{\theta}},\,\, \frac{rs}{x_P\cos{\theta} - y_P\sin{\theta}}\right) \notag \\
-    &= \left(\frac{r^2\cos{\theta} + rs\sin{\theta}}{x_P\cos{\theta} - y_P\sin{\theta}},\,\, \frac{-r^2\sin{\theta} + rs\cos{\theta}}{x_P\cos{\theta} - y_P\sin{\theta}}\right) \notag
-\end{align}
+\begin{align*}
+    T_{-\theta}\circ f_1\circ T_\theta(P_1) &= T_{-\theta}\circ f_1(x_P\cos{\theta} - y_P\sin{\theta})  \\
+    &= T_{-\theta}\left(\frac{r^2}{x_P\cos{\theta} - y_P\sin{\theta}},\,\, \frac{rs}{x_P\cos{\theta} - y_P\sin{\theta}}\right)  \\
+    &= \left(\frac{r^2\cos{\theta} + rs\sin{\theta}}{x_P\cos{\theta} - y_P\sin{\theta}},\,\, \frac{-r^2\sin{\theta} + rs\cos{\theta}}{x_P\cos{\theta} - y_P\sin{\theta}}\right) 
+\end{align*}
 其中$s = \sqrt{(x_P\cos{\theta} - y_P\sin{\theta})^2 - r^2}$。
 
 这就是$P_1$对应的切点。它的表达式里还包括了$\theta$。$\theta$是把$P_1$旋转到$P_2$的角度。我们知道$P_2$的纵坐标为$0$，
@@ -371,19 +371,19 @@ $$ f(\mathbf{u}) = f(u_1 \mathbf{e}_1 + u_2 \mathbf{e}_2) = u_1 f(\mathbf{e}_1) 
 
 具体来说，怎样描述直变换的性质呢？
 从上面的结论继续思考。$f(\mathbf{e}_1)$、$f(\mathbf{e}_2)$这两个向量也可以表示成$\mathbf{e}_1, \mathbf{e}_2$的直组合：
-\begin{align}
-    f(\mathbf{e}_1) &= a_{11} \mathbf{e}_1 + a_{21} \mathbf{e}_2 \notag \\
-    f(\mathbf{e}_2) &= a_{12} \mathbf{e}_1 + a_{22} \mathbf{e}_2 \notag
-\end{align}
+\begin{align*}
+    f(\mathbf{e}_1) &= a_{11} \mathbf{e}_1 + a_{21} \mathbf{e}_2  \\
+    f(\mathbf{e}_2) &= a_{12} \mathbf{e}_1 + a_{22} \mathbf{e}_2 
+\end{align*}
 也就是说，
 $$ f(\mathbf{u}) = u_1 f(\mathbf{e}_1) + u_2 f(\mathbf{e}_2) = (u_1a_{11} + u_2a_{12}) \mathbf{e}_1 + (u_1a_{21} + u_2a_{22}) \mathbf{e}_2.$$
 
 比如，前面提到的旋转映射$T$就可以写成这样的形式。设有旋转映射$T$将坐标为$(x,\,\, y)$的点变换到$(x\cos{\alpha} - y\sin{\alpha},\,\,y\cos{\alpha} + x\sin{\alpha})$。
 那么，基底向量$\mathbf{e}_x, \mathbf{e}_y$分别被变换到：
-\begin{align}
-    T(\mathbf{e}_x) &= \cos{\alpha}\,\mathbf{e}_x + \sin{\alpha}\,\mathbf{e}_y \notag \\
-    T(\mathbf{e}_y) &= -\sin{\alpha}\,\mathbf{e}_x + \cos{\alpha}\,\mathbf{e}_y \notag 
-\end{align}
+\begin{align*}
+    T(\mathbf{e}_x) &= \cos{\alpha}\,\mathbf{e}_x + \sin{\alpha}\,\mathbf{e}_y  \\
+    T(\mathbf{e}_y) &= -\sin{\alpha}\,\mathbf{e}_x + \cos{\alpha}\,\mathbf{e}_y  
+\end{align*}
 即：
 $$
 \begin{array}{rlrl}
@@ -450,19 +450,19 @@ $$ \forall \,\, u_1, u_2 \in \mathbb{R}, \quad  f(u_1\mathbf{e}_1 + u_2\mathbf{e
 
 \begin{proof}
     首先，对任意$\mathbf{u} = (u_1,\,\, u_2)$、$\mathbf{v} = (v_1,\,\,v_2)$，
-    \begin{align}
-        f (\mathbf{u} + \mathbf{v}) &= f \big((u_1 + v_1,\,\, u_2 + v_2)\big) \notag \\
-        &= \Big((u_1 + v_1)a_{11} + (u_2 + v_2)a_{12},\,\,(u_1 + v_1)a_{21} + (u_2 + v_2)a_{22}\Big)\notag \\
-        &= (u_1a_{11} + u_2a_{12},\,\,u_1a_{21} + u_2a_{22}) + (v_1a_{11} + v_2a_{12},\,\,v_1a_{21} + v_2a_{22})\notag \\
-        &= f (\mathbf{u}) + f (\mathbf{v}). \notag
-    \end{align}
+    \begin{align*}
+        f (\mathbf{u} + \mathbf{v}) &= f \big((u_1 + v_1,\,\, u_2 + v_2)\big)  \\
+        &= \Big((u_1 + v_1)a_{11} + (u_2 + v_2)a_{12},\,\,(u_1 + v_1)a_{21} + (u_2 + v_2)a_{22}\Big) \\
+        &= (u_1a_{11} + u_2a_{12},\,\,u_1a_{21} + u_2a_{22}) + (v_1a_{11} + v_2a_{12},\,\,v_1a_{21} + v_2a_{22}) \\
+        &= f (\mathbf{u}) + f (\mathbf{v}). 
+    \end{align*}
     其次，对任意向量$\mathbf{u}$和任意实数$k$，
-    \begin{align}
-        f (k\mathbf{u}) &= f \big((ku_1,\,\, ku_2)\big) \notag \\
-        &= (ku_1a_{11} + ku_2a_{12},\,\,ku_1a_{21} + ku_2a_{22})\notag \\
-        &= k(u_1a_{11} + u_2a_{12},\,\,u_1a_{21} + u_1a_{22})\notag \\
-        &= kf (\mathbf{u}). \notag
-    \end{align}  
+    \begin{align*}
+        f (k\mathbf{u}) &= f \big((ku_1,\,\, ku_2)\big)  \\
+        &= (ku_1a_{11} + ku_2a_{12},\,\,ku_1a_{21} + ku_2a_{22}) \\
+        &= k(u_1a_{11} + u_2a_{12},\,\,u_1a_{21} + u_1a_{22}) \\
+        &= kf (\mathbf{u}). 
+    \end{align*}  
     综上所述，$f$是直变换。
 \end{proof}
 
@@ -677,10 +677,10 @@ $$ x_P\mathbf{e}_x + y_P\mathbf{e}_y. $$
 按照前面的发现，我们作旋转映射来找出这组基底。
 设有旋转映射$T$将坐标为$(x,\,\, y)$的点变换到$(x\cos{\alpha} - y\sin{\alpha},\,\,y\cos{\alpha} + x\sin{\alpha})$。
 因此，基底向量$\mathbf{e}_x, \mathbf{e}_y$分别被变换到：
-\begin{align}
-    \mathbf{e}_x' = T(\mathbf{e}_x) &= \cos{\alpha}\,\mathbf{e}_x + \sin{\alpha}\,\mathbf{e}_y \notag \\
-    \mathbf{e}_y' = T(\mathbf{e}_y) &= -\sin{\alpha}\,\mathbf{e}_x + \cos{\alpha}\,\mathbf{e}_y \notag 
-\end{align}
+\begin{align*}
+    \mathbf{e}_x' = T(\mathbf{e}_x) &= \cos{\alpha}\,\mathbf{e}_x + \sin{\alpha}\,\mathbf{e}_y  \\
+    \mathbf{e}_y' = T(\mathbf{e}_y) &= -\sin{\alpha}\,\mathbf{e}_x + \cos{\alpha}\,\mathbf{e}_y  
+\end{align*}
 我们希望出发点在新坐标系里纵坐标是$0$，而横坐标大于$0$。设出发点在新坐标系的坐标是$(x_P', \,\, y_P')$，
 那么我们希望$x_P' > 0$，$y_P' = 0$。即：
 $$ x_P\mathbf{e}_x + y_P\mathbf{e}_y = x_P' \mathbf{e}_x' + 0 \cdot \mathbf{e}_y' = x_P' (\cos{\alpha}\,\mathbf{e}_x + \sin{\alpha}\,\mathbf{e}_y). $$
@@ -731,10 +731,10 @@ $$
 设$P$在新基底的坐标为$(x,\,\, y)$，那么：
 $$ s\mathbf{e}_1 + t\mathbf{e}_2 = x\mathbf{e}_1' + y\mathbf{e}_2'.$$
 将$\mathbf{e}_1'$、$\mathbf{e}_2'$用$\mathbf{e}_1$、$\mathbf{e}_2$的直组合表示，就得到：
-\begin{align}
-    s\mathbf{e}_1 + t\mathbf{e}_2 &= x(a_{11}\mathbf{e}_1 + a_{21}\mathbf{e}_2) + y(a_{12}\mathbf{e}_1 + a_{22}\mathbf{e}_2) \notag \\
-    &= (a_{11}x + a_{12}y)\mathbf{e}_1 + (a_{21}x + a_{22}y)\mathbf{e}_2 \notag
-\end{align}
+\begin{align*}
+    s\mathbf{e}_1 + t\mathbf{e}_2 &= x(a_{11}\mathbf{e}_1 + a_{21}\mathbf{e}_2) + y(a_{12}\mathbf{e}_1 + a_{22}\mathbf{e}_2)  \\
+    &= (a_{11}x + a_{12}y)\mathbf{e}_1 + (a_{21}x + a_{22}y)\mathbf{e}_2 
+\end{align*}
 也就是说，$x, y$是以下二元一次方程组的解：
 \begin{alignat*}{1}
     &   \begin{dcases}
@@ -1145,10 +1145,10 @@ $$3A + B = \mathbf{0}.$$
 也就是说，选取$t_1 = 3$，$t_2 = 1$，就使得直组合：$t_1A + t_2B$等于零向量。因此，向量$A, B$直相关。
 
 设$A = 2\mathbf{e}_1 - \mathbf{e}_2$，$B = \mathbf{e}_1 + 3 \mathbf{e}_2$，那么对任何$t_1,t_2$，直组合$t_1A + t_2B$可以写为：
-\begin{align}
-t_1A + t_2B &= t_1 \left( 2\mathbf{e}_1 - \mathbf{e}_2 \right) + t_2 \left( \mathbf{e}_1 + 3 \mathbf{e}_2 \right) \notag \\
-&= (2t_1 + t_2) \mathbf{e}_1 + (-t_1 + 3t_2)\mathbf{e}_2.\notag
-\end{align}
+\begin{align*}
+t_1A + t_2B &= t_1 \left( 2\mathbf{e}_1 - \mathbf{e}_2 \right) + t_2 \left( \mathbf{e}_1 + 3 \mathbf{e}_2 \right)  \\
+&= (2t_1 + t_2) \mathbf{e}_1 + (-t_1 + 3t_2)\mathbf{e}_2.
+\end{align*}
 要使得$t_1A + t_2B$为零向量$(0,\,\,0)$，就要求它的横坐标和纵坐标同时为零。也就是说，$t_1,t_2$应该是二元一次方程组
 $$
 \left\{
@@ -1267,8 +1267,8 @@ $$ \{sA+tB+(1 - s - t)C \, | \, t\in\mathbb{R}\} = \{(3s,\,2t,\,1-s-t) \, | \, t
 我们选定空间的一组基底$\mathbf{e}_x,\mathbf{e}_y,\mathbf{e}_z$，然后定义內积：
 $$
 \begin{array}{c}
-    \forall  A = a_x\mathbf{e}_x+a_y\mathbf{e}_y+a_z\mathbf{e}_z,\,\,B = b_x\mathbf{e}_x+b_y\mathbf{e}_y+b_z\mathbf{e}_z, \notag \\
-     A\cdot B = a_xb_x + a_yb_y + a_zb_z. \notag
+    \forall  A = a_x\mathbf{e}_x+a_y\mathbf{e}_y+a_z\mathbf{e}_z,\,\,B = b_x\mathbf{e}_x+b_y\mathbf{e}_y+b_z\mathbf{e}_z,  \\
+     A\cdot B = a_xb_x + a_yb_y + a_zb_z. 
 \end{array}
 $$ 
 如果向量$A,B$的內积等于$0$，就说它们垂直。我们定义向量$A$的长度为
@@ -1280,11 +1280,11 @@ $$\|A\| = \sqrt{A\cdot A} = \sqrt{a_x^2 + a_y^2 + a_z^2},$$
 $$\|A-B\| = \sqrt{(A - B)\cdot(A-B)} = \sqrt{(a_x - b_x)^2 + (a_y-b_y)^2 + (a_z-b_z)^2}. $$
 
 平面向量的内积，小于等于长度之积。空间向量也有类似的性质：
-\begin{align}
-    &(a_x^2 + a_y^2 + a_z^2)(b_x^2 + b_y^2 + b_z^2) \notag \\
-    =\,\,& (a_xb_x + a_yb_y + a_zb_z)^2 + (a_xb_y - a_yb_x)^2 + (a_xb_z - a_zb_x)^2 + (a_yb_z - a_zb_y)^2 \notag \\
-    \geqslant\,\,& (a_xb_x + a_yb_y + a_zb_z)^2 \notag 
-\end{align}
+\begin{align*}
+    &(a_x^2 + a_y^2 + a_z^2)(b_x^2 + b_y^2 + b_z^2)  \\
+    =\,\,& (a_xb_x + a_yb_y + a_zb_z)^2 + (a_xb_y - a_yb_x)^2 + (a_xb_z - a_zb_x)^2 + (a_yb_z - a_zb_y)^2  \\
+    \geqslant\,\,& (a_xb_x + a_yb_y + a_zb_z)^2  
+\end{align*}
 这个不等式也称为\textbf{内积不等式}。由此，类比平面向量，我们可以定义\textbf{空间向量的夹角}：
 $$ \cos \angle AOB = \frac{a_xb_x + a_yb_y + a_zb_z}{\sqrt{(a_x^2 + a_y^2 + a_z^2)(b_x^2 + b_y^2 + b_z^2)}}$$
 直线是非零向量放缩的结果，所以，可以定义空间中两条直线的夹角为它们的方向向量的夹角。
@@ -1327,9 +1327,9 @@ $$ \cos \angle AOB = \frac{a_xb_x + a_yb_y + a_zb_z}{\sqrt{(a_x^2 + a_y^2 + a_z^
     如果$\mathbf{a}\perp \mathbf{u}$、$\mathbf{a}\perp \mathbf{v}$，按照定义，
     $$ \mathbf{a}\cdot \mathbf{u} = 0, \quad \mathbf{a}\cdot \mathbf{v} = 0. $$
     于是，$\forall s, t\in\mathbb{R}$，
-    \begin{align}
-        \mathbf{a}\cdot (s\mathbf{u} + t\mathbf{v}) = s\mathbf{a}\cdot \mathbf{u} + t\mathbf{a}\cdot \mathbf{v} = 0. \notag
-    \end{align}
+    \begin{align*}
+        \mathbf{a}\cdot (s\mathbf{u} + t\mathbf{v}) = s\mathbf{a}\cdot \mathbf{u} + t\mathbf{a}\cdot \mathbf{v} = 0. 
+    \end{align*}
 \end{proof}
 
 给定直线$l$和平面$\gamma$中两条相交直线。设$l$的方向向量为$\mathbf{a}$，
@@ -1426,10 +1426,10 @@ $\mathbf{n}$与$A_1,B_1$都垂直，因此也垂直于它们的直组合$A,B$。
 在前面的推导中，我们知道$A_1,B_1,\mathbf{n}$是空间的基底。因此，空间中任何向量$\mathbf{w}$可以分解为：
 $$ \mathbf{w} = w_A A_1 + w_B B_1 + w_n \mathbf{n}. $$
 如果它与$A,B$都垂直，那么也垂直于它们的直组合：$A_1,B_1$。计算它与$A_1,B_1$的內积，得到：
-\begin{align}
-    0 = \mathbf{w}\cdot A_1  = w_A\|A_1\|^2 = w_A, \notag \\
-    0 = \mathbf{w}\cdot B_1  = w_B\|B_1\|^2 = w_B, \notag 
-\end{align}
+\begin{align*}
+    0 = \mathbf{w}\cdot A_1  = w_A\|A_1\|^2 = w_A,  \\
+    0 = \mathbf{w}\cdot B_1  = w_B\|B_1\|^2 = w_B,  
+\end{align*}
 这说明$\mathbf{w} = w_n \mathbf{n}$，与$\mathbf{n}$共轴。
 或者说，所有与$A,B$都垂直的向量的集合是$\mathbb{R}\mathbf{n}$。
 
@@ -1753,10 +1753,10 @@ $$ |AP| = |\mathbf{n}\cdot \vv{AB}|. $$
 下面我们来找出$l_1,l_2$的公垂线。
 
 我们把$m$表示成$m: \mathbb{R}\mathbf{n} + r_1\mathbf{a}_1 + r_2\mathbf{a}_2$，设$m$与$l_1,l_2$的交点分别是：
-\begin{align}
-    P_1 = t_1\mathbf{a}_1 + \mathbf{b}_1 &= s_1\mathbf{n} + r_1\mathbf{a}_1 + r_2\mathbf{a}_2 \notag \\
-    P_2 = t_2\mathbf{a}_2 + \mathbf{b}_2 &= s_2\mathbf{n} + r_1\mathbf{a}_1 + r_2\mathbf{a}_2  \notag
-\end{align}
+\begin{align*}
+    P_1 = t_1\mathbf{a}_1 + \mathbf{b}_1 &= s_1\mathbf{n} + r_1\mathbf{a}_1 + r_2\mathbf{a}_2  \\
+    P_2 = t_2\mathbf{a}_2 + \mathbf{b}_2 &= s_2\mathbf{n} + r_1\mathbf{a}_1 + r_2\mathbf{a}_2  
+\end{align*}
 两点分别与$\mathbf{a_1}, \mathbf{a}_2,\mathbf{n}$求内积，得到：
 $$
 \left\{
@@ -1774,19 +1774,19 @@ $$
 也就是说，异面直线$l_1,l_2$总有唯一的公垂线。我们称线段$P_1P_2$为$l_1,l_2$的\textbf{公垂线段}。
 
 向量$\vv{P_1P_2}$与$\mathbf{n}$共轴。从后两个方程可以解出$s_1,s_2$，因此线段$P_1P_2$的长度是：
-\begin{align}
-    |P_1P_2| = \|P_2 - P_1\| &= \|s_1\mathbf{n} + r_1\mathbf{a}_1 + r_2\mathbf{a}_2 - (s_2\mathbf{n} + r_1\mathbf{a}_1 + r_2\mathbf{a}_2)\| \notag \\
-    &= \| (s_1 - s_2)\mathbf{n} \| \notag \\
-    &= |\mathbf{n}\cdot(\mathbf{b}_1 - \mathbf{b}_2)|. \notag
-\end{align}
+\begin{align*}
+    |P_1P_2| = \|P_2 - P_1\| &= \|s_1\mathbf{n} + r_1\mathbf{a}_1 + r_2\mathbf{a}_2 - (s_2\mathbf{n} + r_1\mathbf{a}_1 + r_2\mathbf{a}_2)\|  \\
+    &= \| (s_1 - s_2)\mathbf{n} \|  \\
+    &= |\mathbf{n}\cdot(\mathbf{b}_1 - \mathbf{b}_2)|. 
+\end{align*}
 在$l_1,l_2$上各取一点：$Q_1 = P_1 + q_1\mathbf{a_1}$、$Q_2 = P_2 + q_2\mathbf{a}_2$，则：
-\begin{align}
-    \vv{Q_1Q_2} = P_2 + q_2\mathbf{a}_2 - (P_1 + q_1\mathbf{a_1}) = \vv{P_1P_2}  + (q_2\mathbf{a}_2 - q_1\mathbf{a_1}). \notag 
-\end{align}
+\begin{align*}
+    \vv{Q_1Q_2} = P_2 + q_2\mathbf{a}_2 - (P_1 + q_1\mathbf{a_1}) = \vv{P_1P_2}  + (q_2\mathbf{a}_2 - q_1\mathbf{a_1}).  
+\end{align*}
 而$\vv{P_1P_2} = (s_1 - s_2)\mathbf{n} \perp q_2\mathbf{a}_2 - q_1\mathbf{a_1}$，所以，根据勾股定理，
-\begin{align}
-    |Q_1Q_2|^2 = |P_1P_2|^2 + \|q_2\mathbf{a}_2 - q_1\mathbf{a_1}\|^2 \geqslant |P_1P_2|^2. \notag 
-\end{align}
+\begin{align*}
+    |Q_1Q_2|^2 = |P_1P_2|^2 + \|q_2\mathbf{a}_2 - q_1\mathbf{a_1}\|^2 \geqslant |P_1P_2|^2.  
+\end{align*}
 这说明$l_1$上的点到$l_2$上的点的距离总大于等于$|P_1P_2|$。
 我们把$|P_1P_2|$称为\textbf{异面直线的距离}。
 
@@ -1806,10 +1806,10 @@ $\mathbb{R}\mathbf{a}_1 + \mathbf{b}_1$、$\mathbb{R}\mathbf{a}_2 + \mathbf{b}_1
 过$\gamma_2$中一点$\mathbf{b}_2$作它们的平行线，则两条平行线都在$\gamma_2$中，
 且方向向量分别为$\mathbf{a}_1,\mathbf{a}_2$。
 因此，$\gamma_1,\gamma_2$可以写成：
-\begin{align}
-    \gamma_1 = \mathbb{R}\mathbf{a}_1 + \mathbb{R}\mathbf{a}_2 + \mathbf{b}_1 \notag \\
-    \gamma_2 = \mathbb{R}\mathbf{a}_1 + \mathbb{R}\mathbf{a}_2 + \mathbf{b}_2 \notag
-\end{align}
+\begin{align*}
+    \gamma_1 = \mathbb{R}\mathbf{a}_1 + \mathbb{R}\mathbf{a}_2 + \mathbf{b}_1  \\
+    \gamma_2 = \mathbb{R}\mathbf{a}_1 + \mathbb{R}\mathbf{a}_2 + \mathbf{b}_2 
+\end{align*}
 它们的法向量都可从$\mathbf{a}_1,\mathbf{a}_2$通过消影法得到，因此是同一个单位向量$\mathbf{n}$。
 
 考虑直线$\mathbb{R}\mathbf{n}$与$\gamma_1,\gamma_2$的交点$P_1,P_2$，可以得到：
@@ -1830,13 +1830,13 @@ $$
 $$ |P_1P_2| = \| r_2\mathbf{n} - r_1\mathbf{n}\| = |\mathbf{n}\cdot(\mathbf{b}_1 - \mathbf{b}_2)|. $$
 在$\gamma_1,\gamma_2$上各取一点：$Q_1 = P_1 + q_{1,1}\mathbf{a_1} + q_{1,2}\mathbf{a}_2$、
 $Q_2 = P_2 + q_{2,1}\mathbf{a_1} + q_{2,2}\mathbf{a}_2$，则：
-\begin{align}
-    \vv{Q_1Q_2} = \vv{P_1P_2}  + (q_{2,1}\mathbf{a_1} + q_{2,2}\mathbf{a}_2 - q_{1,1}\mathbf{a_1} - q_{1,2}\mathbf{a}_2). \notag 
-\end{align}
+\begin{align*}
+    \vv{Q_1Q_2} = \vv{P_1P_2}  + (q_{2,1}\mathbf{a_1} + q_{2,2}\mathbf{a}_2 - q_{1,1}\mathbf{a_1} - q_{1,2}\mathbf{a}_2).  
+\end{align*}
 而$\vv{P_1P_2} = (r_2 - r_1)\mathbf{n} \perp q_{2,1}\mathbf{a_1} + q_{2,2}\mathbf{a}_2 - q_{1,1}\mathbf{a_1} - q_{1,2}\mathbf{a}_2$，所以，根据勾股定理，
-\begin{align}
-    |Q_1Q_2|^2 = |P_1P_2|^2 + \|q_{2,1}\mathbf{a_1} + q_{2,2}\mathbf{a}_2 - q_{1,1}\mathbf{a_1} - q_{1,2}\mathbf{a}_2\|^2 \geqslant |P_1P_2|^2. \notag 
-\end{align}
+\begin{align*}
+    |Q_1Q_2|^2 = |P_1P_2|^2 + \|q_{2,1}\mathbf{a_1} + q_{2,2}\mathbf{a}_2 - q_{1,1}\mathbf{a_1} - q_{1,2}\mathbf{a}_2\|^2 \geqslant |P_1P_2|^2.  
+\end{align*}
 这说明$\gamma_1$上的点到$\gamma_2$上的点的距离总大于等于$|P_1P_2|$。
 我们把$|P_1P_2|$称为\textbf{平行平面的距离}。
 
@@ -2335,11 +2335,11 @@ $$ V = abc.$$
 前两个性质对应两条公理和方元体积为$1$的设定。第三个性质说明点、线、面体积为$0$。从第三个性质出发，可以推出：
 \begin{tm}{\textbf{体积的反称性}}\label{tm:3-0-0}
     给定向量$\mathbf{a},\mathbf{b},\mathbf{c}$，则它们相关的平行六面体体积满足以下性质：
-    \begin{align}
-        V(\mathbf{a},\mathbf{b},\mathbf{c}) &= -V(\mathbf{a},\mathbf{c},\mathbf{b}). \notag \\
-        V(\mathbf{a},\mathbf{b},\mathbf{c}) &= -V(\mathbf{b},\mathbf{a},\mathbf{c}). \notag \\
-        V(\mathbf{a},\mathbf{b},\mathbf{c}) &= -V(\mathbf{c},\mathbf{b},\mathbf{a}). \notag 
-    \end{align}
+    \begin{align*}
+        V(\mathbf{a},\mathbf{b},\mathbf{c}) &= -V(\mathbf{a},\mathbf{c},\mathbf{b}).  \\
+        V(\mathbf{a},\mathbf{b},\mathbf{c}) &= -V(\mathbf{b},\mathbf{a},\mathbf{c}).  \\
+        V(\mathbf{a},\mathbf{b},\mathbf{c}) &= -V(\mathbf{c},\mathbf{b},\mathbf{a}).  
+    \end{align*}
 \end{tm}
 换言之，将映射$V$的任何两个自变量交换位置，值变为原来的相反数。这说明这样定义的体积可正可负。
 我们把这样的体积称为\textbf{有向体积}，把有向体积的绝对值称为\textbf{绝对体积}，或简称体积。
@@ -2360,11 +2360,11 @@ $\mathbf{c} = c_x\mathbf{e}_x + c_y\mathbf{e}_y + c_z\mathbf{e}_z$，则根据�
 其中$\mathbf{e}_i, \mathbf{e}_j, \mathbf{e}_k$是相同或不同的基向量。根据第三个性质，
 如果其中两个向量相同，那么$V(\mathbf{e}_i, \mathbf{e}_j, \mathbf{e}_k)=0$。
 因此只需要考虑$\mathbf{e}_i, \mathbf{e}_j, \mathbf{e}_k$两两不同的情况，即上面逐个查看的$6$项：
-\begin{align}
-    V(\mathbf{a},\mathbf{b},\mathbf{c}) = & a_xb_yc_zV(\mathbf{e}_x, \mathbf{e}_y, \mathbf{e}_z) + a_yb_zc_xV(\mathbf{e}_y, \mathbf{e}_z, \mathbf{e}_x) + a_zb_xc_yV(\mathbf{e}_z, \mathbf{e}_x, \mathbf{e}_y) \notag\\ 
-    &+ a_xb_zc_yV(\mathbf{e}_x, \mathbf{e}_z, \mathbf{e}_y) + a_yb_xc_zV(\mathbf{e}_y, \mathbf{e}_x, \mathbf{e}_z) + a_zb_yc_xV(\mathbf{e}_z, \mathbf{e}_y, \mathbf{e}_x) \notag\\
-    = & a_xb_yc_z + a_yb_zc_x + a_zb_xc_y - a_xb_zc_y - a_yb_xc_z - a_zb_yc_x. \notag
-\end{align}
+\begin{align*}
+    V(\mathbf{a},\mathbf{b},\mathbf{c}) = & a_xb_yc_zV(\mathbf{e}_x, \mathbf{e}_y, \mathbf{e}_z) + a_yb_zc_xV(\mathbf{e}_y, \mathbf{e}_z, \mathbf{e}_x) + a_zb_xc_yV(\mathbf{e}_z, \mathbf{e}_x, \mathbf{e}_y) \\ 
+    &+ a_xb_zc_yV(\mathbf{e}_x, \mathbf{e}_z, \mathbf{e}_y) + a_yb_xc_zV(\mathbf{e}_y, \mathbf{e}_x, \mathbf{e}_z) + a_zb_yc_xV(\mathbf{e}_z, \mathbf{e}_y, \mathbf{e}_x) \\
+    = & a_xb_yc_z + a_yb_zc_x + a_zb_xc_y - a_xb_zc_y - a_yb_xc_z - a_zb_yc_x. 
+\end{align*}
 
 这就是平行六面体的有向体积。平行六面体的体积就是有向体积的绝对值。
 \begin{et}
@@ -2495,11 +2495,11 @@ $$
     \right.
 $$
 因此棱台体积为：
-\begin{align}
-    \text{棱台的体积} &= \text{大棱锥的体积} - \text{小棱锥的体积} \notag \\
-    &= \frac{1}{3}S_{\text{下}}h_{\text{大}} - \frac{1}{3}S_{\text{上}}h_{\text{小}}\notag \\
-    &= \frac{h}{3}\left(S_{\text{上}} + S_{\text{下}} + \sqrt{S_{\text{上}}S_{\text{下}}}\right)\notag 
-\end{align}
+\begin{align*}
+    \text{棱台的体积} &= \text{大棱锥的体积} - \text{小棱锥的体积}  \\
+    &= \frac{1}{3}S_{\text{下}}h_{\text{大}} - \frac{1}{3}S_{\text{上}}h_{\text{小}} \\
+    &= \frac{h}{3}\left(S_{\text{上}} + S_{\text{下}} + \sqrt{S_{\text{上}}S_{\text{下}}}\right) 
+\end{align*}
 \begin{tm}\label{tm:3-2-40}
     上下底面积为$S_{\text{上}},S_{\text{下}}$，高为$h$的棱台，体积为$\frac{h}{3}\left(S_{\text{上}} + S_{\text{下}} + \sqrt{S_{\text{上}}S_{\text{下}}}\right)$。
 \end{tm}
@@ -2553,11 +2553,11 @@ $$
 \right.
 $$
 于是圆台体积为：
-\begin{align}
-    \text{圆台的体积} &= \text{大圆锥的体积} - \text{小圆锥的体积} \notag \\
-    &= \frac{1}{3}\pi r_{\text{下}}^2h_{\text{大}} - \frac{1}{3}\pi r_{\text{上}}^2h_{\text{小}}\notag \\
-    &= \frac{1}{3}\pi\left(r_{\text{上}}^2 + r_{\text{下}}^2 + r_{\text{上}}r_{\text{下}}\right)h\notag 
-\end{align}
+\begin{align*}
+    \text{圆台的体积} &= \text{大圆锥的体积} - \text{小圆锥的体积}  \\
+    &= \frac{1}{3}\pi r_{\text{下}}^2h_{\text{大}} - \frac{1}{3}\pi r_{\text{上}}^2h_{\text{小}} \\
+    &= \frac{1}{3}\pi\left(r_{\text{上}}^2 + r_{\text{下}}^2 + r_{\text{上}}r_{\text{下}}\right)h 
+\end{align*}
 即：
 \begin{tm}\label{tm:3-3-20}
     上下底半径分别为$r_{\text{上}}$、$r_{\text{下}}$，高为$h$的圆台，体积为
@@ -2599,11 +2599,11 @@ $$ x^2 + y^2 = z^2, \quad 0\leqslant z \leqslant r $$
 
 因此，考虑圆柱中挖去圆锥得到的形状，根据等积原理，它的体积等于半个球（$z>0$部分）的体积。
 于是，
-\begin{align}
-    \text{球的体积} &= 2\cdot\left(\text{圆柱的体积} - \text{圆锥的体积}\right) \notag \\
-    &= 2\left(\pi r^2\cdot r - \frac{1}{3}\pi r^2\cdot r \right)\notag \\
-    &= \frac{4}{3}\pi r^3\notag 
-\end{align}
+\begin{align*}
+    \text{球的体积} &= 2\cdot\left(\text{圆柱的体积} - \text{圆锥的体积}\right)  \\
+    &= 2\left(\pi r^2\cdot r - \frac{1}{3}\pi r^2\cdot r \right) \\
+    &= \frac{4}{3}\pi r^3 
+\end{align*}
 即：
 \begin{tm}\label{tm:3-3-30}
     半径为$r$的球，体积为$\frac{4}{3}\pi r^3$。
@@ -2758,16 +2758,16 @@ $z$轴（竖轴）按$y$轴长度标上刻度。朝反方向延伸可以画出�
 \section{平直公理}
 再来看平直公理。
 如果点$P,Q$在平面$ \{sA+tB+(1 - s - t)C \, | \, s,t\in\mathbb{R}\}$中，那么存在$s_1, t_1, s_2, t_2$使得
-\begin{align}
-P &= s_1A + t_1B + (1 - s_1 - t_1)C \notag \\
-Q &= s_2A + t_2B + (1 - s_2 - t_2)C \notag 
-\end{align}
+\begin{align*}
+P &= s_1A + t_1B + (1 - s_1 - t_1)C  \\
+Q &= s_2A + t_2B + (1 - s_2 - t_2)C  
+\end{align*}
 直线$PQ$是集合$\{uP+(1-u)Q \, | \, u\in \mathbb{R}\}$，其中任一点$U = uP+(1-u)Q$可以用$A,B,C$表示为
-\begin{align}
-U &= uP+(1-u)Q \notag \\
-&= (us_1 + (1-u)s_2)A + (ut_1 + (1-u)t_2)B + (u(1 - s_1 - t_1) + (1-u)(1 - s_2 - t_2))C  \notag \\
-&= (us_1 + (1-u)s_2)A + (ut_1 + (1-u)t_2)B + (1 - (us_1 + (1-u)s_2) - (ut_1 + (1-u)t_2))C \notag
-\end{align}
+\begin{align*}
+U &= uP+(1-u)Q  \\
+&= (us_1 + (1-u)s_2)A + (ut_1 + (1-u)t_2)B + (u(1 - s_1 - t_1) + (1-u)(1 - s_2 - t_2))C   \\
+&= (us_1 + (1-u)s_2)A + (ut_1 + (1-u)t_2)B + (1 - (us_1 + (1-u)s_2) - (ut_1 + (1-u)t_2))C 
+\end{align*}
 因此$U$在平面$ABC$中。这说明向量表示的空间符合平直公理。
 
 \section{交面公理}
@@ -2785,10 +2785,10 @@ $s_1,t_1,s_2,t_2$必然全为零。然而$s_1,t_1,s_2,t_2$不全为零，所以$
 \section{平行公理}
 我们主要验证平行线共面的性质。
 平面中，两条直线平行，当且仅当它们的直部是同一条过原点的直线。我们用这个方法来判定空间中直线的平行关系。设有两直线$l_1\parallel l_2$，那么它们是同一条过原点的直线平移而成：
-\begin{align}
-l_1: & \,\,\, \mathbb{R}\mathbf{a} + \mathbf{b}_1 \notag \\
-l_2: & \,\,\, \mathbb{R}\mathbf{a} + \mathbf{b}_2\notag
-\end{align}
+\begin{align*}
+l_1: & \,\,\, \mathbb{R}\mathbf{a} + \mathbf{b}_1  \\
+l_2: & \,\,\, \mathbb{R}\mathbf{a} + \mathbf{b}_2
+\end{align*}
 所以$l_1,l_2$都在平面：$\gamma = \mathbb{R}\mathbf{a} + \mathbb{R}(\mathbf{b}_1 - \mathbf{b}_2) + \mathbf{b}_2$中。
 对任意$t\in\mathbb{R}$，$l_1$中的点$t\mathbf{a} + \mathbf{b}_1 = t\mathbf{a} + 1\cdot(\mathbf{b}_1 - \mathbf{b}_2) + \mathbf{b}_2 \in \gamma$；
 $l_2$中的点$t\mathbf{a} + \mathbf{b}_2 = t\mathbf{a} + 0\cdot(\mathbf{b}_1 - \mathbf{b}_2) + \mathbf{b}_2 \in \gamma$。

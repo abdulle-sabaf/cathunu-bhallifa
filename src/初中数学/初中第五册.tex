@@ -233,11 +233,11 @@ $[0,60]$就对应六分之一个圆，等等。我们把闭区间对应的圆的
 同一段圆弧的圆心角和圆周角之间，有什么关系呢？如右图，连接$PO$，延长交圆于对径点$Q$。
 由于$\triangle AOP$是等腰三角形，$\angle OAP + \angle OPA = 0$，
 同理，$\angle OBP + \angle OPB = 0$。于是
-\begin{align}
-    \angle AOB &= \angle AOQ + \angle QOB \notag \\ 
-    &= \angle OAP + \angle APO + \angle PBO + \angle OPB \notag \\
-    &= 2\angle APO + 2\angle OPB = 2\angle APB \notag
-\end{align}
+\begin{align*}
+    \angle AOB &= \angle AOQ + \angle QOB  \\ 
+    &= \angle OAP + \angle APO + \angle PBO + \angle OPB  \\
+    &= 2\angle APO + 2\angle OPB = 2\angle APB 
+\end{align*}
 也就是说，圆心角是圆周角的两倍大小，圆周角是圆心角的一半大小。
 
 \begin{tm}\textbf{圆周角定理}\label{tm:0-2-0}
@@ -342,10 +342,10 @@ $$|PA|\cdot|PB| = (|PO| - |AO|) \cdot (|PO| + |PB|) = |OP|^2 - r^2.$$
 如右图，注意到$\angle BNA$和$\angle BMA$都对应半圆，所以都是直角。
 三角形外角$\angle PAN = \angle ABN + \angle BNA$，而$\angle ABN$和$\angle AMN$对应同一段弧且都不在弧上，
 所以$\angle ABN = \angle AMN$。于是，
-\begin{align}
-    \angle PAN &= \angle ABN + 90^\circ \notag \\
-    &= \angle AMN + \angle BMA =\angle BMN. \notag
-\end{align}
+\begin{align*}
+    \angle PAN &= \angle ABN + 90^\circ  \\
+    &= \angle AMN + \angle BMA =\angle BMN. 
+\end{align*}
 这说明$\triangle PAN \backsim \triangle PBM$，所以
 $$ \frac{|PA|}{|PN|} = \frac{|PM|}{|PB|},$$
 换句话说，$|PM|\cdot |PN| = |PA|\cdot |PB|$。
@@ -694,10 +694,10 @@ $$ |MD_C| = |MM_C| = |MH_C| = \frac12 |OC'| = \frac{\mathtt{R}}{2}.$$
 \end{wrapfigure}
 
 同理，我们也有
-\begin{align}
-    |MD_A| = |MM_A| = |MH_A| = \frac{\mathtt{R}}{2}, \notag \\
-    |MD_B| = |MM_B| = |MH_B| = \frac{\mathtt{R}}{2} \notag 
-\end{align} 
+\begin{align*}
+    |MD_A| = |MM_A| = |MH_A| = \frac{\mathtt{R}}{2},  \\
+    |MD_B| = |MM_B| = |MH_B| = \frac{\mathtt{R}}{2}  
+\end{align*} 
 所以，以$M$为圆心，以$\frac{\mathtt{R}}{2}$为半径画圆，我们就会发现，这个圆经过三边中点，
 三边上的垂足，以及三顶点到垂心连线的中点，合共九点。我们把这个圆称为\textbf{九点圆}。
 
@@ -832,12 +832,12 @@ $$ S_{\text{扇形}AOB} > S_{\triangle AOB} = \frac12 |OA| \cdot |BH| = \frac12 
 过$P$作$BH$的垂线，垂足为$U$，则
 $$ |AP|+|BP| = |HU| + |BP| < |HU| + |PU| + |BU| = |BH| + |AH|. $$
 因此，
-\begin{align}
-    S_{\text{扇形}AOB} &< S_{\triangle AOP} + S_{\triangle BOP} \notag \\
-    &= \frac12 \left( |OA| \cdot |AP| + |OB| \cdot |BP|\right) \notag \\
-    &= \frac12 (|AP| +|BP|) \notag \\
-    &< \frac12 (|BH| + |AH|). \notag
-\end{align}
+\begin{align*}
+    S_{\text{扇形}AOB} &< S_{\triangle AOP} + S_{\triangle BOP}  \\
+    &= \frac12 \left( |OA| \cdot |AP| + |OB| \cdot |BP|\right)  \\
+    &= \frac12 (|AP| +|BP|)  \\
+    &< \frac12 (|BH| + |AH|). 
+\end{align*}
 
 我们知道圆弧$\widearc{AB}$的长度为$\frac{2\pi}{n}$。$|BH| < |AB|$，而$AB$作为线段，长度小于$\widearc{AB}$。
 如果可以证明$\widearc{AB}$的长度小于等于$|AP| + |BP|$，那么就有
@@ -885,11 +885,11 @@ $$ \forall n\in\mathbb{N}, \quad | S_1 - \pi | < \frac{2\pi^2}{n}. $$
     则$\triangle BOC \sim \triangle DOE$。$|OD| > |OB|$，因此
     $|BC| < |DE|$。
     另外，$\triangle DOE$也是等腰三角形，因此$\angle OED = \angle EDO$。于是
-    \begin{align}
-        \angle OPD &= 180^\circ - \angle DOP - \angle PDO \notag \\
-        &> 180^\circ - \angle EDO \notag \\
-        &= 180^\circ - \angle OED = \angle DEP \notag
-    \end{align}
+    \begin{align*}
+        \angle OPD &= 180^\circ - \angle DOP - \angle PDO  \\
+        &> 180^\circ - \angle EDO  \\
+        &= 180^\circ - \angle OED = \angle DEP 
+    \end{align*}
     这说明$\triangle EDP$中，$|DE| < |DP|$。于是
     $$ |BC| < |DE| < |DP|. $$
 \end{proof}
@@ -1055,10 +1055,10 @@ $P$到始边距离小于半径，因此面积小于$\frac{1}{2}$。
 $$ y = \sin 37^\circ + \frac{\sin 38^\circ - \sin 37^\circ}{38 - 37} \cdot (x - 37)$$
 
 横坐标$x=37.3$时，代入函数表达式，就得到：
-\begin{align}
-    y &= \sin 37^\circ + 0.3\cdot(\sin 38^\circ - \sin 37^\circ ) \notag \\
-    &= 0.6018 + 0.3 \cdot (0.6157 - 0.6018) \approx 0.60597 \notag
-\end{align}
+\begin{align*}
+    y &= \sin 37^\circ + 0.3\cdot(\sin 38^\circ - \sin 37^\circ )  \\
+    &= 0.6018 + 0.3 \cdot (0.6157 - 0.6018) \approx 0.60597 
+\end{align*}
 实际上$\sin 37.3^\circ \approx 0.60599$，可见偏差不大。
 
 反过来，如果已知角的正弦值，也可以通过查表，估计角度的大小。比如，已知$\sin A = 0.83$，
@@ -1249,11 +1249,11 @@ $\triangle ABH_A$是直角三角形。根据勾股定理，$|AB|^2 = |AH_A|^2 + 
 如果$\angle C$是锐角，那么
 $$ |AB|^2 = |AH_A|^2 + |BH_A|^2 = |AH_A|^2 + (|BC| - |CH_A|)^2$$
 即
-\begin{align}
-    c^2 &= (b\sin C)^2 + (a - b\cos C)^2 \notag \\
-    &= b^2\sin^2 C + b^2\cos^2 C + a^2 - 2ab\cos C \notag \\
-    &= a^2 + b^2 - 2ab\cos C \notag
-\end{align}
+\begin{align*}
+    c^2 &= (b\sin C)^2 + (a - b\cos C)^2  \\
+    &= b^2\sin^2 C + b^2\cos^2 C + a^2 - 2ab\cos C  \\
+    &= a^2 + b^2 - 2ab\cos C 
+\end{align*}
 
 我们得到了$a$、$b$、$c$和$\angle C$的关系。这个关系叫做\textbf{余弦定理}。
 可以看出，$\angle C$为直角时，余弦定理就变成了勾股定理。所以，余弦定理是勾股定理的“升级版本”，
@@ -1272,10 +1272,10 @@ $$6^2 = 3^2 + 5^2 - 2 \cdot 3\cdot 5 \cos C $$
 来看$\angle C$是钝角的情况。如果$\angle C$是钝角，那么
 $$ |AB|^2 = |AH_A|^2 + |BH_A|^2 = |AH_A|^2 + (|BC| + |CH_A|)^2$$
 即
-\begin{align}
-    c^2 &= (b\sin C)^2 + (a + b\cos (180^\circ - C))^2 \notag \\
-    &= b^2\sin^2 C + b^2\cos^2 (180^\circ - C) + a^2 + 2ab\cos (180^\circ - C) \notag
-\end{align}
+\begin{align*}
+    c^2 &= (b\sin C)^2 + (a + b\cos (180^\circ - C))^2  \\
+    &= b^2\sin^2 C + b^2\cos^2 (180^\circ - C) + a^2 + 2ab\cos (180^\circ - C) 
+\end{align*}
 
 可以看到，对钝角三角形，余弦定理的表达式比锐角三角形复杂很多。
 把$a=3$、$b=5$、$c=6$代入钝角的余弦定理公式，我们发现难以解出$C$。
@@ -1285,11 +1285,11 @@ $$ |AB|^2 = |AH_A|^2 + |BH_A|^2 = |AH_A|^2 + (|BC| + |CH_A|)^2$$
 如何定义钝角的余弦值呢？钝角的正弦为其补角的正弦。我们希望钝角的余弦也满足三角勾股定理：
 $$ \sin^2 C +  \cos^2 C = 1 $$
 这就要求
-\begin{align}
-    \cos C &= \sqrt{1 - \sin^2 C} \notag \\
-    &= \sqrt{1 - \sin^2 (180^\circ - C)} \notag \\
-    &= \pm\cos (180^\circ - C) \notag
-\end{align}
+\begin{align*}
+    \cos C &= \sqrt{1 - \sin^2 C}  \\
+    &= \sqrt{1 - \sin^2 (180^\circ - C)}  \\
+    &= \pm\cos (180^\circ - C) 
+\end{align*}
 
 如果我们定义钝角的余弦为它补角的余弦：$ \cos C = \cos (180^\circ - C)$，钝角三角形的余弦定理就变成：
 $$ c^2 = a^2 + b^2 + 2ab \cos C.$$
@@ -1347,35 +1347,35 @@ $$ \forall \,\, 0 <  \beta < \alpha < 90^\circ , \,\,\, \sin(\alpha - \beta) = \
 首先，假设$\alpha$、$\beta$、$\alpha - \beta$都是锐角。从和角正弦公式出发，可以得到这样的关系：
 $$ \sin(\alpha) = \sin(\alpha - \beta + \beta) = \sin (\alpha - \beta) \cos \beta + \cos(\alpha - \beta) \sin\beta.$$
 这个等式中只有$\cos(\alpha - \beta)$是未知的。根据差角正弦公式，可以得到：
-\begin{align}
-    \sin(\alpha) &= \sin (\alpha - \beta) \cos \beta + \cos(\alpha - \beta) \sin\beta \notag \\
-    &= (\sin\alpha \cos \beta - \cos \alpha \sin\beta) \cos \beta + \cos(\alpha - \beta) \sin\beta \notag \\
-    &= \sin\alpha \cos^2 \beta - \cos \alpha \sin\beta \cos \beta + \cos(\alpha - \beta) \sin\beta \notag
- \end{align}
+\begin{align*}
+    \sin(\alpha) &= \sin (\alpha - \beta) \cos \beta + \cos(\alpha - \beta) \sin\beta  \\
+    &= (\sin\alpha \cos \beta - \cos \alpha \sin\beta) \cos \beta + \cos(\alpha - \beta) \sin\beta  \\
+    &= \sin\alpha \cos^2 \beta - \cos \alpha \sin\beta \cos \beta + \cos(\alpha - \beta) \sin\beta 
+ \end{align*}
 因此
-\begin{align}
-    \sin\beta \cos(\alpha - \beta) &= \sin \alpha - \sin\alpha \cos^2 \beta + \cos \alpha \sin\beta \cos \beta \notag \\
-    &= \sin \alpha (1 - \cos^2 \beta) + \cos \alpha \sin\beta \cos \beta \notag \\
-    &= \sin\alpha \sin^2 \beta + \cos \alpha \sin\beta \cos \beta \notag \\
-    &= \sin\beta (\sin\alpha \sin \beta +  \cos \alpha \cos \beta) \notag
- \end{align}
+\begin{align*}
+    \sin\beta \cos(\alpha - \beta) &= \sin \alpha - \sin\alpha \cos^2 \beta + \cos \alpha \sin\beta \cos \beta  \\
+    &= \sin \alpha (1 - \cos^2 \beta) + \cos \alpha \sin\beta \cos \beta  \\
+    &= \sin\alpha \sin^2 \beta + \cos \alpha \sin\beta \cos \beta  \\
+    &= \sin\beta (\sin\alpha \sin \beta +  \cos \alpha \cos \beta) 
+ \end{align*}
 两边约去$\sin \beta$，就得到：
 $$ \forall \,\, 0 <  \beta < \alpha < 90^\circ , \,\,\, \cos(\alpha - \beta) = \sin\alpha \sin \beta +  \cos \alpha \cos \beta. $$
 这就是两锐角之差余弦值的公式，简称\textbf{差角余弦公式}。
 
 同理，假设$\alpha$、$\beta$、$\alpha + \beta$都是锐角，从差角正弦公式出发，可以得到：
-\begin{align}
-      \sin(\alpha) &= \sin(\alpha + \beta - \beta) = \sin (\alpha + \beta) \cos \beta - \cos(\alpha + \beta) \sin\beta \notag \\
-      &= (\sin\alpha \cos \beta + \cos \alpha \sin\beta) \cos \beta - \cos(\alpha + \beta) \sin\beta \notag \\
-      &= \sin\alpha \cos^2 \beta + \cos \alpha \sin\beta \cos \beta - \cos(\alpha + \beta) \sin\beta \notag 
- \end{align}
+\begin{align*}
+      \sin(\alpha) &= \sin(\alpha + \beta - \beta) = \sin (\alpha + \beta) \cos \beta - \cos(\alpha + \beta) \sin\beta  \\
+      &= (\sin\alpha \cos \beta + \cos \alpha \sin\beta) \cos \beta - \cos(\alpha + \beta) \sin\beta  \\
+      &= \sin\alpha \cos^2 \beta + \cos \alpha \sin\beta \cos \beta - \cos(\alpha + \beta) \sin\beta  
+ \end{align*}
 因此
-\begin{align}
-    \sin\beta \cos(\alpha + \beta)  &= -\sin \alpha + \sin\alpha \cos^2 \beta + \cos \alpha \sin\beta \cos \beta \notag \\
-    &= -\sin \alpha (1 - \cos^2 \beta) + \cos \alpha \sin\beta \cos \beta \notag \\
-    &= -\sin\alpha \sin^2 \beta + \cos \alpha \sin\beta \cos \beta \notag \\
-    &= \sin\beta (\cos \alpha \cos \beta - \sin\alpha \sin \beta) \notag
- \end{align}
+\begin{align*}
+    \sin\beta \cos(\alpha + \beta)  &= -\sin \alpha + \sin\alpha \cos^2 \beta + \cos \alpha \sin\beta \cos \beta  \\
+    &= -\sin \alpha (1 - \cos^2 \beta) + \cos \alpha \sin\beta \cos \beta  \\
+    &= -\sin\alpha \sin^2 \beta + \cos \alpha \sin\beta \cos \beta  \\
+    &= \sin\beta (\cos \alpha \cos \beta - \sin\alpha \sin \beta) 
+ \end{align*}
 两边约去$\sin \beta$，就得到：
 $$  \cos(\alpha + \beta) = \cos \alpha \cos \beta - \sin\alpha \sin \beta. $$
 这就是两锐角之和余弦值的公式，简称\textbf{和角余弦公式}。
@@ -1448,10 +1448,10 @@ $$ \forall 0 \leqslant \beta \leqslant 90^\circ , \,\,\, \cos(- \beta) = \cos \b
     \indent 2. 首先加减周角，让角度落在负平角和正平角之间：
     $$\sin -465^\circ = \sin -105^\circ, \quad \cos -465^\circ = \cos -165^\circ.$$
     $140^\circ$是负钝角，取相反数变为正角，再取补角得到锐角：
-    \begin{align}
-        \sin -105^\circ = -\sin 105^\circ = -\sin 75^\circ, \notag \\
-        \cos -105^\circ = \cos 105^\circ = -\cos 75^\circ. \notag 
-    \end{align}
+    \begin{align*}
+        \sin -105^\circ = -\sin 105^\circ = -\sin 75^\circ,  \\
+        \cos -105^\circ = \cos 105^\circ = -\cos 75^\circ.  
+    \end{align*}
     查表得到$\sin -465^\circ = -\sin 75^\circ \approx -0.9659$，$\cos -465^\circ = -\cos 75^\circ \approx -0.2588$。
 \end{so}
 
@@ -1475,27 +1475,27 @@ $$ \forall 0 \leqslant \beta \leqslant 90^\circ , \,\,\, \cos(- \beta) = \cos \b
     \mbox{} \\
     \indent 1. 验证：和角、差角公式对负平角到正平角中的角度成立。 \\
     \indent 2. 证明正弦和余弦的\textbf{倍角公式}：
-    \begin{align}
-        \forall \,\, 0 \leqslant \alpha \leqslant 90^\circ , \,\,\, & \sin 2\alpha = 2\sin \alpha \cos \alpha \notag \\
-        & \cos 2\alpha = 2\cos^2 \alpha - 1 \notag 
-    \end{align}
+    \begin{align*}
+        \forall \,\, 0 \leqslant \alpha \leqslant 90^\circ , \,\,\, & \sin 2\alpha = 2\sin \alpha \cos \alpha  \\
+        & \cos 2\alpha = 2\cos^2 \alpha - 1  
+    \end{align*}
     \indent 3. 证明正弦和余弦的\textbf{半角公式}：
-    \begin{align}
-        \forall \,\, 0 \leqslant \alpha \leqslant 180^\circ , \,\,\, & \sin \frac{\alpha}{2} = \sqrt{\frac{1 - \cos \alpha}{2}}  \notag \\
-        & \cos \frac{\alpha}{2} = \sqrt{\frac{1 + \cos \alpha}{2}} \notag
-    \end{align}
+    \begin{align*}
+        \forall \,\, 0 \leqslant \alpha \leqslant 180^\circ , \,\,\, & \sin \frac{\alpha}{2} = \sqrt{\frac{1 - \cos \alpha}{2}}   \\
+        & \cos \frac{\alpha}{2} = \sqrt{\frac{1 + \cos \alpha}{2}} 
+    \end{align*}
     \indent 4. 证明正弦和余弦的\textbf{积化和差公式}：
-    \begin{align}
-        \cos \alpha \cos \beta &= \frac12 (\cos (\alpha + \beta) + \cos (\alpha - \beta)) \notag \\
-        \sin \alpha \sin \beta &= \frac12 (\cos (\alpha - \beta) - \cos (\alpha + \beta)) \notag \\
-        \sin \alpha \cos \beta &= \frac12 (\sin (\alpha + \beta) + \sin (\alpha - \beta)) \notag 
-    \end{align}
+    \begin{align*}
+        \cos \alpha \cos \beta &= \frac12 (\cos (\alpha + \beta) + \cos (\alpha - \beta))  \\
+        \sin \alpha \sin \beta &= \frac12 (\cos (\alpha - \beta) - \cos (\alpha + \beta))  \\
+        \sin \alpha \cos \beta &= \frac12 (\sin (\alpha + \beta) + \sin (\alpha - \beta))  
+    \end{align*}
     \indent 5. 证明正弦和余弦的\textbf{和差化积公式}：
-    \begin{align}
-        \sin \alpha \pm \sin \beta &= 2\sin \frac{\alpha \pm \beta}{2} \cos \frac{\alpha \mp \beta}{2} \notag \\
-        \cos \alpha + \cos \beta &= 2\cos \frac{\alpha + \beta}{2} \cos \frac{\alpha - \beta}{2} \notag \\
-        \cos \alpha - \cos \beta &= -2\sin \frac{\alpha + \beta}{2} \sin \frac{\alpha - \beta}{2} \notag 
-    \end{align}
+    \begin{align*}
+        \sin \alpha \pm \sin \beta &= 2\sin \frac{\alpha \pm \beta}{2} \cos \frac{\alpha \mp \beta}{2}  \\
+        \cos \alpha + \cos \beta &= 2\cos \frac{\alpha + \beta}{2} \cos \frac{\alpha - \beta}{2}  \\
+        \cos \alpha - \cos \beta &= -2\sin \frac{\alpha + \beta}{2} \sin \frac{\alpha - \beta}{2}  
+    \end{align*}
     \indent 5. 设平行四边形$ABCD$的相邻两边长为$a,b$，两对角线长为$u,v$，证明：$u^2 + v^2 = 2a^2 + 2b^2$。 \\
     \indent 6. 设$\triangle ABC$三边长分别为$a,b,c$，证明：
     $$\sin A = \frac{\sqrt{(b+c-a)(a-b+c)(a+b-c)(a+b+c)}}{2bc}.$$ 
@@ -1538,37 +1538,37 @@ $$ \forall \,\,  \alpha, \,\,\, \tan \alpha = \frac{\sin \alpha}{\cos \alpha}, \
 这样，除去分母为零的情况，我们定义了任意角的正切和余切。
 
 从正弦和余弦的和差角公式，可以推出正切和余切的和差角公式：
-\begin{align}
-    \forall 0 \leqslant \alpha, \beta < 90^\circ, & \notag \\
-    \tan (\alpha + \beta) &= \frac{\sin (\alpha + \beta)}{\cos (\alpha + \beta)} = \frac{\sin\alpha \cos \beta + \cos \alpha \sin\beta}{\cos \alpha \cos \beta - \sin\alpha \sin \beta} \notag \\
-    &= \frac{\tan \alpha + \tan \beta}{1 - \tan \alpha \tan \beta} \notag   \\ 
-    \tan (\alpha - \beta) &= \frac{\sin (\alpha - \beta)}{\cos (\alpha - \beta)} = \frac{\sin\alpha \cos \beta - \cos \alpha \sin\beta}{\cos \alpha \cos \beta + \sin\alpha \sin \beta} \notag \\
-    &= \frac{\tan \alpha - \tan \beta}{1 + \tan \alpha \tan \beta} \notag 
-\end{align}
-\begin{align}
-    \forall 0 < \alpha, \beta \leqslant 90^\circ, & \notag \\
-    \cot (\alpha + \beta) &= \frac{\cos (\alpha + \beta)}{\sin (\alpha + \beta)} = \frac{\cos \alpha \cos \beta - \sin\alpha \sin \beta}{\sin\alpha \cos \beta + \cos \alpha \sin\beta} \notag \\
-    &= \frac{\cot \alpha \cot \beta - 1}{\cot \alpha + \cot \beta} \notag  \\
-    \cot (\alpha - \beta) &= \frac{\cos (\alpha - \beta)}{\sin (\alpha - \beta)} = \frac{\cos \alpha \cos \beta + \sin\alpha \sin \beta}{\sin\alpha \cos \beta - \cos \alpha \sin\beta} \notag \\
-    &= \frac{\cot \alpha \cot \beta + 1}{\cot \alpha - \cot \beta}  \notag 
-\end{align}
+\begin{align*}
+    \forall 0 \leqslant \alpha, \beta < 90^\circ, &  \\
+    \tan (\alpha + \beta) &= \frac{\sin (\alpha + \beta)}{\cos (\alpha + \beta)} = \frac{\sin\alpha \cos \beta + \cos \alpha \sin\beta}{\cos \alpha \cos \beta - \sin\alpha \sin \beta}  \\
+    &= \frac{\tan \alpha + \tan \beta}{1 - \tan \alpha \tan \beta}    \\ 
+    \tan (\alpha - \beta) &= \frac{\sin (\alpha - \beta)}{\cos (\alpha - \beta)} = \frac{\sin\alpha \cos \beta - \cos \alpha \sin\beta}{\cos \alpha \cos \beta + \sin\alpha \sin \beta}  \\
+    &= \frac{\tan \alpha - \tan \beta}{1 + \tan \alpha \tan \beta}  
+\end{align*}
+\begin{align*}
+    \forall 0 < \alpha, \beta \leqslant 90^\circ, &  \\
+    \cot (\alpha + \beta) &= \frac{\cos (\alpha + \beta)}{\sin (\alpha + \beta)} = \frac{\cos \alpha \cos \beta - \sin\alpha \sin \beta}{\sin\alpha \cos \beta + \cos \alpha \sin\beta}  \\
+    &= \frac{\cot \alpha \cot \beta - 1}{\cot \alpha + \cot \beta}   \\
+    \cot (\alpha - \beta) &= \frac{\cos (\alpha - \beta)}{\sin (\alpha - \beta)} = \frac{\cos \alpha \cos \beta + \sin\alpha \sin \beta}{\sin\alpha \cos \beta - \cos \alpha \sin\beta}  \\
+    &= \frac{\cot \alpha \cot \beta + 1}{\cot \alpha - \cot \beta}   
+\end{align*}
 以上关系可以简写为：
-\begin{align}
-    \tan (\alpha \pm \beta) &= \frac{\tan \alpha \pm \tan \beta}{1 \mp \tan \alpha \tan \beta} \notag \\
-    \cot (\alpha \pm \beta) &= \frac{\cot \alpha \cot \beta \mp 1}{\cot \alpha \pm \cot \beta} \notag
-\end{align}
+\begin{align*}
+    \tan (\alpha \pm \beta) &= \frac{\tan \alpha \pm \tan \beta}{1 \mp \tan \alpha \tan \beta}  \\
+    \cot (\alpha \pm \beta) &= \frac{\cot \alpha \cot \beta \mp 1}{\cot \alpha \pm \cot \beta} 
+\end{align*}
 除去分母为零的情况，任意角的正切和余切也满足以上的和差角公式。
 
 三角形中，内角之和为平角。因此，两角之和的正切值是第三个角正切值的相反数：
-\begin{align}
-    \tan C &= \tan (180^\circ - (A + B)) = - \tan (A + B) \notag \\
-    &= - \frac{\tan A + \tan B}{1 - \tan A \tan B}. \notag 
-\end{align}
+\begin{align*}
+    \tan C &= \tan (180^\circ - (A + B)) = - \tan (A + B)  \\
+    &= - \frac{\tan A + \tan B}{1 - \tan A \tan B}.  
+\end{align*}
 于是：
-\begin{align}
-    \tan C (1 - \tan A \tan B) &= - \tan A - \tan B, \notag \\
-    \tan A + \tan B + \tan C &= \tan A \tan B \tan C. \notag
-\end{align}
+\begin{align*}
+    \tan C (1 - \tan A \tan B) &= - \tan A - \tan B,  \\
+    \tan A + \tan B + \tan C &= \tan A \tan B \tan C. 
+\end{align*}
 \begin{tm}{\textbf{正切定理}}\label{tm:2-5-10}
     三角形内角的正切值之和等于它们的乘积。
 \end{tm}
@@ -1583,42 +1583,42 @@ $$ \forall \,\,  \alpha, \,\,\, \tan \alpha = \frac{\sin \alpha}{\cos \alpha}, \
 \begin{xt}\label{xt:2-5-10}
     \mbox{} \\
     \indent 1. 证明正切和余切的\textbf{倍角公式}：
-    \begin{align}
-        \forall \,\, 0 < \alpha < 45^\circ, \,\,\,& \tan 2\alpha = \frac{2\tan \alpha}{1 - \tan^2 \alpha} & \notag \\
-        &\cot 2\alpha = \frac{\cot^2 \alpha - 1}{2 \cot \alpha} & \notag 
-    \end{align}
+    \begin{align*}
+        \forall \,\, 0 < \alpha < 45^\circ, \,\,\,& \tan 2\alpha = \frac{2\tan \alpha}{1 - \tan^2 \alpha} &  \\
+        &\cot 2\alpha = \frac{\cot^2 \alpha - 1}{2 \cot \alpha} &  
+    \end{align*}
     \indent 2. 证明正切和余切的\textbf{半角公式}：
-    \begin{align}
-        \forall \,\, 0 < \alpha < 180^\circ, \,\,\,& \tan \frac{\alpha}{2} = \frac{\sin \alpha}{1 + \cos \alpha} = \frac{1 - \cos \alpha}{\sin \alpha} = \sqrt{\frac{1 - \cos \alpha}{1 + \cos \alpha}}\notag \\
-        & \cot \frac{\alpha}{2} = \frac{1 + \cos \alpha}{\sin \alpha} = \frac{\sin \alpha}{1 - \cos \alpha} = \sqrt{\frac{1 + \cos \alpha}{1 - \cos \alpha}} \notag 
-    \end{align}
+    \begin{align*}
+        \forall \,\, 0 < \alpha < 180^\circ, \,\,\,& \tan \frac{\alpha}{2} = \frac{\sin \alpha}{1 + \cos \alpha} = \frac{1 - \cos \alpha}{\sin \alpha} = \sqrt{\frac{1 - \cos \alpha}{1 + \cos \alpha}} \\
+        & \cot \frac{\alpha}{2} = \frac{1 + \cos \alpha}{\sin \alpha} = \frac{\sin \alpha}{1 - \cos \alpha} = \sqrt{\frac{1 + \cos \alpha}{1 - \cos \alpha}}  
+    \end{align*}
     定义锐角$\alpha$的\textbf{正割值}（$\sec \alpha$）和\textbf{余割值}（$\csc \alpha$）：
-    \begin{align}
-        \sec \alpha &= \frac{1}{\cos \alpha}, \,\,\, \csc \alpha = \frac{1}{\sin \alpha}. \notag 
-    \end{align}
+    \begin{align*}
+        \sec \alpha &= \frac{1}{\cos \alpha}, \,\,\, \csc \alpha = \frac{1}{\sin \alpha}.  
+    \end{align*}
     \indent 3. 证明：锐角的正割等于它的余角的余割，锐角的余割等于它的余角的正割。\\
     \indent 4. 证明：$ 1 + \tan^2 \alpha = \sec^2 \alpha , \,\,\, 1 + \cot^2 \alpha = \csc^2 \alpha. $\\
     \indent 5. 证明\textbf{万能公式}：
-    \begin{align}
-        \forall 0 < \alpha < 180^\circ, & \mbox{ 记} \tan\frac{\alpha}{2} = t, \,\,\, \mbox{则：}\notag \\
-        \sin \alpha = \frac{2t}{1 + t^2}, & \,\,\,\,\, \tan \alpha = \frac{2t}{1 - t^2}, \,\,\,\,\,\, \sec \alpha = \frac{1 + t^2}{1 -t^2}, \notag \\
-        \cos \alpha = \frac{1 -t^2}{1 + t^2}, & \,\,\,\,\,\, \cot \alpha = \frac{1 - t^2}{2t}, \,\,\,\,\,\, \csc \alpha = \frac{1 + t^2}{2t}. \notag  
-    \end{align}
+    \begin{align*}
+        \forall 0 < \alpha < 180^\circ, & \mbox{ 记} \tan\frac{\alpha}{2} = t, \,\,\, \mbox{则：} \\
+        \sin \alpha = \frac{2t}{1 + t^2}, & \,\,\,\,\, \tan \alpha = \frac{2t}{1 - t^2}, \,\,\,\,\,\, \sec \alpha = \frac{1 + t^2}{1 -t^2},  \\
+        \cos \alpha = \frac{1 -t^2}{1 + t^2}, & \,\,\,\,\,\, \cot \alpha = \frac{1 - t^2}{2t}, \,\,\,\,\,\, \csc \alpha = \frac{1 + t^2}{2t}.   
+    \end{align*}
 \end{xt}
 
 \section{多边形的边角关系}
 
 多边形的边和角没有直接对应关系。因此，多边形的边角关系，要通过对角线来间接建立。
 比如，圆内接凸四边形$ABCD$中，对角之和为平角。根据余弦定理，
-\begin{align}
-    |AC|^2 &= |AB|^2 + |BC|^2 -2|AB||BC|\cos\angle ABC \notag \\
-    &= |AD|^2 + |DC|^2 -2|AD||DC|\cos\angle CDA \notag
-\end{align}
+\begin{align*}
+    |AC|^2 &= |AB|^2 + |BC|^2 -2|AB||BC|\cos\angle ABC  \\
+    &= |AD|^2 + |DC|^2 -2|AD||DC|\cos\angle CDA 
+\end{align*}
 于是，我们得到圆内接凸四边形的内角和四边边长的关系：
-\begin{align}
-    \cos\angle ABC = -\cos \angle CDA &= \frac{|AB|^2 + |BC|^2 - |CD|^2 - |DA|^2 }{2(|AB||BC| + |CD||DA|)}, \notag \\
-    \cos\angle BCD = -\cos \angle DAB &= \frac{|BC|^2 + |CD|^2 - |DA|^2 - |AB|^2 }{2(|BC||CD| + |DA||AB|)}. \notag 
-\end{align}
+\begin{align*}
+    \cos\angle ABC = -\cos \angle CDA &= \frac{|AB|^2 + |BC|^2 - |CD|^2 - |DA|^2 }{2(|AB||BC| + |CD||DA|)},  \\
+    \cos\angle BCD = -\cos \angle DAB &= \frac{|BC|^2 + |CD|^2 - |DA|^2 - |AB|^2 }{2(|BC||CD| + |DA||AB|)}.  
+\end{align*}
 
 另一个例子是正多边形。设单位圆$O$的内接正$n$边形边长为$b_n$，
 连接圆心$O$和相邻两顶点$A$、$B$，$\triangle OAB$是等腰三角形。
@@ -1722,11 +1722,11 @@ $\{\mbox{台风靠近且下雨}\}$和$\{\mbox{台风转向且下雨}\}$来讨论
 $$ S_1 = \big\{\varnothing, \{\mbox{AR}, \mbox{DR}\},\{\mbox{AN}, \mbox{DN}\}, \{\mbox{AR}, \mbox{AN}, \mbox{DR}, \mbox{DN}\} \big\}$$
 
 和
-\begin{align}
-    S_2 &= \big\{ \varnothing, \{\mbox{AR}\}, \{\mbox{AN}\}, \{\mbox{DR}\}, \{\mbox{DN}\}, \{\mbox{AR}, \mbox{AN}\}, \{\mbox{AR}, \mbox{DR}\}, \{\mbox{AR}, \mbox{DN}\}, \notag \\
-    & \{\mbox{AN}, \mbox{DR}\}, \{\mbox{DN}, \mbox{AN}\}, \{\mbox{DR}, \mbox{DN}\},  \{\mbox{AR}, \mbox{AN}, \mbox{DR}\}, \{\mbox{AR}, \mbox{AN}, \mbox{DN}\}, \notag \\
-    &  \{\mbox{AR}, \mbox{DR}, \mbox{DN}\},  \{\mbox{AN}, \mbox{DR}, \mbox{DN}\}, \{\mbox{AR}, \mbox{AN}, \mbox{DR}, \mbox{DN}\} \big\} \notag 
-\end{align}
+\begin{align*}
+    S_2 &= \big\{ \varnothing, \{\mbox{AR}\}, \{\mbox{AN}\}, \{\mbox{DR}\}, \{\mbox{DN}\}, \{\mbox{AR}, \mbox{AN}\}, \{\mbox{AR}, \mbox{DR}\}, \{\mbox{AR}, \mbox{DN}\},  \\
+    & \{\mbox{AN}, \mbox{DR}\}, \{\mbox{DN}, \mbox{AN}\}, \{\mbox{DR}, \mbox{DN}\},  \{\mbox{AR}, \mbox{AN}, \mbox{DR}\}, \{\mbox{AR}, \mbox{AN}, \mbox{DN}\},  \\
+    &  \{\mbox{AR}, \mbox{DR}, \mbox{DN}\},  \{\mbox{AN}, \mbox{DR}, \mbox{DN}\}, \{\mbox{AR}, \mbox{AN}, \mbox{DR}, \mbox{DN}\} \big\}  
+\end{align*}
 其中$\mbox{AR}, \mbox{AN}, \mbox{DR}, \mbox{DN}$分别表示
 “台风靠近且下雨”、“台风靠近且不下雨”、“台风转向且下雨”和”台风转向且不下雨“。
 可以看出，$S_1$是$S_2$的子集。$S_1$到$S_2$的过程，就是对台风认知加深的过程。
@@ -1958,12 +1958,12 @@ $$ C_n^m = \frac{n!}{m!(n-m)!} $$
 出现小项的前提叫做\textbf{小前提}。以上的例子中，\ding{172}是大前提，\ding{173}是小前提。
 
 中项在两个前提中各出现一次，每次可以是主语或断语。因此，它出现的位置一共有$4$种情况：
-\begin{align}
-    \mbox{中} \rightarrow \mbox{大}, \quad \mbox{中} \rightarrow \mbox{小} \quad \Rightarrow \quad \mbox{小} \rightarrow \mbox{大} \notag \\
-    \mbox{大} \rightarrow \mbox{中}, \quad \mbox{小} \rightarrow \mbox{中} \quad \Rightarrow \quad \mbox{小} \rightarrow \mbox{大} \notag \\
-    \mbox{小} \rightarrow \mbox{中}, \quad \mbox{中} \rightarrow \mbox{大} \quad \Rightarrow \quad \mbox{小} \rightarrow \mbox{大} \notag \\
-    \mbox{大} \rightarrow \mbox{中}, \quad \mbox{中} \rightarrow \mbox{小} \quad \Rightarrow \quad \mbox{小} \rightarrow \mbox{大} \notag
-\end{align}
+\begin{align*}
+    \mbox{中} \rightarrow \mbox{大}, \quad \mbox{中} \rightarrow \mbox{小} \quad \Rightarrow \quad \mbox{小} \rightarrow \mbox{大}  \\
+    \mbox{大} \rightarrow \mbox{中}, \quad \mbox{小} \rightarrow \mbox{中} \quad \Rightarrow \quad \mbox{小} \rightarrow \mbox{大}  \\
+    \mbox{小} \rightarrow \mbox{中}, \quad \mbox{中} \rightarrow \mbox{大} \quad \Rightarrow \quad \mbox{小} \rightarrow \mbox{大}  \\
+    \mbox{大} \rightarrow \mbox{中}, \quad \mbox{中} \rightarrow \mbox{小} \quad \Rightarrow \quad \mbox{小} \rightarrow \mbox{大} 
+\end{align*}
 其中$\mbox{大} \rightarrow \mbox{中}$表示主语是大项，断语是中项，其余类似。可以看出，中项是连接小项和大项的“桥梁”。
 
 \begin{xt}\label{xt:4-0-10}
@@ -2133,21 +2133,21 @@ $$ C_n^m = \frac{n!}{m!(n-m)!} $$
 \end{ex}
 
 第一个例子里，我们可以建立这样的对应关系：
-\begin{align}
-    f :\mbox{门店} \times \mbox{月份} &\rightarrow \mathbb{R}^+ \notag \\
-    f(\mbox{大连}01, \,\, 1) &\,= 121902.54, \notag \\
-    f(\mbox{上海}03, \,\, 4) &\,= 204361.08, \notag \\
-    f(\mbox{武汉}01, \,\, 2) &\,= 194720.10, \notag \\
-    \vdots \quad & \quad\quad \vdots \notag
-\end{align}
+\begin{align*}
+    f :\mbox{门店} \times \mbox{月份} &\rightarrow \mathbb{R}^+  \\
+    f(\mbox{大连}01, \,\, 1) &\,= 121902.54,  \\
+    f(\mbox{上海}03, \,\, 4) &\,= 204361.08,  \\
+    f(\mbox{武汉}01, \,\, 2) &\,= 194720.10,  \\
+    \vdots \quad & \quad\quad \vdots 
+\end{align*}
 第二个例子里，我们可以建立这样的对应关系：
-\begin{align}
-    f :\quad\mbox{学校} \quad \times \quad \mbox{班级} \quad \times \,\,\,\, \mbox{姓名} \,\, &\rightarrow \mbox{准考证号} \notag \\
-    f(\mbox{立德中学}, \,\, \mbox{初三（1）班}, \,\, \mbox{张三}) &\,= A00281, \notag \\
-    f(\mbox{师大附中}, \,\, \mbox{初三（6）班}, \,\, \mbox{李四}) &\,= A00916, \notag \\
-    f(\mbox{第六中学}, \,\, \mbox{初三（3）班}, \,\, \mbox{王五}) &\,= F00045, \notag \\
-    \vdots \quad\quad & \quad\quad\quad \vdots \notag
-\end{align}
+\begin{align*}
+    f :\quad\mbox{学校} \quad \times \quad \mbox{班级} \quad \times \,\,\,\, \mbox{姓名} \,\, &\rightarrow \mbox{准考证号}  \\
+    f(\mbox{立德中学}, \,\, \mbox{初三（1）班}, \,\, \mbox{张三}) &\,= A00281,  \\
+    f(\mbox{师大附中}, \,\, \mbox{初三（6）班}, \,\, \mbox{李四}) &\,= A00916,  \\
+    f(\mbox{第六中学}, \,\, \mbox{初三（3）班}, \,\, \mbox{王五}) &\,= F00045,  \\
+    \vdots \quad\quad & \quad\quad\quad \vdots 
+\end{align*}
 从多个出发集中各取一个元素，与到达集里的一个元素对应。这样的对应关系叫做\textbf{多元映射}。它把多个元素对应到一个元素。
 为了区别，我们把一个元素对应到一个元素的对应关系叫做\textbf{一元映射}。
 事实上，多元映射也可以看作一种特殊的一元映射，但在这个阶段我们不讨论这个问题，姑且认为它们是有区别的。
@@ -2159,10 +2159,10 @@ $$ C_n^m = \frac{n!}{m!(n-m)!} $$
 班级集合的元素“初三（$6$）班”和姓名集合的元素“李四”构成的有序三元组。
 
 再来看一个数学中的例子：
-\begin{align}
-    f: \mathbb{R} \times \mathbb{R} &\rightarrow \mathbb{R} \notag \\
-    (x,\,\, y) &\mapsto x^2 + y^2 \notag 
-\end{align}
+\begin{align*}
+    f: \mathbb{R} \times \mathbb{R} &\rightarrow \mathbb{R}  \\
+    (x,\,\, y) &\mapsto x^2 + y^2  
+\end{align*}
 这个映射把实数$x,y$映射为$x^2 + y^2$。比如，我们令$x = 3$，$y =1$，就得到：
 $f(x,y) = 3^2 + 1^2 = 10$。
 
@@ -2170,10 +2170,10 @@ $f(x,y) = 3^2 + 1^2 = 10$。
 以上的$f$就是二元函数。
 
 再来看以下关于命题的多元映射：
-\begin{align}
-    f: \mathbb{N} \times \mathbb{N} \,\, &\rightarrow \{\mbox{真}, \,\, \mbox{假}\} \notag \\
-    (n, \,\,\,\, m) &\mapsto \mbox{若}\, n > 1 \mbox{，则}\, n^2 < m^3 < 2n^2 + 1. \notag 
-\end{align}
+\begin{align*}
+    f: \mathbb{N} \times \mathbb{N} \,\, &\rightarrow \{\mbox{真}, \,\, \mbox{假}\}  \\
+    (n, \,\,\,\, m) &\mapsto \mbox{若}\, n > 1 \mbox{，则}\, n^2 < m^3 < 2n^2 + 1.  
+\end{align*}
 对任何自然数$n,m$，$f$将它们映射到命题$P(n,m)$：“若$n > 1$，则$n^2 < m^3 < 2n^2 + 1$”。对某些$(n,m)$，
 命题$P(n,m)$为真命题，对另一些$(n,m)$，命题$P(n,m)$为假命题。这样含有两个变量的命题$P(n,m)$称为\textbf{二元命题}。
 

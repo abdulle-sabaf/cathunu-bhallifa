@@ -230,9 +230,9 @@ $$ f,\,\,\,n\mapsto \left\{
 $$
 也就是：
 $$ \begin{array}{cccccccc}
-        0 & -1 & 1 & -2 & 2 & -3 & 3 & \cdots \notag\\
-        \downarrow & \,\downarrow & \downarrow & \,\downarrow & \downarrow & \,\downarrow & \downarrow & \cdots \notag\\
-        0 & \,1 & 2 & \,3 & 4 & \,5 & 6 & \cdots \notag
+        0 & -1 & 1 & -2 & 2 & -3 & 3 & \cdots \\
+        \downarrow & \,\downarrow & \downarrow & \,\downarrow & \downarrow & \,\downarrow & \downarrow & \cdots \\
+        0 & \,1 & 2 & \,3 & 4 & \,5 & 6 & \cdots 
     \end{array}
 $$
 它把所有自然数对应到自然数中的偶数，把所有负整数对应到自然数中的奇数。
@@ -326,14 +326,14 @@ $$ \forall n\in\mathbb{N}, \quad n \mapsto \left\{a_k\right\}_{k\in\mathbb{N}}, 
 假设存在$2^\mathbb{N}$到$\mathbb{N}$的单射$f$，则$2^\mathbb{N}$所有元素经过映射得到的集合是$\mathbb{N}$的无穷子集，因而和$\mathbb{N}$等势。
 也就是说，我们可以假设$f$是满射，因而是双射。因此，我们考虑它的逆映射$g$。$g$是把自然数映射到$2^\mathbb{N}$中元素的双射。
 因此，我们可以把$2^\mathbb{N}$中的元素按数数的方式列出来：
-\begin{align}
-    0 &\mapsto a_{0,0}, a_{0,1}, a_{0,2}, \cdots , a_{0,k}, \cdots \notag \\
-    1 &\mapsto a_{1,0}, a_{1,1}, a_{1,2}, \cdots , a_{1,k}, \cdots \notag \\
-    2 &\mapsto a_{2,0}, a_{2,1}, a_{2,2}, \cdots , a_{2,k}, \cdots \notag \\
-    \vdots & \qquad \qquad\qquad \vdots \notag \\
-    n &\mapsto a_{n,0}, a_{n,1}, a_{n,2}, \cdots , a_{n,k}, \cdots \notag \\
-    \vdots & \qquad \qquad\qquad \vdots \notag 
-\end{align}
+\begin{align*}
+    0 &\mapsto a_{0,0}, a_{0,1}, a_{0,2}, \cdots , a_{0,k}, \cdots  \\
+    1 &\mapsto a_{1,0}, a_{1,1}, a_{1,2}, \cdots , a_{1,k}, \cdots  \\
+    2 &\mapsto a_{2,0}, a_{2,1}, a_{2,2}, \cdots , a_{2,k}, \cdots  \\
+    \vdots & \qquad \qquad\qquad \vdots  \\
+    n &\mapsto a_{n,0}, a_{n,1}, a_{n,2}, \cdots , a_{n,k}, \cdots  \\
+    \vdots & \qquad \qquad\qquad \vdots  
+\end{align*}
 其中$a_{n,k}$是$n$对应的数列中的第$k$项。现在考虑这么一个数列$W$：
 它的第$k$项就是$1$减去上面排列中$k$对应的数列的第$k$项。
 也就是说，如果该项是$0$，$W$的第$k$项就是$1$，如果该项是$1$，$W$的第$k$项就是$0$。
@@ -585,31 +585,31 @@ $$ t \mapsto f(t_0) + \partial f(t_0) \cdot(t - t_0)$$
 \begin{so}
     \mbox{} \\
     \indent 1. 按定义，$f$在点$x = 3$处的微变率为：
-    \begin{align}
-        \partial f(3) &= \lian{h\to 0}\frac{f(3 + h) - f(3)}{h} \notag \\
-        &= \lian{h\to 0}\frac{(3 + h)^2 - 3^2}{h} \notag \\
-        &= \lian{h\to 0}\frac{6h + h^2}{h} \notag \\
-        &= \lian{h\to 0}(6 + h) \notag \\
-        &= 6.  \notag
-    \end{align}
+    \begin{align*}
+        \partial f(3) &= \lian{h\to 0}\frac{f(3 + h) - f(3)}{h}  \\
+        &= \lian{h\to 0}\frac{(3 + h)^2 - 3^2}{h}  \\
+        &= \lian{h\to 0}\frac{6h + h^2}{h}  \\
+        &= \lian{h\to 0}(6 + h)  \\
+        &= 6.  
+    \end{align*}
 
     \indent 2. 按定义，$f$在点$x = 2$处的微变率为：
-    \begin{align}
-        \partial f(2) &= \lian{h\to 0}\frac{f(2 + h) - f(2)}{h} \notag \\
-        &= \lian{h\to 0}\frac{\frac{1}{2+h} - \frac{1}{2}}{h} \notag \\
-        &= \lian{h\to 0}\frac{\frac{2 - (2 + h)}{2(2 + h)}}{h} \notag \\
-        &= \lian{h\to 0}-\frac{1}{2(2 + h)} \notag \\
-        &= -\frac{1}{2(2 + \lian{h\to 0}h)} \notag \\
-        &= -\frac{1}{4}. \notag
-    \end{align}
+    \begin{align*}
+        \partial f(2) &= \lian{h\to 0}\frac{f(2 + h) - f(2)}{h}  \\
+        &= \lian{h\to 0}\frac{\frac{1}{2+h} - \frac{1}{2}}{h}  \\
+        &= \lian{h\to 0}\frac{\frac{2 - (2 + h)}{2(2 + h)}}{h}  \\
+        &= \lian{h\to 0}-\frac{1}{2(2 + h)}  \\
+        &= -\frac{1}{2(2 + \lian{h\to 0}h)}  \\
+        &= -\frac{1}{4}. 
+    \end{align*}
 
     \indent 3. 按定义，$f$在点$x = 1$处的微变率为：
-    \begin{align}
-        \partial f(2) &= \lian{h\to 0}\frac{f(1 + h) - f(1)}{h} \notag \\
-        &= \lian{h\to 0}\frac{h^3 - 0}{h} \notag \\
-        &= \lian{h\to 0}h^2 \notag \\
-        &= 0. \notag
-    \end{align}
+    \begin{align*}
+        \partial f(2) &= \lian{h\to 0}\frac{f(1 + h) - f(1)}{h}  \\
+        &= \lian{h\to 0}\frac{h^3 - 0}{h}  \\
+        &= \lian{h\to 0}h^2  \\
+        &= 0. 
+    \end{align*}
 \end{so}
 
 \begin{sk}
@@ -652,33 +652,33 @@ $$ t \mapsto f(t_0) + \partial f(t_0) \cdot(t - t_0)$$
 首先来看加减法。给定函数$f$、$g$和实数$a$。
 设$f$、$g$在$a$处可微，微变率为$\partial f(a)$、$\partial g(a)$。
 来看$f+g$、$f-g$在$a$处是否可导，为此，研究$f \pm g$变率的极限：
-\begin{align}
-    \lian{x\to a} \frac{(f \pm g)(x) - (f \pm g)(a)}{x - a} &= \lian{x\to a} \left(\frac{f(x) - f(a)}{x - a} \pm \frac{g(x) - g(a)}{x - a}\right) \notag \\
-    &= \lian{x\to a} \frac{f(x) - f(a)}{x - a} \pm \lian{x\to a} \frac{g(x) - g(a)}{x - a} \notag \\
-    &= \partial f(a) \pm \partial g(a) \notag
-\end{align}
+\begin{align*}
+    \lian{x\to a} \frac{(f \pm g)(x) - (f \pm g)(a)}{x - a} &= \lian{x\to a} \left(\frac{f(x) - f(a)}{x - a} \pm \frac{g(x) - g(a)}{x - a}\right)  \\
+    &= \lian{x\to a} \frac{f(x) - f(a)}{x - a} \pm \lian{x\to a} \frac{g(x) - g(a)}{x - a}  \\
+    &= \partial f(a) \pm \partial g(a) 
+\end{align*}
 由此可见，$f+g$、$f-g$在$a$处也可微，微变率分别是$\partial f(a)$、$\partial g(a)$的和与差。
 $$ \partial (f \pm g)(a) = \partial f(a) \pm \partial g(a) $$
 
 接下来看乘法。同样地，研究$f \cdot g$变率的极限：
-\begin{align}
-    & \quad \lian{x\to a} \frac{(f \cdot g)(x) - (f \cdot g)(a)}{x - a} \notag \\
-    &=  \lian{x\to a} \frac{f(x)\cdot g(x) - f(a)\cdot g(x) + f(a)\cdot g(x) - f(a)\cdot g(a)}{x - a} \notag \\
-    &= \lian{x\to a} \left(g(x)\cdot\frac{f(x) - f(a)}{x - a} + f(a)\cdot\frac{g(x) - g(a)}{x - a}\right) \notag \\
-    &= \lian{x\to a} g(x) \cdot \lian{x\to a}\frac{f(x) - f(a)}{x - a} + f(a)\cdot \lian{x\to a} \frac{g(x) - g(a)}{x - a} \notag \\
-    &= g(a)\cdot\partial f(a) + f(a) \cdot\partial g(a) \notag
-\end{align}
+\begin{align*}
+    & \quad \lian{x\to a} \frac{(f \cdot g)(x) - (f \cdot g)(a)}{x - a}  \\
+    &=  \lian{x\to a} \frac{f(x)\cdot g(x) - f(a)\cdot g(x) + f(a)\cdot g(x) - f(a)\cdot g(a)}{x - a}  \\
+    &= \lian{x\to a} \left(g(x)\cdot\frac{f(x) - f(a)}{x - a} + f(a)\cdot\frac{g(x) - g(a)}{x - a}\right)  \\
+    &= \lian{x\to a} g(x) \cdot \lian{x\to a}\frac{f(x) - f(a)}{x - a} + f(a)\cdot \lian{x\to a} \frac{g(x) - g(a)}{x - a}  \\
+    &= g(a)\cdot\partial f(a) + f(a) \cdot\partial g(a) 
+\end{align*}
 可以看到，$f \cdot g$在$a$处可微。不过，它的微变率并不是$\partial f(a)$、$\partial g(a)$的乘积。
 $$ \partial (f \cdot g)(a) = g(a)\cdot\partial f(a) + f(a) \cdot\partial g(a) $$
 
 再来看除法。研究$f \div g$变率的极限\footnote{和以往一样，为了让$f \div g$在$a$处有定义，这里需要假设$g(a)\neq 0$。}：
-\begin{align}
-    & \quad \lian{x\to a} \frac{(f \div g)(x) - (f \div g)(a)}{x - a} \quad = \quad \lian{x\to a} \frac{\frac{f(x)}{g(x)} - \frac{f(a)}{g(a)}}{x - a} \notag \\
-    &= \lian{x\to a} \frac{1}{g(x)g(a)}\cdot\frac{f(x) g(a) - f(a) g(x)}{x - a} \notag \\
-    &= \frac{1}{\lian{x\to a}g(x)g(a)} \cdot \lian{x\to a} \frac{f(x) g(a) - f(a) g(a) - (f(a) g(x) - f(a) g(a))}{x - a} \notag \\
-    &= \frac{1}{g(a)^2}\cdot \left( g(a)\cdot \lian{x\to a} \frac{f(x) - f(a)}{x - a} - f(a) \cdot\lian{x\to a} \frac{g(x) - g(a)}{x - a}\right) \notag \\
-    &= \frac{g(a)\cdot \partial f(a) - f(a)\cdot \partial g(a)}{g(a)^2} \notag
-\end{align}
+\begin{align*}
+    & \quad \lian{x\to a} \frac{(f \div g)(x) - (f \div g)(a)}{x - a} \quad = \quad \lian{x\to a} \frac{\frac{f(x)}{g(x)} - \frac{f(a)}{g(a)}}{x - a}  \\
+    &= \lian{x\to a} \frac{1}{g(x)g(a)}\cdot\frac{f(x) g(a) - f(a) g(x)}{x - a}  \\
+    &= \frac{1}{\lian{x\to a}g(x)g(a)} \cdot \lian{x\to a} \frac{f(x) g(a) - f(a) g(a) - (f(a) g(x) - f(a) g(a))}{x - a}  \\
+    &= \frac{1}{g(a)^2}\cdot \left( g(a)\cdot \lian{x\to a} \frac{f(x) - f(a)}{x - a} - f(a) \cdot\lian{x\to a} \frac{g(x) - g(a)}{x - a}\right)  \\
+    &= \frac{g(a)\cdot \partial f(a) - f(a)\cdot \partial g(a)}{g(a)^2} 
+\end{align*}
 可以看到，$f \div g$在$a$处可微。不过，和函数乘法一样，
 它的微变率并不是$\partial f(a)$除以$\partial g(a)$的商。
 $$ \partial (f \div g)(a) = \frac{g(a)\cdot \partial f(a) - f(a)\cdot \partial g(a)}{g(a)^2} $$
@@ -691,18 +691,18 @@ $f$在$g(a)$处可微，微变率为$\partial f(g(a))$。
 那么复合函数$f\circ g$是否在$a$处可微呢？
 
 来看$f\circ g$在$a$处变率的极限：
-\begin{align}
-    & \quad \lian{x\to a} \frac{(f \circ g)(x) - (f \circ g)(a)}{x - a} \notag \\
-    &= \lian{x\to a} \left(\frac{f(g(x)) - f(g(a))}{x - a} \cdot \frac{g(x) - g(a)}{g(x) - g(a)}\right) \notag \\
-    &= \lian{x\to a} \frac{f(g(x)) - f(g(a))}{g(x) - g(a)} \cdot \lian{x\to a} \frac{g(x) - g(a)}{x - a} \notag \\
-    &= \partial f(g(a)) \cdot \partial g(a) \notag 
-\end{align}
+\begin{align*}
+    & \quad \lian{x\to a} \frac{(f \circ g)(x) - (f \circ g)(a)}{x - a}  \\
+    &= \lian{x\to a} \left(\frac{f(g(x)) - f(g(a))}{x - a} \cdot \frac{g(x) - g(a)}{g(x) - g(a)}\right)  \\
+    &= \lian{x\to a} \frac{f(g(x)) - f(g(a))}{g(x) - g(a)} \cdot \lian{x\to a} \frac{g(x) - g(a)}{x - a}  \\
+    &= \partial f(g(a)) \cdot \partial g(a)  
+\end{align*}
 上面推导中，我们从$\lian{x\to a} \frac{f(g(x)) - f(g(a))}{g(x) - g(a)}$算出$\partial f(g(a))$，
 是因为$g$在$a$处可微，从而连续，因此$x$趋于$a$时，$g(x)$趋于$g(a)$。因此，把$g(x)$整体看作变化量，
-\begin{align}
-    \lian{x\to a} \frac{f(g(x)) - f(g(a))}{g(x) - g(a)} &= \lian{t\to g(a)} \frac{f(t) - f(g(a))}{t - g(a)} \notag \\
-    &= \partial f(g(a)) \notag 
-\end{align}
+\begin{align*}
+    \lian{x\to a} \frac{f(g(x)) - f(g(a))}{g(x) - g(a)} &= \lian{t\to g(a)} \frac{f(t) - f(g(a))}{t - g(a)}  \\
+    &= \partial f(g(a))  
+\end{align*}
 综上，复合函数$f\circ g$在$a$处可微，微变率为：
 $$ \partial (f\circ g) (a) = \partial f(g(a)) \cdot \partial g(a)$$
 如果是多个函数的复合，比如三个函数$f$、$g$、$h$，那么可以算出，上式变为：
@@ -720,13 +720,13 @@ $$ \partial g(f(a)) = \frac{1}{\partial f(a)} $$
 $g$在$f(a)$处的微变率是$\partial f(a)$的倒数。这要求$\partial f(a)$不能为零。
 
 假设$\partial f(a)$不为零，计算$g$在$f(a)$处变率的极限：
-\begin{align}
-    & \quad \lian{x\to f(a)} \frac{g(x) - g(f(a))}{x - f(a)} \notag \\
-    &= \lian{x\to f(a)} \frac{g(x) - a}{x - f(a)} \notag \\
-    &= \lian{g(x)\to a} \frac{g(x) - a}{f(g(x)) - f(a)} \notag \\
-    &= \frac{1}{\lian{g(x)\to a}\frac{f(g(x)) - f(a)}{g(x) - a}} \notag \\
-    &= \frac{1}{\partial f(a)} \notag
-\end{align}
+\begin{align*}
+    & \quad \lian{x\to f(a)} \frac{g(x) - g(f(a))}{x - f(a)}  \\
+    &= \lian{x\to f(a)} \frac{g(x) - a}{x - f(a)}  \\
+    &= \lian{g(x)\to a} \frac{g(x) - a}{f(g(x)) - f(a)}  \\
+    &= \frac{1}{\lian{g(x)\to a}\frac{f(g(x)) - f(a)}{g(x) - a}}  \\
+    &= \frac{1}{\partial f(a)} 
+\end{align*}
 上面推导中，我们用到了反函数的连续性：$f$在$a$处连续，因此$g$在$f(a)$处连续。因此$x$趋于$f(a)$时，
 $g(x)$趋于$g(f(a))$，也就是$a$。
 
@@ -741,24 +741,24 @@ $g(x)$趋于$g(f(a))$，也就是$a$。
 \begin{so}
     \mbox{} \\
     \indent 1. 应用函数乘法的求微法则：
-    \begin{align}
-        \partial f(2) &= \partial (x + 1) (2) \cdot (3 \cdot 2 - 4) + \partial (3x - 4) (2) \cdot (2 + 1) \notag \\
-        &= 1 \cdot (3 \cdot 2 - 4) + 3 \cdot (2 + 1) \notag \\
-        &= 6 + 9 = 15 \notag  
-    \end{align}
+    \begin{align*}
+        \partial f(2) &= \partial (x + 1) (2) \cdot (3 \cdot 2 - 4) + \partial (3x - 4) (2) \cdot (2 + 1)  \\
+        &= 1 \cdot (3 \cdot 2 - 4) + 3 \cdot (2 + 1)  \\
+        &= 6 + 9 = 15   
+    \end{align*}
     其中$\partial (x + 1) (2)$表示函数$x\mapsto x + 1$在$x = 2$处的微变率。$\partial (3x - 4) (2)$同理。\\
     \indent 2. 应用函数除法的求微法则：
-    \begin{align}
-        \partial f(1) &= \frac{\partial (x - 1) (1) \cdot (2 \cdot 1^2 - 1 + 1) - \partial (2x^2 - x + 1) (1) \cdot (1 - 1)}{(2\cdot 1^2 - 1 + 1)^2} \notag \\
-        &= \frac{ 1 \cdot 2 - 3 \cdot 0}{2^2} \notag \\
-        &= \frac{1}{2} \notag  
-    \end{align}
+    \begin{align*}
+        \partial f(1) &= \frac{\partial (x - 1) (1) \cdot (2 \cdot 1^2 - 1 + 1) - \partial (2x^2 - x + 1) (1) \cdot (1 - 1)}{(2\cdot 1^2 - 1 + 1)^2}  \\
+        &= \frac{ 1 \cdot 2 - 3 \cdot 0}{2^2}  \\
+        &= \frac{1}{2}   
+    \end{align*}
     \indent 3. 应用复合函数的求微法则（链式法则）：
-    \begin{align}
-        \partial f(-1) &= \partial (x^3) (2\cdot (-1) - 1) \cdot \partial (2x - 1) (-1) \notag \\
-        &= 3\cdot (-3)^2 \cdot 2 \notag \\
-        &= 54 \notag  
-    \end{align}
+    \begin{align*}
+        \partial f(-1) &= \partial (x^3) (2\cdot (-1) - 1) \cdot \partial (2x - 1) (-1)  \\
+        &= 3\cdot (-3)^2 \cdot 2  \\
+        &= 54   
+    \end{align*}
 
 \end{so}
 
@@ -809,21 +809,21 @@ $$ \forall a, \quad \partial (a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n) = a_1 + 
 
 接下来看幂函数$x^r$的微变。
 对自然数$k$，函数$x \mapsto x^{\frac{1}{k}}$是单项式函数$x\mapsto x^k$的反函数，所以根据反函数的求微法则：
-\begin{align}
-    \partial (x^{\frac{1}{k}}) (a) &= \frac{1}{\partial (x^k) (a^{\frac{1}{k}})} \notag \\
-    &= \frac{1}{k a^{\frac{k-1}{k}}} \notag \\
-    &= \frac{1}{k} a^{\frac{1}{k} - 1} \notag
-\end{align}
+\begin{align*}
+    \partial (x^{\frac{1}{k}}) (a) &= \frac{1}{\partial (x^k) (a^{\frac{1}{k}})}  \\
+    &= \frac{1}{k a^{\frac{k-1}{k}}}  \\
+    &= \frac{1}{k} a^{\frac{1}{k} - 1} 
+\end{align*}
 要注意的是，这里用到了反函数的求微法则，所以，根据对应的要求，$a$不能为$0$。
 $a = 0$时，函数不可微。
 
 对于$r = \frac{p}{q}$为非零有理数时，函数$x \mapsto x^r$可以看作函数$x \mapsto x^{\frac{1}{q}}$与函数$x \mapsto x^{p}$的复合函数，
 因此，根据复合函数的求微法则：
-\begin{align}
-    \partial (x^{\frac{p}{q}}) (a) &= \partial (x^p) (a^{\frac{1}{q}}) \cdot \partial (x^{\frac{1}{q}}) (a) \notag \\
-    &= p \cdot a^{\frac{p - 1}{q}} \cdot \frac{1}{q} \cdot a^{\frac{1}{q} - 1} \notag \\
-    &= \frac{p}{q} a^{\frac{p}{q} - 1} \notag    
-\end{align}
+\begin{align*}
+    \partial (x^{\frac{p}{q}}) (a) &= \partial (x^p) (a^{\frac{1}{q}}) \cdot \partial (x^{\frac{1}{q}}) (a)  \\
+    &= p \cdot a^{\frac{p - 1}{q}} \cdot \frac{1}{q} \cdot a^{\frac{1}{q} - 1}  \\
+    &= \frac{p}{q} a^{\frac{p}{q} - 1}     
+\end{align*}
 综上可知，对非零有理数$r$，如果函数$x \mapsto x^r$在点$a>0$的微变为：
 $$ \partial (x^r) (a) = r a^{r-1}. $$
 
@@ -831,38 +831,38 @@ $$ \partial (x^r) (a) = r a^{r-1}. $$
 $$ \lian{x\to 0} \frac{\sin{x}}{x} = 1.$$
 
 对于正弦函数$\sin$，计算变率的极限：
-\begin{align}
-    \partial \sin(a) &= \lian{h\to 0} \frac{\sin{(a + h)} - \sin{a}}{h} \notag \\
-    &= \lian{h\to 0} \frac{\sin{a}\cos{h} + \cos{a}\sin{h} - \sin{a}}{h} \notag \\
-    &= \sin{a} \cdot \lian{h\to 0} \frac{\cos{h} - 1}{h} + \cos{a} \cdot \lian{h\to 0}\frac{\sin{h}}{h} \notag
-\end{align}
+\begin{align*}
+    \partial \sin(a) &= \lian{h\to 0} \frac{\sin{(a + h)} - \sin{a}}{h}  \\
+    &= \lian{h\to 0} \frac{\sin{a}\cos{h} + \cos{a}\sin{h} - \sin{a}}{h}  \\
+    &= \sin{a} \cdot \lian{h\to 0} \frac{\cos{h} - 1}{h} + \cos{a} \cdot \lian{h\to 0}\frac{\sin{h}}{h} 
+\end{align*}
 这里我们要计算两个极限，第二个极限可以直接使用上面的结论，结果是$1$。
 对于第一个极限，我们把分子转化为关于$\sin$的表达式。
-\begin{align}
-    \lian{h\to 0} \frac{\cos{h} - 1}{h} &= \lian{h\to 0} \frac{\cos^2{h} - 1}{h(\cos{h} + 1)} \notag \\
-    &= -\lian{h\to 0} \frac{\sin{h}}{h} \cdot \lian{h\to 0} \frac{\sin{h}}{\cos{h} + 1} \notag \\
-    &= -1 \cdot \frac{0}{1 + 1} = 0.  \notag
-\end{align}
+\begin{align*}
+    \lian{h\to 0} \frac{\cos{h} - 1}{h} &= \lian{h\to 0} \frac{\cos^2{h} - 1}{h(\cos{h} + 1)}  \\
+    &= -\lian{h\to 0} \frac{\sin{h}}{h} \cdot \lian{h\to 0} \frac{\sin{h}}{\cos{h} + 1}  \\
+    &= -1 \cdot \frac{0}{1 + 1} = 0.  
+\end{align*}
 因此，正弦函数$\sin$在一点$a$的微变为：
 $$ \partial \sin(a) = \cos{a} $$
 
 类似地，可以计算余弦函数$\cos$的微变。变率的极限：
-\begin{align}
-    \partial \cos(a) &= \lian{h\to 0} \frac{\cos{(a + h)} - \cos{a}}{h} \notag \\
-    &= \lian{h\to 0} \frac{\cos{a}\cos{h} - \sin{a}\sin{h} - \cos{a}}{h} \notag \\
-    &= \cos{a} \cdot \lian{h\to 0} \frac{\cos{h} - 1}{h} - \sin{a} \cdot\lian{h\to 0}\frac{\sin{h}}{h} \notag \\
-    &= \cos{a} \cdot 0 - \sin{a} \cdot 1 = -\sin{a} \notag
-\end{align}
+\begin{align*}
+    \partial \cos(a) &= \lian{h\to 0} \frac{\cos{(a + h)} - \cos{a}}{h}  \\
+    &= \lian{h\to 0} \frac{\cos{a}\cos{h} - \sin{a}\sin{h} - \cos{a}}{h}  \\
+    &= \cos{a} \cdot \lian{h\to 0} \frac{\cos{h} - 1}{h} - \sin{a} \cdot\lian{h\to 0}\frac{\sin{h}}{h}  \\
+    &= \cos{a} \cdot 0 - \sin{a} \cdot 1 = -\sin{a} 
+\end{align*}
 余弦函数$\cos$在一点$a$的微变为：
 $$ \partial \cos(a) = -\sin{a} $$
 
 正切函数$\tan$可以看作正弦函数和余弦函数的比值，因此，它在一点$a$的微变为：
-\begin{align}
-    \partial \tan(a) &= \partial \left(\frac{\sin}{\cos}\right)(a) \notag \\
-    &= (\frac{\partial \sin(a) \cdot \cos{a} - \partial \cos(a) \cdot \sin{a}}{\cos^2{a}} \notag \\
-    &= \frac{\cos^2{a} + \sin^2{a}}{\cos^2{a}} \notag \\
-    &= \frac{1}{\cos^2{a}}. \notag 
-\end{align}
+\begin{align*}
+    \partial \tan(a) &= \partial \left(\frac{\sin}{\cos}\right)(a)  \\
+    &= (\frac{\partial \sin(a) \cdot \cos{a} - \partial \cos(a) \cdot \sin{a}}{\cos^2{a}}  \\
+    &= \frac{\cos^2{a} + \sin^2{a}}{\cos^2{a}}  \\
+    &= \frac{1}{\cos^2{a}}.  
+\end{align*}
 正切函数$\cos$在一点$a$的微变为：
 $$ \partial \tan(a) = \frac{1}{\cos^2{a}} $$
 
@@ -870,21 +870,21 @@ $$ \partial \tan(a) = \frac{1}{\cos^2{a}} $$
 $$ \partial \cot(a) = -\frac{1}{\sin^2{a}} $$
 
 最后来看指数函数。给定底数$c > 1$，指数函数$x\mapsto c^x$是连续函数，计算它在一点$a$的微变：
-\begin{align}
-    \partial (c^x) (a) &= \lian{h\to 0} \frac{c^{a+h} - c^a}{h} \notag \\
-    &= c^a \lian{h\to 0} \frac{c^h - 1}{h} \notag \\
-    &= c^a \cdot \partial (c^x) (0) \notag
-\end{align}
+\begin{align*}
+    \partial (c^x) (a) &= \lian{h\to 0} \frac{c^{a+h} - c^a}{h}  \\
+    &= c^a \lian{h\to 0} \frac{c^h - 1}{h}  \\
+    &= c^a \cdot \partial (c^x) (0) 
+\end{align*}
 可以看到，如果指数函数在$0$处可微，那么它在任意点处可微，且微变率是函数值与函数在$0$处微变率的乘积。
 
 于是，我们来研究指数函数在$0$处的微变。对于不同的底数$c_1$、$c_2$，有：
 $$c_2^h = c_1^{\frac{log{c_2}}{\log{c_1}}\cdot h}.$$
 因此，
-\begin{align}
-    \lian{h\to 0} \frac{c_2^h - 1}{h} &= \lian{h\to 0} \frac{c_1^{\frac{log{c_2}}{\log{c_1}}\cdot h} - 1}{h} \notag \\
-    &= \frac{log{c_2}}{\log{c_1}} \cdot \lian{h\to 0} \frac{c_1^{\frac{log{c_2}}{\log{c_1}}\cdot h} - 1}{\frac{log{c_2}}{\log{c_1}} \cdot h} \notag \\
-    &= \frac{log{c_2}}{\log{c_1}} \cdot \lian{t\to 0} \frac{c_1^{t} - 1}{t} \notag 
-\end{align}
+\begin{align*}
+    \lian{h\to 0} \frac{c_2^h - 1}{h} &= \lian{h\to 0} \frac{c_1^{\frac{log{c_2}}{\log{c_1}}\cdot h} - 1}{h}  \\
+    &= \frac{log{c_2}}{\log{c_1}} \cdot \lian{h\to 0} \frac{c_1^{\frac{log{c_2}}{\log{c_1}}\cdot h} - 1}{\frac{log{c_2}}{\log{c_1}} \cdot h}  \\
+    &= \frac{log{c_2}}{\log{c_1}} \cdot \lian{t\to 0} \frac{c_1^{t} - 1}{t}  
+\end{align*}
 也就是说，如果底数$c_1$的指数函数在$0$处可微，那么底数$c_2$的指数函数在$0$处也可微，并且两个微变率只差一个乘法系数。
 
 考虑通项公式如下的数列$\{e_n\}$：
@@ -902,10 +902,10 @@ $$ \partial (c^x) (a) = c^a \cdot \log_e{c}. $$
 $$ \partial f (a) = e^a = f(a).$$
 
 对数函数是指数函数的反函数。因此，可以用反函数的求微法则，求出对数函数的微变。
-\begin{align}
-    \partial \log_c (a) &= \frac{1}{\partial (c^x) (\log_c{a})} \notag \\
-    &= \frac{1}{c^{\log_c{a}} \cdot \log_e{c}} = \frac{1}{a \cdot \log_e{c}}  \notag 
-\end{align}
+\begin{align*}
+    \partial \log_c (a) &= \frac{1}{\partial (c^x) (\log_c{a})}  \\
+    &= \frac{1}{c^{\log_c{a}} \cdot \log_e{c}} = \frac{1}{a \cdot \log_e{c}}   
+\end{align*}
 对数函数在定义域中任一点的微变率与它在该点的值成反比。
 
 同样，如果底数为$e$，那么对数函数在任一点的微变率等于它在该点的值的倒数。
@@ -923,24 +923,24 @@ $$ \partial \log_e (a) = \frac{1}{a}.$$
 \begin{so}
     \mbox{} \\
     \indent 1. 应用复合函数的求微法则：
-    \begin{align}
-        \partial f(2) &= \partial \sin (2 \cdot 2 - 7) \cdot \partial (2x - 7) (2) \notag \\
-        &= \cos{(-3)} \cdot 2 \notag \\
-        &= 2 \cos{3} \notag  
-    \end{align}
+    \begin{align*}
+        \partial f(2) &= \partial \sin (2 \cdot 2 - 7) \cdot \partial (2x - 7) (2)  \\
+        &= \cos{(-3)} \cdot 2  \\
+        &= 2 \cos{3}   
+    \end{align*}
     
     \indent 2. 应用复合函数的求微法则：
-    \begin{align}
-        \partial f(2) &= \partial \log_2 \left(\frac{2+1}{2-1} + \sin{2}\right) \cdot \left(\partial \left(\frac{x+1}{x-1}\right) (2) + \partial \sin (2) \right)\notag \\
-        &= \frac{1}{\log_e{2} \left(\frac{2+1}{2-1} + \sin{2}\right)} \cdot \left( -\frac{2}{(2 - 1)^2} + \cos{2} \right) \notag \\
-        &= \frac{\cos{(2)} - 2}{\ln{2} \cdot (3 + \sin{2})} \notag  
-    \end{align}
+    \begin{align*}
+        \partial f(2) &= \partial \log_2 \left(\frac{2+1}{2-1} + \sin{2}\right) \cdot \left(\partial \left(\frac{x+1}{x-1}\right) (2) + \partial \sin (2) \right) \\
+        &= \frac{1}{\log_e{2} \left(\frac{2+1}{2-1} + \sin{2}\right)} \cdot \left( -\frac{2}{(2 - 1)^2} + \cos{2} \right)  \\
+        &= \frac{\cos{(2)} - 2}{\ln{2} \cdot (3 + \sin{2})}   
+    \end{align*}
     \indent 3. 应用复合函数的求微法则：
-    \begin{align}
-        \partial f(-1) &= \partial (3^x) (2\cdot (-1) - \frac{1}{2 + \sin{-1}}) \cdot \left(\partial (2x) (-1) - \partial \frac{1}{\sin{x} + 2} (-1) \right) \notag \\
-        &= \ln{3} \cdot 3^{-2 - \frac{1}{2 - \sin{1}}} \cdot \left(2 - \frac{-1}{(\sin{(-1)} + 2)^2} \cdot \cos{(-1)} \right) \notag \\
-        &= \frac{\ln{3}}{3^{2 + \frac{1}{2 - \sin{1}}}} \cdot \left(2 + \frac{\cos{1}}{(2 - \sin{1})^2}\right) \notag 
-    \end{align}
+    \begin{align*}
+        \partial f(-1) &= \partial (3^x) (2\cdot (-1) - \frac{1}{2 + \sin{-1}}) \cdot \left(\partial (2x) (-1) - \partial \frac{1}{\sin{x} + 2} (-1) \right)  \\
+        &= \ln{3} \cdot 3^{-2 - \frac{1}{2 - \sin{1}}} \cdot \left(2 - \frac{-1}{(\sin{(-1)} + 2)^2} \cdot \cos{(-1)} \right)  \\
+        &= \frac{\ln{3}}{3^{2 + \frac{1}{2 - \sin{1}}}} \cdot \left(2 + \frac{\cos{1}}{(2 - \sin{1})^2}\right)  
+    \end{align*}
 
 \end{so}
 
@@ -1166,19 +1166,19 @@ $$
 特别地，$x\mapsto e^x$的任意次微变都是自己。
 
 正弦、余弦函数的多次微变和次数的奇偶性相关。
-\begin{align}
-    \forall \,\,n\,\,\in\,\,\mathbb{Z}^+,\notag \\
-    \partial^{2n-1} \sin(x) &= (-1)^{n-1} \cos{x}, & \partial^{2n} \sin(x) &= (-1)^{n} \sin{x}, \notag \\
-    \partial^{2n-1} \cos(x) &= (-1)^{n} \sin{x}, & \partial^{2n} \cos(x) &= (-1)^{n} \cos{x}, \notag 
-\end{align}
+\begin{align*}
+    \forall \,\,n\,\,\in\,\,\mathbb{Z}^+, \\
+    \partial^{2n-1} \sin(x) &= (-1)^{n-1} \cos{x}, & \partial^{2n} \sin(x) &= (-1)^{n} \sin{x},  \\
+    \partial^{2n-1} \cos(x) &= (-1)^{n} \sin{x}, & \partial^{2n} \cos(x) &= (-1)^{n} \cos{x},  
+\end{align*}
 
 两个$k$次可微函数$f$、$g$的和与差，仍然是$k$次可微函数，其$k$次微变函数为：
 $$ \partial^k (f \pm g) = \partial^k f \pm \partial^k g $$
 而它们的乘积也依然是$k$次可微函数，其$k$次微变函数为：
-\begin{align}
-    \partial^k (f \cdot g) &= \partial^k f \cdot g + C_k^1 \partial^{k-1} f \cdot \partial g + \cdots + C_k^i \cdot \partial^{k-i} f \cdot  \partial^i g + \cdots + \cdot \partial^{k} g \notag \\
-    &= \sum_{i=0}^k C_k^i \partial^{k-i} f \cdot  \partial^i g \notag
-\end{align}
+\begin{align*}
+    \partial^k (f \cdot g) &= \partial^k f \cdot g + C_k^1 \partial^{k-1} f \cdot \partial g + \cdots + C_k^i \cdot \partial^{k-i} f \cdot  \partial^i g + \cdots + \cdot \partial^{k} g  \\
+    &= \sum_{i=0}^k C_k^i \partial^{k-i} f \cdot  \partial^i g 
+\end{align*}
 这个表达式和二项式的展开一样，因为函数乘积的微变就是（一次的）二项式。
 
 对于多次可微的函数，使用多次微变，可以给出类似微变中值定理的结论。
@@ -1202,10 +1202,10 @@ $$ f(a + h) = f(a) + \partial f(a) h + c_2 \partial^2 f(a) h^2 + \cdots + c_n \p
 \begin{tm}{\textbf{微变展开定理}}
     设$n$为正整数。已知函数$f$在包含实数$a$的区间$I$中$n+1$次可微，那么，对于$I$中另一个数$x$，
     存在介于$a$与$x$之间的数$c$，使得下式成立：
-    \begin{align}
-        f(x) &= f(a) + \sum_{k=1}^n \frac{\partial^k f (a)}{k!}(x - a)^k + \frac{\partial^{n+1} f (c)}{(n+1)!}(x - a)^{n+1}. \notag \\
-        &= P_n(x - a) + Y_n(x - a). \notag
-    \end{align}
+    \begin{align*}
+        f(x) &= f(a) + \sum_{k=1}^n \frac{\partial^k f (a)}{k!}(x - a)^k + \frac{\partial^{n+1} f (c)}{(n+1)!}(x - a)^{n+1}.  \\
+        &= P_n(x - a) + Y_n(x - a). 
+    \end{align*}
     上式称为$f$在$a$处的$\boldsymbol{n}$\textbf{次微变展开}。
     其中$P_n$称为$f$在$a$处的$\boldsymbol{n}$\textbf{次微变展开多项式}，
     $Y_n$称为$f$在$a$处展开的$\boldsymbol{n}$\textbf{次余项}。
@@ -1234,12 +1234,12 @@ $$ f(a + h) = f(a) + \partial f(a) h + c_2 \partial^2 f(a) h^2 + \cdots + c_n \p
     正弦函数的多次微变要么是余弦函数，要么是正弦函数，至多相差一个正负号，因此绝对值小于等于$1$。
     $h$的值大约在$0.08$到$0.1$之间，因此，$h^5$小于$10^{-5}$。考虑到余项中还有作为分母的$(n+1)!$，
     我们可以尝试令$n=3$。这时：
-    \begin{align}
-        | Y_n| &= \left|\frac{\partial^{n+1} \sin (c)}{(n+1)!}h^{n+1}\right| \notag \\
-        &= \frac{\left|\partial^{4} \sin (c)\right|}{4!}|h|^4 \notag \\
-        &\leqslant \frac{|h|^4}{4!} \notag \\
-        &< \frac{10^{-4}}{24} < 5 \cdot 10^{-6}. \notag
-    \end{align}
+    \begin{align*}
+        | Y_n| &= \left|\frac{\partial^{n+1} \sin (c)}{(n+1)!}h^{n+1}\right|  \\
+        &= \frac{\left|\partial^{4} \sin (c)\right|}{4!}|h|^4  \\
+        &\leqslant \frac{|h|^4}{4!}  \\
+        &< \frac{10^{-4}}{24} < 5 \cdot 10^{-6}. 
+    \end{align*}
     具体计算可知，$\frac{|h|^4}{4!} \approx 0.0000024$。
     因此误差足够小。
 
@@ -1248,11 +1248,11 @@ $$ f(a + h) = f(a) + \partial f(a) h + c_2 \partial^2 f(a) h^2 + \cdots + c_n \p
     % h = 0.0872664625997164788461845384244306356721435944270862728048595720
 
     接下来计算展开多项式$P_3(h)$的值。
-    \begin{align}
-        P_3(h) &= \sin{0} + \frac{\cos (0)}{1!}h^1 - \frac{\sin (0)}{2!}h^2 - \frac{\cos (0)}{3!}h^3 \notag \\
-        &= h - \frac{h^3}{6} \notag \\
-        &\approx 0.08716. \notag
-    \end{align}
+    \begin{align*}
+        P_3(h) &= \sin{0} + \frac{\cos (0)}{1!}h^1 - \frac{\sin (0)}{2!}h^2 - \frac{\cos (0)}{3!}h^3  \\
+        &= h - \frac{h^3}{6}  \\
+        &\approx 0.08716. 
+    \end{align*}
     
     实际上，$\sin{\frac{\pi}{36}}$的值约为$0.08715574$，精确到小数点后$5$位为$0.08716$。
     因此近似计算结果是正确的。
@@ -1395,9 +1395,9 @@ $$ f(a + h) = f(a) + \partial f(a) h + c_2 \partial^2 f(a) h^2 + \cdots + c_n \p
 
     $x$趋于正无穷时，$x^2$趋于正无穷，$e^{2x}$趋于正无穷。需要研究两者的比值。
     $x > 1$时，$e^{2x} > 2^{2x}$，于是
-    \begin{align}
-        f(x) &= \frac{x^2}{e^{2x}} < \frac{x^2}{2^x} \cdot \frac{1}{2^x}, \notag
-    \end{align} 
+    \begin{align*}
+        f(x) &= \frac{x^2}{e^{2x}} < \frac{x^2}{2^x} \cdot \frac{1}{2^x}, 
+    \end{align*} 
     而我们知道，对于正整数$n$，总有$2^n \geqslant n^2$。因此，
     $f(n) < 2^{-n}$，这说明$n$趋于无穷时，$f(n)$趋于$0$。
     而$f$在$(1,+\infty)$上单调递减且大于$0$，
@@ -1589,25 +1589,25 @@ $$ Y_n = \frac{\partial^{n+1} \sin (c)}{(n+1)!}h^{n+1}. $$
 那么比值$\frac{\sin{x}}{\ln{(1 + x)}}$在$0$附近是什么样子的呢？
 
 首先利用微变展开定理把两者用多项式和余项表示。
-\begin{align}
-    \sin{x} &= \sin{0} + \sum_{k=1}^n \frac{\partial^k \sin (0)}{k!}x^k + \mathit{o}(x^n). \notag \\
-    \ln{(1 + x)} &= \ln{1} + \sum_{k=1}^n \frac{\partial^k \ln (1)}{k!}x^k + \mathit{o}(x^n). \notag 
-\end{align}
+\begin{align*}
+    \sin{x} &= \sin{0} + \sum_{k=1}^n \frac{\partial^k \sin (0)}{k!}x^k + \mathit{o}(x^n).  \\
+    \ln{(1 + x)} &= \ln{1} + \sum_{k=1}^n \frac{\partial^k \ln (1)}{k!}x^k + \mathit{o}(x^n).  
+\end{align*}
 然后从最“低阶”的无穷小开始对比。
-\begin{align}
-    \sin{x} &= x - \frac{x^3}{6} + \frac{x^5}{120} + \cdots + \mathit{o}(x^n). \notag \\
-    \ln{(1 + x)} &= x - \frac{x^2}{2} + \frac{x^3}{3} + \cdots + \mathit{o}(x^n). \notag
-\end{align}
+\begin{align*}
+    \sin{x} &= x - \frac{x^3}{6} + \frac{x^5}{120} + \cdots + \mathit{o}(x^n).  \\
+    \ln{(1 + x)} &= x - \frac{x^2}{2} + \frac{x^3}{3} + \cdots + \mathit{o}(x^n). 
+\end{align*}
 $\sin{x}$和$\ln{(1+x)}$的“最大项”都是$x$，之后$\ln{(1+x)}$是$- \frac{x^2}{2}$，而$\sin{x}$是$- \frac{x^3}{6}$。
 因此，我们可以写出它们的比值：
-\begin{align}
-    \frac{\sin{x}}{\ln{(1 + x)}} &= \frac{x - \frac{x^3}{6} + \olim{x^3}}{x - \frac{x^2}{2} + \olim{x^2}} \notag \\
-    &= \frac{1 - \olim{x}}{1 - \frac{x}{2} + \olim{x}} \notag \\
-    &= \frac{(1 - \olim{x})\left(1 + \frac{x}{2} + \olim{x}\right)}{\left(1 - \frac{x}{2} + \olim{x}\right)\left(1 + \frac{x}{2} + \olim{x}\right)} \notag \\
-    &= \frac{1 + \frac{x}{2} + \olim{x}}{1 + \olim{x}} \notag \\
-    &= \left(1 + \frac{x}{2} + \olim{x}\right)(1 + \olim{x}) \notag \\
-    &= 1 + \frac{x}{2} + \olim{x} \notag
-\end{align}
+\begin{align*}
+    \frac{\sin{x}}{\ln{(1 + x)}} &= \frac{x - \frac{x^3}{6} + \olim{x^3}}{x - \frac{x^2}{2} + \olim{x^2}}  \\
+    &= \frac{1 - \olim{x}}{1 - \frac{x}{2} + \olim{x}}  \\
+    &= \frac{(1 - \olim{x})\left(1 + \frac{x}{2} + \olim{x}\right)}{\left(1 - \frac{x}{2} + \olim{x}\right)\left(1 + \frac{x}{2} + \olim{x}\right)}  \\
+    &= \frac{1 + \frac{x}{2} + \olim{x}}{1 + \olim{x}}  \\
+    &= \left(1 + \frac{x}{2} + \olim{x}\right)(1 + \olim{x})  \\
+    &= 1 + \frac{x}{2} + \olim{x} 
+\end{align*}
 也就是说，在$0$附近，$\sin{x}$和$\ln{(1+x)}$的比值大约是$1 + \frac{x}{2}$，余项是关于$x$的高阶无穷小。
 
 把函数在$0$附近用一次整式和高阶无穷小表示，我们把这样的结果称为函数在$0$附近的一次展开。
@@ -1631,11 +1631,11 @@ $\sin{x}$和$\ln{(1+x)}$的“最大项”都是$x$，之后$\ln{(1+x)}$是$- \f
     $x$趋于正无穷时，$\frac{1}{x}$趋于$0$。我们把$\ln{\left(1 + \frac{1}{x}\right)}$展开，得到：
     $$ \ln{\left(1 + \frac{1}{x}\right)} \oveq{+\infty} \frac{1}{x} - \frac{1}{2x^2} + \olim{\frac{1}{x^2}}$$
     因此，
-    \begin{align}
-        x^2 \ln{\left(1 + \frac{1}{x}\right)} - x &\oveq{+\infty} x^2 \left(\frac{1}{x} - \frac{1}{2x^2} + \olim{\frac{1}{x^2}}\right) - x \notag \\
-        &\oveq{+\infty} x -\frac{1}{2} + \olim{1} - x \notag \\
-        &\oveq{+\infty} -\frac{1}{2} + \olim{1} \notag
-    \end{align}
+    \begin{align*}
+        x^2 \ln{\left(1 + \frac{1}{x}\right)} - x &\oveq{+\infty} x^2 \left(\frac{1}{x} - \frac{1}{2x^2} + \olim{\frac{1}{x^2}}\right) - x  \\
+        &\oveq{+\infty} x -\frac{1}{2} + \olim{1} - x  \\
+        &\oveq{+\infty} -\frac{1}{2} + \olim{1} 
+    \end{align*}
     也就是说，
     $$ \lian{x\to +\infty} x^2 \ln{\left(1 + \frac{1}{x}\right)} - x = -\frac{1}{2}. $$
     于是
@@ -1819,9 +1819,9 @@ $$ \frac{f(z) - f(x)}{z - x} \leqslant \frac{f(z) - f(y)}{y - z}. $$
     最后，$f$在$x_1$、$x_2$处的值为：
     $$ f(x_1) = \frac{3 + 2\sqrt{2}}{2} e^{-2-\sqrt{2}} \approx 0.1, \quad f(x_2) = \frac{3 - 2\sqrt{2}}{2} e^{-2+\sqrt{2}} \approx 0.05. $$
     微变率分别是：
-    \begin{align}
-        \partial f(x_1) = -(\sqrt{2} + 1)e^{-2-\sqrt{2}} \approx -0.08, \quad  \partial f(x_2) = (\sqrt{2} - 1)e^{-2+\sqrt{2}} \approx 0.23. \notag
-    \end{align}
+    \begin{align*}
+        \partial f(x_1) = -(\sqrt{2} + 1)e^{-2-\sqrt{2}} \approx -0.08, \quad  \partial f(x_2) = (\sqrt{2} - 1)e^{-2+\sqrt{2}} \approx 0.23. 
+    \end{align*}
     这样，我们可以大致画出$f$的图像。
 \end{so}
 
@@ -1893,10 +1893,10 @@ $$ \frac{f(z) - f(x)}{z - x} \leqslant \frac{f(z) - f(y)}{y - z}. $$
 第二个例子里，考虑$S_2$中元素$u$、$v$的直组合$au + bv$：
 $$ \partial^2 (au + bv) = a \partial^2 u + b \partial^2 v,$$
 所以
-\begin{align}
-    \partial^2 (au + bv) + au + bv &= a \partial^2 u + b \partial^2 v + au + bv \notag \\
-    &= a(\partial^2 u + u) + b(\partial^2 v + v) = 0. \notag 
-\end{align}
+\begin{align*}
+    \partial^2 (au + bv) + au + bv &= a \partial^2 u + b \partial^2 v + au + bv  \\
+    &= a(\partial^2 u + u) + b(\partial^2 v + v) = 0.  
+\end{align*}
 $au + bv$也是$S_2$中元素。
 于是，我们也可以把$S_2$中元素看作向量。比如，可以验证正弦函数$\sin$和余弦函数$\cos$都是$S_2$中元素，
 因此，其任意直组合$x\mapsto a\sin{x} + b\cos{x}$也是$S_2$中元素。
@@ -2365,14 +2365,14 @@ $$ H_n > H_N + (n - N) \cdot (1 - r).$$
 但我们可以证明，级数$\sum \frac{1}{n+1}$不收敛。
 
 考虑数列$\{\frac{1}{n+1}\}$的前$2^m$项，我们可以把它这样拆分：
-\begin{align}
-    1 \, &\geqslant \, 1 \notag \\
-    \frac{1}{2} &\geqslant \frac{1}{2} \notag \\
-    \frac{1}{3} + \frac{1}{4} &\geqslant 2 \cdot \frac{1}{4} = \frac{1}{2} \notag \\
-    \frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} &\geqslant 4 \cdot \frac{1}{8} = \frac{1}{2} \notag \\
-    \vdots \qquad & \qquad \vdots \notag \\\
-    \frac{1}{2^{m-1}+1} + \frac{1}{2^{m-1}+2} + \cdots + \frac{1}{2^{m}} &\geqslant 2^{m-1} \cdot \frac{1}{2^{m}} = \frac{1}{2} \notag 
-\end{align}
+\begin{align*}
+    1 \, &\geqslant \, 1  \\
+    \frac{1}{2} &\geqslant \frac{1}{2}  \\
+    \frac{1}{3} + \frac{1}{4} &\geqslant 2 \cdot \frac{1}{4} = \frac{1}{2}  \\
+    \frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} &\geqslant 4 \cdot \frac{1}{8} = \frac{1}{2}  \\
+    \vdots \qquad & \qquad \vdots  \\\
+    \frac{1}{2^{m-1}+1} + \frac{1}{2^{m-1}+2} + \cdots + \frac{1}{2^{m}} &\geqslant 2^{m-1} \cdot \frac{1}{2^{m}} = \frac{1}{2}  
+\end{align*}
 
 因此，级数前$2^m$项的部分和大于等于$1 + \frac12 \cdot (m - 1) = \frac{m+1}{2}$。
 这说明级数不收敛。
@@ -2414,12 +2414,12 @@ $$ na_n - (n+1)a_{n+1} < 0. $$
 即
 $$ na_n - (n+1)a_{n+1} \geqslant (r - 1)a_{n+1}.  $$
 同理，可以写出：
-\begin{align}
-    (n-1)a_{n-1} - na_n &\geqslant (r - 1)a_{n} \notag \\
-    (n-2)a_{n-2} - (n-1)a_{n-1} &\geqslant (r - 1)a_{n-1} \notag \\
-    \vdots \quad &\geqslant \quad \vdots \notag \\
-    Na_{N} - na_n &\geqslant (r - 1)a_{N+1} \notag
-\end{align}
+\begin{align*}
+    (n-1)a_{n-1} - na_n &\geqslant (r - 1)a_{n}  \\
+    (n-2)a_{n-2} - (n-1)a_{n-1} &\geqslant (r - 1)a_{n-1}  \\
+    \vdots \quad &\geqslant \quad \vdots  \\
+    Na_{N} - na_n &\geqslant (r - 1)a_{N+1} 
+\end{align*}
 以上等式分边相加，就得到：
 $$ Na_{N} \geqslant Na_{N} - na_n \geqslant (r - 1)\sum_{i=N+1}^n a_i. $$
 于是部分和$H_n$可以写成：
@@ -2531,10 +2531,10 @@ $$\forall n \geqslant 1,  \,\,\,q_n = \frac{n^k x^{n+1}}{x^n (n+1)^{k}} = x\left
 我们证明两者都趋于同一个极限$X$，因此部分和数列也趋于$X$。
 
 数列的偶数项大于等于$0$，奇数项小于等于$0$。
-\begin{align}
-    H_{2m+2} = H_{2m} - \frac{1}{2m+2} + \frac{1}{2m+3} &\leqslant H_{2m}, \notag \\
-    H_{2m+3} = H_{2m+1} + \frac{1}{2m+3} - \frac{1}{2m+4} &\geqslant H_{2m+1}. \notag
-\end{align}
+\begin{align*}
+    H_{2m+2} = H_{2m} - \frac{1}{2m+2} + \frac{1}{2m+3} &\leqslant H_{2m},  \\
+    H_{2m+3} = H_{2m+1} + \frac{1}{2m+3} - \frac{1}{2m+4} &\geqslant H_{2m+1}. 
+\end{align*}
 即$\{H_{2m}\}$单调递减，$\{H_{2m+1}\}$单调递增。即$H_{2m} \leqslant H_2 $，$H_{2m+1} \geqslant H_1$。
 
 两者的通项之差为$ H_{2m} - H_{2m+1} = \frac{1}{2m+1} \geqslant 0$，所以
@@ -2628,10 +2628,10 @@ $$ H_1 \leqslant H_{2m+1} \leqslant H_{2m} \leqslant H_2. $$
     这样构成的集合是$A$的子集$A'$。
 
     我们定义新的映射
-    \begin{align}
-        g: A' &\rightarrow B \notag\\
-        x &\mapsto f(x)\notag
-    \end{align}
+    \begin{align*}
+        g: A' &\rightarrow B \\
+        x &\mapsto f(x)
+    \end{align*}
     
     这样定义的$g$，是从$A$的子集$A'$到$B$的满射。而且按照定义，总有$g(x) = f(x)$。
     而由于不同的自变量$x$来自不同的原像，所以经过$f$映射的结果也不相同。这说明$g$是单射。因此$g$是双射。
@@ -2708,15 +2708,15 @@ $f$是$A$到$B$子集的双射，$g$又把$B$的这部分一一对应到$A$的�
     $$
     根据定理\ref{tm:a-1-0}，$f$是$A_0$到$B_1$的双射，$g$是$B_1$到$A_2$的双射，等等。
     因此，我们可以写出以下两条等势关系“链”：
-    \begin{align}
-        |A| = |A_0| = |B_1| = |A_2| = |B_3| = |A_4| = |B_5| = |A_6| = \cdots \notag \\
-        |B| = |B_0| = |A_1| = |B_2| = |A_3| = |B_4| = |A_5| = |B_6| = \cdots \notag  
-    \end{align}
+    \begin{align*}
+        |A| = |A_0| = |B_1| = |A_2| = |B_3| = |A_4| = |B_5| = |A_6| = \cdots  \\
+        |B| = |B_0| = |A_1| = |B_2| = |A_3| = |B_4| = |A_5| = |B_6| = \cdots   
+    \end{align*}
     其中集合的关系为：
-    \begin{align}
-        A = A_0 \supseteq A_1 \supseteq A_2 \supseteq A_3  \supseteq \cdots \notag \\
-        B = B_0 \supseteq B_1 \supseteq B_2 \supseteq B_3  \supseteq \cdots \notag  
-    \end{align}
+    \begin{align*}
+        A = A_0 \supseteq A_1 \supseteq A_2 \supseteq A_3  \supseteq \cdots  \\
+        B = B_0 \supseteq B_1 \supseteq B_2 \supseteq B_3  \supseteq \cdots   
+    \end{align*}
     
     以上集合关系中，如果对某个正整数$n$，有$A_n = A_{n+1}$或$B_n = B_{n+1}$，那么两条等势“链”就连上了，于是立刻得到$|A| = |B|$。
 
@@ -2725,10 +2725,10 @@ $f$是$A$到$B$子集的双射，$g$又把$B$的这部分一一对应到$A$的�
     
     $A_n$到$B_{n+1}$有用$f$定义的双射，$A_{n+1}$到$B_{n+2}$有用$f$定义的双射，
     因此，$A_n^*$到$B_n^*$也有用$f$定义的双射。我们可以得到以下两条等势关系“链”：
-    \begin{align}
-        |A_0^*| = |B_1^*| = |A_2^*| = |B_3^*| = |A_4^*| = \cdots \notag \\
-        |B_0^*| = |A_1^*| = |B_2^*| = |A_3^*| = |B_4^*| = \cdots \notag  
-    \end{align}
+    \begin{align*}
+        |A_0^*| = |B_1^*| = |A_2^*| = |B_3^*| = |A_4^*| = \cdots  \\
+        |B_0^*| = |A_1^*| = |B_2^*| = |A_3^*| = |B_4^*| = \cdots   
+    \end{align*}
     $|A_0^*| = |B_1^*|$，$|A_1^*| = |B_0^*|$，而$A_0^*$与$A_1^*$不相交，
     而$B_0^*$与$B_1^*$不相交。
     因此，这两对集合可以拼成$A_0^* \cup A_1^*$到$B_0^* \cup B_1^*$的“整齐”的双射。
@@ -2736,13 +2736,13 @@ $f$是$A$到$B$子集的双射，$g$又把$B$的这部分一一对应到$A$的�
     
     对于一般的相邻奇偶数下标，
     也可以这么做。因此，我们可以构建这样的映射：
-    \begin{align}
-        h : \bigcup_{n\in\mathbb{N}} A_n^* &\rightarrow \bigcup_{n\in\mathbb{N}} B_n^* \notag \\
+    \begin{align*}
+        h : \bigcup_{n\in\mathbb{N}} A_n^* &\rightarrow \bigcup_{n\in\mathbb{N}} B_n^*  \\
         x \quad&\mapsto \left\{ \begin{array}{ll}
             f(x) & \mbox{如果} x\in A_{2m}^*,\,\,\, m\in\mathbb{N}  \\
             g(x) & \mbox{如果} x\in A_{2m+1}^*,\,\,\, m\in\mathbb{N} 
-        \end{array} \right.\notag
-    \end{align}
+        \end{array} \right.
+    \end{align*}
     由于对所有的$n$，$A_n^*$两两不相交，$B_n^*$两两不相交。所以以上定义的$h$成立，而且是双射。
 
     如果集合$A^* = \bigcup_{n\in\mathbb{N}} A_n^*$就是$A$，同理$B^* = \bigcup_{n\in\mathbb{N}} B_n^*$就是$B$，
@@ -2758,13 +2758,13 @@ $f$是$A$到$B$子集的双射，$g$又把$B$的这部分一一对应到$A$的�
     且$B^*$和$\overline{B}$是$B$的分划。
 
     只要有$\overline{A}$到$\overline{B}|$的双射$j$，那么用类似前面的思路，我们可以建立$A$到$B$的双射：
-    \begin{align}
-        H : A \quad&\rightarrow \quad B \notag \\
+    \begin{align*}
+        H : A \quad&\rightarrow \quad B  \\
         x \quad&\mapsto \left\{ \begin{array}{ll}
             h(x) & \mbox{如果} x\in A^*  \\
             j(x) & \mbox{如果} x\in \overline{A}
-        \end{array} \right.\notag
-    \end{align}
+        \end{array} \right.
+    \end{align*}
 
     最后证明双射$j$存在。考虑$y \in \overline{B}$，按照定义，$y\in B_1 = f(A)$，
     所以它关于$f$的原像是非空集合。而$f$是单射，所以其中恰有一个元素$x\in A$。
@@ -2876,10 +2876,10 @@ $f$是$A$到$B$子集的双射，$g$又把$B$的这部分一一对应到$A$的�
     不难证明，对任意$n>m$，
     $$|u_n - u_m| \leqslant \sum_{i=m+1}^n \frac{1}{3^k} < \frac{3^{-(m+1)}}{1 - \frac{1}{3}} = \frac{3^{-m}}{2}.$$
     因此$\{b_n\}$是自敛数列，收敛到某个实数。因此，可以定义映射：
-    \begin{align}
-        f : 2^\mathbb{N} &\rightarrow \mathbb{R} \notag \\
-        \{a_n\} &\mapsto \lian{n\to +\infty} u_n \notag
-    \end{align}
+    \begin{align*}
+        f : 2^\mathbb{N} &\rightarrow \mathbb{R}  \\
+        \{a_n\} &\mapsto \lian{n\to +\infty} u_n 
+    \end{align*}
     只需证明$f$是单射。
 
     设有两个不相同的数列$\{a_n\}$、$\{b_n\}$，分别对应数列$\{u_n\}$、$\{v_n\}$。
@@ -2887,13 +2887,13 @@ $f$是$A$到$B$子集的双射，$g$又把$B$的这部分一一对应到$A$的�
     即$\forall i<m, a_i = b_i$，且$a_m$、$b_m$一个是$1$，一个是$0$。
 
     不妨设$a_m = 1$，$b_m = 0$。那么对任意$n>m$，
-    \begin{align}
-        u_n - v_n &= \frac{a_m - b_m}{3^m} + \sum_{i=m+1}^n \frac{a_i - b_i}{3^i} \notag \\
-        &= \frac{1}{3^m} + \sum_{i=m+1}^n \frac{a_i - b_i}{3^i} \notag \\
-        &\geqslant \frac{1}{3^m} + \sum_{i=m+1}^n \frac{0 - 1}{3^i} \notag \\
-        &= \frac{1}{3^m} - \frac{3^{-m-1} - 3^{-n-1}}{1 - \frac{1}{3}} \notag \\
-        &> \frac{1}{3^m} - \frac{1}{2\cdot 3^m} = \frac{1}{2\cdot 3^m} \notag
-    \end{align}
+    \begin{align*}
+        u_n - v_n &= \frac{a_m - b_m}{3^m} + \sum_{i=m+1}^n \frac{a_i - b_i}{3^i}  \\
+        &= \frac{1}{3^m} + \sum_{i=m+1}^n \frac{a_i - b_i}{3^i}  \\
+        &\geqslant \frac{1}{3^m} + \sum_{i=m+1}^n \frac{0 - 1}{3^i}  \\
+        &= \frac{1}{3^m} - \frac{3^{-m-1} - 3^{-n-1}}{1 - \frac{1}{3}}  \\
+        &> \frac{1}{3^m} - \frac{1}{2\cdot 3^m} = \frac{1}{2\cdot 3^m} 
+    \end{align*}
     这说明$f(\{a_n\}) - f(\{b_n\}) \geqslant \frac{1}{2\cdot 3^m} > 0$。于是$f$是单射。
 
     其次建立$\mathbb{R}$到$2^\mathbb{N}$的单射。为此，仍然先建立$\mathbb{R}$与$(0,1)$之间的双射。
@@ -2947,12 +2947,12 @@ $$ \partial f(a) = \lian{x\to a} \frac{f(x) - f(a)}{x - a} = \lian{h\to 0} \frac
 \begin{proof}
     用归纳法证明。$n = 1$时有$(1 + x)^n = 1 + nx$。假设对正整数$n$有$(1 + x)^n \geqslant 1 + nx$，
     下面证明$(1 + x)^{n+1} > 1 + (n+1)x$。
-    \begin{align}
-        (1 + x)^{n+1} &= (1 + x)^{n} \cdot (1 + x) \notag \\
-        &\geqslant (1 + nx)(1 + x) \notag \\
-        &= 1 + (n + 1)x + nx^2 \notag \\
-        &> 1 + (n + 1)x.\notag
-   \end{align}
+    \begin{align*}
+        (1 + x)^{n+1} &= (1 + x)^{n} \cdot (1 + x)  \\
+        &\geqslant (1 + nx)(1 + x)  \\
+        &= 1 + (n + 1)x + nx^2  \\
+        &> 1 + (n + 1)x.
+   \end{align*}
    因此，由$n=1$的情况可以推出$n=2$时$(1 + x)^{2} > 1 + 2x$。
    此后对所有$n>2$，总有$(1 + x)^{n} > 1 + nx$。
 \end{proof}
@@ -2982,14 +2982,14 @@ $$ \partial f(a) = \lian{x\to a} \frac{f(x) - f(a)}{x - a} = \lian{h\to 0} \frac
     下面证明$\{u_{k,n}\}$是单调递增数列。
 
     对任意正整数$n$：
-    \begin{align}
-        \frac{u_{k,n+1}}{u_{k,n}} &= \frac{\left(1 + \frac{k}{n+1}\right)^{n+1}}{\left(1 + \frac{k}{n}\right)^n} \notag \\
-        &= \frac{\left(1 + \frac{k}{n+1}\right)^{n+1}}{\left(1 + \frac{k}{n}\right)^{n+1}} \cdot \left(1 + \frac{k}{n}\right) \notag \\
-        &= \left(\frac{n(n+k+1)}{(n+1)(n+k)}\right)^{n+1} \cdot \left(1 + \frac{k}{n}\right) \notag \\
-        &= \left(1 + \frac{-k}{(n+1)(n+k)}\right)^{n+1} \cdot \left(1 + \frac{k}{n}\right) \notag \\
-        &> \left(1 + \frac{-k}{n+k}\right)\cdot \left(1 + \frac{k}{n}\right) \notag \\
-        &= 1 \notag 
-    \end{align}
+    \begin{align*}
+        \frac{u_{k,n+1}}{u_{k,n}} &= \frac{\left(1 + \frac{k}{n+1}\right)^{n+1}}{\left(1 + \frac{k}{n}\right)^n}  \\
+        &= \frac{\left(1 + \frac{k}{n+1}\right)^{n+1}}{\left(1 + \frac{k}{n}\right)^{n+1}} \cdot \left(1 + \frac{k}{n}\right)  \\
+        &= \left(\frac{n(n+k+1)}{(n+1)(n+k)}\right)^{n+1} \cdot \left(1 + \frac{k}{n}\right)  \\
+        &= \left(1 + \frac{-k}{(n+1)(n+k)}\right)^{n+1} \cdot \left(1 + \frac{k}{n}\right)  \\
+        &> \left(1 + \frac{-k}{n+k}\right)\cdot \left(1 + \frac{k}{n}\right)  \\
+        &= 1  
+    \end{align*}
     其中的不等号根据直指不等式（\ref{tm:b-1-20}）可得。
     
     注意：由于直指不等式对任意$x>-1$且$x\neq 0$成立，
@@ -3001,10 +3001,10 @@ $$ \partial f(a) = \lian{x\to a} \frac{f(x) - f(a)}{x - a} = \lian{h\to 0} \frac
     据此可以得到：
     $$ \left(1 + \frac{k}{n}\right)^{n+k+1} > \frac{(n+k+1)^{n+k+1}}{(n+1)^{n+1} n^k}. $$
     因此，
-    \begin{align}
-        \left(1 + \frac{k}{n}\right)^{n+1} &> \frac{(n+k+1)^{n+k+1}\cdot n^k}{(n+1)^{n+1}\cdot n^k\cdot (n+k)^k} \notag \\
-        &= \left(1 + \frac{k}{n+1}\right)^{n+2} \cdot \frac{(n+1)(n+k+1)^{k-1}}{(n+k)^k} \notag
-    \end{align}
+    \begin{align*}
+        \left(1 + \frac{k}{n}\right)^{n+1} &> \frac{(n+k+1)^{n+k+1}\cdot n^k}{(n+1)^{n+1}\cdot n^k\cdot (n+k)^k}  \\
+        &= \left(1 + \frac{k}{n+1}\right)^{n+2} \cdot \frac{(n+1)(n+k+1)^{k-1}}{(n+k)^k} 
+    \end{align*}
     只需证明$\frac{(n+1)(n+k+1)^{k-1}}{(n+k)^k} > 1$，就得到$v_{k,n} > v_{k,n+1}$。
     
     而这个不等式等价于：
@@ -3069,26 +3069,26 @@ $u_{r^\text{下},n} < u_{x,n} < u_{r^\text{上},n}$。
     这样，$d(x, n) < \frac{r}{2}$。
 
     再考虑$\frac{u_{x,n} - 1}{x} - 1$：
-    \begin{align}
-        \frac{u_{x,n} - 1}{x} - 1 &= \frac{\left(1 + \frac{x}{n}\right)^{n} - 1 - x}{x} \notag \\
-        &= \frac{\sum_{k=0}^n C_n^k \left(\frac{x}{n}\right)^k - 1 - x}{x} \notag \\
-        &= \frac{\sum_{k=2}^n C_n^k \left(\frac{x}{n}\right)^k}{x} \notag \\
-        &= \sum_{k=1}^{n-1} \frac{C_n^{k+1}}{n^{k+1}} x^k \notag \\
-        &= \sum_{k=1}^{n-1} \frac{n!}{(k+1)!(n-k-1)!n^{k+1}} x^k \notag 
-    \end{align}
+    \begin{align*}
+        \frac{u_{x,n} - 1}{x} - 1 &= \frac{\left(1 + \frac{x}{n}\right)^{n} - 1 - x}{x}  \\
+        &= \frac{\sum_{k=0}^n C_n^k \left(\frac{x}{n}\right)^k - 1 - x}{x}  \\
+        &= \frac{\sum_{k=2}^n C_n^k \left(\frac{x}{n}\right)^k}{x}  \\
+        &= \sum_{k=1}^{n-1} \frac{C_n^{k+1}}{n^{k+1}} x^k  \\
+        &= \sum_{k=1}^{n-1} \frac{n!}{(k+1)!(n-k-1)!n^{k+1}} x^k  
+    \end{align*}
     因此，$|x|<1$且$n$足够大时，
-    \begin{align}
-        \left| \frac{u_{x,n} - 1}{x} - 1 \right| &\leqslant \sum_{k=1}^{n-1} \left|\frac{n!}{(k+1)!(n-k-1)!n^{k+1}}\right| |x|^k \notag \\
-        &< \sum_{k=1}^{n-1} \frac{|x|^k}{(k+1)!} \notag \\
-        &< |x| \cdot \sum_{k=1}^{n-1} \frac{1}{2^k} \notag \\
-        &< |x|. \notag 
-    \end{align}
+    \begin{align*}
+        \left| \frac{u_{x,n} - 1}{x} - 1 \right| &\leqslant \sum_{k=1}^{n-1} \left|\frac{n!}{(k+1)!(n-k-1)!n^{k+1}}\right| |x|^k  \\
+        &< \sum_{k=1}^{n-1} \frac{|x|^k}{(k+1)!}  \\
+        &< |x| \cdot \sum_{k=1}^{n-1} \frac{1}{2^k}  \\
+        &< |x|.  
+    \end{align*}
     因此，首先选择$|x| < \frac{r}{2}$且$|x|<1$的$x$，再选择使得$d(x, n) < \frac{r}{2}$的$n$。
     这样就有：
-    \begin{align}
-        \left|\frac{e^x - 1}{x} - 1\right| &\leqslant \left|\frac{e^x - 1}{x} - \frac{u_{x,n} - 1}{x}\right| + \left|\frac{u_{x,n} - 1}{x} - 1\right| \notag \\
-        &< \frac{r}{2} + \frac{r}{2} = r. \notag  
-    \end{align}
+    \begin{align*}
+        \left|\frac{e^x - 1}{x} - 1\right| &\leqslant \left|\frac{e^x - 1}{x} - \frac{u_{x,n} - 1}{x}\right| + \left|\frac{u_{x,n} - 1}{x} - 1\right|  \\
+        &< \frac{r}{2} + \frac{r}{2} = r.   
+    \end{align*}
     这就说明：
     $$\lian{x\to 0} \frac{e^x - 1}{x} = 1.$$
 \end{proof}
@@ -3145,10 +3145,10 @@ $u_{r^\text{下},n} < u_{x,n} < u_{r^\text{上},n}$。
 \begin{tm}{\textbf{微变展开定理}}
     设$n$为正整数。已知函数$f$在包含实数$a$的区间$I$中$n+1$次可微，那么，对于$I$中另一个数$x$，
     存在介于$a$与$x$之间的数$c$，使得下式成立：
-    \begin{align}
-        f(x) &= f(a) + \sum_{k=1}^n \frac{\partial^k f (a)}{k!}(x - a)^k + \frac{\partial^{n+1} f (c)}{(n+1)!}(x - a)^{n+1}. \notag \\
-        &= P_n(x) + Y_n(x). \notag
-    \end{align}
+    \begin{align*}
+        f(x) &= f(a) + \sum_{k=1}^n \frac{\partial^k f (a)}{k!}(x - a)^k + \frac{\partial^{n+1} f (c)}{(n+1)!}(x - a)^{n+1}.  \\
+        &= P_n(x) + Y_n(x). 
+    \end{align*}
     上式称为$f$在$a$处的$\boldsymbol{n}$\textbf{次微变展开}。
     其中$P_n$称为$f$在$a$处的$\boldsymbol{n}$\textbf{次微变展开多项式}，
     $Y_n$称为$f$在$a$处展开的$\boldsymbol{n}$\textbf{次余项}。

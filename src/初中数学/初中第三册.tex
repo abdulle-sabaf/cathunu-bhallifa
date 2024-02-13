@@ -555,12 +555,12 @@ $$ \frac12 + \frac13 > \frac{9}{10}.$$
     $P(n+1)$可以写成：
     $$ 1 + 3 + 3^2 + \cdots + 3^{n+1} = \frac{3^{n+2} - 1}{2}. $$
     由于$P(n)$成立，$(1)$式左边的前$n+1$项可以写成$\frac{3^{n+1} - 1}{2}$，于是两边同时减去这一项，得到：
-    \begin{align}
-        3^{n+1} &= \frac{3^{n+2} - 1}{2} - \frac{3^{n+1} - 1}{2} \notag \\
-        &= \frac{3\cdot 3^{n+1}}{2} - \frac{3^{n+1}}{2} \notag \\
-        &= \frac{3\cdot 3^{n+1} - 3^{n+1}}{2} \notag \\
-        &= \frac{2 \cdot 3^{n+1}}{2} = 3^{n+1} \notag
-    \end{align}
+    \begin{align*}
+        3^{n+1} &= \frac{3^{n+2} - 1}{2} - \frac{3^{n+1} - 1}{2}  \\
+        &= \frac{3\cdot 3^{n+1}}{2} - \frac{3^{n+1}}{2}  \\
+        &= \frac{3\cdot 3^{n+1} - 3^{n+1}}{2}  \\
+        &= \frac{2 \cdot 3^{n+1}}{2} = 3^{n+1} 
+    \end{align*}
     显然成立。因此，根据归纳公理，$P(n)$对任意自然数$n$都成立。    
 \end{proof2}
 
@@ -578,11 +578,11 @@ $$ \frac12 + \frac13 > \frac{9}{10}.$$
     $P(n+1)$可以写成：
     $$ 1 + 2 + \cdots + (n+1) = \frac{(n+1)(n+2)}{2}.  $$
     由于$P(n)$成立，$(1)$式左边的前$n$项可以写成$\frac{n(n+1)}{2}$，于是两边同时减去这一项，得到：
-    \begin{align}
-        n+1 &= \frac{(n+1)(n+2)}{2} - \frac{n(n+1)}{2} \notag \\
-        &= \frac{n+1}{2}\left(n+2 - n\right) \notag \\
-        &= \frac{n+1}{2} \cdot 2 = n+1 \notag
-    \end{align}
+    \begin{align*}
+        n+1 &= \frac{(n+1)(n+2)}{2} - \frac{n(n+1)}{2}  \\
+        &= \frac{n+1}{2}\left(n+2 - n\right)  \\
+        &= \frac{n+1}{2} \cdot 2 = n+1 
+    \end{align*}
     显然成立。因此，根据归纳公理，$P(n)$对任意正整数$n$都成立。    
 \end{proof2}
 
@@ -599,15 +599,15 @@ $$ \frac12 + \frac13 > \frac{9}{10}.$$
     $P(n+1)$可以写成：
     $$ \frac{1}{n+2} + \frac{1}{n+3} + \cdots + \frac{1}{3n+3} > \frac{9}{10}. $$
     由于$P(n)$成立，我们试着把上式左边用$P(n)$有关的式子表达出来，我们发现
-    \begin{align}
-        \frac{1}{n+2} + \frac{1}{n+3} + \cdots + \frac{1}{3n+3} =& \frac{1}{n+1} + \frac{1}{n+2} + \cdots + \frac{1}{3n} \notag \\
-        &+ \frac{1}{3n+1} + \frac{1}{3n+2} + \frac{1}{3n+3} - \frac{1}{n+1} \notag 
-    \end{align}
+    \begin{align*}
+        \frac{1}{n+2} + \frac{1}{n+3} + \cdots + \frac{1}{3n+3} =& \frac{1}{n+1} + \frac{1}{n+2} + \cdots + \frac{1}{3n}  \\
+        &+ \frac{1}{3n+1} + \frac{1}{3n+2} + \frac{1}{3n+3} - \frac{1}{n+1}  
+    \end{align*}
     而
-    \begin{align}
-        \frac{1}{3n+1} + \frac{1}{3n+2} + \frac{1}{3n+3} - \frac{1}{n+1} &>  \frac{1}{3n+3} + \frac{1}{3n+3} + \frac{1}{3n+3} - \frac{1}{n+1} \notag \\
-        = \frac{3}{3n+3} - \frac{1}{n+1} = 0. \notag 
-    \end{align}
+    \begin{align*}
+        \frac{1}{3n+1} + \frac{1}{3n+2} + \frac{1}{3n+3} - \frac{1}{n+1} &>  \frac{1}{3n+3} + \frac{1}{3n+3} + \frac{1}{3n+3} - \frac{1}{n+1}  \\
+        = \frac{3}{3n+3} - \frac{1}{n+1} = 0.  
+    \end{align*}
     这说明：
     $$ \frac{1}{n+2} + \frac{1}{n+3} + \cdots + \frac{1}{3n+3} > \frac{1}{n+2} + \frac{1}{n+3} + \cdots + \frac{1}{3n}. $$
     $P(n)$告诉我们，上式右边大于$\frac{9}{10}$，所以上式左边也大于$\frac{9}{10}$。也就是说，$P(n+1)$成立。\\
@@ -815,10 +815,10 @@ $\sqrt{2}$的大小。如果$\frac{a+b}{2}$比$\sqrt{2}$大，就用$\frac{a+b}{
 \end{sk}
 
 二次方根的乘除运算：给定两个有理数$q$和$r$，它们的二次方根的乘积满足：
-\begin{align}
-    \left(\sqrt{q}\sqrt{r}\right)^2 &=  \left(\sqrt{q}\sqrt{r}\right)\left(\sqrt{q}\sqrt{r}\right) \notag \\
-    &= \left(\sqrt{q}\sqrt{q}\right)\left(\sqrt{r}\sqrt{r}\right) = qr \notag 
-\end{align}
+\begin{align*}
+    \left(\sqrt{q}\sqrt{r}\right)^2 &=  \left(\sqrt{q}\sqrt{r}\right)\left(\sqrt{q}\sqrt{r}\right)  \\
+    &= \left(\sqrt{q}\sqrt{q}\right)\left(\sqrt{r}\sqrt{r}\right) = qr  
+\end{align*}
 所以
 $$\sqrt{q}\sqrt{r} = \sqrt{qr}.$$
 同样，$r \neq 0$时，
