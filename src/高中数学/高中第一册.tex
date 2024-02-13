@@ -201,13 +201,13 @@ $$ 1,\,\,3,\,\,5,\,\,7,\,\,9,\,\,11,\,\, 13. $$
 比如，数列$2,5,8,11,14$的公差是$3$，$19,15,11,7,3,-1$的公差是$-4$。
 
 如果数列$\{a_n\}$的公差是$d$，那么：
-\begin{align}
-a_2 &= a_1 + d \notag \\
-a_3 &= a_2 + d = a_1 + 2d \notag \\
-a_4 &= a_3 + d = a_1 + 3d \notag \\
-&\quad \vdots \notag \\
-a_n &= a_1 + (n-1)d \notag 
-\end{align}
+\begin{align*}
+a_2 &= a_1 + d  \\
+a_3 &= a_2 + d = a_1 + 2d  \\
+a_4 &= a_3 + d = a_1 + 3d  \\
+&\quad \vdots  \\
+a_n &= a_1 + (n-1)d  
+\end{align*}
 等差数列的通项公式是：
 $$a_n = a_1 + (n-1)d.$$
 \begin{et}
@@ -224,13 +224,13 @@ $$a_n = a_1 + (n-1)d.$$
 \end{so}
 
 设等差数列$\{a_n\}$的前$n$项和为$S_n$。能否方便地表示$S_n$呢？我们可以这样思考：
-\begin{align}
-a_{1} + a_{n} &= a_1 + a_1 + (n-1)d = 2a_1 + (n-1)d \notag \\
-a_{2} + a_{n-1} &= a_1 + d + a_n - d = a_1 + a_n = 2a_1 + (n-1)d \notag \\
-&\vdots \notag \\
-a_{n-1} + a_{2} &= a_1 + (n-2)d + a_n - (n-2)d = a_1 + a_n =  2a_1 + (n-1)d \notag \\
-a_{n} + a_{1} &= a_1 + a_n = 2a_1 + (n-1)d \notag 
-\end{align}
+\begin{align*}
+a_{1} + a_{n} &= a_1 + a_1 + (n-1)d = 2a_1 + (n-1)d  \\
+a_{2} + a_{n-1} &= a_1 + d + a_n - d = a_1 + a_n = 2a_1 + (n-1)d  \\
+&\vdots  \\
+a_{n-1} + a_{2} &= a_1 + (n-2)d + a_n - (n-2)d = a_1 + a_n =  2a_1 + (n-1)d  \\
+a_{n} + a_{1} &= a_1 + a_n = 2a_1 + (n-1)d  
+\end{align*}
 把以上$n$个等式分边相加，就得到：
 $$ S_n + S_n = n(a_1 + a_n) = 2na_1 + n(n-1)d. $$
 也就是说，前$n$项和$S_n$可以写成
@@ -259,13 +259,13 @@ $$ 1,\,\,2,\,\,4,\,\,8,\,\,16,\,\,32,\,\,64. $$
 比如，数列$2,6,18,54,162$的公比是$3$，$192,-48,12,-3,0.75$的公比是$-0.25$。
 
 如果数列$\{a_n\}$的公比是$q$，那么：
-\begin{align}
-a_2 &= a_1 q  \notag \\
-a_3 &= a_2 q = a_1 q^2 \notag \\
-a_4 &= a_3 q = a_1 q^3 \notag \\
-&\quad \vdots \notag \\
-a_n &= a_1 q^{n-1} \notag 
-\end{align}
+\begin{align*}
+a_2 &= a_1 q   \\
+a_3 &= a_2 q = a_1 q^2  \\
+a_4 &= a_3 q = a_1 q^3  \\
+&\quad \vdots  \\
+a_n &= a_1 q^{n-1}  
+\end{align*}
 等比数列的通项公式是：$a_n = a_1 q^{n-1}$。
 \begin{et}
     已知无穷等比数列$1.2, \,\,1.8,\,\,2.7, \cdots$，求它的第$30$项。    
@@ -342,11 +342,11 @@ $$ S_n = \frac{q a_n - a_1}{q - 1}. $$
 
 此外，给定数列$\{a_n\}$和实数$t$，我们可以把$\{a_n\}$的每一项乘以$t$得到一个新数列：
 $t\cdot \{a_n\} = \{t\cdot a_n\}$，这个运算称为\textbf{数乘运算}。数乘运算和数、数列的四则运算相容。
-\begin{align}
-    \forall  \,\, s, t \in \mathbb{R}, \,\,\, \forall \,\, \{a_n\}, \,\,\,& s \cdot (t\cdot \{a_n\}) = (s\cdot t)\cdot \{a_n\}, \notag \\
-    & (s + t) \cdot \{a_n\} = (s\cdot \{a_n\}) + (t\cdot \{a_n\}). \notag \\
-    \forall  \,\, t \in \mathbb{R}, \,\,\, \forall \,\, \{a_n\}, \,\, \{b_n\},\,\,\, & t \cdot (\{a_n\} + \{b_n\}) = (t \cdot \{a_n\}) + (t \cdot \{b_n\}). \notag 
-\end{align}
+\begin{align*}
+    \forall  \,\, s, t \in \mathbb{R}, \,\,\, \forall \,\, \{a_n\}, \,\,\,& s \cdot (t\cdot \{a_n\}) = (s\cdot t)\cdot \{a_n\},  \\
+    & (s + t) \cdot \{a_n\} = (s\cdot \{a_n\}) + (t\cdot \{a_n\}).  \\
+    \forall  \,\, t \in \mathbb{R}, \,\,\, \forall \,\, \{a_n\}, \,\, \{b_n\},\,\,\, & t \cdot (\{a_n\} + \{b_n\}) = (t \cdot \{a_n\}) + (t \cdot \{b_n\}).  
+\end{align*}
 
 任何数列乘以$0$都得到零数列：$\{0\}$。
 
@@ -392,24 +392,24 @@ $$ a_1, a_1, a_2, a_2, a_3, a_3, a_4, a_4, \cdots $$
     \indent 1. 记$\{a_n\}$的公差为$d$。按照定义，对任何正整数$n$，总有$a_{n+1} = a_n + d$，于是：
     $$ \forall n\in \mathbb{Z}^+, \,\,\, b_{n+1} = a_{g(n+1)} = a_{n+k+1} = a_{n+k} + d = b_n + d.$$
     这说明$\{b_n\}$也是等差数列。可以计算它的前$n$项和$S_n^\prime$：
-    \begin{align}
-        S_n^\prime &= \sum_{i=1}^n b_n \notag \\
-            &= \sum_{i=1}^n a_{n+k} \notag \\
-            &= \sum_{i=1}^n a_{n} + kd \notag \\
-            &= nkd + \sum_{i=1}^n a_{n} \notag \\
-            &= nkd + S_n \notag
-    \end{align}
+    \begin{align*}
+        S_n^\prime &= \sum_{i=1}^n b_n  \\
+            &= \sum_{i=1}^n a_{n+k}  \\
+            &= \sum_{i=1}^n a_{n} + kd  \\
+            &= nkd + \sum_{i=1}^n a_{n}  \\
+            &= nkd + S_n 
+    \end{align*}
     其中$S_n$是$\{a_n\}$的前$n$项和。\\
     \indent 2. 记$\{a_n\}$的公比为$d$。按照定义，对任何正整数$n$，总有$a_{n+1} = a_n \cdot d$，于是：
     $$ \forall n\in \mathbb{Z}^+, \,\,\, b_{n+1} = a_{g(n+1)} = a_{n+k+1} = a_{n+k} \cdot d = b_n \cdot d.$$
     这说明$\{b_n\}$也是等比数列。可以计算它的前$n$项和$S_n^\prime$：
-    \begin{align}
-        S_n^\prime &= \sum_{i=1}^n b_n \notag \\
-            &= \sum_{i=1}^n a_{n+k} \notag \\
-            &= \sum_{i=1}^n a_{n} \cdot d^k \notag \\
-            &= d^k \sum_{i=1}^n a_{n} \notag \\
-            &= d^k S_n \notag
-    \end{align}
+    \begin{align*}
+        S_n^\prime &= \sum_{i=1}^n b_n  \\
+            &= \sum_{i=1}^n a_{n+k}  \\
+            &= \sum_{i=1}^n a_{n} \cdot d^k  \\
+            &= d^k \sum_{i=1}^n a_{n}  \\
+            &= d^k S_n 
+    \end{align*}
     其中$S_n$是$\{a_n\}$的前$n$项和。\\
 \end{so}
 
@@ -586,19 +586,19 @@ $f_n(x)$可以大于任何给定的数，也可以小于任何给定的数。如
 \end{enumerate}
 
 不同的整幂函数，乘以常数（常函数）再相加，就得到一般的整式函数。一般的整式函数可以写成：
-\begin{align}
-    p: \quad \mathcal{D} \subseteq \mathbb{R} &\rightarrow \mathbb{R} \notag \\
-    x &\mapsto a_0 + a_1 x + \cdots + a_n x^n \notag
-\end{align}
+\begin{align*}
+    p: \quad \mathcal{D} \subseteq \mathbb{R} &\rightarrow \mathbb{R}  \\
+    x &\mapsto a_0 + a_1 x + \cdots + a_n x^n 
+\end{align*}
 其中$\mathcal{D}$为其定义域。和整式一样，我们仍把$n$称为整式函数的次数，把$a_n$称为最高次项，等等。
 
 一元有理式是变量$x$和数经过有限次加、减、乘、除法得到的式子，化简之后总能得到一元分式或整式。
 一元分式对应的显式函数称为\textbf{分式函数}。反比例函数就是分式函数。分式函数和整式函数合称为\textbf{有理函数}。
 一般的有理函数可以写成：
-\begin{align}
-    q: \quad \mathcal{D} \subseteq \mathbb{R} &\rightarrow \mathbb{R} \notag \\
-    x &\mapsto \frac{a_0 + a_1 x + \cdots + a_n x^n}{b_0 + b_1x + \cdots + b_mx^m} \notag
-\end{align}
+\begin{align*}
+    q: \quad \mathcal{D} \subseteq \mathbb{R} &\rightarrow \mathbb{R}  \\
+    x &\mapsto \frac{a_0 + a_1 x + \cdots + a_n x^n}{b_0 + b_1x + \cdots + b_mx^m} 
+\end{align*}
 
 整式函数的定义域$\mathcal{D}$可以是$\mathbb{R}$或它的任何子集。
 分式函数的定义域则有一定约束。如果某个实数$c$使得作为分母的整式等于$0$：
@@ -700,10 +700,10 @@ $$ f_r : \quad x \mapsto x^{-\frac{p}{q}} = \frac{1}{\sqrt[q]{x^p}} . $$
 对比整幂函数，可以发现，除了定义域以外，大多数时候$f_r$的性质与$f_{-n}$的性质相符。
 
 不讨论过于复杂的$x\leqslant 0$的情况，设定义域为$(0, \,\, +\infty)$，我们可以把整幂函数和分幂函数一起考虑，称为\textbf{幂函数}：
-\begin{align}
-    f_r :\quad (0, \,\, +\infty) &\rightarrow \mathbb{R} \notag \\
-    x &\mapsto x^r. \notag
-\end{align}
+\begin{align*}
+    f_r :\quad (0, \,\, +\infty) &\rightarrow \mathbb{R}  \\
+    x &\mapsto x^r. 
+\end{align*}
 这样，我们就可以整理出整幂函数和分幂函数的共性。
 \begin{enumerate}
     \item $f_r$的值域是$(0, \,\, +\infty)$
@@ -739,10 +739,10 @@ $$ x\mapsto \frac{\sqrt{ax + b}}{\sqrt{cx + d}}.$$
 
 \begin{et}
     求以下函数的定义域：\\
-    \begin{align}
-        (1) \,\,\quad x\mapsto \frac{\sqrt{x^2 - 3x + 2}}{x + 3} \quad & \quad (2) \quad x\mapsto \frac{\sqrt[4]{x + 1}}{\sqrt{- x^2 - 2x + 3}}\notag \\
-        (3) \quad x\mapsto \frac{\sqrt{5 - 2x}}{(x - 1)\sqrt{x + 3}} \quad & \quad (4)\quad x\mapsto \frac{\sqrt{2 - x^2}}{(x^2 - 1)\sqrt{x + 0.3}} \notag 
-    \end{align}
+    \begin{align*}
+        (1) \,\,\quad x\mapsto \frac{\sqrt{x^2 - 3x + 2}}{x + 3} \quad & \quad (2) \quad x\mapsto \frac{\sqrt[4]{x + 1}}{\sqrt{- x^2 - 2x + 3}} \\
+        (3) \quad x\mapsto \frac{\sqrt{5 - 2x}}{(x - 1)\sqrt{x + 3}} \quad & \quad (4)\quad x\mapsto \frac{\sqrt{2 - x^2}}{(x^2 - 1)\sqrt{x + 0.3}}  
+    \end{align*}
 \end{et}
 \begin{so}
     \mbox{}\\
@@ -834,11 +834,11 @@ $$
 只需研究区间$[0, \,\,\frac{\pi}{2})$；对于余切函数，只需研究区间$(0, \,\,\frac{\pi}{2}]$。
 
 我们学习过正弦与余弦函数、正切与余切函数的关联。这里仅举几例：
-\begin{align}
-    \sin{\left(\frac{\pi}{2} - x\right)} &= \cos{x} \notag \\
-    \sin{\left(x + \frac{\pi}{2}\right)} &= \cos{x} \notag \\
-    \tan{\left(\frac{\pi}{2} - x\right)} &= \cot{x} \notag     
-\end{align}
+\begin{align*}
+    \sin{\left(\frac{\pi}{2} - x\right)} &= \cos{x}  \\
+    \sin{\left(x + \frac{\pi}{2}\right)} &= \cos{x}  \\
+    \tan{\left(\frac{\pi}{2} - x\right)} &= \cot{x}      
+\end{align*}
 
 \begin{wrapfigure}[8]{r}{0.52\textwidth} %this figure will be at the right
     \vspace{-35pt}
@@ -884,10 +884,10 @@ $x$的正弦值增大得比$y=x$慢，到了$x=\frac{\pi}{2}$时不再继续增�
 
 设有映射$f$将出发集$A$中元素逐个对应到到达集$B$中元素，又有映射$g$将$f$在$B$中的目标再次对应到集合$C$中元素，
 那么我们可以定义两者的\textbf{复合}：
-\begin{align}
-    g\circ f : \,\,\, A &\rightarrow C \notag \\
-    x &\mapsto g(f(x)) \notag
-\end{align}
+\begin{align*}
+    g\circ f : \,\,\, A &\rightarrow C  \\
+    x &\mapsto g(f(x)) 
+\end{align*}
 
 如果$A$、$B$、$C$都是数集，我们就说函数$f$和$g$复合成为$g\circ f$。
 要使得映射的复合有意义，$f$的值域$\mathcal{V}_f$应该是$g$的定义域$\mathcal{D}_g$的子集。
@@ -908,10 +908,10 @@ $g\circ f$的定义域是$[0,\,\, +\infty)$。
 而$f$的定义域是$[0,\,\, +\infty)$，我们需要缩小$g$的定义域，使得$g$的值域落在$f$的定义域中。
 也就是说，我们把$g$的定义域缩小到集合：$\{x \,|\, 2x - 1 \in [0, \,\,+\infty)\}$。
 这个集合可以化简成$[0.5, \,\,+\infty)$。因此复合函数$f\circ g$为：
-\begin{align}
-    f\circ g : \,\,\, [0.5,\,\, +\infty) &\rightarrow [0,\,\, +\infty) \notag \\
-    x &\mapsto \sqrt{2x - 1} \notag
-\end{align}
+\begin{align*}
+    f\circ g : \,\,\, [0.5,\,\, +\infty) &\rightarrow [0,\,\, +\infty)  \\
+    x &\mapsto \sqrt{2x - 1} 
+\end{align*}
 
 \begin{figure}[h] %this figure will be at the right
     % \vspace{4pt}
@@ -998,46 +998,46 @@ $f(g(x)) = \left(\sqrt{x + 1}\right)^2 - 1 = x$。于是$f$和$g$互为反函数
     \indent 1. 首先来看$r$为正整数的情况。$r$为奇数时，$f$在$\mathbb{R}$上为单射。
     $r$为偶数时，$f$在$\mathbb{R}$上不为单射，我们只考虑区间$[0, +\infty)$。按照幂函数的定义，
     在我们考虑的范围内，$g: x\mapsto x^{\frac{1}{r}}$使得
-    \begin{align}
-        \forall x, \,\,\, g(f(x)) &= \left(x^r\right)^{\frac{1}{r}} = x \notag \\
-        \forall x, \,\,\, f(g(x)) &= \left(x^{\frac{1}{r}}\right)^{r} = x \notag 
-    \end{align} 
+    \begin{align*}
+        \forall x, \,\,\, g(f(x)) &= \left(x^r\right)^{\frac{1}{r}} = x  \\
+        \forall x, \,\,\, f(g(x)) &= \left(x^{\frac{1}{r}}\right)^{r} = x  
+    \end{align*} 
     因此，$g$是$f$的反函数。\\  
     再来看$r$为有理数的情况。设$r = \frac{p}{q}$，其中$p,q$为互素的整数。$f$在区间$[0,\,\,\infty)$上严格单调，
     因此我们只考虑$[0,\,\,\infty)$。\\
     $\frac{1}{r} = \frac{q}{p}$。对任何正数$x$，
-    \begin{align}
-        \left(x^r\right)^{\frac{1}{r}} &= \left(x^{\frac{p}{q}}\right)^{\frac{q}{p}} = \left(\left(\left(x^{p}\right)^\frac{1}{q}\right)^q\right)^\frac{1}{p} \notag \\
-                                       &= \left(x^{p}\right)^\frac{1}{p} = x \notag
-    \end{align}
-    \begin{align}
-        \left(x^{\frac{1}{r}}\right)^r &= \left(x^{\frac{q}{p}}\right)^{\frac{p}{q}} = \left(\left(\left(x^{q}\right)^\frac{1}{p}\right)^p\right)^\frac{1}{q} \notag \\
-                                       &= \left(x^{q}\right)^\frac{1}{q} = x \notag
-    \end{align}
+    \begin{align*}
+        \left(x^r\right)^{\frac{1}{r}} &= \left(x^{\frac{p}{q}}\right)^{\frac{q}{p}} = \left(\left(\left(x^{p}\right)^\frac{1}{q}\right)^q\right)^\frac{1}{p}  \\
+                                       &= \left(x^{p}\right)^\frac{1}{p} = x 
+    \end{align*}
+    \begin{align*}
+        \left(x^{\frac{1}{r}}\right)^r &= \left(x^{\frac{q}{p}}\right)^{\frac{p}{q}} = \left(\left(\left(x^{q}\right)^\frac{1}{p}\right)^p\right)^\frac{1}{q}  \\
+                                       &= \left(x^{q}\right)^\frac{1}{q} = x 
+    \end{align*}
     因此，$f$的反函数是$x\mapsto x^{\frac{1}{r}}$。\\
     \indent 2. $f$在其定义域内是单射，因此，我们可以放心地寻找它的反函数。
     设$y = f(x) = \frac{1}{x+1}$，则$x = \frac{1 - y}{y}$。因此，考虑函数$g: x\mapsto \frac{1 - x}{x}$。
     在我们考虑的范围内，
-    \begin{align}
-        \forall x\neq 1, \,\,\, g(f(x)) &= g\left(\frac{1}{x+1}\right) \notag \\
-                                  &= \frac{1 - \frac{1}{1 + x}}{\frac{1}{x + 1}} \notag \\
-                                  &= \frac{x + 1 - 1}{1} = x. \notag
-    \end{align} 
+    \begin{align*}
+        \forall x\neq 1, \,\,\, g(f(x)) &= g\left(\frac{1}{x+1}\right)  \\
+                                  &= \frac{1 - \frac{1}{1 + x}}{\frac{1}{x + 1}}  \\
+                                  &= \frac{x + 1 - 1}{1} = x. 
+    \end{align*} 
     同理，
-    \begin{align}
-        \forall x \neq 0, \,\,\, f(g(x)) &= f\left(\frac{1 - x}{x}\right) \notag \\
-                                  &= \frac{1}{\frac{1 - x}{x} + 1} \notag \\
-                                  &= \frac{x}{1 - x + x} = x. \notag
-    \end{align} 
+    \begin{align*}
+        \forall x \neq 0, \,\,\, f(g(x)) &= f\left(\frac{1 - x}{x}\right)  \\
+                                  &= \frac{1}{\frac{1 - x}{x} + 1}  \\
+                                  &= \frac{x}{1 - x + x} = x. 
+    \end{align*} 
     这说明，$g$是$f$的反函数。\\  
     \indent 3. $f$在其定义域内不是单射，我们只考虑区间$[0,1]$。
     设$y = \sqrt{1 - x^2}$，则$x^2 + y^2 = 1$，因此，$x = \sqrt{1 - y^2}$。这说明，我们要找的函数很可能就是$f$自己。
     下面来验证这一点：
-    \begin{align}
-        \forall x\in [0,\,\,1], \,\,\, f(f(x)) &= f\left(\sqrt{1 - x^2}\right) \notag \\
-                                  &= \sqrt{1 - \left(\sqrt{1 - x^2}\right)^2} \notag \\
-                                  &= \sqrt{1 - 1 + x^2} = x. \notag
-    \end{align} 
+    \begin{align*}
+        \forall x\in [0,\,\,1], \,\,\, f(f(x)) &= f\left(\sqrt{1 - x^2}\right)  \\
+                                  &= \sqrt{1 - \left(\sqrt{1 - x^2}\right)^2}  \\
+                                  &= \sqrt{1 - 1 + x^2} = x. 
+    \end{align*} 
     因此，$f$的反函数是它自己。
 \end{so}
 
@@ -1067,10 +1067,10 @@ $f(g(x)) = \left(\sqrt{x + 1}\right)^2 - 1 = x$。于是$f$和$g$互为反函数
 首先来看正弦函数（$\sin$）的反函数。我们希望选择一个最长的区间，让正弦函数在这个区间上是单射。
 常用的区间是$[-\frac{\pi}{2}, \,\, \frac{\pi}{2}]$。
 正弦函数在$[-\frac{\pi}{2}, \,\, \frac{\pi}{2}]$上严格单调递增，从$-1$增长到$1$。我们把正弦函数在这个区间上的部分记作$\underline{\sin}$：
-\begin{align}
-     \underline{\sin} : [-\frac{\pi}{2}, \,\, \frac{\pi}{2}] &\rightarrow [-1,\,\, 1]\notag \\
-                                                           x &\mapsto \sin{x} \notag
-\end{align}
+\begin{align*}
+     \underline{\sin} : [-\frac{\pi}{2}, \,\, \frac{\pi}{2}] &\rightarrow [-1,\,\, 1] \\
+                                                           x &\mapsto \sin{x} 
+\end{align*}
 画出它的图像，按照直线$l: y = x$作对称，就得到它的反函数，称为\textbf{反正弦函数}，记作$\arcsin$：
 $$ \arcsin : [-1,\,\, 1] \rightarrow [-\frac{\pi}{2}, \,\, \frac{\pi}{2}] . $$
 $\arcsin$中的“arc”是“弧长”的意思。$\arcsin$最初表示“把$[-1,\,\, 1]$中的数按正弦函数的反函数对应到单位圆上的弧长”。
@@ -1089,9 +1089,9 @@ $x < 0$时，反正弦函数总在直线$l$下方，增长越来越慢。
 再来看余弦函数的反函数。由$\cos{x} = \sin(x+\frac{\pi}{2})$可知，余弦函数的图像可以看作正弦函数的图像按向量$\left(-\frac{\pi}{2}, 0\right)$
 平移的结果。因此，我们可以选择$[-\pi, \,\, 0]$作为研究区间。由于余弦函数是偶函数，我们也可以选择$[0,\,\,\pi]$作为研究区间。
 常用的区间是$[0,\,\,\pi]$。余弦函数在$[0,\,\,\pi]$上严格单调递减，从$1$减少到$-1$。我们把余弦函数在这个区间上的部分记作$\underline{\cos}$：
-\begin{align}
-    \underline{\cos} : [0,\,\,\pi] &\rightarrow [-1,\,\, 1]\notag \\                                  x &\mapsto \cos{x} \notag
-\end{align}
+\begin{align*}
+    \underline{\cos} : [0,\,\,\pi] &\rightarrow [-1,\,\, 1] \\                                  x &\mapsto \cos{x} 
+\end{align*}
 画出它的图像，按照直线$l: y = x$作对称，就得到它的反函数，称为\textbf{反余弦函数}，记作$\arccos$：
 $$ \arccos : [-1,\,\, 1] \rightarrow [0,\,\,\pi] . $$
 
@@ -1113,10 +1113,10 @@ $\arccos{(-1)} = \pi$，$\arccos{0.5} = \frac{\pi}{3}$，$\arccos{\frac{\sqrt{3}
 
 接下来看正切函数的反函数。正切函数的最小正周期是$\pi$，在$(-\frac{\pi}{2}, \,\, \frac{\pi}{2})$上严格单调递增。
 我们把正切函数在这个区间上的部分记作$\underline{\tan}$：
-\begin{align}
-    \underline{\tan} : (-\frac{\pi}{2}, \,\, \frac{\pi}{2}) &\rightarrow \mathbb{R} \notag \\
-                                                          x &\mapsto \tan{x} \notag
-\end{align}
+\begin{align*}
+    \underline{\tan} : (-\frac{\pi}{2}, \,\, \frac{\pi}{2}) &\rightarrow \mathbb{R}  \\
+                                                          x &\mapsto \tan{x} 
+\end{align*}
 画出它的图像，按照直线$l: y = x$作对称，就得到它的反函数，称为\textbf{反正切函数}，记作$\arctan$：
 $$ \arctan : \mathbb{R} \rightarrow (-\frac{\pi}{2}, \,\, \frac{\pi}{2}) . $$
 
@@ -1139,10 +1139,10 @@ $\arctan{(-1)} = -\frac{\pi}{4}$，$\arctan{\sqrt{3}} = \frac{\pi}{3}$，$\arcta
 
 最后来看余切函数的反函数。余切函数的最小正周期是$\pi$，在$(0, \,\, \pi)$上严格单调递减。
 我们把余切函数在这个区间上的部分记作$\underline{\cot}$：
-\begin{align}
-    \underline{\cot} : (0, \,\, \pi) &\rightarrow \mathbb{R} \notag \\
-                                   x &\mapsto \cot{x} \notag
-\end{align}
+\begin{align*}
+    \underline{\cot} : (0, \,\, \pi) &\rightarrow \mathbb{R}  \\
+                                   x &\mapsto \cot{x} 
+\end{align*}
 画出它的图像，按照直线$l: y = x$作对称，就得到它的反函数，称为\textbf{反余切函数}，记作$\arccot$：
 $$ \arccot : \mathbb{R} \rightarrow (0, \,\, \pi) . $$
 
@@ -1246,10 +1246,10 @@ $$\{a_n\} \to x.$$
 
 具体来说，记$\delta = \frac{x_2 - x_1}{2}$为两点距离的一半。选一个小于$\delta$的正数$r$。
 按照极限的定义，有正整数$n_1, n_2$使得：
-\begin{align}
-    \forall m \geqslant n_1 , \,\,\,& -r \leqslant a_m - x_1 \leqslant r , \notag \\
-    \forall m \geqslant n_2 , \,\,\,& -r \leqslant a_m - x_2 \leqslant r . \notag 
-\end{align}
+\begin{align*}
+    \forall m \geqslant n_1 , \,\,\,& -r \leqslant a_m - x_1 \leqslant r ,  \\
+    \forall m \geqslant n_2 , \,\,\,& -r \leqslant a_m - x_2 \leqslant r .  
+\end{align*}
 于是，选一个比$n_1,n_2$都大的$m$，比如$m=n_1+n_2$，这时$a_m - x_1 \leqslant r$，$x_2 - a_m \leqslant r$。
 加起来就得到：
 $$x_2 - x_1 \leqslant 2r < 2\delta = x_2 - x_1.$$
@@ -1258,10 +1258,10 @@ $$x_2 - x_1 \leqslant 2r < 2\delta = x_2 - x_1.$$
 数列的极限，如果存在，是唯一的。我们可以把数列$\{a_n\}$的极限记为$a_\infty$。如果要讨论数列和它的极限之间的关系，
 我们可以把这个关系看作一种映射，称为\textbf{极限映射}或\textbf{取极限的操作}。
 比如，实数构成的数列与其极限的关系，可以写成：
-\begin{align}
-    \lian{} : \,\,\, \mathbb{R}^\mathbb{N} &\longrightarrow \mathbb{R} \notag \\
-    \{a_n\} &\longmapsto a_\infty \notag
-\end{align}
+\begin{align*}
+    \lian{} : \,\,\, \mathbb{R}^\mathbb{N} &\longrightarrow \mathbb{R}  \\
+    \{a_n\} &\longmapsto a_\infty 
+\end{align*}
 
 设数列$\{a_n\}$有极限$a_\infty$。我们把它每一项减去$a_\infty$，
 得到的数列$\{a_n - a_\infty\}$趋于$0$。所以，任何有极限的数列，都可以看做一个趋于$0$的数列加上它的极限。
@@ -1305,11 +1305,11 @@ $$\forall x, \,\,\, \exists n, \,\,\,\mbox{使得}\,\,\,\forall \,\, m \geqslant
     如果$x \leqslant 1$，那么$n=1$即满足要求。\\
     如果$x > 1$，设$M$是大于$x$的最小整数，考虑$n = 2^{2M}$。下面证明$a_{2^{2M}}>x$。\\
     $$ a_{2^{2M}} = a_{2^0} + \sum_{i=1}^{2M}a_{2^i} - a_{2^{i-1}}.$$
-    \begin{align}
-        \forall \,\, i\in[1\ldots 2M],\,\,\, a_{2^i} - a_{2^{i-1}} &= \frac{1}{2^{i-1}+1} + \frac{1}{2^{i-1}+2} + \cdots + \frac{1}{2^{i}} \notag \\
-        &\geqslant \frac{1}{2^{i}} + \frac{1}{2^{i}} + \cdots + \frac{1}{2^{i}} \notag \\
-        &= \frac{2^{i-1}}{2^{i}} = \frac{1}{2}. \notag
-    \end{align}
+    \begin{align*}
+        \forall \,\, i\in[1\ldots 2M],\,\,\, a_{2^i} - a_{2^{i-1}} &= \frac{1}{2^{i-1}+1} + \frac{1}{2^{i-1}+2} + \cdots + \frac{1}{2^{i}}  \\
+        &\geqslant \frac{1}{2^{i}} + \frac{1}{2^{i}} + \cdots + \frac{1}{2^{i}}  \\
+        &= \frac{2^{i-1}}{2^{i}} = \frac{1}{2}. 
+    \end{align*}
     $$ \mbox{所以}\quad  a_{2^{2M}} \geqslant a_1 + \frac{1}{2} \cdot (2M - 1) = M + \frac{1}{2} > x. $$
     这就证明$\{a_n\}$趋于正无穷大。
 \end{proof}
@@ -1379,10 +1379,10 @@ $$\forall x, \,\,\, \exists n, \,\,\,\mbox{使得}\,\,\,\forall \,\, m \geqslant
 答案是肯定的，并且符合我们的直觉：
 \begin{tm}
     若数列$\{a_n\}$趋于$a$，$\{b_n\}$趋于$b$，则
-    \begin{align}
-        \lim_{n\to\infty} a_n \pm b_n &= a \pm b, \notag \\
-        \lim_{n\to\infty} a_n \cdot b_n &= a \cdot b. \notag 
-    \end{align}
+    \begin{align*}
+        \lim_{n\to\infty} a_n \pm b_n &= a \pm b,  \\
+        \lim_{n\to\infty} a_n \cdot b_n &= a \cdot b.  
+    \end{align*}
 \end{tm}
 特别地，令$\{b_n\}$是常数列，就得到数乘对极限的影响：若数列$\{a_n\}$趋于$a$，则
 $$ \forall \,\, t \in \mathbb{R}, \,\,\,  \lim_{n\to\infty} t \cdot a_n = ta. $$
@@ -1390,14 +1390,14 @@ $$ \forall \,\, t \in \mathbb{R}, \,\,\,  \lim_{n\to\infty} t \cdot a_n = ta. $$
     \mbox{} \\
     首先证明极限的加法：设数列$\{a_n\}$趋于$a$，$\{b_n\}$趋于$b$。按照定义，$\forall r > 0$，
     由于$\frac{r}{2}>0$，总有正整数$n_a, n_b$，使得
-    \begin{align}
-        \forall \,\, m \geqslant n_a, \,\,\, & - \frac{r}{2} \leqslant a_m - a \leqslant \frac{r}{2}, \notag \\
-        \forall \,\, m \geqslant n_b, \,\,\, & - \frac{r}{2} \leqslant b_m - b \leqslant \frac{r}{2}, \notag 
-    \end{align}
+    \begin{align*}
+        \forall \,\, m \geqslant n_a, \,\,\, & - \frac{r}{2} \leqslant a_m - a \leqslant \frac{r}{2},  \\
+        \forall \,\, m \geqslant n_b, \,\,\, & - \frac{r}{2} \leqslant b_m - b \leqslant \frac{r}{2},  
+    \end{align*}
     因此，
-    \begin{align}
-        \forall \,\, m \geqslant n_a + n_b, \,\,\, & -r = - \frac{r}{2} - \frac{r}{2} \leqslant a_m + b_m - a - b \leqslant \frac{r}{2} + \frac{r}{2} = r \notag 
-    \end{align}
+    \begin{align*}
+        \forall \,\, m \geqslant n_a + n_b, \,\,\, & -r = - \frac{r}{2} - \frac{r}{2} \leqslant a_m + b_m - a - b \leqslant \frac{r}{2} + \frac{r}{2} = r  
+    \end{align*}
     于是数列$\{a_n\} + \{b_n\}$趋于$a + b$。\\
     接下来证明极限的数乘：设$t$为实数，数列$\{a_n\}$趋于$a$，则数列$\{t\cdot a_n\}$趋于$ta$。
     这样，数列$\{a_n\} - \{b_n\}$可以看作$\{a_n\} + \{-1\cdot b_n\}$，因而趋于$a - b$。\\
@@ -1409,16 +1409,16 @@ $$ \forall \,\, t \in \mathbb{R}, \,\,\,  \lim_{n\to\infty} t \cdot a_n = ta. $$
     这就说明数列$\{t\cdot a_n\}$趋于$ta$。\\
     最后证明极限的乘法：设数列$\{a_n\}$趋于$a$，$\{b_n\}$趋于$b$。按照定义，$\forall r > 0$，
     取$r$与$1$的较小者，记为$r_1$。由于$r_1>0$，总有正整数$n_a, n_b$，使得
-    \begin{align}
-        \forall \,\, m \geqslant n_a, \,\,\, & - r_1 \leqslant a_m - a \leqslant r_1, \notag \\
-        \forall \,\, m \geqslant n_b, \,\,\, & - r_1 \leqslant b_m - b \leqslant r_1, \notag 
-    \end{align}
+    \begin{align*}
+        \forall \,\, m \geqslant n_a, \,\,\, & - r_1 \leqslant a_m - a \leqslant r_1,  \\
+        \forall \,\, m \geqslant n_b, \,\,\, & - r_1 \leqslant b_m - b \leqslant r_1,  
+    \end{align*}
     因此
-    \begin{align}
-        \forall \,\, m \geqslant n_a + n_b, \,\,\, & (a_m - a)(b_m - b) \leqslant r_1^2  \notag \\
-        & -(a_m - a)(b_m - b) \leqslant r_1^2  \notag \\
-        \mbox{即 }\quad & - r_1^2 \leqslant (a_m - a)(b_m - b) \leqslant r_1^2. \notag 
-    \end{align}
+    \begin{align*}
+        \forall \,\, m \geqslant n_a + n_b, \,\,\, & (a_m - a)(b_m - b) \leqslant r_1^2   \\
+        & -(a_m - a)(b_m - b) \leqslant r_1^2   \\
+        \mbox{即 }\quad & - r_1^2 \leqslant (a_m - a)(b_m - b) \leqslant r_1^2.  
+    \end{align*}
     如果$r\geqslant 1$，那么$r_1=1$，因此$r_1^2 = 1 \leqslant r$；如果$0 < r <1$，那么$r_1 = r$，
     $r_1^2 = r^2 < r$。也就是说，任何情况下，总有$0 \leqslant r_1^2 \leqslant r$。于是：
     $$ -r \leqslant - r_1^2 \leqslant (a_m - a)(b_m - b) \leqslant r_1^2 \leqslant r $$
@@ -1506,10 +1506,10 @@ $0.\dot{9}$的问题，引发了这样的思考：什么是数？当我们按任
 
 这是一个深刻的问题。让我们首先回顾有理数和整数的关系。我们可以用整数定义有理数。给定有理数$r$，它总是某个整数$p$除以正整数$q$的商。
 另一方面，给定整数$p$和正整数$q$，其商$\frac{p}{q}$总是有理数。也就是说，我们有这样一个映射：
-\begin{align}
-    L: \mathbb{Z} \times \mathbb{Z}^+ &\rightarrow \mathbb{Q} \notag \\
-    (p, \,\, q) &\mapsto \frac{p}{q} \notag
-\end{align}
+\begin{align*}
+    L: \mathbb{Z} \times \mathbb{Z}^+ &\rightarrow \mathbb{Q}  \\
+    (p, \,\, q) &\mapsto \frac{p}{q} 
+\end{align*}
 映射$L$是满射，但不是单射。我们可以这样修改映射$L$：考虑所有有序数对$(p, \,\, q)$（$q\neq 0$）构成的集合$\mathbb{Z} \times \mathbb{Z}^+$里的二元关系：
 $$ (a,\,\, b) \leftrightarrows (c, \,\, d)\quad \mbox{当且仅当} \quad a\cdot d = b \cdot c.$$
 可以证明，二元关系$\leftrightarrows$是等价关系：
@@ -1576,10 +1576,10 @@ $$ |a_{n+1} - \sqrt{2}| = \frac{|a_n - \sqrt{2}|}{2|a_n|} \cdot |a_n - \sqrt{2}|
     注意到
     $$ a_{n+1} - 1 = \frac{1}{2}\cdot (a_n - 1). $$
     因此，$\{a_n - 1\}_{n\in\mathbb{Z}^+}$是等比数列。通项公式为：
-    \begin{align}
-        a_n - 1 &= \left(\frac12\right)^{n-1} (a_1 - 1) = \frac{1}{2^{n-1}} \notag \\
-        a_n &= 1 + \frac{1}{2^{n-1}} \notag
-    \end{align}
+    \begin{align*}
+        a_n - 1 &= \left(\frac12\right)^{n-1} (a_1 - 1) = \frac{1}{2^{n-1}}  \\
+        a_n &= 1 + \frac{1}{2^{n-1}} 
+    \end{align*}
     数列$\left\{a_n\right\}_{n\in\mathbb{Z}^+}$单调递减，有下界$1$。任意给定$r>0$，设$r$写为既约分数$r = \frac{p}{q}$，我们可以取$N = q$。
     这时$r \geqslant \frac{1}{N}$。用归纳法可以证明，任意正整数$N$总小于$2^N$，因此，当$n\geqslant m>N$的时候，总有
     $$|a_n - a_m| = 1 + \frac{1}{2^{m-1}} - \left(1 + \frac{1}{2^{n-1}} \right) < \frac{1}{2^{m-1}} \leqslant \frac{1}{2^N} < \frac{1}{N} \leqslant r.$$
@@ -1755,10 +1755,10 @@ $$\forall \,\, n, \,\,\, a_\infty - a_n = a_\infty - b + b - a_n \geqslant a_\in
 有了极限和确界的概念后，我们可以换个方式叙述这个公理，作为曲线长度的定义：
 
 设$\gamma$是连接两点$A$、$B$的曲线。定义$\gamma$为实数到平面中点的映射：
-\begin{align}
-    \gamma : \,\,\, [0,\,\,1] &\longrightarrow \mathbb{V} \notag \\
+\begin{align*}
+    \gamma : \,\,\, [0,\,\,1] &\longrightarrow \mathbb{V}  \\
     t &\longmapsto P = \gamma(t)
-\end{align}
+\end{align*}
 $\gamma$把闭区间$[0,\,\,1]$中的数映射到平面中的点$P$。
 它把$0$映射到起点$A$，把$1$映射到终点$B$。
 
@@ -1847,18 +1847,18 @@ $$ \lian{n\to\infty} \frac{\sin{a_n}}{a_n} = 1. $$
 \section{杨辉三角形}
 
 $(a+b)^n$展开是什么样子？$n=1,2,3$时，我们知道，
-\begin{align}
- (a + b)^1 &= a + b \notag \\
- (a + b)^2 &= a^2 + 2ab + b^2 \notag \\
- (a + b)^3 &= a^3 + 3a^2b + 3ab^2 + 3b^3 \notag 
-\end{align}
+\begin{align*}
+ (a + b)^1 &= a + b  \\
+ (a + b)^2 &= a^2 + 2ab + b^2  \\
+ (a + b)^3 &= a^3 + 3a^2b + 3ab^2 + 3b^3  
+\end{align*}
 
 继续让$n=4,5,6$，可以算出
-\begin{align}
- (a + b)^4 &= a^4 + 4a^3b + 6a^2b^2 + 4ab^3 + b^4 \notag \\
- (a + b)^5 &= a^5 + 5a^4b + 10a^3b^2 + 10a^2b^3 + 5ab^4 + b^5 \notag \\
- (a + b)^6 &= a^6 + 6a^5b + 15a^4b^2 + 20a^3b^3 + 15a^4b^2 + 6a^5b + b^6 \notag 
-\end{align}
+\begin{align*}
+ (a + b)^4 &= a^4 + 4a^3b + 6a^2b^2 + 4ab^3 + b^4  \\
+ (a + b)^5 &= a^5 + 5a^4b + 10a^3b^2 + 10a^2b^3 + 5ab^4 + b^5  \\
+ (a + b)^6 &= a^6 + 6a^5b + 15a^4b^2 + 20a^3b^3 + 15a^4b^2 + 6a^5b + b^6  
+\end{align*}
 
 观察这些式子中各项，我们可以发现一些规律。
 
@@ -1892,13 +1892,13 @@ $$P(n): \quad w_{0,n}=w_{n,n}=1, \quad \forall k\in[1\ldots n-1], \,\,\,\, w_{k,
 $n=2$时，$w_{1,2} = 2 = 1 + 1 = w_{1,1} + w_{0,1}$。因此$P(2)$为真。
 
 若$P(n)$对某个自然数$n\geqslant 2$为真，根据归纳假设，
-\begin{align}
- (a+b)^{n+1} &= (a+b)\cdot(a+b)^n = (a+b)\cdot\left(\sum_{k=0}^n w_{k,n} a^k b^{n-k}\right) \notag \\
-  &= \sum_{k=0}^n w_{k,n} a^{k+1} b^{n-k} + \sum_{k=0}^n w_{k,n} a^k b^{n-k+1} \notag \\
-  &= w_{n,n}a^{n+1} + \sum_{k=0}^{n-1} w_{k,n} a^{k+1} b^{n-k} + \sum_{k=1}^n w_{k,n} a^k b^{n-k+1} + w_{0,n}b^{n+1} \notag \\
-  &= a^{n+1} + \sum_{k=1}^{n} w_{k-1,n} a^{k} b^{n-k+1} + \sum_{k=1}^n w_{k,n} a^k b^{n-k+1} + b^{n+1}\notag \\
-  &= a^{n+1} + \sum_{k=1}^{n} (w_{k-1,n} + w_{k,n}) a^{k} b^{n-k+1} + b^{n+1} \notag
-\end{align}
+\begin{align*}
+ (a+b)^{n+1} &= (a+b)\cdot(a+b)^n = (a+b)\cdot\left(\sum_{k=0}^n w_{k,n} a^k b^{n-k}\right)  \\
+  &= \sum_{k=0}^n w_{k,n} a^{k+1} b^{n-k} + \sum_{k=0}^n w_{k,n} a^k b^{n-k+1}  \\
+  &= w_{n,n}a^{n+1} + \sum_{k=0}^{n-1} w_{k,n} a^{k+1} b^{n-k} + \sum_{k=1}^n w_{k,n} a^k b^{n-k+1} + w_{0,n}b^{n+1}  \\
+  &= a^{n+1} + \sum_{k=1}^{n} w_{k-1,n} a^{k} b^{n-k+1} + \sum_{k=1}^n w_{k,n} a^k b^{n-k+1} + b^{n+1} \\
+  &= a^{n+1} + \sum_{k=1}^{n} (w_{k-1,n} + w_{k,n}) a^{k} b^{n-k+1} + b^{n+1} 
+\end{align*}
 因此$w_{0,n+1}=w_{n+1,n+1}=1$；$\forall k\in[1\ldots n]$，$w_{k,n+1} = w_{k,n} + w_{k-1,n}$。
 于是$P(n+1)$为真。因此，对任何为真大于等于$2$的自然数，$P(n)$为真。
 
@@ -1912,10 +1912,10 @@ $n=2$时，$w_{1,2} = 2 = 1 + 1 = w_{1,1} + w_{0,1}$。因此$P(2)$为真。
 我们先从比较小的$n$开始找规律。展开$(a+b)^2$的时候，我们根据分配律，得到
 $$ (a+b)^2 = a\cdot a + b\cdot a + a\cdot b + b\cdot b. $$
 然后把$ab$和$ba$合并同类项。展开$(a+b)^3$的时候，我们根据分配律，得到
-\begin{align}
- (a+b)^3 &= a\cdot a\cdot a + b\cdot a\cdot a + a\cdot b\cdot a + b\cdot b\cdot a\notag \\
-  &+ a\cdot a\cdot b + b\cdot a\cdot b + a\cdot b\cdot b + b\cdot b\cdot b \notag 
-\end{align}
+\begin{align*}
+ (a+b)^3 &= a\cdot a\cdot a + b\cdot a\cdot a + a\cdot b\cdot a + b\cdot b\cdot a \\
+  &+ a\cdot a\cdot b + b\cdot a\cdot b + a\cdot b\cdot b + b\cdot b\cdot b  
+\end{align*}
 然后把$baa$、$aba$、$aab$合并同类项，得到$3a^2b$；把$bba$、$bab$、$abb$合并同类项，得到$3ab^2$。
 
 一般来说，展开$(a+b)^n$时，我们已经知道所有的项都是$a^kb^{n-k}$乘以相应系数的形式，
@@ -1990,11 +1990,11 @@ $n$足够大之后，这个系数大致等于$\frac{2^{n}}{\sqrt{2\pi n}}$。
     $$(1 + d)^n = 1 + C_n^1 d + C_n^2 d^2 + \cdots + C_n^n d^n.$$
     
     上式右侧每一项都大于零。因此，只要其中部分项的和大于$2$，$(1 + d)^n$就大于$2$。我们从$k$较小的几项开始，计算每一项的大小。
-    \begin{align}
-        C_n^1 d = 80 \times 0.01 &= 0.8 \notag \\
-        C_n^2 d = \frac{80 \times 79}{2\times 1} \times 0.01^2 &= 0.316 \notag \\ 
-        C_n^3 d = \frac{80 \times 79\times 78}{3\times 2\times 1}80 \times 0.01^3 &= 0.08216 \notag
-    \end{align}
+    \begin{align*}
+        C_n^1 d = 80 \times 0.01 &= 0.8  \\
+        C_n^2 d = \frac{80 \times 79}{2\times 1} \times 0.01^2 &= 0.316  \\ 
+        C_n^3 d = \frac{80 \times 79\times 78}{3\times 2\times 1}80 \times 0.01^3 &= 0.08216 
+    \end{align*}
     根据第一项的值可知：$(1 + d)^n > 1 + C_n^1 d = 1.8$，类似地，根据前两项、前三项的值可知：$(1 + d)^n > 2.116$、$(1 + d)^n > 2.19816$。
     因此，只要根据二项式展开后的前两项来估计，就能知道$(1 + 1\%)^{80}$大于$2$。
     
@@ -2111,10 +2111,10 @@ $n$次抛掷的终态有$n+1$个，其分布列为：
 数列的极限，对研究实数集上的函数，有什么作用呢？
 
 考虑以下映射：
-\begin{align}
-    f_{\mathbb{Q}}: \mathbb{Q} &\rightarrow \mathbb{R}\notag \\
-    x &\mapsto 2^x \notag
-\end{align}
+\begin{align*}
+    f_{\mathbb{Q}}: \mathbb{Q} &\rightarrow \mathbb{R} \\
+    x &\mapsto 2^x 
+\end{align*}
 $f_{\mathbb{Q}}$定义在有理数域$\mathbb{Q}$上，把一个数$x$映射到$2$的$x$次幂。
 当$x$是有理数时，我们能够定义“$2$的$x$次幂”。
 当$x$不是有理数的时候，我们能不能合理地定义“$2$的$x$次幂”呢？换句话说，是否有一个比较好的实变函数$f_{\mathbb{R}}$，
@@ -2154,10 +2154,10 @@ $$\forall \, a, b\in \mathbb{Q}, \,\,\, f_{\mathbb{Q}}(a) \cdot f_{\mathbb{Q}}(b
     到底$a_n$和$1$多接近呢？我们来计算$\left(1+\frac{1}{n}\right)^n$。
 
     根据二项式定理：
-    \begin{align}
-        \left(1+\frac{1}{n}\right)^n &= 1 + C_n^1\cdot \frac{1}{n} + C_n^2\cdot \left(\frac{1}{n}\right)^2 + \cdots + C_n^n\cdot \left(\frac{1}{n}\right)^n \notag \\
-        &> 1 + C_n^1\cdot \frac{1}{n} = 1 + \frac{n}{n} = 2. \notag
-    \end{align}
+    \begin{align*}
+        \left(1+\frac{1}{n}\right)^n &= 1 + C_n^1\cdot \frac{1}{n} + C_n^2\cdot \left(\frac{1}{n}\right)^2 + \cdots + C_n^n\cdot \left(\frac{1}{n}\right)^n  \\
+        &> 1 + C_n^1\cdot \frac{1}{n} = 1 + \frac{n}{n} = 2. 
+    \end{align*}
     这说明$1<a_n\leqslant 1 + \frac{1}{n}$。对任意$r>0$，总有正整数$N$使得只要$n>N$时，$\frac{1}{n}<r$，于是$0 < a_n - 1 < \frac{1}{n} < r$。
     这说明数列$\{2^\frac{1}{n}\}_{n\in\mathbb{Z}^+}$收敛到$1$。
 
@@ -2306,12 +2306,12 @@ $\{f(a_n)\}$趋于$u$，$\{g(a_n)\}$趋于$u$，因此$\{f(a_n) + g(a_n)\}$趋�
 $f - g$在$a$处有极限，极限是$u - v$；$f \cdot g$在$a$处有极限，极限是$u \cdot v$。$v\neq 0$时，$f\div g$在$a$处有极限，极限是$u \div v$。
 
 我们可以把这些运算规则写成：
-\begin{align}
-    \lian{x \to a} (f + g)(x) = \lian{x \to a} f(x) + \lian{x \to a} g(x) \notag \\
-    \lian{x \to a} (f - g)(x) = \lian{x \to a} f(x) - \lian{x \to a} g(x) \notag \\
-    \lian{x \to a} (f \cdot g)(x) = \lian{x \to a} f(x) \cdot \lian{x \to a} g(x) \notag \\
-    \lian{x \to a} (f \div g)(x) = \lian{x \to a} f(x) \div \lian{x \to a} g(x) \notag
-\end{align}
+\begin{align*}
+    \lian{x \to a} (f + g)(x) = \lian{x \to a} f(x) + \lian{x \to a} g(x)  \\
+    \lian{x \to a} (f - g)(x) = \lian{x \to a} f(x) - \lian{x \to a} g(x)  \\
+    \lian{x \to a} (f \cdot g)(x) = \lian{x \to a} f(x) \cdot \lian{x \to a} g(x)  \\
+    \lian{x \to a} (f \div g)(x) = \lian{x \to a} f(x) \div \lian{x \to a} g(x) 
+\end{align*}
 
 函数在一点的极限可以进行关于函数的运算。这对我们计算复杂函数在一点的极限很有帮助。
 
@@ -2445,16 +2445,16 @@ $f - g$在$a$处有极限，极限是$u - v$；$f \cdot g$在$a$处有极限，�
 $x\in(a-d,\,\,a+d)$，就有$|\sin{x} - \sin{a}| < r$。
 
 使用和差化积公式。
-\begin{align}
-    |\sin{x} - \sin{a}| &= \left|2\cos\left(\frac{x+a}{2}\right)\sin\left(\frac{x-a}{2}\right)\right| \notag \\
-    &\leqslant 2 \left|\sin\left(\frac{x-a}{2}\right)\right|. \notag
-\end{align}
+\begin{align*}
+    |\sin{x} - \sin{a}| &= \left|2\cos\left(\frac{x+a}{2}\right)\sin\left(\frac{x-a}{2}\right)\right|  \\
+    &\leqslant 2 \left|\sin\left(\frac{x-a}{2}\right)\right|. 
+\end{align*}
 我们知道，$u>0$时，$\sin{u}$小于$u$。而$u<0$时，$|\sin{u}| = -\sin{u} = \sin{-u} < -u$。
 也就是说，总有$|\sin{u}| < |u|$。因此，
-\begin{align}
-    |\sin{x} - \sin{a}| &= \left|\sin\left(\frac{x-a}{2}\right)\right| \notag \\
-    &<  \left|x-a\right|. \notag
-\end{align}
+\begin{align*}
+    |\sin{x} - \sin{a}| &= \left|\sin\left(\frac{x-a}{2}\right)\right|  \\
+    &<  \left|x-a\right|. 
+\end{align*}
 也就是说，只要令$d = r$，就可以使得只要
 $x\in(a-d,\,\,a+d)$，就有$|\sin{x} - \sin{a}| < r$。也就是说，正弦函数在$a$处连续。
 这就证明正弦函数在其定义域上处处连续。
@@ -2774,10 +2774,10 @@ $$ |a_1||q|^{N-1} \leqslant r.$$
     $$ \forall n \in \mathbb{Z}^+ , \quad S_n = a_1 + \cdots + a_n. $$
     如果$-1<q<1$，证明$\{S_n\}$有极限，并用$a$和$q$表示该极限。\\
     \indent 2. 数列$\{x_n\}_{n\in\mathbb{Z}^+}$满足以下关系：
-    \begin{align}
-        x_1 = 2, & \notag \\
-        \forall n\in\mathbb{Z}^+, &\quad x_{n+1} = \frac{x_n}{3} + \frac{2}{x_n},\notag
-    \end{align}
+    \begin{align*}
+        x_1 = 2, &  \\
+        \forall n\in\mathbb{Z}^+, &\quad x_{n+1} = \frac{x_n}{3} + \frac{2}{x_n},
+    \end{align*}
     \indent 2.1. 证明：$x_n$总在$1.5$与$2$之间.\\
     \indent 2.2. 证明：
     $$x_{n+1} - \sqrt{3} = \frac{(x_n - \sqrt{3})(x_n - 2\sqrt{3})}{3x_n}.$$
@@ -2812,11 +2812,11 @@ $$ \sqrt{(t - t_0)^2 + (f(t) - f(t_0))^2} $$
 根据定义，函数$f$在$t_0$处连续，那么，对任何正数$r$，都有$d>0$，使得只要$|t - t_0| < d$，
 就有$|f(t) - f(t_0)| < \frac{r}{2}$。于是，取$d'$为$d$和$\frac{r}{2}$中较小者。那么$|t - t_0| < d'$时
 总有：
-\begin{align}
-    \sqrt{(t - t_0)^2 + (f(t) - f(t_0))^2} &< \sqrt{d'^2 + \left(\frac{r}{2}\right)^2} \notag \\
-    &\leqslant \sqrt{\left(\frac{r}{2}\right)^2 + \left(\frac{r}{2}\right)^2} \notag \\
-    &= \frac{\sqrt{2}r}{2} < r \notag
-\end{align}
+\begin{align*}
+    \sqrt{(t - t_0)^2 + (f(t) - f(t_0))^2} &< \sqrt{d'^2 + \left(\frac{r}{2}\right)^2}  \\
+    &\leqslant \sqrt{\left(\frac{r}{2}\right)^2 + \left(\frac{r}{2}\right)^2}  \\
+    &= \frac{\sqrt{2}r}{2} < r 
+\end{align*}
 这说明函数$f$的图像，作为平面中的曲线，在$t_0$连续。
 
 实变函数的图像，作为平面中的曲线，有一个共同特征，就是与任何竖直的直线$x = x_0$至多有一个交点。
@@ -2839,10 +2839,10 @@ $$ |\cos{t} - \cos{t_0}| < \frac{r}{2}, \quad |\sin{t} - \sin{t_0}| < \frac{r}{2
 
 如果$t_0 = 0$或$2\pi$，由于$c(0) = c(2\pi)$，它附近一点$(\cos{t}, \,\, \sin{t})$要么是$t$越来越小，趋近于$0$，要么是$t$越来越大，趋近于$2\pi$。
 由于正弦函数和余弦函数在$0$处连续，对于以上两种情况，我们根据：
-\begin{align}
-    \lian{t \to 0} \cos{t} = \cos{0}, \quad &\lian{t \to 0} \sin{t} = \sin{0}, \notag \\
-    \lian{t \to 2\pi} \cos{t} = \cos{0}, \quad &\lian{t \to 2\pi} \sin{t} = \sin{0}, \notag 
-\end{align}
+\begin{align*}
+    \lian{t \to 0} \cos{t} = \cos{0}, \quad &\lian{t \to 0} \sin{t} = \sin{0},  \\
+    \lian{t \to 2\pi} \cos{t} = \cos{0}, \quad &\lian{t \to 2\pi} \sin{t} = \sin{0},  
+\end{align*}
 可以得出$t$趋于$0$时，$(\cos{t}, \,\, \sin{t})$趋于$(\cos{0}, \,\, \sin{0})$；
 $t$趋于$2\pi$时，$(\cos{t}, \,\, \sin{t})$也趋于$(\cos{0}, \,\, \sin{0})$。
 这说明$c$在$t=0$和$t=2\pi$处，也就是$(\cos{0}, \,\, \sin{0})$处连续。
@@ -2970,19 +2970,19 @@ $$
 \sqrt{(a_1^2 + a_2^2)(b_1^2 + b_2^2)} \geqslant |a_1b_1 + a_2b_2|
 $$
 对于多元有序数组$(a_1, a_2, \cdots, a_n)$和$(b_1, b_2, \cdots, b_n)$，
-\begin{align}
-&(a_1^2 + a_2^2 + \cdots + a_n^2)(b_1^2 + b_2^2 + \cdots + b_n^2) \notag \\
-=\,\,& (a_1b_1 + a_2b_2 + \cdots + a_nb_n)^2 + \frac{1}{2}\sum_{i=1}^n\sum_{j=1}^n(a_ib_j - a_jb_i)^2 \notag \\
-\geqslant\,\,& (a_1b_1 + a_2b_2 + \cdots + a_nb_n)^2 \notag 
-\end{align}
+\begin{align*}
+&(a_1^2 + a_2^2 + \cdots + a_n^2)(b_1^2 + b_2^2 + \cdots + b_n^2)  \\
+=\,\,& (a_1b_1 + a_2b_2 + \cdots + a_nb_n)^2 + \frac{1}{2}\sum_{i=1}^n\sum_{j=1}^n(a_ib_j - a_jb_i)^2  \\
+\geqslant\,\,& (a_1b_1 + a_2b_2 + \cdots + a_nb_n)^2  
+\end{align*}
 其中$\frac{1}{2}\sum_{i=1}^n\sum_{j=1}^n(a_ib_j - a_jb_i)^2$的“来历”为：
-\begin{align}
-&\left(\sum_{i=1}^n a_i^2\right) \left(\sum_{j=1}^n b_j^2\right) - \left(\sum_{i=1}^n a_ib_i\right)^2 \notag \\
-=\,\,& \sum_{i=1}^n\sum_{j=1}^n a_i^2 \cdot b_j^2 - \sum_{i=1}^n\sum_{j=1}^n a_ib_i\cdot a_jb_j \notag \\
-=\,\,& \frac{1}{2}\left(\sum_{i=1}^n\sum_{j=1}^n (a_ib_j)^2 + \sum_{i=1}^n\sum_{j=1}^n (a_jb_i)^2 -  2 \sum_{i=1}^n\sum_{j=1}^n a_ia_jb_ib_j \right) \notag \\
-=\,\,& \frac{1}{2}\sum_{i=1}^n\sum_{j=1}^n \left( (a_ib_j)^2 + (a_jb_i)^2 -  2 a_ib_j\cdot a_jb_i \right) \notag \\ 
-=\,\,& \frac{1}{2}\sum_{i=1}^n\sum_{j=1}^n \left( a_ib_j - a_jb_i \right)^2. \notag 
-\end{align}
+\begin{align*}
+&\left(\sum_{i=1}^n a_i^2\right) \left(\sum_{j=1}^n b_j^2\right) - \left(\sum_{i=1}^n a_ib_i\right)^2  \\
+=\,\,& \sum_{i=1}^n\sum_{j=1}^n a_i^2 \cdot b_j^2 - \sum_{i=1}^n\sum_{j=1}^n a_ib_i\cdot a_jb_j  \\
+=\,\,& \frac{1}{2}\left(\sum_{i=1}^n\sum_{j=1}^n (a_ib_j)^2 + \sum_{i=1}^n\sum_{j=1}^n (a_jb_i)^2 -  2 \sum_{i=1}^n\sum_{j=1}^n a_ia_jb_ib_j \right)  \\
+=\,\,& \frac{1}{2}\sum_{i=1}^n\sum_{j=1}^n \left( (a_ib_j)^2 + (a_jb_i)^2 -  2 a_ib_j\cdot a_jb_i \right)  \\ 
+=\,\,& \frac{1}{2}\sum_{i=1}^n\sum_{j=1}^n \left( a_ib_j - a_jb_i \right)^2.  
+\end{align*}
 
 因此，对一般的$n$，也有内积不等式：
 $$ \sqrt{(a_1^2 + a_2^2 + \cdots + a_n^2)(b_1^2 + b_2^2 + \cdots + b_n^2)} \geqslant |a_1b_1 + a_2b_2+ \cdots + a_nb_n|$$
@@ -3006,22 +3006,22 @@ $$ m_H : \,\,\, a_1, a_2, \cdots , a_n \mapsto \left(\frac{a_1^{-1} + a_2^{-1} +
 这三种平均值都源自古典数学，是研究平面与空间形体、音律、天文地理时常见的工具。它们之间有什么联系呢？
 
 首先来看两个数的情况。给定两个正数$a_1$、$a_2$，它们的算术平均值是$\frac{a_1 + a_2}{2}$，几何平均值是$\sqrt{a_1a_2}$，调和平均值是$\frac{2a_1a_2}{a_1 + a_2}$。我们发现：
-\begin{align}
-    \frac{a_1 + a_2}{2} - \sqrt{a_1a_2} &= \frac{1}{2}(\sqrt{a_1} - \sqrt{a_2})^2 \geqslant 0 \notag \\
-    \sqrt{a_1a_2} - \frac{2a_1a_2}{a_1 + a_2} &= \frac{2\sqrt{a_1a_2}}{a_1 + a_2}\left(\frac{a_1 + a_2}{2} - \sqrt{a_1a_2}\right) \geqslant 0 \notag
-\end{align}
+\begin{align*}
+    \frac{a_1 + a_2}{2} - \sqrt{a_1a_2} &= \frac{1}{2}(\sqrt{a_1} - \sqrt{a_2})^2 \geqslant 0  \\
+    \sqrt{a_1a_2} - \frac{2a_1a_2}{a_1 + a_2} &= \frac{2\sqrt{a_1a_2}}{a_1 + a_2}\left(\frac{a_1 + a_2}{2} - \sqrt{a_1a_2}\right) \geqslant 0 
+\end{align*}
 任意两正数$a_1$、$a_2$的算术平均值总大于等于几何平均值，几何平均值总大于等于调和平均值。
 
 再来看三个数的情况给定两个正数$a_1$、$a_2$、$a_3$，它们的算术平均值是$\frac{a_1 + a_2 + a_3}{3}$，几何平均值是$\sqrt[3]{a_1a_2a_3}$，调和平均值是$\frac{3a_1 a_2 a_3}{a_1 a_2 + a_2 a_3 + a_3 a_1}$。
-\begin{align}
-    &\frac{a_1 + a_2 + a_3}{3} - \sqrt[3]{a_1a_2a_3} \notag \\
-    =\,\,& \frac{1}{6}(\sqrt[3]{a_1} + \sqrt[3]{a_2} + \sqrt[3]{a_3})\left((\sqrt[3]{a_1} - \sqrt[3]{a_2})^2 + (\sqrt[3]{a_2} - \sqrt[3]{a_3})^2 + (\sqrt[3]{a_3} - \sqrt[3]{a_1})^2\right) \notag \\
-    \geqslant\,\,&0. \notag \\
-    &\sqrt[3]{a_1a_2a_3} - \frac{3a_1 a_2 a_3}{a_1 a_2 + a_2 a_3 + a_3 a_1} \notag \\
-    =\,\,& \frac{3\sqrt[3]{a_1a_2a_3}}{a_1 a_2 + a_2 a_3 + a_3 a_1}\left(\frac{a_1 a_2 + a_2 a_3 + a_3 a_1}{3} - \sqrt[3]{a_1^2a_2^2a_3^2}\right) \notag \\
-    =\,\,& \frac{3\sqrt[3]{a_1a_2a_3}}{a_1 a_2 + a_2 a_3 + a_3 a_1}\left(\frac{a_1 a_2 + a_2 a_3 + a_3 a_1}{3} - \sqrt[3]{(a_1a_2)(a_2a_3)(a_3a_1)}\right) \notag \\
-    \geqslant \,\,&0. \notag
-\end{align}
+\begin{align*}
+    &\frac{a_1 + a_2 + a_3}{3} - \sqrt[3]{a_1a_2a_3}  \\
+    =\,\,& \frac{1}{6}(\sqrt[3]{a_1} + \sqrt[3]{a_2} + \sqrt[3]{a_3})\left((\sqrt[3]{a_1} - \sqrt[3]{a_2})^2 + (\sqrt[3]{a_2} - \sqrt[3]{a_3})^2 + (\sqrt[3]{a_3} - \sqrt[3]{a_1})^2\right)  \\
+    \geqslant\,\,&0.  \\
+    &\sqrt[3]{a_1a_2a_3} - \frac{3a_1 a_2 a_3}{a_1 a_2 + a_2 a_3 + a_3 a_1}  \\
+    =\,\,& \frac{3\sqrt[3]{a_1a_2a_3}}{a_1 a_2 + a_2 a_3 + a_3 a_1}\left(\frac{a_1 a_2 + a_2 a_3 + a_3 a_1}{3} - \sqrt[3]{a_1^2a_2^2a_3^2}\right)  \\
+    =\,\,& \frac{3\sqrt[3]{a_1a_2a_3}}{a_1 a_2 + a_2 a_3 + a_3 a_1}\left(\frac{a_1 a_2 + a_2 a_3 + a_3 a_1}{3} - \sqrt[3]{(a_1a_2)(a_2a_3)(a_3a_1)}\right)  \\
+    \geqslant \,\,&0. 
+\end{align*}
 
 于是，任意三正数$a_1$、$a_2$、$a_3$的算术平均值总大于等于几何平均值，几何平均值总大于等于调和平均值。
 
@@ -3030,11 +3030,11 @@ $$ m_H : \,\,\, a_1, a_2, \cdots , a_n \mapsto \left(\frac{a_1^{-1} + a_2^{-1} +
 先证明算术平均值总大于等于几何平均值。设命题$P(n)$：
 $n$个正数的算术平均值总大于等于几何平均值。对于$n=2,3$的情况，我们使用了因式分解来证明。
 这种方法难以推广。使用$P(2)$，我们可以证明以下较“弱”的结论：如果$P(n)$成立，那么$P(2n)$成立。
-\begin{align}
-    \frac{a_1 + a_2 + \cdots a_{2n}}{2n} &\geqslant \frac{1}{2}\left((a_1a_2\cdots a_{n})^{\frac{1}{n}} + (a_{n+1}a_{n+2}\cdots a_{2n})^{\frac{1}{n}} \right) \notag \\
-    &\geqslant \sqrt{(a_1a_2\cdots a_{n})^{\frac{1}{n}} \cdot (a_{n+1}a_{n+2}\cdots a_{2n})^{\frac{1}{n}}} \notag \\
-    &= (a_1a_2\cdots a_{2n})^{\frac{1}{2n}}\notag
-\end{align}
+\begin{align*}
+    \frac{a_1 + a_2 + \cdots a_{2n}}{2n} &\geqslant \frac{1}{2}\left((a_1a_2\cdots a_{n})^{\frac{1}{n}} + (a_{n+1}a_{n+2}\cdots a_{2n})^{\frac{1}{n}} \right)  \\
+    &\geqslant \sqrt{(a_1a_2\cdots a_{n})^{\frac{1}{n}} \cdot (a_{n+1}a_{n+2}\cdots a_{2n})^{\frac{1}{n}}}  \\
+    &= (a_1a_2\cdots a_{2n})^{\frac{1}{2n}}
+\end{align*}
 
 因此，通过归纳法我们可以证明，只要$n$是$2$的乘方，那么$P(n)$为真。对于剩余的$n$，我们要另想办法。
 由于已经证明了$P(n)$对足够大的$n$为真，我们可以把归纳法“反过来用”：假设$P(n)$对某个$n$为真，
@@ -3067,11 +3067,11 @@ $$ \frac{G}{a_1} + \frac{G}{a_2} + \cdots + \frac{G}{a_n} \geqslant n\left(\frac
 $$ G \geqslant n \left(a_1^{-1} + a_2^{-1} + \cdots + a_n^{-1}\right)^{-1} =  \left(\frac{a_1^{-1} + a_2^{-1} + \cdots + a_n^{-1}}{n}\right)^{-1}. $$
 除了算术平均值、几何平均值和调和平均值，生产实践中还会用到不少别的平均值。不少平均值之间也存在类似的绝对不等关系。
 
-% \begin{align}
-%     \left(1 + \frac{1}{n}\right)^{n+2} &= (n+2)^{n+2} \cdot \left(\frac{(n+1)\cdot \frac{1}{n+1} + \frac{1}{n}}{n+2}\right)^{n+2} \notag \\
-%     &\geqslant (n+2)^{n+2} \cdot \frac{1}{(n+1)^{n+1}} \cdot \frac{1}{n} \notag \\
+% \begin{align*}
+%     \left(1 + \frac{1}{n}\right)^{n+2} &= (n+2)^{n+2} \cdot \left(\frac{(n+1)\cdot \frac{1}{n+1} + \frac{1}{n}}{n+2}\right)^{n+2}  \\
+%     &\geqslant (n+2)^{n+2} \cdot \frac{1}{(n+1)^{n+1}} \cdot \frac{1}{n}  \\
 %     &= 
-% \end{align}
+% \end{align*}
 
 \begin{xt}    
     \mbox{}\\
@@ -3205,10 +3205,10 @@ $$ G \geqslant n \left(a_1^{-1} + a_2^{-1} + \cdots + a_n^{-1}\right)^{-1} =  \l
     因此$\{|a_n|\}$也是无穷小。\\
     (2). 如果$\{b_n\}$也是无穷小，按照极限的运算律，$\{a_n \pm b_n\}$趋于$0 \pm 0 = 0$，$\{a_n \cdot b_n\}$趋于$0 \cdot 0 = 0$，因此都是无穷小。\\
     (3). $\{a_n\}$是无穷小。按照定义，对任何$T$中正数$r$，由于$\frac{r}{M} > 0$，存在正整数$N$，使得$n>N$时总有$|a_n - 0| < \frac{r}{M}$。因此，$n>N$时总有
-    \begin{align}
-        |b_n - 0| &\leqslant M\cdot |a_n| \notag \\ 
-        &< M\cdot \frac{r}{M} = r.  \notag
-    \end{align}
+    \begin{align*}
+        |b_n - 0| &\leqslant M\cdot |a_n|  \\ 
+        &< M\cdot \frac{r}{M} = r.  
+    \end{align*}
     因此$\{b_n\}$也是无穷小。
 \end{proof}
 
@@ -3261,11 +3261,11 @@ $$ G \geqslant n \left(a_1^{-1} + a_2^{-1} + \cdots + a_n^{-1}\right)^{-1} =  \l
     就有$|a_n - a_m| < r_1$；只要$n,m>N_b$，就有$|b_n - b_m| < r_1$。
     因此，只要取$N$为$N_a, N_b$中较大者，那么$n,m>N$时，总有$|a_n - a_m| < r_1$、$|b_n - b_m| < r_1$同时成立。
     于是：
-    \begin{align}
-        |a_nb_n - a_mb_m| &= |(a_n - a_m)b_n + a_m(b_n - b_m)| \notag \\
-        &\leqslant |(a_n - a_m)b_n| + |a_m(b_n - b_m)| = |a_n - a_m|\cdot |b_n| + |b_n - b_m|\cdot|a_m| \notag \\
-        &< \frac{r}{2M} \cdot M + \frac{r}{2M} \cdot M = r \notag
-    \end{align}
+    \begin{align*}
+        |a_nb_n - a_mb_m| &= |(a_n - a_m)b_n + a_m(b_n - b_m)|  \\
+        &\leqslant |(a_n - a_m)b_n| + |a_m(b_n - b_m)| = |a_n - a_m|\cdot |b_n| + |b_n - b_m|\cdot|a_m|  \\
+        &< \frac{r}{2M} \cdot M + \frac{r}{2M} \cdot M = r 
+    \end{align*}
     因此数列$\{a_n b_n\}$也是自敛数列。\\
     \textbf{除法}：设有元素在数集$T$中的自敛数列$\{a_n\}, \{b_n\}$。其中$b_n$的绝对值总大于$T$中元素$d$（$d > 0$）。
     定理\ref{tm:a-0-60}说明$\{a_n\}$是有界数列，也就是说，有$T$中元素$M$，使得$|a_n|$总小于$M$。
@@ -3273,14 +3273,14 @@ $$ G \geqslant n \left(a_1^{-1} + a_2^{-1} + \cdots + a_n^{-1}\right)^{-1} =  \l
     就有$|a_n - a_m| < r_1$；只要$n,m>N_b$，就有$|b_n - b_m| < r_1$。
     因此，只要取$N$为$N_a, N_b$中较大者，那么$n,m>N$时，总有$|a_n - a_m| < r_1$、$|b_n - b_m| < r_1$同时成立。
     于是：
-    \begin{align}
-        \left|\frac{a_n}{b_n} - \frac{a_m}{b_m}\right| &= \frac{|a_nb_m - a_mb_n|}{|b_nb_m|} \notag \\
-        &= \frac{|(a_n - a_m)b_m - a_m(b_n - b_m)|}{|b_n||b_m|} \notag \\
-        &\leqslant \frac{|a_n - a_m||b_m|}{|b_n||b_m|} + \frac{|a_m||b_n - b_m|}{|b_n||b_m|}\notag \\
-        &= \frac{|a_n - a_m|}{|b_n|} + \frac{|a_m||b_n - b_m|}{|b_n||b_m|} \notag \\
-        &< \frac{r_1}{d} + \frac{Mr_1}{d^2} \notag \\
-        &= \frac{M+d}{d^2} r_1 = r \notag
-    \end{align} 
+    \begin{align*}
+        \left|\frac{a_n}{b_n} - \frac{a_m}{b_m}\right| &= \frac{|a_nb_m - a_mb_n|}{|b_nb_m|}  \\
+        &= \frac{|(a_n - a_m)b_m - a_m(b_n - b_m)|}{|b_n||b_m|}  \\
+        &\leqslant \frac{|a_n - a_m||b_m|}{|b_n||b_m|} + \frac{|a_m||b_n - b_m|}{|b_n||b_m|} \\
+        &= \frac{|a_n - a_m|}{|b_n|} + \frac{|a_m||b_n - b_m|}{|b_n||b_m|}  \\
+        &< \frac{r_1}{d} + \frac{Mr_1}{d^2}  \\
+        &= \frac{M+d}{d^2} r_1 = r 
+    \end{align*} 
     因此数列$\{\frac{a_n}{b_n}\}$也是自敛数列。\\
 \end{proof}
 
@@ -3344,9 +3344,9 @@ $$ G \geqslant n \left(a_1^{-1} + a_2^{-1} + \cdots + a_n^{-1}\right)^{-1} =  \l
     也就是说，存在某个有理数$r>0$，使得对任何正整数$m$，都有$n>m$，$|a_n - b_n - 0| > r$。\\
     另一方面，由于$\{a_n - b_n\}$自敛，所以对于$\frac{r}{2}$，存在正整数$N$，使得只要$n,m>N$，$|a_n - b_n - (a_m - b_m)| < \frac{r}{2}$。
     这说明，只要$m>N$，那么先找到使得$|a_n - b_n - 0| > r$的$n$，然后就可以得到：
-    \begin{align}
-        |a_m - b_m| \geqslant |a_n - b_n| - |a_n - b_n - (a_m - b_m)| > r - \frac{r}{2} = \frac{r}{2} \notag 
-    \end{align}
+    \begin{align*}
+        |a_m - b_m| \geqslant |a_n - b_n| - |a_n - b_n - (a_m - b_m)| > r - \frac{r}{2} = \frac{r}{2}  
+    \end{align*}
     这说明，只要$m>N$，要么$a_m - b_m > \frac{r}{2}$，要么$a_m - b_m < -\frac{r}{2}$。\\
     然而，如果对某两个正整数$k>m>N$，
     有$a_k - b_k > \frac{r}{2}$且$a_m - b_m < -\frac{r}{2}$，那么$|a_k - b_k - (a_m - b_m)| > \frac{r}{2} - (-\frac{r}{2}) = r > \frac{r}{2}$。
@@ -3357,11 +3357,11 @@ $$ G \geqslant n \left(a_1^{-1} + a_2^{-1} + \cdots + a_n^{-1}\right)^{-1} =  \l
     按照定义有$\{a_n - a_n'\}$和$\{b_n - b_n'\}$趋于$0$。因此，对$\frac{r}{8}>0$，有正整数$N_a,N_b$，
     使得只要$n>N_a$，就有$|a_n - a_n' - 0| < \frac{r}{8}$，只要$n>N_b$，就有$|b_n - b_n' - 0| < \frac{r}{8}$。
     于是，只要取正整数$N'$为$N,N_a,N_b$中的最大者，就有
-    \begin{align}
-        a_n' - b_n' &= a_n - b_n - (a_n - a_n') - (b_n - b_n') \notag \\
-        &> \frac{r}{2} - \frac{r}{8} - \frac{r}{8} \notag \\
-        &= \frac{r}{4} > 0. \notag
-    \end{align}
+    \begin{align*}
+        a_n' - b_n' &= a_n - b_n - (a_n - a_n') - (b_n - b_n')  \\
+        &> \frac{r}{2} - \frac{r}{8} - \frac{r}{8}  \\
+        &= \frac{r}{4} > 0. 
+    \end{align*}
     这个结论对任何收敛到$a,b$的自敛有理数列$\{a_n'\}, \{b_n'\}$都成立，所以$a>b$。\\
     类似地，如果设后一种情况成立，我们找到了分别收敛到$a,b$的自敛数列$\{a_n\}, \{b_n\}$，以及正整数$N$，
     使得对任意$n>N$，都有$a_n - b_n < -\frac{r}{2}$。按照同样的方法，我们可以证明对任何收敛到$a,b$的自敛有理数列$\{a_n'\}, \{b_n'\}$，
@@ -3414,21 +3414,21 @@ $$ G \geqslant n \left(a_1^{-1} + a_2^{-1} + \cdots + a_n^{-1}\right)^{-1} =  \l
     首先证明这些定义自洽，即$a\pm b$、$a\cdot b$、$a\div b$是自敛有理数列的等价类，因而对应某个实数。\\
     对任意$\{a_n\}\in A,\,\,\{b_n\}\in B$，根据定理\ref{tm:a-1-3}，数列$\{a_n\}, \{b_n\}$的和、差、积、商（$b\neq 0$）都是自敛有理数列。
     如果对另外任意的$\{a_n'\}\in A,\,\,\{b_n'\}\in B$，可以证明$\{a_n'\}, \{b_n'\}$的和、差、积、商与$\{a_n\}, \{b_n\}$的和、差、积、商的差都是无穷小：
-    \begin{align}
-        \{a_n \pm b_n - (a_n' \pm b_n')\} &\to 0 \notag \\
-        \{a_nb_n - a_n'b_n'\} &\to 0 \notag \\
-        \{\frac{a_n}{b_n} - \frac{a_n'}{b_n'}\} &\to 0 \notag 
-    \end{align}
+    \begin{align*}
+        \{a_n \pm b_n - (a_n' \pm b_n')\} &\to 0  \\
+        \{a_nb_n - a_n'b_n'\} &\to 0  \\
+        \{\frac{a_n}{b_n} - \frac{a_n'}{b_n'}\} &\to 0  
+    \end{align*}
     那么$a\pm b$、$a\cdot b$、$a\div b$都是等价类。于是$a\pm b$、$a\cdot b$、$a\div b$是自敛有理数列的等价类。这样就完成了证明。\\
     下面给出证明：\\
     按照等价类的定义，$\{a_n - a_n'\}$和$\{b_n - b_n'\}$都趋于$0$。\\
     \textbf{和差}：注意到$a_n \pm b_n - (a_n' \pm b_n') = (a_n - a_n') \pm (b_n - b_n')$，因此趋于$0$。\\
     \textbf{积}：计算$a_nb_n - a_n'b_n'$。根据定理\ref{tm:a-0-60}，$\{a_n\}, \{b_n\}$都是有界数列。即存在$M>0$，使得$|a_n|$、$|b_n|$总小于$M$。
-    \begin{align}
-        |a_nb_n - a_n'b_n'| &= |a_n(b_n - b_n') + (a_n - a_n')b_n'| \notag \\
-        &\leqslant |a_n||b_n - b_n'| + |a_n - a_n'||b_n'| \notag \\
-        &\leqslant M(|b_n - b_n'| + |a_n - a_n'|) \notag 
-    \end{align}
+    \begin{align*}
+        |a_nb_n - a_n'b_n'| &= |a_n(b_n - b_n') + (a_n - a_n')b_n'|  \\
+        &\leqslant |a_n||b_n - b_n'| + |a_n - a_n'||b_n'|  \\
+        &\leqslant M(|b_n - b_n'| + |a_n - a_n'|)  
+    \end{align*}
     对任何有理数$r>0$，$r_1 = \frac{r}{2M}>0$，因此，总有正整数$N_a,N_b$，
     使得只要$n>N_a$，就有$|a_n - a_n' - 0| < r_1$，只要$n>N_b$，就有$|b_n - b_n' - 0| < r_1$。
     于是，只要取正整数$N$为$N_a,N_b$中较大者，就有
@@ -3437,13 +3437,13 @@ $$ G \geqslant n \left(a_1^{-1} + a_2^{-1} + \cdots + a_n^{-1}\right)^{-1} =  \l
     \textbf{商}：$b\neq 0$，因此要么$b>0$，要么$b<0$。不妨设$b>0$。计算$\frac{a_n}{b_n} - \frac{a_n'}{b_n'}$。
     根据定理\ref{tm:a-0-60}，$\{a_n\}, \{b_n\}$都是有界数列。即存在$M>0$，使得$|a_n|$、$|b_n|$总小于$M$。
     另一方面，由于$b>0$，根据定理\ref{tm:a-1-18}，可以取有理数$d$使得$b>d>0$。因此，存在正整数$N$使得只要$n>N$，就有$b_n>d$、$b_n'>d$。
-    \begin{align}
-        \left|\frac{a_n}{b_n} - \frac{a_n'}{b_n'}\right| &= \frac{|a_nb_n' - a_n'b_n|}{|b_n||b_n'|} \notag \\
-        &= \frac{|a_n(b_n' - b_n) + (a_n - a_n')b_n|}{|b_n||b_n'|} \notag \\
-        &\leqslant \frac{|a_n||b_n - b_n'|}{|b_n||b_n'|} + \frac{|a_n - a_n'||b_n|}{|b_n||b_n'|} \notag \\
-        &= \frac{|a_n||b_n - b_n'|}{|b_n||b_n'|} + \frac{|a_n - a_n'|}{|b_n'|} \notag \\
-        &< \frac{M}{d^2}|b_n - b_n'| + \frac{1}{d}|a_n - a_n'|) \notag 
-    \end{align}
+    \begin{align*}
+        \left|\frac{a_n}{b_n} - \frac{a_n'}{b_n'}\right| &= \frac{|a_nb_n' - a_n'b_n|}{|b_n||b_n'|}  \\
+        &= \frac{|a_n(b_n' - b_n) + (a_n - a_n')b_n|}{|b_n||b_n'|}  \\
+        &\leqslant \frac{|a_n||b_n - b_n'|}{|b_n||b_n'|} + \frac{|a_n - a_n'||b_n|}{|b_n||b_n'|}  \\
+        &= \frac{|a_n||b_n - b_n'|}{|b_n||b_n'|} + \frac{|a_n - a_n'|}{|b_n'|}  \\
+        &< \frac{M}{d^2}|b_n - b_n'| + \frac{1}{d}|a_n - a_n'|)  
+    \end{align*}
     对任何有理数$r>0$，$r_1 = \frac{rd^2}{M+d}>0$，因此，总有正整数$N_a,N_b$，
     使得只要$n>N_a$，就有$|a_n - a_n'| < r_1$，只要$n>N_b$，就有$|b_n - b_n' - 0| < r_1$。
     于是，只要取正整数$N$为$N_a,N_b$中较大者，就有
@@ -3455,22 +3455,22 @@ $$ G \geqslant n \left(a_1^{-1} + a_2^{-1} + \cdots + a_n^{-1}\right)^{-1} =  \l
     \textbf{乘法交换律}：考察集合$a\cdot b = \{\{a_n \cdot b_n\} \, |\, \{a_n\}\in A,\,\,\{b_n\}\in B \}$、
     $b\cdot a = \{\{b_n \cdot a_n\} \, |\, \{a_n\}\in A,\,\,\{b_n\}\in B \}$可知两者相同。这说明$a \cdot b = b \cdot a$。\\
     \textbf{加法结合律}：给定实数$a$、$b$、$c$，设它们分别对应自敛有理数列的等价类$A,B,C$。考察
-    \begin{align}
-        (a + b) + c &= \{\{(a_n + b_n) + c_n\} \, |\, \{a_n\}\in A,\,\,\{b_n\}\in B,\,\,\{c_n\}\in C \} \notag \\
-        a + (b + c) &= \{\{a_n + (b_n + c_n)\} \, |\, \{a_n\}\in A,\,\,\{b_n\}\in B,\,\,\{c_n\}\in C \} \notag
-    \end{align}
+    \begin{align*}
+        (a + b) + c &= \{\{(a_n + b_n) + c_n\} \, |\, \{a_n\}\in A,\,\,\{b_n\}\in B,\,\,\{c_n\}\in C \}  \\
+        a + (b + c) &= \{\{a_n + (b_n + c_n)\} \, |\, \{a_n\}\in A,\,\,\{b_n\}\in B,\,\,\{c_n\}\in C \} 
+    \end{align*}
     可知两集合相同。$(a + b) + c = a + (b + c)$。\\
     \textbf{乘法结合律}：考察
-    \begin{align}
-        (a \cdot b) \cdot c &= \{\{(a_n \cdot b_n) \cdot c_n\} \, |\, \{a_n\}\in A,\,\,\{b_n\}\in B,\,\,\{c_n\}\in C \} \notag \\
-        a \cdot (b \cdot c) &= \{\{a_n \cdot (b_n \cdot c_n)\} \, |\, \{a_n\}\in A,\,\,\{b_n\}\in B,\,\,\{c_n\}\in C \} \notag
-    \end{align}
+    \begin{align*}
+        (a \cdot b) \cdot c &= \{\{(a_n \cdot b_n) \cdot c_n\} \, |\, \{a_n\}\in A,\,\,\{b_n\}\in B,\,\,\{c_n\}\in C \}  \\
+        a \cdot (b \cdot c) &= \{\{a_n \cdot (b_n \cdot c_n)\} \, |\, \{a_n\}\in A,\,\,\{b_n\}\in B,\,\,\{c_n\}\in C \} 
+    \end{align*}
     可知两集合相同。$(a \cdot b) \cdot c = a \cdot (b \cdot c)$。\\
     \textbf{乘法对加法的分配律}：考察
-    \begin{align}
-        (a + b) \cdot c &= \{\{(a_n + b_n) \cdot c_n\} \, |\, \{a_n\}\in A,\,\,\{b_n\}\in B,\,\,\{c_n\}\in C \} \notag \\
-        a \cdot c + b \cdot c &= \{\{a_n \cdot c_n + b_n \cdot c_n\} \, |\, \{a_n\}\in A,\,\,\{b_n\}\in B,\,\,\{c_n\}\in C \} \notag
-    \end{align}
+    \begin{align*}
+        (a + b) \cdot c &= \{\{(a_n + b_n) \cdot c_n\} \, |\, \{a_n\}\in A,\,\,\{b_n\}\in B,\,\,\{c_n\}\in C \}  \\
+        a \cdot c + b \cdot c &= \{\{a_n \cdot c_n + b_n \cdot c_n\} \, |\, \{a_n\}\in A,\,\,\{b_n\}\in B,\,\,\{c_n\}\in C \} 
+    \end{align*}
     可知两集合相同。$(a + b) \cdot c = a \cdot c + b \cdot c$。类似可以证明$a \cdot (b + c) = a \cdot b + a \cdot c$。\\
     最后证明\textbf{实数的四则运算与有理数一致}。按照定理\ref{tm:a-1-5}，有理数都是实数。因此只要验证以下的基本性质：
     \begin{enumerate}
@@ -3499,10 +3499,10 @@ $$ G \geqslant n \left(a_1^{-1} + a_2^{-1} + \cdots + a_n^{-1}\right)^{-1} =  \l
     考虑数列$\{\frac{a_n b_n}{b_n'} - a_n\}$。
     $\{a_n\}$收敛到$a$，所以是有界数列，可以找到有理数$M$使得$|a_n|$总小于$M$。$b\neq 0$，所以可以找到$0$与$b$之间的有理数$d$，以及正整数$N$，使得只要$n>N$，就有$|b_n| > d$。
     于是$n>N$时总有：
-    \begin{align}
-        \left|\frac{a_n b_n}{b_n'} - a_n\right| &= \frac{\left|a_n\right| \left|b_n - b_n'\right|)}{\left|b_n'\right|} \notag \\
-        &< \frac{M}{d}\left|b_n - b_n'\right| \notag
-    \end{align}
+    \begin{align*}
+        \left|\frac{a_n b_n}{b_n'} - a_n\right| &= \frac{\left|a_n\right| \left|b_n - b_n'\right|)}{\left|b_n'\right|}  \\
+        &< \frac{M}{d}\left|b_n - b_n'\right| 
+    \end{align*}
     而$\{b_n - b_n'\}$收敛到$0$，所以根据定理\ref{tm:a-0-50}，数列$\{\frac{a_n b_n}{b_n'} - a_n\}$收敛到$0$。
     % 反之，收敛到$a$的数列$\{a_n\}$总能写成$\{\frac{a_n b_n}{b_n}\}$的形式，其中$\{b_n\}$是任意收敛到$b$的数列。
     这说明$a \div b \times b = a$。同理可证$a\times b \div b = a.$\\
@@ -3525,17 +3525,17 @@ $$ G \geqslant n \left(a_1^{-1} + a_2^{-1} + \cdots + a_n^{-1}\right)^{-1} =  \l
     (2). 在等式两边乘以实数$c$，左边得到$a\cdot c$，右边得到$b\cdot c$。对$a\cdot c$、$b\cdot c$中任意元素，
     它们分别能写成$\{a_n\cdot c_n\}$、$\{b_n\cdot c_n'\}$的形式。其中$\{a_n\}$、$\{b_n\}$
     收敛到$a$、$b$，$\{c_n\}$、$\{c_n'\}$收敛到$c$。注意到
-    \begin{align}
-        a_n\cdot c_n - b_n\cdot c_n' &= (a_n - b_n)\cdot c_n + b_n\cdot(c_n - c_n') \notag \\
-    \end{align}
+    \begin{align*}
+        a_n\cdot c_n - b_n\cdot c_n' &= (a_n - b_n)\cdot c_n + b_n\cdot(c_n - c_n')  \\
+    \end{align*}
     通过极限的运算可知$\{a_n\cdot c_n - b_n\cdot c_n'\}$收敛到$(a - b)c + b(c - c) = 0$。这说明$a\cdot c = b\cdot c$。\\
     (3). 在等式两边除以非零实数$c$，左边得到$a\div c$，右边得到$b\div c$。对$a\div c$、$b\div c$中任意元素，
     它们分别能写成$\{\frac{a_n}{c_n}\}$、$\{\frac{b_n}{c_n'}\}$的形式。其中$\{a_n\}$、$\{b_n\}$
     收敛到$a$、$b$，$\{c_n\}$、$\{c_n'\}$收敛到$c$。注意到
-    \begin{align}
-        \frac{a_n}{c_n} - \frac{b_n}{c_n'} &= \frac{a_nc_n' - b_nc_n}{c_nc_n'} \notag \\
+    \begin{align*}
+        \frac{a_n}{c_n} - \frac{b_n}{c_n'} &= \frac{a_nc_n' - b_nc_n}{c_nc_n'}  \\
         &= \frac{(a_n - b_n)\cdot c_n' - b_n\cdot(c_n - c_n')}{c_nc_n'}
-    \end{align}
+    \end{align*}
     通过极限的运算可知$\{\frac{a_n}{c_n} - \frac{b_n}{c_n'}\}$收敛到$\frac{(a - b)c + b(c - c)}{c^2} = 0$。这说明$a\div c = b\div c$。\\
 \end{proof}
 
@@ -3554,40 +3554,40 @@ $$ G \geqslant n \left(a_1^{-1} + a_2^{-1} + \cdots + a_n^{-1}\right)^{-1} =  \l
     收敛到$a$、$b$，$\{c_n\}$、$\{c_n'\}$收敛到$c$。$\{a_n\pm c_n-(b_n\pm c_n')\} = \{a_n - b_n \pm  (c_n - c_n')\}$。
     由于$a\neq b$，$c = c$，按照定义，存在有理数$r>0$，使得对任何正整数$m$，都有大于$m$的正整数$n$，使得$a_n - b_n < -r$；而对于$\frac{r}{2}>0$，存在正整数$N$，
     使得$n>N$时总有$|c_n - c_n'| < \frac{r}{2}$。于是$n>N$时总有
-    \begin{align}
-        a_n\pm c_n-(b_n\pm c_n') &= a_n - b_n \pm  (c_n - c_n') \notag \\
-        &< -r + \frac{r}{2} = -\frac{r}{2} < 0 \notag
-    \end{align}
+    \begin{align*}
+        a_n\pm c_n-(b_n\pm c_n') &= a_n - b_n \pm  (c_n - c_n')  \\
+        &< -r + \frac{r}{2} = -\frac{r}{2} < 0 
+    \end{align*}
     这说明$a\pm c < b\pm c$。\\
     (2). 设另有不等式$c<d$，下面证明$a + c < b + d$。对$a + c$、$b + d$中任意元素，它们分别能写成$\{a_n + c_n\}$、$\{b_n + d_n\}$的形式。其中$\{a_n\}$、$\{b_n\}$
     收敛到$a$、$b$，$\{c_n\}$、$\{d_n\}$收敛到$d$。$\{a_n + c_n-(b_n + d_n)\} = \{a_n - b_n + (c_n - d_n)\}$。
     由于$a\neq b$，$c < d$，按照定义，存在正有理数$r_1,r_2$，使得对任何正整数$m$，都有$n>m$，$a_n - b_n < -r_1$，$c_n - d_n < -r_2$；于是
-    \begin{align}
-        a_n + c_n-(b_n + d_n) &= a_n - b_n +  (c_n - d_n) \notag \\
-        &< -r_1 - r_2 < 0 \notag
-    \end{align}
+    \begin{align*}
+        a_n + c_n-(b_n + d_n) &= a_n - b_n +  (c_n - d_n)  \\
+        &< -r_1 - r_2 < 0 
+    \end{align*}
     这说明$a + c < b + d$。\\
     (3). 在不等式两边乘以实数$c$，左边得到$a\cdot c$，右边得到$b\cdot c$。对$a\cdot c$、$b\cdot c$中任意元素，
     它们分别能写成$\{a_n\cdot c_n\}$、$\{b_n\cdot c_n'\}$的形式。其中$\{a_n\}$、$\{b_n\}$
     收敛到$a$、$b$，$\{c_n\}$、$\{c_n'\}$收敛到$c$。注意到
-    \begin{align}
-        a_n\cdot c_n - b_n\cdot c_n' &= (a_n - b_n)\cdot c_n + b_n\cdot(c_n - c_n') \notag 
-    \end{align}
+    \begin{align*}
+        a_n\cdot c_n - b_n\cdot c_n' &= (a_n - b_n)\cdot c_n + b_n\cdot(c_n - c_n')  
+    \end{align*}
     由于$a\neq b$，按照定义，存在有理数$r_1>0$，使得对任何正整数$m$，都有$n>m$，$a_n - b_n < -r_1$。
     另一方面，自敛数列$\{b_n\}$有界，存在有理数$M$使得$|b_n|$总小于$M$。\\
     如果$c > 0$，那么存在有理数$r_2>0$，使得对任何正整数$m$，都有$n>m$，$c_n > r_2$。
     而对于$\frac{r_1r_2}{2M}>0$，存在正整数$N$，
     使得$n>N$时总有$|c_n - c_n'| < \frac{r_1r_2}{2M}$。于是$n>N$时总有
-    \begin{align}
-        a_n\cdot c_n - b_n\cdot c_n' &= (a_n - b_n)\cdot c_n + b_n\cdot(c_n - c_n') \notag \\
-        &< -r_1r_2 + M\cdot\frac{r_1r_2}{2M} = -\frac{r_1r_2}{2} < 0 \notag
-    \end{align}
+    \begin{align*}
+        a_n\cdot c_n - b_n\cdot c_n' &= (a_n - b_n)\cdot c_n + b_n\cdot(c_n - c_n')  \\
+        &< -r_1r_2 + M\cdot\frac{r_1r_2}{2M} = -\frac{r_1r_2}{2} < 0 
+    \end{align*}
     这说明$a\cdot c < b\cdot c$。不等关系不变。\\
     类似地，如果$c < 0$，那么存在有理数$r_2>0$，使得对任何正整数$m$，都有$n>m$，$c_n < -r_2$。取同样的$N$。这时有
-    \begin{align}
-        a_n\cdot c_n - b_n\cdot c_n' &= (a_n - b_n)\cdot c_n + b_n\cdot(c_n - c_n') \notag \\
-        &> r_1r_2 - M\cdot\frac{r_1r_2}{2M} = \frac{r_1r_2}{2} > 0 \notag
-    \end{align}
+    \begin{align*}
+        a_n\cdot c_n - b_n\cdot c_n' &= (a_n - b_n)\cdot c_n + b_n\cdot(c_n - c_n')  \\
+        &> r_1r_2 - M\cdot\frac{r_1r_2}{2M} = \frac{r_1r_2}{2} > 0 
+    \end{align*}
     这说明$a\cdot c > b\cdot c$。不等式反号。\\
     如果不等关系为大于关系，由于$a<b$当且仅当$b>a$，因此以上结论中把$a,b$互换，即可证明关于大于关系的结论。
     大于等于、小于等于关系实际是“大于或等于”、“小于或等于”的缩写，因此只要验证以上结论对等于关系成立即可\footnote{唯一需要注意的是“反号”不涉及等于关系。}。
@@ -3633,12 +3633,12 @@ $$ G \geqslant n \left(a_1^{-1} + a_2^{-1} + \cdots + a_n^{-1}\right)^{-1} =  \l
     另一方面，$\{a_n\}$是自敛数列，所以也存在正整数$N_a$，
     使得$n,m>N_a$时总有$|a_n - a_m| < r_1$。于是取正整数$N$为$N_c,N_a$中较大者，那么$n,m>N$时总有：
 
-    \begin{align}
-        |q_n - q_m| &= |q_n - a_n - (q_m - a_m) + a_n -a_m| \notag \\
-        &\leqslant |q_n - a_n| + |q_m - a_m| + |a_n - a_m| \notag \\
-        &< |c_n| + |c_m| + r_1 \notag \\
-        &< r_1 + r_1 + r_1 = r \notag
-    \end{align}
+    \begin{align*}
+        |q_n - q_m| &= |q_n - a_n - (q_m - a_m) + a_n -a_m|  \\
+        &\leqslant |q_n - a_n| + |q_m - a_m| + |a_n - a_m|  \\
+        &< |c_n| + |c_m| + r_1  \\
+        &< r_1 + r_1 + r_1 = r 
+    \end{align*}
     这就说明$\{q_n\}$是自敛有理数列。按照实数的定义，它收敛到某个实数$a$。下面证明$\{a_n\}$收敛到$a$。\\
     对任意实数$r>0$，根据定理\ref{tm:a-1-18}，存在有理数$d$使得$r>d>0$。由于$d_1 = \frac{d}{2}>0$，存在正整数$N_q$，使得$n>N_q$时总有$|q_n - a| < d_1$。
     而由于$\{c_n\}$趋于$0$，也存在正整数$N_c$，使得$n>N_c$时总有$|c_n| < d_1$。所以，取正整数$N$为$N_c,N_q$中较大者，那么$n>N$时总有：

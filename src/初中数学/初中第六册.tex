@@ -149,8 +149,8 @@ $$
     |PB| &= |B - P| = |(1 - t)B - (1 - t)A| &= (1 - t)|AB|.
 \end{array}
 $$
-% \begin{align}
-% \end{align}
+% \begin{align*}
+% \end{align*}
 也就是说，
 $P$是线段$AB$上使得$ \frac{|AP|}{|PB|} = \frac{t}{1 - t}$的点。
 
@@ -295,10 +295,10 @@ $$ \frac{t}{1 - t} = k$$
     同理，
     $$\vv{BQ} = \frac23 \, \vv{BC}.$$
     设$\vv{BX} = (1 - t)\vv{BP} + t\vv{BC} = (1 - s)\vv{BA} + s\vv{BQ}$，则：
-    \begin{align}
-        \frac{1 - t}{3}\vv{BA} + t\vv{BC} &= (1 - t)\vv{BP} + t\vv{BC} \notag \\
-        &= (1 - s)\vv{BA} + s\vv{BQ} = (1 - s)\vv{BA} + \frac{2s}{3}\,\vv{BC}. \notag 
-    \end{align}
+    \begin{align*}
+        \frac{1 - t}{3}\vv{BA} + t\vv{BC} &= (1 - t)\vv{BP} + t\vv{BC}  \\
+        &= (1 - s)\vv{BA} + s\vv{BQ} = (1 - s)\vv{BA} + \frac{2s}{3}\,\vv{BC}.  
+    \end{align*}
     两种表达方式一致，所以对应系数相同。因此有以下方程组：
     $$
     \left\{
@@ -349,35 +349,35 @@ $$ \forall \,\, \mathbf{a} = x_A\mathbf{e}_1 + y_A\mathbf{e}_2, \,\, \mathbf{b} 
 $f$把两个向量对应到一个实数。它满足以下五个性质：
 \begin{enumerate}
     \item 向量的顺序不影响关系大小：
-    \begin{align}
-          & f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2,\,\, x_B\mathbf{e}_1 + y_B\mathbf{e}_2) \notag \\
-        =\,\,& x_Ax_B + y_A y_B \notag \\
-        =\,\,& x_Bx_A + y_By_A \notag \\
-        =\,\,& f(x_B\mathbf{e}_1 + y_B\mathbf{e}_2,\,\, x_A\mathbf{e}_1 + y_A\mathbf{e}_2). \notag
-    \end{align}
+    \begin{align*}
+          & f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2,\,\, x_B\mathbf{e}_1 + y_B\mathbf{e}_2)  \\
+        =\,\,& x_Ax_B + y_A y_B  \\
+        =\,\,& x_Bx_A + y_By_A  \\
+        =\,\,& f(x_B\mathbf{e}_1 + y_B\mathbf{e}_2,\,\, x_A\mathbf{e}_1 + y_A\mathbf{e}_2). 
+    \end{align*}
     \item 零向量和任意向量关系为$0$：
-    \begin{align}
-        f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2,\,\, \mathbf{0}) &= f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2,\,\, 0\mathbf{e}_1 + 0\mathbf{e}_2) \notag \\
-        &= x_A\cdot 0 + y_A\cdot 0 \notag \\
-        &= 0. \notag
-    \end{align}
+    \begin{align*}
+        f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2,\,\, \mathbf{0}) &= f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2,\,\, 0\mathbf{e}_1 + 0\mathbf{e}_2)  \\
+        &= x_A\cdot 0 + y_A\cdot 0  \\
+        &= 0. 
+    \end{align*}
     $$$$
     \item 非零向量与自身的关系总是正的：$x_A, y_A$不全为零时，
     $$f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2,\,\, x_A\mathbf{e}_1 + y_A\mathbf{e}_2) = x_A^2 + y_A^2  > 0.$$
     \item 和向量的放缩相容：
-    \begin{align}
-        & f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2,\,\, t\cdot (x_B\mathbf{e}_1 + y_B\mathbf{e}_2)) \notag \\
-        =\,\,& x_A\cdot t\cdot x_B + y_A\cdot t\cdot y_B \notag \\
-        =\,\,& t\cdot (x_Ax_B + y_Ay_B) \notag \\
-        =\,\,& t\cdot f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2,\,\, x_B\mathbf{e}_1 + y_B\mathbf{e}_2). \notag 
-    \end{align}
+    \begin{align*}
+        & f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2,\,\, t\cdot (x_B\mathbf{e}_1 + y_B\mathbf{e}_2))  \\
+        =\,\,& x_A\cdot t\cdot x_B + y_A\cdot t\cdot y_B  \\
+        =\,\,& t\cdot (x_Ax_B + y_Ay_B)  \\
+        =\,\,& t\cdot f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2,\,\, x_B\mathbf{e}_1 + y_B\mathbf{e}_2).  
+    \end{align*}
     \item 和向量的平移相容：
-    \begin{align}
-         & f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, \,\, (x_B\mathbf{e}_1 + y_B\mathbf{e}_2) + (x_C\mathbf{e}_1 + y_C\mathbf{e}_2)) \notag \\
-         =\,\,& x_A(x_B + x_C) + y_A (y_B + y_C) \notag \\
-         =\,\,& (x_Ax_B + y_Ay_B) + (x_Ax_C + y_Ay_C) \notag \\
-         =\,\,& f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, \,\,x_B\mathbf{e}_1 + y_B\mathbf{e}_2) + f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, \,\,x_C\mathbf{e}_1 + y_C\mathbf{e}_2). \notag
-    \end{align}     
+    \begin{align*}
+         & f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, \,\, (x_B\mathbf{e}_1 + y_B\mathbf{e}_2) + (x_C\mathbf{e}_1 + y_C\mathbf{e}_2))  \\
+         =\,\,& x_A(x_B + x_C) + y_A (y_B + y_C)  \\
+         =\,\,& (x_Ax_B + y_Ay_B) + (x_Ax_C + y_Ay_C)  \\
+         =\,\,& f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, \,\,x_B\mathbf{e}_1 + y_B\mathbf{e}_2) + f(x_A\mathbf{e}_1 + y_A\mathbf{e}_2, \,\,x_C\mathbf{e}_1 + y_C\mathbf{e}_2). 
+    \end{align*}     
 \end{enumerate}
 满足以上五个条件的映射$f$称为平面向量的\textbf{内积}。从第四个性质可知，向量与自身的内积总是正数。
 我们把这个数的平方根叫做\textbf{向量的长度}，记为：
@@ -385,21 +385,21 @@ $$ \forall \,\, \mathbf{a} \in \mathbb{V}, \quad \| \mathbf{a}\| = \sqrt{f(\math
 两个向量之差的长度，称为向量之间的距离。
 $$ \forall \,\, \mathbf{a}, \mathbf{b} \in \mathbb{V}, \quad \| \mathbf{a} - \mathbf{b}\| = \sqrt{f(\mathbf{a} - \mathbf{b}, \mathbf{a} - \mathbf{b})}. $$
 如果基底$\mathbf{e}_1, \mathbf{e}_2$是直角坐标系的基，那么
-\begin{align}
-    \forall \,\, \mathbf{a} = x_A\mathbf{e}_x &+ y_A\mathbf{e}_y , \notag \\
-    \| \mathbf{a}\| &= \sqrt{x_A^2 + y_A^2}, \notag \\
-    \forall \,\, \mathbf{a} = x_A\mathbf{e}_x &+ y_A\mathbf{e}_y,\,\,\, \mathbf{b} = x_B\mathbf{e}_x + y_B\mathbf{e}_y , \notag \\
-    \| \mathbf{a} - \mathbf{b}\| &= \sqrt{(x_A - x_B)^2 + (y_A - y_B)^2}. \notag
-\end{align}
+\begin{align*}
+    \forall \,\, \mathbf{a} = x_A\mathbf{e}_x &+ y_A\mathbf{e}_y ,  \\
+    \| \mathbf{a}\| &= \sqrt{x_A^2 + y_A^2},  \\
+    \forall \,\, \mathbf{a} = x_A\mathbf{e}_x &+ y_A\mathbf{e}_y,\,\,\, \mathbf{b} = x_B\mathbf{e}_x + y_B\mathbf{e}_y ,  \\
+    \| \mathbf{a} - \mathbf{b}\| &= \sqrt{(x_A - x_B)^2 + (y_A - y_B)^2}. 
+\end{align*}
 给定向量$A = \mathbf{a}$、$B =\mathbf{b}$，$\| \mathbf{a} \|$就是$|OA|$，
 $\|\mathbf{a} - \mathbf{b}\|$就是$|AB|$。
 也就是说，通过内积定义的映射$f$，分别与直观经验中长度和距离的概念相符合。
 
 那么，$f$本身有什么含义呢？我们来计算$ \frac{|OA|^2 + |OB|^2 - |AB|^2}{2}.$
-\begin{align}
-    \frac{|OA|^2 + |OB|^2 - |AB|^2}{2} &= \frac{x_A^2 + y_A^2 + x_B^2 + y_B^2 - (x_A - x_B)^2 - (y_A - y_B)^2}{2} \notag \\
-    &= x_Ax_B + y_Ay_B = f(\mathbf{a}, \mathbf{b}). \notag 
-\end{align}
+\begin{align*}
+    \frac{|OA|^2 + |OB|^2 - |AB|^2}{2} &= \frac{x_A^2 + y_A^2 + x_B^2 + y_B^2 - (x_A - x_B)^2 - (y_A - y_B)^2}{2}  \\
+    &= x_Ax_B + y_Ay_B = f(\mathbf{a}, \mathbf{b}).  
+\end{align*}
 
 \begin{wrapfigure}[8]{r}{0.32\textwidth} 
     \vspace{-16pt}
@@ -459,11 +459,11 @@ $$ |2x_Ax_B + y_Ay_B| \leqslant \sqrt{2x_A^2 + y_A^2} \sqrt{2x_B^2 + y_B^2}.$$
 $$ |\mathbf{a}|^2|\mathbf{b}|^2 \sin^2 \alpha = |\mathbf{a}|^2|\mathbf{b}|^2 - (\mathbf{a}\, | \, \mathbf{b})^2 $$
 记$\mathbf{a} = x_A\mathbf{e}_x + y_A\mathbf{e}_y$，$\mathbf{b} = x_B\mathbf{e}_x + y_B\mathbf{e}_y$，
 则
-\begin{align}
-    (x_A^2 + y_A^2)(x_B^2 + y_B^2) \sin^2 \alpha &= (x_A^2 + y_A^2)(x_B^2 + y_B^2) - (x_Ax_B + y_Ay_B)^2 \notag \\
-    &= (x_Ay_B - x_By_A)^2 \notag \\
-    |\sin \alpha| &= \frac{|x_Ay_B - x_By_A|}{\sqrt{x_A^2 + y_A^2} \sqrt{x_B^2 + y_B^2}} \notag
-\end{align}
+\begin{align*}
+    (x_A^2 + y_A^2)(x_B^2 + y_B^2) \sin^2 \alpha &= (x_A^2 + y_A^2)(x_B^2 + y_B^2) - (x_Ax_B + y_Ay_B)^2  \\
+    &= (x_Ay_B - x_By_A)^2  \\
+    |\sin \alpha| &= \frac{|x_Ay_B - x_By_A|}{\sqrt{x_A^2 + y_A^2} \sqrt{x_B^2 + y_B^2}} 
+\end{align*}
 我们得出了夹角$\angle AOB$正弦的绝对值。
 
 观察向量夹角的正弦和余弦，我们注意到，它们的表达式与和差角公式有相似之处。
@@ -759,10 +759,10 @@ $y + (- 2 + \sqrt{6}) x - \sqrt{6} = 0$、$y + (- 2 - \sqrt{6}) x + \sqrt{6} = 0
 因此，我们也把平面的点映射称为平面上的\textbf{变换}。
 
 举例来说，设有平面$\gamma$，那么以下映射就是一个点映射：
-\begin{align}
-    \gamma \,\,&\rightarrow \,\, \gamma \notag \\
-    P &\mapsto \,\, P + U \notag
-\end{align}
+\begin{align*}
+    \gamma \,\,&\rightarrow \,\, \gamma  \\
+    P &\mapsto \,\, P + U 
+\end{align*}
 它将平面上每一点$P$按向量$U$（或者记作$\mathbf{u}$）平移。
 
 % 如果平面上已经建立了直角坐标系，那么可以将它记为$\mathbb{R}^2$。
@@ -783,10 +783,10 @@ $$ P \mapsto P + U $$
 我们知道，这样的点映射叫做\textbf{平移变换}。
 
 从例子中可以看到，按向量$U$的平移变换可以表示为：
-\begin{align}
-    \mathrm{Py}_U : \,\, \gamma\,\,&\rightarrow \,\, \gamma \notag \\
-    P &\mapsto \,\, P + U \notag
-\end{align}
+\begin{align*}
+    \mathrm{Py}_U : \,\, \gamma\,\,&\rightarrow \,\, \gamma  \\
+    P &\mapsto \,\, P + U 
+\end{align*}
 
 平移变换不改变图形的大小和形状，只改变图形的位置。大部分的变换对图形的大小、形状和位置都有改变。
 比如给定一个长度为$1$的向量$U$，
@@ -801,10 +801,10 @@ $$ T: \,\,\, (x, \,\, y) \mapsto (x,\,\, 0)$$
     给定平面基底$\mathbf{u}, \mathbf{v}$，平面中任意向量$P$都能唯一表示成$\mathbf{u}, \mathbf{v}$的直组合：
     $$ P = a\mathbf{u} + b\mathbf{v}.$$
     其中$a, b$是相应的分量。那么，把$P$映射到$a\mathbf{u}$的点变换
-    \begin{align}
-        \mathrm{Ty}_\mathbf{u} : \,\, \gamma\,\,&\rightarrow \,\, \gamma \notag \\
-        P &\mapsto \,\, a\mathbf{u} \notag
-    \end{align}
+    \begin{align*}
+        \mathrm{Ty}_\mathbf{u} : \,\, \gamma\,\,&\rightarrow \,\, \gamma  \\
+        P &\mapsto \,\, a\mathbf{u} 
+    \end{align*}
     就称为沿$\mathbf{v}$到$\mathbf{u}$的\textbf{投影变换}。
     它把任何向量映射到直线$\mathbb{R}\mathbf{u}$上。
     $\mathbf{u}$称为$\mathrm{Ty}_\mathbf{u}$的\textbf{方向向量}，$\mathbf{v}$称为\textbf{投影向量}。
@@ -848,10 +848,10 @@ $$
 $$ \mathrm{Ty}_\mathbf{u} :\,\,\, P \mapsto \,\, \frac{(\mathbf{v}\,|\,\mathbf{v})(\mathbf{u}\,|\,P) - (\mathbf{u}\,|\,\mathbf{v})(\mathbf{P}\,|\,\mathbf{v})}{(\mathbf{u}\,|\,\mathbf{u})(\mathbf{v}\,|\,\mathbf{v}) - (\mathbf{u}\,|\,\mathbf{v})^2}\mathbf{u}. $$
 
 如果$\mathbf{u}, \mathbf{v}$是标准直角坐标系的基底，那么
-\begin{align}
-    (\mathbf{u}\,|\,\mathbf{v}) &= 0 \notag \\
-    (\mathbf{u}\,|\,\mathbf{u}) = (\mathbf{v}\,|\,\mathbf{v}) &= 1 \notag
-\end{align}
+\begin{align*}
+    (\mathbf{u}\,|\,\mathbf{v}) &= 0  \\
+    (\mathbf{u}\,|\,\mathbf{u}) = (\mathbf{v}\,|\,\mathbf{v}) &= 1 
+\end{align*}
 于是
 $$ 
   \left\{ \begin{array}{lc}
@@ -865,10 +865,10 @@ $$ \mathrm{Ty}_\mathbf{u} :\,\,\, P \mapsto \,\, (\mathbf{u}\,|\,P)\mathbf{u}. $
 同样考虑正投影。如果方向向量换成$\mathbf{u} = \left(\frac{1}{2},\,\,\frac{\sqrt{3}}{2}\right)$，
 投影向量换成$\mathbf{v} = \left(-\frac{\sqrt{3}}{2},\,\,\frac{1}{2}\right)$。那么两者构成标准直角坐标系的基底。
 平面中的点$P(x,\,\,y)$经过投影变换，就变为
-\begin{align}
-    (\mathbf{u}\,|\,P)\mathbf{u} &= \left(\frac{1}{2}x + \frac{\sqrt{3}}{2}y\right)\mathbf{u} \notag \\
-    &= \left(\frac{x + \sqrt{3}y}{4},\,\, \frac{\sqrt{3}x + 3y}{4}\right) \notag
-\end{align}
+\begin{align*}
+    (\mathbf{u}\,|\,P)\mathbf{u} &= \left(\frac{1}{2}x + \frac{\sqrt{3}}{2}y\right)\mathbf{u}  \\
+    &= \left(\frac{x + \sqrt{3}y}{4},\,\, \frac{\sqrt{3}x + 3y}{4}\right) 
+\end{align*}
 也就是说，$S$变为从原点到$\left(\frac{\sqrt{3} + 1}{4},\,\,\frac{3 + \sqrt{3}}{4}\right)$的线段。
 这就是标准单位正方形在$\left(\frac{1}{2},\,\,\frac{\sqrt{3}}{2}\right)$方向的正投影。
 
@@ -879,13 +879,13 @@ $$ \mathrm{Ty}_\mathbf{u} :\,\,\, P \mapsto \,\, (\mathbf{u}\,|\,P)\mathbf{u}. $
 到$\mathbf{u}$的正投影是重合的。设$P$到$\mathbf{u}$的正投影为点$H$，则：
 $$ \vv{OH} = \mathrm{Ty}_\mathbf{u}(P) = (\mathbf{u}\,|\,P)\mathbf{u},  $$
 $H$是$P$到$\mathbb{R}\mathbf{u}$的垂足，而$\vv{HP}$和$\vv{HQ}$大小相等、方向相反。因此：
-\begin{align}
-    \qquad \vv{OQ} &= \vv{OH} + \vv{HQ} \notag \\
-            &= \vv{OH} - \vv{HP} \notag \\
-            &= \vv{OH} + \vv{OH} - \vv{OP} \notag \\
-            &= (\mathbf{u}\,|\,P)\mathbf{u} + (\mathbf{u}\,|\,P)\mathbf{u} - P \notag \\
-            &= 2(\mathbf{u}\,|\,P)\mathbf{u} - P \notag
-\end{align}
+\begin{align*}
+    \qquad \vv{OQ} &= \vv{OH} + \vv{HQ}  \\
+            &= \vv{OH} - \vv{HP}  \\
+            &= \vv{OH} + \vv{OH} - \vv{OP}  \\
+            &= (\mathbf{u}\,|\,P)\mathbf{u} + (\mathbf{u}\,|\,P)\mathbf{u} - P  \\
+            &= 2(\mathbf{u}\,|\,P)\mathbf{u} - P 
+\end{align*}
 
 \begin{wrapfigure}[6]{r}{0.42\textwidth} %this figure will be at the right
     \vspace{-40pt}
@@ -894,10 +894,10 @@ $H$是$P$到$\mathbb{R}\mathbf{u}$的垂足，而$\vv{HP}$和$\vv{HQ}$大小相�
 \end{wrapfigure}
 
 也就是说，给定单位方向向量$\mathbf{u}$，关于直线$\mathbb{R}\mathbf{u}$的反射变换可以表示为：
-\begin{align}
-    \mathrm{Fs}_\mathbf{u} : \,\, \gamma\,\,&\rightarrow \,\, \gamma \notag \\
-    P &\mapsto \,\, 2(\mathbf{u}\,|\,P)\mathbf{u} - P \notag
-\end{align}
+\begin{align*}
+    \mathrm{Fs}_\mathbf{u} : \,\, \gamma\,\,&\rightarrow \,\, \gamma  \\
+    P &\mapsto \,\, 2(\mathbf{u}\,|\,P)\mathbf{u} - P 
+\end{align*}
 其中$\mathbf{u}$是对称轴的单位方向向量。
 
 \vspace{1.5em}
@@ -905,11 +905,11 @@ $H$是$P$到$\mathbb{R}\mathbf{u}$的垂足，而$\vv{HP}$和$\vv{HQ}$大小相�
 举例来说，设方向向量为$\mathbf{u} = \left(-\frac{\sqrt{2}}{2},\,\,\frac{\sqrt{2}}{2}\right)$，
 标准单位正方形经过关于$\mathbb{R}\mathbf{u}$的轴对称变换，
 点$P(x,\,\,y)$变为
-\begin{align}
-    2(\mathbf{u}\,|\,P)\mathbf{u} - P &= 2\cdot \left(-\frac{\sqrt{2}}{2}x + \frac{\sqrt{2}}{2}y \right)\mathbf{u} - P \notag \\
-    &= (x - y,\,\, y - x) - (x,\,\, y) \notag \\
-    &= (-y, \,\, -x) \notag
-\end{align}
+\begin{align*}
+    2(\mathbf{u}\,|\,P)\mathbf{u} - P &= 2\cdot \left(-\frac{\sqrt{2}}{2}x + \frac{\sqrt{2}}{2}y \right)\mathbf{u} - P  \\
+    &= (x - y,\,\, y - x) - (x,\,\, y)  \\
+    &= (-y, \,\, -x) 
+\end{align*}
 
 即它关于直线$x+y=0$的对称点。于是$\mathrm{Fs}_\mathbf{u}$将标准单位正方形变换为它关于$x+y=0$的对称图形，即
 以$(0,\,\,0)$、$(0,\,\,-1)$、$(-1,\,\,-1)$、$(-1,\,\,0)$为顶点的正方形。
@@ -918,20 +918,20 @@ $H$是$P$到$\mathbb{R}\mathbf{u}$的垂足，而$\vv{HP}$和$\vv{HQ}$大小相�
 点$P$经过反射变换变为$Q$，则$P - \mathbf{v}$和$Q - \mathbf{v}$关于$\mathbb{R}\mathbf{u}$对称。因此：
 $$ Q - \mathbf{v} = 2(\mathbf{u}\,|\,P - \mathbf{v})\mathbf{u} - P + \mathbf{v}. $$
 也就是说，一般的反射变换可以写成：
-\begin{align}
-    \mathrm{Fs}_{\mathbf{u}, \mathbf{v}} : \,\, \gamma\,\,&\rightarrow \,\, \gamma \notag \\
-    P &\mapsto \,\, 2(\mathbf{u}\,|\,P - \mathbf{v})\mathbf{u} - P + 2\mathbf{v}. \notag
-\end{align}
+\begin{align*}
+    \mathrm{Fs}_{\mathbf{u}, \mathbf{v}} : \,\, \gamma\,\,&\rightarrow \,\, \gamma  \\
+    P &\mapsto \,\, 2(\mathbf{u}\,|\,P - \mathbf{v})\mathbf{u} - P + 2\mathbf{v}. 
+\end{align*}
 
 更一般地来说，可以这样定义反射变换：
 \begin{df}
     给定平面基底$\mathbf{u}, \mathbf{v}$，平面中任意向量$P$都能唯一表示成$\mathbf{u}, \mathbf{v}$的直组合：
     $$ P = a\mathbf{u} + b\mathbf{v}.$$
     其中$a, b$是相应的分量。那么，把$P$映射到$a\mathbf{u}$的点变换
-    \begin{align}
-        \mathrm{Ty}_\mathbf{u} : \,\, \gamma\,\,&\rightarrow \,\, \gamma \notag \\
-        P &\mapsto \,\, a\mathbf{u} - b\mathbf{v}\notag
-    \end{align}
+    \begin{align*}
+        \mathrm{Ty}_\mathbf{u} : \,\, \gamma\,\,&\rightarrow \,\, \gamma  \\
+        P &\mapsto \,\, a\mathbf{u} - b\mathbf{v}
+    \end{align*}
     就称为沿$\mathbf{v}$到$\mathbf{u}$的\textbf{反射变换}。
 \end{df}
 
@@ -954,10 +954,10 @@ $$ Q - \mathbf{v} = 2(\mathbf{u}\,|\,P - \mathbf{v})\mathbf{u} - P + \mathbf{v}.
 如果直线$AA'$、$BB'$、$CC'$交于一点$U$，就说两个三角形位似，$U$是\textbf{位似中心}。
 
 位似变换可以表示为：
-\begin{align}
-    \mathrm{Ws}_{U, k} : \,\, \gamma\,\,&\rightarrow \,\, \gamma \notag \\
-    P &\mapsto \,\, kP + (1 - k)U \notag
-\end{align}
+\begin{align*}
+    \mathrm{Ws}_{U, k} : \,\, \gamma\,\,&\rightarrow \,\, \gamma  \\
+    P &\mapsto \,\, kP + (1 - k)U 
+\end{align*}
 其中$U$是位似中心，$k$是变换前后的相似比。
 我们说平面形以$U$为中心放缩，变成原来$k$倍大小。
 
@@ -1010,11 +1010,11 @@ $$ (x,\,\,y) \mapsto \,\, \left(x\cos{(\alpha)} - y\sin{(\alpha)}, \,\,x\sin{(\a
 
 如果$U$不是原点，坐标是$(x_U, \,\,y_U)$，那么$\vv{UP} = (x_P - x_U, \,\, y_P - y_U)$。$\vv{UP}$旋转变为$\vv{UQ}$的运动和前面类似。
 因此通过$Q = U + \vv{UQ}$就可得到$Q$。于是旋转变换可以表示为：
-\begin{align}
-    \mathrm{Xz}_{(U,\,\,\alpha)} : \,\, \gamma\,\,&\rightarrow  \,\,\gamma \notag \\
-    (x,\,\,y)  &\mapsto \,\, (x_U,\,\,y_U) +\big((x - x_U)\cos{(\alpha)} - (y - y_U)\sin{(\alpha)},\notag \\
-    &\qquad (x - x_U)\sin{(\alpha)} + (y - y_U)\cos{(\alpha)}\big). \notag
-\end{align}
+\begin{align*}
+    \mathrm{Xz}_{(U,\,\,\alpha)} : \,\, \gamma\,\,&\rightarrow  \,\,\gamma  \\
+    (x,\,\,y)  &\mapsto \,\, (x_U,\,\,y_U) +\big((x - x_U)\cos{(\alpha)} - (y - y_U)\sin{(\alpha)}, \\
+    &\qquad (x - x_U)\sin{(\alpha)} + (y - y_U)\cos{(\alpha)}\big). 
+\end{align*}
 
 \begin{wrapfigure}[7]{r}{0.42\textwidth} %this figure will be at the right
     \vspace{-22pt}
@@ -1124,26 +1124,26 @@ $P$运动时经过的点的集合，称为它的\textbf{轨迹}。运动的先�
 
 对一般的运动来说，要说明先后关系$\triangleright$并不容易。我们采用映射的方法来描述。
 如果某运动有起点$S$和终点$T$，轨迹为$\mathcal{C}$，我们可以把它和沿数轴上的线段$[0,\,\,1]$从左到右的运动对应起来。定义映射$f$：
-\begin{align}
-    f: [0,\,\,1] &\rightarrow \mathbb{R}^2 \notag \\
-         t \,\,\, &\mapsto f(t) \notag
-\end{align}
+\begin{align*}
+    f: [0,\,\,1] &\rightarrow \mathbb{R}^2  \\
+         t \,\,\, &\mapsto f(t) 
+\end{align*}
 其中$t$表示沿$[0,\,\,1]$从左到右的运动中经过的点，而$f(t)$就是它对应在该运动中的点。$f(0)$就是起点$S$，
 $f(1)$是终点$T$。$\mathcal{C} = \{f(t)\,|\,t\in[0,\,\,1]\}$，一般记作$f([0,\,\,1])$。
 
 举例来说，给定起点$(-2,\,\,1)$和终点$(1,\,\,3)$，如果我们要描述一个点沿以它们为端点的线段运动，
 则可以用以下映射表示：
-\begin{align}
-    g: [0,\,\,1] &\rightarrow \mathbb{R}^2 \notag \\
-         t \,\,\, &\mapsto (-2 + 3t,\,\, 1 + 2t) \notag
-\end{align}
+\begin{align*}
+    g: [0,\,\,1] &\rightarrow \mathbb{R}^2  \\
+         t \,\,\, &\mapsto (-2 + 3t,\,\, 1 + 2t) 
+\end{align*}
 可以验证，$f(0) = (-2,\,\,1)$，$f(1) = (1,\,\,3)$，且$[0,\,\,1]$中的数对应的点都在线段上。
 
 如果运动没有起点和终点，那么可以把它和沿数轴直线左到右的运动对应起来：
-\begin{align}
-    f: \mathbb{R} &\rightarrow \mathbb{R}^2 \notag \\
-         t \, &\mapsto f(t) \notag
-\end{align}
+\begin{align*}
+    f: \mathbb{R} &\rightarrow \mathbb{R}^2  \\
+         t \, &\mapsto f(t) 
+\end{align*}
 
 要注意的是：运动的起点和终点相同，轨迹并不一定相同。比如，$t$沿$[0,\,\,1]$从左到右运动时，运动
 $$ h: \,\, t \,\,\, \mapsto (-2 + 2t + t^2,\,\, 1 + 2t) $$
@@ -1270,10 +1270,10 @@ $h(0.5) = (0.25, \,\,2)$，而$g$不经过$(0.25, \,\,2)$。
 
 \begin{df}
     设$P$是平面$\mathbb{R}^2$中某个点的运动：
-    \begin{align}
-        P: \mathbb{R} &\rightarrow \mathbb{R}^2 \notag \\
-             t \, &\mapsto P(t) \notag
-    \end{align}
+    \begin{align*}
+        P: \mathbb{R} &\rightarrow \mathbb{R}^2  \\
+             t \, &\mapsto P(t) 
+    \end{align*}
     给定两数$t_1 < t_2$，则$P$在区间$[t_1,\,\,t_2]$上的\textbf{速度}是：
     $$ \frac{P(t_2) - P(t_1)}{t_2 - t_1}.$$
 \end{df}
@@ -1288,10 +1288,10 @@ $h(0.5) = (0.25, \,\,2)$，而$g$不经过$(0.25, \,\,2)$。
 
 类似的定义还出现在很多地方。比如，材料科学中，会考虑温度的改变对材料电阻的影响。
 实践中，考虑电阻率关于温度的函数：
-\begin{align}
-    R: \mathbb{R} &\rightarrow \mathbb{R} \notag \\
-         t \, &\mapsto R(t) \notag
-\end{align}
+\begin{align*}
+    R: \mathbb{R} &\rightarrow \mathbb{R}  \\
+         t \, &\mapsto R(t) 
+\end{align*}
 这里的自变量是温度，而应变量是电阻率$R$。可以认为温度作为变量也属于某个数轴，
 如果我们试图描述温度改变时电阻率$R$改变的快慢，那么可以尝试用类似的方式描述：
 $$ \frac{R(t_2) - R(t_1)}{t_2 - t_1}.$$
@@ -1363,10 +1363,10 @@ $$ \frac{\theta(t_2) - \theta(t_1)}{t_2 - t_1} = \frac{a \cdot 180^\circ}{\pi r}
     这段时间里，它的位移是多少？经过的路程是多少？平均速度、线速率和角速率分别是多少？\\
     \indent 2. 给定平面上的极坐标系。$t=0$时，点$P$从$(1,\,\,0)$出发。
     它的模长和辐角是关于时间的函数：
-    \begin{align}
-        r &: \,\,\, t \mapsto 1 + 2t^2 - 2.4t, \notag \\
-        \theta &: \,\,\, t\mapsto 120^\circ t. \notag
-    \end{align}
+    \begin{align*}
+        r &: \,\,\, t \mapsto 1 + 2t^2 - 2.4t,  \\
+        \theta &: \,\,\, t\mapsto 120^\circ t. 
+    \end{align*}
     \indent 2.1. $[0, \,\, 3]$这段时间里，点$P$的位移是多少？平均速度、平均角速率分别是多少？\\
     \indent 2.2. 圆$C$以原点为圆心，半径为$4.2$。$P$的轨迹与圆$C$有几个交点？在什么时刻相交？求交点的坐标。
 \end{xt}
@@ -2259,21 +2259,21 @@ $$ \frac{(1 - 3)^2 + (2 - 3)^2 + (3 - 3)^2 + (4 - 3)^2 + (5 - 3)^2}{5} = 2.$$
 一般来说，我们把实验的每个结果关联到某个方便理解的数值，作为数据记录。
 这样的映射，称为\textbf{随机映射}或\textbf{随机变量}。比如，设计抛掷硬币的实验，每次投掷如果正面向上，
 就规定结果是$1$，否则规定结果是$0$。那么我们可以把投掷结果用随机变量表示：
-\begin{align}
-    h \,\,\, : \,\,\, \{\mbox{正面}, \mbox{反面}\} &\rightarrow \{0,\,\, 1\} \notag \\
-    h(\mbox{正面}) &= 1 \notag \\
-    h(\mbox{反面}) &= 0 \notag 
-\end{align}
+\begin{align*}
+    h \,\,\, : \,\,\, \{\mbox{正面}, \mbox{反面}\} &\rightarrow \{0,\,\, 1\}  \\
+    h(\mbox{正面}) &= 1  \\
+    h(\mbox{反面}) &= 0  
+\end{align*}
 随机变量$h$把终态“正面”映射到$1$，把终态“反面”映射到$0$。
 
 又比如，为了研究投骰子各面朝上的规律，我们设计投掷骰子的实验，
 每次投掷的结果是朝上的数字，我们约定，每次投掷骰子，得到的收益是这个数值的$10$倍。
 如果数字$2$朝上，就获得$20$元；数字$5$朝上，就获得$50$元，等等。
 则我们可以把每次投掷骰子的收益用随机变量表示：
-\begin{align}
-f \,\,\, : \,\,\, \{1,2,3,4,5,6\} &\rightarrow \{10,20,30,40,50,60\} \notag \\
- i &\rightarrow 10\times i \notag 
-\end{align}
+\begin{align*}
+f \,\,\, : \,\,\, \{1,2,3,4,5,6\} &\rightarrow \{10,20,30,40,50,60\}  \\
+ i &\rightarrow 10\times i  
+\end{align*}
 随机变量$f$把终态$1$映射到$10$，把终态$2$映射到$20$，把终态$3$映射到$30$，等等。
 
 一般来说，设试验的终集为$S$，如果某个映射把终集里的每个终态映射到另一个集合$X$里，
@@ -2310,22 +2310,22 @@ f \,\,\, : \,\,\, \{1,2,3,4,5,6\} &\rightarrow \{10,20,30,40,50,60\} \notag \\
 另一种表示随机变量分布的方法，是\textbf{概率密度函数}。
 概率密度函数从随机变量的值出发描述它遵循的分布，把$X$中元素值映射到“随机变量等于该值”这一事件的概率。
 比如，投掷骰子的随机变量$f$的分布，可以用以下的概率密度函数表示：
-\begin{align}
-p_f \,\,\, : \,\,\,  \{10,20,30,40,50,60\} &\rightarrow \qquad\qquad\qquad [0, \,\, 1] \notag \\
-  x\qquad\qquad &\mapsto \,\, \mathbb{P}(\{s \in \{1,2,3,4,5,6\} \,|\, f(s) = x\}) \notag 
-\end{align}
+\begin{align*}
+p_f \,\,\, : \,\,\,  \{10,20,30,40,50,60\} &\rightarrow \qquad\qquad\qquad [0, \,\, 1]  \\
+  x\qquad\qquad &\mapsto \,\, \mathbb{P}(\{s \in \{1,2,3,4,5,6\} \,|\, f(s) = x\})  
+\end{align*}
 
 概率分布不同，随机变量$f$的概率密度函数也不同。
 例如，投骰子的分布是均匀分布时，$p_f(10) = \frac{1}{6}$；如果$1$朝上的概率是$50\%$，
 那么$p_f(10) = \frac{1}{2}$。
 
 使用概率密度函数，也可以表示随机变量的期望和变差。对$X$中每个元素$x$，考虑使$f(s) = x$的$s$。我们发现：
-\begin{align}
-    \sum_{f(s) = x} f(s) \mathbb{P}(\{s\}) &= \sum_{f(s) = x} x \mathbb{P}(\{s\}) \notag \\
-    &= x \sum_{f(s) = x} \mathbb{P}(\{s\}) \notag \\
-    &= x \mathbb{P}(\{s \in S \,|\, f(s) = x\}) \notag \\
-    &= x p_f(x) \notag  
-\end{align}
+\begin{align*}
+    \sum_{f(s) = x} f(s) \mathbb{P}(\{s\}) &= \sum_{f(s) = x} x \mathbb{P}(\{s\})  \\
+    &= x \sum_{f(s) = x} \mathbb{P}(\{s\})  \\
+    &= x \mathbb{P}(\{s \in S \,|\, f(s) = x\})  \\
+    &= x p_f(x)   
+\end{align*}
 因此，随机变量$f$的期望
 $$ \mathbb{E}(f) = \sum_{s\in S} f(s) \mathbb{P}(\{s\}) = \sum_{x \in X} x p_f(x). $$
 这是因为当$x$遍历$X$时，使$f(s) = x$的$s$也遍历了$S$，没有重复也没有遗漏。
