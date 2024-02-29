@@ -189,7 +189,7 @@ $n$号客人入住$2n-1$号房。这样，所有的客人都顺利入住了。
     \indent 4. 证明，如果集合$A$是$B$的子集，那么$|A| \leqslant |B|$。\\
     \indent 5. 证明：定义\ref{df:1-0-0} 中集合的势相等的关系，是一种等价关系，即满足：
     \indent \begin{itemize}
-        \item 自反性：任意集合$A$的势等于自己：$|A| = |A|$。
+        \item 自返性：任意集合$A$的势等于自己：$|A| = |A|$。
         \item 对称性：若集合$A$的势等于集合$B$的势，则集合$B$的势等于集合$A$的势。
         \item 传递性：若集合$A$的势等于集合$B$的势，集合$B$的势等于集合$C$的势，则集合$A$的势等于集合$C$的势。
     \end{itemize}
@@ -198,7 +198,7 @@ $n$号客人入住$2n-1$号房。这样，所有的客人都顺利入住了。
 
     % \indent 6. 证明：定义\ref{df:1-0-0} 中集合的势小于等于的关系满足：\\
     % \indent \begin{itemize}
-    %     \item 自反性：任意集合$A$的势等于自己：$|A| = |A|$。
+    %     \item 自返性：任意集合$A$的势等于自己：$|A| = |A|$。
     %     \item 对称性：任何集合$A$、$B$，$|A| \leqslant |B|$和$|B| \leqslant |A|$至少有一个成立。
     %     \item 传递性：若集合$A$的势小于等于集合$B$的势，集合$B$的势小于等于集合$C$的势，则集合$A$的势小于等于集合$C$的势。
     % \end{itemize}
@@ -1212,7 +1212,7 @@ $$ f(a + h) = f(a) + \partial f(a) h + c_2 \partial^2 f(a) h^2 + \cdots + c_n \p
     
 \end{tm}
 
-这个定理可以通过多次使用微变零值定理和中值定理得到（见附录$B$），可以看作微分中值定理的增强版本。
+这个定理可以通过多次使用微变零值定理和中值定理得到（见附录$B$），可以看作微变中值定理的增强版本。
 下面通过实际例子来看它的应用。
 
 \begin{et}
@@ -1980,7 +1980,7 @@ $|x_3 - a| < 0.3$，所以$k_3 < 0.5$。因此$|x_4 - x_3| > |x_4 - a|$。
 但是，使用切线法也有前提条件，否则可能无法求出近似解。
 
 首先，我们需要保证函数二次可微。其次，从上面的推导中可以看到，我们需要保证$k_n$总小于$1$，否则切线交点会离零点越来越远。
-从$k_n$的构成来看，这就等于要求最初作切线的地方和零点不能距离太远，函数$f$在零点附近单调，而且微分不能太小，而二次微分不能太大。
+从$k_n$的构成来看，这就等于要求最初作切线的地方和零点不能距离太远，函数$f$在零点附近单调，而且微变率不能太小，而二次微变率不能太大。
 
 综上所述，我们可以这样总结寻找二次可微函数零点近似解的方法：
 
@@ -1992,8 +1992,8 @@ $|x_3 - a| < 0.3$，所以$k_3 < 0.5$。因此$|x_4 - x_3| > |x_4 - a|$。
     \phantom{3. }二分法求零点。\\
     3. 在每个单调区间中使用二分法，把零点所在区间缩小\\
     \phantom{3. }到两端异号，且单调性和凹凸性都不变的区间。\\
-    4. 调整零点所在区间，使得函数的二次微分最大值和\\
-    \phantom{3. }微分最小值的比值乘以区间长度小于$2$。如果无法\\
+    4. 调整零点所在区间，使得函数的二次微变最大值和\\
+    \phantom{3. }微变最小值的比值乘以区间长度小于$2$。如果无法\\
     \phantom{3. }满足，则使用二分法。\\
     5. 如果函数在区间中上凸，那么以函数值小于零的一端\\
     \phantom{3. }为初始点；如果函数在区间中下凸，那么以函数值\\
@@ -2303,7 +2303,7 @@ $$\mathbb{R}_3[x] = \vect{\{1, x, x^2, x^3\}}.$$
 直觉上来看，向量个数增多会让它们“更相关”，数量减少则使它们更“不相关”。
 对平直空间来说，如果$A$是它的生成集，$B$是空间中一组直无关的向量，那么前者的元素应该比后者多。
 
-可以证明（见附录$C$）：
+可以证明（见附录$D$）：
 \begin{tm}\label{tm:4-3-10}
     有限生成空间中，任何一族直无关的向量，向量的个数都不多于任意一个生成族的向量个数。
 \end{tm}
@@ -2739,6 +2739,424 @@ $$ H_1 \leqslant H_{2m+1} \leqslant H_{2m} \leqslant H_2. $$
     
 \end{xt}
 
+\chapter{连续函数的和}
+
+小学的学习中，我们定义了有限个数的和。通过定义级数，我们学习了无穷多个数的求和。
+不过，正如我们所知，无穷也有可数与不可数之分。级数定义了可数多个数的求和。
+那么，是否能对不可数多个数求和呢？
+
+举例来说，实数集是不可数集合，实数区间中的点也是不可数集合。
+给定定义在实数集或某个区间$I$上的实变函数$f$，它将集合中每个点映射到函数值$f(x)$。
+那么，能否对这些函数值求和呢？
+
+这个问题比可数多个数的求和更为复杂，但在实际生活与生产中经常出现。
+比如，我们通常假设时间是连续变量，而评估各种物理作用的效果时，通常需要研究一段时间内作用的效果。
+例如，物体受的力在一定时间内的累计效果，称为冲量。它是物体导致速度变化的因素。
+设物体在$t$时刻受力为$F(t)$，那么，
+一段时间$[t_1, t_2]$上的冲量就是函数$F(t)$在$[t_1, t_2]$的累积。
+
+另一个例子是带电物体的电荷累计。我们假设物体表面每个点上的电荷是连续分布的，一点$P$上的电荷密度是$g(P)$。
+那么，物体表面的总电荷就是表面所有点上电荷密度的累积。
+
+因此，我们有必要定义函数在区间、平面区域乃至更复杂的形体上的求和。
+良好的定义并不是显而易见的。为这类求和给出符合实际生产生活中的需要的定义，
+是一门深奥的学问。在当前阶段，我们只给出简要的介绍，研究特定情形下的求和工具，不作更深入的探索。
+
+\section{函数图像的面积}
+
+首先来看一个物理学中的例子。设物体受到方向恒定，大小随时间$t$变化的力$F(t)$。
+定义$F(t)$在一段时间内的累积效果为冲量$I$。如果设物体刚受力时的冲量$I(0) = 0$，那么有定律：
+$$ I(t) - I(0) = m(v(t) - v(0)).$$
+其中$v$是物体的在受力方向上的速率。为了计算速率的改变量，我们希望计算$I(t)$，也就是$F(t)$的“和”。
+
+以时间为横轴，画出函数$F$的图像。如果$F$的大小也是恒定的，
+那么可以发现，$F$在一段时间$[t_1, t_2]$内的“总和”就是$F \cdot (t_2 - t_1)$。
+从图像来看，函数图像是水平的线段，$F(t)$的“和”就是函数图像与$x$轴之间的矩形的面积。
+
+\begin{figure}[h] %this figure will be at the right
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=\textwidth]{tu/积分定义1.png}
+    \caption*{\texttt{函数图像与$x$轴之间的面积}}
+\end{figure}
+
+如果物体受力大小不恒定，但分段恒定，于是函数图像可以看作若干段水平线段。
+于是，按分段求多个矩形的面积，然后求和，就得到$I$的改变量。
+
+然而，更常见的情况是：$F$的大小随时间不断改变。这时候，我们如何求$F$的“和”呢？如何定义函数图像与$x$轴之间的面积？
+
+需要知道的是，对一般的函数$F$，我们并不能很好地定义冲量$I$的改变量。不过，对于物理学中常见的模型
+以及当前我们接触的简单形状来说，可以用比较简单的方法，定义“函数曲线与$x$轴之间的面积”。
+
+提到面积，我们首先要回顾面积的基本性质。
+
+\begin{po}
+    边长为一的正方形，面积为一。
+\end{po}
+
+\begin{po}
+    图形的面积是其各部分面积之和。
+\end{po}
+
+\begin{po}
+    图形平移、旋转后，面积不变。对称的图形，面积相等。
+\end{po}
+
+\begin{po}
+    相似形面积之比是相似比的平方。
+\end{po}
+
+根据以上的性质，
+设有连续函数$f$，对于其定义域中的闭区间$[a,b]$，定义它在区间上的“面积”为$\int_a^b f$，称为它在闭区间$[a,b]$上的\textbf{积合}。
+它可以看作连续函数区间上的不可数个值的“和”。如果$f$在某区间上可以定义积合，就说它在该区间上\textbf{可积}。
+
+作为“面积”，我们对函数的积合有如下的基本要求：
+
+\begin{enumerate}
+    \item 函数$x\mapsto 1$在$[0,1]$上的积合是$1$。
+    \item 设$a$、$b$、$c$是数轴上的三点，则
+        $$\int_a^b f + \int_b^c f = \int_a^c f.$$
+    \item 设$f$、$g$在$[a,b]$上可积，则
+        $$ \int_a^b f + \int_a^b g = \int_a^b (f + g). $$
+    \item 函数$x\mapsto f(x-c)$在$[a+c,b+c]$上的积合，等于$\int_a^b f$。
+    \item 函数$x\mapsto f\left(\frac{x}{c}\right)$在$[ac, bc]$上的积合，等于$c\int_a^b f$。
+    \item 函数$x\mapsto cf(x)$在$[a,b]$上的积合，等于$c\int_a^b f$。
+    \item 如果$f$在区间上的值总介于$m$、$M$之间，那么
+        $$m(b - a) \leqslant \int_a^b f \leqslant M(b - a).$$
+\end{enumerate}
+前六条分别对应四条公理。最后一条提出积合的基本大小关系。
+
+要注意的是，这样定义的积合，作为“面积”，是有正负的。第二条中，令$a=b$，就有$\int_a^a f = 0$。
+而令$a = c$，就有
+$$\int_a^b f = - \int_b^a f.$$
+第三条中，令$g=0$，就得到零函数的积合总是$0$。而令$g = -f$，就有
+$$\int_a^b (-f) = -\int_a^b f. $$
+
+从积合的基本性质可以推出一些常用的性质。比如：
+
+\begin{tm}
+    如果连续函数$f$在区间$[a,b]$上总大于等于$0$，那么它在区间上的积合也大于等于$0$。
+\end{tm}
+
+这个结论可以从积合的基本大小关系推出，而从此又能推出：
+
+\begin{tm}
+    如果连续函数$f$在区间$[a,b]$上总大于等于连续函数$g$，那么$f$在区间上的积合也大于等于$g$的积合。
+\end{tm}
+
+作为这个结论的特殊情况：
+
+\begin{tm}
+    考虑连续函数$f$的绝对值函数$|f|: x\mapsto |f(x)|$，则：
+    $$ \left| \int_a^b f \right| \leqslant \int_a^b |f|. $$
+
+\end{tm}
+
+积合不仅定义了函数曲线的面积，也定义了区间的长度。只要令函数$f$为常函数$x\mapsto 1$，
+那么$f$在区间上的积合就是区间的长度。换句话说，面积和长度，都是不可数个数在适宜定义下的和。
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 积合定义的区间长度和面积，与已有的定义是否相容？为什么这么说？\\
+    \indent 2. 如何理解积合的正负？它与向量面积的正负相比有何异同？\\
+    \indent 3. 除了区间，实数集的其他子集能否定义长度？你能想到为哪些集合定义长度？和区间的长度是否相容？\\
+    \indent 4. 本节定义的积合是否一定存在？为什么？
+\end{sk}
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 设有集合$S$，$S$的元素是不小于零的实数。$S$中所有数的和是有限的实数$w$。\\
+    \indent 1.1. 对正整数$n$，考虑$S$的子集$S_n$：$S_n = \{x\in S \, | \, x \geqslant \frac{1}{n}\}$。证明：$S_n$总是有限集合。\\
+    \indent 1.2. 证明：$S$的元素中，至多有可数个元素大于$0$。\\
+    \indent 2. 设函数$f$在闭区间$[a, b]$上连续且大于等于零，在区间中某一点处大于零。\\
+    \indent 2.1. 证明：可以找到某个正数$r$和$[a, b]$的某个子区间$[c,d]$，使得$f$在$[c,d]$上总大于$r$。\\
+    \indent 2.2. 证明：$f$在$[a, b]$上的积合大于零。\\
+    \indent 3. 证明：$\int_0^1 (1 - x) = \int_0^1 x$。\\
+    \indent 4. 设有函数$f: x\mapsto \frac{x}{x^2+1}$，求$\int_{-1}^1 f$。\\
+\end{xt}
+
+\section{积合与微变}
+从基本性质出发，还可以得到积合与微变的重要关系：
+
+\begin{tm}{\textbf{微积互反定理}}
+    \mbox{} \\
+    1. $f$是闭区间$[a,b]$上的连续函数。考虑函数$G: x\mapsto \int_a^x f$，则$G$在$[a,b]$上可微，
+    $G(a) = 0$，且
+    $$\forall \,\, x\,\,\in(a, b), \,\,\, \partial G (x) = f(x).$$
+    2. 设函数$f$在闭区间$[a,b]$上可微，且微变函数连续（称为\textbf{连续可微}），则：
+    $$ \forall \,\, x\,\,\in(a, b), \,\,\, \int_a^x \partial f = f(x) - f(a) $$
+\end{tm}
+
+\begin{proof}
+    1. 考虑$G$的变率。根据基本性质，对任意$x\in(a, b)$和$h>0$：
+    $$ \frac{G(x+h) - G(x)}{h} = \frac{\int_a^{x+h} f - \int_a^x f}{h} = \frac{\int_x^{x+h} f}{h}. $$
+    考虑闭区间$[x, x+h]$，$f$是连续函数，因此在区间上达到最大最小值。记$f$取得最大最小值的点为$\overline{x}$和$\underline{x}$，
+    即
+    $$ \forall t \in [x, x+h] ,\,\,\, f(\underline{x}) \leqslant f(t) \leqslant f(\overline{x}). $$
+    于是根据基本性质，
+    $$ h\cdot f(\underline{x}) \leqslant \int_x^{x+h} f \leqslant h\cdot f(\overline{x}). $$
+    即
+    $$ f(\underline{x}) \leqslant \frac{G(x+h) - G(x)}{h} = \frac{\int_x^{x+h} f}{h} \leqslant f(\overline{x}). $$
+    $\underline{x}$、$\overline{x}$都在区间$[x, x+h]$中，而$f$是连续函数，因此，当$h$趋于$0$的时候，
+    $f(\underline{x})$、$f(\overline{x})$都趋于$f(x)$。根据同归定理，变率$\frac{G(x+h) - G(x)}{h}$也趋于$f(x)$：
+    $$ \lian{h\to 0} \frac{G(x+h) - G(x)}{h} = f(x).$$
+    这说明$G$在$x$处可微，且微变率$\partial G (x) = f(x)$。
+
+    2. 考虑$H: x\mapsto f(x) - \int_a^x \partial f$，它是可微函数，而且微变为：
+    $$ \forall \,\, x\,\,\in(a, b), \,\,\, \partial H(x) = \partial f(x) - \partial f(x) = 0. $$
+    因此$H$是常函数，设$H$的值为$c$，则
+    $$f(x) = \int_a^x \partial f + c, $$
+    令$x = a$，就有
+    $$f(a) = 0 + c,$$
+    即$c = f(a)$，所以
+    $$ \forall \,\, x\,\,\in(a, b), \,\,\,\int_a^x \partial f = f(x) - f(a).$$
+
+\end{proof}
+
+微积互反定理说明，如果把积合看作对函数的运算，那么积合是微变运算的逆运算。
+给定区间$[a,b]$上的连续函数$f$，必然有唯一的连续可微函数$G$，
+使得$G(a) = 0$，且$\partial G = f$。给定$[a,b]$上的连续可微函数$f$，必然有唯一连续函数$\partial f$，
+其积合是$f$。
+
+我们说$\int_a^x f$是$f$的\textbf{积合函数}，$f$是积合的\textbf{被积函数}。
+已知被积函数，求积合函数，或某个区间上的积合，称为\textbf{求合}或\textbf{求积}。
+
+从上面的推导可知，积合函数加上常数，仍然是积合函数。
+
+\begin{et}
+    \mbox{} \\
+    \indent 1. 对自然数$n$，求多项式函数$x\mapsto x^n$的积合函数。\\
+    \indent 2. 对正数$a\neq 1$，求幂函数$x\mapsto a^x$的积合函数。\\
+    \indent 3. 求正弦函数和余弦函数的积合函数。
+\end{et}
+
+\begin{so}
+    \mbox{} \\
+    \indent 1. 函数$H: x\mapsto \frac{x^{n+1}}{n+1}$的微变函数是$x\mapsto x^n$，所以根据微积互反定理，
+    $H$是$x\mapsto x^n$的积合函数。\\
+    \indent 2. 函数$H: x\mapsto \frac{a^x}{\ln{a}}$的微变函数是$x\mapsto a^x$，所以根据微积互反定理，
+    $H$是$x\mapsto a^x$的积合函数。\\
+    \indent 3. 正弦函数$\sin$的微变函数是余弦函数$\cos$，余弦函数$\cos$的微变函数是$-\sin$，
+    所以$-\cos$是正弦函数的积合函数，$\sin$是余弦函数的积合函数。
+\end{so}
+
+我们研究过微变函数与函数的四则运算的关系。那么积合函数是否与四则运算兼容呢？
+
+从基本性质可知，积合与函数的加减法兼容：
+$$ \int_a^x (f \pm g) = \int_a^x f \pm \int_a^x g. $$
+
+但是，积合与函数的乘法并不兼容。换句话说，下面的关系并不成立：
+$$ \int_a^x (f \cdot g) = \int_a^x f \cdot \int_a^x g. $$
+
+这是因为函数乘积的微变函数比较“不规则”：
+$$ \partial (f\cdot g) = \partial f \cdot g + f \cdot \partial g.$$
+
+因此，对两边分别求积，我们只能得出：
+$$ f(x)\cdot g(x) - f(a)\cdot g(a) = \int_a^x \partial (f\cdot g) = \int_a^x (\partial f \cdot g) + \int_a^x (f \cdot \partial g). $$
+
+由于积合与乘法不兼容，我们无法像微变一样方便地求出很多经典函数的积合函数。
+反而一些表达式“不太规则”的函数，因为是某些函数的微变函数，所以根据微积互反定理，能求出积合函数。
+如果某个函数的积合函数可以用经典函数表示，就说它\textbf{显式可积}；否者说它\textbf{显式不可积}\footnote{常见的显式可积函数，及它们的积分，参见附录$C$的“常见积分表”。}。
+
+函数显式不可积，不表示它不可积。
+比如，函数$x\mapsto \frac{e^x}{x}$的积合函数无法用经典函数表示出来，它是显式不可积的函数。
+但它在区间$[1,2]$上连续，因此可积。
+给定$a>1$，我们可以肯定$x\mapsto \frac{e^x}{x}$在$[1, a]$上的积合存在，是某个大于$0$的数，
+但我们无法简单用有理式、幂函数、三角函数这些经典函数算出它的值。
+
+为了方便地求函数的积合，我们希望能找出更多显式可积的函数。
+为此，数学家发展了一些求积的转化技巧，把看起来显式不可积的被积函数转化为显式可积的函数。
+
+从函数乘法的积合出发，我们考虑这样的特殊情形：
+求两个连续函数$f$、$g$的乘积的积合，如果其中一个（比如$g$）连续可微，那么
+$$ \int_a^x (f \cdot g) = F(x)\cdot g(x) - F(a)\cdot g(a) - \int_a^x (F \cdot \partial g). $$
+其中$F$是$f$的积分函数。
+
+通过这个关系，我们可以把乘积$fg$的积合转化为$F\partial g$的积合。这个转化技巧称为\textbf{分部积合法}。
+使用分部积合法，可以把一些看起来显式不可积的函数转为显式可积的函数。
+
+\begin{et}
+    \mbox{} \\
+    \indent 1. 使用分部积合法，求函数$x\mapsto x \sin{x}$的积合函数。\\
+    \indent 2. 使用分部积合法，求函数$x\mapsto e^x \sin{x}$的积合函数。\\
+\end{et}
+
+\begin{so}    
+    \mbox{} \\
+    \indent 1. 考虑函数$F(x) = -\cos{x}$，则$\partial F = \sin{x}$，因此，
+    \begin{align*}
+        \int_a^x (x\sin{x}) &= \int_a^x (\sin{x}\cdot x) = \int_a^x (\partial F(x) \cdot x) \\
+        &= F(x)\cdot x - F(a)\cdot a - \int_a^x (F(x) \cdot \partial x) \\
+        &= -x\cos{x} + a\cos(a) + \int_a^x (\cos{x} \cdot 1) \\
+        &= -x\cos{x} + a\cos(a) + \int_a^x \cos{x} \\
+        &= -x\cos{x} + a\cos(a) + \sin{x} - \sin{a}.
+    \end{align*}
+    \indent 2. 考虑函数$F(x) = e^x$，它的微变函数是自己。因此，
+    \begin{align*}
+        \int_a^x \left(e^{x} \sin{x}\right) &= \int_a^x \left(e^x\cdot \sin{x}\right) = \int_a^x \left(\partial F(x) \cdot \sin{x}\right) \\
+        &= F(x)\sin{x} - F(a)\sin(a) - \int_a^x \left(e^{x} \cdot \partial \sin{x}\right) \\
+        &= e^x\sin{x} - e^a\sin(a) - \int_a^x \left(e^x \cos{x}\right) .
+    \end{align*}
+    用同样的方法，可以求出
+    $$  \int_a^x \left(e^x \cos{x}\right) = e^x\cos{x} - e^a\cos(a) + \int_a^x \left(e^{x} \sin{x}\right). $$
+    代入前面的关系式，得到：
+    $$ \int_a^x \left(e^{x} \sin{x}\right) = e^x\sin{x} - e^a\sin(a) - e^x\cos{x} + e^a\cos(a) - \int_a^x \left(e^{x} \sin{x}\right). $$
+    因此
+    $$ \int_a^x \left(e^{x} \sin{x}\right) = \frac{1}{2}\big(e^x(\sin{x} - \cos{x}) - e^a(\sin(a) - \cos(a))\big).$$
+\end{so}
+
+最后考虑函数的复合与积合。设连续函数$f$在区间$[a,b]$上连续，而函数$g$在区间$[f(a), f(b)]$上连续。
+复合函数$g\circ f$的微变为：
+$$ \partial (g \circ f) (x) = \partial g(f(x)) \partial f (x). $$
+
+因此，如果设$G$是$g$的积分函数，那么
+$$ \partial (G \circ f) (x) = g(f(x)) \partial f (x). $$
+两边积合，就得到：
+$$ G(f(x)) - G(f(a)) = \int_a^x \left( g(f(x)) \partial f (x) \right).$$
+而左边可以看作$g$在$[f(a), f(b)]$上的积合。也就是说：
+$$ \int_a^x \left( g(f(t)) \partial f (t) \right) = \int_{f(a)}^{f(x)} g.$$
+
+从这个关系式出发，可以得到另一种积合转化技巧。如果某个被积函数能写成$g(f(t)) \partial f (t)$的形式，
+那么可以将它的积合转为$g$关于$u = f(t)$的积合。反之，如果将被积函数$g$的自变量$x$看作函数$x = f(u)$，那么
+积合就变成$g(f(u)) \partial f (u)$的形式。这个方法也称为\textbf{换元积合法}。
+
+\begin{et}
+    \mbox{} \\
+    \indent 1. 使用换元积合法求$\int_0^2 \frac{x}{x^2 + 1}$。 \\
+    \indent 2. 使用换元积合法求$\int_0^2 \frac{1}{\sqrt{x} + 1}$。
+\end{et}
+
+\begin{so}
+    \mbox{} \\
+    \indent 1. 考虑$g: x\mapsto \frac{1}{x + 1}$和$f: x\mapsto x^2$，则
+    $$ \int_0^2 \left( g(f(x)) \partial f (x) \right) = \int_0^2 \frac{2x}{x^2 + 1}. $$
+    因此，
+    \begin{align*}
+        \int_0^2 \frac{x}{x^2 + 1} &= \frac{1}{2} \int_0^2 \left( g(f(x)) \partial f (x) \right) \\
+        &= \frac{1}{2}\int_{f(0)}^{f(2)} g = \frac{1}{2}\int_0^4 \frac{1}{x + 1} 
+    \end{align*}
+    函数$x\mapsto \ln{(x + 1)}$的微变是$g$，因此，
+    \begin{align*}
+        \int_0^2 \frac{x}{x^2 + 1} &= \frac{1}{2}\int_0^4 \frac{1}{x + 1} \\
+        &= \frac{1}{2}\left(\ln{(4 + 1)} - \ln{(0 + 1)}\right) = \frac{\ln{5}}{2}.
+    \end{align*}
+
+    \indent 2. 记被积函数为$g$。考虑$f: x\mapsto x^2$。$x$从$0$运动到$\sqrt{2}$时，$f(x)$从$0$运动到$2$。因此：
+    \begin{align*}
+        \int_0^2 \frac{1}{\sqrt{x} + 1} &= \int_{f(0)}^{f(\sqrt{2})} g \\
+        &= \int_0^{\sqrt{2}} \left( g(f(x)) \partial f (x) \right) \\
+        &= \int_0^{\sqrt{2}} \frac{2x}{x + 1} = 2\int_0^{\sqrt{2}} \left( 1 - \frac{1}{x + 1} \right) \\
+        &= 2\int_0^{\sqrt{2}} 1 - 2\int_0^{\sqrt{2}} \frac{1}{x + 1} \\
+        &= 2(\sqrt{2} - 0) - 2 \left(\ln{(\sqrt{2} + 1)} - \ln{(0 + 1)}\right) \\
+        &= 2\sqrt{2} - 2\ln{(\sqrt{2} + 1)}.
+    \end{align*}
+\end{so}
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 函数的积合函数与一次函数有什么共同点？ \\
+    \indent 2. 函数的商的积合函数有什么规律？\\
+    \indent 3. 反函数的积合函数有什么规律？\\
+    \indent 4. 如果函数的积合函数无法用经典函数表示，如何计算它的积合？你有什么想法？\\
+    \indent 5. 如何计算以下函数的微变？
+    $$x\mapsto \int_0^{f(x)} g.$$
+\end{sk}
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 求以下函数的积合函数。\\
+    \indent 1.1. $x\mapsto 3x^2 + 1 - x$。\\
+    \indent 1.2. $x\mapsto \frac{1}{x}$。\\
+    \indent 1.3. $x\mapsto \ln{x}$。\\
+    \indent 1.4. $x\mapsto \frac{1}{x^2 + 1}$。\\
+    \indent 2. 使用分部积合法求以下函数的积合。\\
+    \indent 2.1. $x\mapsto x^2 \cos{x}$。 \\
+    \indent 2.2. $x\mapsto x \ln{x} $。 \\
+    \indent 2.3. $x\mapsto e^x \cos{x} $。 \\
+    \indent 3. 使用换元积合法求以下函数的积合。\\
+    \indent 3.1. $x\mapsto \sin^2{x} \cos{x}$。 \\
+    \indent 3.2. $x\mapsto \frac{\ln{x}}{x} $。 \\
+    \indent 3.3. $x\mapsto \tan{x} $。 \\
+    \indent 4. 对正整数$n\geqslant 2$，设$I_n = \int_1^2 \left(x^{-n}e^{\frac{1}{x}}\right)$。\\
+    \indent 4.1. 计算$I_2$。\\
+    \indent 4.2. 使用分部积合法，证明：
+            $$ I_{n+1} = e - \frac{\sqrt{e}}{2^{n-1}} + (1 - n)I_n.$$
+    \indent 4.3. 计算$I_3$。\\
+    \indent 4.4. 证明：$x>1$时，$0\leqslant x^{-n}e^{\frac{1}{x}} \leqslant \frac{e}{x^n}$。\\
+    \indent 4.5. 根据上一问的结论，给出$I_n$的范围，并求数列$\{I_n\}_{n\in\mathbb{N}}$的极限。
+\end{xt}
+
+\section{积合与函数}
+
+和微变一样，积合也可以作为研究函数的工具。比如，从微变中值定理出发，可以得到积合的中值定理\footnote{证明见附录$C$。}。
+
+\begin{tm}{\textbf{积合中值定理}}
+    如果函数$f$在闭区间$[a,b]$上连续，那么可以找到$c\in[a,b]$使得：
+    $$ \int_a^b f = (b - a)\cdot f(c).$$
+\end{tm}
+
+直观上，可以这样理解：把$f$在闭区间$[a,b]$上的积合看作函数到$x$轴的面积，
+那么它介于分别以$f$在$[a,b]$上的最小值、最大值为高的矩形的面积之间。
+
+想象我们有一个长方的水箱，侧面从左到右画了函数的曲线。水位一开始处于曲线最低处。
+不断加水让水位升高，直到水位和曲线最高处平齐。水位以下的面积和曲线下的面积相比，从一开始前者小于后者，连续变化，
+到最后前者大于后者。因此，水位上涨过程中总有一刻，水位以下的面积等于曲线下的面积。
+这时水位线和曲线的交点，就是我们要找的$f(c)$。
+
+\begin{figure}[h] %this figure will be at the right
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=\textwidth]{tu/积分中值定理1.png}
+    \caption*{\texttt{如左图，水位从曲线最低的位置开始上涨，当水位下的面积等于曲线下的面积时，水位线与曲线的交点就是}$c$\texttt{的位置。}}
+\end{figure}
+
+如果函数$f$连续可微，从微积互反定理可以得到：
+$$ f(b) = f(a) + \int_a^b \partial f .$$
+因此，$f$在一点$a$附近的值，可以通过加上微变的积分得到。从这个思想出发，可以得到另一种局部展开函数的方法。
+
+\begin{tm}{\textbf{积合余项的微变展开定理}}
+如果函数$f$在包含实数$a$的区间$I$中$n+1$次可微，且$n+1$次微变函数连续，那么对$I$中另一点$x$有：
+\begin{align*}
+    f(x) &= f(a) + \sum_{i=1}^n \frac{\partial^i f(a)}{i!} (x - a)^i + \int_a^x \frac{(x - t)^{n}}{n!} \partial^{n+1} f(t)\mathrm{d}t. \\
+    &= P_n + Y_n 
+\end{align*}
+其中$Y_n = \int_a^x \frac{(x - t)^{n}}{n!} \partial^{n+1} f(t)\mathrm{d}t$称为局部展开的$n$次积合余项\footnote{如果被积函数的表达式里有不止一个变量，为了区别，我们一般会在被积函数后面加上符号$\mathrm{d}$和要求积合的变量，指明我们在对哪个变量求积合。比如这里我们加上了$\mathrm{d}{\color{red}t}$，表示对变量$t$求积合，而不是$a$和$x$。}。
+
+\end{tm}
+
+这个定理和微变展开定理很相似，都是把$a$附近的函数值用$a$处的函数值和微变率组成的多项式$P_n$表示。
+两者的不同主要在于对函数可微程度的要求以及余项的形式。
+
+我们把之前微变展开定理的余项称为\textbf{微变余项}。
+$$
+\begin{array}{ll}
+    \mbox{{\bfseries 微变余项}} & \mbox{{\bfseries 积合余项}} \\
+    & \\
+    \displaystyle \frac{\partial^{n+1} f (c)}{(n+1)!}(x - a)^{n+1} & \displaystyle \int_a^x \frac{(x - t)^{n}}{n!} \partial^{n+1} f(t)\mathrm{d}t \\
+\end{array}
+$$
+微变余项只要求函数在$a$附近$n+1$次可微，
+只和$n+1$次微变函数在某点的值有关，但无法给出该点的确切位置。
+积合余项不需要引入不知位置的点，但要求$n+1$次微变函数连续。
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 比较微变中值定理和积合中值定理，说说两者的区别和联系。\\
+    \indent 2. 比较两个微变展开定理的余项形式，说说两者的区别和联系。
+\end{sk}
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 设函数$f$和$g$在闭区间$[a,b]$上连续，证明：可以找到$c\in[a, b]$，使得：
+    $$ \int_a^b (f\cdot g) = f(c) \cdot \int_a^b g.$$
+    \indent 2. 设有定义在$\mathbb{R}$上的周期函数$f$，周期为$T>0$，证明：
+    $$ \forall \,\, a \in \mathbb{R},\,\,\, \int_a^{a+T} f = \int_0^{T} f .$$
+    \indent 3. 考虑函数$f:x \mapsto \ln{\left(1+x^2\right)}$。\\
+    \indent 3.1. 求$\partial f$、$\partial^2 f$，将$f$在$0$处展开到$2$次。\\
+    \indent 3.2. 证明：
+    $$ \int_0^1 \frac{(1-t)^2(1+t)}{\left(1+x^2\right)^2} = \frac{\ln{2}}{2}.$$
+\end{xt}
+
 \begin{appendix}
 
 \chapter{无穷集合的势}
@@ -2800,7 +3218,7 @@ $$ H_1 \leqslant H_{2m+1} \leqslant H_{2m} \leqslant H_2. $$
 
     如果序关系$\triangleleft$满足以下条件，就称为\textbf{偏序}：
     \begin{enumerate}
-        \item 自反性：$\forall x, \,\,\, x \triangleleft x$。
+        \item 自返性：$\forall x, \,\,\, x \triangleleft x$。
         \item 反称性：$\forall x, y$，如果$x \triangleleft y$且$y \triangleleft x$， 那么$x = y$。
         \item 传递性：$\forall x, y, z$，如果$x \triangleleft y$且$y \triangleleft z$， 那么$x \triangleleft z$。
     \end{enumerate}
@@ -2936,7 +3354,7 @@ $f$是$A$到$B$子集的双射，$g$又把$B$的这部分一一对应到$A$的�
 \begin{proof}
     按照定义进行证明。
     
-    自反性：集合总有到自己的单射（恒等映射），因此$|A| \leqslant |A|$总成立。
+    自返性：集合总有到自己的单射（恒等映射），因此$|A| \leqslant |A|$总成立。
 
     反称性：根据等势定理，反称性成立。
 
@@ -3414,7 +3832,7 @@ $P_n$的各项互不相干扰，而加起来，就模拟了$f$在$a$处的各次
     $$ \partial f(a) \leqslant \partial f(b).$$
     于是$\partial f$在$I$上单调递增。
 
-    反之，如果$\partial f$在$I$上单调递增，那么任取$I$内三点$a < t < b$，根据微变中值定理定理，
+    反之，如果$\partial f$在$I$上单调递增，那么任取$I$内三点$a < t < b$，根据微变中值定理，
     存在$a < c_1 < t < c_2 < b$，使得：
     $$ \frac{f(t) - f(a)}{t - a} = \partial f(c_1) \leqslant  \partial f(c_2) = \frac{f(b) - f(t)}{b - t}. $$
     这说明函数在$I$下凸。
@@ -3441,7 +3859,7 @@ $P_n$的各项互不相干扰，而加起来，就模拟了$f$在$a$处的各次
     $$ \partial f(a) \leqslant \frac{f(s_1) - f(a)}{s_1 - a} < \frac{f(b) - f(s_2)}{b - s_2} \leqslant \partial f(b).$$
     这说明$\partial f$在$I$上严格单调递增。
     
-    反之，如果$\partial f$在$I$上严格单调递增，那么任取$I$内三点$a < t < b$，根据微变中值定理定理，
+    反之，如果$\partial f$在$I$上严格单调递增，那么任取$I$内三点$a < t < b$，根据微变中值定理，
     存在$a < c_1 < t < c_2 < b$，使得：
     $$ \frac{f(t) - f(a)}{t - a} = \partial f(c_1) < \partial f(c_2) = \frac{f(b) - f(t)}{b - t}. $$
     这说明函数在$I$严格下凸。
@@ -3483,9 +3901,269 @@ $P_n$的各项互不相干扰，而加起来，就模拟了$f$在$a$处的各次
     \end{longtable}
 \end{center}
 
+\chapter{连续函数的积合}
+
+\section{构造积合}
+
+我们把连续函数在闭区间上的积合定义为函数曲线到$x$轴的面积。这个说法并不严谨。
+严格来说，给定闭区间和在区间上的函数，积合将其映射到一个数。
+这个数就是函数在闭区间上的积合。
+这样的映射是否一定存在呢？
+能不能用我们已经知道的知识和方法，构造出这个面积呢？
+
+如果函数是常函数，或者可以分成几段，每段都是常函数的情形下，我们把它映射到一个矩形的面积，或多个矩形的面积之和。
+从这个方法出发，对一般的函数，我们也希望用一系列的矩形来近似表示“函数曲线到$x$轴的面积”。
+
+\begin{figure}[h] %this figure will be at the right
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.4\textwidth]{tu/积分定义4.png}
+    \caption*{\texttt{用矩形近似表示函数曲线到$x$轴的面积}}
+\end{figure}
+
+\begin{df}{\textbf{区间的分割}}
+    \mbox{} \\
+    给定闭区间$I=[a, b]$及一列从小到大排列的数$a = x_0 < x_1 < \cdots < x_{n-1} < x_n = b$。
+    则把区间$I$分成$n$个子区间$[x_0, x_1], \,\,\, [x_1, x_2], \,\,\,\cdots, \,\,\,[x_{n-1}, x_n]$，就是这一列数对区间的分割。
+    我们用数列$(x_0, x_1, \cdots, x_n)$表示这个分割。
+
+    如果区间的分割有$n$个子区间，就说它是区间的$\boldsymbol{n}$\textbf{阶分割}。
+    如果区间的分割使得所有子区间长度都不超过某个数$d$，就说它是区间的$\boldsymbol{d}$\textbf{\,–\,分割}。
+
+    设$f$是定义在$I$上的函数。给定区间的某个分割，
+    在该分割的各个子区间中取样$c_i\in [x_{i-1}, x_{i}]$，其函数值$f(c_i)$与区间长度的乘积的总和：
+    $$ \sum_{i=1}^n (x_i - x_{i-1}) f(c_i) $$
+    称为函数关于该分割的\textbf{取样和}。
+
+    如果取样$c_i$是各个区间上函数取最大值的点，就说取样和是函数关于该分割的\textbf{上限和}；
+    如果取样$c_i$是各个区间上函数取最小值的点，就说取样和是函数关于该分割的\textbf{下限和}。
+
+    显然，下限和小于等于任何取样和，任何取样和小于等于上限和。
+
+\end{df}
+
+给定区间$I$上的函数$f$，如果可以找到区间$I$的某个分割，使得$f$在分割的每个子区间上都是常函数，就说$f$是\textbf{分段常函数}，也叫\textbf{阶梯函数}。
+显然，阶梯函数背后总有一个分割。如果我们把这个分割的子区间继续拆分，$f$仍然是阶梯函数。
+
+不难发现，阶梯函数的积合，我们可以直接定义为相关矩形的面积之和。具体来说，$f$关于分割$(x_0, x_1, \cdots, x_n)$的积合就是：
+$$ \sum_{i=1}^n (x_i - x_{i-1}) f(c_i) $$
+其中$c_i$可以是任意取样，因为$f$在子区间上是常函数。
+
+对一般的函数来说，我们可以用阶梯函数来逼近它。对闭区间上连续函数$f$的任何分割，我们考虑两个阶梯函数，
+一个在分割的各个子区间上取$f$的最大值，另一个在分割的各个子区间上取$f$的最小值。这两个阶梯函数都可以定义积合，
+两者分别对应函数关于该分割的上限和与下限和。
+
+如果我们把分割的子区间继续拆分，这两个积合会怎么变化呢？
+
+\begin{wrapfigure}[8]{l}{0.52\textwidth} 
+    \vspace{-32pt}
+    \flushleft
+    \includegraphics[width=0.5\textwidth]{tu/积分定义2.png}
+    \caption*{\texttt{把区间拆成左右两份，最大值不超过原来的最大值（${\color{blue} \bullet}$），最小值不小于原来的最小值（${\color{red} \bullet}$）。}}
+\end{wrapfigure}
+
+考虑其中一个子区间，我们把它拆成左右两份，在两边分别取最大值，
+两个最大值都不会超过整个子区间的最大值。同理，在两边分别取最小值，两个最小值都不会小于整个子区间的最小值。
+因此，拆分后，$f$关于新分割的上限和不增加，下限和不减少。
+
+\begin{wrapfigure}[8]{r}{0.32\textwidth} %this figure will be at the right
+    \vspace{-35pt}
+    \flushright
+    \includegraphics[width=0.3\textwidth]{tu/积分定义6.png}
+    \caption*{\texttt{各种分割的取样和，随着分割越来越细，趋于同一个数。}}
+\end{wrapfigure}
+
+直觉上，对于一般的函数，分割得越细，
+上限和会越来越小，下限和会越来越大；上限和与下限和之间的差距会不断变小。
+如果对于任何分割，只要分割越来越细，上下限和之间的差距就越来越小，而且最后都趋于同一个数，
+那么这个数就可以看作函数曲线到$x$轴的面积，也就是函数在区间上的积合。
+
+事实上也是这样吗？
+
+为此，我们先说明几个关于上下限和的结论。
+
+把分割的子区间继续拆分，称为\textbf{细化}。给定一个分割，将它的子区间拆分，就是在分割点序列相应的位置插入
+新的数。比如把$[x_i, x_{i+1}]$拆分为两个区间$[x_i, y]$和$[y, x_{i+1}]$，就是在$(x_0, x_1, \cdots, x_n)$的$x_i$和$x_{i+1}$之间插入$y$。
+
+因此，两个分割，如果其中一个的分割点集合是另一个的子集，就说后者是前者的\textbf{细化分割}。
+
+上面已经说明，分割细化之后，上限和不变或减小，下限和不变或增大。任意给两个分割，考虑它们的分割点的并集。
+这个集合对应的分割同时是两个分割的细化，可以说是两者的共同细化分割。
+因此其中一个分割的下限和不大于共同细化分割的下限和，因而不大于共同细化分割的上限和，从又不大于另一个分割的上限和。
+
+这说明区间的任一分割的下限和小于等于任一分割的上限和。
+也就是说，如果把$f$在区间上的所有上限和称为集合$S^{\text{上}}$，所有下限和称为集合$S^{\text{下}}$，
+那么$S^{\text{下}}$的任何元素小于等于$S^{\text{上}}$的任何元素，
+$S^{\text{上}}$的下确界大于等于$S^{\text{下}}$的上确界。
+
+最后证明两者确实相等。
+
+\begin{tm}\label{tm:c-1-10}
+    设函数$f$在闭区间$[a,b]$上连续。对任何$r>0$，都可以找到$d>0$，
+    使得$f$关于区间的所有$d$\,–\,分割的上下限和之差都小于$r$。
+\end{tm}
+
+\begin{proof}
+    函数$f$在闭区间$[a,b]$上连续，因此一致连续。也就是说，对任意正数$r$，
+    可以找到$d>0$，只要区间中两点$x,y$距离小于等于$d$，就有：
+    $$ |f(x) - f(y)| < \frac{r}{b - a}. $$
+    对任何的$d$\,–\,分割，按照定义，其任一子区间内两点距离小于等于$d$，因此该子区间的最大值和最小值之差小于$\frac{r}{b - a}$。
+    
+    把各个子区间上的最大值和最小值之差乘以子区间长度再加起来，
+    就是上限和与下限和之差。也就是说：
+    $$ \mbox{上限和} - \mbox{下限和} < \sum_{i=0}^n (x_i - x_{i+1}) \cdot \frac{r}{b - a} = (b - a) \cdot \frac{r}{b - a} = r.$$
+\end{proof}
+
+定理\ref{tm:c-1-10}说明，可以在$S^{\text{上}}$和$S^{\text{下}}$中分别找一个元素，两者差小于$r$，其中$r$是任意小的正数。
+既然如此，$S^{\text{上}}$的下确界和$S^{\text{下}}$的上确界分别小于等于、大于等于这两个元素，
+这就说明对任意小的正数$r$，$S^{\text{上}}$的下确界小于$S^{\text{下}}$的上确界加$r$。
+因此$S^{\text{上}}$的下确界小于等于$S^{\text{下}}$的上确界。
+
+结合前面的另一个不等关系，就得到结论：
+$S^{\text{上}}$的下确界等于$S^{\text{下}}$的上确界。这就是我们要定义的积合。
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 用阶梯函数的面积逼近，是否是构造积合的唯一方法？ \\
+    \indent 2. 不连续的函数，能否定义积合？哪些可以？如何定义？\\
+    \indent 3. 本节的构造过程是否说明，可以用阶梯函数逼近闭区间上的连续函数？
+\end{sk}
+
+\section{常用的积合函数}
+
+下面给出一些常用的显式可积函数的积合。要注意的是，目前我们只定义了闭区间上连续函数的积合。
+闭区间上不连续的函数，没有定义积合。
+
+\begin{center}
+    \renewcommand{\arraystretch}{2}
+    \setlength{\extrarowheight}{-3pt}
+    \begin{longtable}{|l|l|}
+        \hline \multicolumn{1}{|c|}{\textbf{函数表达式}} & \multicolumn{1}{c|}{\textbf{积合函数}} \\[4pt] 
+        \hline    
+        $\displaystyle x\mapsto r$ & $\displaystyle \int_a^x f = r(x - a)$ \\[4pt]
+        \hline    
+        $\displaystyle x\mapsto x^n,\,\,\,n\neq -1$ & $\displaystyle \int_a^x f = \frac{x^{n+1} - a^{n+1}}{n+1}$ \\[4pt]
+        \hline    
+        $\displaystyle x\mapsto \frac{1}{x}, \,\,\, x > 0$ & $\displaystyle \int_a^x f = \ln{x} - \ln{a}$ \\[4pt]
+        \hline    
+        $\displaystyle x\mapsto \frac{1}{x}, \,\,\, x < 0$ & $\displaystyle \int_a^x f = \ln{(-x)} - \ln{(-a)}$ \\[4pt]
+        \hline
+        $\displaystyle x\mapsto r^x,\,\,\, r>0$ & $\displaystyle \int_a^x f = \frac{r^x - r^a}{\ln{r}}$ \\[4pt]
+        \hline
+        $\displaystyle x\mapsto e^x$ & $\displaystyle \int_a^x f = e^x - e^a$ \\[4pt]
+        \hline    
+        $\displaystyle x\mapsto xe^x$ & $\displaystyle \int_a^x f = (x - 1)e^x - (a - 1)e^a$ \\[4pt]
+        \hline
+        $\displaystyle x\mapsto \ln{x}$ & $\displaystyle \int_a^x f = x\ln{x} - x - a\ln{a} + a$ \\[4pt]
+        \hline
+        $\displaystyle x\mapsto \frac{1}{x\ln{x}},\,\,\, x>1$ & $\displaystyle \int_a^x f = \ln{(\ln{x})} - \ln{(\ln{a})}$ \\[4pt]
+        \hline
+        $\displaystyle x\mapsto \frac{1}{x\ln{x}},\,\,\, x<1$ & $\displaystyle \int_a^x f = \ln{(-\ln{x})} - \ln{(-\ln{a})}$ \\[4pt]
+        \hline    
+        $\displaystyle x\mapsto \sin{x}$ & $\displaystyle \int_a^x f = \cos{a} - \cos{x}$ \\[4pt]
+        \hline    
+        $\displaystyle x\mapsto \cos{x}$ & $\displaystyle \int_a^x f = \sin{x} - \sin{a}$ \\[4pt]
+        \hline    
+        $\displaystyle x\mapsto \tan{x}$ & $\displaystyle \int_a^x f = \ln{|\cos{a}|} - \ln{|\cos{x}|}$ \\[4pt]
+        \hline    
+        $\displaystyle x\mapsto \cot{x}$ & $\displaystyle \int_a^x f = \ln{|\sin{x}|} - \ln{|\sin{a}|}$ \\[4pt]
+        \hline    
+        $\displaystyle x\mapsto \csc{x}$ & $\displaystyle \int_a^x f = \ln{\left|\tan{\left(\frac{x}{2}\right)}\right|} - \ln{\left|\tan{\left(\frac{a}{2}\right)}\right|}$ \\[4pt]
+        \hline    
+        $\displaystyle x\mapsto \sec{x}$ & $\displaystyle \int_a^x f = \ln{\left|\tan{\left(\frac{x}{2} + \frac{\pi}{4}\right)}\right|} - \ln{\left|\tan{\left(\frac{a}{2} + \frac{\pi}{4}\right)}\right|}$ \\[4pt]
+        \hline    
+        $\displaystyle x\mapsto \sec^2{x}$ & $\displaystyle \int_a^x f = \tan{x} - \tan{a}$ \\[4pt]
+        \hline    
+        $\displaystyle x\mapsto \csc^2{x}$ & $\displaystyle \int_a^x f = \cot{a} - \cot{x}$ \\[4pt]
+        \hline    
+        $\displaystyle x\mapsto \frac{\sin{x}}{\cos^2{x}}$ & $\displaystyle \int_a^x f = \sec{x} - \sec{a}$ \\[4pt]
+        \hline    
+        $\displaystyle x\mapsto \frac{\cos{x}}{\sin^2{x}}$ & $\displaystyle \int_a^x f = \csc{a} - \csc{x}$ \\[4pt]
+        \hline    
+        $\displaystyle x\mapsto \frac{1}{x^2 + 1}$ & $\displaystyle \int_a^x f = \arctan{x} - \arctan{a}$ \\[4pt]
+        \hline    
+        $\displaystyle x\mapsto \frac{1}{\sqrt{1 - x^2}}$ & $\displaystyle \int_a^x f = \arcsin{x} - \arcsin{a}$ \\[4pt]
+        \hline    
+        $\displaystyle x\mapsto \frac{1}{\sqrt{x^2 - 1}}$ & $\displaystyle \int_a^x f = \ln{\left(x + \sqrt{x^2 - 1}\right)} - \ln{\left(a + \sqrt{a^2 - 1}\right)}$ \\[4pt]
+        \hline    
+        $\displaystyle x\mapsto \frac{1}{\sqrt{1 + x^2}}$ & $\displaystyle \int_a^x f = \ln{\left(x + \sqrt{1 + x^2}\right)} - \ln{\left(a + \sqrt{1 + a^2}\right)}$ \\[4pt]
+        \hline    
+        $\displaystyle x\mapsto \sqrt{r^2 - x^2}$ & $\displaystyle \int_a^x f = \frac{1}{2}\left(x\sqrt{r^2 - x^2} + r^2\arcsin{\frac{x}{r}} - a\sqrt{r^2 - a^2} + r^2\arcsin{\frac{a}{r}}\right)$ \\[4pt]
+        \hline
+    \end{longtable}
+\end{center}
+
+\section{积合与函数}
+
+\begin{tm}{\textbf{积合中值定理}}
+    如果函数$f$在闭区间$[a,b]$上连续，那么可以找到$c\in[a,b]$使得：
+    $$ \int_a^b f = (b - a)\cdot f(c).$$
+\end{tm}
+
+\begin{proof}
+    考虑$f$在区间上的积合函数：$F: x\mapsto \int_a^x f$。则$f$是$F$的微变函数。
+    于是$F$是可微函数，因此根据微变中值定理，可以找到$c\in[a,b]$使得：
+    $$ \partial F(c) = \frac{F(b) - F(a)}{b - a}.$$
+    根据微积互反定理，$F(b) - F(a) = \int_a^b f$，$\partial F = f$，于是上式变成：
+    $$ \int_a^b f = (b - a)\cdot f(c).$$
+\end{proof}
+
+
+\begin{tm}{\textbf{积合余项的微变展开定理}}
+    如果函数$f$在包含实数$a$的区间$I$中$n+1$次可微，且$n+1$次微变函数连续，那么对$I$中另一点$x$有：
+    \begin{align*}
+        f(x) &= f(a) + \sum_{i=1}^n \frac{\partial^i f(a)}{i!} (x - a)^i + \int_a^x \frac{(x - t)^{n}}{n!} \partial^{n+1} f(t)\mathrm{d}t. \\
+        &= P_n + Y_n 
+    \end{align*}
+    其中$Y_n = \int_a^x \frac{(x - t)^{n}}{n!} \partial^{n+1} f(t)\mathrm{d}t$称为局部展开的$n$次积合余项。
+\end{tm}
+
+\begin{proof}
+    根据微积互反定理，
+    $$ f(x) = f(a) + \int_a^x \partial f .$$
+    考虑$G : t \mapsto x - t $，$\partial G = -1$。于是：
+    $$ \partial (G\cdot \partial f) = -1 \cdot \partial f + G \cdot \partial^2 f. $$
+    两边求积合，就得到：
+    $$ G(x) \partial f(x) - G(a) \partial f(a) = - \int_a^x \partial f + \int_a^x G \cdot \partial^2 f. $$
+    $G(x) = 0$，因此上式变为：
+    \begin{align*}
+        \int_a^x \partial f &=  G(a) \partial f(a) + \int_a^x G \cdot \partial^2 f \\
+        &= (x - a) \partial f(a) + \int_a^b (x - t) \cdot \partial^2 f(t)\mathrm{d}t. 
+    \end{align*}
+    
+    给定正整数$1\leqslant i \leqslant n$，我们希望把$\int_a^x \frac{(x - t)^{(i-1)}}{(i-1)!} \partial^{i} f(t)\mathrm{d}t$
+    用$\int_a^x \frac{(x - t)^{i}}{i!} \partial^{i+1} f(t)\mathrm{d}t$表示。
+
+    可以仿照上面的方法。我们考虑$G_i: x\mapsto \frac{(x - t)^i}{i!}$，$\partial G_i(t) = -\frac{(x - t)^{i-1}}{(i-1)!}$，
+    因此
+    $$ \partial (G\cdot \partial^i f) = -\frac{(x - t)^{i-1}}{(i-1)!} \cdot \partial^i f + G \cdot \partial^{i+1} f. $$
+    两边求积合，就得到：
+    $$ G(x) \partial^i f(x) - G(a) \partial^i f(a) = - \int_a^x \frac{(x - t)^{i-1}}{(i-1)!} \partial^i f + \int_a^x G \cdot \partial^{i+1} f. $$
+    $G(x) = 0$，因此上式变为：
+    \begin{align*}
+        \int_a^x \frac{(x - t)^{i-1}}{(i-1)!}\partial^i f & = G(a) \partial^i f(a)  + \int_a^x G \cdot \partial^{i+1} f \\
+        & = \frac{(x - a)^i}{i!} \partial f(a) + \int_a^b \frac{(x - t)^i}{i!}\cdot \partial^{i+1} f(t)\mathrm{d}t
+    \end{align*}
+    因此，
+    \begin{align*}
+        f(x) &= f(a) + \int_a^x \partial f(t) \mathrm{d}t \\
+        &= f(a) + (x - a) \partial f(a) + \int_a^b (x - t) \cdot \partial^2 f(t) \mathrm{d}t \\
+        &= f(a) + (x - a) \partial f(a) + \frac{(x - a)^2}{2} \partial^2 f(a) + \int_a^b \frac{(x - t)^2}{2} \cdot \partial^3 f(t) \mathrm{d}t\\
+        & \qquad \qquad \qquad \qquad\qquad \qquad \vdots \\
+        &= f(a) + \sum_{i=1}^n \frac{\partial^i f(a)}{i!} (x - a)^i + \int_a^x \frac{(x - t)^{n}}{n!} \partial^{n+1} f(t)\mathrm{d}t. \\
+    \end{align*}    
+\end{proof}
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 积合余项的微变展开定理的证明用了什么积分技巧？\\
+    \indent 2. 不用微变中值定理，能否证明积合中值定理？\\
+    \indent 3. 从本节证明的两个定理出发，能否证明微变余项的微变展开定理？能否证明局部展开定理？
+\end{sk}
+
 \chapter{平直空间}
 
-\begin{tm}\label{tm:c-1-20}
+\begin{tm}\label{tm:d-1-20}
     设有不全为零的一组向量$\mathbf{v}_1, \mathbf{v}_2 , \cdots , \mathbf{v}_m$直相关。不妨设$\mathbf{v}_1 \neq 0$，那么存在下标$j \in \{2,3, \cdots, m\}$满足以下性质：
     \begin{enumerate}
     \item $\mathbf{v}_j \in \langle \mathbf{v}_1, \mathbf{v}_2 , \cdots , \mathbf{v}_{j-1}\rangle$
@@ -3506,7 +4184,7 @@ $P_n$的各项互不相干扰，而加起来，就模拟了$f$在$a$处的各次
     所以，去除$\mathbf{v}_j$，整组向量的生成空间不变\footnote{其实我们只证明了一个方向的归属关系，不过另一个方向比较显然，留给读者思考。}。\\
 \end{proof}
 
-\begin{tm}\label{tm:c-1-30}
+\begin{tm}\label{tm:d-1-30}
     有限生成空间中，任何一族直无关的向量，向量的个数都不多于任意一个生成族的向量个数。
 \end{tm}
 
@@ -3524,7 +4202,7 @@ $P_n$的各项互不相干扰，而加起来，就模拟了$f$在$a$处的各次
     将$\mathbf{u}_1$添加到$(\mathbf{v}_1, \mathbf{v}_2, \cdots , \mathbf{v}_m )$左侧，形成
     $$\mathfrak{F}_{\mathbf{v}}^{(1)} = (\mathbf{u}_1, \mathbf{v}_1, \mathbf{v}_2, \cdots , \mathbf{v}_m ).$$
     由于$\mathfrak{F}_{\mathbf{v}}$是$\mathbb{V}$的生成族，$\mathbf{u}_1$可以表示为$\mathbf{v}_1, \mathbf{v}_2, \cdots , \mathbf{v}_m$的直组合。
-    即$\mathfrak{F}_{\mathbf{v}}^{(1)}$是直相关的。所以根据定理\ref{tm:c-1-20}，
+    即$\mathfrak{F}_{\mathbf{v}}^{(1)}$是直相关的。所以根据定理\ref{tm:d-1-20}，
     我们可以去掉某个$\mathbf{v}$，使得其生成空间不变（仍然为$\mathbb{V}$）.
     这样$\mathfrak{F}_{\mathbf{v}}^{(1)}$变为一组元素个数为$m$的向量，并且仍然是$\mathbb{V}$的生成族。
     
@@ -3538,7 +4216,7 @@ $P_n$的各项互不相干扰，而加起来，就模拟了$f$在$a$处的各次
     放置之后形成的$\mathfrak{F}_{\mathbf{v}}^{(j)}$，“布局”和$\mathfrak{F}_{\mathbf{v}}^{(j-1)}$一样，
     仍然是由左侧原属于$\mathfrak{F}_{\mathbf{}}$的元素和右侧原属于$\mathfrak{F}_{\mathbf{v}}$的元素构成。
     
-    这时，通过和第一步同样的逻辑，我们知道$\mathfrak{F}_{\mathbf{v}}^{(j)}$是直相关的，所以根据定理\ref{tm:c-1-20}，
+    这时，通过和第一步同样的逻辑，我们知道$\mathfrak{F}_{\mathbf{v}}^{(j)}$是直相关的，所以根据定理\ref{tm:d-1-20}，
     可以从中找到某个元素：它属于它之前的元素的生成空间，
     并且去除这个元素后，$\mathfrak{F}_{\mathbf{v}}^{(j)}$生成的空间不变，仍然是$\mathbb{V}$。
 
@@ -3560,7 +4238,7 @@ $P_n$的各项互不相干扰，而加起来，就模拟了$f$在$a$处的各次
     这样，我们就证明了$\mathfrak{F}_{\mathbf{v}}$的长度不少于$n$，即$n \leq m$.
 \end{proof}
 
-\begin{tm}\label{tm:c-1-40}
+\begin{tm}\label{tm:d-1-40}
     可以通过适当地移除元素，把有限生成空间$\mathbb{V}$的每个生成族变成基底。
 \end{tm}
 
@@ -3576,7 +4254,7 @@ $P_n$的各项互不相干扰，而加起来，就模拟了$f$在$a$处的各次
     这时，$\mathcal{F}_{\mathbf{v}}$移除全部元素后剩下空集，直无关且生成$\mathbb{V}$。
 
     如果$\mathcal{F}_{\mathbf{v}}$中还有若干非零向量，且仍直相关，
-    根据定理\ref{tm:c-1-20}，可以从其中找出一个向量，把它从$\mathcal{F}_{\mathbf{v}}$移除后，
+    根据定理\ref{tm:d-1-20}，可以从其中找出一个向量，把它从$\mathcal{F}_{\mathbf{v}}$移除后，
     生成空间不变，$\mathcal{F}_{\mathbf{v}}$仍旧是生成族。
 
     如果$\mathcal{F}_{\mathbf{v}}$仍然直相关，则重复以上操作。
@@ -3587,12 +4265,12 @@ $P_n$的各项互不相干扰，而加起来，就模拟了$f$在$a$处的各次
 \end{proof}
 
 从上面的定理可以推出：
-\begin{tm}\label{tm:c-1-50}
+\begin{tm}\label{tm:d-1-50}
     任意有限生成空间都有基底。
 \end{tm}
 
 空间的任意生成集都可以缩减为它的基底。那么任意直无关的向量能否扩充为基底呢？
-\begin{tm}\label{tm:c-1-60}
+\begin{tm}\label{tm:d-1-60}
     可以通过适当地添加元素，把有限生成空间$\mathbb{V}$的每一组直无关的向量变成基底。
 \end{tm}
 
@@ -3617,12 +4295,12 @@ $P_n$的各项互不相干扰，而加起来，就模拟了$f$在$a$处的各次
 
     每次操作，$\mathcal{F}_{\mathbf{v}}$中增加一个元素。所以，要么在有限次操作后，$\langle\mathcal{F}_{\mathbf{v}}\rangle = \mathbb{V}$，
     我们得到$\mathbb{V}$的直无关的生成集（也就是基底）；
-    要么$\mathcal{F}_{\mathbf{v}}$中元素个数超过$n$，而这和定理\ref{tm:c-1-30}矛盾。
+    要么$\mathcal{F}_{\mathbf{v}}$中元素个数超过$n$，而这和定理\ref{tm:d-1-30}矛盾。
 
 \end{proof}
 
 我们甚至有更具体的结论：
-\begin{tm}\label{tm:c-1-70}
+\begin{tm}\label{tm:d-1-70}
     给定有限生成空间$\mathbb{V}$的子空间$\mathbb{U}$，存在另一个子空间$\mathbb{W}$，使得
     $$ \mathbb{V} = \mathbb{U} + \mathbb{W}.$$
     且$\mathbb{U} \cap \mathbb{W} = \{\mathbf{0}\}$
@@ -3653,20 +4331,20 @@ $P_n$的各项互不相干扰，而加起来，就模拟了$f$在$a$处的各次
 \end{proof}
 
 关于子空间交集与和空间维数的定理：
-\begin{tm}{\textbf{维数基本定理}}\label{tm:c-1-80}
+\begin{tm}{\textbf{维数基本定理}}\label{tm:d-1-80}
     设$\mathbb{U}$和$\mathbb{W}$是有限维空间$\mathbb{V}$的两个子空间，则它们的维数满足以下关系：
     $$ \dim (\mathbb{U} + \mathbb{W}) = \dim \mathbb{U} + \dim \mathbb{W} - \dim (\mathbb{U} \cap \mathbb{W}).$$
 \end{tm}
 
 \begin{proof}
-    记$\mathbb{T} = \mathbb{U} \cap \mathbb{W}$. 根据定理 \ref{tm:c-1-70}，
+    记$\mathbb{T} = \mathbb{U} \cap \mathbb{W}$. 根据定理 \ref{tm:d-1-70}，
     我们可以给$\mathbb{T}$在$\mathbb{U}$和$\mathbb{W}$里各自找一个补空间：
     $$ \mathbb{U} = \mathbb{T} \oplus \mathbb{U}', \,\,\, \mathbb{W} = \mathbb{T} \oplus \mathbb{W}'.$$
     记$\dim \mathbb{T} = h, \,\,\, \dim \mathbb{U}' = f, \,\,\, \dim \mathbb{W}' = g$。
     我们考虑这三个空间的基：
     $$ \mathcal{B}_T = (\mathbf{t}_1, \mathbf{t}_2, \cdots, \mathbf{t}_h), \,\,\, \mathcal{B}_{U'} = (\mathbf{u}_1, \mathbf{u}_2, \cdots, \mathbf{u}_f), \,\,\, \mathcal{B}_{W'} = (\mathbf{w}_1, \mathbf{w}_2, \cdots, \mathbf{w}_g). $$  
     其中$\mathcal{B}_{U'}$和$\mathcal{B}_{W'}$分别是$\mathbb{T}$按照定理 
-    \ref{tm:c-1-70}证明中的方式扩充为$\mathbb{U}$和$\mathbb{W}$时得到的向量族。
+    \ref{tm:d-1-70}证明中的方式扩充为$\mathbb{U}$和$\mathbb{W}$时得到的向量族。
     这表示，$\mathcal{B}_T\cup\mathcal{B}_{U'}$是$\mathbb{U}$的基，
     $\mathcal{B}_T\cup\mathcal{B}_{W'}$是$\mathbb{W}$的基。
     所以，
@@ -3702,6 +4380,11 @@ $P_n$的各项互不相干扰，而加起来，就模拟了$f$在$a$处的各次
 \end{proof}
 
 从这个定理可以看出子空间和集合的相似之处。
+
+% \begin{sk}
+%     \mbox{} \\
+%     \indent 1. 总结平直空间各个概念和集合的相似之处。\\
+% \end{sk}
 
 \end{appendix}
 
