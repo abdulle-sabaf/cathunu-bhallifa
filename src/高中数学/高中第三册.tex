@@ -2456,17 +2456,17 @@ $$ 1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \cdots $$
 
 正项级数是最方便研究的级数。对一般级数的研究，经常会转化到正项级数。
 
-正项级数的部分和数列是单调递增数列。我们知道，单调递增数列要么有极限，要么趋于正无穷。
+正项级数的部分和序列是单调递增数列。我们知道，单调递增数列要么有极限，要么趋于正无穷。
 这两种情况分别对应级数收敛、级数发散。
 
 举例来说，级数$\sum 2^{-n}$是正项级数。它的部分和$H_n$为：
 $$ H_n = 1 + \frac{1}{2} + \cdots + \frac{1}{2^n}.$$
-它的通项数列是无穷递缩等比数列，因此$H_n = 2 - 2^{-n}$。部分和数列$\{H_n\}$趋于$2$。
+它的通项数列是无穷递缩等比数列，因此$H_n = 2 - 2^{-n}$。部分和序列$\{H_n\}$趋于$2$。
 我们说级数$\sum 2^{-n}$收敛，级数和是$2$。
 
 同理，级数$\sum r^{-n}$的部分和$H_n$为
 $$ H_n = 1 + \frac{1}{r} + \cdots + \frac{1}{r^n} = \frac{1 - r^{-n-1}}{1 - r^{-1}}.$$
-因此，$r>1$时，部分和数列$\{H_n\}$趋于$\frac{r}{r - 1}$，级数和是$\frac{r}{r - 1}$。
+因此，$r>1$时，部分和序列$\{H_n\}$趋于$\frac{r}{r - 1}$，级数和是$\frac{r}{r - 1}$。
 
 研究级数收敛，和研究数列收敛，有什么不同呢？实际上，级数是研究数列收敛性质的工具。
 
@@ -2539,7 +2539,7 @@ $$ H_n > H_N + (n - N) \cdot (1 - r).$$
 $$ \frac{1}{(n+1)^2} < \frac{1}{n(n+1)} = \frac{1}{n} - \frac{1}{n+1}.$$
 因此，部分和$H_n$可以写为：
 $$ H_n = 1 + \sum_{i=1}^n \frac{1}{(n+1)^2} < 1 + \sum_{i=1}^n \left(\frac{1}{n} - \frac{1}{n+1}\right) = 1 + 1 - \frac{1}{n+1} < 2. $$
-部分和数列有界，因此收敛。
+部分和序列有界，因此收敛。
 
 从上面的讨论可以顺便推出：级数$\sum \frac{1}{(n+1)^a}$在$a\geqslant 2$时收敛，在$a\leqslant 1$时发散。
 直觉上理解，就是$\{\frac{1}{n+1}\}$收敛到$0$还不够快，导致部分和增长得太多；
@@ -2657,12 +2657,12 @@ $$\forall n \geqslant 1,  \,\,\,q_n = \frac{n^k x^{n+1}}{x^n (n+1)^{k}} = x\left
 
 \begin{proof}
     给定级数$\sum a_n$，它的绝对值是正项级数$\sum |a_n|$。
-    如果后者收敛，那么对应的部分和数列是自敛数列。因此，对任意$r>0$，存在正整数$N$，
+    如果后者收敛，那么对应的部分和序列是自敛数列。因此，对任意$r>0$，存在正整数$N$，
     只要$n>m>N$，就有
     $$ \sum_{i=m+1}^n |a_i| < r. $$
     因此
     $$ \left|\sum_{i=m+1}^n a_i \right| \leqslant \sum_{i=m+1}^n |a_i| < r. $$
-    这说明级数$\sum a_n$的部分和数列是自敛数列。也就是说，级数$\sum a_n$收敛。
+    这说明级数$\sum a_n$的部分和序列是自敛数列。也就是说，级数$\sum a_n$收敛。
 \end{proof}
 
 如果级数的绝对值收敛，就说它\textbf{绝对收敛}。正项级数显然都是绝对收敛的。
@@ -2683,8 +2683,8 @@ $$\forall n \geqslant 1,  \,\,\,q_n = \frac{n^k x^{n+1}}{x^n (n+1)^{k}} = x\left
 举例来说，级数$\sum \frac{(-1)^{n}}{(n+1)}$不是绝对收敛的，因为它的绝对值$\sum \frac{1}{(n+1)}$发散。
 但我们可以证明$\sum \frac{(-1)^{n}}{(n+1)}$收敛。
 
-考虑部分和数列的子列：$\{H_{2m}\}_{m\in\mathbb{N}}$和$\{H_{2m+1}\}_{m\in\mathbb{N}}$。
-我们证明两者都趋于同一个极限$X$，因此部分和数列也趋于$X$。
+考虑部分和序列的子列：$\{H_{2m}\}_{m\in\mathbb{N}}$和$\{H_{2m+1}\}_{m\in\mathbb{N}}$。
+我们证明两者都趋于同一个极限$X$，因此部分和序列也趋于$X$。
 
 数列的偶数项大于等于$0$，奇数项小于等于$0$。
 \begin{align*}
@@ -2701,6 +2701,7 @@ $$ H_1 \leqslant H_{2m+1} \leqslant H_{2m} \leqslant H_2. $$
 以上的情形可以稍做推广：
 \begin{tm}
     如果级数$\sum a_n$的通项正负交替，且绝对值单调递减，趋于$0$，那么级数收敛\footnote{提醒：这样的通项数列$\{a_n\}$就是我们见过的交替无穷小。}。
+    这样的级数称为\textbf{交替级数}。
 \end{tm}
 
 \begin{sk}
@@ -2723,7 +2724,7 @@ $$ H_1 \leqslant H_{2m+1} \leqslant H_{2m} \leqslant H_2. $$
     \end{array}
     $$ 
     \indent 2. 考虑两个数列$\{u_n\}$、$\{v_n\}$，我们要研究级数$\sum u_n v_n$的收敛性质。
-    记$\{u_n\}$的部分和数列为$\{s_n\}$。\\
+    记$\{u_n\}$的部分和序列为$\{s_n\}$。\\
     \indent 2.1. 设$p \leqslant q$为正整数，证明以下恒等式。
     $$ \sum_{i=p}^q u_i v_i = s_q v_q - s_{p-1} v_p + \sum_{i=p}^{q-1} s_i (v_i - v_{i+1}). $$
     \indent 2.2. 如果$\{s_n\}$是有界数列，$\{v_n\}$是单调递减且趋于$0$的正项数列，
@@ -2737,6 +2738,147 @@ $$ H_1 \leqslant H_{2m+1} \leqslant H_{2m} \leqslant H_2. $$
     $$\frac{(-1)^n}{\sqrt{n + 1} + (-1)^n} = \frac{(-1)^n}{\sqrt{n + 1}} - \frac{1}{(n + 1)} + \frac{(-1)^n}{(n + 1)\sqrt{n + 1}} + \olim{\frac{1}{n\sqrt{n}}}$$
     \indent 3.3. 级数$\frac{(-1)^n}{\sqrt{n + 1} + (-1)^n}$是否收敛？从中可以得到什么结论？
     
+\end{xt}
+
+\section{收敛级数的基本性质}
+
+级数$\sum a_n$、$\sum b_n$收敛，就是说它们的部分和序列有极限。考虑级数$\sum (a_n \pm b_n)$，它的部分和序列，
+就是级数$\sum a_n$、$\sum b_n$部分和序列的和与差，因此有极限。按照数列极限的性质：
+$$\sum (a_n \pm b_n) = \sum a_n \pm \sum b_n.$$
+
+类似地，如果级数$\sum a_n$收敛，那么部分和序列有极限，因此乘以任何常数$c$，仍然有极限。这说明：
+$$\sum (c \cdot a_n) = c\cdot \sum a_n.$$
+
+这个性质和我们之前学过的某个概念很像。平直空间中的向量，也满足这样的条件。事实上，
+如果把所有收敛的级数的集合记为$S$，那么可以验证，它关于以上的加法运算和数乘运算构成平直空间。
+
+收敛的级数之间可以求和与差，那么是否可以让两个级数相乘或相除呢？我们可以从部分和序列出发。
+记$\sum a_n$、$\sum b_n$的部分和序列为$\{A_n\}$、$\{B_n\}$，级数和为$A$、$B$。考虑两个部分和序列的乘积，
+如果乘积序列$\{A_nB_n\}$有极限，那么可以定义这个极限是两个级数的乘积。
+\begin{align*}
+    \left(\sum_{n=0}^{N} a_n \right) \cdot \left(\sum_{n=0}^{N} b_n \right) &= \sum_{n=0}^{2N} \sum_{\substack{0\leqslant i,j \leqslant n \\ i+j=n}} a_i b_j \\
+    &= \sum_{n=0}^{N} \sum_{i=0}^n a_i b_{n-i} + \sum_{n=N+1}^{2N} \sum_{i=n-N}^n a_i b_{n-i}
+\end{align*}
+
+\begin{wrapfigure}[5]{r}{0.42\textwidth} %this figure will be at the right
+    \vspace{-32pt}
+    \flushright
+    \includegraphics[width=0.4\textwidth]{tu/级数乘积.png}
+    % \caption*{\texttt{各种分割的取样和，随着分割越来越细，趋于同一个数。}}
+\end{wrapfigure}
+
+直观上，如果我们把部分和序列的乘积的每一项纵横排列成表，那么上面的变换就是按斜对角线来将这些项加总。
+
+我们希望求出表中所有项的和。但如果从横向和纵向来看，求每行、每列的和，都需要加无穷个数。
+也就是说，要处理无穷次“无穷个数相加”。
+
+如果每次先按斜对角线加总，再将这些和加总，那么只需要处理一次“无穷个数相加”。
+
+因此，我们考虑通项为如下定义的级数：
+$$ c_n = \sum_{i=0}^n a_i b_{n-i} . $$
+如果级数$\sum a_n$、$\sum b_n$绝对收敛，记它们绝对值的级数和为$A^*$、$B^*$。
+记级数$\sum c_n$的部分和序列为$\{C_n\}$，我们希望证明它趋于$AB$。
+
+考察上图，前$n$个斜对角线的和加总，也可以看作$n$个纵列的和加总，因此：
+$$C_n = \sum_{i=0}^{n} a_{n-i} B_i. $$
+每项减去$a_{n-i}B$，再在最后一起加上，得到：
+$$ C_n = \sum_{i=0}^{n} a_{n-i} (B_i - B) + \sum_{i=0}^n a_{n-i} B = \sum_{i=0}^{n} a_{n-i} (B_i - B) + A_n B. $$
+因此，$C_n$和$AB$的差可以写为：
+$$ |C_n - AB| = \left|\sum_{i=0}^{n} a_{n-i} (B_i - B) + (A_n - A) B \right|. $$
+我们希望证明这个差趋于$0$。
+
+随着$n$不断增大，$A_n$趋于$A$。因此关键在前面的求和项。其中$a_{n-i}$和$B_i - B$仿佛是“跷跷板”的关系。
+$i$很大的时候，$B_i - B$足够小，而$i$很小的时候，$n-i$足够大，因此$a_{n-i}$又足够小。
+因此，我们可以通过找特定的值将这些项分为两段，每段中的项$a_{n-i} (B_i - B)$都因为其中一个乘数足够小而足够小。
+
+对任意$r>0$，首先由于$\{B_n\}$趋于$B$，因此可以找到$N$，使得$n\geqslant N$时总有：
+$$ |B_n - B| \leqslant \frac{r}{3A^*}. $$
+
+其次，对于$n<N$的情形，设$R$为$|B_n-B|$中最大的值，由于$\{a_n\}$趋于$0$，因此可以找到$M$，使得$n\geqslant M$时
+总有：
+$$ |a_n| \leqslant \frac{r}{3NR}.$$
+
+最后，$A_n$趋于$A$，因此可以找到$L$，使得$n\geqslant L$时总有：
+$$ |A_n - A| \leqslant \frac{r}{3|B|}.$$
+
+于是，$n\geqslant L+M+N$时，
+\begin{align*}
+    |C_n - AB| &= \left|\sum_{i=0}^{n} a_{n-i} (B_i - B) + (A_n - A) B \right| \\
+    &\leqslant  \sum_{i=0}^{n} |a_{n-i} ||B_i - B | + |A_n - A| |B|. 
+\end{align*}
+上式右边第一项可以在下标$N$处截成两段：
+$$ \sum_{i=0}^{n} |a_{n-i} ||B_i - B | = \sum_{i=0}^{N-1} |a_{n-i}| |B_i - B| + \sum_{i=N}^{n} |a_{n-i}| |B_i - B| + |A_n - A| |B|,$$
+$i<N$时，下标$n-i > n-N >M$，所以$|a_{n-i}| \leqslant \frac{r}{3NR}$，于是：
+\begin{align*}
+    |C_n - AB| &\leqslant \frac{r}{3NR} \sum_{i=0}^{N-1} |B_i - B| + \frac{r}{3A^*} \sum_{i=N}^{n} |a_{n-i}| + \frac{r}{3} \\
+    &\leqslant \frac{r}{3NR} \cdot nR +  \frac{r}{3A^*} \sum_{i=0}^{+\infty} |a_i| + \frac{r}{3} \\
+    &= \frac{r}{3} + \frac{r}{3A^*}\cdot A^* + \frac{r}{3} \\
+    &= r.
+\end{align*}
+这就说明$\{C_n\}$趋于$AB$，级数$\sum c_n$收敛到$\sum a_n$、$\sum b_n$的级数和的乘积。
+因此我们称$\sum c_n$是$\sum a_n$、$\sum b_n$乘积。
+
+要注意的是，上面证明中没有用到$\sum b_n$绝对收敛的性质。实际上，只要$\sum a_n$、$\sum b_n$中有一个级数绝对收敛，
+就可以定义乘积$\sum c_n$。如果两者都绝对收敛，那么$\sum c_n$也绝对收敛。
+
+% 最后来看级数的除法。除法是乘法的逆运算，因此我们需要考察使得：
+% $$ \forall n\in\mathbb{N} , \,\,\, a_n = \sum_{i=0}^n c_i b_{n-i} $$
+% 的数列$\{c_n\}$。对于$n=0$，$a_0 = b_0 c_0$。如果$b_0 \neq 0$，那么
+% $$ c_0 = \frac{a_0}{b_0} $$
+% 满足条件。如果$b_0 = 0$，那么$c_0$不存在。
+
+% 一般来说，如果$c_0, c_1, \cdots, c_{n-1}$已经求出，且$b_0\neq 0$，那么：
+% $$ c_n = \frac{a_n - \sum_{i=0}^{n-1} c_i b_{n-i}}{b_0}$$
+% 也就是说，只要$b_0\neq 0$，就可以按以上方法定义级数$\sum c_n$。
+
+% 按照前面的方法，可以写出：
+% $$A_n = \sum_{i=0}^{n} c_{n-i} B_i = \sum_{i=0}^{n} c_{n-i} (B_i - B) + C_n B $$
+% 如果$B \neq 0$，那么由于$\{B_n\}$趋于$B$，可以找到$N$，使得$n\geqslant N$时总有
+% $B_n > \frac{|B|}{2}$或总有$B_n < -\frac{|B|}{2}$。不妨设前者成立，那么：
+% $$ \sum_{i=0}^{n} c_{n-i} B_i > \sum_{i=N}^{n} c_{n-i} \frac{|B|}{2} + \sum_{i=0}^{N-1} c_{n-i} B_i$$
+
+% $$A_n = \sum_{i=0}^{n} b_{n-i} C_i = \sum_{i=0}^{N} b_{n-i} (C_i - C) + \sum_{i=N+1}^{n} b_{n-i} (C_i - C) + B_n C $$
+% $$ \sum_{i=n-N}^{n} b_{i} (C_{n-i} - C) + \sum_{i=0}^{n-N-1} b_{i} (C_{n-i} - C) $$
+
+% $$ a_n = 2^{-n}, b_0 = 1, b_n = -2^{-n}, n > 0 $$
+
+% $$ c_0 = \frac{a_0}{b_0} = \frac{1}{1} = 1. $$
+% $$ c_1 = \frac{a_1 - c_0b_1}{b_0} = \frac{0.5 - 1\cdot (-0.5)}{1} = 1. $$
+% $$ c_2 = \frac{a_2 - c_0b_2 - c_1b_1}{b_0} = \frac{0.25 - 1\cdot (-0.25) - 1\cdot (-0.5)}{1} = 1. $$
+% $$ c_n = \frac{a_n - c_0b_n - \cdots c_{n-1}b_1}{b_0} = \frac{2^{-n} + \sum_{i=1}^n 2^{-i}}{1} = 1. $$
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 为什么要用以上的方法定义收敛级数的乘积？你还能想到什么别的定义方式？和以上的定义相比，有哪些好处？有哪些坏处？\\
+    \indent 2. 能否定义收敛级数的除法？
+\end{sk}
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 设两级数$\sum a_n$、$\sum b_n$的通项分别是：
+    $$ \forall n\in\mathbb{N}, \,\,\, a_n = \frac{(-1)^n}{\sqrt{n+1}}, \quad b_n = \frac{(-1)^n}{\sqrt{n+\frac{1}{2}}}. $$
+    \indent 1.1. 证明：级数$\sum a_n$、$\sum b_n$收敛。\\
+    \indent 1.2. 设级数$\sum c_n$的通项为：
+    $$ c_n = \sum_{i=0}^n a_i b_{n-i} . $$
+    \indent 证明：$|c_n| \geqslant 1$。\\
+    % \begin{align*}
+    %     |c_n| &= \left|\sum_{i=0}^n a_i b_{n-i}\right| \\
+    %     &= \left|\sum_{i=0}^n \frac{1}{\sqrt{(i+1)(n-i+\frac{1}{2})}}\right| \\
+    %     &\geqslant \left|\sum_{i=0}^n \frac{1}{\sqrt{\left(\frac{i+1+n-i+\frac{1}{2}}{2}\right)^2}}\right| \\
+    %     &= \left|\sum_{i=0}^n \frac{2}{n+\frac{3}{2}}\right| \\
+    %     &= \frac{2(n+1)}{n+\frac{3}{2}} \\
+    %     &> 1.
+    % \end{align*}
+    \indent 1.3. 从以上两问的结果，你能得到什么结论？\\
+    \indent 2. 设两级数$\sum a_n$、$\sum b_n$都绝对收敛。\\
+    \indent 2.1. 考虑它们的乘积级数$\sum c_n$。证明：
+    $$ \forall N, \,\,\, \sum_{n=0}^{N} |c_n| \leqslant \left(\sum_{n=0}^{+\infty} |a_n| \right) \cdot \left(\sum_{n=0}^{+\infty} |b_n| \right)$$
+    % \begin{align*}
+    %     \sum_{n=0}^{N} |c_n| &= \sum_{n=0}^{N} \left| \sum_{i=0}^n a_i b_{n-i} \right| \leqslant \sum_{n=0}^{N} \sum_{i=0}^n |a_i| |b_{n-i}| \\
+    %     &\leqslant \sum_{n=0}^{2N} \sum_{\substack{0\leqslant i,j \leqslant n \\ i+j=n}} |a_i| |b_j| = \left(\sum_{n=0}^{N} |a_n| \right) \cdot \left(\sum_{n=0}^{N} |b_n| \right) \\
+    %     &\leqslant \left(\sum_{n=0}^{+\infty} |a_n| \right) \cdot \left(\sum_{n=0}^{+\infty} |b_n| \right)
+    % \end{align*}
+    \indent 2.2. 证明$\sum c_n$绝对收敛。
 \end{xt}
 
 \chapter{连续函数的和}
@@ -2876,7 +3018,7 @@ $$\int_a^b (-f) = -\int_a^b f. $$
 \end{xt}
 
 \section{积合与微变}
-从基本性质出发，还可以得到积合与微变的重要关系：
+从积合的基本性质出发，还可以得到积合与微变的重要关系：
 
 \begin{tm}{\textbf{微积互反定理}}
     \mbox{} \\
@@ -2919,7 +3061,7 @@ $$\int_a^b (-f) = -\int_a^b f. $$
 其积合是$f$。
 
 我们说$\int_a^x f$是$f$的\textbf{积合函数}，$f$是积合的\textbf{被积函数}。
-已知被积函数，求积合函数，或某个区间上的积合，称为\textbf{求合}或\textbf{求积}。
+已知被积函数，求积合函数，或某个区间上的积合，称为\textbf{求合}。
 
 从上面的推导可知，积合函数加上常数，仍然是积合函数。
 
@@ -2951,7 +3093,7 @@ $$ \int_a^x (f \cdot g) = \int_a^x f \cdot \int_a^x g. $$
 这是因为函数乘积的微变函数比较“不规则”：
 $$ \partial (f\cdot g) = \partial f \cdot g + f \cdot \partial g.$$
 
-因此，对两边分别求积，我们只能得出：
+因此，对两边分别求合，我们只能得出：
 $$ f(x)\cdot g(x) - f(a)\cdot g(a) = \int_a^x \partial (f\cdot g) = \int_a^x (\partial f \cdot g) + \int_a^x (f \cdot \partial g). $$
 
 由于积合与乘法不兼容，我们无法像微变一样方便地求出很多经典函数的积合函数。
@@ -2965,7 +3107,7 @@ $$ f(x)\cdot g(x) - f(a)\cdot g(a) = \int_a^x \partial (f\cdot g) = \int_a^x (\p
 但我们无法简单用有理式、幂函数、三角函数这些经典函数算出它的值。
 
 为了方便地求函数的积合，我们希望能找出更多显式可积的函数。
-为此，数学家发展了一些求积的转化技巧，把看起来显式不可积的被积函数转化为显式可积的函数。
+为此，数学家发展了一些求合的转化技巧，把看起来显式不可积的被积函数转化为显式可积的函数。
 
 从函数乘法的积合出发，我们考虑这样的特殊情形：
 求两个连续函数$f$、$g$的乘积的积合，如果其中一个（比如$g$）连续可微，那么
@@ -3120,7 +3262,7 @@ $$ f(b) = f(a) + \int_a^b \partial f .$$
     f(x) &= f(a) + \sum_{i=1}^n \frac{\partial^i f(a)}{i!} (x - a)^i + \int_a^x \frac{(x - t)^{n}}{n!} \partial^{n+1} f(t)\mathrm{d}t. \\
     &= P_n + Y_n 
 \end{align*}
-其中$Y_n = \int_a^x \frac{(x - t)^{n}}{n!} \partial^{n+1} f(t)\mathrm{d}t$称为局部展开的$n$次积合余项\footnote{如果被积函数的表达式里有不止一个变量，为了区别，我们一般会在被积函数后面加上符号$\mathrm{d}$和要求积合的变量，指明我们在对哪个变量求积合。比如这里我们加上了$\mathrm{d}{\color{red}t}$，表示对变量$t$求积合，而不是$a$和$x$。}。
+其中$Y_n = \int_a^x \frac{(x - t)^{n}}{n!} \partial^{n+1} f(t)\mathrm{d}t$称为局部展开的$n$次积合余项\footnote{如果被积函数的表达式里有不止一个变量，为了区别，我们一般会在被积函数后面加上符号$\mathrm{d}$和要求合合的变量，指明我们在对哪个变量求合合。比如这里我们加上了$\mathrm{d}{\color{red}t}$，表示对变量$t$求合合，而不是$a$和$x$。}。
 
 \end{tm}
 
@@ -4025,8 +4167,9 @@ $S^{\text{上}}$的下确界等于$S^{\text{下}}$的上确界。这就是我们
 \begin{sk}
     \mbox{} \\
     \indent 1. 用阶梯函数的面积逼近，是否是构造积合的唯一方法？ \\
-    \indent 2. 不连续的函数，能否定义积合？哪些可以？如何定义？\\
-    \indent 3. 本节的构造过程是否说明，可以用阶梯函数逼近闭区间上的连续函数？
+    \indent 2. 这样定义的积合，是否满足积合作为面积的基本性质？如何证明？\\
+    \indent 3. 不连续的函数，能否定义积合？哪些可以？如何定义？\\
+    \indent 4. 本节的构造过程是否说明，可以用阶梯函数逼近闭区间上的连续函数？
 \end{sk}
 
 \section{常用的积合函数}
@@ -4123,7 +4266,7 @@ $S^{\text{上}}$的下确界等于$S^{\text{下}}$的上确界。这就是我们
     $$ f(x) = f(a) + \int_a^x \partial f .$$
     考虑$G : t \mapsto x - t $，$\partial G = -1$。于是：
     $$ \partial (G\cdot \partial f) = -1 \cdot \partial f + G \cdot \partial^2 f. $$
-    两边求积合，就得到：
+    两边求合合，就得到：
     $$ G(x) \partial f(x) - G(a) \partial f(a) = - \int_a^x \partial f + \int_a^x G \cdot \partial^2 f. $$
     $G(x) = 0$，因此上式变为：
     \begin{align*}
@@ -4137,7 +4280,7 @@ $S^{\text{上}}$的下确界等于$S^{\text{下}}$的上确界。这就是我们
     可以仿照上面的方法。我们考虑$G_i: x\mapsto \frac{(x - t)^i}{i!}$，$\partial G_i(t) = -\frac{(x - t)^{i-1}}{(i-1)!}$，
     因此
     $$ \partial (G\cdot \partial^i f) = -\frac{(x - t)^{i-1}}{(i-1)!} \cdot \partial^i f + G \cdot \partial^{i+1} f. $$
-    两边求积合，就得到：
+    两边求合合，就得到：
     $$ G(x) \partial^i f(x) - G(a) \partial^i f(a) = - \int_a^x \frac{(x - t)^{i-1}}{(i-1)!} \partial^i f + \int_a^x G \cdot \partial^{i+1} f. $$
     $G(x) = 0$，因此上式变为：
     \begin{align*}
