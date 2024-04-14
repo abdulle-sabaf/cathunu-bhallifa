@@ -321,7 +321,7 @@ $$|\mathbb{N}| < |2^\mathbb{N}|$$
 $$ \forall n\in\mathbb{N}, \quad n \mapsto \left\{a_k\right\}_{k\in\mathbb{N}}, \,\,\, \mbox{其中} \, a_k = 1 \,\mbox{当且仅当} \, k = n . $$
 这个映射显然是单射，因此存在$\mathbb{N}$到$2^\mathbb{N}$的单射。
 
-如何证明不存在$\mathbb{N}$到$2^\mathbb{N}$的单射呢？我们用反证法证明。
+如何证明不存在$2^\mathbb{N}$到$\mathbb{N}$的单射呢？我们用反证法证明。
 
 假设存在$2^\mathbb{N}$到$\mathbb{N}$的单射$f$，则$2^\mathbb{N}$所有元素经过映射得到的集合是$\mathbb{N}$的无穷子集，因而和$\mathbb{N}$等势。
 也就是说，我们可以假设$f$是满射，因而是双射。因此，我们考虑它的逆映射$g$。$g$是把自然数映射到$2^\mathbb{N}$中元素的双射。
@@ -1067,6 +1067,7 @@ $$ f(x) = {\color{magenta} f(a) + k(x - a)} + {\color{blue} g(x)}. $$
 其中$g$的定义就是$g(x) = f(x) - f(a) - k(x - a)$。
 
 那么，$f(a) + k(x - a)$就是$f$的趋势部分，$g$就是内部变化部分。$g(a) = g(b) = 0$。
+$g$也在闭区间$[a, b]$上连续，在开区间$(a, b)$上可微。
 对$g$运用微变零值定理可知，存在$t\in(a,b)$，使得$\partial g(t) = 0$。
 然而，$\partial g = \partial f - k$。也就是说，$ \partial f(t) - k = 0$，即：
 $$ \partial f(t) = k.$$
@@ -3262,7 +3263,7 @@ $$ f(b) = f(a) + \int_a^b \partial f .$$
     f(x) &= f(a) + \sum_{i=1}^n \frac{\partial^i f(a)}{i!} (x - a)^i + \int_a^x \frac{(x - t)^{n}}{n!} \partial^{n+1} f(t)\mathrm{d}t. \\
     &= P_n + Y_n 
 \end{align*}
-其中$Y_n = \int_a^x \frac{(x - t)^{n}}{n!} \partial^{n+1} f(t)\mathrm{d}t$称为局部展开的$n$次积合余项\footnote{如果被积函数的表达式里有不止一个变量，为了区别，我们一般会在被积函数后面加上符号$\mathrm{d}$和要求合合的变量，指明我们在对哪个变量求合合。比如这里我们加上了$\mathrm{d}{\color{red}t}$，表示对变量$t$求合合，而不是$a$和$x$。}。
+其中$Y_n = \int_a^x \frac{(x - t)^{n}}{n!} \partial^{n+1} f(t)\mathrm{d}t$称为局部展开的$n$次积合余项\footnote{如果被积函数的表达式里有不止一个变量，为了区别，我们一般会在被积函数后面加上符号$\mathrm{d}$和要求积合的变量，指明我们在对哪个变量求积合。比如这里我们加上了$\mathrm{d}{\color{red}t}$，表示对变量$t$求积合，而不是$a$和$x$。}。
 
 \end{tm}
 
@@ -3271,10 +3272,10 @@ $$ f(b) = f(a) + \int_a^b \partial f .$$
 
 我们把之前微变展开定理的余项称为\textbf{微变余项}。
 $$
-\begin{array}{ll}
-    \mbox{{\bfseries 微变余项}} & \mbox{{\bfseries 积合余项}} \\
+\begin{array}{lll}
+    \mbox{{\bfseries 微变余项}} & \phantom{1}\qquad\qquad\qquad & \mbox{{\bfseries 积合余项}} \\
     & \\
-    \displaystyle \frac{\partial^{n+1} f (c)}{(n+1)!}(x - a)^{n+1} & \displaystyle \int_a^x \frac{(x - t)^{n}}{n!} \partial^{n+1} f(t)\mathrm{d}t \\
+    \displaystyle \frac{\partial^{n+1} f (c)}{(n+1)!}(x - a)^{n+1} & \phantom{1}\qquad\qquad\qquad & \displaystyle \int_a^x \frac{(x - t)^{n}}{n!} \partial^{n+1} f(t)\mathrm{d}t \\
 \end{array}
 $$
 微变余项只要求函数在$a$附近$n+1$次可微，
@@ -4266,7 +4267,7 @@ $S^{\text{上}}$的下确界等于$S^{\text{下}}$的上确界。这就是我们
     $$ f(x) = f(a) + \int_a^x \partial f .$$
     考虑$G : t \mapsto x - t $，$\partial G = -1$。于是：
     $$ \partial (G\cdot \partial f) = -1 \cdot \partial f + G \cdot \partial^2 f. $$
-    两边求合合，就得到：
+    两边求积合，就得到：
     $$ G(x) \partial f(x) - G(a) \partial f(a) = - \int_a^x \partial f + \int_a^x G \cdot \partial^2 f. $$
     $G(x) = 0$，因此上式变为：
     \begin{align*}
@@ -4280,7 +4281,7 @@ $S^{\text{上}}$的下确界等于$S^{\text{下}}$的上确界。这就是我们
     可以仿照上面的方法。我们考虑$G_i: x\mapsto \frac{(x - t)^i}{i!}$，$\partial G_i(t) = -\frac{(x - t)^{i-1}}{(i-1)!}$，
     因此
     $$ \partial (G\cdot \partial^i f) = -\frac{(x - t)^{i-1}}{(i-1)!} \cdot \partial^i f + G \cdot \partial^{i+1} f. $$
-    两边求合合，就得到：
+    两边求积合，就得到：
     $$ G(x) \partial^i f(x) - G(a) \partial^i f(a) = - \int_a^x \frac{(x - t)^{i-1}}{(i-1)!} \partial^i f + \int_a^x G \cdot \partial^{i+1} f. $$
     $G(x) = 0$，因此上式变为：
     \begin{align*}

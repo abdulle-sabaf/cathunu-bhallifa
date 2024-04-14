@@ -308,7 +308,7 @@ $$ a_0 + a_1x + a_2x^2 + \cdots + a_n x^n + \cdots$$
 $$e^x = \lian{n\to +\infty} 1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \cdots + \frac{x^n}{n!}.$$
 
 我们定义幂级数：
-$$ 1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \cdots + \frac{x^n}{n!} $$
+$$ x \mapsto 1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \cdots + \frac{x^n}{n!} + \cdots $$
 即
 $$ x \mapsto \sum_{n=0}^{+\infty} \frac{x^n}{n!} $$
 幂级数的系数为：$a_n = \frac{1}{n!}$。
@@ -317,7 +317,7 @@ $$ x \mapsto \sum_{n=0}^{+\infty} \frac{x^n}{n!} $$
 对任何实数$x$，幂级数的值为$e^x$。
 
 再来看幂级数：
-$$ 1 + x + x^2 + \cdots + x^n + \cdots $$
+$$ x \mapsto 1 + x + x^2 + \cdots + x^n + \cdots $$
 即
 $$ x \mapsto \sum_{n=0}^{+\infty} x^n $$
 幂级数的系数数列为：$a_n = 1$。
@@ -344,7 +344,7 @@ $n$趋于无穷时，$\displaystyle \left(\frac{n+1}{n}\right)^c$收敛到$1$。
 因此幂级数的收敛半径是$1$。
 
 $x=-1$时，级数变为$\sum \frac{(-1)^n}{n^c}$，是交替级数，因此收敛。
-$x=-1$时，级数变为$\sum n^{-c}$。如果$c>1$，那么级数收敛，$x=1$属于收敛域；如果$c\leqslant 1$，那么级数发散，
+$x=1$时，级数变为$\sum n^{-c}$。如果$c>1$，那么级数收敛，$x=1$属于收敛域；如果$c\leqslant 1$，那么级数发散，
 $x=1$不属于收敛域。
 
 \section{幂级数的基本性质}
@@ -353,8 +353,7 @@ $x=1$不属于收敛域。
 如果$\{a_n\} = \Olim{\{b_n\}}$，即数列$\frac{a_n}{b_n}$是有界的，那么对使得$\sum b_n x^n$收敛的$x>0$，
 级数$\sum a_n x^n$的部分和可以写成：
 \begin{align*}
-    \sum_{n=0}^{N} |a_n x^n| = \sum_{n=0}^{N} \left|\frac{a_n}{b_n}\right| |b_n x^n| \\
-    &\leqslant M \sum_{n=0}^{N} |b_n x^n|
+    \sum_{n=0}^{N} |a_n x^n| = \sum_{n=0}^{N} \left|\frac{a_n}{b_n}\right| |b_n x^n| \leqslant M \sum_{n=0}^{N} |b_n x^n|
 \end{align*}
 其中$M$是数列$\frac{a_n}{b_n}$的上界。这说明级数$\sum a_n x^n$收敛。于是收敛半径$R_a \geqslant R_b$。
 
