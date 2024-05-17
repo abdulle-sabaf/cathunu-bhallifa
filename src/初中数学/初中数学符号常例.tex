@@ -1,0 +1,192 @@
+\documentclass[12pt,UTF8]{article}
+\usepackage{ctex}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage[table, dvipsnames, svgnames, x11names]{xcolor}
+\usepackage{colortbl}% 
+\usepackage{tabularx}
+\usepackage{amsmath, tikz}
+\usepackage{amssymb}
+\usepackage{xfrac}
+\usepackage{eucal}
+\usepackage{titlesec}
+\usepackage{amsthm}
+\usepackage{ifthen}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{verbatim}
+\usepackage{fontspec,xunicode,xltxtra}
+\usepackage{xeCJK} 
+\usepackage[b]{esvect}
+\usepackage{multicol}
+
+% 修改脚注的编号为加圈样式，并且各页单独编号
+\usepackage{pifont}
+\usepackage[perpage,symbol*]{footmisc}
+\DefineFNsymbols{circled}{{\ding{192}}{\ding{193}}{\ding{194}}
+{\ding{195}}{\ding{196}}{\ding{197}}{\ding{198}}{\ding{199}}{\ding{200}}{\ding{201}}}
+\setfnsymbol{circled}
+
+
+\setCJKmainfont[BoldFont=STZhongsong]{STSong}
+\setCJKmonofont{simkai.ttf} % for \texttt
+\setCJKsansfont{simfang.ttf} % for \textsf
+\setlength\parskip{8pt}
+\setlength{\fboxsep}{12pt}
+\setlength{\columnsep}{16pt}
+\renewcommand\thesection{\arabic{chapter}.\arabic{section}}
+\newtheorem{df}{定义}[section] 
+\newtheorem{pp}{命题}[section]
+\newtheorem{tm}{定理}[section]
+\newtheorem{et}{例题}[section]
+\newtheorem{ex}{例子}[section]
+\newtheorem{sk}{思考}[section]
+\newtheorem{po}{公理}
+\newtheorem*{so}{解答}
+\newtheorem{xt}{习题}[section]
+\newtheorem{cor}{推论}[pp]
+\renewenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
+% \renewcommand{\proofname}{\indent\bf 证明}
+% \renewcommand{\qedsymbol}{\hfill$\square$}
+\newcommand{\arcangle}{\mathord{\mathpalette\doarcangle\relax}}
+\newcommand{\doarcangle}[2]{%
+  \hbox{%
+    \sbox0{$#1B$}%
+    \sbox2{$#1<$}%
+    \raisebox{\dimexpr\dp0+(\ht0-\ht2)/2}{%
+      $#1<\mspace{-9mu}\mathrel{)}\mspace{2mu}$%
+    }%
+  }%
+}
+\newcommand{\tong}[1]{\overset{#1}{\equiv\joinrel\equiv}}
+\newcommand{\parasbx}{%
+    \mathord{
+        \text{%
+            \tikz[baseline] \draw (0,.1ex) -- (.8em,.1ex) -- (1em,1.6ex) -- (.2em,1.6ex) -- cycle;
+        }
+    }
+}
+
+\usetikzlibrary{calc,topaths}
+
+\newcommand{\widearc}[1]{%
+    \tikz[baseline=(wideArcAnchor.base)]{
+        \node[inner sep=0] (wideArcAnchor) {$#1$}; 
+        \coordinate (wideArcAnchorA) at ($(wideArcAnchor.north west) + (0.15em,0.1em)$);
+        \coordinate (wideArcAnchorB) at ($(wideArcAnchor.north east) + (0.0em,0.1em)$);
+    %
+        \draw[line width=0.1ex,line cap=round,out=45,in=135] (wideArcAnchorA) to (wideArcAnchorB);
+    }
+}
+% 列举环境的行间距
+\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
+\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
+\setdescription{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
+\setlength{\intextsep}{2pt}%
+% \setlength{\columnsep}{2pt}%
+\setlength{\abovecaptionskip}{0.1cm}
+% 新函数
+\renewcommand\parallel{\mathrel{/\mskip-4mu/}}
+% 章节字体大小
+\titleformat{\section}{\zihao{-2}\bfseries}{ \thesection }{16pt}{}
+% 封面
+\title{\zihao{0} \bfseries 数学符号常例}
+% \author{\zihao{2} \texttt{大青花鱼}}
+% \date{\bfseries\today}
+\date{}
+% 正文
+\begin{document}
+\maketitle
+
+% \begin{multicols*}{2}
+%     We are most indebted to Archimedes for contributions he made to the understanding of basic principles of physical phenomena. This is reflected in the many legends that are attributed to him. However, it is in his mathematical treatises that his true genius is to be discovered. The story of the survival of these treatises down to our own time is intricate and complicated, and has been traced in extraordinary detail. It is through three manuscripts that we know the texts of Archimedes treatises in Greek. One was last seen in 1311, a second was last seen in the 1550s, and the third is the Archimedes Palimpsest.    
+    
+%     In October 1998, the Archimedes Palimpsest was sold to a private American collector at Christie’s in New York. The collector deposited the manuscript at The Walters Art Museum in Baltimore, renowned worldwide for its extraordinary holdings of medieval manuscripts and its expertise in manuscript conservation. It has since become the subject of a worldwide campaign of conservation, imaging, and study, to fully reveal texts in the manuscript obliterated by a medieval priest over 750 years earlier. When the manuscript was sold at auction in 1998 it was described as “perhaps the most important scientific manuscript ever sold at auction.” It has since become the most important palimpsest in the world.
+% \end{multicols*}
+以下是本系列中常用的符号，以及相应的解释。
+
+\vspace{18pt}
+
+% \renewcommand{\arraystretch}{2}
+\setlength{\extrarowheight}{3pt}
+\begin{longtable}{ m{15em} m{15em} }
+    $a = b$ & $a$等于$b$ \\
+    $a \neq b$ & $a$不等于$b$ \\
+    $\{1,2,3\}$ & 由$1,2,3$构成的集合 \\ 
+    $\{x \, | \, x\mbox{是偶数}\}$ & 偶数的集合 \\  
+    $x\in A$ & $x$属于集合$A$ \\
+    $A \subseteq B$ & $A$是$B$的子集 \\
+    $A \subset B$ & $A$是$B$的真子集 \\
+    $\varnothing$ & 空集 \\
+    $\mathbb{N}$ & 自然数集 \\
+    $\mathbb{Z}$ & 整数集 \\
+    $\mathbb{F}$ & 分数集 \\
+    $\mathbb{Q}$ & 有理数集 \\
+    $\mathbb{R}$ & 实数集 \\
+    $\mathbb{Z}^+$ & 正整数集 \\
+    $\mathbb{Z}^-$ & 负整数集 \\
+    $A\cap B$ & $A$和$B$的交集 \\
+    $A\cup B$ & $A$和$B$的并集 \\
+    $B\setminus A$ & $A$在$B$中的补集 \\
+    $A^c$ & $A$在全集中的补集 \\
+    $f:\; \mathbb{Z} \rightarrow \mathbb{R}$ & $f$是从$\mathbb{N}$到$\mathbb{R}$的映射 \\
+    $x\mapsto x+1$ & 把$x$对应到$x+1$的映射 \\
+    $f(x)$ & $x$经$f$映射的值 \\
+    $f(A)$ & 集合$A$经$f$映射的像 \\
+    $\forall x \in A$ & 对集合$A$的任一元素$x$ \\
+    $\exists x \in A$ & 集合$A$中至少有一元素$x$ \\
+    $\displaystyle\bigcap_{i\in I} A_i$ & 对$I$中所有$i$，集合$A_i$的交集 \\
+    $\displaystyle\bigcup_{i\in I} A_i$ & 对$I$中所有$i$，集合$A_i$的并集 \\
+    $\displaystyle\sum_{i\in I} x_i$ & 对$I$中所有$i$，数$x_i$的和 \\
+    & \\
+    $\neg p$ & 命题$p$的否定 \\
+    $p \wedge q$ & $p$并且$q$ \\
+    $p \vee q$ & $p$或者$q$ \\
+    $p \rightarrow q$ & 若$p$则$q$ \\
+    $p \leftarrow q$ & 只有$p$才$q$ \\
+    $p \leftrightarrow q$ & $p$当且仅当$q$ \\
+    $p \oplus q$ & 要么$p$要么$q$ \\
+    & \\
+    $|AB|$ & 线段$AB$的长度 \\
+    $\angle AOB$ & 角$AOB$ \\
+    $\arcangle AOB$ & 交角$AOB$ \\
+    $l_1 \parallel l_2$ & 直线$l_1$与$l_2$平行 \\
+    $l_1 \perp l_2$ & 直线$l_1$与$l_2$垂直 \\
+    $\triangle ABC$ & 三角形$ABC$ \\
+    $\triangle ABC \simeq \triangle A'B'C'$ &  三角形$ABC$同角全等于三角形$A'B'C'$ \\
+    $\triangle ABC \backsimeq \triangle A'B'C'$ & 三角形$ABC$反角全等于三角形$A'B'C'$ \\
+    $\triangle ABC \cong \triangle A'B'C'$ & 三角形$ABC$全等于三角形$A'B'C'$ \\
+    $\triangle ABC \sim \triangle A'B'C'$ &  三角形$ABC$相似于三角形$A'B'C'$ \\
+    $\parasbx ABCD$ & 平行四边形$ABCD$ \\
+    $\square$ & 证明完毕 \\
+    $S_{\triangle ABC}$ & 三角形$ABC$的面积 \\
+    $\odot(O, r)$ & 圆$O$（半径为$r$） \\
+    $\odot(O, P)$ & 圆$O$（过点$P$） \\
+    $\widearc{AB}$ & 圆弧$AB$ \\
+    % $\mod$ & 模 \\
+    $[1..n]$ & 从$1$到$n$（的整数）\\
+    $\sqrt[3]{5}$ & $5$的$3$次方根 \\
+    $\mathbb{R}^*$ & 非零实数集 \\
+    $f\circ g$ & 函数$f$复合$g$ \\
+    $\displaystyle\sum_{i=1}^n x_i$ & 数$x_1, x_2, \cdots, x_n$的和 \\
+    $(a;b)$ & 开区间 \\
+    $[a;b]$ & 闭区间 \\
+    $(a;b]$ & 左开右闭区间 \\
+    $[a;b)$ & 左闭右开区间 \\
+    $\sin{x}$ & $x$的正弦 \\
+    $\cos{x}$ & $x$的余弦 \\
+    $\tan{x}$ & $x$的正切 \\
+    $\cot{x}$ & $x$的余切 \\
+    & \\
+    $\mathbf{a}$ & 向量 \\
+    $\vv{AB}$ & 向量$AB$\\
+    $(\mathbf{a}\, | \, \mathbf{b})$ & 向量$\mathbf{a},\mathbf{b}$的内积 \\
+    $\mathbf{a}\wedge \mathbf{b}$ & 向量$\mathbf{a},\mathbf{b}$的面积 \\
+
+\end{longtable}
+
+\end{document}

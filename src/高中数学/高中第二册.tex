@@ -226,7 +226,7 @@ $$
 \end{figure}
 
 我们已经知道，如果出发点在$x$轴正半轴上，那么求出一个切点的操作，可以用以下的映射表示：
-$$f_1: (x, y) \mapsto \left(\frac{r^2}{x},\,\, \frac{r\sqrt{x^2 - r^2}}{x}\right).$$
+$$f_1: (x; y) \mapsto \left(\frac{r^2}{x},\,\, \frac{r\sqrt{x^2 - r^2}}{x}\right).$$
 考虑圆心在原点，而出发点不在$x$轴正半轴上的情况。这时的图像完成了从$C$到原点的平移，还没有旋转，出发点在$P_1$的位置上。
 
 我们需要把$P_1$点旋转到$x$轴正半轴上的$P_2$点。记这个旋转为$T_\theta$，其中$\theta$是旋转角度。
@@ -268,7 +268,7 @@ $$ y_P \cos{\theta} + x_P\sin{\theta} = 0. $$
 \end{dcases}
 \end{alignat*}
 用另一个切点对应的映射：
-$$f_2: (x, y) \mapsto \left(\frac{r^2}{x},\,\, -\frac{r\sqrt{x^2 - r^2}}{x}\right),$$
+$$f_2: (x; y) \mapsto \left(\frac{r^2}{x},\,\, -\frac{r\sqrt{x^2 - r^2}}{x}\right),$$
 可以算出另一个切点的坐标：
 \begin{alignat*}{1}
     &   \begin{dcases}
@@ -1120,7 +1120,7 @@ $\beta$与$\alpha$平行，也就是说$\beta$与$\alpha$无公共点，
 或者说$\mathbf{b}\in \mathbb{R}\mathbf{a}$，就称两者\textbf{共轴}。
 
 类比可以定义线段和射线：给定非零向量$A = \mathbf{a}$和向量$B =\mathbf{b}$，
-$ \{(1 - t)\mathbf{a}+t\mathbf{b} \, | \, t\in [0, 1]\}$是线段$AB$，
+$ \{(1 - t)\mathbf{a}+t\mathbf{b} \, | \, t\in [0; 1]\}$是线段$AB$，
 $ \{(1 - t)\mathbf{a}+t\mathbf{b} \, | \, t \geqslant 0 \}$是射线$AB$。
 
 \begin{figure}[h] 
@@ -1656,7 +1656,7 @@ $$ 2(x_1-x_2)x + 2(y_1-y_2)y + 2(z_1-z_2)z = x_1^2+y_1^2+z_1^2 - x_2^2-y_2^2-z_2
     % $$ \cos{\theta} = \mathbf{n}_1 \cdot \mathbf{n}_2 = \frac{3z_P^2 + 4(y_P - 1)^2}{5z_P^2 + 4(y_P - 1)^2}.$$
     % 考虑$P$满足的条件：$(y_P - 1)^2 + z_P^2 = 1$，即$(y_P - 1)^2 = 1 - z_P^2$。代入消去$(y_P - 1)^2$相关项，得到：
     % $$ \cos{\theta} = \frac{7 - z_P^2}{7 + z_P^2} = \frac{14}{7 + z_P^2} - 1.$$
-    % 显然$z_P$在区间$[-1,1]$上取值，且$z_P \neq 0$。因此$0 < z_P^2 \leqslant 1$。于是根据反比例函数的性质，
+    % 显然$z_P$在区间$[-1;1]$上取值，且$z_P \neq 0$。因此$0 < z_P^2 \leqslant 1$。于是根据反比例函数的性质，
     % $$ \frac{3}{4} \leqslant \cos{\theta} < 1$$
     % 余弦函数在$[0,\pi]$上单调递减。因此，根据余弦函数的性质，$\theta$最大值为$\arccos{\frac{3}{4}}$。
     % 这时点$P$为$(0,\,\, 1,\,\, 1)$。\\
@@ -2232,7 +2232,7 @@ $O$称为球的\textbf{球心}，$a$称为\textbf{球的半径}。
 球还有另一种定义：空间中到一点距离不超过定值$a$的点的集合，就是球$\circledast(O,a)$。这两种定义是等价的，
 我们可以通过分别求出相应的方程来证明。
 
-首先看用旋转定义的球。设圆$(O,a)$上的点为$A(a\cos{\theta}, 0, a\sin{\theta})$，
+首先看用旋转定义的球。设$\odot(O,a)$上的点为$A(a\cos{\theta}, 0, a\sin{\theta})$，
 则它绕$\mathbf{h} = (0,0,1)$引出的直线一周得到的点$P$满足
 $$
 \left\{
@@ -2246,7 +2246,7 @@ $$
 $$ p_x^2 + p_y^2 + p_z^2 = a^2.$$
 也就是说，球是以下方程的解集：
 $$ x^2 + y^2 + z^2 \leqslant a^2.$$
-另一方面，空间中的点$P$到原点（圆$(O,a)$的圆心）的距离不超过$a$，就是说$\|\vv{OP}\| \leqslant a$​，
+另一方面，空间中的点$P$到原点（$\odot(O,a)$的圆心）的距离不超过$a$，就是说$\|\vv{OP}\| \leqslant a$​，
 因此这样定义的球，也是方程
 $$ x^2 + y^2 + z^2 \leqslant a^2$$
 的解集。这说明两种定义是等价的。
