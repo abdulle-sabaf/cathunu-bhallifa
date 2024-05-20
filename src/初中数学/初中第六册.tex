@@ -2340,9 +2340,9 @@ $$ \mathrm{Var}(f)  = \sum_{x\in X} \left(x - \mathbb{E}(f)\right)^2 p_f(x).$$
 $$ \mathbb{E}(h) = 1\cdot p + 0\cdot (1 - p) = p. $$
 于是，期望越大，表示$p$越大，说明掷硬币越可能正面朝上；反之说明掷硬币更可能反面朝上。又比如，考虑以上掷骰子的实验的随机变量$f$。
 假设各面朝上的概率分别是$p_1, p_2, \cdots , p_6$，那么$f$的期望是：
-$$ \mathbb{E}(h) = 10p_1 + 20p_2 + \cdots + 60p_6. $$
-如果$p_1$接近于$1$，其它概率接近$0$，那么$\mathbb{E}(h)$接近于$10$，即预期收益和$1$点向上的收益相近。
-如果$p_1$接近于$5$，其它概率接近$0$，那么$\mathbb{E}(h)$接近于$50$，即预期收益和$5$点向上的收益相近。
+$$ \mathbb{E}(f) = 10p_1 + 20p_2 + \cdots + 60p_6. $$
+如果$p_1$接近于$1$，其它概率接近$0$，那么$\mathbb{E}(f)$接近于$10$，即预期收益和$1$点向上的收益相近。
+如果$p_1$接近于$5$，其它概率接近$0$，那么$\mathbb{E}(f)$接近于$50$，即预期收益和$5$点向上的收益相近。
 
 一般来说，随机变量的期望是一种方便的描述预期结果的方法。概率越大的终态，对期望的影响越大，反之亦然。
 
@@ -2478,8 +2478,9 @@ $$\mathbb{P}(A_1\cap A_2\cap \cdots \cap A_n) = \mathbb{P}(A_1) \mathbb{P}(A_2) 
     \indent 2. 证明：如果事件$A_1,A_2$互斥，那么$\mathbb{P}(A_1 \cup A_2\, | \, B) = \mathbb{P}(A_1 \, | \, B) + \mathbb{P}(A_2 \, | \, B)$。 \\
     \indent 3. 证明：$\mathbb{P}(A) = \mathbb{P}(A \, | \, B) \mathbb{P}(B) + \mathbb{P}(A \, | \, B^c) \mathbb{P}(B^c)$。 \\
     \indent 4. 证明全概率公式：如果$B_1, B_2, \cdots, B_k$两两互斥，且并集为全集，那么$\mathbb{P}(A) = \mathbb{P}(A \, | \, B_1) \mathbb{P}(B_1) + \mathbb{P}(A \, | \, B_2) \mathbb{P}(B_2) + \cdots + \mathbb{P}(A \, | \, B_k) \mathbb{P}(B_k)$。 \\
-    \indent 5. 证明：$\mathbb{P}(B \, | \, A) = \frac{\mathbb{P}(A \, | \, B) \mathbb{P}(B)}{\mathbb{P}(A \, | \, B) \mathbb{P}(B) + \mathbb{P}(A \, | \, B^c) \mathbb{P}(B^c)}$。 \\
-    \indent 6. 证明反条件概率公式：如果$B_1, B_2, \cdots, B_k$两两互斥，且并集为全集，那么$\forall i\in[1..k], \,\,\, \mathbb{P}(B_i \, | \, A) = \frac{\mathbb{P}(A \, | \, B_i) \mathbb{P}(B_i)}{\mathbb{P}(A \, | \, B_1) \mathbb{P}(B_1) + \mathbb{P}(A \, | \, B_2) \mathbb{P}(B_2) + \cdots + \mathbb{P}(A \, | \, B_k) \mathbb{P}(B_k)}$。 \\
+    \indent 5. 证明：$\displaystyle\mathbb{P}(B \, | \, A) = \frac{\mathbb{P}(A \, | \, B) \mathbb{P}(B)}{\mathbb{P}(A \, | \, B) \mathbb{P}(B) + \mathbb{P}(A \, | \, B^c) \mathbb{P}(B^c)}$。 \\
+    \indent 6. 证明反条件概率公式：如果$B_1, B_2, \cdots, B_k$两两互斥，且并集为全集，那么
+    $$\forall i\in[1..k], \,\,\, \mathbb{P}(B_i \, | \, A) = \frac{\mathbb{P}(A \, | \, B_i) \mathbb{P}(B_i)}{\mathbb{P}(A \, | \, B_1) \mathbb{P}(B_1) + \mathbb{P}(A \, | \, B_2) \mathbb{P}(B_2) + \cdots + \mathbb{P}(A \, | \, B_k) \mathbb{P}(B_k)}.$$ 
     \indent 7. 抛掷两枚硬币，假设两次抛掷互不影响，每枚硬币抛出正反的概率相同。定义$A$为事件“第一枚抛出正面”，$B$为“第二枚抛出正面”，$C$为“两枚硬币抛掷结果相同”。 \\
     \indent 7.1. 求$A$、$B$、$C$的概率。\\
     \indent 7.2. 求$A\cap B$、$A\cap C$、$B \cap C$的概率。\\

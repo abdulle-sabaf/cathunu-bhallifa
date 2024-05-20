@@ -70,7 +70,9 @@
         }
     }
 }
-
+\newcommand{\lian}[1]{
+    \underset{#1}{\operatorname{lian}\,}
+}
 \usetikzlibrary{calc,topaths}
 
 \newcommand{\widearc}[1]{%
@@ -82,6 +84,13 @@
         \draw[line width=0.1ex,line cap=round,out=45,in=135] (wideArcAnchorA) to (wideArcAnchorB);
     }
 }
+\newcommand{\arccot}{\operatorname{arccot}}
+\newcommand{\oveq}[1]{\overset{#1}{=}} 
+\newcommand{\olim}[1]{\mathit{o}\left(#1\right)}  % petit o
+\newcommand{\Olim}[1]{\mathcal{O}\left(#1\right)}  % grand O
+\newcommand{\Tlim}[1]{\mathcal{\Theta}\left(#1\right)}  % grand theta
+\newcommand{\eqlim}[1]{\overset{#1}{\sim}}  % equivalence
+\newcommand{\vect}[1]{\left\langle #1 \right\rangle}
 % 列举环境的行间距
 \setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
 \setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
@@ -172,7 +181,6 @@
     $\sqrt[3]{5}$ & $5$的$3$次方根 \\
     $\mathbb{R}^*$ & 非零实数集 \\
     $\mathbb{R}^2$ & 平面坐标系 \\
-    $|x|$ & $x$的绝对值 \\
     $\infty$ & 无穷大 \\
     $f\circ g$ & 函数$f$复合$g$ \\
     $\displaystyle\sum_{i=1}^n x_i$ & 数$x_1, x_2, \cdots, x_n$的和 \\
@@ -197,6 +205,35 @@
     $P_n^k$ & $n$选$k$排列数 \\
     $C_n^k$ & $n$选$k$组合数 \\
     $n!$ & $n$的阶乘 \\
+    & \\
+    $\displaystyle\{a_n\}_{n\in\mathbb{Z}^+}$ & 无穷数列 \\
+    $\lian{n\to \infty} a_n = x$ & 数列$\{a_n\}$趋于极限$x$ \\
+    $\arcsin{x}$ & $x$的反正弦 \\
+    $\arccos{x}$ & $x$的反余弦 \\
+    $\arctan{x}$ & $x$的反正切 \\
+    $\arccot{x}$ & $x$的反余切 \\
+    $\log{x}$ & $x$的对数 \\
+    $\log_a{x}$ & $x$的$a$底对数 \\
+    $\lg{x}$ & $x$的常用对数 \\
+    $\ln{x}$ & $x$的自然对数 \\
+    $f^{(-1)}$ & $f$的逆映射 \\
+    $e$ & 自然对数的底数 \\
+    $\pi$ & 圆周率 \\
+    $|A|$ & 集合$A$的势 \\
+    $\partial f(x)$ & 函数$f$在$x$处的微变率 \\
+    $\partial f$ & 函数$f$的微变函数 \\
+    $\partial^n f(x)$ & 函数$f$在$x$处的$n$次微变 \\
+    $ f \oveq{a} \olim{g}$ & 在$a$附近$f$相比$g$可以忽略 \\
+    $ f \oveq{a} \Olim{g}$ & $f$在在$a$附近受制于$g$ \\
+    $ f \oveq{a} \Tlim{g}$ & $f$和$g$在$a$附近等阶 \\
+    $ f \eqlim{a} g$ & $f$和$g$在$a$附近等价 \\
+    $\mathbb{U} \oplus \mathbb{V}$ & 空间$\mathbb{U}$、$\mathbb{V}$的直和 \\
+    $\vect{A}$ & 集合$A$生成的空间 \\
+    $\dim{\mathbb{V}}$ & 空间$\mathbb{V}$的维数 \\
+    $\displaystyle\sum_{i=1}^\infty a_i$ & 级数和 \\
+    $\displaystyle\sum_{i\in\mathbb{N}} a_i$ & 级数和 \\
+
+% (\(|\[)([^,\)\$]+?),([^,\\]+?)(\)|\])
 
 \end{longtable}
 
