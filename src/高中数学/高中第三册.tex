@@ -878,12 +878,12 @@ $$ \partial \cot(a) = -\frac{1}{\sin^2{a}} $$
 可以看到，如果指数函数在$0$处可微，那么它在任意点处可微，且微变率是函数值与函数在$0$处微变率的乘积。
 
 于是，我们来研究指数函数在$0$处的微变。对于不同的底数$c_1$、$c_2$，有：
-$$c_2^h = c_1^{\frac{log{c_2}}{\log{c_1}}\cdot h}.$$
+$$c_2^h = c_1^{\frac{\log{c_2}}{\log{c_1}}\cdot h}.$$
 因此，
 \begin{align*}
-    \lian{h\to 0} \frac{c_2^h - 1}{h} &= \lian{h\to 0} \frac{c_1^{\frac{log{c_2}}{\log{c_1}}\cdot h} - 1}{h}  \\
-    &= \frac{log{c_2}}{\log{c_1}} \cdot \lian{h\to 0} \frac{c_1^{\frac{log{c_2}}{\log{c_1}}\cdot h} - 1}{\frac{log{c_2}}{\log{c_1}} \cdot h}  \\
-    &= \frac{log{c_2}}{\log{c_1}} \cdot \lian{t\to 0} \frac{c_1^{t} - 1}{t}  
+    \lian{h\to 0} \frac{c_2^h - 1}{h} &= \lian{h\to 0} \frac{c_1^{\frac{\log{c_2}}{\log{c_1}}\cdot h} - 1}{h}  \\
+    &= \frac{\log{c_2}}{\log{c_1}} \cdot \lian{h\to 0} \frac{c_1^{\frac{\log{c_2}}{\log{c_1}}\cdot h} - 1}{\frac{\log{c_2}}{\log{c_1}} \cdot h}  \\
+    &= \frac{\log{c_2}}{\log{c_1}} \cdot \lian{t\to 0} \frac{c_1^{t} - 1}{t}  
 \end{align*}
 也就是说，如果底数$c_1$的指数函数在$0$处可微，那么底数$c_2$的指数函数在$0$处也可微，并且两个微变率只差一个乘法系数。
 
@@ -910,7 +910,7 @@ $$ \partial f (a) = e^a = f(a).$$
 
 同样，如果底数为$e$，那么对数函数在任一点的微变率等于它在该点的值的倒数。
 $$ \partial \log_e (a) = \frac{1}{a}.$$
-为此，我们把以$e$为底数的对数函数称为\textbf{自然对数}，记作$\ln$。而$e$也叫做\textbf{自然对数的底数}。
+为此，我们把以$e$为底数的对数函数称为\textbf{自然对数}，记作$\ln$。而$e$也叫做\textbf{自然对数的底数}，简称\textbf{自然底数}。以$e$为底数的指数函数称为\textbf{自然指数}。
 
 \begin{et}
     \mbox{} \\
@@ -3731,11 +3731,11 @@ $$ \partial f(a) = \lian{x\to a} \frac{f(x) - f(a)}{x - a} = \lian{h\to 0} \frac
 
 对非零有理数$r = \frac{p}{q}$，注意到
 $$ \left(1 + \frac{r}{n}\right)^n = \left(1 + \frac{p}{qn}\right)^{\frac{nq}{q}} = \left(u_{p,qn}\right)^\frac{1}{q}$$
-于是数列$\{u_{r,n}\} = \{\left(1 + \frac{r}{n}\right)^n\}_{n\in\mathbb{Z}^+}$其实就是
-数列$\{u_{p,n}^{\frac{1}{q}}\}$的子列，因而收敛。
+于是数列$\displaystyle\{u_{r,n}\}_{n\in\mathbb{Z}^+} = \left\{\left(1 + \frac{r}{n}\right)^n\right\}_{n\in\mathbb{Z}^+}$其实就是
+数列$\{u_{p,n}^{\frac{1}{q}}\}_{n\in\mathbb{Z}^+}$的子列，因而收敛。
 
 \begin{tm}\label{tm:b-1-40}
-    对任意有理数$r$，数列$\{\left(1 + \frac{r}{n}\right)^n\}_{n\in\mathbb{Z}^+}$收敛。
+    对任意有理数$r$，数列$\left\{\left(1 + \frac{r}{n}\right)^n\right\}_{n\in\mathbb{Z}^+}$收敛。
 \end{tm}
 
 考虑关于$x$的函数$f_{n} : x \mapsto \left(1 + \frac{x}{n}\right)^n $。
@@ -3751,8 +3751,8 @@ $$ h(0) = 1, \quad h(1) = e.$$
 $$ h(x) = e^x. $$
 
 对正整数$k$，考虑$u_{k,kn}$：
-$$ u_{k,kn} = \left(1 + \frac{k}{kn}\right)^{kn} = \left(1 + \frac{1}{n}\right)^{kn}, $$
-因此，当$n$趋于无穷时，数列$\{u_{k,kn}\}$趋于$h(1)^k$。而它又是$\{u_{k,n}\}$的子列，
+$$ u_{k,kn} = \left(1 + \frac{k}{kn}\right)^{kn} = \left(1 + \frac{1}{n}\right)^{kn} = \left(\left(1 + \frac{1}{n}\right)^{n}\right)^{k}, $$
+因此，当$n$趋于无穷时，数列$\{u_{k,kn}\}_{n\in\mathbb{Z}^+}$趋于$h(1)^k$。而它又是$\{u_{k,n}\}_{n\in\mathbb{Z}^+}$的子列，
 所以趋于$h(k)$。这说明$h(k) = e^k$。
 
 考虑$u_{1,kn}$，它等于$u_{\frac{1}{k},n}^k$，所以$\{u_{\frac{1}{k},n}\}$趋于$h(1)^{\frac{1}{k}}$，
