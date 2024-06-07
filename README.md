@@ -41,3 +41,4 @@
 - [第一册.pdf](./%E6%82%9F%E6%95%B0%E5%AD%A6/%E9%AB%98%E4%B8%AD%E7%AC%AC%E4%B8%80%E5%86%8C.pdf)
 - [第二册.pdf](./%E6%82%9F%E6%95%B0%E5%AD%A6/%E9%AB%98%E4%B8%AD%E7%AC%AC%E4%BA%8C%E5%86%8C.pdf)
 - [第三册.pdf](./%E6%82%9F%E6%95%B0%E5%AD%A6/%E9%AB%98%E4%B8%AD%E7%AC%AC%E4%B8%89%E5%86%8C.pdf)
+- [第四册.pdf](./悟数学/高中第四册.pdf)
