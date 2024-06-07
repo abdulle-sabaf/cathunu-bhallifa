@@ -2629,13 +2629,20 @@ $$ \frac{A+C}{2} + \frac{\sqrt{B^2 + (A - C)^2}}{2}, \qquad \frac{A+C}{2} - \fra
 
 \begin{sk}
     \mbox{} \\
-    \indent 1. 
+    \indent 1. 列举所有二次曲线的退化情形，说明它们和椭圆、双曲线、抛物线的联系。\\
+    \indent 2. 能否用矩阵和向量表示二次曲线的方程？这里的矩阵和直变换的矩阵有什么不同？
 \end{sk}
 
 \begin{xt}
     \mbox{} \\
-    \indent 1. 
-    
+    \indent 1. 将以下二次曲线转为标准形式：
+    \begin{align*}
+        1).& x^2 + xy +y^2 - 2x + 2y + 1 = 0,  &2).& 2x^2 + 3xy -y^2 - x = 0 \\
+        3).& x^2 + 2xy + y^2 + 2x - 6y - 2 = 0,  & 4).& 2x^2 - \frac{7}{2}xy - y^2 - 3x - 3y - 2 = 0 
+    \end{align*}
+    \indent 2. 考虑一下附带变量系数$a$的二次曲线方程：
+    $$ (1 - a)x^2 - \sqrt{1 - a^2}xy - ay^2 - x + (2a - 1)y + 1 - 2a = 0. $$
+    根据$a$的不同取值，判断曲线的形状。
 \end{xt}
 
 \section{二次曲线的性质}
@@ -2844,12 +2851,48 @@ $a<k$、$a=k$、$a>k$这三种情形分别对应三类二次曲线。
 
 \begin{sk}
     \mbox{} \\
-    \indent 1. 
+    \indent 1. 用平面截圆锥、球体，会得到什么形状的截面？用圆锥面截圆锥、球体呢？\\
+    \indent 2. 二次曲线的第一类、第二类定义让你想起实际中的哪些例子？它们和二次曲线是否相关？
 \end{sk}
 
 \begin{xt}
     \mbox{} \\
-    \indent 1. 
+    \indent 1. 已知椭圆方程为
+    $$ \frac{x^2}{9} + \frac{y^2}{4} = 1.$$
+    \indent 1.1. 设椭圆两焦点为$F_1$、$F_2$。求$F_1$、$F_2$坐标。\\
+    \indent 1.2. 过椭圆上一点$M$作椭圆的切线$PQ$。证明：$\angle F_1MP = \angle F_2MQ$。\\
+    \indent 1.3. 以上结论是否对任意椭圆成立？\\
+    \indent 2. 已知双曲线方程为
+    $$ \frac{x^2}{9} - \frac{y^2}{7} = 1.$$
+    \indent 2.1. 设双曲线两焦点为$F_1$、$F_2$。求$F_1$、$F_2$坐标。\\
+    \indent 2.2. 过双曲线上一点$M$作双曲线的切线$PQ$。证明：$PQ$平分$\angle F_1MF_2$。\\
+    \indent 2.3. 以上结论是否对任意双曲线成立？\\
+    \indent 3. 已知抛物线方程为
+    $$ y^2 = 8x.$$
+    \indent 3.1. 求抛物线焦点$F$的坐标。\\
+    \indent 3.2. 过抛物线上一点$M$作双曲线的切线$PQ$；过$M$作准线的垂线，交准线于$T$。证明：$PQ$平分$\angle FMT$。\\
+    \indent 3.3. 以上结论是否对任意抛物线成立？\\
+    \indent 4. 已知椭圆方程为
+    $$ \frac{x^2}{4} + \frac{y^2}{3} = 1.$$
+    一点到椭圆的\textbf{切线}定义为过该点且与椭圆只有一个交点的直线。\\
+    \indent 4.1. 过点$P(4, 1)$作到椭圆的切线。证明这样的切线恰有两条。\\
+    \indent 4.2. 给出两条切线的方程，以及两切点$Q_1$、$Q_2$坐标。\\
+    \indent 4.3. 证明：直线$Q_1Q_2$经过椭圆的一焦点$F$，且$PF\perp Q_1Q_2$。\\
+    \indent 4.4. 以上结论是否对任意点及任意椭圆成立？\\
+    \indent 5.已知双曲线方程为
+    $$ \frac{x^2}{4} - \frac{y^2}{5} = 1.$$ 
+    一点到双曲线的\textbf{切线}定义为过该点且与双曲线只有一个交点的直线。\\
+    \indent 5.1. 过点$P\left(1, \frac{4}{3}\right)$作到双曲线的切线。证明这样的切线恰有两条。\\
+    \indent 5.2. 给出两条切线的方程，以及两切点$Q_1$、$Q_2$坐标。\\
+    \indent 5.3. 证明：直线$Q_1Q_2$经过双曲线的一焦点$F$，且$PF\perp Q_1Q_2$。\\
+    \indent 5.4. 以上结论是否对任意点及任意双曲线成立？\\
+    \indent 6.已知抛物线方程为
+    $$ y^2 = 4x.$$ 
+    一点到抛物线的\textbf{切线}定义为过该点且与抛物线只有一个交点的直线。\\
+    \indent 6.1. 过点$P(-1, -3)$作到抛物线的切线。证明这样的切线恰有两条。\\
+    \indent 6.2. 给出两条切线的方程，以及两切点$Q_1$、$Q_2$坐标。\\
+    \indent 6.3. 证明：直线$Q_1Q_2$经过抛物线的焦点$F$，且$PF\perp Q_1Q_2$。\\
+    \indent 6.4. 以上结论是否对任意点及任意抛物线成立？\\
     
 \end{xt}
 
@@ -3807,6 +3850,13 @@ $$ H(f + g) \leqslant H(f) + H(g).$$
 比如，一个函数可以总在零附近做微小的振荡，但它振荡的速度可以任意大，造成无比“陡峭”的局部微观变化。
 限制了高次微变，就自然限制了低次微变的变化。反正，要通过函数的低次微变来限制高次微变则是不平凡的，常常反映了函数本身的特性。
 
+是否只有一致收敛才能“交换操作”呢？也不尽然。比如，如果区间$I$上的函数列$\{f_n\}$逐点收敛到函数$f$，且$f_n$“不太大”，
+总受制于同一个在$I$上可积的函数$g$：
+$$ \forall n, \; \forall x \in I,\,\,\, |f_n(x)| \leqslant g(x), $$
+那么$f_n$和$f$都在$I$上可积，且积合的极限等于极限的积合：
+$$ \lian{n\to\infty} \int_I f_n = \int_I f = \int_I \lian{n\to\infty} f_n. $$
+这个结论称为\textbf{受制收敛定理}，是刻画函数积合性质的重要定理。严谨地定义它需要更高深的知识，这里不做深入讨论。
+
 \begin{sk}
     \mbox{} \\
     \indent 1. $f$是定义在$I$上的函数。如果可以把$I$划分为若干个子区间，而$f$在每个区间上连续，就说它分段连续。分段连续的函数，是否有以上提到的各种性质？\\
@@ -4305,6 +4355,40 @@ $$ \forall x \in (-R;R) ,\,\,\, f(x) = \sum_{n=0}^{+\infty} \frac{\partial^n f(0
 %     \indent 1. 幂级数系数的微变表示，和我们学过的哪个公式相似？为什么？\\
 %     \indent 2. 如果幂级数的收敛域是$[-R;R]$，是否在$[-R;R]$上可积？举出例子或反例。
 % \end{sk}
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 证明以下函数是光滑函数：
+    \begin{align*}
+        1).& 
+        x \mapsto \begin{cases}
+            \frac{\sin{x}}{x} & x\neq 0 \\
+            1 & x = 0 
+        \end{cases}
+        &2).&
+        x \mapsto \begin{cases}
+            \frac{1}{\sin{x}} - \frac{1}{x} & x\in (-\pi;\pi), x\neq 0 \\
+            0 & x = 0 
+        \end{cases} \\
+        3).& 
+        x \mapsto \begin{cases}
+            e^{-\frac{1}{|x|}} & x\neq 0 \\
+            0 & x = 0 
+        \end{cases}
+        &4).&
+        x \mapsto \begin{cases}
+            \frac{e^{\sqrt{x}} + e^{-\sqrt{x}}}{2} & x\geqslant 0 \\
+            \frac{e^{\sqrt{-x}} + e^{-\sqrt{-x}}}{2} & x < 0 
+        \end{cases}
+    \end{align*}
+    \indent 2. 给定幂级数$\sum_{n\in\mathbb{N}} a_n x^n$，其收敛半径$R>0$，首项$a_0=1$。\\
+    \indent 2.1. 证明，存在数列$\{b_n\}_{n\in\mathbb{N}}$，使得：
+    $$
+    b_0 = 1, \quad \forall n > 0, \;\, \sum_k=0^n a_k b_{n-k} = 0.
+    $$
+    \indent 2.2. 证明：存在$x>0$，使得级数$\sum_{n\in\mathbb{N}} b_n x^n$收敛。\\
+    \indent 2.3. 证明：幂级数$\sum_{n\in\mathbb{N}} b_n x^n$的收敛半径大于$0$。
+\end{xt}
 
 \chapter{复数}
 
