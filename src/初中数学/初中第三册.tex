@@ -38,16 +38,20 @@
 \setlength\parskip{8pt}
 \setlength{\fboxsep}{12pt}
 \renewcommand\thesection{\arabic{chapter}.\arabic{section}}
+\theoremstyle{definition}
 \newtheorem{df}{定义}[section] 
+\newtheorem*{po}{公理}
 \newtheorem{pp}{命题}[section]
 \newtheorem{tm}{定理}[section]
-\newtheorem{ex}{例子}[section]
-\newtheorem{sk}{思考}[section]
-\newtheorem{po}{公理}
-\newtheorem*{so}{解答}
-\newenvironment{proof2}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
-\newtheorem{xt}{习题}[section]
 \newtheorem{cor}{推论}[pp]
+\newtheorem{ex}{例子}[section]
+\newtheorem{et}{例题}[section]
+\newtheorem*{so}{解答}
+\theoremstyle{plain}
+\newtheorem{sk}{思考}[section]
+\newtheorem{xt}{习题}[section]
+% \newenvironment{proof2}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
+\renewenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
 % 列举环境的行间距
 \setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
 \setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
@@ -76,7 +80,7 @@
 一般用$\sim$和$\backsim$表示两个三角形同角和反角相似。如果不要求区分，可以只用$\sim$表示相似。
 
 \begin{wrapfigure}{r}{0.26\textwidth} %this figure will be at the right
-    \vspace{-26pt}
+    \vspace{40pt}
     \includegraphics[width=0.26\textwidth]{tu/比例1.png}
 \end{wrapfigure}
 
@@ -96,20 +100,46 @@
 注意到两条平行线截出了两个三角形：$\triangle ABC$和$\triangle ADE$，它们的三个内角分别相等。
 所以$\triangle ABC$和$\triangle ADE$相似。我们把$\frac{|AB|}{|AD|}$称为两者的\textbf{相似比}。
 
-% \begin{wrapfigure}{r}{0.28\textwidth} %this figure will be at the right
-%     \vspace{-10pt}
-%     \includegraphics[width=0.28\textwidth]{tu/相似2.png}
-% \end{wrapfigure}
-
 反之，通过平行公理可以推出，如果从一点出发的两条射线被两条平行直线所截，那么截得的线段成相同的比例，截得的三角形相似。
 甚至，“射线”可以改为“直线”。
+
+\begin{wrapfigure}{r}{0.3\textwidth} %this figure will be at the right
+    \vspace{-10pt}
+    \begin{flushright}
+        \includegraphics[width=0.28\textwidth]{tu/相似2.png}
+    \end{flushright}
+\end{wrapfigure}
+
+\begin{proof}
+    设从一点$O$出发的两条直线$m$、$n$被两平行直线$l_i$、$l_j$所截。截点分别是$M_i$、$M_j$和$N_i$、$N_j$。
+    
+    如果所截的点在$O$两侧，那么作截点在$O$另一侧等长的点。
+
+    比如，$M_i$、$M_j$在直线$m$上$O$的两侧，就作$M_i'$使得$M_i'$和$M_j$在$O$同侧。
+
+    如果$M_i'$、$M_j$重合，说明$|OM_i| = |OM_j|$。又$|ON_i'| = |ON_i|$，所以$\triangle OM_iN_i$和$\triangle OM_jN_i'$
+    全等，$\angle ON_iM_i = \angle ON_i'M_j$。内错角相等，这说明$M_jN_i' \parallel l_i$。根据平行公理，$M_jN_i'$就是直线$l_j$，
+    因此$N_i'$就是$l_j$与$M$的交点，也就是$N_j$。于是$\triangle OM_jN_i'$就是$\triangle OM_jN_j$，两者相似。截得线段比：
+    $$ \frac{|OM_i|}{|OM_j|} = \frac{|ON_i|}{|ON_j|}.$$
+
+    如果$M_i'$、$M_j$不重合，根据上面的证明，我们只需要考虑所有截点都在$O$同侧的情况，即把$N_i'$、$M_i'$当作$N_i$、$M_i$。
+    这时，可以把$m$、$n$看作射线。
+
+    在射线$m$上取一点$P$，使得$|OP| = \frac{|ON_i||OM_j|}{|OM_i|}$。这样，
+    $$ \frac{|OP|}{|OM_j|} = \frac{|ON_i|}{|ON_j|}.$$
+    因此，根据放缩公理，
+    $$ \frac{|OP|}{|OM_j|} = \frac{|ON_i|}{|ON_j|} = \frac{|N_iP|}{|N_jM_j|}.$$
+    而且$\angle ON_iP = \angle ON_jM_j$。同位角相等，这说明$N_iP \parallel l_j$。根据平行公理，$N_iP$就是$l_i$，$P$就是$M_i$。
+    也就是说，$l_i$、$l_j$截得的线段成相同的比例，截得的三角形相似。
+
+\end{proof}
 % TODO 补上证明
 
 一般来说，如果两个三角形相似，它们对应的边是否成比例呢？
 \begin{tm}\label{tm:0-0-1}
     三角形相似，则相等内角的对边成比例。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     设有三角形：$\triangle ABC \sim \triangle A'B'C'$，即$\angle BAC = \angle B'A'C'$，
     $\angle CBA = \angle C'B'A'$，$\angle BCA = \angle B'C'A'$。在射线$AB$上找一点$D$，使得$|AD| = |A'B'|$，
     在射线$AC$上找一点$E$，使得$|AE| = |A'C'|$。根据“边角边”，$\triangle ADE \simeq \triangle A'B'C'$。
@@ -119,7 +149,7 @@
     $$ \frac{|AB|}{|A'B'|} = \frac{|AC|}{|A'C'|} = \frac{|BC|}{|B'C'|}.$$
     如果$\triangle ABC \backsim \triangle A'B'C'$，同样方法作出的$\triangle ADE \backsimeq \triangle A'B'C'$。
     于是通过类似推理可以得到相同的结论。
-\end{proof2}
+\end{proof}
 
 \section{判定相似关系}
 如何判断两个三角形是否相似呢？方法和判断三角形是否全等差不多。
@@ -143,7 +173,7 @@ $|AE| = |A'C'|$，根据“边角边”，$\triangle ADE \cong \triangle A'B'C'$
 \begin{tm}\label{tm:0-1-1}
     三角形对应的三边成比例，则它们相似。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     设$\triangle ABC$和$\triangle A'B'C'$满足：
     $$ \frac{|AB|}{|A'B'|} = \frac{|AC|}{|A'C'|} = \frac{|BC|}{|B'C'|}.$$
     在在射线$AB$上找一点$D$，使得$|AD| = |A'B'|$，
@@ -154,7 +184,7 @@ $|AE| = |A'C'|$，根据“边角边”，$\triangle ADE \cong \triangle A'B'C'$
     这说明
     $$ |DE| = \frac{|BC|\cdot |AD|}{|AB|} = \frac{|BC|\cdot |A'B'|}{|AB|} = |B'C'|. $$
     根据“边边边”，$\triangle ADE \cong \triangle A'B'C'$。因此$\triangle ABC \sim \triangle A'B'C'$。
-\end{proof2}
+\end{proof}
 
 我们把这个结论也简称为“边边边”。和判定三角形全等的“边边边”一样，我们无法确定是同角相似还是反角相似。
 
@@ -172,13 +202,13 @@ $|AE| = |A'C'|$，根据“边角边”，$\triangle ADE \cong \triangle A'B'C'$
     边$AC$的中点为$N$，过$M$的中线$CM$和过$N$的中线$BN$交于一点$P$，则
     $$\frac{|BP|}{|PN|} = \frac{|CP|}{|PM|} = 2.$$
 \end{tm}
-\begin{proof2}
+\begin{proof}
     从已知条件可以得到：
     $$\frac{|AM|}{|AB|} = \frac{|AN|}{|AC|} = \frac12.$$
     因此，作辅助线$MN$。根据放缩公理，$\triangle AMN \sim \triangle ABC$，相似比为$\frac12$。
     即$|BC| = 2|MN|$。此外还推出$MN \parallel BC$，因此，$\triangle PMN \sim \triangle PCB$。因而有
     $$\frac{|BP|}{|PN|} = \frac{|CP|}{|PM|} = \frac{|BC|}{|MN|} = 2.$$
-\end{proof2}
+\end{proof}
 
 \begin{wrapfigure}{r}{0.27\textwidth} %this figure will be at the right
     \vspace{-10pt}
@@ -192,13 +222,13 @@ $MN$也叫做关于边$BC$的中位线。另外要注意的是：我们只知道
     设三角形$\triangle ABC$的内角$\angle BAC$的角平分线交对边于$P$，则
     $$ \frac{|BP|}{|PC|} = \frac{|BA|}{|AC|}.$$
 \end{tm}
-\begin{proof2}
+\begin{proof}
     过$C$作$AP$的平行线，与射线$BA$交于点$D$。$CD \parallel AP$，所以同位角$\angle BAP = \angle BDC$，
     内错角$\angle PAC = \angle DAC$。而$AP$是角平分线，所以$\angle BAP = \angle PAC$。
     于是$\angle BDC = \angle DAC$，$\triangle ACD$是等腰三角形，$|AC| = |AD|$。\\
     另一方面，$CD \parallel AP$，所以$\triangle BAP \sim \triangle BDC$，因此，
     $$\frac{|BP|}{|PC|} = \frac{|BA|}{|AD|} = \frac{|BA|}{|AC|}.$$
-\end{proof2}
+\end{proof}
 
 \begin{wrapfigure}{r}{0.27\textwidth} %this figure will be at the right
     \vspace{-80pt}
@@ -214,7 +244,7 @@ $MN$也叫做关于边$BC$的中位线。另外要注意的是：我们只知道
     且
     $$|AH|^2 = |BH| \cdot |CH|.$$
 \end{tm}
-\begin{proof2}
+\begin{proof}
     $\angle AHB$和$\angle BAC$都是直角。
     $\angle HBA = \angle CBA$，$\angle AHB = \angle BAC$，所以$\triangle HBA \sim \triangle ABC$。
     因此，
@@ -233,7 +263,7 @@ $MN$也叫做关于边$BC$的中位线。另外要注意的是：我们只知道
     $$ \frac{|BH|}{|HA|} = \frac{|AH|}{|HC|},$$
     即
     $$|AH|^2 = |BH| \cdot |CH|.$$
-\end{proof2}
+\end{proof}
 
 射影定理是一个十分有用的结论。
 它的本质是直角三角形中的相似关系：$\triangle HAC \sim \triangle HBA \sim \triangle ABC$。
@@ -242,7 +272,7 @@ $MN$也叫做关于边$BC$的中位线。另外要注意的是：我们只知道
     直角三角形$ABC$中，$\angle A$是直角。则
     $$|AB|^2+|AC|^2 = |BC|^2.$$
 \end{tm}
-\begin{proof2}
+\begin{proof}
     作$A$到$BC$的垂线，垂足为$H$。
     根据射影定理，    
     $$ |AB|^2 = |BH|\cdot |BC|, \quad |AC|^2 = |CH|\cdot |BC|,$$
@@ -250,7 +280,7 @@ $MN$也叫做关于边$BC$的中位线。另外要注意的是：我们只知道
     $$ |AB|^2+|AC|^2 = |BH|\cdot |BC| + |HC|\cdot |BC| = (|BH| + |HC|)\cdot |BC|$$
     即
     $$ |BC|^2 = |AB|^2+|AC|^2.$$
-\end{proof2}
+\end{proof}
 
 勾股定理是数学中非常重要的定理，也是非常有名的定理。它的证明方法有四百多种，涉及各种各样的技巧和知识。
 勾股定理在西方也称为毕达哥拉斯定理。
@@ -313,7 +343,7 @@ $MN$也叫做关于边$BC$的中位线。另外要注意的是：我们只知道
     （非退化的）三角形三边的垂线交于一点，称为三角形的\textbf{垂心}。
 \end{tm}
 
-\begin{proof2}
+\begin{proof}
     如右图，过三角形顶点$A,B,C$分别作平行于对边的直线，它们两两相交于$D,E,F$。
     $\angle BAC$和$\angle ECA$是内错角，所以相等。同理，$\angle ACB = \angle CAE$。
     此外$|AC| = |CA|$。因此，根据“角边角”，$\triangle ABC \cong \triangle CEA$。
@@ -322,7 +352,7 @@ $MN$也叫做关于边$BC$的中位线。另外要注意的是：我们只知道
     因此，$|CD| = |AB|$，$|BD| = |AC|$，$|BF| = |AC|$，$|AF| = |BC|$。进而可得，
     $A$是线段$EF$中点，$B$是线段$DF$中点，$C$是线段$DE$中点。垂线$h(A), h(B), h(C)$分别是
     三角形$DEF$三边的垂直平分线。根据外心定理\ref{tm:1-0-0}，它们交于一点。
-\end{proof2}
+\end{proof}
 \begin{xt}\label{xt:1-1-0}
     \mbox{}\\
     给定三角形$ABC$的垂心$H$，\\
@@ -350,12 +380,12 @@ $MN$也叫做关于边$BC$的中位线。另外要注意的是：我们只知道
     线交于一点，称为三角形的\textbf{内心}。
 \end{tm}
 
-\begin{proof2}
+\begin{proof}
     设$\triangle ABC$的内角：$\angle B$和$\angle C$的平分线交于一点$I$，
     作$I$到三角形三边的垂线，设垂足分别为$I_A$、$I_B$、$Q_C$。
     根据角平分线定理，$|I_AI| = |I_BI|$、$|I_AI| = |I_CI|$。所以$|I_CI| = |I_BI|$，
     根据角平分线定理的逆定理，$I$也在$\angle A$的平分线上。
-\end{proof2}
+\end{proof}
 
 \begin{wrapfigure}{r}{0.32\textwidth} %this figure will be at the right
     \vspace{-30pt}
@@ -372,12 +402,12 @@ $MN$也叫做关于边$BC$的中位线。另外要注意的是：我们只知道
     角形的\textbf{旁心}。
 \end{tm}
 
-\begin{proof2}
+\begin{proof}
     设$\triangle ABC$的外角：$\angle B$和$\angle C$的平分线交于一点$J_A$，
     作$J_A$到三角形三边所在直线的垂线，设垂足分别为$P_A$、$P_B$、$P_C$。
     根据角平分线定理，$|P_AJ_A| = |P_BJ_A|$、$|P_AJ_A| = |P_CJ_A|$。所以$|P_CJ_A| = |P_BJ_A|$，
     根据角平分线定理的逆定理，$J_A$也在内角$\angle A$的平分线上。
-\end{proof2}
+\end{proof}
 
 三角形每个内角和另外两个外角都可以构造一个旁心，所以，三角形有一个内心和三个旁心。
 
@@ -416,7 +446,7 @@ $MN$也叫做关于边$BC$的中位线。另外要注意的是：我们只知道
     （非退化的）三角形三边上的中
     线交于一点，称为三角形的\textbf{重心}。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     设$\triangle ABC$三边中点为$M_A$、$M_B$、$M_C$，中线$BM_B$和$CM_C$交于点$G$。
     根据定理\ref{tm:0-2-0}，
     $$\frac{|BG|}{|GM_B|} = \frac{|CG|}{|GM_C|} = 2.$$
@@ -424,7 +454,7 @@ $MN$也叫做关于边$BC$的中位线。另外要注意的是：我们只知道
     $$\frac{|BG|}{|G'M_B|} = \frac{|AG'|}{|G'M_A|} = 2.$$
     $G$和$G'$都在线段$BM_B$上，且$|BG| = \frac23 |BM_B| = |BG'|$。
     这说明$G$和$G'$是同一点，它是$AM_A$、$BM_B$和$CM_C$的公共点。
-\end{proof2}
+\end{proof}
 三角形的三条中线不仅交于一点，而且这一点到每个定点的距离，都是到对边中点距离的两倍。
 
 重心的概念有物理的意义。均匀分布的物体受到的重力，可以视为重心受到的重力。
@@ -451,7 +481,7 @@ $MN$也叫做关于边$BC$的中位线。另外要注意的是：我们只知道
 \begin{ex}\label{ex:2-0-0}
     如果任一整数$n$的平方是偶数，那么$n$也是偶数。
 \end{ex}
-\begin{proof2}
+\begin{proof}
     使用反证法。命题“如果任一整数$n$的平方是偶数，那么$n$也是偶数”的否定是“至少有一个整数$n$，它的平方是偶数，并且它不是偶数”。
     为了证明原命题是真的，我们假设它的否定是真的，然后推理得到矛盾。\\
     反设至少有一个整数$n$的平方是偶数，而且$n$不是偶数。于是$n$是奇数，可以写成：
@@ -462,13 +492,13 @@ $MN$也叫做关于边$BC$的中位线。另外要注意的是：我们只知道
     $$ n^2 = 4k(k+1)+1.$$
     于是$n^2$是奇数。但$n^2$是偶数。这就产生了矛盾！
     这说明原命题的否定“至少有一个整数$n$，它的平方是偶数，并且它不是偶数”是假的，因此原命题是真的。
-\end{proof2}
+\end{proof}
 
 \begin{ex}\label{ex:2-0-1}
     证明：\\
     任何有理数的平方都不是$2$。
 \end{ex}
-\begin{proof2}
+\begin{proof}
     使用反证法。命题“任何有理数的平方都不是$2$”的否定是“至少有一个有理数的平方是$2$”。
     为了证明原命题是真的，我们假设它的否定是真的，然后推理得到矛盾。\\
     反设至少有一个有理数的平方是$2$，设某个有理数$r$的平方等于$2$。把$r$写成既约分数：$\frac{p}{q}$。
@@ -481,7 +511,7 @@ $MN$也叫做关于边$BC$的中位线。另外要注意的是：我们只知道
     $$ q^2 = 2m^2.$$
     于是$q^2$也是偶数，这说明$q$是偶数。因此$p$和$q$都是偶数。但$\frac{p}{q}$是既约分数。这就产生了矛盾！
     这说明原命题的否定“至少有一个有理数的平方是$2$”是假的，因此原命题是真的。
-\end{proof2}
+\end{proof}
 
 \begin{wrapfigure}{r}{0.27\textwidth} %this figure will be at the left
     \vspace{10pt}
@@ -493,7 +523,7 @@ $MN$也叫做关于边$BC$的中位线。另外要注意的是：我们只知道
 \begin{tm}\label{tm:2-0-0}
     两条直线$m,n$交另一条直线$l$于两点。如果同位角相等，那么$m,n$平行。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     使用反证法。命题“如果同位角相等，那么$m,n$平行”的否定是“有一对同位角相等，而且$m,n$不平行”。
     为了证明原命题是真的，我们假设它的否定是真的，然后推理得到矛盾。\\
     反设有一对同位角$\angle 1$和$\angle 2$相等，而且$m,n$不平行。设$m,n$的交点$C$在点$A$的一侧（如右图）。
@@ -502,16 +532,34 @@ $MN$也叫做关于边$BC$的中位线。另外要注意的是：我们只知道
     这就产生了矛盾！\\
     如果交点$C$在点$A$另一侧，通过类似推理可同样推出矛盾。\\
     这说明原命题的否定“有一对同位角相等，而且$m,n$不平行”是假的，因此原命题是真的。
-\end{proof2}
+\end{proof}
 
 反证法的好处在于，通过假设命题的否定为真，我们多了一个用来推理的条件。
 
+从定理\ref{tm:2-0-0}出发，可以证明它的逆命题。
+
+\begin{tm}\label{tm:2-0-10}
+    两条平行直线$m,n$交另一条直线$l$于两点，则同位角相等。
+\end{tm}
+
+\begin{proof}
+    记$m,l$交点为$A$，$n,l$交点为$B$。
+    过$B$作直线$n'$使得$n',l$的交角等于$m,l$的交角。由于这个交角就对应$m,n'$交$l$的同位角，
+    所以根据定理\ref{tm:2-0-0}，$m,n'$平行。而根据平行公理，过直线外一点恰有一条直线与它平行。
+    所以$n' = n$。这说明$m,n$交$l$的同位角相等。
+\end{proof}
+
+这里我们利用了平行公理的“唯一”性。这种利用“符合条件的恰有一个”来证明的方法称为\textbf{同一法}。
+
 \begin{xt}
-    用反证法证明：\\
-    \indent 1. 如果任一整数$n$的立方是奇数，那么$n$也是奇数。\\
-    \indent 2. 所有奇数的平方除以$8$都余$1$。\\
-    \indent 3. 证明垂距定理的逆命题：如果直线$l$外一点$P$到$l$上某点$Q$的距离不大于它到$l$上任何点的距离，
-    那么$OQ \perp l$。
+    \mbox{} \\
+    \indent 1. 用反证法证明：如果任一整数$n$的立方是奇数，那么$n$也是奇数。\\
+    \indent 2. 用反证法证明：所有奇数的平方除以$8$都余$1$。\\
+    \indent 3. 用反证法证明垂距定理的逆命题：如果直线$l$外一点$P$到$l$上某点$Q$的距离不大于它到$l$上任何点的距离，
+    那么$OQ \perp l$。\\
+    \indent 4. 两条直线$m,n$交另一条直线$l$于两点。\\
+    \indent 4.1. 用反证法证明：如果内侧角相等，那么$m,n$平行。\\
+    \indent 4.1. 用反证法证明：如果同旁内角和为平角，那么$m,n$平行。\\
     动手做：\\
     \indent 补全定理\ref{tm:2-0-0}中根据“交点$C$在点$A$另一侧”推出矛盾的过程。
 \end{xt}
@@ -546,7 +594,7 @@ $$ \frac12 + \frac13 > \frac{9}{10}.$$
 使用归纳公理的证明，也叫做用（数学）归纳法证明。用“数学”两个字，是为了和日常生活中凭有限经验归纳的做法区别开来。
 
 以上三个例子中的规律，如何用归纳公理来论证呢？我们分别来写出过程。
-\begin{proof2}{\textbf{第一个例子 }}
+\begin{proof}{\textbf{第一个例子 }}
     命题$P(n)$：
     $$ 1 + 3 + 3^2 + \cdots + 3^n = \frac{3^{n+1} - 1}{2}. $$
     按照归纳公理，要论证命题对任意自然数$n$都成立，我们分别验证两个条件：\\
@@ -562,12 +610,12 @@ $$ \frac12 + \frac13 > \frac{9}{10}.$$
         &= \frac{2 \cdot 3^{n+1}}{2} = 3^{n+1} 
     \end{align*}
     显然成立。因此，根据归纳公理，$P(n)$对任意自然数$n$都成立。    
-\end{proof2}
+\end{proof}
 
 我们可以看到，论证的时候，我们分别验证归纳公理要求的两个条件成立。从复杂的代数式到显然成立的等式，
 我们用到了变量代换和因式分解的技巧。
 
-\begin{proof2}{\textbf{第二个例子 }}
+\begin{proof}{\textbf{第二个例子 }}
     命题$P$只对正整数有定义，所以我们要证明$P(n)$对所有正整数$n$成立。
     为此，我们稍微改变一下论证方式。\\
     命题$P(n)$：
@@ -584,9 +632,9 @@ $$ \frac12 + \frac13 > \frac{9}{10}.$$
         &= \frac{n+1}{2} \cdot 2 = n+1 
     \end{align*}
     显然成立。因此，根据归纳公理，$P(n)$对任意正整数$n$都成立。    
-\end{proof2}
+\end{proof}
 
-\begin{proof2}{\textbf{第三个例子 }}
+\begin{proof}{\textbf{第三个例子 }}
     命题$P(n)$：
     $$ \frac{1}{n+1} + \frac{1}{n+2} + \cdots + \frac{1}{3n} > \frac{9}{10}. $$
     我们已经验证过，$P(1)$不成立。现在利用归纳公理证明$P(n)$对大于等于$2$的自然数成立。
@@ -612,7 +660,7 @@ $$ \frac12 + \frac13 > \frac{9}{10}.$$
     $$ \frac{1}{n+2} + \frac{1}{n+3} + \cdots + \frac{1}{3n+3} > \frac{1}{n+2} + \frac{1}{n+3} + \cdots + \frac{1}{3n}. $$
     $P(n)$告诉我们，上式右边大于$\frac{9}{10}$，所以上式左边也大于$\frac{9}{10}$。也就是说，$P(n+1)$成立。\\
     因此，根据归纳公理，$P(n)$对任意大于等于$2$的自然数$n$都成立。    
-\end{proof2}
+\end{proof}
 从第二、第三个例子可以看出，归纳公理可以换个“开头”使用。为什么可以这么做呢？让我们来理解归纳公理是如何告诉我们$P(n)$对
 任意自然数$n$都成立的。
 
@@ -765,13 +813,13 @@ $\sqrt{2}$能够表示为长度或两点间的距离，所以$\sqrt{2}$是实数
 \begin{tm}\label{tm:3-1-0}
     任一无理数和任何有理数进行有限次加减乘除（不包括乘以$0$），得到的结果仍然是无理数。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     用反证法证明。反设原命题的否定为真：存在某个无理数$t$和某些有理数经过有限次加减乘除（不包括乘以$0$）
     后得到的是有理数$r$。那么，
     $r$经过这些与有理数的加减乘除的逆运算（不包括除以$0$），得到无理数$t$。但我们知道，有理数之间的加减乘除运算
     总得到有理数。这就造成了矛盾！\\
     因此，原命题为真：任何无理数和任何有理数进行有限次加减乘除（不包括乘以$0$），得到的结果仍然是无理数。
-\end{proof2}
+\end{proof}
 比如，$\sqrt{2}+1$，$\frac{\sqrt{7} - 2}{5}$等等都是无理数。
 
 \begin{xt}\label{xt:3-1-0}
@@ -1087,7 +1135,7 @@ $k$的正负对函数的性质有本质影响。
 \begin{tm}\label{tm:5-0-0}
     正比例函数的图像是一条过原点的直线。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     设有正比例函数$f: x \mapsto kx$，其中$k$是比例系数。我们证明：$f$的图像是一条经过原点的直线。\\
     首先，$f(0) = k\cdot 0 = 0$。所以原点$O$可以写成$(0, f(0))$，因此在函数的图像上。\\
     其次，$f(1) = k\cdot 1 = k$，因此点$P = (1, k)$在图像上。\\
@@ -1111,7 +1159,7 @@ $k$的正负对函数的性质有本质影响。
     $l$关于$x$轴的对称图像就是$k>0$的情况。于是，通过类似推理，可以证明函数$f$的图像就是直线$l$。\\
     最后考虑$k=0$的情况，这时$f$就是常函数$x\mapsto 0$。于是对任意数$x$来说，$(x, f(x)) = (x, 0)$。
     于是它的图像就是$x$轴：一条过原点的直线。
-\end{proof2}
+\end{proof}
 
 直角坐标系把函数和图形联系了起来，让我们有了一种直观理解函数的方法。一般来说，
 我们无法根据函数的定义轻易画出函数的图像。如果已知函数的图像，我们可以对函数有深入的了解。

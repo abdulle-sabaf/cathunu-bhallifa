@@ -28,16 +28,20 @@
 \setlength\parskip{8pt}
 \setlength{\fboxsep}{12pt}
 \renewcommand\thesection{\arabic{chapter}.\arabic{section}}
+\theoremstyle{definition}
 \newtheorem{df}{定义}[section] 
+\newtheorem*{po}{公理}
 \newtheorem{pp}{命题}[section]
 \newtheorem{tm}{定理}[section]
+\newtheorem{cor}{推论}[pp]
 \newtheorem{ex}{例子}[section]
 \newtheorem{et}{例题}[section]
-\newtheorem{sk}{思考}[section]
+\newtheorem*{ex*}{例子}
 \newtheorem*{so}{解答}
-\newenvironment{proof2}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
+\theoremstyle{plain}
+\newtheorem{sk}{思考}[section]
 \newtheorem{xt}{习题}[section]
-\newtheorem{cor}{推论}[pp]
+\renewenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
 % 列举环境的行间距
 \setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
 \setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}

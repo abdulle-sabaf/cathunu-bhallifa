@@ -38,18 +38,21 @@
 \setlength\parskip{8pt}
 \setlength{\fboxsep}{12pt}
 \renewcommand\thesection{\arabic{chapter}.\arabic{section}}
+\theoremstyle{definition}
 \newtheorem{df}{定义}[section] 
+\newtheorem*{po}{公理}
 \newtheorem{pp}{命题}[section]
 \newtheorem{tm}{定理}[section]
-\newtheorem{et}{例题}[section]
+\newtheorem{cor}{推论}[pp]
 \newtheorem{ex}{例子}[section]
-\newtheorem{sk}{思考}[section]
-\newtheorem{po}{公理}
+\newtheorem{et}{例题}[section]
 \newtheorem*{so}{解答}
+\theoremstyle{plain}
+\newtheorem{sk}{思考}[section]
+\newtheorem{xt}{习题}[section]
 % \newenvironment{proof2}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
 \renewenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
-\newtheorem{xt}{习题}[section]
-\newtheorem{cor}{推论}[pp]
+
 \renewcommand{\proofname}{\indent\bf 证明}
 \renewcommand{\qedsymbol}{\hfill$\square$}
 % 列举环境的行间距
@@ -939,7 +942,6 @@ $\triangle MAP \backsimeq \triangle MBP$。于是$|AP| = |BP|$，即$P\in\mathfr
 $\triangle MAO \backsimeq \triangle MBO$。所以，$\angle AOM = -\angle BOM$。这说明$\angle AOB = 2\angle AOM$。
 我们说点$M$或射线$OM$\textbf{平分}$\angle AOB$。$OM$称为$\angle AOB$的\textbf{角平分线}，它把$\angle AOB$平分成两半。
 
-
 \begin{wrapfigure}{r}{0.33\textwidth} %this figure will be at the right
     \vspace{-15pt}
     \centering
@@ -999,8 +1001,17 @@ $\triangle MAO \backsimeq \triangle MBO$。所以，$\angle AOM = -\angle BOM$�
     所以，根据“边边边”，$\triangle ABC \cong \triangle BED$。于是，$\angle EBD = \angle BAC$。
 \end{proof}
 
-从这个定理，我们可以推出：三角形三个内角之和等于平角。这个结论，我们已经有直观感受。现在，我们从公理出发，
+从这个定理，我们可以推出：\textbf{三角形三个内角之和等于平角}。这个结论，我们已经有直观感受。现在，我们从公理出发，
 严格证明了这个结论。
+
+%TODO 平行定理
+% \begin{wrapfigure}{r}{0.4\textwidth} %this figure will be at the right
+%     \flushright
+%     \includegraphics[width=0.36\textwidth]{tu/三线八角.png}
+% \end{wrapfigure}
+
+% 使用三角形内角和的性质，可以证明之前三线八角的结论。
+
 
 \section{垂直和垂线}
 

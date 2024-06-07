@@ -41,17 +41,20 @@
 \newcommand{\lian}[1]{
     \underset{#1}{\operatorname{lian}\,}
 }
+\theoremstyle{definition}
 \newtheorem{df}{定义}[section] 
+\newtheorem*{po}{公理}
 \newtheorem{pp}{命题}[section]
 \newtheorem{tm}{定理}[section]
+\newtheorem{cor}{推论}[pp]
 \newtheorem{ex}{例子}[section]
 \newtheorem{et}{例题}[section]
-\newtheorem{sk}{思考}[section]
-\newtheorem*{po}{公理}
+\newtheorem*{ex*}{例子}
 \newtheorem*{so}{解答}
-\renewenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
+\theoremstyle{plain}
+\newtheorem{sk}{思考}[section]
 \newtheorem{xt}{习题}[section]
-\newtheorem{cor}{推论}[pp]
+\renewenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
 % \declaretheorem[name=定义, numberwithin=section, shaded={rulecolor={rgb}{0.1,0.7,0.4},
 % rulewidth=2pt, bgcolor={rgb}{0.96,1,0.99}}]{df}
 % \declaretheorem[name=定理, numberwithin=section, shaded={rulecolor={rgb}{0.1,0.4,0.7},

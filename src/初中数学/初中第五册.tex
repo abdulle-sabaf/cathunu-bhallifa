@@ -59,16 +59,19 @@
 %         \ifthenelse{\equal{$#1$}{}}{}{\node at (0em,0.56em) {$\scriptscriptstyle #1$}};
 %     \end{tikzpicture}
 % }
+\theoremstyle{definition}
 \newtheorem{df}{定义}[section] 
+\newtheorem*{po}{公理}
 \newtheorem{pp}{命题}[section]
 \newtheorem{tm}{定理}[section]
+\newtheorem{cor}{推论}[pp]
 \newtheorem{ex}{例子}[section]
-\newtheorem{sk}{思考}[section]
-\newtheorem{po}{公理}
+\newtheorem{et}{例题}[section]
 \newtheorem*{ex*}{例子}
 \newtheorem*{so}{解答}
+\theoremstyle{plain}
+\newtheorem{sk}{思考}[section]
 \newtheorem{xt}{习题}[section]
-\newtheorem{cor}{推论}[pp]
 \renewenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
 % \renewcommand{\proofname}{\indent\bf 证明}
 % \renewcommand{\qedsymbol}{\hfill$\square$}

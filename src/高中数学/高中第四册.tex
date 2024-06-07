@@ -55,18 +55,20 @@
 \newcommand{\vect}[1]{\left\langle #1 \right\rangle}
 
 
-\renewenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
-
+\theoremstyle{definition}
 \newtheorem{df}{定义}[section] 
+\newtheorem*{po}{公理}
 \newtheorem{pp}{命题}[section]
 \newtheorem{tm}{定理}[section]
+\newtheorem{cor}{推论}[pp]
 \newtheorem{ex}{例子}[section]
 \newtheorem{et}{例题}[section]
-\newtheorem{sk}{思考}[section]
-\newtheorem*{po}{公理}
+\newtheorem*{ex*}{例子}
 \newtheorem*{so}{解答}
+\theoremstyle{plain}
+\newtheorem{sk}{思考}[section]
 \newtheorem{xt}{习题}[section]
-\newtheorem{cor}{推论}[pp]
+\renewenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
 
 % 列举环境的行间距
 \setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
@@ -684,7 +686,7 @@ $$\forall k\in \mathbb{N}, \,\,\, a_k = \frac{\partial^k S(0)}{k!}.$$
 上一节已经证明，幂级数总是光滑函数。
 因此，我们希望任意光滑函数都对应某个幂级数。
 
-这个猜想上一节中，我们把一些经典函数表示成了幂级数。比如：
+上一节中，我们把一些经典函数表示成了幂级数。比如：
 $$ \forall x, \,\,\, e^x = \sum_{n=0}^{+\infty} \frac{x^n}{n!}. $$
 
 我们知道，足够光滑的函数，可以在局部展开。它的局部展开的形式和幂级数的部分和函数一样，都是多项式函数。
@@ -696,7 +698,7 @@ $$ \forall x, \,\,\, e^x = \sum_{n=0}^{+\infty} \frac{x^n}{n!}. $$
 
 我们把能够在一定区间上展开为幂级数的函数称为\textbf{可展函数}，对应的幂级数称为函数在对应区间上的\textbf{幂级数展开}。
 比方说，对于函数$f$，如果有$r>0$和级数$\sum a_n$，使得
-$$\forall x\in (-r;r),\,\,\, f(x) = \sum a-n x^n,$$
+$$\forall x\in (-r;r),\,\,\, f(x) = \sum a_n x^n,$$
 就说$f$在$(-r;r)$上可展开为幂级数。
 
 经典函数中的指数函数、正弦函数、余弦函数都可以在其定义域上展开为幂级数，因此都是可展函数。
@@ -805,7 +807,9 @@ $$ r^4 - 3\dlim{8400} r^2 - 422\dlim{4000} r - 9216\dlim{0000} = 0. $$
   % 线性方程组例子
   考虑化学反应：氨气和氧气反应，生成一氧化氮和水。其化学反应方程式为：
 
+\begin{center}
   \ce{NH3 + O2 ->T[催化剂] NO + H2O}
+\end{center}
 
   配平这个化学反应式。
 \end{ex}

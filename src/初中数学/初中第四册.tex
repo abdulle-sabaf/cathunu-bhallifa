@@ -40,16 +40,20 @@
 \setlength\parskip{8pt}
 \setlength{\fboxsep}{12pt}
 \renewcommand\thesection{\arabic{chapter}.\arabic{section}}
+\theoremstyle{definition}
 \newtheorem{df}{定义}[section] 
+\newtheorem*{po}{公理}
 \newtheorem{pp}{命题}[section]
 \newtheorem{tm}{定理}[section]
-\newtheorem{ex}{例子}[section]
-\newtheorem{sk}{思考}[section]
-\newtheorem{po}{公理}
-\newtheorem*{so}{解答}
-\newenvironment{proof2}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
-\newtheorem{xt}{习题}[section]
 \newtheorem{cor}{推论}[pp]
+\newtheorem{ex}{例子}[section]
+\newtheorem{et}{例题}[section]
+\newtheorem*{so}{解答}
+\theoremstyle{plain}
+\newtheorem{sk}{思考}[section]
+\newtheorem{xt}{习题}[section]
+% \newenvironment{proof2}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
+\renewenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
 \renewcommand{\proofname}{\indent\bf 证明}
 \renewcommand{\qedsymbol}{\hfill$\square$}
 % 列举环境的行间距
@@ -99,13 +103,13 @@ $\angle ABC$和$\angle CDA$互为\textbf{对角}，$\angle BCD$和$\angle DAB$�
 \begin{tm}\label{tm:0-0-0}
     平行四边形对边平行且等长，对角相等。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     给定$\parasbx ABCD$，按定义可知对边平行。\\
     接着证明$\parasbx ABCD$的对角相等。\\
     $\angle ABC$和$\angle DAB$是同旁内角，所以和为平角。类似地，$\angle ABC$和$\angle BCD$是同旁内角，所以和为平角。于是，$\angle DAB = \angle BCD$。同理， $\angle ABC$和$\angle DAB$是同旁内角，所以和为平角。类似地，$\angle CDA$和$\angle DAB$是同旁内角，所以和为平角。于是，$\angle ABC = \angle CDA$。\\
     最后证明$\parasbx ABCD$的对边等长。\\
     连接对角线$AC$。$AB \parallel CD$，所以内错角$\angle CAB = \angle ACD$；同理，$BC \parallel DA$，所以内错角$\angle BCA = \angle DAC$。另外$|AC| = |AC|$。所以，根据“角边角”，$\triangle ABC \simeq \triangle CDA$。因此，$|AB| = |CD|$，$|BC| = |DA|$。    
-\end{proof2}
+\end{proof}
 
 从证明中可以看出，平行四边形和三角形有密切的关系。把平行四边形沿对角线“裁开”，就得到一对同角全等的三角形。
 一般来说，任何四边形沿对角线裁开，都会得到两个三角形。
@@ -118,33 +122,33 @@ $\angle ABC$和$\angle CDA$互为\textbf{对角}，$\angle BCD$和$\angle DAB$�
 \begin{tm}\label{tm:0-0-1}
     对边等长的四边形是平行四边形。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     设四边形$ABCD$中$|AB| = |CD|$，$|BC| = |DA|$。连接$AC$，根据“边边边”，
     $\triangle ABC \simeq \triangle CDA$，因此，$\angle CAB = \angle ACD$，
     于是$AB \parallel CD$。同理，由于$\angle BCA = \angle DAC$，$BC \parallel DA$。
     于是四边形$ABCD$是平行四边形。
-\end{proof2}
+\end{proof}
 
 \begin{tm}\label{tm:0-0-2}
     一对边平行且等长的四边形是平行四边形。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     设四边形$ABCD$中$AB \parallel CD$且$|AB| = |CD|$。连接$AC$。
     $|AC| = |AC|$。由于$AB \parallel CD$，内错角$\angle CAB = \angle ACD$。
     根据“边角边”，$\triangle ABC \simeq \triangle CDA$，因此，
     由于$\angle BCA = \angle DAC$，$BC \parallel DA$。于是四边形$ABCD$是平行四边形。
-\end{proof2}
+\end{proof}
 
 \begin{tm}\label{tm:0-0-3}
     对角相等的四边形是平行四边形。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     设四边形$ABCD$中$\angle ABC = \angle CDA$，$\angle BCD = \angle DAB$。
     四边形的内角和是两个平角，所以同旁内角$\angle ABC$和$\angle BCD$满足
     $\angle ABC + \angle BCD = 180^\circ$，这说明$AB \parallel CD$。
     同理，同旁内角$\angle ABC$和$\angle DAB$满足$\angle ABC + \angle DAB = 180^\circ$，
     因此$BC \parallel DA$。
-\end{proof2}
+\end{proof}
 
 \begin{sk}\label{sk:0-0-0}
     一对边等长，一对角相等的四边形，是否是平行四边形？
@@ -243,7 +247,7 @@ $\angle BCD + \angle CDA = 180^\circ$。如果其中一个角是直角，这样�
 \begin{tm}\label{tm:0-2-20}
     梯形中位线长度是两底长度之和的一半。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     设梯形$ABCD$中$BC \parallel AD$，$M$是边$AB$的中点，$N$是边$CD$的中点，
     直线$AB$、$CD$交于点$O$。由于$BC \parallel AD$，$\triangle OBC \sim \triangle OAD$。
     因此：
@@ -260,7 +264,7 @@ $\angle BCD + \angle CDA = 180^\circ$。如果其中一个角是直角，这样�
     $$ |MN| = |AD| \cdot \frac{|OM|}{|OA|} = \frac{k+1}{2}\cdot|AD|. $$
     将$k = \frac{|BC|}{|AD|}$代入，就得到
     $$ |MN| = \frac{|BC| + |AD|}{2}. $$
-\end{proof2}
+\end{proof}
 
 \section{筝形}
 
@@ -466,27 +470,27 @@ $N_{\text{内}}S_1$和$N_{\text{外}}S_1$的差也逐渐缩小，那么我们就
 \begin{tm}\label{tm:1-0-0}
     设$p$是素数。任何正整数要么是$p$的倍数，要么与$p$互素。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     设$n$是正整数。记$n$和$p$的最大公因数为$d$。$d$是$p$的因数。
     因此按$p$的定义，要么$d = p$，要么$d = 1$。
     如果$d = p$，那么$n$是$p$的倍数。如果$d = 1$，那么$n$与$p$互素。
-\end{proof2}
+\end{proof}
 
 素数与合数有什么关系呢？
 
 \begin{tm}\label{tm:1-0-4}
     合数总有素因数。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     按照定义，合数总有真因数。给定合数$n$，它的真因数大于$1$、小于$n$，至少有一个，至多有$n-2$个。
     其中总有一个最小的真因数，我们把它记为$p$。\\
     $p$的因数也是$n$的因数，所以要么是$1$，要么大于等于$p$。也就是说，$p$没有真因数。所以$p$是素数。
-\end{proof2}
+\end{proof}
 
 \begin{tm}\label{tm:1-0-6}
     每个大于$1$的整数都可以表示成素数或其乘积。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     使用归纳法。命题$P(n)$：整数$n$可以表示成素数或其乘积。下面证明$P$对每个大于$1$的整数成立。\\
     $n=2$时，由于$2 = 2$，$P(2)$成立。\\
     假设对某个大于$1$的整数$n$，$P(2), \cdots, P(n)$都成立，下面证明$P(n+1)$也成立。\\
@@ -497,7 +501,7 @@ $N_{\text{内}}S_1$和$N_{\text{外}}S_1$的差也逐渐缩小，那么我们就
     $$ m = p_1 p_2\cdots p_k, \,\,\, l\in\mathbb{Z}^+$$
     于是，$n+1 = mp = pp_1 p_2\cdots p_k$也是素数的乘积。于是$P(n+1)$成立。\\
     综上所述，$P(n)$对每个大于$1$的整数成立。
-\end{proof2}
+\end{proof}
 
 我们把这种表示正整数的方式称为\textbf{素因数分解}。
 如果把自然数比作一座座房屋，那么素数就是砖瓦，构建起一个个合数。
@@ -512,7 +516,7 @@ $N_{\text{内}}S_1$和$N_{\text{外}}S_1$的差也逐渐缩小，那么我们就
 \begin{tm}\label{tm:1-0-10}
     素数的个数是无穷的。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     使用反证法证明。反设素数的个数不是无穷的，即只有有限多个素数。把素数的个数记为$N$，把它们从小到大分别记为
     $p_1, p_2,\cdots , p_N$。\\
     考察这样的正整数：
@@ -521,13 +525,13 @@ $N_{\text{内}}S_1$和$N_{\text{外}}S_1$的差也逐渐缩小，那么我们就
     这就说明，要么$m$自己是素数，要么它的因数中有和$p_1, p_2,\cdots , p_N$都不一样的素数。
     这就和“素数一共有$N$个”矛盾了。\\
     因此，原命题的否定“素数的个数不是无穷的”是假的，原命题成立。
-\end{proof2}
+\end{proof}
 
 素数作为“砖瓦”的性质，还体现在以下定理中：
 \begin{tm}{\textbf{存因定理 }}\label{tm:1-0-20}
     如果素数$p$整除两个自然数$a$和$b$的乘积：$p | ab$，那么$p$整除$a$或$p$整除$b$。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     给定符合条件的素数$p$和自然数$a,b$。如果$p$整除$a$，那么命题得证。\\
     如果$p$不整除$a$，那么由于两者的最大公因数是$p$的因数，因此只能是$1$。两者互素。
     根据倍和析因定理，存在整数$m,n$使得
@@ -537,7 +541,7 @@ $N_{\text{内}}S_1$和$N_{\text{外}}S_1$的差也逐渐缩小，那么我们就
     根据已知条件，存在整数$k$使得$ab = kp$，于是 
     $$ b = mp + nkp = (m + nk)p,$$
     即$p$整除$b$。
-\end{proof2}
+\end{proof}
 
 存因定理告诉我们，如果某个正整数$n$有素因数$p$，把$n$“拆成”两个数的乘积，那么总有一个有素因数$p$。
 反复运用存因定理，我们可以把这个结论加强：无论把$n$“拆成”几个数的乘积，总有一个有素因数$p$。
@@ -556,7 +560,7 @@ $N_{\text{内}}S_1$和$N_{\text{外}}S_1$的差也逐渐缩小，那么我们就
 \begin{tm}{\textbf{算术基本定理}}\label{tm:1-1-0}
     如果不考虑素因数的排列顺序，素因数分解的方式是唯一的。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     如果某个大于$1$的整数$n$有两种素因数分解。把每种分解的素因数从小到大排列：
     $$ n = p_1p_2\cdots p_k = q_1q_2\cdots q_l, \,\,\, k, l \in \mathbb{Z}^+.$$
     我们要证明这两种分解是一样的。\\
@@ -569,7 +573,7 @@ $N_{\text{内}}S_1$和$N_{\text{外}}S_1$的差也逐渐缩小，那么我们就
     以此类推，经过有限步后，我们可以得到：$k=l$，且
     $$p_1 = q_1, \,\,\, p_2 = q_2, \, \cdots \, , p_k = q_k.$$
     也就是说，$n$的素因数分解只有一种方式。
-\end{proof2}
+\end{proof}
 
 这个结论非常重要，我们把它称为算术基本定理。算术基本定理告诉我们，不考虑排列顺序的话，
 每个大于$1$的正整数都可以用唯一的方式写成素数或其乘积。这种唯一的方式可以看作每个正整数的
@@ -594,10 +598,10 @@ $$ 252 = 2^2 \cdot 3^2 \cdot 5^0 \cdot 7^1.$$
 \begin{tm}\label{tm:1-1-10}
     如果$n$整除$m$，那么任何素数在$n$中的重数小于等于它在$m$中的重数。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     设素数$p$在$n$和$m$中的重数分别是$u$和$v$。于是$p^u$整除$n$，因而整除$m$。
     另一方面，$v$是让$p^i$整除$m$的最大自然数$i$。所以，$u \leqslant v$。
-\end{proof2}
+\end{proof}
 
 上面的结论也可以换个方式说成：如果$n$是$m$的因数，那么任何素数在$n$中的重数小于等于它在$m$中的重数；
 如果$n$是$m$的倍数，那么任何素数在$n$中的重数大于等于它在$m$中的重数。
@@ -605,7 +609,7 @@ $$ 252 = 2^2 \cdot 3^2 \cdot 5^0 \cdot 7^1.$$
 \begin{tm}\label{tm:1-1-20}
     正整数$n,m$的乘积，等于它们的最大公因数和最小公倍数的乘积。
 \end{tm}
-\begin{proof2}
+\begin{proof}
     设$n,m$的最大公因数是$d$，最小公倍数是$q$，下面证明$nm = dq$。\\
     把$n,m,d,q$分解，设涉及的素数为$p_1, p_2, \cdots , p_k$。把四个数分别记为：
     \begin{align*}
@@ -625,7 +629,7 @@ $$ 252 = 2^2 \cdot 3^2 \cdot 5^0 \cdot 7^1.$$
         &= dq 
     \end{align*}    
 
-\end{proof2}
+\end{proof}
 
 \begin{xt}\label{xt:1-1-1}
     \mbox{}\\
@@ -855,7 +859,7 @@ $\mathbb{Q}(\sqrt{2})$、$\mathbb{Q}(\sqrt{3})$这样的数域叫做\textbf{二�
 \begin{tm}
     $\sqrt{3}$不属于$\mathbb{Q}(\sqrt{2})$。
 \end{tm}\label{tm:3-1-0}
-\begin{proof2}
+\begin{proof}
     用反证法。反设$\sqrt{3}$属于$\mathbb{Q}(\sqrt{2})$。于是存在有理数$a,b$使得
     $$ \sqrt{3} = a + b\sqrt{2}.$$
     两边平方，得到：
@@ -864,7 +868,7 @@ $\mathbb{Q}(\sqrt{2})$、$\mathbb{Q}(\sqrt{3})$这样的数域叫做\textbf{二�
     如果$a = 0$，那么$2b^2 = 3$，于是$b = \frac{\sqrt{6}}{2}$是无理数。矛盾！\\
     如果$b = 0$，那么$a^2 = 3$，于是$a = \sqrt{3}$是无理数。矛盾！\\
     综上所述，原命题的否定“$\sqrt{3}$属于$\mathbb{Q}(\sqrt{2})$”是假的，因此原命题是真的。
-\end{proof2}
+\end{proof}
 
 用同样的方法，可以证明$\sqrt{2}$不属于$\mathbb{Q}(\sqrt{3})$。也就是说，$\mathbb{Q}(\sqrt{2})$
 不是$\mathbb{Q}(\sqrt{3})$的子集，$\mathbb{Q}(\sqrt{3})$也不是$\mathbb{Q}(\sqrt{2})$的子集。
