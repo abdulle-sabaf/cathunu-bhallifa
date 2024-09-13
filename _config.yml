@@ -1,0 +1,7 @@
+remote_theme: Phlow/feeling-responsive
+plugins:
+  - jekyll-remote-theme
+
+# Rest of your configuration
+title: 悟数学
+description: "中学数学教材重构"
