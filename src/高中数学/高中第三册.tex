@@ -527,12 +527,12 @@ $$ v(t_0) = \lian{t\to t_0} \frac{p(t) - p(t_0)}{t - t_0}.$$
 对于一般的函数，我们也可以用这个方法描述它在一点变化的快慢。
 
 \begin{df}\label{df:2-1-0}
-给定在某一点$a$附近有定义的函数$f$，如果当$x$趋于$a$时，
-$f$在$a$到$x$的变率收敛到某个极限，就说函数$f$在$a$处\textbf{可微}。
-我们把这个极限叫做函数$f$在点$a$处的\textbf{微变率}，简称\textbf{微变}，
-记作$\partial f(a)$\footnote{函数$f$在点$a$处的微变率，一般记作$\partial f(a)$或$f'(a)$，在物理书籍中也常记作$\dot{f}(a)$。
-关于微变率的记法，可见附录$B$。}。
-$$ \partial f(a) = \lian{x\to a} \frac{f(x) - f(a)}{x - a} = \lian{h\to 0} \frac{f(a + h) - f(a)}{h}.$$
+    给定在某一点$a$附近有定义的函数$f$，如果当$x$趋于$a$时，
+    $f$在$a$到$x$的变率收敛到某个极限，就说函数$f$在$a$处\textbf{可微}。
+    我们把这个极限叫做函数$f$在点$a$处的\textbf{微变率}，简称\textbf{微变}，
+    记作$\partial f(a)$\footnote{函数$f$在点$a$处的微变率，一般记作$\partial f(a)$或$f'(a)$，在物理书籍中也常记作$\dot{f}(a)$。
+    关于微变率的记法，可见附录$B$。}。
+    $$ \partial f(a) = \lian{x\to a} \frac{f(x) - f(a)}{x - a} = \lian{h\to 0} \frac{f(a + h) - f(a)}{h}.$$
 \end{df}
 
 比如，运动物体在某时刻的瞬时速度，就是它的位移函数在该时刻的微变率。
@@ -3363,7 +3363,7 @@ $$
     $f$将集合$A\subseteq D$映射得到的集合，称为$A$经过$f$映射的\textbf{像}，记作$f(A)$。
     给定$f$值域的子集$B$，将集合：
     $$ \{x \in D \, | \, f(x) \in B \}$$
-    称为$B$（关于$f$）的\textbf{原像}。
+    称为$B$（关于$f$）的\textbf{原像}，记为$f^{(-1)}(B)$。
 \end{df}
 
 \begin{po}{\textbf{选择公理}}
