@@ -931,28 +931,28 @@ $$c_2^h = c_1^{\frac{\log{c_2}}{\log{c_1}}\cdot h}.$$
 
 考虑通项公式如下的数列$\{e_n\}$：
 $$ \forall n\in\mathbb{Z}^+,\quad e_n = \left(1 + \frac{1}{n}\right)^n.$$
-可以证明，数列$\{e_n\}$有极限$e$，而$e$满足（见附录B）：
-$$ \lian{t\to 0} \frac{e^{t} - 1}{t} = 1.$$
+可以证明，数列$\{e_n\}$有极限$\mathrm{e}$，而$\mathrm{e}$满足（见附录B）：
+$$ \lian{t\to 0} \frac{\mathrm{e}^{t} - 1}{t} = 1.$$
 因此，对任意底数$c$，指数函数$x\mapsto c^x$在$0$处可微，微变率是：
-$$ \lian{h\to 0} \frac{c^h - 1}{h} = \log_e{c}.$$
+$$ \lian{h\to 0} \frac{c^h - 1}{h} = \log_{\mathrm{e}}{c}.$$
 从而，指数函数$x\mapsto c^x$在$a$处的微变率为：
-$$ \partial (c^x) (a) = c^a \cdot \log_e{c}. $$
+$$ \partial (c^x) (a) = c^a \cdot \log_{\mathrm{e}}{c}. $$
 
-指数函数在任一点的微变率与它在该点的值成正比，比值是以$e$为底数的对数$\log_e{c}$。
+指数函数在任一点的微变率与它在该点的值成正比，比值是以$\mathrm{e}$为底数的对数$\log_{\mathrm{e}}{c}$。
 
-特别来说，以$e$为底数时，指数函数$f: x\mapsto e^x$在任一点的微变率等于它在该点的值。
-$$ \partial f (a) = e^a = f(a).$$
+特别来说，以$\mathrm{e}$为底数时，指数函数$f: x\mapsto \mathrm{e}^x$在任一点的微变率等于它在该点的值。
+$$ \partial f (a) = \mathrm{e}^a = f(a).$$
 
 对数函数是指数函数的反函数。因此，可以用反函数的求微法则，求出对数函数的微变。
 \begin{align*}
     \partial \log_c (a) &= \frac{1}{\partial (c^x) (\log_c{a})}  \\
-    &= \frac{1}{c^{\log_c{a}} \cdot \log_e{c}} = \frac{1}{a \cdot \log_e{c}}   
+    &= \frac{1}{c^{\log_c{a}} \cdot \log_{\mathrm{e}}{c}} = \frac{1}{a \cdot \log_{\mathrm{e}}{c}}   
 \end{align*}
 对数函数在定义域中任一点的微变率与它在该点的值成反比。
 
-同样，如果底数为$e$，那么对数函数在任一点的微变率等于它在该点的值的倒数。
-$$ \partial \log_e (a) = \frac{1}{a}.$$
-为此，我们把以$e$为底数的对数函数称为\textbf{自然对数}，记作$\ln$。而$e$也叫做\textbf{自然对数的底数}，简称\textbf{自然底数}。以$e$为底数的指数函数称为\textbf{自然指数}。
+同样，如果底数为$\mathrm{e}$，那么对数函数在任一点的微变率等于它在该点的值的倒数。
+$$ \partial \log_{\mathrm{e}} (a) = \frac{1}{a}.$$
+为此，我们把以$\mathrm{e}$为底数的对数函数称为\textbf{自然对数}，记作$\ln$。而$\mathrm{e}$也叫做\textbf{自然对数的底数}，简称\textbf{自然底数}。以$\mathrm{e}$为底数的指数函数称为\textbf{自然指数}。
 
 \begin{et}
     \mbox{} \\
@@ -974,7 +974,7 @@ $$ \partial \log_e (a) = \frac{1}{a}.$$
     \indent 2. 应用复合函数的求微法则：
     \begin{align*}
         \partial f(2) &= \partial \log_2 \left(\frac{2+1}{2-1} + \sin{2}\right) \cdot \left(\partial \left(\frac{x+1}{x-1}\right) (2) + \partial \sin (2) \right) \\
-        &= \frac{1}{\log_e{2} \left(\frac{2+1}{2-1} + \sin{2}\right)} \cdot \left( -\frac{2}{(2 - 1)^2} + \cos{2} \right)  \\
+        &= \frac{1}{\log_{\mathrm{e}}{2} \left(\frac{2+1}{2-1} + \sin{2}\right)} \cdot \left( -\frac{2}{(2 - 1)^2} + \cos{2} \right)  \\
         &= \frac{\cos{(2)} - 2}{\ln{2} \cdot (3 + \sin{2})}   
     \end{align*}
     \indent 3. 应用复合函数的求微法则：
@@ -991,10 +991,10 @@ $$ \partial \log_e (a) = \frac{1}{a}.$$
     \indent 1. 求以下函数在给定点处的微变率。\\
     \indent 1.1. $f: \,\, x \mapsto \cos{(3 - 5x)}$在点$x = 2$处的微变率。\\
     \indent 1.2. $f: \,\, x \mapsto 2^{(3 - x)\log_2\left(x^2 + 1\right) + \frac{\sin(x)}{1 + x^2}}$在点$x = 1$处的微变率。\\
-    \indent 1.3. $f: \,\, x \mapsto (\tan^2{x} - e^{\frac{1}{1-x}})^{5 - \ln(3 - x)}$在点$x = 0$处的微变率。\\
+    \indent 1.3. $f: \,\, x \mapsto (\tan^2{x} - \mathrm{e}^{\frac{1}{1-x}})^{5 - \ln(3 - x)}$在点$x = 0$处的微变率。\\
     \indent 2. 求反正弦函数$\arcsin$和反余弦函数$\arccos$在一点$a$的微变。\\
     \indent 3. 从结论
-    $$ \lian{x\to 0} \frac{e^x - 1}{x} = 1$$
+    $$ \lian{x\to 0} \frac{\mathrm{e}^x - 1}{x} = 1$$
     \indent 出发，证明：
     $$ \lian{x\to 0} \frac{\ln{(1 + x)}}{x} = 1.$$
     \indent 4. 证明：对任意非零实数$r$，任意实数$a>0$，幂函数$x \mapsto x^r$在$a>0$处可微，
@@ -1206,7 +1206,7 @@ $$ \partial^k (x^n) = \left\{
 $$
 
 指数函数$x\mapsto a^x$的$k$次微变为$x\mapsto (\ln{a})^k a^x$。
-特别地，$x\mapsto e^x$的任意次微变都是自己。
+特别地，$x\mapsto \mathrm{e}^x$的任意次微变都是自己。
 
 正弦、余弦函数的多次微变和次数的奇偶性相关。
 \begin{align*}
@@ -1318,11 +1318,11 @@ $$ f(a + h) = f(a) + \partial f(a) h + c_2 \partial^2 f(a) h^2 + \cdots + c_n \p
     \indent 2. 求以下函数的多次微变函数。\\
     \indent 2.1. 求正切函数的$5$次微变函数。\\
     \indent 2.2. 求幂函数$x\mapsto x^r$的$k$次微变函数。\\
-    \indent 2.3. 给定实数$a$，求函数$x\mapsto e^{ax}$的$k$次微变函数。\\
-    \indent 2.4. 求函数$x \mapsto (ax^2 + bx + c)e^x$的$k$次微变函数。\\
+    \indent 2.3. 给定实数$a$，求函数$x\mapsto \mathrm{e}^{ax}$的$k$次微变函数。\\
+    \indent 2.4. 求函数$x \mapsto (ax^2 + bx + c)\mathrm{e}^x$的$k$次微变函数。\\
     \indent 2.5. 求函数$x \mapsto x^2\ln{x}$的$k$次微变函数。\\
-    \indent 3. 证明：对任意正整数$n$，函数$x\mapsto x^n e^{\frac{1}{x}}$的$n+1$次微变函数是
-    $$x\mapsto \frac{(-1)^{n+1}}{x^{n+2}}e^{\frac{1}{x}}.$$
+    \indent 3. 证明：对任意正整数$n$，函数$x\mapsto x^n \mathrm{e}^{\frac{1}{x}}$的$n+1$次微变函数是
+    $$x\mapsto \frac{(-1)^{n+1}}{x^{n+2}}\mathrm{e}^{\frac{1}{x}}.$$
     \indent 4. $n$为正整数。$f$在区间$[a; b]$上$n$次可微。\\
     \indent 4.1. 证明：如果$f$在$[a; b]$中有$n+1$个不同的零点，那么有$c\in(a; b)$\\
     \indent 使得$\partial^n f(c) = 0$。\\
@@ -1409,15 +1409,15 @@ $$ f(a + h) = f(a) + \partial f(a) h + c_2 \partial^2 f(a) h^2 + \cdots + c_n \p
 \end{so}
 
 \begin{et}
-    研究函数$f:\,\,x\mapsto x^2 e^{-2x}$的增减性。
+    研究函数$f:\,\,x\mapsto x^2 \mathrm{e}^{-2x}$的增减性。
 \end{et}
 
 \begin{so}
     $f$在$\mathbb{R}$上有定义。作为基本显式函数的复合函数，易知$f$在$\mathbb{R}$上可微。
 
     函数的增减性质与微变函数的正负性质相关。因此，求$f$的微变函数，得到：
-    $$ \partial f(x) = (-2x^2 + 2x) e^{-2x}.$$
-    指数函数$ e^{-2x} $总大于$0$，因此$ \partial f $的正负性取决于二次函数$-2x^2 + 2x$的正负性。
+    $$ \partial f(x) = (-2x^2 + 2x) \mathrm{e}^{-2x}.$$
+    指数函数$ \mathrm{e}^{-2x} $总大于$0$，因此$ \partial f $的正负性取决于二次函数$-2x^2 + 2x$的正负性。
     
     根据二次函数的性质，$-2x^2 + 2x$的正负性质为：
     $$ -2x^2 + 2x \left\{
@@ -1432,14 +1432,14 @@ $$ f(a + h) = f(a) + \partial f(a) h + c_2 \partial^2 f(a) h^2 + \cdots + c_n \p
     之后在$(1; +\infty)$上单调递减。
 
     可以看出，$f$在$-\infty$、$0$、$1$、$+\infty$的情况，是我们了解$f$的几个“关键点”。
-    容易算出在$0$、$1$处，函数值分别为$f(0) = 0$、$f(1) = e^{-2} \approx 0.135$。
+    容易算出在$0$、$1$处，函数值分别为$f(0) = 0$、$f(1) = \mathrm{e}^{-2} \approx 0.135$。
     
-    $x$趋于负无穷时，$x^2$趋于正无穷，$e^{-2x}$趋于正无穷，因此$f$趋于正无穷。
+    $x$趋于负无穷时，$x^2$趋于正无穷，$\mathrm{e}^{-2x}$趋于正无穷，因此$f$趋于正无穷。
 
-    $x$趋于正无穷时，$x^2$趋于正无穷，$e^{2x}$趋于正无穷。需要研究两者的比值。
-    $x > 1$时，$e^{2x} > 2^{2x}$，于是
+    $x$趋于正无穷时，$x^2$趋于正无穷，$\mathrm{e}^{2x}$趋于正无穷。需要研究两者的比值。
+    $x > 1$时，$\mathrm{e}^{2x} > 2^{2x}$，于是
     \begin{align*}
-        f(x) &= \frac{x^2}{e^{2x}} < \frac{x^2}{2^x} \cdot \frac{1}{2^x}, 
+        f(x) &= \frac{x^2}{\mathrm{e}^{2x}} < \frac{x^2}{2^x} \cdot \frac{1}{2^x}, 
     \end{align*} 
     而我们知道，对于正整数$n$，总有$2^n \geqslant n^2$。因此，
     $f(n) < 2^{-n}$，这说明$n$趋于无穷时，$f(n)$趋于$0$。
@@ -1447,7 +1447,7 @@ $$ f(a + h) = f(a) + \partial f(a) h + c_2 \partial^2 f(a) h^2 + \cdots + c_n \p
     因此有极限。这个极限就是$f(n)$的极限，也就是$0$。
 
     综上，我们可以这样描述$f$的增减：随着$x$增大，$f$在区间$(-\infty; 0]$上从正无穷单调递减，在$x = 0$处达到极小值$f(0) = 0$；
-    然后在$(0; 1)$上单调递增，在$x = 1$处达到极大值$f(1) = e^{-2} \approx 0.135$；
+    然后在$(0; 1)$上单调递增，在$x = 1$处达到极大值$f(1) = \mathrm{e}^{-2} \approx 0.135$；
     之后在$(1; +\infty)$上单调递减，趋于$0$。
 \end{so}
 
@@ -1501,10 +1501,10 @@ $$ f(a + h) = f(a) + \partial f(a) h + c_2 \partial^2 f(a) h^2 + \cdots + c_n \p
     \indent 2. 研究以下函数的增减性质。\\
     \indent 2.1. $x\mapsto x^3 - x^5$。\\
     \indent 2.2. $x\mapsto \tan{\left(x - \frac{\pi}{6}\right)}$。\\
-    \indent 2.2. $x\mapsto (1 - x^2) e^x$。\\
+    \indent 2.2. $x\mapsto (1 - x^2) \mathrm{e}^x$。\\
     \indent 2.3. $x\mapsto \frac{x^2 - 2}{(x + 1)(x - 3)}$。\\
-    \indent 2.4. $x\mapsto e^{-\frac{1}{x}}$。\\
-    \indent 2.5. $x\mapsto e^{-3x} \sin{(2x)}$。\\
+    \indent 2.4. $x\mapsto \mathrm{e}^{-\frac{1}{x}}$。\\
+    \indent 2.5. $x\mapsto \mathrm{e}^{-3x} \sin{(2x)}$。\\
     \indent 3. 设$I$为实数区间，$X$是$I$的子集。
     如果对$I$中任意$a < b$，都有$x\in I$使得$a<x<b$，就说$X$在$I$中\textbf{稠密}。
     设$f$在$I$上可微，微变函数$\partial f$在$I$上总大于等于$0$。
@@ -1661,15 +1661,15 @@ $\sin{x}$和$\ln{(1+x)}$的“最大项”都是$x$，之后$\ln{(1+x)}$是$- \f
 
 \begin{et}
     求极限：
-    $$ \lian{x\to +\infty} \frac{\left(1 + \frac{1}{x}\right)^{x^2}}{e^x}.$$
+    $$ \lian{x\to +\infty} \frac{\left(1 + \frac{1}{x}\right)^{x^2}}{\mathrm{e}^x}.$$
 \end{et}
 
 \begin{so}
     要求极限的函数由分子分母两部分组成。分子看起来很像$\left(1 + \frac{1}{x}\right)^{x}$，
-    也就是$x$趋于正无穷时极限为$e$。不过指数从$x$换成了$x^2$。
+    也就是$x$趋于正无穷时极限为$\mathrm{e}$。不过指数从$x$换成了$x^2$。
 
     既然分子分母都和指数函数有关，我们可以把整个函数取对数，得到：
-    $$ \ln{\frac{\left(1 + \frac{1}{x}\right)^{x^2}}{e^x}} = x^2 \ln{\left(1 + \frac{1}{x}\right)} - x.$$
+    $$ \ln{\frac{\left(1 + \frac{1}{x}\right)^{x^2}}{\mathrm{e}^x}} = x^2 \ln{\left(1 + \frac{1}{x}\right)} - x.$$
     显然，等式右边比较难估计的是对数函数的部分。
     $x$趋于正无穷时，$\frac{1}{x}$趋于$0$。我们把$\ln{\left(1 + \frac{1}{x}\right)}$展开，得到：
     $$ \ln{\left(1 + \frac{1}{x}\right)} \oveq{+\infty} \frac{1}{x} - \frac{1}{2x^2} + \olim{\frac{1}{x^2}}$$
@@ -1682,7 +1682,7 @@ $\sin{x}$和$\ln{(1+x)}$的“最大项”都是$x$，之后$\ln{(1+x)}$是$- \f
     也就是说，
     $$ \lian{x\to +\infty} x^2 \ln{\left(1 + \frac{1}{x}\right)} - x = -\frac{1}{2}. $$
     于是
-    $$ \lian{x\to +\infty} \frac{\left(1 + \frac{1}{x}\right)^{x^2}}{e^x} = e^{\lian{x\to +\infty}  x^2 \ln{\left(1 + \frac{1}{x}\right)} - x} = \frac{1}{\sqrt{e}}. $$
+    $$ \lian{x\to +\infty} \frac{\left(1 + \frac{1}{x}\right)^{x^2}}{\mathrm{e}^x} = \mathrm{e}^{\lian{x\to +\infty}  x^2 \ln{\left(1 + \frac{1}{x}\right)} - x} = \frac{1}{\sqrt{e}}. $$
 \end{so}
 
 最后的问题：具有怎样性质的函数，才能在局部表示成多项式与高阶无穷小的和呢？我们有以下定理（证明见附录$B$）：
@@ -1709,30 +1709,30 @@ $\sin{x}$和$\ln{(1+x)}$的“最大项”都是$x$，之后$\ln{(1+x)}$是$- \f
     \indent 1.3. 如果$f \oveq{a} \olim{g}$，$g \oveq{a} \Olim{h}$，那么$f \oveq{a} \olim{h}$。\\
     \indent 1.4. 如果$f \eqlim{a} \olim{g}$，$g \oveq{a} \Olim{h}$，那么$f \oveq{a} \olim{h}$。\\
     \indent 2. 设$a, b$为正数。证明：\\
-    \indent 2.1. $x^a \oveq{+\infty} \olim{e^{bx}}$。\\
-    \indent 2.2. $e^{-bx} \oveq{+\infty} \olim{|x|^{-a}}$。\\
+    \indent 2.1. $x^a \oveq{+\infty} \olim{\mathrm{e}^{bx}}$。\\
+    \indent 2.2. $\mathrm{e}^{-bx} \oveq{+\infty} \olim{|x|^{-a}}$。\\
     \indent 2.3. $\ln^{a}{x} \oveq{+\infty} \olim{x^{b}}$。\\
     \indent 2.4. $|\ln{x}|^{a} \oveq{0} \olim{|x|^{-b}}$。\\
     \indent 3. 证明：\\
     \indent 3.1. 在$0$附近，$\frac{1}{1 - x^2} = 1 + x^2 + \olim{x^2}$。\\
     \indent 3.2. 在$0$附近，$x^2 \cdot \olim{x^3} = \olim{x^5}$。\\
-    \indent 3.3. 在$0$附近，$e^x - \sqrt{1 + x} = \frac{x}{2} + \frac{5x^2}{8} + \frac{7x^3}{48} + \olim{x^3}$。\\
+    \indent 3.3. 在$0$附近，$\mathrm{e}^x - \sqrt{1 + x} = \frac{x}{2} + \frac{5x^2}{8} + \frac{7x^3}{48} + \olim{x^3}$。\\
     \indent 3.4. 在$0$附近，偶函数的局部展开只有偶数次项，奇函数的展开只有奇数次项。\\
     \indent 4. 在局部展开以下函数：\\
     \indent 4.1. 在$0$附近将$x\mapsto \frac{\sqrt{1 + x}}{1 - x^2}$作三次展开。\\
     \indent 4.2. 在$0$附近将$x\mapsto \frac{\cos{x} - 1}{\ln^2{(1 + x)}}$作三次展开。\\
     \indent 4.3. 在$0$附近将$x\mapsto \tan{(x)} - \frac{x}{1 + x}$作四次展开。\\
-    \indent 4.4. 在$0$附近将$x\mapsto (1 - \ln{(1 + x)})e^{-x}$作四次展开。\\
+    \indent 4.4. 在$0$附近将$x\mapsto (1 - \ln{(1 + x)})\mathrm{e}^{-x}$作四次展开。\\
     \indent 4.5. 在$2$附近将$x\mapsto x^2\ln{(x - 1)}$作三次展开。\\
     \indent 4.6. 在$1$附近将$x\mapsto (1 - x)\ln{(x^2 - 1)}$作三次展开。\\
     \indent 5. 使用局部展开法研究以下的极限：\\
     $$
     \begin{array}{ll}
-        1. \quad \lian{x\to 0} \frac{\cos{x} - 1}{x^2} & \qquad 2. \quad \lian{x\to 0} \frac{1}{x \left(e^x - 1\right)} - \frac{1}{x^2} \\
-        3. \quad \lian{x\to +\infty} \frac{1}{x}\ln{\left(\frac{e^x - 1}{x}\right)} & \qquad 4. \quad \lian{x\to 0} \frac{2x}{\ln{(1+x)} - \ln{(1-x)}} 
+        1. \quad \lian{x\to 0} \frac{\cos{x} - 1}{x^2} & \qquad 2. \quad \lian{x\to 0} \frac{1}{x \left(\mathrm{e}^x - 1\right)} - \frac{1}{x^2} \\
+        3. \quad \lian{x\to +\infty} \frac{1}{x}\ln{\left(\frac{\mathrm{e}^x - 1}{x}\right)} & \qquad 4. \quad \lian{x\to 0} \frac{2x}{\ln{(1+x)} - \ln{(1-x)}} 
     \end{array}
     $$
-    \indent 6. 如果$x \mapsto \frac{e^{x} + e^{ax} - 2}{x^2}$在$0$处有极限，求实数$a$可能的取值，并计算相应的极限。
+    \indent 6. 如果$x \mapsto \frac{\mathrm{e}^{x} + \mathrm{e}^{ax} - 2}{x^2}$在$0$处有极限，求实数$a$可能的取值，并计算相应的极限。
 \end{xt}
 
 \section{凹凸性质}
@@ -1833,20 +1833,20 @@ $$ \frac{f(z) - f(x)}{z - x} \leqslant \frac{f(z) - f(y)}{y - z}. $$
 有了这些分析结果，我们就能大致画出函数的图像。
 
 \begin{et}
-    研究函数$f:\,\,x\mapsto x^2 e^{-2x}$。
+    研究函数$f:\,\,x\mapsto x^2 \mathrm{e}^{-2x}$。
 \end{et}
 
 \begin{so}
 
     之前我们已经研究了$f$的增减性质。随着$x$增大，$f$在区间$(-\infty; 0]$上从正无穷单调递减，在$x = 0$处达到极小值$f(0) = 0$；
-    然后在$(0; 1)$上单调递增，在$x = 1$处达到极大值$f(1) = e^{-2} \approx 0.135$；
+    然后在$(0; 1)$上单调递增，在$x = 1$处达到极大值$f(1) = \mathrm{e}^{-2} \approx 0.135$；
     之后在$(1; +\infty)$上单调递减，趋于$0$。
 
     在此基础上，我们加上对函数凸性的研究。
 
     $f$在$\mathbb{R}$上有定义。容易验证$f$在$\mathbb{R}$上二次可微。二次微变函数为：
-    $$ \partial^2 f (x) = 2(2x^2 - 4x + 1)e^{-2x}.$$
-    $e^{-2x}$总大于零，所以二次微变的零点为$2x^2 - 4x + 1$的根，即：
+    $$ \partial^2 f (x) = 2(2x^2 - 4x + 1)\mathrm{e}^{-2x}.$$
+    $\mathrm{e}^{-2x}$总大于零，所以二次微变的零点为$2x^2 - 4x + 1$的根，即：
     $$  
         \left\{ 
             \begin{array}{cl}
@@ -1860,10 +1860,10 @@ $$ \frac{f(z) - f(x)}{z - x} \leqslant \frac{f(z) - f(y)}{y - z}. $$
     在$(x_1; x_2)$上凸。
 
     最后，$f$在$x_1$、$x_2$处的值为：
-    $$ f(x_1) = \frac{3 + 2\sqrt{2}}{2} e^{-2-\sqrt{2}} \approx 0.1, \quad f(x_2) = \frac{3 - 2\sqrt{2}}{2} e^{-2+\sqrt{2}} \approx 0.05. $$
+    $$ f(x_1) = \frac{3 + 2\sqrt{2}}{2} \mathrm{e}^{-2-\sqrt{2}} \approx 0.1, \quad f(x_2) = \frac{3 - 2\sqrt{2}}{2} \mathrm{e}^{-2+\sqrt{2}} \approx 0.05. $$
     微变率分别是：
     \begin{align*}
-        \partial f(x_1) = -(\sqrt{2} + 1)e^{-2-\sqrt{2}} \approx -0.08, \quad  \partial f(x_2) = (\sqrt{2} - 1)e^{-2+\sqrt{2}} \approx 0.23. 
+        \partial f(x_1) = -(\sqrt{2} + 1)\mathrm{e}^{-2-\sqrt{2}} \approx -0.08, \quad  \partial f(x_2) = (\sqrt{2} - 1)\mathrm{e}^{-2+\sqrt{2}} \approx 0.23. 
     \end{align*}
     这样，我们可以大致画出$f$的图像。
 \end{so}
@@ -1887,7 +1887,7 @@ $$ \frac{f(z) - f(x)}{z - x} \leqslant \frac{f(z) - f(y)}{y - z}. $$
     $$
     \begin{array}{ll}
         1. \quad x \mapsto x^5 + 10x^2 - 1 \qquad &2. \quad x \mapsto \tan{x} + 2\ln{cos{x}} \\
-        3. \quad x \mapsto (x+1)\ln{\left(1 - \frac{1}{x}\right)} \qquad &4. \quad x \mapsto \left(1 - x^2\right)e^{-\frac{x^2}{2}}
+        3. \quad x \mapsto (x+1)\ln{\left(1 - \frac{1}{x}\right)} \qquad &4. \quad x \mapsto \left(1 - x^2\right)\mathrm{e}^{-\frac{x^2}{2}}
     \end{array}
     $$
     \indent 2. 证明：如果函数下凸，那么对$I$中任意三点$x < z < y$，都有
@@ -2461,10 +2461,10 @@ $$ (3,1) = 3\cdot(1,0) + 0.25\cdot(0,4).$$
 研究可微函数时，我们讨论过分析函数在某点附近的行为的问题。
 我们的研究方法是：把函数在该点附近表示成多项式的形式。换句话说，我们把函数表示成一系列简单函数的和。
 比如，指数函数在$0$附近可以写成：
-$$e^x = 1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \cdots + \frac{x^n}{n!} + \olim{x^n}.$$
-那么，我们能不能把$e^x$直接写成无穷多个简单函数的和呢？
+$$\mathrm{e}^x = 1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \cdots + \frac{x^n}{n!} + \olim{x^n}.$$
+那么，我们能不能把$\mathrm{e}^x$直接写成无穷多个简单函数的和呢？
 
-具体来说，对于每个$x$，我们能不能说，$e^x$就是把“所有”$\frac{x^n}{n!}$这样的项加起来的和呢？
+具体来说，对于每个$x$，我们能不能说，$\mathrm{e}^x$就是把“所有”$\frac{x^n}{n!}$这样的项加起来的和呢？
 
 我们并未定义过“无穷多个数的和”。不过，这个问题可以转化成一个数列的问题。
 学习数列的时候，我们研究了趋于极限或趋于无穷的数列。
@@ -2676,7 +2676,7 @@ $$\forall n \geqslant 1,  \,\,\,q_n = \frac{n^k x^{n+1}}{x^n (n+1)^{k}} = x\left
         3. \quad \sum \frac{1}{\sqrt{n + 1}} \qquad &4. \quad \sum \frac{4^n (n!)^2}{(2n + 1)!} 
     \end{array}
     $$
-    \indent 2. 给定$x>0$，证明：级数$\sum \frac{x^n}{n!}$收敛，级数和为$e^x$。\\
+    \indent 2. 给定$x>0$，证明：级数$\sum \frac{x^n}{n!}$收敛，级数和为$\mathrm{e}^x$。\\
     \indent 3. 考虑正项级数$\sum a_n$。如果有正数列$\{B_n\}$，正数$c$，以及正整数$N$，使得
     $$ \forall n > N, \,\,\, B_n \frac{a_n}{a_{n+1}} - B_{n+1} \geqslant c. $$
     证明：级数$\sum a_n$收敛。\\
@@ -3156,9 +3156,9 @@ $$ f(x)\cdot g(x) - f(a)\cdot g(a) = \int_a^x \partial (f\cdot g) = \int_a^x (\p
 如果某个函数的积合函数可以用经典函数表示，就说它\textbf{显式可积}；否者说它\textbf{显式不可积}\footnote{常见的显式可积函数，及它们的积分，参见附录$C$的“常见积分表”。}。
 
 函数显式不可积，不表示它不可积。
-比如，函数$x\mapsto \frac{e^x}{x}$的积合函数无法用经典函数表示出来，它是显式不可积的函数。
+比如，函数$x\mapsto \frac{\mathrm{e}^x}{x}$的积合函数无法用经典函数表示出来，它是显式不可积的函数。
 但它在区间$[1;2]$上连续，因此可积。
-给定$a>1$，我们可以肯定$x\mapsto \frac{e^x}{x}$在$[1; a]$上的积合存在，是某个大于$0$的数，
+给定$a>1$，我们可以肯定$x\mapsto \frac{\mathrm{e}^x}{x}$在$[1; a]$上的积合存在，是某个大于$0$的数，
 但我们无法简单用有理式、幂函数、三角函数这些经典函数算出它的值。
 
 为了方便地求函数的积合，我们希望能找出更多显式可积的函数。
@@ -3175,7 +3175,7 @@ $$ \int_a^x (f \cdot g) = F(x)\cdot g(x) - F(a)\cdot g(a) - \int_a^x (F \cdot \p
 \begin{et}
     \mbox{} \\
     \indent 1. 使用分部积合法，求函数$x\mapsto x \sin{x}$的积合函数。\\
-    \indent 2. 使用分部积合法，求函数$x\mapsto e^x \sin{x}$的积合函数。\\
+    \indent 2. 使用分部积合法，求函数$x\mapsto \mathrm{e}^x \sin{x}$的积合函数。\\
 \end{et}
 
 \begin{so}    
@@ -3188,18 +3188,18 @@ $$ \int_a^x (f \cdot g) = F(x)\cdot g(x) - F(a)\cdot g(a) - \int_a^x (F \cdot \p
         &= -x\cos{x} + a\cos(a) + \int_a^x \cos{x} \\
         &= -x\cos{x} + a\cos(a) + \sin{x} - \sin{a}.
     \end{align*}
-    \indent 2. 考虑函数$F(x) = e^x$，它的微变函数是自己。因此，
+    \indent 2. 考虑函数$F(x) = \mathrm{e}^x$，它的微变函数是自己。因此，
     \begin{align*}
-        \int_a^x \left(e^{x} \sin{x}\right) &= \int_a^x \left(e^x\cdot \sin{x}\right) = \int_a^x \left(\partial F(x) \cdot \sin{x}\right) \\
-        &= F(x)\sin{x} - F(a)\sin(a) - \int_a^x \left(e^{x} \cdot \partial \sin{x}\right) \\
-        &= e^x\sin{x} - e^a\sin(a) - \int_a^x \left(e^x \cos{x}\right) .
+        \int_a^x \left(\mathrm{e}^{x} \sin{x}\right) &= \int_a^x \left(\mathrm{e}^x\cdot \sin{x}\right) = \int_a^x \left(\partial F(x) \cdot \sin{x}\right) \\
+        &= F(x)\sin{x} - F(a)\sin(a) - \int_a^x \left(\mathrm{e}^{x} \cdot \partial \sin{x}\right) \\
+        &= \mathrm{e}^x\sin{x} - \mathrm{e}^a\sin(a) - \int_a^x \left(\mathrm{e}^x \cos{x}\right) .
     \end{align*}
     用同样的方法，可以求出
-    $$  \int_a^x \left(e^x \cos{x}\right) = e^x\cos{x} - e^a\cos(a) + \int_a^x \left(e^{x} \sin{x}\right). $$
+    $$  \int_a^x \left(\mathrm{e}^x \cos{x}\right) = \mathrm{e}^x\cos{x} - \mathrm{e}^a\cos(a) + \int_a^x \left(\mathrm{e}^{x} \sin{x}\right). $$
     代入前面的关系式，得到：
-    $$ \int_a^x \left(e^{x} \sin{x}\right) = e^x\sin{x} - e^a\sin(a) - e^x\cos{x} + e^a\cos(a) - \int_a^x \left(e^{x} \sin{x}\right). $$
+    $$ \int_a^x \left(\mathrm{e}^{x} \sin{x}\right) = \mathrm{e}^x\sin{x} - \mathrm{e}^a\sin(a) - \mathrm{e}^x\cos{x} + \mathrm{e}^a\cos(a) - \int_a^x \left(\mathrm{e}^{x} \sin{x}\right). $$
     因此
-    $$ \int_a^x \left(e^{x} \sin{x}\right) = \frac{1}{2}\big(e^x(\sin{x} - \cos{x}) - e^a(\sin(a) - \cos(a))\big).$$
+    $$ \int_a^x \left(\mathrm{e}^{x} \sin{x}\right) = \frac{1}{2}\big(\mathrm{e}^x(\sin{x} - \cos{x}) - \mathrm{e}^a(\sin(a) - \cos(a))\big).$$
 \end{so}
 
 最后考虑函数的复合与积合。设连续函数$f$在区间$[a; b]$上连续，而函数$g$在区间$[f(a), f(b)]$上连续。
@@ -3269,17 +3269,17 @@ $$ \int_a^x \left( g(f(t)) \partial f (t) \right) = \int_{f(a)}^{f(x)} g.$$
     \indent 2. 使用分部积合法求以下函数的积合。\\
     \indent 2.1. $x\mapsto x^2 \cos{x}$。 \\
     \indent 2.2. $x\mapsto x \ln{x} $。 \\
-    \indent 2.3. $x\mapsto e^x \cos{x} $。 \\
+    \indent 2.3. $x\mapsto \mathrm{e}^x \cos{x} $。 \\
     \indent 3. 使用换元积合法求以下函数的积合。\\
     \indent 3.1. $x\mapsto \sin^2{x} \cos{x}$。 \\
     \indent 3.2. $x\mapsto \frac{\ln{x}}{x} $。 \\
     \indent 3.3. $x\mapsto \tan{x} $。 \\
-    \indent 4. 对正整数$n\geqslant 2$，设$I_n = \int_1^2 \left(x^{-n}e^{\frac{1}{x}}\right)$。\\
+    \indent 4. 对正整数$n\geqslant 2$，设$I_n = \int_1^2 \left(x^{-n}\mathrm{e}^{\frac{1}{x}}\right)$。\\
     \indent 4.1. 计算$I_2$。\\
     \indent 4.2. 使用分部积合法，证明：
             $$ I_{n+1} = e - \frac{\sqrt{e}}{2^{n-1}} + (1 - n)I_n.$$
     \indent 4.3. 计算$I_3$。\\
-    \indent 4.4. 证明：$x>1$时，$0\leqslant x^{-n}e^{\frac{1}{x}} \leqslant \frac{e}{x^n}$。\\
+    \indent 4.4. 证明：$x>1$时，$0\leqslant x^{-n}\mathrm{e}^{\frac{1}{x}} \leqslant \frac{e}{x^n}$。\\
     \indent 4.5. 根据上一问的结论，给出$I_n$的范围，并求数列$\{I_n\}_{n\in\mathbb{N}}$的极限。
 \end{xt}
 
@@ -3748,7 +3748,7 @@ $$ \partial f(a) = \lian{x\to a} \frac{f(x) - f(a)}{x - a} = \lian{h\to 0} \frac
     又注意到对任意正整数$n$，
     $$v_{k,n} - u_{k,n} = \frac{k}{n} \cdot u_{k,n}, $$
     因此差数列$\{v_{k,n} - u_{k,n}\}$收敛到$0$。所以$u_k = v_k$。
-    我们定义$e = u_1 = v_1$。
+    我们定义$\mathrm{e} = u_1 = v_1$。
 
     下面证明$\{u_{k,n}\}$是单调递增数列。
 
@@ -3802,21 +3802,21 @@ $$ h: \,\,\, r \mapsto \lian{n\to +\infty}  \left(1 + \frac{r}{n}\right)^n $$
 对于函数$h$，我们还知道什么呢？首先容易验证：
 $$ h(0) = 1, \quad h(1) = e.$$ 
 从此不难做出这样的猜想：
-$$ h(x) = e^x. $$
+$$ h(x) = \mathrm{e}^x. $$
 
 对正整数$k$，考虑$u_{k,kn}$：
 $$ u_{k,kn} = \left(1 + \frac{k}{kn}\right)^{kn} = \left(1 + \frac{1}{n}\right)^{kn} = \left(\left(1 + \frac{1}{n}\right)^{n}\right)^{k}, $$
 因此，当$n$趋于无穷时，数列$\{u_{k,kn}\}_{n\in\mathbb{Z}^+}$趋于$h(1)^k$。而它又是$\{u_{k,n}\}_{n\in\mathbb{Z}^+}$的子列，
-所以趋于$h(k)$。这说明$h(k) = e^k$。
+所以趋于$h(k)$。这说明$h(k) = \mathrm{e}^k$。
 
 考虑$u_{1,kn}$，它等于$u_{\frac{1}{k},n}^k$，所以$\{u_{\frac{1}{k},n}\}$趋于$h(1)^{\frac{1}{k}}$，
-即$h(\frac{1}{k}) = e^{\frac{1}{k}}$。
+即$h(\frac{1}{k}) = \mathrm{e}^{\frac{1}{k}}$。
 
 同理，对于有理数$r = \frac{p}{q}$，考虑$u_{p,qn}$，
 它等于$u_{\frac{p}{q},n}^q$，所以$\{u_{\frac{p}{q},n}\}$趋于$h(p)^{\frac{1}{q}}$，也就是$h(1)^{\frac{p}{q}}$。
-这说明$h(r) = e^{\frac{p}{q}}$。
+这说明$h(r) = \mathrm{e}^{\frac{p}{q}}$。
 
-综上可知，对任何有理数$r$，$h(r) = e^r$。
+综上可知，对任何有理数$r$，$h(r) = \mathrm{e}^r$。
 
 给定实数$x$，选择任意有理数$r^{\text{下}} < x < r^{\text{上}}$，则$n$足够大时，
 $u_{r^\text{下},n} < u_{x,n} < u_{r^\text{上},n}$。
@@ -3825,18 +3825,18 @@ $u_{r^\text{下},n} < u_{x,n} < u_{r^\text{上},n}$。
 我们把它的极限定为$h(x)$，就把$h$的定义域扩延到了实数集上。
 
 使用第一册中探索指数函数性质的方法，我们可以证明，
-对任何实数$x$，$h(x) = e^x$。
+对任何实数$x$，$h(x) = \mathrm{e}^x$。
 
 接下来证明：
 \begin{tm}{\textbf{直指等极}}\label{tm:b-1-50}
-    $$\lian{x\to 0} \frac{e^x - 1}{x} = 1.$$
+    $$\lian{x\to 0} \frac{\mathrm{e}^x - 1}{x} = 1.$$
 \end{tm}
 
 \begin{proof}
-    在$\frac{e^x - 1}{x}$中，用数列$u_{x,n}$替换$e^x$，计算两者差别：
-    $$ d(x, n) = \left|\frac{e^x - 1}{x} - \frac{u_{x,n} - 1}{x}\right| = \frac{\left|e^x - u_{x,n}\right|}{\left|x\right|}. $$
-    对给定的$x$，数列$\{u_{x,n}\}$趋于$e^x$，所以对任意正数$r$，总有正整数$N$，使得只要$n>N$，就有：
-    $$ \left|e^x - u_{x,n}\right| < \frac{|x|r}{2},$$
+    在$\frac{\mathrm{e}^x - 1}{x}$中，用数列$u_{x,n}$替换$\mathrm{e}^x$，计算两者差别：
+    $$ d(x, n) = \left|\frac{\mathrm{e}^x - 1}{x} - \frac{u_{x,n} - 1}{x}\right| = \frac{\left|\mathrm{e}^x - u_{x,n}\right|}{\left|x\right|}. $$
+    对给定的$x$，数列$\{u_{x,n}\}$趋于$\mathrm{e}^x$，所以对任意正数$r$，总有正整数$N$，使得只要$n>N$，就有：
+    $$ \left|\mathrm{e}^x - u_{x,n}\right| < \frac{|x|r}{2},$$
     这样，$d(x, n) < \frac{r}{2}$。
 
     再考虑$\frac{u_{x,n} - 1}{x} - 1$：
@@ -3857,11 +3857,11 @@ $u_{r^\text{下},n} < u_{x,n} < u_{r^\text{上},n}$。
     因此，首先选择$|x| < \frac{r}{2}$且$|x|<1$的$x$，再选择使得$d(x, n) < \frac{r}{2}$的$n$。
     这样就有：
     \begin{align*}
-        \left|\frac{e^x - 1}{x} - 1\right| &\leqslant \left|\frac{e^x - 1}{x} - \frac{u_{x,n} - 1}{x}\right| + \left|\frac{u_{x,n} - 1}{x} - 1\right|  \\
+        \left|\frac{\mathrm{e}^x - 1}{x} - 1\right| &\leqslant \left|\frac{\mathrm{e}^x - 1}{x} - \frac{u_{x,n} - 1}{x}\right| + \left|\frac{u_{x,n} - 1}{x} - 1\right|  \\
         &< \frac{r}{2} + \frac{r}{2} = r.   
     \end{align*}
     这就说明：
-    $$\lian{x\to 0} \frac{e^x - 1}{x} = 1.$$
+    $$\lian{x\to 0} \frac{\mathrm{e}^x - 1}{x} = 1.$$
 \end{proof}
 
 \section{常见函数的微变}
@@ -3896,7 +3896,7 @@ $u_{r^\text{下},n} < u_{x,n} < u_{r^\text{上},n}$。
         \hline
         对数函数 & $x\mapsto \log_a{x}$ & $x\mapsto \frac{1}{x\ln{a}} $ \\
         \hline
-        自然指数函数 & $x\mapsto e^x$ & $x\mapsto e^x $ \\ 
+        自然指数函数 & $x\mapsto \mathrm{e}^x$ & $x\mapsto \mathrm{e}^x $ \\ 
         \hline
         自然对数函数 & $x\mapsto \ln{x}$ & $x\mapsto \frac{1}{x} $ \\  
         \hline
@@ -4079,7 +4079,7 @@ $P_n$的各项互不相干扰，而加起来，就模拟了$f$在$a$处的各次
         \hline
         $\cos{x}$ & $1 - \frac{x^2}{2!} + \cdots + \frac{(-1)^n x^{2n}}{(2n)!} + \olim{x^{2n}} $ \\[4pt]
         \hline
-        $e^x$ & $1 + x + \frac{x^2}{2!} + \cdots + \frac{x^n}{n!} + \olim{x^n}$ \\[4pt]
+        $\mathrm{e}^x$ & $1 + x + \frac{x^2}{2!} + \cdots + \frac{x^n}{n!} + \olim{x^n}$ \\[4pt]
         \hline
         $\ln{(1 + x)}$ & $x - \frac{x^2}{2} + \frac{x^3}{3} + \cdots + \frac{(-1)^{n-1}x^{n}}{n} + \olim{x^{n}}$ \\[4pt]  
         \hline
@@ -4248,9 +4248,9 @@ $S^{\text{上}}$的下确界等于$S^{\text{下}}$的上确界。这就是我们
         \hline
         $\displaystyle x\mapsto r^x,\,\,\, r>0$ & $\displaystyle \int_a^x f = \frac{r^x - r^a}{\ln{r}}$ \\[4pt]
         \hline
-        $\displaystyle x\mapsto e^x$ & $\displaystyle \int_a^x f = e^x - e^a$ \\[4pt]
+        $\displaystyle x\mapsto \mathrm{e}^x$ & $\displaystyle \int_a^x f = \mathrm{e}^x - \mathrm{e}^a$ \\[4pt]
         \hline    
-        $\displaystyle x\mapsto xe^x$ & $\displaystyle \int_a^x f = (x - 1)e^x - (a - 1)e^a$ \\[4pt]
+        $\displaystyle x\mapsto x\mathrm{e}^x$ & $\displaystyle \int_a^x f = (x - 1)\mathrm{e}^x - (a - 1)\mathrm{e}^a$ \\[4pt]
         \hline
         $\displaystyle x\mapsto \ln{x}$ & $\displaystyle \int_a^x f = x\ln{x} - x - a\ln{a} + a$ \\[4pt]
         \hline

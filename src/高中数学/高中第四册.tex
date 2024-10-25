@@ -44,6 +44,7 @@
 \newcommand{\lian}[1]{
     \underset{#1}{\operatorname{lian}\,}
 }
+\newcommand{\tong}[1]{\overset{#1}{\equiv\joinrel\equiv}}
 \newcommand{\di}[1]{\,\mathrm{d}#1}
 \newcommand{\qu}[2]{\displaystyle\left(#1;#2\right)}
 % developpements limites
@@ -87,683 +88,319 @@
 \tableofcontents
 \newpage
 
-\chapter{函数的级数}
+\chapter{广义积合}
 
-研究可微函数时，我们讨论过分析函数在某点附近的行为的问题。
-我们的研究方法是：把函数在该点附近表示成多项式。换句话说，我们把函数表示成一系列简单函数的和。
-比如，指数函数在$0$附近可以写成：
-$$e^x = 1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \cdots + \frac{x^n}{n!} + \olim{x^n}.$$
-那么，我们能不能把$e^x$直接写成无穷多个简单函数的和呢？
+\section{一般区间上的积合}
 
-为此，我们引入了级数的概念，并证明了对任何$x$，级数$\sum_{n\in\mathbb{N}}\frac{x^{n}}{n!}$绝对收敛。
-那么，这个收敛的极限是否等于$e^x$呢？进一步来说，我们能否用多项式函数$\sum_{n=0}^N\frac{x^{n}}{n!}$
-近似表示$e^x$呢？
-
-进一步的研究，仍然要用到级数。
-级数除了可以用来研究数列的收敛性质，也可以用来研究函数的收敛性质。这也是级数方法更常见的应用。
-不过，在此之前，我们需要做一些准备工作，比如定义什么是函数的数列，什么叫函数的收敛，等等。
-
-\section{函数列}
-
-给定区间$I$，我们把在$I$上有定义的实函数的集合记为$\mathcal{A}_I(\mathbb{R})$，
-把其中连续函数的集合记为$\mathcal{L}_I(\mathbb{R})$，
-其中$k$次可微的函数的集合记为$\mathcal{W}_I^k(\mathbb{R})$。
-
-定义函数列为可数个函数按顺序的排列。也就是说，函数列和数列基本一样，只不过数列的每一项是函数。
-比如一个由$[0;1]$上的连续实函数组成的数列：
-$$ (x^2, x, 3x, 5x, \cdots (2n+1)x, \cdots )$$
-它属于集合$\mathcal{L}_{[0;1]}(\mathbb{R})^{\mathbb{N}}$。
-
-接下来定义函数列的收敛。怎么判断一个函数是否接近另一个函数呢？
-与数列不同，函数列的收敛有多种定义。这里只介绍两种常用的定义。
-\begin{df}{\textbf{函数列逐点收敛}}
-    设有定义在区间$I$上的函数列\footnote{即“由定义在区间$I$上的函数构成的函数列”，为了方便，做一定省略。下同。}$\{f_n\}$。
-    如果有定义在$I$上的函数$f$，使得对任意$r>0$，任意$x\in I$，都有正整数$N_x$，使得只要$n>N_x$，
-    就有：
-    $$ |f_n(x) - f(x) | < r.$$
-    就说函数列$\{f_n\}$\textbf{逐点收敛}（或\textbf{简单收敛}）到函数$f$，$f$是$\{f_n\}$的\textbf{逐点极限}或\textbf{简单极限}。
-\end{df}
+我们已经讨论过闭区间$[a;b]$上连续函数的积合。对于一般的区间、一般的函数，是否能定义积合呢？
 
 \begin{ex}
-    考虑定义在$[0;1]$上的函数列$\{f_n\}$：
-    \begin{align*}
-        \forall n\in \mathbb{Z}^+, \;\, f_n \,: \,\; [-1;1]\; &\rightarrow \; \mathbb{R} \\
-        x \;&\mapsto \; \frac{(2n-1)x^{\frac{2n}{2n-1}} + 1}{2n} \qquad\qquad\phantom{9} 
-    \end{align*}
-    对任意$x\in [-1;1]$，
-    \begin{align*}
-        \lian{n\to\infty}f_n(x) &= \lian{n\to\infty} \frac{(2n-1)x^{\frac{2n}{2n-1}} + 1}{2n} \\
-        &= \lian{n\to\infty} \frac{2n-1}{2n} \cdot\lian{n\to\infty} x^{\frac{2n}{2n-1}} + \lian{n\to\infty} \frac{1}{2n} \\
-        &= 1 \cdot |x| + 0 = |x|. 
-    \end{align*}
-    数列$\{f_n(x)\}$趋于$|x|$，所以函数列$\{f_n\}$逐点收敛到$[-1;1]$上的绝对值函数：$x\mapsto |x|$。
+    \mbox{} \\
+    \indent 1. 函数$x\mapsto\frac{1}{x}$在$[0;1]$上是否有积合？\\
+    \indent 2. 函数$x\mapsto\frac{1}{x^2}$在$[1;+\infty)$上是否有积合？
 \end{ex}
-
-\begin{df}{\textbf{函数列一致收敛}}
-    设有定义在区间$I$上的函数列$\{f_n\}$。
-    如果有定义在$I$上的函数$f$，使得对任意$r>0$，都有正整数$N$，使得只要$n>N$，
-    就有：
-    $$ \forall x\in I, \,\,\,|f_n(x) - f(x) | < r.$$
-    就说函数列$\{f_n\}$\textbf{一致收敛}到函数$f$，$f$是$\{f_n\}$的\textbf{一致极限}。
-\end{df}
-
-\begin{ex}
-    考虑定义在$[0;1]$上的函数列$\{f_n\}$：
-    \begin{align*}
-        \forall n\in \mathbb{Z}^+, \;\, f_n \,: \,\; [-1;1]\; &\rightarrow \; \mathbb{R} \\
-        x \;&\mapsto \; \frac{(2n-1)x^{\frac{2n}{2n-1}} + 1}{2n} \qquad\qquad\phantom{9} 
-    \end{align*}
-    首先，根据算术-几何均值不等式，
-    $$\frac{(2n-1)x^{\frac{2n}{2n-1}} + 1}{2n} \geqslant \sqrt[2n]{x^{2n}} = |x|.$$
-    其次，对任意$x\in [0;1]$，$x^{\frac{2n}{2n-1}} \leqslant x$，于是
-    \begin{align*}
-        f_n(x) - x &\leqslant \frac{(2n-1)x + 1}{2n} - x \\
-        &= \frac{1 - x}{2n} \leqslant \frac{1}{2n}
-    \end{align*}
-    同理，对任意$x\in [-1;0]$，$x^{\frac{2n}{2n-1}} \leqslant -x$，于是
-    \begin{align*}
-        f_n(x) + x &\leqslant \frac{(1 - 2n)x + 1}{2n} + x \\
-        &= \frac{1 + x}{2n} \leqslant \frac{1}{2n}
-    \end{align*}
-    所以，对任意$r>0$，只要取$n> \frac{1}{2r}$，那么，对任意$x\in [-1;1]$，都有
-    $$\Big|f_n(x) - |x|\Big| \leqslant \frac{1}{2n} < r. $$
-    这说明函数列$\{f_n\}$一致收敛到$[-1;1]$上的绝对值函数：$x\mapsto |x|$。
-\end{ex}
-
-逐点收敛是最“简单”的定义，即一个一个点来看是否越来越近。一致收敛则是从整体出发，要求所有地方的值“同时”接近，步调一致。
-对比两种收敛方式，可以猜测：一致收敛的要求更高。逐点收敛时，对不同的$x$，可以有不同的$N_x$，
-而一致收敛要求步调一致。
-
-\begin{ex}
-    考虑定义在$[0;1)$上的函数列$\{f_n\}_{n\in\mathbb{N}}$，其通项为：
-    $$ f_n: x \mapsto \frac{nx}{e^{nx}}. $$
-    对$[0;1)$中任意$x$，由于$0\leqslant x<1$，而$t$趋于无穷大时，$e^t$是$t$的高阶无穷大，因此，随着$n$增大，$nx$趋于正无穷，从而$\frac{nx}{e^{nx}}$趋于$0$。
-    因此，$\{f_n\}_{n\in\mathbb{N}}$逐点收敛到$[0;1)$上的零函数。
-
-    不过，对任意正整数$n$，取$x_n = \frac{1}{n}$，则
-    $$f_n(x_n) = \frac{1}{e}.$$
-    因此，只要$0<r <\frac{1}{e}$，无论$n$有多大，总有$f_n(x) = \frac{1}{e} > r$。这说明函数列$\{f_n\}_{n\in\mathbb{N}}$
-    并不一致收敛到零函数。
-    
-    直观来看，$f_n$的图像在靠近$0$时就会隆起，即便$n$越大时，隆起的部分越来越狭窄，但高度不变。
-    因此，就一致收敛的要求来说，$f_n$永远无法从整体上靠近零函数。
-
-\end{ex}
-
-不过，容易证明：\textbf{一致收敛的函数列，必然也逐点收敛}。
-
-那么，一致收敛相比逐点收敛有什么优点呢？来看下面的例子。
-
-\begin{ex}
-    考虑定义在$[-1;1]$上的函数列$\{f_n\}_{n\in\mathbb{N}}$，其通项为：
-    $$ f_n: x \mapsto x^{\frac{1}{2n+1}}. $$
-    对$0<x<1$，$x^{\frac{1}{2n+1}}$随着$n$增大趋于$1$。
-    对$-1<x<0$，$x^{\frac{1}{2n+1}}$随着$n$增大趋于$-1$。
-    因此，$\{f_n\}_{n\in\mathbb{N}}$逐点收敛的极限是以下函数：
-    $$
-    f x\mapsto \left\{
-        \begin{array}{ll}
-            1 & \mbox{如果} x \in (0; 1] \\
-            0 & \mbox{如果} x = 0 \\
-            -1 & \mbox{如果} x \in [-1; 0) \\
-        \end{array}
-    \right.
-    $$
-    $f$在$0$处不连续。
-\end{ex}
-上面的例子中，
-函数列$\{f_n\}_{n\in\mathbb{N}}$中每一项都是连续乃至无穷可微的函数，但它们的极限是不连续的函数。
-
-实际应用中，我们希望把复杂的函数用简单的函数近似，在简单的函数上证明我们想要的结果，然后通过函数列收敛，
-把想要的结果性质传递到原本的复杂的函数上去。
-但是，如果逐点收敛不能保持极限的连续性或可微性的话，那么很多性质也无法传递到极限$f$上去。
-
-如果函数列一致收敛的话，我们可以证明（见附录）：
-\begin{tm}\textbf{一致收敛保证极限}\\
-    已知区间$I$上的函数列$\{f_n\}_{n\in\mathbb{N}}$一致收敛到$f$，
-    且函数列的每一项$f_n$都在区间的一端$a$点处\footnote{也可以是无穷远处。}有极限$u_n$。
-    那么数列$\{u_n\}$收敛到某个数$u$，且$u$是$f$在$a$处的极限。
-    也就是说，在一定条件下，我们可以交换两种极限操作：
-    $$ \lian{n\to \infty} \left( \lian{x\to a} f_n(x) \right) = \lian{x\to a} \left(\lian{n\to \infty} f_n \right) (x). $$
-\end{tm}
-
-因此，连续函数的函数列如果一致收敛，极限也是连续函数。更进一步（证明见附录）：
-
-\begin{tm}{\textbf{微变的一致极限}}
-    已知函数列$\{f_n\}_{n\in\mathbb{N}}$中每一项都在区间$I$上可微，且微变函数连续。
-    设函数列逐点收敛到函数$f$，且函数列$\{\partial f_n\}_{n\in\mathbb{N}}$一致收敛到函数$g$，
-    那么$\{f_n\}_{n\in\mathbb{N}}$一致收敛到$f$，
-    $f$在$I$上可微，且其微变函数$\partial f = g$。
-\end{tm}
-
-也就是说，在函数列收敛，且其微变函数一致收敛时，我们可以交换微变操作和函数列的极限操作：
-$$ \lian{n\to \infty} \partial f_n = \partial \lian{n\to \infty} f_n. $$
-
-\begin{tm}{\textbf{积合的一致极限}}
-    已知函数列$\{f_n\}_{n\in\mathbb{N}}$中每一项$f_n$都在闭区间$[a;b]$上连续。
-    如果函数列一致收敛到函数$f$，那么$f$在$I$上可积，且满足：
-    $$ \forall x \in [a; b],\quad \int_{a}^x f = \lian{n\to \infty} \int_{a}^x f_n. $$
-\end{tm}
-
-换句话说，如果函数列一致收敛，那么可以交换积合操作和函数列的极限操作：
-$$ \lian{n\to \infty} \int_{a}^x f_n = \int_{a}^x \lian{n\to \infty} f_n. $$
-
-\begin{et}
-    定义在$\left[0;\frac{\pi}{2}\right]$上的函数列$\{f_n\}$的通项为：
-    $$ f_n: x\mapsto n\sin{x}\cos^n{x}. $$
-    $\{f_n\}$是否有极限？有怎样的极限？
-\end{et}
-
-\begin{so}
-    首先考察是否有逐点极限。
-
-    如果$x = 0$，那么总有$f_n(x) = 0$。$x > 0$时，由于$0\leqslant\cos{x}<1$，
-    所以$n$趋于无穷时，$n\cos^n{x}$趋于$0$。此外$0 < \sin{x} \leqslant 1$，所以总体来说，$n$趋于无穷时，
-    $f_n(x)$趋于$0$。
-    这说明函数列$\{f_n\}$逐点收敛到零函数。
-
-    再考察是否一致收敛。如果函数列一致收敛到$f$，那么$f$只能是零函数。考虑$f_n$在$\left[0;\frac{\pi}{2}\right]$上的积合：
-    $$ \int_{0}^{\frac{\pi}{2}} f_n.$$
-    计算可知：
-    \begin{align*}
-        \int_{0}^{\frac{\pi}{2}} f_n &= \int_{0}^{\frac{\pi}{2}} n\sin{x}\cos^n{x} \mathrm{d}x \\
-        &= -\int_{0}^{\frac{\pi}{2}} n\cos^n{x} \partial \cos{x} \\
-        &= \int_{0}^{1} n t^n \tag{$t = \cos{x}$} \\
-        &= \frac{n}{n + 1}
-    \end{align*}
-    因此，$n$趋于无穷时，积合趋于$1$。如果函数列一致收敛到零函数，就有：
-    $$ 1 = \lian{n\to\infty} \int_{0}^{\frac{\pi}{2}} f_n = \int_{0}^{\frac{\pi}{2}} \lian{n\to\infty} f_n = \int_{0}^{\frac{\pi}{2}} 0\mathrm{d}x = 0.$$
-    矛盾！这说明函数列在$\left[0;\frac{\pi}{2}\right]$上不一致收敛。
-\end{so}
 
 \begin{figure}[h] %this figure will be at the right
-    % \vspace{-4pt}
+    \vspace{4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{tu/一致收敛1.png}
-    \caption*{$n$\texttt{越大（颜色越深），}$f_n$\texttt{曲线高点越往左移}}
+    \includegraphics[width=0.9\textwidth]{tu/广义积分1.png}
+    \caption*{\texttt{函数}$x\mapsto\frac{1}{x}$（左）、$x\mapsto\frac{1}{x^2}$（右）}
 \end{figure}
 
-函数列$\{f_n\}$在$\left[0;\frac{\pi}{2}\right]$上无法一致收敛。观察函数的图像，可以发现，随着$n$增大，$f_n$曲线的最高点向左不断推移，不断变大。
-就好像一道浪花，随着靠近岸边而无限增高。那么，是否通过修改条件，让$\{f_n\}$一致收敛呢？如果考虑区间$\left[c;\frac{\pi}{2}\right]$，
-其中$c>0$，那么“浪花”太靠近“岸边”时，就不在区间里了。这样，$\{f_n\}$就可以一致收敛。
+第一个例子看起来不值得讨论，因为$x\mapsto\frac{1}{x}$甚至不总在$[0;1]$上有定义：$x=0$时，函数无定义。
+不过，如果直接看函数的图像，我们能理解这个问题想问什么：如果把积合看作函数与$x$轴之间的图形的面积，那么，
+$x\mapsto\frac{1}{x}$这种“无界”的图形是否有面积？
 
-具体来说，研究$f_n$的曲线，$f_n$的最大值在$x_n = \arctan{\sqrt{\frac{1}{n}}}$处取得，在$[0;x_n]$上单调递增，在$\left[x_n;\frac{\pi}{2}\right]$上单调递减。
-因此，只要$n>\cot^2{c}$，就有$\arctan{\sqrt{\frac{1}{n}}} < c$，于是$f_n$在$\left[c;\frac{\pi}{2}\right]$上单调递减，最大值为$f_n(c)$。
-于是：
-$$ \| f_n - f\|_{\infty} = f_n(c) = n\sin{c}\cos^n{c}.$$
-$n$趋于无穷时，$f_n(c)$趋于$0$，所以函数列$\{f_n\}$在$\left[c;\frac{\pi}{2}\right]$上一致收敛。
+这也是处理一般区间上函数积合时会遇到的问题：闭区间上的连续函数总是有界的，而一般区间上的函数不一定有界。
+对于这样的函数，我们能否定义积合呢？
+
+一般来说，以目前的知识，我们无法给任意的函数在任意区间上定义积合。但是，对于一部分“比较好”的函数，我们可以定义积合。
+
+比如，函数$f: x\mapsto\frac{1}{x}$虽然在$[0;1]$上不连续，甚至有未定义的点。但我们可以做一些“修补”。
+首先，我们可以给$x=0$处补上定义，比如设$f(0) = 0$。这些工作有助于我们讨论积合的问题，
+但不意味着改变函数是否可积的本质。
+
+以上修补过的$f$仍然在$0$处不连续。我们无法直接讨论曲线到$x$轴部分的面积。但我们知道$f$在$(0;1]$上连续。
+因此，对任意$a\in(0;1)$，$f$在闭区间$[a;1]$上连续。我们可以求出$f$在$[a;1]$上的面积，然后把$a$趋于$0$。
+如果无论$a$以什么方式趋于$0$，面积都趋于一个极限，就定义这个极限为$f$在$[0;1]$上的面积。
+
+首先求$f$在$[a;1]$上的积合：
+$$ \int_a^1 f = \ln{1} - \ln{a} = -\ln{a}. $$
+这说明$f$在$[a;1]$上的面积是$-\ln{a}$。而$a$趋于$0$时，$-\ln{a}$趋于正无穷。这说明$f$在$[0;1]$上的“面积”是无穷大，
+我们说$f$在$[0;1]$上不可积。
+
+第二个例子则比较好理解，因为$f:x\mapsto \frac{1}{x^2}$在$[1;+\infty)$上有定义。我们同样尝试用极限的方式定义函数曲线到$x$轴
+的面积。首先求$f$在$[1;a]$上的积合，其中$a>1$：
+$$ \int_1^a f = -\frac{1}{a} - (-1) = 1 - \frac{1}{a}. $$
+因此$a$趋于正无穷时，$f$在$[1;a]$上的积合趋于$1$。我们说$f$在$[1;+\infty)$上可积。
+
+这样，我们就把积合扩展到定义在一般区间上的连续函数。我们称这种积合为\textbf{广义积合}\footnote{不至于混淆时，也可以简称为积合。}：
+\begin{df}
+    设函数$f$在半开区间$[a;b)$上连续\footnote{$b$可以是无穷。}。如果当$x$趋于$b$时，$f$在$[a;x]$上的积合总趋于某个极限，
+    就说这个极限是$f$在$[a;b)$上的积合，即：
+    $$ \int_a^b f = \lian{x\to b^-} \int_a^x f. $$
+\end{df}
+
+定义中我们只讨论了区间一端的问题。不过，对于开区间$(a;b)$，我们显然可以先将它截为两段：$(a;c]$、$[c;b)$（其中$c$为区间内任意一点），
+然后分别研究这两段是否可积。如果在$(a;c]$、$[c;b)$上都可积，就定义$f$在$(a;b)$上的积合为两段上积合的和。
+$$ \int_a^b f = \lian{x\to a^+} \int_x^c f + \lian{x\to b^-} \int_c^x f. $$ 
+
+第一个例子中，我们还“修补”了另一个问题，就是函数在特定点的值的问题。直观来看，函数在单一点是否有定义，或者取不同的值，
+不应该改变函数在整个区间上的积合。因为积合是曲线到$x$轴的面积，是一个整体性质。
+
+为此，我们引入分段连续函数的定义：
+\begin{df}{\textbf{分段连续函数}}
+    设函数$f$在区间$I$上有定义。如果能找到$I$的分割$x_0, x_1, \cdots, x_n$\footnote{其中$x_0$、$x_n$可以是无穷。}，
+    使得$f$在各个子区间$(x_i;x_{i+1})$上都连续，就说$f$在$I$上（关于该分割）\textbf{分段连续}。
+\end{df}
+显然，连续函数不论如何分割，总是分段连续的。但也有函数只分段连续而不在整个区间上连续。
+比如我们见过的阶梯函数，就是分段连续的不连续函数。
+
+对于分段连续函数，我们可以通过逐段检查，确定它是否可积，并且求出积合。
+
+容易验证广义积合仍然满足积合的基本性质：
+\begin{enumerate}
+    \item 如果$f$在$I$上可积，且$f$在有限个点以外都大于等于$0$，则其积合大于等于$0$。
+    \item 设$a$、$b$、$c$是数轴上的三点，则$\int_a^b f + \int_b^c f = \int_a^c f$。
+    \item 设$f$、$g$在$I$上可积，$a, b$为系数，则$ a \int_I f + b \int_I g = \int_I (af + bg) $。
+    \item 函数$x\mapsto f\left(\frac{x}{c}\right)$在$[ac; bc]$上的积合，等于$c\int_a^b f$。
+    \item 函数$x\mapsto f(x-c)$在$[a+c;b+c]$上的积合，等于$\int_a^b f$。
+    \item 如果$f$在区间上的值总介于$m$、$M$之间，那么$m(b - a) \leqslant \int_a^b f \leqslant M(b - a)$。
+\end{enumerate}
+
+如果$f$在$I$上有界，那么它在$I$上的广义积合就是它在$I$上的积合。
+
+广义积合与微变也有互逆的关系。比如说，如果$f$在$(a;b]$上可微，且在$a$有右极限，那么：
+$$ \int_a^b \partial f = f(b) - \lian{x\to a^+} f.$$
+类似地，如果$f$在$[a;b)$上可微，且在$b$有左极限，那么：
+$$ \int_a^b \partial f = \lian{x\to b^-} f - f(a).$$
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 假设函数在一点$a$附近（不包括$a$）连续，但在$a$处不连续。这时，不连续的情况可以分成哪几种？其中哪些可以“修补”成连续函数？\\
+    \indent 2. 为什么说函数在有限个点上的取值不影响它在区间上的积合？函数在无限个点上的取值是否影响呢？给定区间$I$的子集$D$，
+    你认为当$D$满足什么条件的时候，$f$在$D$上的取值会影响它在区间上的积合？\\
+    \indent 3. 小明认为，$x\mapsto\frac{1}{x}$在$(0;1]$上的面积是正无穷，在$[-1;0)$上面积是负无穷，所以在$[-1;1]$上面积为$0$。你怎么看？
+\end{sk}
+
+\begin{xt}
+    \indent 1. 计算以下积合。$a$趋于给定值时，积合是否收敛？\\    
+    \begin{align*}
+        1).& \int_a^{1} \frac{\ln{x}}{x} , \; a\to 0^+  &2).& \int_1^{a} \mathrm{e}^{-x},  \; a\to +\infty \\[3pt]
+        3).& \int_0^{a} \frac{1}{\sqrt{1 - x^2}}, \; a\to 1^-   & 4).& \int_a^{1} \sin{\frac{1}{x}}, \; a\to 0^+ 
+    \end{align*}
+    \indent 2. 计算以下广义积合。\\    
+    \begin{align*}
+        1).& \int_0^{+\infty} \frac{1}{x\ln^2{x}} ,  &2).& \int_0^{+\infty} x\mathrm{e}^{-x^2} \\[3pt]
+        3).& \int_0^{+\infty} \frac{1}{(1 + \mathrm{e}^{x})^2},  & 4).& \int_0^{+\infty} \frac{\mathrm{e}^{-\sqrt{x}}}{\sqrt{x}}
+    \end{align*}
+    \indent 3. 仿照极限的定义，具体写出“连续函数在$[1;+\infty)$上可积”的定义。\\
+
+\end{xt}
+
+%%% 
+\section{广义可积函数}
+
+下面来看一些经典函数的广义积合。
+
+首先来看函数在某点附近不连续导致的广义积合。
+
+考虑函数$x\mapsto x^{-a}$，其中$a>0$为系数。它在$0$处无定义，在$0$右侧趋于正无穷。它是否在$(0;1]$上可积？
+
+对$t>0$，计算它在$[t;1]$上的积合。$a=1$时，我们知道函数不可积。$a\neq 1$时，
+\begin{align*}
+    \int_t^1 x^{-a} = \frac{1^{1-a}}{1 - a} - \frac{t^{1-a}}{1 - a} = \frac{1 - t^{1-a}}{1-a} 
+\end{align*}
+
+$a<1$时，随着$t$趋于$0$，$t^{1-a}$趋于$0$，因此函数在$(0;1]$上可积，积分为$\frac{1}{1-a}$。
+
+$a>1$时，随着$t$趋于$0$，$t^{1-a}$趋于无穷，因此函数在$(0;1]$上不可积。
+
+考虑函数$x\mapsto \ln{x}$，它在$0$处无定义，在$0$右侧趋于正无穷。它是否在$(0;1]$上有积合？
+
+对$t>0$，计算它在$[t;1]$上的积合。
+\begin{align*}
+    \int_t^1 \ln{x} = 1\cdot \ln{1} - 1 - (t\cdot\ln{t} - t)= t - t\ln{t} - 1
+\end{align*}
+
+$t$趋于$0$时，$t\ln{t}$趋于$0$。因此函数在$(0;1]$上可积，积分为$-1$。
+
+再来看函数在无穷区间上的广义积合。
+
+考虑函数$x\mapsto x^{-a}$，其中$a>0$为系数。它是否在$[1;+\infty)$上可积？
+
+对$t>1$，计算它在$[1;t]$上的积合。
+
+$a=1$时，
+\begin{align*}
+    \int_1^t x^{-a} = \ln{t} - \ln{1} = \ln{t} 
+\end{align*}
+$t$趋于无穷时，$\ln{t}$趋于无穷，因此函数在$[1;+\infty)$上不可积。
+
+$a\neq 1$时，它在$[1;t]$上的积合为：
+\begin{align*}
+    \int_1^t x^{-a} = \frac{t^{1-a}}{1 - a} - \frac{1^{1-a}}{1 - a} = \frac{t^{1-a} - 1}{1-a} 
+\end{align*}
+$a<1$时，随着$t$趋于无穷，$t^{1-a}$趋于无穷，因此函数在$[1;+\infty)$上不可积。
+
+$a>1$时，随着$t$趋于无穷，$t^{1-a}$趋于$0$，因此函数在$[1;+\infty)$上可积，积分为$\frac{1}{a-1}$。
+
+考虑函数$x\mapsto a^x$，其中$a\in(0;1)$为底数。它是否在$[0;+\infty)$上可积？
+
+对$t>0$，计算它在$[0;t]$上的积合。
+\begin{align*}
+    \int_0^t a^x = \frac{a^t}{\ln{a}} - \frac{a^0}{\ln{a}} = \frac{a^t - 1}{\ln{a}}
+\end{align*}
+随着$t$趋于无穷，$a^t$趋于$0$，因此函数在$[0,\infty)$上可积，积分为$-\frac{1}{\ln{a}}$。
+
+\begin{figure}[h] %this figure will be at the right
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=\textwidth]{tu/广义积分2.png}
+    \caption*{\texttt{左图：幂函数在}$[1;+\infty)$\texttt{上的面积；右图：指数函数在}$[0;+\infty)$\texttt{上的面积}}
+\end{figure}
+
+以上是关于基本的经典函数的讨论，对于更复杂的函数，如何判定它是否广义可积呢？
+
+观察以上的函数在开区间“边缘”的情况，可以发现，造成开区间上面积“无穷”问题的，要么是函数值在开区间端点附近趋于无穷，
+要么是开区间为无穷区间——区间长度“无穷”。
+
+我们把前一种情况称为\textbf{无界积合}或\textbf{瑕积合}，
+把造成问题的端点称\textbf{无界点}或\textbf{瑕点}。而区间为无穷区间的情况，我们称为\textbf{无限积合}。
+
+对于无界积合，直观来说，函数值在瑕点附近急速“爬升”或者“坠落”。
+“升”或“落”得越急，曲线到$x$轴的面积就越大；如果“升”或“落”得“太快”，面积就容易变成无穷。
+
+因此，我们可以将函数在无界点附近行为和以上计算过的经典函数进行比较。
+如果函数在无界点附近或比可积的经典函数还“慢”，那么可积；如果比不可积的函数还“快”，那么不可积。
+而“快慢”程度可以用无穷的阶来具体刻画。
+
+\begin{tm}
+    设函数$f$、$g$在区间$I=(a;b]$上分段连续，且在$a$附近同时趋于正无穷。
+    \begin{enumerate}
+        \item 如果在$a$附近总有$0\leqslant f \leqslant g$，那么只要$g$在$I$上可积，$f$就在$I$上可积。
+        \item 如果在$a$附近总有$0\leqslant g \leqslant f$，那么只要$g$在$I$上不可积，$f$就在$I$上不可积。
+        \item 如果$f \oveq{a} \Olim{g}$，那么只要$g$在$I$上可积，$f$就在$I$上可积。
+        \item 如果$g \oveq{a} \Olim{f}$，那么只要$g$在$I$上不可积，$f$就在$I$上不可积。
+        \item 如果$f \oveq{a} \Tlim{g}$，那么$f$在$I$上可积，当且仅当$g$在$I$上可积。
+    \end{enumerate}
+\end{tm}
+
+举例来说，考虑$(0;1]$上的分段连续函数$f$。如果$f$在$0$点右侧趋于正无穷，那么我们可以将$f$和$x\mapsto x^{-p}$比较。
+如果有$p<1$和$r>0$使得$0<x<r$时$f$总受制于$x^{-p}$：
+$$ \forall 0<x<r ,\,\,\,\frac{f(x)}{x^{-p}} < M,$$
+其中$M$是比值的上界，那么由于$x\mapsto x^{-p}$在$(0;1]$上可积，$f$也在$(0;1]$上可积。
+
+反之，如果$x\mapsto x^{-1}$在$0$右侧附近受制于$f$：
+$$ \forall 0<x<r ,\,\,\,\frac{f(x)}{x^{-1}} > M,$$
+那么由于$x\mapsto x^{-1}$在$(0;1]$上不可积，$f$也在$(0;1]$上不可积。
+
+再来看无穷积合的情况。
+对于无限积合，在无穷远处，如果函数不收敛到$0$，而是收敛到非$0$的数或者趋于无穷，那么显然不可积。
+如果函数在无穷远处收敛到$0$，是否就可积呢？
+
+如果函数值（在自变量$x$足够大时）总是正数（或者$0$），那么我们有类似的结论：
+\begin{tm}
+    设函数$f$、$g$在区间$I=[a;+\infty)$上分段连续。
+    \begin{enumerate}
+        \item 如果总有$0\leqslant f \leqslant g$，那么只要$g$在$I$上可积，$f$就在$I$上可积。
+        \item 如果总有$0\leqslant g \leqslant f$，那么只要$g$在$I$上不可积，$f$就在$I$上不可积。
+        \item 如果$0\leqslant f \oveq{+\infty} \Olim{g}$，那么只要$g$在$I$上可积，$f$就在$I$上可积。
+        \item 如果$0\leqslant g \oveq{+\infty} \Olim{f}$，那么只要$g$在$I$上不可积，$f$就在$I$上不可积。
+        \item 如果$0\leqslant f \oveq{+\infty} \Tlim{g}$，那么$f$在$I$上可积，当且仅当$g$在$I$上可积。
+    \end{enumerate}
+\end{tm}
+
+考虑$[1;+\infty)$上的分段连续函数$f\geqslant 0$。我们可以将$f$和$x\mapsto x^{-p}$比较。
+如果有$p>1$和$A>0$使得$x>A$时$f$总受制于$x^{-p}$：
+$$ \forall x>A ,\,\,\,\frac{f(x)}{x^{-p}} < M,$$
+其中$M$是比值的上界，那么由于$x\mapsto x^{-p}$在$[1;+\infty)$上可积，$f$也在$[1;+\infty)$上可积。
+
+反之，如果$x\mapsto x^{-1}$在$0$右侧附近受制于$f$：
+$$ \forall x>A ,\,\,\,\frac{f(x)}{x^{-1}} > M,$$
+那么由于$x\mapsto x^{-1}$在$[1;+\infty)$上不可积，$f$也在$[1;+\infty)$上不可积。
+
+以上讨论中我们加上了函数大于等于$0$的条件。如果函数值可正可负时，情况更加复杂。
+我们可以把无限积合与可数个数求和——也就是级数——的情况类比。
+讨论级数收敛时，我们将级数分为正项级数和一般的级数，并引入了级数的绝对值、绝对收敛和相对收敛的概念。
+
+对于无限积合，我们引入\textbf{绝对可积}的概念。
+对于定义在区间$I$上的函数$f$，如果它的绝对值$|f|: x\mapsto |f(x)|$在$I$上可积，就说$f$绝对可积；
+否则就说$f$\textbf{相对可积}。
+
+在$I$上绝对可积的函数，一定相对可积，但反之则不一定。
+
+要注意的是，如果函数在无穷远处没有极限，并不能说明它可积或不可积。比如说，我们可以在足够远处给函数加上一些“小尖刺”。
+每个“小尖刺”的面积都很小，不影响可积，但“刺尖”的函数值可以很大，甚至趋于无穷。
+
+具体来说，我们制作这样的“尖角函数”：
+\begin{align*}
+    f: [0;1] &\rightarrow \mathbb{R} \\
+x \;&\mapsto \begin{cases}
+    2x & 0\leqslant x \leqslant \frac{1}{2} \\
+    1 - 2x & \frac{1}{2} < x \leqslant 1
+\end{cases} 
+\end{align*}
+这个函数的图像是平放在$x$轴上的等腰三角形。它的左端和$0$对齐，底和高都是$1$。我们可以将它拉伸放缩为“尖刺”：
+\begin{align*}
+   [a;a+b] &\rightarrow \mathbb{R} \\
+    x \;&\mapsto h\cdot f\left(\frac{x-a}{b}\right)
+\end{align*}
+这个函数的图像也是$x$轴上的等腰三角形，只不过底边是$x$轴上的线段$[a;a+b]$，底长为$b$，高为$h$。
+
+取一个在$[1;+\infty)$上可积的非负函数，比如$\displaystyle f_0: x\mapsto \frac{1}{x^2}$。在足够远的地方放置这些“尖刺”，得到以下函数：
+$$
+g: x\mapsto \begin{cases}
+    \displaystyle f_0(x) + 2n f\left(n^3(x - n)\right) & \mbox{如果}\; x \in \left[n;n+\frac{1}{n^3}\right],\; n\in\mathbb{Z}^+ \\
+    f_0(x) & \mbox{其他的}\;x
+\end{cases}
+$$
+对任意正整数$n$，函数$g$在区间$\left[n;n+\frac{1}{n^3}\right]$上叠加放置了底边为$\frac{1}{n^3}$，高为$2n$的等腰三角形。它的面积为$\frac{1}{n^2}$。
+
+因此，相对于$f_0$，$g$的面积增加不超过$\displaystyle \sum_{n\geqslant 1} \frac{1}{n^2}$。而$\displaystyle \sum_{n\geqslant 1} \frac{1}{n^2}$是收敛的级数，所以函数$g$也是可积乃至绝对可积的。
+然而，$g$的函数值在$n+\frac{1}{2n^3}$处可以达到$2n$，因此没有上限，随着$n$的增大而趋于无穷。
+
+从这个例子可以看出，无限积合的判断比无界积合、级数收敛的判断更复杂。这是由实数集的不可数特性和函数的复杂性决定的。
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 总结非负连续函数的无限积合和正项级数的收敛的相似性。\\
+    \indent 2. 为什么讨论无界积合时，没有考虑函数值的正负性？\\
+    \indent 3. 广义积合可以看作对函数的积合求极限。是否可以先对函数求极限，再求积合？这两种操作是否等价？\\
+    \indent 4. 连续函数在无穷远处不收敛到$0$，是否一定不可积？
+\end{sk}
 
 \begin{xt}
     \mbox{} \\
-    \indent 1. 定义在区间$I$上的函数列$\{f_n\}$逐点收敛到函数$f$。判断以下说法是否正确：\\
-    \indent 1.1. 如果$\{f_n\}$都在$I$上递增，那么$f$也在$I$上递增。\\
-    \indent 1.2. 如果$\{f_n\}$都在$I$上严格递增，那么$f$也在$I$上严格递增。\\
-    \indent 1.3. 如果$\{f_n\}$都是以$T$为周期的函数，那么那么$f$也以$T$为周期。\\
-    \indent 1.4. 如果$\{f_n\}$都不是周期函数，那么$f$也不是周期函数。\\
-    \indent 2. 定义在$\mathbb{R}^+$上的函数列$\{f_n\}$的通项为：
-    $$ f_n: x\mapsto \frac{n}{1 + n( x + 1)}. $$
-    \indent 2.1. 证明$\{f_n\}$逐点收敛到某个函数$f$，并求出$f$。\\
-    \indent 2.2. 证明：$\forall x \geqslant 0$，$|f_n(x) - f(x)| \leqslant \frac{1}{n}$。\\
-    \indent 2.3. 证明$\{f_n\}$一致收敛到$f$。\\
-    \indent 3. 定义在$\mathbb{R}$上的函数列$\{f_n\}$的通项为：
-    $$ f_n: x\mapsto \sqrt{x^2 + \frac{1}{n}}. $$
-    \indent 3.1. 证明：$f_n$总是连续可微的。\\
-    \indent 3.2. 证明$\{f_n\}$逐点收敛到某个函数$f$，并求出$f$。\\
-    \indent 3.3. 证明$\{f_n\}$一致收敛到$f$。$f$是否连续可微？这说明什么？\\
-    \indent 4. 定义在$[0;1]$上的函数列$\{f_n\}$的通项为：
-    $$ f_n: x\mapsto \begin{cases}
-        n^2x(1 - nx) & \forall x < \frac{1}{n} \\
-        0 & \forall x \geqslant \frac{1}{n}
-    \end{cases} $$
-    \indent 4.1. 证明$\{f_n\}$逐点收敛到某个函数$f$，并求出$f$。\\
-    \indent 4.2. 对任意$n$，计算$f_n$在$[0;1]$上的积合。$\{f_n\}$是否在$[0;1]$上一致收敛到$f$？\\
-    \indent 4.3. 给定$a>0$，$\{f_n\}$是否在$[a;1]$上一致收敛到$f$？
+    \indent 1. 以下函数是否在$\mathbb{R}^+$上可积？\\    
+    \begin{align*}
+        1)\;\;& \frac{1}{x\ln^2{x}} ,  &2)\;\;& \frac{\mathrm{e}^{-x^2}}{\sqrt{x}}, \\[3pt]
+        3)\;\;& \sin{\frac{1}{x}},  & 4)\;\;& \frac{1}{\mathrm{e}^x  - 1}.
+    \end{align*}
+    \indent 2. 以下积合是否存在？\\    
+    \begin{align*}
+        1)\;\;& \int_2^{+\infty} \frac{1}{\sqrt{x(x - 1)(x - 2)}},  &2)\;\;& \int_0^{\frac{\pi}{2}} \frac{1}{\sin{x}\cos{x}(1 - \mathrm{e}^{-x})}, \\[3pt]
+        3)\;\;& \int_0^{1} \frac{\ln{x}}{(1 - x^2)^{\frac{3}{2}}} , & 4)\;\;& \int_0^{\pi} \frac{1}{\sqrt{\sin{x}}}.
+    \end{align*}
+    \indent 3. $f$是$[1;+\infty)$上的分段连续函数。\\
+    \indent 3.1. 证明：如果有正实数$a>1$使得$\lian{t\to+\infty} t^a f(t) = 0$，那么$f$在$[1;+\infty)$上绝对可积。\\
+    \indent 3.2. 证明：如果有正实数$c$使得$\lian{t\to+\infty} t f(t) \geqslant c$，那么$f$在$[1;+\infty)$上不可积。\\
+    \indent 4. $f$是$(0;1]$上的分段连续函数。\\
+    \indent 4.1. 证明：如果有正实数$a<1$使得$\lian{t\to 0^+} t^a f(t) = 0$，那么$f$在$(0;1]$上绝对可积。\\
+    \indent 4.2. 证明：如果有正实数$c$使得$\lian{t\to 0^+} t f(t) \geqslant c$，那么$f$在$(0;1]$上不可积。\\
+    \indent 5. 当$a$取什么值的时候，以下带参数$a$的函数在$\mathbb{R}^+$上可积？\\
+    \begin{align*}
+        1)\;\;& \frac{\ln{x}}{x^a} ,  &2)\;\;& \frac{\mathrm{e}^{-x} - 1}{x^a}, \\[3pt]
+        3)\;\;& \frac{x - \sin{x}}{x^a},  & 4)\;\;& \frac{\arctan{x}}{x^a}. 
+    \end{align*}
+    \indent 6. 设$f$是$\mathbb{R}^+$上的连续可积函数。\\
+    \indent 6.1. 设$\{x_n\}$、$\{y_n\}$为两个趋于正无穷的数列。证明：
+    $$ \lian{n\to+\infty}\int_{x_n}^{y_n} f = 0. $$
+    \indent 6.2. 证明：$\mathrm{e}^{-t\sin{t}}$在$\mathbb{R}^+$上不可积。
+
 \end{xt}
 
-\section{函数项级数}
-
-定义了函数列的极限，我们就可以讨论无穷个函数的和。和以数为通项的级数一样，我们可以定义以函数为通项的函数列的级数。
-我们把这样的级数称为\textbf{函数项级数}，把原来以数为通项的级数称为\textbf{数项级数}。
-
-一般来说，通项为函数$f_n$的函数项级数记为$\sum_{n\in\mathbb{N}} f_n$，简记为$\sum f_n$。
-
-最基本的函数项级数是通项为幂函数$f_n: x\mapsto a_n x^n$的级数，称为\textbf{幂级数}。
-
-和数项级数一样，函数项级数的部分和就是函数列，所以函数项级数的收敛就是部分和函数的收敛。
-
-定义在区间$I$上的函数项级数$\sum_{n\in\mathbb{N}} f_n$的部分和构成函数列$\{S_n\}_{n\in\mathbb{N}}$，
-如果$\{S_n\}_{n\in\mathbb{N}}$收敛，就说函数项级数$\sum_{n\in\mathbb{N}} f_n$收敛，
-其极限叫做函数项级数的\textbf{和函数}。
-
-如果部分和函数列$\{S_n\}_{n\in\mathbb{N}}$在$I$上逐点收敛到$S$，就说级数逐点收敛到$S$，$S$为级数的\textbf{逐点和}或\textbf{简单和}。
-
-如果部分和函数列$\{S_n\}_{n\in\mathbb{N}}$在$I$上一致收敛到$S$，就说级数一致收敛到$S$，$S$为级数的\textbf{一致和}。
-
-级数和就是部分和的极限，所以函数项级数也有与函数列类似的收敛性质。
-
-\begin{tm}{\textbf{一致收敛保证极限}}
-    已知区间$I$上的函数项级数$\sum_{n\in\mathbb{N}} f_n$一致收敛到和函数$f$，
-    且函数列的通项$f_n$都在区间的一端$a$点处\footnote{也可以是无穷远处。}有极限$u_n$。
-    那么级数$\sum_{n\in\mathbb{N}} u_n$收敛到某个数$u$，且$u$是$f$在$a$处的极限。
-    $$ \sum_{n=0}^{+\infty} \left(\lian{x\to a} f_n(x) \right) = \lian{x\to a} \left(\sum_{n=0}^{+\infty} f_n\right)(x). $$
-\end{tm}
-
-\begin{tm}{\textbf{一致收敛传递连续性}}
-    区间上连续函数的函数项级数如果一致收敛，那么和函数也是连续函数。
-\end{tm}
-
-\begin{tm}{\textbf{积合的一致极限}}
-    设闭区间$I=[a;b]$上的连续函数项级数$\sum_{n\in\mathbb{N}} f_n$一致收敛到和函数$f$，记$J_n$为$f_n$在$I$上的积合，
-    则级数$\sum_{n\in\mathbb{N}} J_n$有级数和$J$，且$J$是$f$在$I$上的积合。
-    $$ \sum_{n=0}^{+\infty} \int_a^b f_n = \int_a^b \sum_{n=0}^{+\infty} f_n. $$
-\end{tm}
-
-\begin{tm}{\textbf{微变的一致极限}}
-    已知函数项级数$\sum_{n\in\mathbb{N}} f_n$的通项都在区间$I$上可微，且微变函数连续。
-    设函数项级数$\sum_{n\in\mathbb{N}} f_n$逐点收敛到和函数$f$，且函数项级数$\sum_{n\in\mathbb{N}} \partial f_n$在$I$的任何闭子区间上一致收敛到和函数$g$，
-    那么$\sum_{n\in\mathbb{N}} f_n$在$I$的任何闭子区间上一致收敛到$f$，
-    $f$在$I$上可微，且其微变函数$\partial f = g$。
-
-    也就是说，在一定条件下，我们可以交换微变操作与级数求和操作：
-    $$ \sum_{n=0}^{+\infty} \partial f_n = \partial \sum_{n=0}^{+\infty} f_n. $$
-    
-    如果函数项级数$\sum_{n\in\mathbb{N}} f_n$的通项都在区间$I$上$k$阶连续可微，简单收敛到和函数$f$，并且
-    \begin{enumerate}
-        \item 对任意$1 \leqslant i < k$，函数项级数$\sum_{n\in\mathbb{N}} \partial^i f_n$简单收敛到和函数$g_i$；
-        \item 函数项级数$\sum_{n\in\mathbb{N}} \partial^k f_n$在$I$的任意子闭区间上一致收敛到和函数$g_k$。
-    \end{enumerate}
-    那么$f$在$I$上$k$阶连续可微，且其前$k$阶微变函数为$\partial^i f = g_i$（$1 \leqslant i\leqslant k$）。
-    此外，$\sum_{n\in\mathbb{N}} f_n$在$I$的任意子闭区间上一致收敛到$f$。
-\end{tm}
-
-以上的结论就是用级数的形式把前面关于函数列极限的性质重复一遍。
-
-\begin{sk}
-    \mbox{} \\
-    \indent 1. 函数项级数的收敛性质如何与数项级数对应？用自己的话概括一下。\\
-    \indent 2. 函数项级数的收敛性质如何与函数列的收敛性质对应？用自己的话概括一下。
-\end{sk}
-
-\section{幂级数}
-
-最简单的函数项级数是以整幂函数为通项的级数：
-$$ 1 + x + x^2 + \cdots + x^n + \cdots$$
-如果在每个整幂函数前加上系数，就得到：
-$$ a_0 + a_1x + a_2x^2 + \cdots + a_n x^n + \cdots$$
-我们称这样的函数项级数为\textbf{幂级数}。幂级数的形式和整式函数很像。
-如果系数数列$\{a_n\}$在有限项之后都是$0$，那么幂级数就是一般的整式函数。实际上，幂级数的部分和就是整式函数。
-也就是说，幂级数就是次数不断增长的整式函数列的极限。
-
-怎样的幂级数收敛呢？如果只考虑单个$x$的值，我们就得到数项级数：$\sum a_n x^n$。考虑这样的函数$f$：
-如果级数$\sum a_n x^n$收敛，那么$f(x) = \sum a_n x^n$。直觉上，我们希望$f$就是幂级数的部分和收敛到的函数。
-
-\begin{df}
-    给定数列$\{a_n\}_{n\in\mathbb{N}}$，考虑使得数项级数$\sum a_n x^n$逐点收敛的$x$的集合$J$。则可以定义函数：
-    $$
-    \begin{array}{rl}
-        f: \,\, J\subseteq\mathbb{R} &\rightarrow \mathbb{R} \\
-        x &\displaystyle \mapsto \sum_{n=0}^{+\infty} a_n x^n        
-    \end{array}
-    $$
-    $f$称为（关于数列$\{a_n\}_{n\in\mathbb{N}}$）的幂级数，记为
-    $$ x\mapsto \sum_{n=0}^{+\infty} a_n x^n. $$
-    不至于混淆时，也简记为$\sum_{n\in\mathbb{N}} a_n x^n$或$\sum a_n x^n$。
-\end{df}
-换句话说，幂级数就是部分和函数$f_N : x\mapsto \sum_{n=0}^{N} a_n x^n$在$J$中逐点收敛到的函数。
-我们称$J$为幂级数的\textbf{收敛域}，$J$就是幂级数的定义域。
-
-我们知道，级数收敛与否，与通项趋于$0$的速度有关。对于不同的$x$，级数$\sum a_n x^n$的通项形式相同，
-都是$x$的整幂乘以同一组系数。因此，对不同的$x$来说，它们的大小关系应该和$\sum a_n x^n$的敛散性质有关。
-
-\begin{tm}\label{tm:1-1-0}
-    如果对某个数$z$，数项级数$\sum a_n z^n$收敛，
-    那么对于绝对值小于$|z|$的数$x$，数项级数$\sum a_n x^n$都绝对收敛。
-\end{tm}
-
-\begin{proof}
-    数项级数$\sum a_n z^n$收敛，因此相应的数列$\{a_n z^n\}$是有界数列。即有$M>0$使得
-    $|a_n z^n|$总小于$M$。
-
-    对任意自然数$n$，
-    $$ |a_n x^n| = |a_n z^n| \cdot \left|\frac{x}{z}\right|^n < M \left|\frac{x}{z}\right|^n. $$
-    记$\displaystyle \omega = \left|\frac{x}{z}\right|$，则$0\leqslant \omega<1$，因此部分和：
-    \begin{align*}
-        \sum_{n=0}^N |a_n x^n| &< \sum_{n=0}^N M \omega^n = \frac{M(1 - \omega^{N+1})}{1 - \omega} < \frac{M}{1 - \omega}.
-    \end{align*}
-    这说明$\sum a_n x^n$绝对收敛。
-
-\end{proof}
-
-如果对某个$x$，$\sum a_n x^n$收敛，那么对于绝对值比$x$小的数，级数也收敛。
-这说明，数轴上使得$\sum a_n x^n$收敛的数应该大致是一个关于原点对称的区间。
-
-\begin{tm}\label{tm:1-1-10}
-    设$\displaystyle\sum_{n=0}^{+\infty} a_n x^n$为幂级数。要么有唯一的非负实数$R$，使得：
-    \begin{enumerate}
-        \item 只要$x$的绝对值小于$R$，那么级数$\sum a_n x^n$收敛。
-        \item 只要$x$的绝对值大于$R$，那么级数$\sum a_n x^n$发散。
-    \end{enumerate}
-    这样的$R$称为幂级数的\textbf{收敛半径}。要么对任何实数，级数$\sum a_n x^n$收敛。
-    这时我们说幂级数的收敛半径是无穷大。
-\end{tm}
-
-\begin{proof}
-    考虑使得数项级数$\sum a_n x^n$收敛的非负实数$x$绝对值的集合$A$。
-    $$A = \left\{ x \geqslant 0 \, \left| \, \sum_{n=0}^{+\infty} a_n x^n \mbox{收敛} \right. \right\} $$
-
-    $A$是实数集的子集，而且$0\in A$，因此$A$是非空集合。
-
-    如果$A$没有上界，那么对任意$x$，总有$A$中元素$M$比它的绝对值大。按照定理\ref{tm:1-1-0}，级数$\sum a_n x^n$收敛。
-    也就是说，对任何实数，级数$\sum a_n x^n$收敛。
-
-    如果$A$有上界，那么它有上确界$c\geqslant 0$。我们将证明：上确界$c$就是我们要找的$R$。
-    
-    首先，按照上确界的定义，只要$|x|<c$，那么$|x|$不是$A$的上界，即有$b\in A$，$b>|x|$。
-    因此按照定理\ref{tm:1-1-0}，级数$\sum a_n x^n$收敛。
-
-    其次，对于$|x|>c$，如果级数$\sum a_n x^n$收敛，那么考虑$b = \frac{|x| + c}{2}$。
-    按定义，$|x| > b > c \geqslant 0$。按照定理\ref{tm:1-1-0}，$|b| = b < |x|$，所以$\sum a_n b^n$收敛，
-    因此$b \in A$。但$b>c$，这与$c$为$A$的上确界矛盾。
-    因此$|x|>c$时，级数$\sum a_n x^n$发散。
-
-    最后证明$c$是唯一满足要求的。如果还有$c'$也满足要求。要么$c'>c$，于是$\frac{c+c'}{2} > c$使得级数收敛，违背$c$的定义。
-    要么$c'<c$，于是$\frac{c+c'}{2} < c$使得级数发散，违背$c$的定义。
-
-    综上，$c$是唯一满足要求的数，它就是我们要找的收敛半径$R$。
-
-\end{proof}
-
-可以看到，只要确定了收敛半径$R$，那么$(-R;R)$肯定在幂级数的收敛域$J$中。而对于实数收敛半径$R$，只要$|x|>R$，
-那么$x$就不在$J$中。于是要么收敛半径为无穷大，这时收敛域$J$是全体实数；要么收敛半径是非负实数$R$，
-这时收敛域就是$(-R;R)$或加上两边的端点$-R$、$R$，即$(-R;R)$、$(-R;R]$、$[-R;R)$、$[-R;R]$四者之一。
-
-来看一些常见的幂级数。我们知道对任意$x$，级数$\sum_{n=0}^{+\infty} \frac{x^n}{n!}$收敛。
-我们定义幂级数：
-$$ x \mapsto \sum_{n=0}^{+\infty} \frac{x^n}{n!} $$
-幂级数的系数为：$a_n = \frac{1}{n!}$。按照收敛半径的定义，幂级数的收敛半径为无穷大。
-
-再来看幂级数：
-$$ x \mapsto 1 + x + x^2 + \cdots + x^n + \cdots $$
-即
-$$ x \mapsto \sum_{n=0}^{+\infty} x^n $$
-幂级数的系数数列为：$a_n = 1$。
-
-它的通项是等比数列。当$|x|<1$时，级数收敛，$|x|>1$时，级数发散。因此收敛半径为$1$。
-$|x|<1$时，幂级数的值为：$\frac{1}{1 - x}$。
-
-$x = \pm 1$时，级数都不收敛，因此收敛域为$(-1;1)$。
-
-把$x$换成$cx$，可以得到系数数列为：$a_n = c^n$的幂级数。它的收敛半径是$\frac{1}{|c|}$。
-$|x|<\frac{1}{|c|}$时，幂级数的值为：$\frac{1}{1 - cx}$。收敛域为$\qu{-\frac{1}{|c|}}{\frac{1}{|c|}}$。
-
-把$x$换成$x^2$，可以得到幂级数：
-$$ x \mapsto \sum_{n=0}^{+\infty} x^{2n} $$
-它的收敛半径也是$1$，收敛域为$(-1;1)$。$|x|<1$时，幂级数的值为：$\frac{1}{1 - x^2}$。
-
-另一类基本的幂级数是：
-$$ x \mapsto \sum_{n=0}^{+\infty} \frac{x^n}{n^c}$$
-其中$c$是常数。研究相邻通项之比：
-$$ q_n = \frac{x^n}{n^c} \frac{(n+1)^c}{x^{n+1}} = \frac{1}{x} \left(\frac{n+1}{n}\right)^c. $$
-$n$趋于无穷时，$\displaystyle \left(\frac{n+1}{n}\right)^c$收敛到$1$。因此，
-只要$0<x<1$，那么$n$足够大时，$q_n$总大于某个大于$1$的数，于是级数$\sum_{n=0}^{+\infty} \frac{x^n}{n^c}$收敛。
-反之，$x>1$时，可以推出级数$\sum_{n=0}^{+\infty} \frac{x^n}{n^c}$发散。
-因此幂级数的收敛半径是$1$。
-
-$x=-1$时，级数变为$\sum \frac{(-1)^n}{n^c}$，是交替级数，因此收敛。
-$x=1$时，级数变为$\sum n^{-c}$。如果$c>1$，那么级数收敛，$x=1$属于收敛域；如果$c\leqslant 1$，那么级数发散，
-$x=1$不属于收敛域。
-
-对于一般的幂级数，怎样判断它的收敛半径呢？与数项级数一样，我们通过相邻通项之比来判别：
-
-\begin{tm}
-    如果幂级数$\sum a_n x^n$的相邻通项$a_n$、$a_{n+1}$绝对值之比趋于非负实数$R$，那么$R$是幂级数的收敛半径。
-    $$ R = \lian{n\to\infty} \frac{|a_n|}{|a_{n+1}|}. $$
-    如果相邻通项之比趋于正无穷大，则收敛半径为无穷大。
-\end{tm}
-
-这个判定准则简单好用，但要注意：它并不是收敛半径的定义。如果相邻通项之比没有极限，我们无法推出关于收敛半径的知识。
-
-\begin{et}    
-    \mbox{} \\
-    研究以下幂级数的收敛半径。\\
-    \begin{align*}
-        1).& \sum \sqrt{n} x^n,  &2).& \sum \frac{\sqrt{n}}{3^n + 1} x^n \\
-        3).& \sum \frac{n!}{4^n\sqrt{(2n)!}} x^n,  & 4).& \sum \frac{\sqrt{n}}{2^n+1} x^{2n} 
-    \end{align*}
-\end{et}
-
-\begin{so}
-    \mbox{} \\
-    1). 相邻通项之比收敛：
-    $$ \lian{n\to\infty} \frac{a_n}{a_{n+1}} = \lian{n\to\infty} \frac{\sqrt{n}}{\sqrt{n+1}} = \sqrt{\frac{1}{1 + \lian{n\to\infty} \frac{1}{n}}} = 1. $$
-    所以收敛半径是$1$。\\
-    2). 相邻通项之比为：
-    $$ \frac{a_n}{a_{n+1}} = \frac{\frac{\sqrt{n}}{3^n + 1}}{\frac{\sqrt{n+1}}{3^{n+1} + 1}} = \frac{3 + \frac{1}{3^n}}{1 + \frac{1}{3^n}}\sqrt{\frac{n}{n+1}}. $$
-    求极限：
-    $$ \lian{n\to\infty} \frac{a_n}{a_{n+1}} = \lian{n\to\infty} \frac{3 + \frac{1}{3^n}}{1 + \frac{1}{3^n}}\lian{n\to\infty} \frac{\sqrt{n}}{\sqrt{n+1}} = 3. $$
-    所以收敛半径是$3$。\\
-    3). 相邻通项之比为：
-    $$ \frac{a_n}{a_{n+1}} = \frac{\frac{n!}{4^n\sqrt{(2n)!}}}{\frac{(n+1)!}{4^{n+1}\sqrt{(2n+2)!}}} = \frac{4\sqrt{(2n+1)(2n+2)}}{n+1}. $$
-    求极限：
-    $$ \lian{n\to\infty} \frac{a_n}{a_{n+1}} = \lian{n\to\infty}\frac{4\sqrt{(2n+1)(2n+2)}}{n+1} = \lian{n\to\infty}\frac{4\sqrt{(2+\frac{1}{n})(2+\frac{2}{n})}}{1+\frac{1}{n}} = 8. $$
-    所以收敛半径是$8$。\\
-    4). 由于系数通项的偶数项为$0$，我们无法直接比较相邻通项。对于给定的$x$，我们考虑正项级数$\sum \frac{\sqrt{n}}{2^n+1} x^{2n}$的相邻通项之比：
-    $$ \frac{\frac{\sqrt{n}x^{2n}}{2^n+1}}{\frac{\sqrt{n+1}x^{2n+2}}{2^{n+1}+1}} = \frac{1}{x^2}\frac{2 + \frac{1}{2^n}}{1 + \frac{1}{2^n}}\sqrt{\frac{n}{n+1}}. $$
-    其中$\frac{1}{x^2}$是与$n$无关的常数。另外的项在$n$趋于无穷时有极限：
-    $$ \lian{n\to\infty}\frac{2 + \frac{1}{2^n}}{1 + \frac{1}{2^n}}\sqrt{\frac{n}{n+1}} = \lian{n\to\infty}\frac{2 + \frac{1}{2^n}}{1 + \frac{1}{2^n}}\lian{n\to\infty}\sqrt{\frac{n}{n+1}} = 2. $$
-    因此，如果$x^2<2$，那么相邻通项之比大于$1$，根据级数收敛性的判别法，级数收敛。同理，如果$x^2<2$，那么级数发散。
-    按照定义，幂级数的收敛半径是$\sqrt{2}$。
-
-\end{so}
-
-\begin{sk}
-    \mbox{} \\
-    \indent 1. 收敛半径为$0$的幂级数是怎样的？举出例子。 \\
-    \indent 2. 研究形如$\sum_{n=0}^{+\infty} a_n (x - x_0)^n$的函数项级数。它和幂级数有什么联系？\\
-    \indent 3. 考虑形如$\sum_{n=0}^{+\infty} \frac{a_n}{x^n}$的函数项级数。它的性质和幂级数有什么不同，有什么相似之处？
-\end{sk}
-
-\begin{xt}    
-    \mbox{} \\
-    \indent 1. 研究以下幂级数的收敛半径。\\
-    \begin{align*}
-        1).& \sum \frac{x^n}{\sqrt{n+1}} ,  &2).& \sum \frac{\ln{(n+1)}}{n^2 + 2^n} x^n \\
-        3).& \sum \frac{(-4)^n n!}{(2n)!} x^n,  & 4).& \sum \frac{\sqrt{n^2+1}}{3^n+1} x^{3n} 
-    \end{align*}
-    \indent 2. $\{a_n\}$是有界数列。证明：幂级数$\sum a_n x^n$的收敛半径不小于$1$。\\
-    \indent 3. 如果幂级数$\sum a_n x^n$的收敛半径为实数$R$，证明：幂级数$\sum \frac{a_n}{n!} x^n$的收敛半径为无穷大。\\
-    \indent 4. 记幂级数$f: x\mapsto \sum a_n x^n $，证明：$f$是偶函数，当且仅当所有的系数$a_{2n+1} = 0$。$f$是奇函数，当且仅当所有的系数$a_{2n} = 0$。
-\end{xt}
-
-\section{幂级数的基本性质}
-
-幂函数的收敛半径和系数数列相关。考虑两个幂函数$\sum a_n x^n$、$\sum b_n x^n$，设它们的收敛半径分别是$R_a$、$R_b$。
-如果$\{a_n\} = \Olim{\{b_n\}}$，即数列$\left\{\frac{a_n}{b_n}\right\}$是有界的，那么对使得$\sum b_n x^n$收敛的$x>0$，
-级数$\sum a_n x^n$的部分和可以写成：
-\begin{align*}
-    \sum_{n=0}^{N} |a_n x^n| = \sum_{n=0}^{N} \left|\frac{a_n}{b_n}\right| |b_n x^n| \leqslant M \sum_{n=0}^{N} |b_n x^n|
-\end{align*}
-其中$M$是数列$\frac{a_n}{b_n}$的上界。这说明级数$\sum a_n x^n$收敛。于是收敛半径$R_a \geqslant R_b$。
-
-进一步说，如果$\{a_n\} \sim \{b_n\}$，即数列$\left\{\frac{a_n}{b_n}\right\}$极限为$1$，那么上面的论证是双向的，于是收敛半径$R_a = R_b$。
-
-再来看两者的和与差。如果$x$的绝对值小于$R_a$、$R_b$的较小值，那么级数$\sum a_n x^n$、$\sum b_n x^n$都绝对收敛，于是
-$\sum (a_n \pm b_n) x^n$也收敛，而且幂级数的值：
-$$\sum (a_n \pm b_n) x^n = \sum a_n x^n \pm \sum b_n x^n.$$
-这说明幂级数$\sum (a_n \pm b_n) x^n$的收敛半径不小于$R_a$、$R_b$中较小的那个。
-
-要注意的是，幂级数$\sum (a_n \pm b_n) x^n$的收敛半径可以严格大于$R_a$、$R_b$的较小值。比如级数$\sum x^n$和$\sum -x^n$的收敛半径都是$1$，
-但两者相加后幂级数系数全是$0$，于是收敛半径为无穷大。
-
-幂级数还可以相乘。给定收敛半径分别为$R_a$、$R_b$的幂级数$\sum a_n x^n$、$\sum b_n x^n$，我们可以定义幂级数$\sum c_n x^n$：
-$$ \forall n, \; c_n = \sum_{k=0}^n a_k b_{n-k}.$$
-如果$x$的绝对值小于$R_a$、$R_b$的较小值，那么级数$\sum a_n x^n$、$\sum b_n x^n$都绝对收敛，于是$\sum c_n x^n$也绝对收敛。
-换句话说，幂级数$\sum c_n x^n$的收敛半径不小于$R_a$、$R_b$的较小值。
-
-作为函数，幂级数有怎样的性质呢？首先，幂级数在收敛域内是连续函数（证明见附录）。
-
-\begin{tm}
-    幂级数是其收敛域上的连续函数。
-\end{tm}
-
-不仅如此，我们还能推出，幂函数的微变与积合函数也可以表示为幂函数。
-
-\begin{tm}
-    若幂级数$S(x) = \sum a_n x^n$的收敛半径为$R$，则它在$(-R;R)$的任何闭子区间上可积。它的积合函数也是收敛半径为$R$的幂级数：
-    $$ \forall x, \in (-R;R),\,\,\, \int_0^x S =  \sum_{n=0}^{+\infty} \frac{a_n x^{n+1}}{n + 1}. $$
-\end{tm}
-
-\begin{tm}
-    若幂级数$S(x) = \sum a_n x^n$的收敛半径为$R$，则它在$(-R;R)$上光滑。它的微变函数也是收敛半径为$R$的幂级数：
-    $$ \forall x, \in (-R;R),\,\,\, \partial S(x) =  \sum_{n=1}^{+\infty} na_n x^{n-1} = \sum_{n=0}^{+\infty} (n + 1)a_{n+1} x^{n}. $$
-    一般来说，它的任意次微变都是收敛半径为$R$的幂级数：
-    \begin{align*}
-        \forall k \in \mathbb{N},\;\forall x, \in (-R;R),\,\,\, \partial^k S(x) &= \sum_{n=k}^{+\infty} n(n-1)\cdots(n - k + 1)a_n x^{n-k} \\
-        &= \sum_{n=0}^{+\infty} (n + 1)(n + 2)\cdots(n + k)a_{n+k} x^{n}. \\
-    \end{align*}
-\end{tm}
-
-作为直接推论，可以发现：取$x=0$，就有$\partial S(0) = a_1$。一般来说，
-$$\forall k\in \mathbb{N}, \,\,\, a_k = \frac{\partial^k S(0)}{k!}.$$
-也就是说，幂级数的系数可以通过求$0$处的微变计算。
-
-简单来说，如果要对幂级数求微变或求积合，只要对它的通项求微变或求积合即可。而幂级数的收敛半径不会改变。
-幂级数这种良好的性质，可以用来分析很多函数相关的问题。如果我们能够把函数展开为幂级数，就可以方便地对它进行微变、积合操作。
-
-\begin{et}
-    研究幂级数：$S(x) = \sum_{n=0}^{+\infty} \frac{x^n}{n!}. $
-\end{et}
-
-\begin{so}
-    我们知道幂级数$\sum_{n=0}^{+\infty} \frac{x^n}{n!}$的收敛半径是无穷大。于是它在$\mathbb{R}$上光滑。
-
-    对任意实数$x,y$，计算$S(x)\cdot S(y)$，
-    \begin{align*}
-        S(x)\cdot S(y) &= \sum_{n=0}^{+\infty} \frac{x^n}{n!} \cdot \sum_{n=0}^{+\infty} \frac{y^n}{n!} \\
-        &= \sum_{n=0}^{+\infty} \sum_{k=0}^{n} \frac{x^k}{k!} \frac{y^{n-k}}{(n-k)!} \\
-        &= \sum_{n=0}^{+\infty} \frac{1}{n!} \sum_{k=0}^{n} \frac{n!}{k!(n-k)!} x^ky^{n-k} \\
-        &= \sum_{n=0}^{+\infty} \frac{(x + y)^n}{n!} \\
-        &= S(x + y)
-    \end{align*}
-    根据$S(x)$的光滑（所以连续）性质以及以上关系，可以推出$S(x) = b\cdot c^x$，其中$b,c$是待定的常数。
-    根据幂级数系数与微变的关系，$S(0) = \partial S(0) = 1$。解得$b=1$，$c=e$。因此，$S(x) = e^x$。
-\end{so}
-
-% $S(x) = \sum_{n=0}^{+\infty} \frac{(-1)^n x^{2n+1}}{(2n+1)!}. $
-% $C(x) = \partial S(x) = \sum_{n=0}^{+\infty} \partial \frac{(-1)^n x^{2n+1}}{(2n+1)!} = \sum_{n=0}^{+\infty} \frac{(-1)^n x^{2n}}{(2n)!} $
-% $\partial C(x) = \sum_{n=0}^{+\infty} \partial \frac{(-1)^n x^{2n}}{(2n)!} = \sum_{n=1}^{+\infty} \frac{(-1)^n x^{2n-1}}{(2n-1)!} = -\sum_{n=0}^{+\infty} \frac{(-1)^n x^{2n+1}}{(2n+1)!} = -S(x). $
-% $\partial^2 C(x) = \partial (-S(x)) = -\partial S(x) = -C(x). $
-
-\begin{sk}
-    \mbox{} \\
-    \indent 1. 幂级数系数的微变表示，和我们学过的哪个公式相似？为什么？\\
-    \indent 2. 如果幂级数的收敛域是$[-R;R]$，是否在$[-R;R]$上可积？举出例子或反例。
-\end{sk}
-
-\begin{xt}    
-    \mbox{} \\
-    \indent 1. 已知幂级数$\sum a_n x^n$的收敛半径是$R$，求$\sum (-1)^n a_n x^n$的收敛半径。\\
-    % \indent 2. 如果幂级数$\sum a_n x^n$的系数总是正数，且收敛半径为实数$R$，证明：幂级数$\sum a_n^p x^n$的收敛半径为$R^p$。\\
-    \indent 2. 已知幂级数$S(x) = \sum_{n=0}^{+\infty} \frac{(-1)^n x^{2n+1}}{(2n+1)!}. $\\
-    \indent 2.1. 证明：$S(x)$的收敛半径为无穷大。\\
-    \indent 2.2. 证明：$\forall x,\,\,\,\partial^2 S(x) + S(x) = 0.$ \\
-    \indent 2.3. 找出另一个满足以上方程的幂级数。\\
-    \indent 3. 已知幂级数$S(x) = \sum a_n x^n$的收敛半径是$1$。函数$S$在$x=1$处有极限$l$。\\
-    \indent 3.1. 级数$\sum a_n$是否收敛？\footnote{提示：考虑$a_n = (-1)^n$的例子。}\\
-    \indent 以下假设$\{a_n\}$是正数列。\\
-    \indent 3.2. 证明：$S$在$(0;1)$上单调递增。\\
-    \indent 3.3. 证明：级数$\sum a_n$收敛。\\
-    \indent 3.4. 证明：级数$\sum a_n$的和为$l$。\\
-    \indent 4. 已知幂级数$S(x) = \sum a_n x^n$的收敛半径是$R>0$。如果对某个$r>0$，
-    $S(x)$在$(-r;r)$上恒等于$0$，证明：$S(x)$在$(-R;R)$上恒等于$0$。
-\end{xt}
-
-\section{函数的幂级数展开}
-
-幂级数可以看作多项式函数的极限。
-我们用有理数的极限表示了所有的实数。那么，幂级数作为多项式函数的极限，能否用来表示任意函数呢？
-
-上一节已经证明，幂级数总是光滑函数。
-因此，我们希望任意光滑函数都对应某个幂级数。
-
-上一节中，我们把一些经典函数表示成了幂级数。比如：
-$$ \forall x, \,\,\, e^x = \sum_{n=0}^{+\infty} \frac{x^n}{n!}. $$
-
-我们知道，足够光滑的函数，可以在局部展开。它的局部展开的形式和幂级数的部分和函数一样，都是多项式函数。
-而幂级数的系数可以用它在$0$处的微变来表示，其形式和函数的局部展开一样。
-那么，是否无穷光滑的函数，就能展开为幂级数？而幂级数的系数就是它局部展开的样子？
-
-这样，我们就可以把函数的局部展开变成一个宏观的、整体的性质。
-通过研究多项式函数及其极限，就能研究各种各样的函数。
-
-我们把能够在一定区间上展开为幂级数的函数称为\textbf{可展函数}，对应的幂级数称为函数在对应区间上的\textbf{幂级数展开}。
-比方说，对于函数$f$，如果有$r>0$和级数$\sum a_n$，使得
-$$\forall x\in (-r;r),\,\,\, f(x) = \sum a_n x^n,$$
-就说$f$在$(-r;r)$上可展开为幂级数。
-
-经典函数中的指数函数、正弦函数、余弦函数都可以在其定义域上展开为幂级数，因此都是可展函数。
-
-如果函数$f$可以在$(-R;R)$上展开为幂级数，那么它一定在$(-R;R)$上光滑，并且可以写成：
-$$ f(x) = \sum_{n=0}^{+\infty} \frac{\partial^n f(0)}{n!} x^n. $$
-这就是我们希望的结果：可展函数的幂级数是其局部展开的“极限”。
-
-那么，是否所有的光滑函数都可以在某个区间上展开为幂级数呢？我们可以看这样的例子：
-$$ f: x\mapsto \begin{cases} e^{-\frac{1}{x}} & x > 0 \\ 0 & x \leqslant 0 \end{cases}.$$
-它作为经典函数（指数函数和反比例函数）的复合，在$x\neq 0$时是光滑的。
-$f$在$x<0$的任意次微变函数都是零函数，而在$0$右侧的$n$次微变函数可以写成：
-$$ \partial^n f(x) = \frac{p_n(x)}{x^{2n}} e^{-\frac{1}{x}}.$$
-其中$p_n$是$n-1$次多项式，因此$\partial^n f(x)$在$x$趋于$0$时趋于$0$。这说明$\partial^n f$在$0$处也连续，
-且
-$$ \partial^n f(0) = 0.$$
-假如$f$可以在$0$的某个邻域$(-R;R)$上展开为幂级数，那么：
-$$ \forall x \in (-R;R) ,\,\,\, f(x) = \sum_{n=0}^{+\infty} \frac{\partial^n f(0)}{n!} x^n = 0. $$
-这与$f$的定义矛盾。因此$f$无法在$0$处展开为幂级数。直观来说，$f$在$0$处太“平”了，以至于无法给出宏观整体的信息。
-
-\begin{figure}[h] %this figure will be at the right
-    % \vspace{-4pt}
-    \centering
-    \includegraphics[width=0.8\textwidth]{tu/幂级数2.png}
-    \caption*{\texttt{函数}$\displaystyle e^{-\frac{1}{x}}$\texttt{在}$0$\texttt{处太平坦了}}
-\end{figure}
-
-% \begin{sk}
-%     \mbox{} \\
-%     \indent 1. 幂级数系数的微变表示，和我们学过的哪个公式相似？为什么？\\
-%     \indent 2. 如果幂级数的收敛域是$[-R;R]$，是否在$[-R;R]$上可积？举出例子或反例。
-% \end{sk}
-
-不是所有光滑函数都可以展开为幂级数。我们把可以展开为幂级数的函数称为\textbf{可解析函数}。能够展开的区间称为函数的\textbf{解析域}。
-以下给出一些常见基本函数的幂级数展开，及其解析域：
-
-
-\begin{center}
-    \renewcommand{\arraystretch}{2}
-    \setlength{\extrarowheight}{-3pt}
-    \begin{longtable}{|l|l|}
-        \hline \multicolumn{1}{|c|}{\textbf{函数展开式}} & \multicolumn{1}{c|}{\textbf{解析域}} \\ 
-        \hline         
-        $e^x = \displaystyle  \sum_{n=0}^{+\infty} \frac{1}{n!} x^n $ & $R=+\infty$ \\  
-        \hline
-        $\sin{x} = \displaystyle  \sum_{n=0}^{+\infty} \frac{(-1)^n}{(2n+1)!} x^{2n+1} $ & $R=+\infty$ \\ 
-        \hline
-        $\sin{x} = \displaystyle  \sum_{n=0}^{+\infty} \frac{(-1)^n}{(2n)!} x^{2n} $ & $R=+\infty$ \\
-        \hline
-        $\displaystyle \frac{1}{1 - x} = \sum_{n=0}^{+\infty} x^n $ & $R = 1$ \\
-        \hline
-        $\displaystyle \frac{1}{1 + x} = \displaystyle  \sum_{n=0}^{+\infty} (-1)^n x^n $ & $R = 1$ \\
-        \hline
-        $\displaystyle \frac{1}{1 - ax} = \displaystyle  \sum_{n=0}^{+\infty} a^n x^n $ & $R = \frac{1}{|a|}$ \\
-        \hline
-        $\ln{(1 + x)} = \displaystyle  \sum_{n=0}^{+\infty} \frac{(-1)^{n+1}}{n} x^n $ & $R = 1$ \\
-        \hline
-        $\ln{(1 - x)} = \displaystyle  -\sum_{n=0}^{+\infty} \frac{1}{n} x^n $ & $R = 1$ \\
-        \hline
-        $(1 + x)^p = \displaystyle 1 + \sum_{n=1}^{+\infty} \frac{p(p - 1)\cdots(p - n + 1)}{n!} x^n $\footnote{$p$可以是任意实数。} & $R = 1$ \\
-        \hline
-        $\arctan{x} = \displaystyle  \sum_{n=0}^{+\infty} \frac{(-1)^n}{2n + 1} x^{2n+1} $ & $R=1$ \\
-        \hline
-    \end{longtable}
-\end{center}
+\section{积分的应用}
 
 \chapter{方程与空间}
 
@@ -1379,16 +1016,23 @@ $G$中涉及位置函数$f$，并给出了它和它的各次微变（以及自�
 如果涉及的次数最高的微变是$n$次微变，就说方程是$\boldsymbol{n}$\textbf{次微变方程}。
 
 \subsection{一次直常微变方程}
-第三个例子中，微变方程\eqref{2-2}的未知函数$u$是实函数，我们可以假设它在$\mathbb{R}_{\geqslant 0}$上连续可微。
+第三个例子中，微变方程\eqref{2-2}的未知函数$u$是实函数。作为电势差随时间变化的函数，我们可以假设$u$在$\mathbb{R}_{\geqslant 0}$上连续。
+不仅如此，根据\eqref{2-2}，$u$的微变函数与它成比例，因此也连续。我们把这样的函数称为光滑函数：
+\begin{df}{\textbf{光滑函数}}
+    如果函数$f$在区间$I$上可微，且微变函数在$I$上连续，就说$f$在$I$上\textbf{一阶光滑}或\textbf{连续可微}。
+    如果$f$的前$k$次微变都在$I$上一阶光滑，就说$f$在$I$上$\boldsymbol{k}$\textbf{阶光滑}或$\boldsymbol{k}$\textbf{阶连续可微}。
+    如果对任意正整数$k$，$f$在$I$上$k$阶光滑，就说$f$在$I$上\textbf{光滑}。
+    为了方便，我们也称连续函数为$0$阶光滑函数，并约定对于连续函数$f$，$\partial^0 f$就是$f$自己。
+\end{df}
 这样，我们定义全集为$\mathcal{C}^1_{\geqslant 0}(\mathbb{R})$，即全体在$\mathbb{R}_{\geqslant 0}$上连续可微的实函数的集合。
 方程函数$G$为：
 $$ G: \,\,\,(t, \; x_0, \; x_1) \,\,\, \mapsto \,\,\, x_0 + RC x_1. $$
 $G$的表达式和自变量$t$没有关系，这说明$G$是时不变微变方程。$G$涉及的最高微变次数是$1$，因此方程是一次微变方程。
 
 让我们考虑函数
-$$f_0: t\mapsto Ue^{-\frac{t}{RC}}$$
+$$f_0: t\mapsto U\mathrm{e}^{-\frac{t}{RC}}$$
 $f_0(0) = U$，而它的微变函数是
-$$\partial f_0(t) = -\frac{U}{RC} e^{-\frac{t}{RC}}. $$
+$$\partial f_0(t) = -\frac{U}{RC} \mathrm{e}^{-\frac{t}{RC}}. $$
 因此，对任何$t\geqslant 0$，
 $$ f_0(t) + RC\partial f_0(t) = 0.$$
 这说明$f_0$是微变方程的解。
@@ -1421,16 +1065,16 @@ $$ RC f_0 \partial g = 0. $$
 \end{equation}
 其中全集仍然是$\mathcal{C}^1_{\geqslant 0}(\mathbb{R})$，$f$是非负实数集上连续可微的函数，$a$是给定的参数。
 
-从前面的例子可以知道，$t\mapsto e^{-at}$是它的解。
+从前面的例子可以知道，$t\mapsto \mathrm{e}^{-at}$是它的解。
 
-由于我们没有规定$f$的初始值，所以对任何常数$k$，$t\mapsto ke^{-at}$都是它的解。此外，如果$f_1$和$f_2$都是解，
+由于我们没有规定$f$的初始值，所以对任何常数$k$，$t\mapsto k\mathrm{e}^{-at}$都是它的解。此外，如果$f_1$和$f_2$都是解，
 那么：
 $$ \partial (f_1 + f_2) + a(f_1 + f_2) = (\partial f_1 + af_1) + (\partial f_2 + af_2) = 0 + 0 = 0. $$
 这说明$f_1 + f_2$也是解。
 
 这个性质和我们之前学过的某个概念很像。平直空间中的向量，也满足这样的条件。事实上，
 设$S$是方程\eqref{2-2b}的解集，我们可以验证，
-$S$关于函数的加法和数乘，构成平直空间。我们称$S$是方程的\textbf{解空间}。这样说来，如果把$f_0:t\mapsto e^{-at}$看作向量，
+$S$关于函数的加法和数乘，构成平直空间。我们称$S$是方程的\textbf{解空间}。这样说来，如果把$f_0:t\mapsto \mathrm{e}^{-at}$看作向量，
 那么我们知道，直线$l_0$：$\{kf_0 \, | \, k\in\mathbb{R}\}$也在空间里。这说明
 $S$至少包含$l_0$。
 
@@ -1439,7 +1083,7 @@ $S$是否还有别的元素呢？我们仍然使用前面的方法。设有另�
 这说明
 $$S = l_0.$$
 于是，我们找到了方程\eqref{2-2b}的解空间：
-$$S = \left\{\left.t\mapsto ke^{-at} \, \right| \, k\in\mathbb{R}\right\}.$$
+$$S = \left\{\left.t\mapsto k\mathrm{e}^{-at} \, \right| \, k\in\mathbb{R}\right\}.$$
 
 我们把$S$能作为平直空间来看待的特性称为\textbf{平直}或简称\textbf{直}。如果常微变方程有平直特性，
 就说它是\textbf{直常微变方程}。以上的方程可称为\textbf{一次直常微变方程}。
@@ -1458,10 +1102,10 @@ $$S = \left\{\left.t\mapsto ke^{-at} \, \right| \, k\in\mathbb{R}\right\}.$$
 因此，只要$f_0$恒不为$0$，就有$\partial g$恒为$0$，从而$f_1$等于常数乘以$f_0$，属于$f_0$所在的直线。
 
 最后，我们给出$f_0$的例子：
-$$ f_0: \,\,\, t\,\, \mapsto \,\, e^{-\int_0^t a}. $$
+$$ f_0: \,\,\, t\,\, \mapsto \,\, \mathrm{e}^{-\int_0^t a}. $$
 作为函数，$f_0$的定义没有问题，因为$a$作为在$[0,+\infty)$上连续的函数，在闭区间$[0; t]$上总可积，且积分函数连续可微。
 而$f_0$也总大于$0$。这说明$a$是连续函数时，方程\eqref{2-2b}的解空间仍然是直线：
-$$S = \left\{\left.t\mapsto ke^{-\int_0^t a} \, \right| \, k\in\mathbb{R}\right\}.$$
+$$S = \left\{\left.t\mapsto k\mathrm{e}^{-\int_0^t a} \, \right| \, k\in\mathbb{R}\right\}.$$
 
 再来看稍微复杂一点的情况。
 考虑如下的微变方程：
@@ -1498,9 +1142,9 @@ $$ \partial (h - f) + a (h - f) = 0. $$
 $$S = f + S'. $$
 
 如何找出方程\eqref{2-2c}的特定解呢？我们可以从直部方程的解出发。
-方程\eqref{2-2b}的解，形式为$t\mapsto ke^{-\int_0^t a}$。
-我们猜测，方程\eqref{2-2c}的解和它“长得很像”，特别是关于$a$的部分“$e^{-\int_0^t a}$”。
-我们猜测，方程\eqref{2-2c}的解形如$t\mapsto k(t) g(t)$，其中$g: t\mapsto e^{-\int_0^t a}$是方程\eqref{2-2b}的解。
+方程\eqref{2-2b}的解，形式为$t\mapsto k\mathrm{e}^{-\int_0^t a}$。
+我们猜测，方程\eqref{2-2c}的解和它“长得很像”，特别是关于$a$的部分“$\mathrm{e}^{-\int_0^t a}$”。
+我们猜测，方程\eqref{2-2c}的解形如$t\mapsto k(t) g(t)$，其中$g: t\mapsto \mathrm{e}^{-\int_0^t a}$是方程\eqref{2-2b}的解。
 
 换句话说，我们把方程\eqref{2-2b}的解里的常数换成“可变的”，通过调整这个“可变的”部分，试着找出方程\eqref{2-2c}的解。
 这种方法称为\textbf{常数变易法}。
@@ -1513,15 +1157,15 @@ $$S = f + S'. $$
 \end{align*}
 
 因此，
-$$ \partial k(t) = \frac{b(t)}{g(t)} = b(t) e^{\int_0^t a}. $$
+$$ \partial k(t) = \frac{b(t)}{g(t)} = b(t) \mathrm{e}^{\int_0^t a}. $$
 于是通过求积合可以得出函数$k$：
-$$ k(t) = \int_0^t b(u) e^{\int_0^u a(v)}\mathrm{d}v \mathrm{d}u. $$
+$$ k(t) = \int_0^t b(u) \mathrm{e}^{\int_0^u a(v)}\mathrm{d}v \mathrm{d}u. $$
 代入$f$，得到$f$的表达式：
-$$ f(t) = e^{-\int_0^t a} \int_0^t b(u) e^{\int_0^u a(v)}\mathrm{d}v \mathrm{d}u. $$
+$$ f(t) = \mathrm{e}^{-\int_0^t a} \int_0^t b(u) \mathrm{e}^{\int_0^u a(v)}\mathrm{d}v \mathrm{d}u. $$
 $f$就是方程\eqref{2-2c}的一个特解。
 
 综上所述，方程\eqref{2-2c}的解集可以写成维直空间：
-$$\left\{\left.e^{-\int_0^t a(u)\mathrm{d}u} \left(k + \int_0^t b(u) e^{\int_0^u a(v)}\mathrm{d}v \mathrm{d}u\right) \, \right| \, k\in \mathbb{R}\right\}$$
+$$\left\{\left.\mathrm{e}^{-\int_0^t a(u)\mathrm{d}u} \left(k + \int_0^t b(u) \mathrm{e}^{\int_0^u a(v)}\mathrm{d}v \mathrm{d}u\right) \, \right| \, k\in \mathbb{R}\right\}$$
 
 \begin{et}
     \mbox{} \\
@@ -1548,21 +1192,21 @@ $$\left\{\left.e^{-\int_0^t a(u)\mathrm{d}u} \left(k + \int_0^t b(u) e^{\int_0^u
     $$ \partial v = - bv + mg.$$
     解这个微变方程，得到特定解：
     \begin{align*}
-        v(t) &= e^{-bt} \int_0^t mg e^{\int_0^u bs\mathrm{d}s} \mathrm{d}u\\
-        &= mg \cdot e^{-bt} \int_0^t e^{bu}\mathrm{d}u \\
-        &= mg \cdot e^{-bt} \frac{e^bt - 1}{b} \\
-        &= \frac{mg}{b}\left(1 - e^{-bt}\right).
+        v(t) &= \mathrm{e}^{-bt} \int_0^t mg \mathrm{e}^{\int_0^u bs\mathrm{d}s} \mathrm{d}u\\
+        &= mg \cdot \mathrm{e}^{-bt} \int_0^t \mathrm{e}^{bu}\mathrm{d}u \\
+        &= mg \cdot \mathrm{e}^{-bt} \frac{\mathrm{e}^bt - 1}{b} \\
+        &= \frac{mg}{b}\left(1 - \mathrm{e}^{-bt}\right).
     \end{align*}
     于是一般解为
-    $$ v(t) = \frac{mg}{b}\left(1 - e^{-bt}\right) + ke^{-bt}. $$
+    $$ v(t) = \frac{mg}{b}\left(1 - \mathrm{e}^{-bt}\right) + k\mathrm{e}^{-bt}. $$
     其中$k$为常数。
     
     雨滴初速度$v(0) = v_0$，因此解得$k = v_0$，于是得到雨滴速度关于时间的函数：
-    $$ v(t) = \frac{mg}{b}\left(1 - e^{-bt}\right) + v_0e^{-bt}. $$
+    $$ v(t) = \frac{mg}{b}\left(1 - \mathrm{e}^{-bt}\right) + v_0\mathrm{e}^{-bt}. $$
     积合可得雨滴位移函数$x(t)$：
-    $$ x(t) = \frac{mg}{b}\left(t + \frac{e^{-bt} - 1}{b}\right) - \frac{v_0\left(e^{-bt} - 1\right)}{b}. $$
+    $$ x(t) = \frac{mg}{b}\left(t + \frac{\mathrm{e}^{-bt} - 1}{b}\right) - \frac{v_0\left(\mathrm{e}^{-bt} - 1\right)}{b}. $$
     雨滴从高处下落，在$x=2000$米处到达地面，代入各个物理量数值，到达地面用时满足方程：
-    $$ 3.267t + 10222 \left(e^{-0.0003t} - 1\right) = 2000.  $$
+    $$ 3.267t + 10222 \left(\mathrm{e}^{-0.0003t} - 1\right) = 2000.  $$
     解得
     $$ t_{\text{落地}} \approx 2049\,\mbox{秒} $$
     这时的速度为$v(t_{\text{落地}}) \approx 1.608$米每秒。
@@ -1570,16 +1214,16 @@ $$\left\{\left.e^{-\int_0^t a(u)\mathrm{d}u} \left(k + \int_0^t b(u) e^{\int_0^u
     \indent 2.1. 解方程
     $$ \partial p(z) = -\frac{Mg}{RT} p(z). $$
     可得：
-    $$ p(z) = P_0e^{-\frac{Mg}{RT}z}.$$
+    $$ p(z) = P_0\mathrm{e}^{-\frac{Mg}{RT}z}.$$
 
     \indent 2.2. 解方程
     $$ \partial p(z) = -\frac{Mg}{RT_0(1 - az)} p. $$
     可得：
     \begin{align*}
-        p(z) &= P_0e^{\int_0^z -\frac{Mg}{RT_0(1 - ax)}\mathrm{d}x} \\
-        &= P_0e^{\frac{Mg}{RT_0}\int_0^z \frac{1}{ax - 1}\mathrm{d}x} \\
-        &= P_0e^{\frac{Mg}{RT_0}\frac{1}{a}\left(\ln{|az - 1|} - \ln{1}\right)} \\
-        &= P_0e^{\frac{Mg\ln{1 - az}}{aRT_0}} \\
+        p(z) &= P_0\mathrm{e}^{\int_0^z -\frac{Mg}{RT_0(1 - ax)}\mathrm{d}x} \\
+        &= P_0\mathrm{e}^{\frac{Mg}{RT_0}\int_0^z \frac{1}{ax - 1}\mathrm{d}x} \\
+        &= P_0\mathrm{e}^{\frac{Mg}{RT_0}\frac{1}{a}\left(\ln{|az - 1|} - \ln{1}\right)} \\
+        &= P_0\mathrm{e}^{\frac{Mg\ln{1 - az}}{aRT_0}} \\
         &= P_0 (1 - az)^{\frac{Mg}{aRT_0}}.
     \end{align*}
     大气压$p$关于海拔高度$z$的函数为：
@@ -1589,21 +1233,21 @@ $$\left\{\left.e^{-\int_0^t a(u)\mathrm{d}u} \left(k + \int_0^t b(u) e^{\int_0^u
     $$ \partial p(z) = -\frac{Mg_0r_T^2}{RT(r_T + z)^2} p(z). $$
     可得：
     \begin{align*}
-        p(z) &= P_0e^{\int_0^z -\frac{Mg_0r_T^2}{RT(r_T + x)^2}\mathrm{d}x} \\
-        &= P_0e^{\frac{Mg_0r_T^2}{RT}\int_0^z -\frac{1}{(r_T + x)^2}\mathrm{d}x} \\
-        &= P_0e^{\frac{Mg_0r_T^2}{RT}\left(\frac{1}{z + r_T} - \frac{1}{r_T}\right)} \\
-        &= P_0e^{-\frac{Mg_0r_Tz}{RT(z + r_T)}}.
+        p(z) &= P_0\mathrm{e}^{\int_0^z -\frac{Mg_0r_T^2}{RT(r_T + x)^2}\mathrm{d}x} \\
+        &= P_0\mathrm{e}^{\frac{Mg_0r_T^2}{RT}\int_0^z -\frac{1}{(r_T + x)^2}\mathrm{d}x} \\
+        &= P_0\mathrm{e}^{\frac{Mg_0r_T^2}{RT}\left(\frac{1}{z + r_T} - \frac{1}{r_T}\right)} \\
+        &= P_0\mathrm{e}^{-\frac{Mg_0r_Tz}{RT(z + r_T)}}.
     \end{align*}
     大气压$p$关于海拔高度$z$的函数为：
-    $$ p(z) = P_0 e^{-\frac{Mg_0r_Tz}{RT(z + r_T)}} . $$
+    $$ p(z) = P_0 \mathrm{e}^{-\frac{Mg_0r_Tz}{RT(z + r_T)}} . $$
 
 \end{so}
 
 \begin{sk}
     \mbox{} \\
     \indent 1. 方程\eqref{2-2b}的解$f$是否光滑，有多光滑？\\
-    \indent 2. 方程\label{2-2c}中的函数$b$是否必须是光滑函数？$b$的光滑性是否影响求解？\\
-    \indent 3. 除了常数变易法，还有什么别的方法寻找方程\label{2-2c}的特解？你有什么想法？\\
+    \indent 2. 方程\eqref{2-2c}中的函数$b$是否必须是光滑函数？$b$的光滑性是否影响求解？\\
+    \indent 3. 除了常数变易法，还有什么别的方法寻找方程\eqref{2-2c}的特解？你有什么想法？\\
     \indent 4. 如果全集不是$\mathcal{C}^1_{\geqslant 0}(\mathbb{R})$，而是$\mathcal{C}^1_I(\mathbb{R})$，其中$I$是某个区间，以上的结论是否还成立？
     
 \end{sk}
@@ -1621,12 +1265,12 @@ $$\left\{\left.e^{-\int_0^t a(u)\mathrm{d}u} \left(k + \int_0^t b(u) e^{\int_0^u
     $$
     \begin{array}[]{l}
         1).\;\forall t\in \mathbb{R},\,\,\,\partial f(t) + 2 t f(t) = 1. \\
-        2).\;\forall t \geqslant 0,\,\,\,\partial f(t) - \frac{1}{t + 1} f(t) = e^{-t}. \\
-        3).\;\forall t\in \mathbb{R},\,\,\,\partial f(t) + 2t f(t) =e^{t - t^2}, \; f(0) = 1. 
+        2).\;\forall t \geqslant 0,\,\,\,\partial f(t) - \frac{1}{t + 1} f(t) = \mathrm{e}^{-t}. \\
+        3).\;\forall t\in \mathbb{R},\,\,\,\partial f(t) + 2t f(t) =\mathrm{e}^{t - t^2}, \; f(0) = 1. 
     \end{array}
     $$
     \indent 3. 人空腹喝酒之后，体内可检测的酒精浓度随时间$t$（单位：小时）变化，可用函数$g(t)$（单位：克每升）表示。$g(t)$满足以下方程：
-    $$ \forall t\geqslant 0,\,\,\,\partial g(t) + g(t) = a e^{-t}.$$
+    $$ \forall t\geqslant 0,\,\,\,\partial g(t) + g(t) = a \mathrm{e}^{-t}.$$
     其中常数$a$表示人体代谢酒精的能力。\\
     \indent 3.1. 解方程，用$a$和$t$表示函数$g$。\\
     \indent 3.2. 设$a = 5$，画出$g$的曲线。酒精浓度何时达到最大值？最终趋势如何？\\
@@ -1677,12 +1321,12 @@ $$ \partial^2 f_1 + a \partial f_1 + b f_1 = (r^2 + ar + b)f_1 = 0.$$
 特征式的每个根对应方程的一个解。
 
 如果特征式$x^2 + ax + b$有两个不同的根：$r_1, r_2$，那么我们就找到了方程的两个解：
-$$ f_1:\,\,\, t \mapsto e^{r_1t}, \quad f_2:\,\,\, t \mapsto e^{r_2t}, $$
+$$ f_1:\,\,\, t \mapsto \mathrm{e}^{r_1t}, \quad f_2:\,\,\, t \mapsto \mathrm{e}^{r_2t}, $$
 它们作为基底生成平面：
-$$ \left\{\left.t \mapsto Ae^{r_1t} + Be^{r_2t}\,\right|\, A, B \in \mathbb{R}\right\}$$
+$$ \left\{\left.t \mapsto A\mathrm{e}^{r_1t} + B\mathrm{e}^{r_2t}\,\right|\, A, B \in \mathbb{R}\right\}$$
 
 如果特征式$x^2 + ax + b$有二重根$r = -\frac{a}{2}$，那么我们找到了方程的一个解：
-$$ f_1:\,\,\, t \mapsto e^{rt}. $$
+$$ f_1:\,\,\, t \mapsto \mathrm{e}^{rt}. $$
 不过，从$f_1$出发，还可以找到另一个解。设$f_2: t\mapsto tf_1(t)$，计算它的微变函数：
 \begin{align*}
     \partial f_2(t) &= rt f_1(t) + f_1(t) \\
@@ -1691,7 +1335,7 @@ $$ f_1:\,\,\, t \mapsto e^{rt}. $$
 因此
 $$ \forall\,\, t \geqslant 0,\,\,\,\partial^2 f_2(t) + a \partial f_2(t) + b f_2(t) = t(r^2 + ar + b)f_1(t) + (2r + a)f_1(t) = 0.$$
 于是$f_1$、$f_2$都是方程的解，它们作为基底生成平面：
-$$ \left\{\left.t \mapsto (At + B)e^{rt}\,\right|\, A, B \in \mathbb{R}\right\}$$
+$$ \left\{\left.t \mapsto (At + B)\mathrm{e}^{rt}\,\right|\, A, B \in \mathbb{R}\right\}$$
 
 这个平面是否就是方程\eqref{2-2e}的解空间呢？
 
@@ -1733,18 +1377,18 @@ $h(0) = \frac{g(0)}{e_1(0)} = 0$，而对$g$求微变可知：
 因此$\partial h$是方程：
 $$ \partial f + \frac{2 \partial e_1 + a}{e_1} f = 0 $$
 的解。它可以写成：
-$$ \partial h (t) = k e^{-\int_0^t \frac{2 \partial e_1(u) + a}{e_1(u)} \mathrm{d}u}. $$
+$$ \partial h (t) = k \mathrm{e}^{-\int_0^t \frac{2 \partial e_1(u) + a}{e_1(u)} \mathrm{d}u}. $$
 于是
-$$0 = \partial h (0) = k e^0 = k.$$
+$$0 = \partial h (0) = k \mathrm{e}^0 = k.$$
 这说明$\partial h$是零函数，即$h$是常函数。然而$h(0) = 0$。所以$h$是零函数。
 
 综上所述，只要方程\eqref{2-2e}的特征式有根，那么它的解空间是上面求出的$f_1$、$f_2$生成的平面。
 
 若特征式有相异的两根$r_1, r_2$，则解空间为：
-$$ \left\{\left.t \mapsto Ae^{r_1t} + Be^{r_2t}\,\right|\, A, B \in \mathbb{R}\right\}$$
+$$ \left\{\left.t \mapsto A\mathrm{e}^{r_1t} + B\mathrm{e}^{r_2t}\,\right|\, A, B \in \mathbb{R}\right\}$$
 
 若特征式有二重根$r$，则解空间为：
-$$ \left\{\left.t \mapsto (At + B)e^{rt}\,\right|\, A, B \in \mathbb{R}\right\}$$
+$$ \left\{\left.t \mapsto (At + B)\mathrm{e}^{rt}\,\right|\, A, B \in \mathbb{R}\right\}$$
 
 如果特征式没有根，方程是否有解呢？我们来看之前的例子：
 \begin{equation}
@@ -1799,18 +1443,18 @@ $$ \left\{\left.t \mapsto A\sin{(\sqrt{a}t)} + B\cos{(\sqrt{a}t)}\,\right|\, A, 
     这个二次式不一定有根。
 
     若二次式有根，根为负数。方程的解为：
-    $$ t \mapsto Ae^{r_1t} + Be^{r_2t} $$
+    $$ t \mapsto A\mathrm{e}^{r_1t} + B\mathrm{e}^{r_2t} $$
     其中$r_1<0$、$r_2<0$为特征式的相异两根，或
-    $$ t \mapsto (At + B)e^{rt} $$
+    $$ t \mapsto (At + B)\mathrm{e}^{rt} $$
     其中$r = -\frac{R}{2L} < 0$为特征式的二重根。
 
     考虑初始情况，经计算，可以求出$A$、$B$的值。
 
     特征式有相异根的情况下，电势差为：
-    $$ u(t) = \frac{E}{r_2 - r_1}\left(r_2e^{r_1t} - r_1e^{r_2t}\right) $$ 
+    $$ u(t) = \frac{E}{r_2 - r_1}\left(r_2\mathrm{e}^{r_1t} - r_1\mathrm{e}^{r_2t}\right) $$ 
 
     特征式有二重根的情况下，电势差为：
-    $$ u(t) =  E(1 - rt)e^{rt}$$
+    $$ u(t) =  E(1 - rt)\mathrm{e}^{rt}$$
 
     求微变可知，两种情况下，$u(t)$都单调递减。我们分别称其为单调衰减情况和临界情况。
 
@@ -1818,20 +1462,20 @@ $$ \left\{\left.t \mapsto A\sin{(\sqrt{a}t)} + B\cos{(\sqrt{a}t)}\,\right|\, A, 
     $$ \Delta = R^2C^2 - 4LC < 0.$$
 
     我们猜测方程的解为：
-    $$ u: \,\,\,t \mapsto \left(A\sin{(\omega t)} + B\cos{(\omega t)}\right)e^{rt} $$
+    $$ u: \,\,\,t \mapsto \left(A\sin{(\omega t)} + B\cos{(\omega t)}\right)\mathrm{e}^{rt} $$
 
     其中
     $$\omega = \frac{\sqrt{4LC - R^2C^2}}{2LC} = \frac{\sqrt{-\Delta}}{2LC}. $$
 
     可以算出
     \begin{align*}
-        \partial u(t) &= ru(t) + \omega \left(A\cos{(\omega t)} - B\sin{(\omega t)}\right)e^{rt} \\
+        \partial u(t) &= ru(t) + \omega \left(A\cos{(\omega t)} - B\sin{(\omega t)}\right)\mathrm{e}^{rt} \\
         &= ru(t) + \omega v(t),
     \end{align*}
 
     其中$v(t)$的微变为：
     \begin{align*}
-        \partial v(t) &= rv(t) + \omega^2 \left(- A\sin{(\omega t)} - B\cos{(\omega t)}\right)e^{rt} \\
+        \partial v(t) &= rv(t) + \omega^2 \left(- A\sin{(\omega t)} - B\cos{(\omega t)}\right)\mathrm{e}^{rt} \\
         &= rv(t) - \omega^2 u(t),
     \end{align*}
 
@@ -1853,9 +1497,9 @@ $$ \left\{\left.t \mapsto A\sin{(\sqrt{a}t)} + B\cos{(\sqrt{a}t)}\,\right|\, A, 
     \end{align*}
 
     这说明$u$确实是方程的解。考虑初始值$u(0) = E$，$I(0) = 0$，解得：
-    $$ u(t) =  E\left(\cos{(\omega t)} - \frac{r}{\omega}\sin{(\omega t)}\right)e^{rt}. $$
+    $$ u(t) =  E\left(\cos{(\omega t)} - \frac{r}{\omega}\sin{(\omega t)}\right)\mathrm{e}^{rt}. $$
 
-    可以看出$u$是某个周期函数和指数递减函数$t\mapsto e^{rt}$的乘积。我们称这种情况为振荡衰减情况。
+    可以看出$u$是某个周期函数和指数递减函数$t\mapsto \mathrm{e}^{rt}$的乘积。我们称这种情况为振荡衰减情况。
 
 \end{so}
 
@@ -1888,7 +1532,7 @@ $$ \left\{\left.t \mapsto A\sin{(\sqrt{a}t)} + B\cos{(\sqrt{a}t)}\,\right|\, A, 
     \end{array}
     $$
     \indent 3. 写出以函数空间
-    $$ \left\{\left.t \mapsto Ae^{-2t} + Be^{3t}\,\right|\, A, B \in \mathbb{R}\right\} $$
+    $$ \left\{\left.t \mapsto A\mathrm{e}^{-2t} + B\mathrm{e}^{3t}\,\right|\, A, B \in \mathbb{R}\right\} $$
     为解空间的微变方程。\\
     \indent 5. 方程\eqref{2-2e}讨论中的函数$e_1, e_2$具体是什么？写出它们的具体形式。\\
     \indent 4. 考虑微变方程
@@ -1910,7 +1554,6 @@ $$ \left\{\left.t \mapsto A\sin{(\sqrt{a}t)} + B\cos{(\sqrt{a}t)}\,\right|\, A, 
     \indent 6.2. 证明：$f_1:\,\,t\mapsto tf_0(t)$是方程\eqref{2-2h}的解。\\
     \indent 6.3. 证明：对整数$0<i<k$，$f_i:\,\,t\mapsto t^if_0(t)$是方程\eqref{2-2h}的解。
 \end{xt}
-
 
 \chapter{复数}
 
@@ -2537,7 +2180,7 @@ $$ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0.$$
 对于$B = 0$的情况，如果$AC\neq 0$，将曲线按向量$\displaystyle\left(-\frac{D}{2A},\,\,-\frac{E}{2C}\right)$平移，
 就得到：
 $$ Ax^2 + Cy^2 + F' = 0.$$
-其中$F' = F - \frac{D^2}{4A} - \frac{E^2}{4C}$。两边除以$AC$并移项，得到：
+其中$F' = F - \frac{D^2}{4A} - \frac{\mathrm{e}^2}{4C}$。两边除以$AC$并移项，得到：
 $$ \frac{x^2}{C} + \frac{y^2}{A} = -\frac{F'}{AC}.$$
 因此，根据$A$、$C$、$F'$的正负性，可以判断它或者是椭圆（$A,C$同号，$A,F'$异号），
 或者是双曲线（$A,C$异号，$F' \neq 0$），或者是两条过原点直线（$F' = 0$），或者是空集或单点集（$A,C,F'$同号）。
@@ -2547,7 +2190,7 @@ $$ Cy^2 + Dx + Ey + F = 0.$$
 
 如果$D = 0$，则曲线方程变为关于$y$的二次方程，图像为$y = y_0$类型的水平线，条数等于方程实根的个数。
 
-如果$D\neq 0$，按$\displaystyle\left(\frac{E^2 - 4CF}{4CD},\,\,-\frac{E}{2C}\right)$平移，就得到：
+如果$D\neq 0$，按$\displaystyle\left(\frac{\mathrm{e}^2 - 4CF}{4CD},\,\,-\frac{E}{2C}\right)$平移，就得到：
 $$ Cy^2 = -Dx. $$
 即
 $$ y^2 = -\frac{D}{C}x. $$
@@ -2965,7 +2608,140 @@ $$ \frac{x_0x}{a^2} + \frac{y_0y}{b^2} = 1.$$
 $$ \partial^2 f(x) = -\frac{ab}{(a^2 - x^2)^{\frac{3}{2}} }.$$
 $\partial^2 f$在区间$(-a;a)$上总小于零，这说明曲线总是上凸的。
 
+\section{复值函数}
 
+学习复数的时候，我们把复数视为复平面上的点。对于平面上的曲线，我们也可以将它视作复平面上点的轨迹，
+用自变量为实数、值为复数的映射表达它。我们把这样的函数称为\textbf{实变复值函数}。
+
+举例来说：
+\begin{align*}
+    \mathbb{R} \;&\rightarrow \mathbb{C} \\
+    t \;&\mapsto \cos{t} + \imath \sin{t}
+\end{align*}
+就是一个实变复值函数。它把实数$t$映射到复数$\cos{t} + \imath \sin{t}$。在复平面上看，随着$t$变化，
+它的轨迹是单位圆。
+
+一般来说，给定两个实函数$u,v$，就可以组成一个复值函数：
+$$ t\mapsto u(t) + \imath v(t).$$
+这与描述平面曲线的参变映射是一样的。
+
+除此以外，常见的经典函数是否能成为复值函数呢？比如，以下的写法是否可行呢？
+\begin{align*}
+    t &\mapsto \mathrm{e}^{\imath t} \\
+    t &\mapsto \imath^t \\
+    t &\mapsto \sin{\imath t} \\
+    t &\mapsto \ln{\imath t} 
+\end{align*}
+这需要我们补充经典函数关于复数的定义，比如$\imath$的乘方、$\imath$次方、$\imath$的正弦、$\imath$的对数是什么意思。
+
+要注意的是：以上这些定义都不是天然存在的。现实中并没有像整数的乘方那样，让我们抽象出$\imath$的乘方、$\imath$次方的实例。
+但如果我们回忆实数特别是无理数次数的乘方，会发现，它也是我们“自作主张”定义的。
+自然界里并没有“$\sqrt{2}$次方”。我们为了把幂函数作为实函数进行讨论，希望给每个实数自变量都赋予一个函数值，所以定义了“无理数次方”。
+而我们对作为实函数的幂函数的要求是连续。事实上，我们定义的幂函数不仅连续，而且可微、光滑，具有很好的性质。
+
+那么，我们是否也可以定义出满足某些良好性质的复值整式函数、复值幂函数呢？这种研究称为\textbf{实函数的复化}。
+具体来说，我们希望找出某两个实函数$u,v$，使得由上定义的复值函数：
+$$ t\mapsto u(t) + \imath v(t)$$
+满足我们对$t\mapsto \mathrm{e}^{\imath t}$函数性质的某些期望。
+
+比如，参考函数$t\mapsto \mathrm{e}^{at}$的性质，我们希望$f: t\mapsto \mathrm{e}^{\imath t}$满足：
+\begin{enumerate}
+    \item $f(0) = 1$；
+    \item $\forall x, y \; \in \mathbb{R}, f(x + y) = f(x)\cdot f(y)$；
+    \item $f$是连续函数乃至光滑函数；
+    \item $\partial f(x) = \imath f(x).$
+\end{enumerate}
+等等。
+
+又比如，由于对实数来说，$a^t = \mathrm{e}^{t\ln{a}}$，所以我们希望有：
+$$ \imath^t = \mathrm{e}^{t\ln{\imath}} $$
+因为$\sin^2{t} + \cos^2{t} = 1$，我们希望有：
+$$ \sin^2{(\imath t)} + \cos^2{(\imath t)} = 1 $$
+
+回到$t\mapsto \mathrm{e}^{\imath t}$，是否有这样的复值函数呢？来看上面提到的复值函数：
+\begin{align*}
+    h: \;t \;\mapsto \cos{t} + \imath \sin{t}
+\end{align*}
+不难验证：$h(0) = 1$，且
+$$ \forall \, x, y\; \in \mathbb{R}, \quad h(x + y) = h(x)\cdot h(y).$$
+
+由于$\imath$是与自变量无关的常数，而正弦函数与余弦函数都是光滑函数，作为两者的直组合，$h$也是光滑函数。
+
+最后，可以验证：
+$$ \partial h(x) = \partial \cos(x) + \imath \partial \sin{x} = - \sin{x} + \imath \cos{x} = \imath h(x) $$
+
+这样看来，$h$似乎就是一个很好的候选。如果我们定义：
+$$ \forall \, t \; \in \mathbb{R}, \quad  \mathrm{e}^{\imath t} = \cos{t} + \imath \sin{t}, $$
+那么它满足前面我们希望它满足的所有性质。
+
+更一般地来说，给定复数$z = a + b\imath$，那么可以定义：
+$$ \forall \, t \; \in \mathbb{R}, \quad  \mathrm{e}^{z t} = \mathrm{e}^{at + b\imath t} = \mathrm{e}^{at} \left( \cos{bt} + \imath \sin{bt} \right), $$
+
+可以看到，复值的指数函数和实数指数函数有很大的不同。直观上来说，$t\mapsto \mathrm{e}^{t}$是单调递增的，而$t\mapsto \mathrm{e}^{\imath t}$
+是一个周期函数，它的轨迹在复平面上是单位圆。随着$t$的变化，函数绕着单位圆不断“转圈”。这是两种完全不同的行为。
+
+比如，我们可以从上面推出：
+$$ \mathrm{e}^{\frac{\imath\pi}{2}} = \imath, \quad \mathrm{e}^{\imath\pi} = -1, \quad \mathrm{e}^{\frac{3\imath\pi}{2}} = -\imath, \quad \mathrm{e}^{2\imath\pi} = 1, $$
+
+再来看复数的对数。$\mathrm{e}^{\frac{\imath\pi}{2}} = \imath$启发我们，可以定义$\ln{\imath} = \frac{\imath\pi}{2}$。
+这样定义似乎没什么问题，但我们发现：
+$$ \mathrm{e}^{\frac{5\imath\pi}{2}} = \mathrm{e}^{\frac{\imath\pi}{2}} \times \mathrm{e}^{2\imath\pi} = \imath \times 1 = \imath. $$
+于是又可以定义$\ln{\imath} = \frac{\imath\pi}{2}$。一般来说，考虑复数$z$的“极坐标”表示：
+$$ z = |z| \mathrm{e}^{\imath \theta}$$
+其中$\theta$是$z$的幅角，那么可以定义
+$$\ln{z} = \ln{|z|} + \theta \imath.$$
+但复数的幅角$\theta$并不是唯一的。比如对任何整数$k$，$\theta + 2k\pi$也是$z$的幅角。因此，我们可以定义
+$$\ln{z} = \ln{|z|} + \theta \imath + 2k\pi\imath.$$
+然而，如果我们希望对数函数对复数也保持一些基本性质，比如：
+$$ \ln{(z_1 \cdot z_2)} = \ln{z_1} + \ln{z_2}. $$
+那么就需要有
+$$ \ln{|z_1z_2|} + \theta \imath + 2k\pi\imath = \ln{|z_1|} + \theta_1 \imath + 2k_1\pi\imath + \ln{|z_2|} + \theta_2 \imath + 2k_2\pi\imath.$$
+其中$\theta$是$z_1z_2$的幅角，$\theta_1, \theta_2$分别是$z_1, z_2$幅角，$k, k_1, k_2$是整数。
+
+复数乘积的模等于模的乘积，因此问题在于幅角。以上关于幅角的关系总能成立吗？答案是否定的。
+事实上，我们无法在复数域上完全保持$\ln{(z_1 \cdot z_2)} = \ln{z_1} + \ln{z_2}$的性质。
+也就是说，复对数函数只能做到：
+$$ \ln{(z_1 \cdot z_2)} \tong{2\pi} \ln{z_1} + \ln{z_2} . $$
+这也是指数函数复化后性质改变的必然后果。复值指数函数不再是单调函数，而是周期函数。这使得作为反函数的对数函数无法保持所有的性质。
+
+\begin{et}
+    设$t$为实数，给出与复值指数函数兼容的函数：$f:\;t\mapsto \sin{\imath t}$、$g:\;t\mapsto \cos{\imath t}$。
+\end{et}
+
+\begin{so}
+    根据复值指数函数的形式：
+    $$ \mathrm{e}^{\imath t} = \cos{t} + \imath \sin{t}, $$
+    有：
+    $$ \sin{t} = \frac{\mathrm{e}^{\imath t} - \mathrm{e}^{-\imath t}}{2\imath}.$$
+    可以设想令
+    $$ f(t) = \sin{\imath t} = \frac{\mathrm{e}^{\imath (\imath t)} - \mathrm{e}^{-\imath (\imath t)}}{2\imath} = \imath \frac{\mathrm{e}^{t} - \mathrm{e}^{-t}}{2}.$$
+    同理，由于
+    $$ \cos{t} = \frac{\mathrm{e}^{\imath t} + \mathrm{e}^{-\imath t}}{2},$$
+    可以设想令
+    $$ g(t) = \cos{\imath t} = \frac{\mathrm{e}^{\imath (\imath t)} + \mathrm{e}^{-\imath (\imath t)}}{2} = \frac{\mathrm{e}^{t} + \mathrm{e}^{-t}}{2}.$$
+    可以验证：
+    $$ f(0) = \sin{(\imath \cdot 0)} = 0, \quad g(0)=\cos{(\imath \cdot 0)} = 1,$$
+    函数$f$、$g$都是光滑函数，且：
+    \begin{align*}
+        \partial f(t) &= \imath \frac{\mathrm{e}^{t} + \mathrm{e}^{-t}}{2} = \imath g(t) = (\partial\sin)(\imath t)\cdot (\partial(\imath t)), \\
+        \partial g(t) &= \frac{\mathrm{e}^{t} - \mathrm{e}^{-t}}{2} = -\imath f(t) = (\partial\cos)(\imath t)\cdot (\partial(\imath t)).
+    \end{align*}
+    最后，它们满足：
+    \begin{align*}
+        \forall \; t\in \mathbb{R}, \quad & \sin^2{(\imath t)} + \cos^2{(\imath t)} = \left(\imath \frac{\mathrm{e}^{t} - \mathrm{e}^{-t}}{2}\right)^2 + \left( \frac{\mathrm{e}^{t} + \mathrm{e}^{-t}}{2}\right)^2 \\
+        =\;& -\frac{\mathrm{e}^{2t} + \mathrm{e}^{-2t} - 2}{4} + \frac{\mathrm{e}^{2t} + \mathrm{e}^{-2t} + 2}{4} \\
+        =\;& 1.
+    \end{align*}
+    但另一方面，$t\mapsto \sin{\imath t}$、$t\mapsto \cos{\imath t}$都不再是周期函数。
+
+\end{so}
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 为什么$\mathrm{e}^{b\imath t} = \cos{bt} + \imath \sin{bt}$而不是$\cos{t} + \imath b\sin{t}$？\\
+    \indent 2. $\mathrm{e}^x$是级数$\sum_{n=0}^{\infty} \frac{x^n}{n!}$的和。这个关系在$x$为复数的时候是否成立？\\
+    \indent 3. 如何定义$\imath^{\sqrt{2}}$？如何定义$\imath^{\imath}$？
+\end{sk}
 
 % \section{微变方程和参变曲线}
 % % 由微变方程确定的参变曲线
@@ -2979,818 +2755,6 @@ $\partial^2 f$在区间$(-a;a)$上总小于零，这说明曲线总是上凸的�
 % \end{xt}
 
 \begin{appendix}
-
-\chapter{函数的级数}
-
-\section{函数列的极限}
-
-函数列和函数的级数是以函数为通项的数列和级数。函数代替了数，成为取极限的对象。为了像讨论数一样讨论函数，我们需要引入一些相应的概念。
-
-\begin{df}{\textbf{函数的确界}}
-    设实函数$f$在集合$S$上有定义。我们说$f$在$S$上的像为集合
-    $$ \{f(x) \,|\, x\in S\}, $$
-    简记为$f(S)$。集合$f(S)$如果有上界，那么由实数集合的性质可知，它必然有上确界。我们称这个上确界为函数$f$在$S$上的\textbf{上确界}。
-    同理，如果集合$f(S)$如果有下界，则总有下确界，称为$f$在$S$上的\textbf{下确界}。
-    $f$在$S$上的上下确界分别记为：
-    $$ \underset{x\in S}{\text{上}} f(x) \quad \mbox{和} \quad \underset{x\in S}{\text{下}} f(x)$$
-    或者简记为$f_{\text{上}}(S)$和$f_{\text{下}}(S)$。
-\end{df}
-
-函数的确界可以帮助我们定义函数的“大小”。对于数和向量来说，我们分别定义了绝对值和模，来描述它们的大小。
-如果考虑函数的运算，那么函数关于加减、数乘运算构成平直空间。因此，我们可以仿照向量的模，定义函数的模。
-函数的模和向量的模一样，可以描述函数的“大小”（或者说“长度”），以及函数之间的“距离”。
-\begin{df}{\textbf{函数的模}}
-    考虑由定义在集合$S\subseteq\mathbb{R}$上的实函数构成的平直空间$\mathbb{V}$。定义从$\mathbb{V}$到非负实数集合$\mathbb{R}^+$的映射：
-    \begin{align*}
-        \mathbb{V} \; &\rightarrow  \; \mathbb{R}^+ \\
-        f &\mapsto \|f\|
-    \end{align*}
-    如果映射$\|\bullet \|$满足以下三个条件，就说它是\textbf{函数的模}：
-    \begin{enumerate}
-        \item $\|f\| = 0$当且仅当$f$是零函数。
-        \item $\forall a\in\mathbb{R},\,\,\,f \in \mathbb{V}$，$\|af\| = |a| \cdot \|f\|$。
-        \item $\forall f,g \in \mathbb{V}$，$\|f + g\| \leqslant \|f\| + \|g\|$。
-    \end{enumerate}
-\end{df}
-
-怎样的映射是函数的模呢？考虑这样的映射：
-$$ H:\; f \mapsto |f|_{\text{上}}(S) = \underset{x\in S}{\text{上}} |f(x)|. $$
-它是函数在$S$上的绝对值的上确界。下面证明，映射$H$是函数的模。
-
-首先，容易看出$H$的值总大于等于零，而且零函数经过$H$映射的值是$0$。如果有$a\in S$使得函数在该处不等于零：$f(a)\neq 0$，
-那么$|f(a)>0$，于是$H(f) \geqslant |f(a)| > 0$。
-这说明第一个条件成立。
-
-其次，对任意实数$a$和$f\in\mathbb{V}$，按照定义：
-$$ H(af) = \underset{x\in S}{\text{上}} |af(x)| = \underset{x\in S}{\text{上}} |a|\cdot |f(x)|. $$
-考虑集合$f(S) = \{ |f(x)| \, | \, x\in S\}$和$f_a(S) = \{|a|\cdot |f(x)| \, | \, x\in S\}$，记它的上界集合分别是$B$和$B_a$，
-则：
-$$ B_a = \{|a| u \, | \, u \in B\} \subseteq \mathbb{R}^+. $$
-因此，容易推出$B_a$的最小元素是$B$的最小元素的$|a|$倍\footnote{这是因为上界集合总是某类特殊形式的区间。}。
-也就是说，$f_a(S)$的上确界是$f(S)$的上确界$|a|$倍。即：
-$$ H(af) = |a| H(f). $$
-第二个条件成立。
-
-最后，考虑任意$f,g \in \mathbb{V}$，按照定义：
-$$ H(f + g) = \underset{x\in S}{\text{上}} |f(x) + g(x)| \leqslant \underset{x\in S}{\text{上}} |f(x)| + |g(x)|. $$
-而
-$$ \underset{x\in S}{\text{上}} |f(x)| + |g(x)| \leqslant \underset{x\in S}{\text{上}} |f(x)| + \underset{x\in S}{\text{上}}|g(x)|.$$
-因此
-$$ H(f + g) \leqslant H(f) + H(g).$$
-第三个条件成立。
-
-综上所述，$H$是函数的模。我们通常称它为函数$f$（在集合$S$上）的\textbf{极模}，记为$\|f\|_{\infty}$。比如，对定义在$\mathbb{R}$上的函数，我们称其为函数在实数上的极模。
-
-函数的模还有很多，这里暂不介绍。以下提到函数的模，通常指函数的极模。
-
-下面来定义函数列的极限，即一列函数如何收敛到另一个函数。对于数列来说，收敛的方法只有一个。对于函数来说，收敛的方法不止一个。
-
-\begin{df}{\textbf{函数列的极限}}
-    设有定义在集合$S$上的函数列\footnote{即“由定义在集合$S$上的函数构成的函数列”，为了方便，做一定省略。下同。}$\{f_n\}$。
-    
-    如果有定义在$S$上的函数$f$，使得对任意$r>0$，任意$x\in S$，都有正整数$N_x$，使得只要$n>N_x$，
-    就有：
-    $$ |f_n(x) - f(x) | < r.$$
-    就说函数列$\{f_n\}$\textbf{逐点收敛}到函数$f$，$f$是$\{f_n\}$的\textbf{逐点极限}。
-
-    如果有定义在$S$上的函数$f$，使得对任意$r>0$，都有正整数$N$，使得只要$n>N$，
-    就有：
-    $$ \forall x\in S, \,\,\,|f_n(x) - f(x) | < r.$$
-    就说函数列$\{f_n\}$\textbf{一致收敛}到函数$f$，$f$是$\{f_n\}$的\textbf{一致极限}。
-
-    换句话说，如果有定义在$S$上的函数$f$，使得对任意$r>0$，都有正整数$N$，使得只要$n>N$，就有：
-    $$ \| f - f_n \|_{\infty} < r.$$
-    就说函数列$\{f_n\}$\textbf{一致收敛}到函数$f$，$f$是$\{f_n\}$的\textbf{一致极限}。
-\end{df}
-
-逐点收敛是最直观的收敛方式，而如果把函数看作平直空间的向量，那么一致收敛才是和数列的收敛最像的“正常”收敛方式。
-逐点收敛的函数，不一定一致收敛。
-
-\begin{tm}{\textbf{一致收敛推出逐点收敛}}
-    定义在$I$上的函数列$\{f_n\}$一致收敛到$f$，则$\{f_n\}$逐点收敛到$f$。
-\end{tm}
-
-\begin{proof}
-    对任意$r>0$，按照一致收敛的定义，都有正整数$N$，使得只要$n>N$，就有：
-    $$ \forall x\in S, \,\,\,|f_n(x) - f(x) | < r.$$
-    于是，对任意$x\in S$，选择$N_x = N$即可。只要$n>N$，就有：
-    $$ |f_n(x) - f(x) | < r.$$
-\end{proof}
-
-相比逐点收敛，一致收敛的优点在于：它能够保持函数列的极限的某些性质。比如，连续函数构成的函数列逐点收敛的极限，
-不一定是连续函数，但如果一致收敛，则极限必然是连续函数。
-
-\begin{tm}{\textbf{一致收敛保证极限}}
-    已知区间$I$上的函数列$\{f_n\}_{n\in\mathbb{N}}$一致收敛到$f$，
-    且函数列的每一项$f_n$都在区间的一端$a$点处\footnote{也可以是无穷远处。}有极限$u_n$。
-    那么数列$\{u_n\}$收敛到某个数$u$，且$u$是$f$在$a$处的极限。
-    $$ \lian{n\to \infty} \left(\lian{x\to a} f_n(x) \right) = \lian{x\to a} \left(\lian{n\to \infty} f_n\right)(x). $$
-\end{tm}
-
-\begin{proof}
-    首先证明数列$\{u_n\}$收敛。给定$r>0$，按一致收敛定义，可以找到正整数$N$，使得对任意$m,n>N$，总有：
-    $$ \| f_m - f_n\|_{\infty} < \frac{r}{3}.$$
-
-    根据条件，函数列的每个函数在$a$处都有极限。因此，对任意$m,n>N$，可以找到$d_n, d_m > 0$，使得只要$|x - a| < d_n$，
-    就有$|f_n(x) - u_n| < \frac{r}{3}$；使得只要$|x - a| < d_m$，
-    就有$|f_m(x) - u_m| < \frac{r}{3}$。
-
-    因此，对任意$m,n>N$，我们找使得$|x - a|$小于$d_m, d_n$中较小者的$x$，就有：
-    \begin{align*}
-        |u_m - u_n| &\leqslant |u_m - f_m(x)| + |f_m(x) - f_n(x)| + |f_n(x) - u_n| \\
-        &\leqslant |u_m - f_m(x)| + \| f_m - f_n\|_{\infty} + |f_n(x) - u_n| \\
-        &< \frac{r}{3} + \frac{r}{3} + \frac{r}{3} = r.
-    \end{align*}
-    这说明数列$\{u_n\}$是自敛的实数列，因此收敛。记其极限为$u$。
-
-    再证明$u$是$f$在$a$处的极限。给定给定$r>0$，我们要找到$d>0$，使得只要$|x - a| < d$，就有$|f(x) - u| < r$。
-    
-    $\{f_n\}_{n\in\mathbb{N}}$一致收敛到$f$，按一致收敛定义，可以找到正整数$N_1$，使得对任意$n>N_1$，总有：
-    $$ \| f - f_n\|_{\infty} < \frac{r}{3}.$$
-
-    由于$u_n$收敛到$u$，所以可以找到正整数$N>N_1$，使得对任意$n>N$，总有：
-    $$ |u_n - u| < \frac{r}{3}.$$
-    
-    对任意$n>N$，由于$f_n$在$a$处收敛到$u_n$，按定义，可以找到$d_n > 0$，使得只要$|x - a| < d_n$，就有：
-    $$ |f_n(x) - u_n| < \frac{r}{3}.$$
-
-    所以，取某个大于$N$的正整数$n$，以及相应的$d_n$，那么，只要$|x - a| < d_n$，就有：
-    \begin{align*}
-        |f(x) - u| &\leqslant |f(x) - f_n(x)| + |f_n(x) - u_n| + |u_n - u| \\
-        &\leqslant |u_m - f_m(x)| + \| f_m - f_n\|_{\infty} + |f_n(x) - u_n| \\
-        &< \frac{r}{3} + \frac{r}{3} + \frac{r}{3} = r.
-    \end{align*}
-    这说明这个$d_n$就是我们要找的$d$。因此$u$是$f$在$a$处的极限。
-\end{proof}
-
-\begin{tm}{\textbf{一致收敛传递连续性}}
-    区间上连续函数的函数列如果一致收敛，极限也是连续函数。
-\end{tm}
-
-\begin{proof}
-    区间$I$上的函数列$\{f_n\}_{n\in\mathbb{N}}$一致收敛到$f$，我们要证明：如果所有的$f_n$都在某点$a$处连续，
-    那么$f$也在该点连续。
-
-    考虑$a$的一侧邻域$U\subseteq I$。不妨设它是$a$的左邻域，则$a$是它的右端点。
-    所有的$f_n$都在$a$处连续，因此在$a$处有极限，且极限就是$f_n(a)$。
-
-    根据前一个定理的结论，数列$\{f_n(a)\}_{n\in\mathbb{N}}$收敛到某个数$u$，且$u$是$f$在$a$处的极限。
-    这说明$f$在$a$处有左极限。同理，考虑$a$的右侧邻域，可以证明$f$在$a$处有右极限。
-    它的左右极限都是数列$\{f_n(a)\}_{n\in\mathbb{N}}$的极限$u$，因此相等。
-    
-    不仅如此，由于$\{f_n\}_{n\in\mathbb{N}}$一致收敛，所以逐点收敛，所以$\{f_n(a)\}_{n\in\mathbb{N}}$
-    的极限就是$f(a)$。这说明$f$在$a$处的极限是$f(a)$，即$f$在$a$处连续。
-
-\end{proof}
-
-\begin{xt}
-    \mbox{} \\
-    \indent 1. 定义平直空间$\mathbb{V}$中的“距离”映射$d$为满足以下条件的$\mathbb{V}^2 \rightarrow \mathbb{R}^+$的映射：\\
-    \indent \indent a. $\forall \mathbf{v} \in \mathbb{V}$，$d(\mathbf{v}, \mathbf{v}) = 0$当且仅当$\mathbf{v} = \mathbf{0}$。\\
-    \indent \indent b. $\forall \mathbf{u}, \mathbf{v} \in \mathbb{V}$，$d(\mathbf{u}, \mathbf{v}) = d(\mathbf{v}, \mathbf{u})$。\\
-    \indent \indent c. $\forall \mathbf{u}, \mathbf{v}, \mathbf{w} \in \mathbb{V}$，$d(\mathbf{u}, \mathbf{w}) \leqslant d(\mathbf{u}, \mathbf{v}) + d(\mathbf{v}, \mathbf{w})$。\\
-    \indent 证明：只要$H$是$\mathbb{V}$中的模，那么$(\mathbf{u}, \mathbf{v})\mapsto H(\mathbf{u} - \mathbf{v})$是距离映射。\\
-    \indent 2. 证明一致收敛保证极限的定理中，无穷远处的情况。
-\end{xt}
-
-一致收敛不仅保证了函数的连续性，更进一步有：
-
-\begin{tm}{\textbf{积合的一致极限}}
-    设闭区间$I=[a;b]$上的连续函数列$\{f_n\}_{n\in\mathbb{N}}$一致收敛到$f$，记$J_n$为$f_n$在$I$上的积合，
-    则数列$\{J_n\}_{n\in\mathbb{N}}$收敛到某个数$J$，且$J$是$f$在$I$上的积合。
-    $$ \lian{n\to \infty} \int_a^b f_n = \int_a^b \lian{n\to\infty} f_n. $$
-\end{tm}
-
-\begin{proof}
-    一致连续传递连续性，所以$f$也是$I$上的连续函数，因此可积。计算它在$I$上的积合$J$与$f_n$在$I$上的积合$J_n$的差：
-    \begin{align*}
-        |J_n - J| &= \left|\int_a^b f_n(x)\mathrm{d}x - \int_a^b f(x)\mathrm{d}x \right| \\
-        &\leqslant \int_a^b \left| f_n(x) - f(x)\right| \mathrm{d}x \\
-        &\leqslant \int_a^b \| f_n - f\|_{\infty} \mathrm{d}x \\
-        &= (b - a) \| f_n - f\|_{\infty}
-    \end{align*}
-    这说明$n$趋于无穷时，数列$\{J_n\}_{n\in\mathbb{N}}$收敛到$J$，$J$是$f$在$I$上的积合。
-
-\end{proof}
-
-\begin{tm}{\textbf{微变的一致极限}}
-    如果函数$f$在区间$I$上可微，且微变函数在$I$上连续，就说$f$在$I$上\textbf{一阶光滑}或\textbf{连续可微}。
-    如果$f$的前$k$次微变都在$I$上一阶光滑，就说$f$在$I$上$\boldsymbol{k}$\textbf{阶光滑}或$\boldsymbol{k}$\textbf{阶连续可微}。
-    如果对任意正整数$k$，$f$在$I$上$k$阶光滑，就说$f$在$I$上\textbf{光滑}。
-    为了方便，我们也称连续函数为$0$阶光滑，并约定对于连续函数$f$，$\partial^0 f$就是$f$自己。
-
-    已知函数列$\{f_n\}_{n\in\mathbb{N}}$中每一项都在区间$I$上可微，且微变函数连续。
-    设函数列$\{f_n\}_{n\in\mathbb{N}}$逐点收敛到函数$f$，
-    且函数列$\{\partial f_n\}_{n\in\mathbb{N}}$在$I$的任何闭子区间上一致收敛到函数$g$，
-    那么$\{f_n\}_{n\in\mathbb{N}}$在$I$的任何闭子区间上一致收敛到$f$，
-    $f$在$I$上可微，且其微变函数$\partial f = g$。
-
-    也就是说，在一定条件下，我们可以交换微变、极限和函数列的极限操作：
-    $$ \lian{n\to \infty} \partial f_n = \partial \lian{n\to \infty} f_n. $$
-
-    如果函数列$\{f_n\}_{n\in\mathbb{N}}$中每一项都在区间$I$上$k$阶连续可微，简单收敛到某个函数$f$，并且
-    \begin{enumerate}
-        \item 对任意$1 \leqslant i < k$，函数列$\{\partial^i f_n\}_{n\in\mathbb{N}}$简单收敛到函数$g_i$；
-        \item 函数列$\{\partial^k f_n\}_{n\in\mathbb{N}}$在$I$的任意子闭区间上一致收敛到函数$g_k$。
-    \end{enumerate}
-    那么$f$在$I$上$k$阶连续可微，且其前$k$阶微变函数为$\partial^i f = g_i$（$1 \leqslant i\leqslant k$）。
-    此外，$\{f_n\}_{n\in\mathbb{N}}$在$I$的任意子闭区间上一致收敛到$f$。
-
-\end{tm}
-
-\begin{proof}
-    首先证明一次微变的情况。
-    
-    给定$c\in I$，对任意$x\in I$，根据微积互反定理：
-    $$ \forall n,\; f_n(x) = f_n(c) + \int_a^x \partial f_n. $$
-    令$B\subseteq I$是包含$c$和$x$的闭子区间，$\partial f_n$是$B$上的连续函数，因此根据积合的一致极限定理：
-    \begin{align*}
-        f(x) &= \lian{n\to\infty} f_n(x) \\
-        &= \lian{n\to\infty} f_n(c) + \lian{n\to\infty} \int_c^x \partial f_n \\
-        &= f(c) + \int_c^x \lian{n\to\infty} \partial f_n \\
-        &= f(c) + \int_c^x g
-    \end{align*}
-    在$I$的任意子区间$[a;b]$上，总有
-    $$ \forall x \in [a;b], \; \left|\int_a^x g - \int_a^x f_n \right| \leqslant (b - a) \|f_n - g\|_{\infty}.$$
-    所以$x\mapsto f_n(a) + \int_a^x f_n$与$x\mapsto f(a) + \int_a^x f$在$[a;b]$的差总小于等于$|f(a) - f_n(a)| + (b - a) \|f_n - g\|_{\infty}$。
-    即两函数的差的模小于等于$|f(a) - f_n(a)| + (b - a) \|f_n - g\|_{\infty}$。而$n$趋于无穷时，后者趋于$0$。这说明$\{f_n\}$在
-    $I$的任意闭子区间上一致收敛到$f$。
-
-    $g$是$B$上连续函数列$\{\partial f_n\}_{n\in\mathbb{N}}$的一致极限，因此在$B$上连续。
-    这说明$x\mapsto \int_c^x g $在$B$上可微，且微变函数为$g$。因此$f$在$c$附近可微，且微变函数为$g$。
-    $g$在$I$的任意子闭区间上连续，因此在$I$上连续。
-    这进一步说明$f$在$I$上连续可微，且其微变函数$\partial f = g$。
-    
-    对于$k$次微变的情况，我们可以反复使用一次微变时的结论。
-    从
-    \begin{enumerate}
-        \item 函数列$\{\partial^{k-1} f_n\}_{n\in\mathbb{N}}$在$I$上连续可微。
-        \item 函数列$\{\partial^{k-1} f_n\}_{n\in\mathbb{N}}$简单收敛到函数$g_{k-1}$；
-        \item 函数列$\{\partial^k f_n\}_{n\in\mathbb{N}}$在$I$的任意子闭区间上一致收敛到函数$g_k$。
-    \end{enumerate}
-    可以推出：
-    \begin{enumerate}
-        \item 函数列$\{\partial^{k-1} f_n\}_{n\in\mathbb{N}}$在$I$的任意子闭区间上一致收敛到函数$g_{k-1}$。
-        \item $g_{k-1}$在$I$上连续可微，且其微变函数$\partial g_{k-1} = g_k$。
-    \end{enumerate}
-    再结合$\{\partial^{k-2} f_n\}_{n\in\mathbb{N}}$的情况，又可以证明：
-    \begin{enumerate}
-        \item 函数列$\{\partial^{k-2} f_n\}_{n\in\mathbb{N}}$在$I$的任意子闭区间上一致收敛到函数$g_{k-2}$。
-        \item $g_{k-2}$在$I$上连续可微，且其微变函数$\partial g_{k-2} = g_{k-1}$。
-    \end{enumerate}
-    反复$k$次，即可证明：
-    \begin{enumerate}
-        \item 对任意$0\leqslant i < k$，函数列$\{\partial^{i} f_n\}_{n\in\mathbb{N}}$在$I$的任意子闭区间上一致收敛到函数$g_{i}$（$g_0 = f$，下同）。
-        \item 对任意$0\leqslant i < k$，$g_{i}$在$I$上连续可微，且其微变函数$\partial g_{i} = g_{i+1}$。
-    \end{enumerate}
-    其中$i = 0$的情况，就是：$\{f_n\}_{n\in\mathbb{N}}$在$I$的任意子闭区间上一致收敛到$f$。而$k$次的结论合起来，
-    就说明$f$在$I$上$k$阶连续可微，且其前$k$阶微变函数为$\partial^i f = g_i$。
-
-\end{proof}
-
-要注意的是：我们总是从高次微变的一致收敛推出低次微变的一致收敛。这是因为实函数的局部微观变化情况总比整体宏观走势更难把握。
-比如，一个函数可以总在零附近做微小的振荡，但它振荡的速度可以任意大，造成无比“陡峭”的局部微观变化。
-限制了高次微变，就自然限制了低次微变的变化。反正，要通过函数的低次微变来限制高次微变则是不平凡的，常常反映了函数本身的特性。
-
-是否只有一致收敛才能“交换操作”呢？也不尽然。比如，如果区间$I$上的函数列$\{f_n\}$逐点收敛到函数$f$，且$f_n$“不太大”，
-总受制于同一个在$I$上可积的函数$g$：
-$$ \forall n, \; \forall x \in I,\,\,\, |f_n(x)| \leqslant g(x), $$
-那么$f_n$和$f$都在$I$上可积，且积合的极限等于极限的积合：
-$$ \lian{n\to\infty} \int_I f_n = \int_I f = \int_I \lian{n\to\infty} f_n. $$
-这个结论称为\textbf{受制收敛定理}，是刻画函数积合性质的重要定理。严谨地定义它需要更高深的知识，这里不做深入讨论。
-
-\begin{sk}
-    \mbox{} \\
-    \indent 1. $f$是定义在$I$上的函数。如果可以把$I$划分为若干个子区间，而$f$在每个区间上连续，就说它分段连续。分段连续的函数，是否有以上提到的各种性质？\\
-    \indent 2. 函数列$\{f_n\}_{n\in\mathbb{N}}$在$I$的任意子闭区间上一致收敛到函数$f$，它是否在$I$上收敛到$f$？
-\end{sk}
-
-\section{函数项级数}
-
-函数项级数指通项为函数的级数。最基本的函数项级数是通项为幂函数$x\mapsto x^n$的级数，称为\textbf{幂级数}。
-
-定义在$I$上的函数项级数$\sum_{n\in\mathbb{N}} f_n$的部分和构成函数列$\{S_n\}_{n\in\mathbb{N}}$，如果$\{S_n\}_{n\in\mathbb{N}}$收敛，
-就说函数项级数$\sum_{n\in\mathbb{N}} f_n$收敛，其收敛的极限叫做函数项级数的\textbf{和函数}。
-
-如果部分和函数列$\{S_n\}_{n\in\mathbb{N}}$在$I$上逐点收敛到$S$，就说级数逐点收敛到$S$，$S$为级数的\textbf{逐点和}或\textbf{简单和}。
-
-如果部分和函数列$\{S_n\}_{n\in\mathbb{N}}$在$I$上一致收敛到$S$，就说级数一致收敛到$S$，$S$为级数的\textbf{一致和}。
-
-除此以外，我们可以对每个$f_n$求模：$\|f_n\|$，这样就把函数转换为数。如果级数：$\sum_{n\in\mathbb{N}} \|f_n\|$收敛，
-就说函数项级数$\sum_{n\in\mathbb{N}} f_n$\textbf{依模收敛}。比如，如果对$f_n$在$I$上取极模：$\|f_n\|_{\infty}$后，
-级数$\sum_{n\in\mathbb{N}} \|f_n\|_{\infty}$收敛，就说$\sum_{n\in\mathbb{N}} f_n$（在$I$上）\textbf{依极模收敛}。
-
-依极模收敛是比一致收敛更严格的收敛方式。我们可以证明：
-\begin{tm}
-    如果定义在$I$上的函数项级数$\sum_{n\in\mathbb{N}} f_n$在$I$上依极模收敛，则一致收敛。
-\end{tm}
-
-\begin{proof}
-    设$I$上的函数项级数$\sum_{n\in\mathbb{N}} f_n$在$I$上依极模收敛到$f$。按照定义，级数
-    $\sum_{n\in\mathbb{N}} \|f_n\|_{\infty}$收敛。设级数和为$S_{\infty}$。
-
-    首先证明$\sum_{n\in\mathbb{N}} f_n$逐点收敛。
-
-    给定$x\in $I，$|f_n(x)| \leqslant \| f_n \|_{\infty}$，所以级数$\sum_{n\in\mathbb{N}} f_n(x)$绝对收敛。
-    于是，定义函数$f$：
-    $$ f : \; x\mapsto \sum_{n\in\mathbb{N}} f_n(x). $$
-    这个函数可以在$I$上定义，且$\sum_{n\in\mathbb{N}} f_n$逐点收敛到$f$。
-
-    再证明$\sum_{n\in\mathbb{N}} f_n$一致收敛到$f$。
-
-    考虑$f(x)$与部分和$\sum_{n=0}^N f_n(x)$的差：
-    \begin{align*}
-        \left| f(x) - \sum_{n=0}^N f_n(x) \right| &= \left| \sum_{n=N+1}^{+\infty} f_n(x) \right| \\
-        &\leqslant \sum_{n=N+1}^{+\infty} |f_n(x)| \\
-        &\leqslant \sum_{n=N+1}^{+\infty} \|f_n\|_{\infty} \\
-        &= S_{\infty} - \sum_{n=0}^N \|f_n\|_{\infty}
-    \end{align*}
-    以上关系对任意$x$成立。因此，$f$与部分和函数之差的模满足：
-    $$ \left\| f(x) - \sum_{n=0}^N f_n(x) \right\|_{\infty} \leqslant S_{\infty} - \sum_{n=0}^N \|f_n\|_{\infty}. $$
-    而$n$趋于无穷时，$S_{\infty} - \sum_{n=0}^N \|f_n\|_{\infty}$趋于$0$。这说明部分和函数列一致收敛到$f$，即级数一致收敛到$f$。
-
-\end{proof}
-
-依模收敛虽然比一致收敛更严格，但它将函数项级数的收敛问题转化为数项级数的收敛问题，因此在证明一致收敛时反而更好用。
-很多时候，为了证明一致收敛，可以先证明依极模收敛，从而推出一致收敛。
-
-对于函数项级数来说，一致收敛也是有用的性质。我们可以把函数列的一致收敛性质应用到函数项级数上。
-
-\begin{tm}{\textbf{一致收敛保证极限}}
-    已知区间$I$上的函数项级数$\sum_{n\in\mathbb{N}} f_n$一致收敛到和函数$f$，
-    且函数列的通项$f_n$都在区间的一端$a$点处\footnote{也可以是无穷远处。}有极限$u_n$。
-    那么级数$\sum_{n\in\mathbb{N}} u_n$收敛到某个数$u$，且$u$是$f$在$a$处的极限。
-    $$ \sum_{n=0}^{+\infty} \left(\lian{x\to a} f_n(x) \right) = \lian{x\to a} \left(\sum_{n=0}^{+\infty} f_n\right)(x). $$
-\end{tm}
-
-\begin{tm}{\textbf{一致收敛传递连续性}}
-    区间上连续函数的函数项级数如果一致收敛，那么和函数也是连续函数。
-\end{tm}
-
-\begin{tm}{\textbf{积合的一致极限}}
-    设闭区间$I=[a;b]$上的连续函数项级数$\sum_{n\in\mathbb{N}} f_n$一致收敛到和函数$f$，记$J_n$为$f_n$在$I$上的积合，
-    则级数$\sum_{n\in\mathbb{N}} J_n$有级数和$J$，且$J$是$f$在$I$上的积合。
-    $$ \sum_{n=0}^{+\infty} \int_a^b f_n = \int_a^b \sum_{n=0}^{+\infty} f_n. $$
-\end{tm}
-
-\begin{tm}{\textbf{微变的一致极限}}
-    已知函数项级数$\sum_{n\in\mathbb{N}} f_n$的通项都在区间$I$上可微，且微变函数连续。
-    设函数项级数$\sum_{n\in\mathbb{N}} f_n$逐点收敛到和函数$f$，
-    且函数项级数$\sum_{n\in\mathbb{N}} \partial f_n$在$I$的任何闭子区间上一致收敛到和函数$g$，
-    那么$\sum_{n\in\mathbb{N}} f_n$在$I$的任何闭子区间上一致收敛到$f$，
-    $f$在$I$上可微，且其微变函数$\partial f = g$。
-
-    也就是说，在一定条件下，我们可以交换微变操作与级数求和操作：
-    $$ \sum_{n=0}^{+\infty} \partial f_n = \partial \sum_{n=0}^{+\infty} f_n. $$
-    
-    如果函数项级数$\sum_{n\in\mathbb{N}} f_n$的通项都在区间$I$上$k$阶连续可微，简单收敛到和函数$f$，并且
-    \begin{enumerate}
-        \item 对任意$1 \leqslant i < k$，函数项级数$\sum_{n\in\mathbb{N}} \partial^i f_n$简单收敛到和函数$g_i$；
-        \item 函数项级数$\sum_{n\in\mathbb{N}} \partial^k f_n$在$I$的任意子闭区间上一致收敛到和函数$g_k$。
-    \end{enumerate}
-    那么$f$在$I$上$k$阶连续可微，且其前$k$阶微变函数为$\partial^i f = g_i$（$1 \leqslant i\leqslant k$）。
-    此外，$\sum_{n\in\mathbb{N}} f_n$在$I$的任意子闭区间上一致收敛到$f$。
-\end{tm}
-
-以上定理只是把函数列的收敛性质用级数的形式重复一遍，用到了函数的和的微变（积合）是其微变（积合）的和的基本性质。
-
-\begin{et}
-    研究定义在$(0;+\infty)$上的函数项级数：
-    $$\sum_{n=0}^{+\infty} \frac{(-1)^n}{n + x}.$$
-\end{et}
-
-\begin{so}
-    首先证明级数逐点收敛。给定$x>0$，考虑数项级数$\sum \frac{(-1)^n}{n + x}$。它的通项正负交替，
-    绝对值单调递减且趋于$0$，因此级数收敛。于是，我们可以在$(0;+\infty)$上定义：
-    $$ S(x) = \sum_{n=0}^{+\infty} \frac{(-1)^n}{n + x}. $$
-
-    考虑通项函数$f_n: x\mapsto \frac{(-1)^n}{n + x}$，它在$(0;+\infty)$上连续可微。微变函数为：
-    $$ \partial f_n(x) = \frac{(-1)^{n+1}}{(n + x)^2}. $$
-    它在$(0;+\infty)$上的绝对值总小于等于$\frac{1}{n^2}$，因此，$\partial f_n$的极模构成的级数收敛：
-    $$ \sum_{n=0}^{+\infty} \| \partial f_n(x) \|_{\infty} \leqslant \sum_{n=0}^{+\infty} \frac{1}{n^2} < +\infty .$$
-    这说明$\sum \partial f_n$一致收敛。根据微变的一致极限定理，$\sum f_n$在任意闭区间上一致收敛到$S$，
-    $S$在$(0;+\infty)$上可微，且$S$的微变函数是$\sum \partial f_n$的极限。
-    $$ \partial S(x) = \sum_{n=0}^{+\infty} \frac{(-1)^{n+1}}{(n + x)^2}. $$
-
-    通过以上$\partial S(x)$的表达式，我们来讨论$S$的性质。
-
-    考虑$\partial S(x)$作为级数的部分和序列$\{S_n\}$，根据交替级数的性质，由于其首项小于$0$，
-    所以$\partial S(x) < 0$。这说明$S$单调递减。同理，由于$S(x)$作为数项级数的首项总大于$0$，所以$S(x)$总大于$0$。
-
-    我们还可以对$S$求二次微变，用类似的推理得到$S$二次连续可微，且：
-    $$ \partial^2 S(x) = 2\sum_{n=0}^{+\infty} \frac{(-1)^{n}}{(n + x)^3}. $$
-    等式右侧也是交替级数。同样根据交替级数性质可知，$\partial^2 S(x)$总大于$0$，因此$S$是下凸函数。
-
-    注意到
-    \begin{align*}
-        S(x + 1) = \sum_{n=0}^{+\infty} \frac{(-1)^n}{n + x + 1} = \sum_{n=1}^{+\infty} \frac{(-1)^{n-1}}{n + x} = -\sum_{n=1}^{+\infty} \frac{(-1)^{n}}{n + x}
-    \end{align*}
-    所以$- S(x + 1) + \frac{1}{x} = S(x)$，即
-    $$ S(x) + S(x + 1) = \frac{1}{x}.$$
-    当$x\to 0^+$时，$S(x)$趋于正无穷，且：
-    $$ S(x) \eqlim{0^+} \frac{1}{x} - S(x + 1) \eqlim{0^+} \frac{1}{x}.  $$
-    另一方面，$S$单调递减，所以：
-    $$ \frac{1}{2x} = \frac{1}{2}\left(S(x) + S(x + 1)\right) \leqslant S(x) \leqslant \frac{1}{2}\left(S(x) + S(x - 1)\right) = \frac{1}{2(x - 1)}.$$
-    当$x\to +\infty$时，$S(x)$趋于$0$，且：
-    $$ S(x) \eqlim{+\infty} \frac{1}{2x}. $$
-
-\end{so}
-
-\begin{xt}
-    \mbox{} \\
-    \indent 1. 定义在$\mathbb{R}$上的函数项级数$\sum_{n\in\mathbb{N}} f_n$的通项为
-    $$ \forall n, \;\, f_n(x): x \mapsto \frac{1}{n^2 + x^2}.$$
-    \indent $\sum_{n\in\mathbb{N}} f_n$是否逐点收敛？是否一致收敛？是否依模收敛？\\ 
-    \indent 2. 考虑定义在$\mathbb{R}$上的函数项级数：
-    $$\sum_{n=1}^{+\infty} \frac{(-1)^n}{n + x^2}.$$
-    \indent 2.1. 证明级数在$\mathbb{R}$上逐点收敛。\\
-    \indent 2.2. 证明级数在$\mathbb{R}$上不依极模收敛。\\
-    \indent 2.3. 证明
-    $$\forall x\in\mathbb{R},\; N\in\mathbb{N},\;\,\left|\sum_{n=N+1}^{+\infty} \frac{(-1)^n}{n + x^2}\right| \leqslant \frac{1}{N+1},$$
-    \indent 从而证明级数在$\mathbb{R}$上一致收敛。\\
-    \indent 3. 考虑定义在$(0;+\infty)$上的函数项级数：
-    $$S(x) = \sum_{n=0}^{+\infty} \frac{(-1)^n}{n!(n + x)}.$$
-    \indent 3.1. 证明函数$S$有意义，且在$(0;+\infty)$上连续可微。\\
-    \indent 3.2. 讨论函数$S$在$(0;+\infty)$上的增减性质。\\
-    \indent 3.3. 证明：$\forall x > 0,\;\, xS(x) - S(x + 1) = \frac{1}{e}.$ \\
-    \indent 3.4. 证明$\lian{x\to 0} S(x) = +\infty$，并给出$S$在$0$附近的等价无穷大。\\
-    \indent 3.5. 证明$\lian{x\to +\infty} S(x) = 0$，并给出$S$在正无穷处的等价无穷小。\\
-\end{xt}
-
-\section{幂级数}
-
-最简单的函数项级数是以整幂函数为通项的级数。
-$$ f_n : x \mapsto a_n x^n.$$
-我们称这样的函数项级数为\textbf{幂级数}。幂级数的形式和整式函数很像。可以看作“无穷多项”的整式函数。
-
-\begin{df}
-    给定数列$\{a_n\}_{n\in\mathbb{N}}$，考虑使得数项级数$\sum a_n x^n$逐点收敛的$x$的集合$J$。则可以定义函数：
-    $$
-    \begin{array}{rl}
-        f: \,\, J\subseteq\mathbb{R} &\rightarrow \mathbb{R} \\
-        x &\displaystyle \mapsto \sum_{n=0}^{+\infty} a_n x^n        
-    \end{array}
-    $$
-    $f$称为（关于数列$\{a_n\}_{n\in\mathbb{N}}$）的幂级数，记为
-    $$ x\mapsto \sum_{n=0}^{+\infty} a_n x^n. $$
-    不至于混淆时，也简记为$\sum_{n\in\mathbb{N}} a_n x^n$或$\sum a_n x^n$。
-\end{df}
-换句话说，幂级数就是部分和函数$f_N : x\mapsto \sum_{n=0}^{N} a_n x^n$在$J$中逐点收敛到的函数。
-我们称$J$为幂级数的\textbf{收敛域}，$J$就是幂级数的定义域。
-
-我们知道，级数收敛与否，与通项趋于$0$的速度有关。对于不同的$x$，级数$\sum a_n x^n$的通项形式相同，
-都是$x$的整幂乘以同一组系数。因此，对不同的$x$来说，它们的大小关系应该和$\sum a_n x^n$的敛散性质有关。
-
-\begin{tm}\label{tm:a-1-0}
-    如果对某个数$z$，数项级数$\sum a_n z^n$收敛，
-    那么对于绝对值小于$|z|$的数$x$，数项级数$\sum a_n x^n$都绝对收敛。
-\end{tm}
-
-\begin{proof}
-    数项级数$\sum a_n z^n$收敛，因此相应的数列$\{a_n z^n\}$是有界数列。即有$M>0$使得
-    $|a_n z^n|$总小于$M$。
-
-    对任意自然数$n$，
-    $$ |a_n x^n| = |a_n z^n| \cdot \left|\frac{x}{z}\right|^n < M \left|\frac{x}{z}\right|^n. $$
-    记$\displaystyle \omega = \left|\frac{x}{z}\right|$，则$0\leqslant \omega<1$，因此部分和：
-    \begin{align*}
-        \sum_{n=0}^N |a_n x^n| &< \sum_{n=0}^N M \omega^n = \frac{M(1 - \omega^{N+1})}{1 - \omega} < \frac{M}{1 - \omega}.
-    \end{align*}
-    这说明$\sum a_n x^n$绝对收敛。
-\end{proof}
-
-如果对某个$x$，$\sum a_n x^n$收敛，那么对于绝对值比$x$小的数，级数也收敛。
-这说明，数轴上使得$\sum a_n x^n$收敛的数应该大致是一个关于原点对称的区间。
-
-\begin{tm}\label{tm:a-1-10}
-    设$\displaystyle\sum_{n=0}^{+\infty} a_n x^n$为幂级数。要么有唯一的非负实数$R$，使得：
-    \begin{enumerate}
-        \item 只要$x$的绝对值小于$R$，那么级数$\sum a_n x^n$收敛。
-        \item 只要$x$的绝对值大于$R$，那么级数$\sum a_n x^n$发散。
-    \end{enumerate}
-    这样的$R$称为幂级数的\textbf{收敛半径}。要么对任何实数，级数$\sum a_n x^n$收敛。
-    这时我们说幂级数的收敛半径是无穷大。
-\end{tm}
-
-\begin{proof}
-    考虑使得数项级数$\sum a_n x^n$收敛的非负实数$x$绝对值的集合$A$。
-    $$A = \left\{ x \geqslant 0 \, \left| \, \sum_{n=0}^{+\infty} a_n x^n \mbox{收敛} \right. \right\} $$
-
-    $A$是实数集的子集，而且$0\in A$，因此$A$是非空集合。
-
-    如果$A$没有上界，那么对任意$x$，总有$A$中元素$M$比它的绝对值大。按照定理\ref{tm:a-1-0}，级数$\sum a_n x^n$收敛。
-    也就是说，对任何实数，级数$\sum a_n x^n$收敛。
-
-    如果$A$有上界，那么它有上确界$c\geqslant 0$。我们将证明：上确界$c$就是我们要找的$R$。
-    
-    首先，按照上确界的定义，只要$|x|<c$，那么$|x|$不是$A$的上界，即有$b\in A$，$b>|x|$。
-    因此按照定理\ref{tm:a-1-0}，级数$\sum a_n x^n$收敛。
-
-    其次，对于$|x|>c$，如果级数$\sum a_n x^n$收敛，那么考虑$b = \frac{|x| + c}{2}$。
-    按定义，$|x| > b > c \geqslant 0$。按照定理\ref{tm:a-1-0}，$|b| = b < |x|$，所以$\sum a_n b^n$收敛，
-    因此$b \in A$。但$b>c$，这与$c$为$A$的上确界矛盾。
-    因此$|x|>c$时，级数$\sum a_n x^n$发散。
-
-    最后证明$c$是唯一满足要求的。如果还有$c'$也满足要求。要么$c'>c$，于是$\frac{c+c'}{2} > c$使得级数收敛，违背$c$的定义。
-    要么$c'<c$，于是$\frac{c+c'}{2} < c$使得级数发散，违背$c$的定义。
-
-    综上，$c$是唯一满足要求的数，它就是我们要找的收敛半径$R$。
-
-\end{proof}
-
-可以看到，只要确定了收敛半径$R$，那么$(-R;R)$肯定在幂级数的收敛域$J$中。而对于实数收敛半径$R$，只要$|x|>R$，
-那么$x$就不在$J$中。于是要么收敛半径为无穷大，这时收敛域$J$是全体实数；要么收敛半径是非负实数$R$，
-这时收敛域就是$(-R;R)$，或者加上两边的端点$-R$、$R$，即$(-R;R)$、$(-R;R]$、$[-R;R)$、$[-R;R]$四者之一。
-
-如果要更精细地讨论收敛半径和收敛域，可以考虑以下$4$个集合：
-\begin{align*}
-    A_1 = \left\{ x \geqslant 0 \, \left| \, \{a_n x^n\}_{n\in\mathbb{N}}\mbox{有界} \right. \right\} & A_2 = \left\{ x \geqslant 0 \, \left| \, \{a_n x^n\}_{n\in\mathbb{N}}\mbox{趋于}0 \right. \right\} \\[4pt]
-    A_3 = \left\{ x \geqslant 0 \, \left| \, \sum_{n=0}^{+\infty} a_n x^n \mbox{收敛} \right. \right\} & A_4 =  \left\{ x \geqslant 0 \, \left| \, \sum_{n=0}^{+\infty} a_n x^n \mbox{绝对收敛} \right. \right\}
-\end{align*}
-显然，这$4$个集合都是左端为$0$的区间，且$A_4\subseteq A_3 \subseteq A_2\subseteq A_1$。
-
-如果幂级数的收敛半径为无穷大，那么$A_1 = A_2 = A_3 = A_4 = \mathbb{R}^+$。
-
-如果幂级数的收敛半径为正数$R$，则$|x|>R$时，肯定不在任何一个集合中。$|x|<R$时，可以找到$|x|<y<R$，级数$\sum a_n y^n$收敛，
-因此$\sum_{n=0}^{+\infty} a_n x^n$绝对收敛。
-也就是说：
-$[0;R) \subseteq A_4\subseteq A_3 \subseteq A_2\subseteq A_1 \subseteq [0;R].$
-
-如何求幂级数的收敛半径呢？对于给定的$x$，幂级数就是数项级数。因此，判断了数项级数的收敛性，就判断了幂级数的收敛范围。
-我们有以下的判别方法：
-
-\begin{tm}{\textbf{邻比判别法}}
-    如果幂级数$\sum a_n x^n$的相邻通项$a_n$、$a_{n+1}$绝对值之比趋于非负实数$R$，那么$R$是幂级数的收敛半径。
-    $$ R = \lian{n\to\infty} \frac{|a_n|}{|a_{n+1}|}. $$
-    如果相邻通项之比趋于正无穷大，则收敛半径为无穷大。
-\end{tm}
-
-\begin{proof}
-    给定$x\neq 0$，考虑数项级数$\sum |a_n x^n|$。它的相邻通项之比为：
-    $$ \frac{|a_n x^n|}{|a_{n+1} x^{n+1}|} = \frac{|a_n|}{|a_{n+1}x|}. $$
-    如果
-    $$ \lian{n\to\infty} \frac{|a_n|}{|a_{n+1}|} = R,$$
-    那么：
-    $$ \lian{n\to\infty} \frac{|a_n|}{|a_{n+1}x|} = \frac{R}{|x|}.$$
-    根据级数收敛性的判别法，如果$|x|<R$，则$\frac{R}{|x|} > 1$，这说明$\sum |a_n x^n|$首先，所以$\sum a_n x^n$绝对收敛；
-    如果$|x|>R$，则$\frac{R}{|x|} < 1$，这说明级数通项不趋于零，级数发散。于是$R$是级数的收敛半径。
-\end{proof}
-
-\section{幂级数的基本性质}
-
-首先来看基本运算对幂级数收敛半径的影响。
-
-设幂级数$\sum a_n x^n$、$\sum b_n x^n$的收敛半径分别是$R_a$、$R_b$。
-
-如果$x$的绝对值小于$R_a$、$R_b$的较小值，那么级数$\sum a_n x^n$、$\sum b_n x^n$都绝对收敛，于是
-$\sum (a_n \pm b_n) x^n$也收敛，而且幂级数的值：
-$$\sum (a_n \pm b_n) x^n = \sum a_n x^n \pm \sum b_n x^n.$$
-这说明幂级数$\sum (a_n \pm b_n) x^n$的收敛半径不小于$R_a$、$R_b$中较小的那个。
-
-要注意的是，幂级数$\sum (a_n \pm b_n) x^n$的收敛半径可以严格大于$R_a$、$R_b$的较小值。比如级数$\sum x^n$和$\sum -x^n$的收敛半径都是$1$，
-但两者相加后幂级数系数全是$0$，于是收敛半径为无穷大。
-
-幂级数乘以非零常数，收敛半径不变。
-
-幂级数还可以相乘。给定收敛半径分别为$R_a$、$R_b$的幂级数$\sum a_n x^n$、$\sum b_n x^n$，我们可以定义幂级数$\sum c_n x^n$：
-$$ \forall n, \; c_n = \sum_{k=0}^n a_k b_{n-k}.$$
-如果$x$的绝对值小于$R_a$、$R_b$的较小值，那么级数$\sum a_n x^n$、$\sum b_n x^n$都绝对收敛，于是$\sum c_n x^n$也绝对收敛。
-换句话说，幂级数$\sum c_n x^n$的收敛半径不小于$R_a$、$R_b$的较小值。
-
-再来看系数数列对幂级数收敛半径的影响。
-
-考虑两个幂函数$\sum a_n x^n$、$\sum b_n x^n$，设它们的收敛半径分别是$R_a$、$R_b$。
-
-如果$\{a_n\} = \Olim{\{b_n\}}$，即数列$\frac{a_n}{b_n}$是有界的，考虑$x\in(-R_b;R_b)$，级数$\sum b_n x^n$绝对收敛。
-级数$\sum a_n x^n$的绝对值的部分和可以写成：
-\begin{align*}
-    \sum_{n=0}^{N} |a_n x^n| = \sum_{n=0}^{N} \left|\frac{a_n}{b_n}\right| |b_n x^n| \leqslant M \sum_{n=0}^{N} |b_n x^n|
-\end{align*}
-其中$M$是数列$\frac{a_n}{b_n}$的上界。这说明级数$\sum a_n x^n$绝对收敛。这说明$x<R_a$。于是收敛半径$R_a \geqslant R_b$。
-
-如果$\{a_n\} \sim \{b_n\}$，即数列$\frac{a_n}{b_n}$极限为$1$，那么上面的论证是双向的，于是收敛半径$R_a = R_b$。
-
-更进一步，如果有数$p$使得$\{a_n\} = \Olim{\{n^p b_n\}}$，即数列$\displaystyle\frac{a_n}{n^p  b_n}$是有界的，
-那么也有$R_a \geqslant R_b$。
-
-实际上，考虑$x\in(-R_b;R_b)$，可以找到$|x|<y<R_b$，使得级数$\sum b_n y^n$绝对收敛。因此对任意$n$，
-$$ |a_n x^n| = \left|\frac{a_n}{n^p  b_n} \right| \cdot \left(\left| \frac{x}{y}\right|^n \cdot n^p\right) \cdot |b_n y^n| $$
-数列$\left\{\left|\frac{a_n}{n^p  b_n} \right|\right\}$和$\left\{|b_n y^n|\right\}$都是有界的，$\left\{\left(\left| \frac{x}{y}\right|^n \cdot n^p\right)\right\}$在$n$趋于无穷时趋于$0$，
-因此也是有界的。这说明数列$\left\{|a_n x^n|\right\}$有界，从而$|x|\in[0;R_a]$。这说明$R_a\geqslant R_b$。
-
-注意到$p$的正负不影响结论。所以，如果$\frac{a_n}{b_n} \sim n^p$，那么$R_a = R_b$。
-
-作为函数，幂级数有什么好的性质呢？是否连续、可微、光滑？
-我们知道，幂级数在收敛域上逐点收敛。但逐点收敛不足以推出足够好的性质。那么，是否能证明更强的收敛性质呢？
-
-设幂级数$\sum a_n x^n$收敛半径为$R$。考虑$(-R;R)$的闭子区间$[c_-;c_+]$。
-设$c$为$|c_-|$、$|c_+|$中较大者，级数$\sum a_n c^n$绝对收敛。
-对任意$n$，函数$x\mapsto a_n x^n$的极模不大于$|a_n c^n|$。
-因此，幂级数$\sum a_n x^n$在$[c_-;c_+]$上依极模收敛。
-于是它在$[c_-;c_+]$上一致收敛。
-
-这说明幂级数$\sum a_n x^n$作为函数在$(-R;R)$的任何闭子区间上连续，从而在$(-R;R)$上连续。
-
-\begin{tm}
-    若幂级数的收敛半径为$R$，则它是$(-R;R)$上的连续函数。
-\end{tm}
-
-那么它在$-R$和$R$处是否连续呢？我们有这样的结论：
-
-\begin{tm}
-    设幂级数$\sum a_n x^n$的收敛半径为$R$。若级数$\sum a_n R^n$收敛，那么幂级数在$R$处左连续；
-    若级数$\sum a_n (-R)^n$收敛，那么幂级数在$-R$处右连续。
-\end{tm}
-
-因此，幂级数在它的收敛域上连续。
-
-\begin{proof}
-    首先证明：如果级数$\sum a_n$收敛，则幂级数$\sum a_n x^n$在$x = 1$处左连续。
-
-    记$\sum a_n$的和为$s$，即要证明：
-    $$ \lian{x\to 1^-} \sum_{n=0}^{+\infty}a_n x^n = s. $$
-    记部分和为序列$ s_n = \sum_{k=0}^{n} a_k$。$s_{n} - s_{n-1} = a_n$，因此：
-    \begin{align*}
-        \sum_{k=0}^{n} a_k x^k &= a_0 + \sum_{k=1}^{n} x^k (s_k - s_{k-1}) \\
-        &= a_0 + \sum_{k=1}^{n} x^k s_k - \sum_{k=1}^{n} x^k s_{k-1} \\
-        &= a_0 + \sum_{k=1}^{n} x^k s_k - \sum_{k=0}^{n-1} x^{k+1} s_k \\
-        &= a_0 + x^n s_n + \sum_{k=1}^{n-1} x^k s_k - x^1 s_0 - \sum_{k=1}^{n-1} x^{k+1} s_k \\
-        &= a_0(1 - x) + s_n x^n + \sum_{k=1}^{n-1} (x^k - x^{k+1}) s_k \\
-        &= s_n x^n + \sum_{k=0}^{n-1} x^k(1 - x) s_k \\
-    \end{align*}
-    对给定的$-1<x<1$，将$n$趋于无穷。这时，等式左侧$\sum_{k=0}^{n} a_k x^k$收敛；等式右侧，
-    $s_n$收敛到$s$，$x^n$趋于$0$，这说明$\sum_{k=0}^{n-1} x^k(1 - x) s_k$作为数列也收敛，且：
-    $$ \sum_{n=0}^{+\infty}a_n x^n = (1 - x)\sum_{n=0}^{+\infty}s_n x^n.$$
-    等比数列$\{x^n\}$的和为$\frac{1}{1 - x}$，因此：
-    $$ s = s \cdot \frac{1 - x}{1 - x} = (1 - x)\sum_{n=0}^{+\infty} s x^n. $$
-    以上两等式相减，得到：
-    $$ \sum_{n=0}^{+\infty}a_n x^n - s = (1 - x)\sum_{n=0}^{+\infty}(s_n - s) x^n.$$
-    以上等式对$|x|<1$总成立。我们希望证明，$x\to 1^-$时，上式右侧趋于$0$。
-
-    给定$r > 0$。由于$\{s_n\}$趋于$s$，所以可以找到$N$，使得只要$n>N$，就有$|s_n - s| < \frac{r}{2}$。将右侧和式从$N$处断开：
-    \begin{align*}
-        \left|(1 - x)\sum_{n=0}^{+\infty}(s_n - s) x^n \right| &\leqslant \left|(1 - x)\sum_{n=0}^{N}(s_n - s) x^n \right| + \left|(1 - x)\sum_{n=N+1}^{+\infty}(s_n - s) x^n \right| \\
-        &\leqslant |1 - x| \sum_{n=0}^{N}|s_n - s||x|^n + \frac{r|1 - x|}{2}\sum_{n=N+1}^{+\infty} |x|^n \\
-        &\leqslant |1 - x| \sum_{n=0}^{N}|s_n - s| + \frac{r|1 - x|}{2}\frac{|x|^{N+1}}{1 - |x|} \\
-    \end{align*}
-    $x>0$时，$1 - |x| = |1 - x|$。于是，只要取
-    $$ d = \frac{r}{2\sum_{n=0}^{N}|s_n - s| + r} < 1,$$
-    那么$|1 - x| < d$时就有$|1 - x| \sum_{n=0}^{N}|s_n - s| < \frac{r}{2}$，从而有：
-    \begin{align*}
-        \left|(1 - x)\sum_{n=0}^{+\infty}(s_n - s) x^n \right| &< \frac{r}{2} + \frac{r}{2} |x|^{N+1} \leqslant \frac{r}{2} + \frac{r}{2} = r.
-    \end{align*}
-    这就说明
-    $$ \lian{x\to 1^-} \sum_{n=0}^{+\infty}a_n x^n = s. $$
-
-    考虑通项为$c_n = (-1)^n a_n$的幂级数。只要$\sum c_n$收敛，应用上面结论可知：
-    $$ \lian{x\to 1^-} \sum_{n=0}^{+\infty}c_n x^n = \sum_{n=0}^{+\infty} c_n. $$
-    即：
-    $$ \lian{x\to -1^+} \sum_{n=0}^{+\infty}a_n x^n = \sum_{n=0}^{+\infty} a_n (-1)^n. $$
-    同理，对于一般的$R$，考虑通项为$c_n = a_n R^n$的幂级数，即可得到：
-    \begin{align*}
-        \lian{x\to R^-} \sum_{n=0}^{+\infty}a_n x^n &= \sum_{n=0}^{+\infty} a_n R^n. \tag{只需右边级数收敛} \\
-        \lian{x\to -R^+} \sum_{n=0}^{+\infty}a_n x^n &= \sum_{n=0}^{+\infty} a_n (-R)^n. \tag{只需右边级数收敛} 
-    \end{align*}
-
-\end{proof}
-
-从$\sum a_n x^n$在$(-R;R)$的任何闭子区间上依极模收敛还能推出，幂函数的微变与积合函数也可以表示为幂函数。
-
-\begin{tm}
-    若幂级数$S(x) = \sum a_n x^n$的收敛半径为$R$，则它在$(-R;R)$的任何闭子区间上可积。它的积合函数也是收敛半径为$R$的幂级数：
-    $$ \forall x, \in (-R;R),\,\,\, \int_0^x S =  \sum_{n=0}^{+\infty} \frac{a_n x^{n+1}}{n + 1}. $$
-\end{tm}
-
-\begin{tm}
-    若幂级数$S(x) = \sum a_n x^n$的收敛半径为$R$，则它在$(-R;R)$上光滑。它的微变函数也是收敛半径为$R$的幂级数：
-    $$ \forall x, \in (-R;R),\,\,\, \partial S(x) =  \sum_{n=1}^{+\infty} na_n x^{n-1} = \sum_{n=0}^{+\infty} (n + 1)a_{n+1} x^{n}. $$
-    一般来说，它的任意次微变都是收敛半径为$R$的幂级数：
-    \begin{align*}
-        \forall k \in \mathbb{N},\;\forall x, \in (-R;R),\,\,\, \partial^k S(x) &= \sum_{n=k}^{+\infty} n(n-1)\cdots(n - k + 1)a_n x^{n-k} \\
-        &= \sum_{n=0}^{+\infty} (n + 1)(n + 2)\cdots(n + k)a_{n+k} x^{n}. \\
-    \end{align*}
-\end{tm}
-
-作为直接推论，可以发现：取$x=0$，就有$\partial S(0) = a_1$。一般来说，
-$$\forall k\in \mathbb{N}, \,\,\, a_k = \frac{\partial^k S(0)}{k!}.$$
-也就是说，幂级数的系数可以通过求$0$处的微变计算。
-
-简单来说，如果要对幂级数求微变或求积合，只要对它的通项求微变或求积合即可。而幂级数的收敛半径不会改变。
-幂级数这种良好的性质，可以用来分析很多函数相关的问题。如果我们能够把函数展开为幂级数，就可以方便地对它进行微变、积合操作。
-
-\begin{proof}
-    $\sum a_n x^n$在$(-R;R)$的任何闭子区间上一致收敛，因此根据积合的一致极限定理，级数求和与积合操作可以交换。即有：
-    $$ \forall x, \in (-R;R),\,\,\, \int_0^x S = \sum_{n=0}^{+\infty} \frac{a_n x^{n+1}}{n + 1}. $$
-    
-    至于$\sum \frac{a_n x^{n+1}}{n + 1}$的收敛半径，可以看出它和$\sum \frac{a_n x^{n}}{n + 1}$的收敛半径一样，
-    因为对任意给定的$x$，两级数的部分和数列只差乘以系数$x$，因此要么一起收敛，要么一起不收敛。
-    
-    而对比$\sum \frac{a_n x^{n}}{n + 1}$和$\sum a_n x^n$的通项，两者之比为多项式，因此收敛半径相等。
-    这说明$\sum \frac{a_n x^{n+1}}{n + 1}$的收敛半径等于$R$。
-
-    考察幂级数$\sum_{n=0}^{+\infty} (n + 1)a_{n+1} x^{n}$，根据和上面同样的推理，可知它的收敛半径和$\sum a_n x^n$相等。
-    于是$\sum (n + 1)a_{n+1} x^{n}$也在$(-R;R)$的任何闭子区间上一致收敛。由上面结论可知，
-    $\sum (n + 1)a_{n+1} x^{n}$的积合函数就是$\sum a_n x^n$。也就是说$\sum a_n x^n$的微变函数是$\sum (n + 1)a_{n+1} x^{n}$。
-    重复以上推理即可将结论扩展至任意次微变。
-
-\end{proof}
-
-\section{函数的幂级数展开}
-
-我们把能够在一定区间上展开为幂级数的函数称为\textbf{可展函数}，对应的幂级数称为函数在对应区间上的\textbf{幂级数展开}。
-比方说，对于函数$f$，如果有$r>0$和级数$\sum a_n$，使得
-$$\forall x\in (-r;r),\,\,\, f(x) = \sum a-n x^n,$$
-就说$f$在$(-r;r)$上可展开为幂级数。
-
-经典函数中的指数函数、正弦函数、余弦函数都可以在其定义域上展开为幂级数，因此都是可展函数。
-
-如果函数$f$可以在$(-R;R)$上展开为幂级数，那么它一定在$(-R;R)$上光滑，并且可以写成：
-$$ f(x) = \sum_{n=0}^{+\infty} \frac{\partial^n f(0)}{n!} x^n. $$
-这就是我们希望的结果：可展函数的幂级数是其局部展开的“极限”。
-
-那么，是否所有的光滑函数都可以在某个区间上展开为幂级数呢？我们可以看这样的例子：
-$$ f: x\mapsto \begin{cases} e^{-\frac{1}{x}} & x > 0 \\ 0 & x \leqslant 0 \end{cases}.$$
-它作为经典函数（指数函数和反比例函数）的复合，在$x\neq 0$时是光滑的。
-$f$在$x<0$的任意次微变函数都是零函数，而在$0$右侧的$n$次微变函数可以写成：
-$$ \partial^n f(x) = \frac{p_n(x)}{x^{2n}} e^{-\frac{1}{x}}.$$
-其中$p_n$是$n-1$次整式，因此$\partial^n f(x)$在$x$趋于$0$时趋于$0$。
-
-具体来说，对$f$求导可知：
-$$ \partial f(x) = \frac{1}{x^{2}} e^{-\frac{1}{x}}. $$
-即$p_1(x) = 1$。而对$\partial^n f$求导得到：
-\begin{align*}
-    \partial^{n+1} f(x) &= \partial \left(\frac{p_n(x)}{x^{2n}} e^{-\frac{1}{x}}\right) \\
-    &= \frac{\partial p_n(x) x^{2n} - 2n p_n(x) x^{2n-1}}{x^{4n}} \cdot e^{-\frac{1}{x}} + \frac{p_n(x)}{x^{2n}} \cdot \left( \frac{1}{x^{2}} e^{-\frac{1}{x}}\right) \\
-    &= \frac{x^2 \partial p_n(x) - 2nx p_n(x) + p_n(x)}{x^{2n+2}} e^{-\frac{1}{x}}
-\end{align*}
-这说明
-$$ p_{n+1}(x) = x^2 \partial p_n(x) - (2nx - 1)p_n(x).$$
-设$p_n$的最高次项系数为$c$，则分析系数可知$p-{n+1}$的最高次项为$(n-1)c - 2nc = -(n+1)c$。
-这说明$p_n$为$n-1$次整式，最高次项系数为$(-1)^{n-1}n!$。
-
-我们可以把$\partial^n f(x)$写成若干项之和，每项都形如：
-$$ \frac{1}{x^m} e^{-\frac{1}{x}},$$
-其中$m$是正整数。对每项来说，
-\begin{align*}
-    \frac{1}{x^m} e^{-\frac{1}{x}} &= (m+1)!x e^{-\frac{1}{x}} \cdot \frac{1}{(m+1)!} \left(\frac{1}{x}\right)^{m+1} \\
-    &\leqslant (m+1)!x e^{-\frac{1}{x}} \cdot \sum_{n=0}^{+\infty} \frac{1}{n!} \left(\frac{1}{x}\right)^n \\
-    &= (m+1)!x e^{-\frac{1}{x}} e^{\frac{1}{x}} = (m+1)!x
-\end{align*}
-于是当$x$趋于$0^+$时，每项都趋于$0$。因此$\partial^n f(x)$在$x$趋于$0$时趋于$0$。
-
-这说明$\partial^n f$在$0$处也连续，
-且
-$$ \partial^n f(0) = 0.$$
-假如$f$可以在$0$的某个邻域$(-R;R)$上展开为幂级数，那么：
-$$ \forall x \in (-R;R) ,\,\,\, f(x) = \sum_{n=0}^{+\infty} \frac{\partial^n f(0)}{n!} x^n = 0. $$
-这与$f$的定义矛盾。因此$f$无法在$0$处展开为幂级数。直观来说，$f$在$0$处太“平”了，以至于无法给出宏观整体的信息。
-
-\begin{figure}[h] %this figure will be at the right
-    % \vspace{-4pt}
-    \centering
-    \includegraphics[width=0.8\textwidth]{tu/幂级数2.png}
-    \caption*{\texttt{函数}$\displaystyle e^{-\frac{1}{x}}$\texttt{在}$0$\texttt{处太平坦了}}
-\end{figure}
-
-% \begin{sk}
-%     \mbox{} \\
-%     \indent 1. 幂级数系数的微变表示，和我们学过的哪个公式相似？为什么？\\
-%     \indent 2. 如果幂级数的收敛域是$[-R;R]$，是否在$[-R;R]$上可积？举出例子或反例。
-% \end{sk}
-
-\begin{xt}
-    \mbox{} \\
-    \indent 1. 证明以下函数是光滑函数：
-    \begin{align*}
-        1).& 
-        x \mapsto \begin{cases}
-            \frac{\sin{x}}{x} & x\neq 0 \\
-            1 & x = 0 
-        \end{cases}
-        &2).&
-        x \mapsto \begin{cases}
-            \frac{1}{\sin{x}} - \frac{1}{x} & x\in (-\pi;\pi), x\neq 0 \\
-            0 & x = 0 
-        \end{cases} \\
-        3).& 
-        x \mapsto \begin{cases}
-            e^{-\frac{1}{|x|}} & x\neq 0 \\
-            0 & x = 0 
-        \end{cases}
-        &4).&
-        x \mapsto \begin{cases}
-            \frac{e^{\sqrt{x}} + e^{-\sqrt{x}}}{2} & x\geqslant 0 \\
-            \frac{e^{\sqrt{-x}} + e^{-\sqrt{-x}}}{2} & x < 0 
-        \end{cases}
-    \end{align*}
-    \indent 2. 给定幂级数$\sum_{n\in\mathbb{N}} a_n x^n$，其收敛半径$R>0$，首项$a_0=1$。\\
-    \indent 2.1. 证明，存在数列$\{b_n\}_{n\in\mathbb{N}}$，使得：
-    $$
-    b_0 = 1, \quad \forall n > 0, \;\, \sum_k=0^n a_k b_{n-k} = 0.
-    $$
-    \indent 2.2. 证明：存在$x>0$，使得级数$\sum_{n\in\mathbb{N}} b_n x^n$收敛。\\
-    \indent 2.3. 证明：幂级数$\sum_{n\in\mathbb{N}} b_n x^n$的收敛半径大于$0$。
-\end{xt}
 
 \chapter{复数}
 
