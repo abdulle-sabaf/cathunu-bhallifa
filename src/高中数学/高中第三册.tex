@@ -1329,6 +1329,12 @@ $$ f(a + h) = f(a) + \partial f(a) h + c_2 \partial^2 f(a) h^2 + \cdots + c_n \p
     \indent 4.2. 函数$f$在$[a; b]$上$n$次可微。证明：如果
     $$f(a) = \partial f(a) = \partial^2 f(a) = \cdots = \partial^{n-1} f(a) = f(b) = 0,$$
     \indent 那么有$c\in(a; b)$使得$\partial^n f(c) = 0$。\\
+    \indent 5. 设二次可微函数$f:\mathbb{R} \rightarrow \mathbb{R}$是方程$\partial^2 f + f = 0$的解，
+    并且$f(0) = \partial f(0) = 0$。\\
+    \indent 5.1. 对任意$x$，证明：存在$0$与$x$之间的数$c$，使得
+    $$ f(x) = -\frac{f(c)x^2}{2}. $$
+    \indent 5.2. 设$M$是$|f|$在$[0;1]$上的最大值。证明$M \leqslant \frac{M}{2}$，从而$M = 0$。\\
+    \indent 5.3. 证明$f$恒等于$0$。\\
 \end{xt}
 
 \chapter{研究可微函数}
@@ -2229,7 +2235,7 @@ $$ a_0 f + a_1 \partial f + \cdots + a_n \partial^n f = 0. $$
 如果$\mathbf{v}_1$、$\mathbf{v}_2$不共轴，那么和空间是平面，否则是直线。
 
 给定立体空间的两个子空间：过原点的直线$\mathbb{R}\mathbf{v}_1$与平面$\gamma: \mathbb{R}\mathbf{v}_2 + \mathbb{R}\mathbf{v}_3$，
-它们的和空间就是$\mathbb{R}\mathbf{v}_1 + \mathbb{R}\mathbf{v}_2 \mathbb{R}\mathbf{v}_3$。
+它们的和空间就是$\mathbb{R}\mathbf{v}_1 + \mathbb{R}\mathbf{v}_2 + \mathbb{R}\mathbf{v}_3$。
 如果$\mathbf{v}_1$在$\mathbb{R}\mathbf{v}_2 + \mathbb{R}\mathbf{v}_3$中，那么和空间就是$\gamma$。
 否则，和空间就是整个空间。
 
@@ -2445,12 +2451,6 @@ $$ (3,1) = 3\cdot(1,0) + 0.25\cdot(0,4).$$
     \indent 1.4. 有限维空间的直无关向量族的元素个数等于空间的维数，则直无关向量族是空间的基底。\\
     \indent 2. 给出$\{(x,\,\,y,\,\,z)\in\mathbb{R}^3 \, | \, x + 2y + z = 0 \}$的一个补空间。\\
     \indent 3. 请把$(1,\,\,1, \,\,1)$、$(0,\,\, -1, \,\,1)$扩充为$\mathbb{R}^3$的基底。\\
-    \indent 4. 设二次可微函数$f:\mathbb{R} \rightarrow \mathbb{R}$是方程$\partial^2 f + f = 0$的解，
-    并且$f(0) = \partial f(0) = 0$。\\
-    \indent 4.1. 对任意$x$，证明：存在$0$与$x$之间的数$c$，使得
-    $$ f(x) = -\frac{f(c)x^2}{2}. $$
-    \indent 4.2. 设$M$是$|f|$在$[0;1]$上的最大值。证明$M \leqslant \frac{M}{2}$，从而$M = 0$。\\
-    \indent 4.3. 证明$f$恒等于$0$。\\
     \indent 5. 设$S_2$为满足方程$\partial^2 f + f = 0$的实变函数的集合。\\
     \indent 5.1. 证明：如果$f,g\in S_2$满足$f(0) = g(0)$，$\partial f(0) = \partial g(0)$，那么$f = g$。\\
     \indent 5.2. 分别找出$S_2$中满足$f(0) = 0, \,\,\, \partial f(0) = 1$以及$f(0) = 1, \,\,\, \partial f(0) = 0$的函数$f_1$、$f_2$。\\
@@ -3274,13 +3274,21 @@ $$ \int_a^x \left( g(f(t)) \partial f (t) \right) = \int_{f(a)}^{f(x)} g.$$
     \indent 3.1. $x\mapsto \sin^2{x} \cos{x}$。 \\
     \indent 3.2. $x\mapsto \frac{\ln{x}}{x} $。 \\
     \indent 3.3. $x\mapsto \tan{x} $。 \\
-    \indent 4. 对正整数$n\geqslant 2$，设$I_n = \int_1^2 \left(x^{-n}\mathrm{e}^{\frac{1}{x}}\right)$。\\
-    \indent 4.1. 计算$I_2$。\\
-    \indent 4.2. 使用分部积合法，证明：
-            $$ I_{n+1} = e - \frac{\sqrt{e}}{2^{n-1}} + (1 - n)I_n.$$
-    \indent 4.3. 计算$I_3$。\\
-    \indent 4.4. 证明：$x>1$时，$0\leqslant x^{-n}\mathrm{e}^{\frac{1}{x}} \leqslant \frac{e}{x^n}$。\\
-    \indent 4.5. 根据上一问的结论，给出$I_n$的范围，并求数列$\{I_n\}_{n\in\mathbb{N}}$的极限。
+    \indent 4. 对正整数$n\geqslant 1$，设$\displaystyle I_n = \int_1^{\mathrm{e}} \left(\ln{x}\right)^n$。\\
+    \indent 4.1. 证明$I_n$总大于$0$。\\
+    \indent 4.2. 证明数列$\{I_n\}_{n\in\mathbb{N}}$单调递减。\\
+    \indent 4.3. 计算$I_1$的值。\\
+    \indent 4.4. 使用分部积合法，证明：
+    $$ \forall n \geqslant 1,\quad I_{n+1} = \mathrm{e} - (n+1)I_n.$$
+    \indent 并据此计算$I_2$、$I_3$的值（提示：考虑函数$x\mapsto x\left(\ln{x}\right)^{n+1}$）。\\
+    \indent 4.5. 运用前面的结论，证明：数列$\{I_n\}_{n\in\mathbb{N}}$有极限，极限为$0$。\\
+    \indent 5. 对正整数$n\geqslant 2$，设$\displaystyle I_n = \int_1^2 \left(x^{-n}\mathrm{e}^{\frac{1}{x}}\right)$。\\
+    \indent 5.1. 计算$I_2$的值。\\
+    \indent 5.2. 使用分部积合法，证明：
+            $$\forall n > 1,\quad I_{n+1} = \mathrm{e} - \frac{\sqrt{\mathrm{e}}}{2^{n-1}} + (1 - n)I_n.$$
+    \indent 并据此计算$I_3$的值（提示：考虑函数$x\mapsto x^{1-n}\mathrm{e}^{\frac{1}{x}}$）。\\
+    \indent 5.3. 证明：$x>1$时，总有$\displaystyle 0\leqslant x^{-n}\mathrm{e}^{\frac{1}{x}} \leqslant \frac{\mathrm{e}}{x^n}$。\\
+    \indent 5.4. 根据上一问的结论，给出$I_n$的范围，并求数列$\{I_n\}_{n\in\mathbb{N}}$的极限。
 \end{xt}
 
 \section{积合与函数}

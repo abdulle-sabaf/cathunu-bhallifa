@@ -44,6 +44,8 @@
 \newcommand{\lian}[1]{
     \underset{#1}{\operatorname{lian}\,}
 }
+\newcommand{\e}{\mathrm{e}}
+\renewcommand{\d}{\partial}
 \newcommand{\tong}[1]{\overset{#1}{\equiv\joinrel\equiv}}
 \newcommand{\di}[1]{\,\mathrm{d}#1}
 \newcommand{\qu}[2]{\displaystyle\left(#1;#2\right)}
@@ -186,13 +188,13 @@ $$ \int_a^b \partial f = \lian{x\to b^-} f - f(a).$$
 \begin{xt}
     \indent 1. 计算以下积合。$a$趋于给定值时，积合是否收敛？\\    
     \begin{align*}
-        1).& \int_a^{1} \frac{\ln{x}}{x} , \; a\to 0^+  &2).& \int_1^{a} \mathrm{e}^{-x},  \; a\to +\infty \\[3pt]
+        1).& \int_a^{1} \frac{\ln{x}}{x} , \; a\to 0^+  &2).& \int_1^{a} \e^{-x},  \; a\to +\infty \\[3pt]
         3).& \int_0^{a} \frac{1}{\sqrt{1 - x^2}}, \; a\to 1^-   & 4).& \int_a^{1} \sin{\frac{1}{x}}, \; a\to 0^+ 
     \end{align*}
     \indent 2. 计算以下广义积合。\\    
     \begin{align*}
-        1).& \int_0^{+\infty} \frac{1}{x\ln^2{x}} ,  &2).& \int_0^{+\infty} x\mathrm{e}^{-x^2} \\[3pt]
-        3).& \int_0^{+\infty} \frac{1}{(1 + \mathrm{e}^{x})^2},  & 4).& \int_0^{+\infty} \frac{\mathrm{e}^{-\sqrt{x}}}{\sqrt{x}}
+        1).& \int_0^{+\infty} \frac{1}{x\ln^2{x}} ,  &2).& \int_0^{+\infty} x\e^{-x^2} \\[3pt]
+        3).& \int_0^{+\infty} \frac{1}{(1 + \e^{x})^2},  & 4).& \int_0^{+\infty} \frac{\e^{-\sqrt{x}}}{\sqrt{x}}
     \end{align*}
     \indent 3. 仿照极限的定义，具体写出“连续函数在$[1;+\infty)$上可积”的定义。\\
 
@@ -374,12 +376,12 @@ $$
     \mbox{} \\
     \indent 1. 以下函数是否在$\mathbb{R}^+$上可积？\\    
     \begin{align*}
-        1)\;\;& \frac{1}{x\ln^2{x}} ,  &2)\;\;& \frac{\mathrm{e}^{-x^2}}{\sqrt{x}}, \\[3pt]
-        3)\;\;& \sin{\frac{1}{x}},  & 4)\;\;& \frac{1}{\mathrm{e}^x  - 1}.
+        1)\;\;& \frac{1}{x\ln^2{x}} ,  &2)\;\;& \frac{\e^{-x^2}}{\sqrt{x}}, \\[3pt]
+        3)\;\;& \sin{\frac{1}{x}},  & 4)\;\;& \frac{1}{\e^x  - 1}.
     \end{align*}
     \indent 2. 以下积合是否存在？\\    
     \begin{align*}
-        1)\;\;& \int_2^{+\infty} \frac{1}{\sqrt{x(x - 1)(x - 2)}},  &2)\;\;& \int_0^{\frac{\pi}{2}} \frac{1}{\sin{x}\cos{x}(1 - \mathrm{e}^{-x})}, \\[3pt]
+        1)\;\;& \int_2^{+\infty} \frac{1}{\sqrt{x(x - 1)(x - 2)}},  &2)\;\;& \int_0^{\frac{\pi}{2}} \frac{1}{\sin{x}\cos{x}(1 - \e^{-x})}, \\[3pt]
         3)\;\;& \int_0^{1} \frac{\ln{x}}{(1 - x^2)^{\frac{3}{2}}} , & 4)\;\;& \int_0^{\pi} \frac{1}{\sqrt{\sin{x}}}.
     \end{align*}
     \indent 3. $f$是$[1;+\infty)$上的分段连续函数。\\
@@ -390,17 +392,44 @@ $$
     \indent 4.2. 证明：如果有正实数$c$使得$\lian{t\to 0^+} t f(t) \geqslant c$，那么$f$在$(0;1]$上不可积。\\
     \indent 5. 当$a$取什么值的时候，以下带参数$a$的函数在$\mathbb{R}^+$上可积？\\
     \begin{align*}
-        1)\;\;& \frac{\ln{x}}{x^a} ,  &2)\;\;& \frac{\mathrm{e}^{-x} - 1}{x^a}, \\[3pt]
+        1)\;\;& \frac{\ln{x}}{x^a} ,  &2)\;\;& \frac{\e^{-x} - 1}{x^a}, \\[3pt]
         3)\;\;& \frac{x - \sin{x}}{x^a},  & 4)\;\;& \frac{\arctan{x}}{x^a}. 
     \end{align*}
     \indent 6. 设$f$是$\mathbb{R}^+$上的连续可积函数。\\
     \indent 6.1. 设$\{x_n\}$、$\{y_n\}$为两个趋于正无穷的数列。证明：
     $$ \lian{n\to+\infty}\int_{x_n}^{y_n} f = 0. $$
-    \indent 6.2. 证明：$\mathrm{e}^{-t\sin{t}}$在$\mathbb{R}^+$上不可积。
+    \indent 6.2. 证明：$\e^{-t\sin{t}}$在$\mathbb{R}^+$上不可积。
 
 \end{xt}
 
-\section{积分的应用}
+\section{积合的应用}
+
+和我们已经学习过的大多数数学概念一样，积合也来自实际生活、生产中的需要。使用积合作为工具，可以解决许多实践中的问题。
+下面我们来看一些典型的例子。
+
+\begin{et}
+    计算曲线图形的面积。\\
+    \indent 1. 正弦函数$x\mapsto \sin{x}$在$[0;\pi]$上到$x$轴的面积。 \\
+    \indent 2. 幂函数$x\mapsto x^n$在$[0;1]$上到$x$轴的面积。\\
+    \indent 3. 二次函数$\frac{\pi^2y}{4} = x^2$、正弦函数与$y$轴围成的图形的面积。
+\end{et}
+
+\begin{so}
+    \indent 1. 按照定义，这个面积$S$就是正弦函数在$[0;\pi]$上的积合。计算可知：
+    \begin{align*}
+        S &= \int_{0}^{\pi} \sin{x} = -\cos{\pi} - (-\cos{0}) \\
+        &= 1 + 1 = 2
+    \end{align*}
+
+    \indent 2. 按照定义，这个面积$S$就是幂函数在$[0;1]$上的积合。计算可知：
+    \begin{align*}
+        S &= \int_{0}^{1} x^n = \frac{1^{n+1}}{n+1}- \frac{0^{n+1}}{n+1} \\
+        &= \frac{1}{n+1}
+    \end{align*}
+
+    \indent 3. 
+\end{so}
+
 
 \chapter{方程与空间}
 
@@ -1030,9 +1059,9 @@ $$ G: \,\,\,(t, \; x_0, \; x_1) \,\,\, \mapsto \,\,\, x_0 + RC x_1. $$
 $G$的表达式和自变量$t$没有关系，这说明$G$是时不变微变方程。$G$涉及的最高微变次数是$1$，因此方程是一次微变方程。
 
 让我们考虑函数
-$$f_0: t\mapsto U\mathrm{e}^{-\frac{t}{RC}}$$
+$$f_0: t\mapsto U\e^{-\frac{t}{RC}}$$
 $f_0(0) = U$，而它的微变函数是
-$$\partial f_0(t) = -\frac{U}{RC} \mathrm{e}^{-\frac{t}{RC}}. $$
+$$\partial f_0(t) = -\frac{U}{RC} \e^{-\frac{t}{RC}}. $$
 因此，对任何$t\geqslant 0$，
 $$ f_0(t) + RC\partial f_0(t) = 0.$$
 这说明$f_0$是微变方程的解。
@@ -1065,16 +1094,16 @@ $$ RC f_0 \partial g = 0. $$
 \end{equation}
 其中全集仍然是$\mathcal{C}^1_{\geqslant 0}(\mathbb{R})$，$f$是非负实数集上连续可微的函数，$a$是给定的参数。
 
-从前面的例子可以知道，$t\mapsto \mathrm{e}^{-at}$是它的解。
+从前面的例子可以知道，$t\mapsto \e^{-at}$是它的解。
 
-由于我们没有规定$f$的初始值，所以对任何常数$k$，$t\mapsto k\mathrm{e}^{-at}$都是它的解。此外，如果$f_1$和$f_2$都是解，
+由于我们没有规定$f$的初始值，所以对任何常数$k$，$t\mapsto k\e^{-at}$都是它的解。此外，如果$f_1$和$f_2$都是解，
 那么：
 $$ \partial (f_1 + f_2) + a(f_1 + f_2) = (\partial f_1 + af_1) + (\partial f_2 + af_2) = 0 + 0 = 0. $$
 这说明$f_1 + f_2$也是解。
 
 这个性质和我们之前学过的某个概念很像。平直空间中的向量，也满足这样的条件。事实上，
 设$S$是方程\eqref{2-2b}的解集，我们可以验证，
-$S$关于函数的加法和数乘，构成平直空间。我们称$S$是方程的\textbf{解空间}。这样说来，如果把$f_0:t\mapsto \mathrm{e}^{-at}$看作向量，
+$S$关于函数的加法和数乘，构成平直空间。我们称$S$是方程的\textbf{解空间}。这样说来，如果把$f_0:t\mapsto \e^{-at}$看作向量，
 那么我们知道，直线$l_0$：$\{kf_0 \, | \, k\in\mathbb{R}\}$也在空间里。这说明
 $S$至少包含$l_0$。
 
@@ -1083,7 +1112,7 @@ $S$是否还有别的元素呢？我们仍然使用前面的方法。设有另�
 这说明
 $$S = l_0.$$
 于是，我们找到了方程\eqref{2-2b}的解空间：
-$$S = \left\{\left.t\mapsto k\mathrm{e}^{-at} \, \right| \, k\in\mathbb{R}\right\}.$$
+$$S = \left\{\left.t\mapsto k\e^{-at} \, \right| \, k\in\mathbb{R}\right\}.$$
 
 我们把$S$能作为平直空间来看待的特性称为\textbf{平直}或简称\textbf{直}。如果常微变方程有平直特性，
 就说它是\textbf{直常微变方程}。以上的方程可称为\textbf{一次直常微变方程}。
@@ -1102,10 +1131,10 @@ $$S = \left\{\left.t\mapsto k\mathrm{e}^{-at} \, \right| \, k\in\mathbb{R}\right
 因此，只要$f_0$恒不为$0$，就有$\partial g$恒为$0$，从而$f_1$等于常数乘以$f_0$，属于$f_0$所在的直线。
 
 最后，我们给出$f_0$的例子：
-$$ f_0: \,\,\, t\,\, \mapsto \,\, \mathrm{e}^{-\int_0^t a}. $$
+$$ f_0: \,\,\, t\,\, \mapsto \,\, \e^{-\int_0^t a}. $$
 作为函数，$f_0$的定义没有问题，因为$a$作为在$[0,+\infty)$上连续的函数，在闭区间$[0; t]$上总可积，且积分函数连续可微。
 而$f_0$也总大于$0$。这说明$a$是连续函数时，方程\eqref{2-2b}的解空间仍然是直线：
-$$S = \left\{\left.t\mapsto k\mathrm{e}^{-\int_0^t a} \, \right| \, k\in\mathbb{R}\right\}.$$
+$$S = \left\{\left.t\mapsto k\e^{-\int_0^t a} \, \right| \, k\in\mathbb{R}\right\}.$$
 
 再来看稍微复杂一点的情况。
 考虑如下的微变方程：
@@ -1142,9 +1171,9 @@ $$ \partial (h - f) + a (h - f) = 0. $$
 $$S = f + S'. $$
 
 如何找出方程\eqref{2-2c}的特定解呢？我们可以从直部方程的解出发。
-方程\eqref{2-2b}的解，形式为$t\mapsto k\mathrm{e}^{-\int_0^t a}$。
-我们猜测，方程\eqref{2-2c}的解和它“长得很像”，特别是关于$a$的部分“$\mathrm{e}^{-\int_0^t a}$”。
-我们猜测，方程\eqref{2-2c}的解形如$t\mapsto k(t) g(t)$，其中$g: t\mapsto \mathrm{e}^{-\int_0^t a}$是方程\eqref{2-2b}的解。
+方程\eqref{2-2b}的解，形式为$t\mapsto k\e^{-\int_0^t a}$。
+我们猜测，方程\eqref{2-2c}的解和它“长得很像”，特别是关于$a$的部分“$\e^{-\int_0^t a}$”。
+我们猜测，方程\eqref{2-2c}的解形如$t\mapsto k(t) g(t)$，其中$g: t\mapsto \e^{-\int_0^t a}$是方程\eqref{2-2b}的解。
 
 换句话说，我们把方程\eqref{2-2b}的解里的常数换成“可变的”，通过调整这个“可变的”部分，试着找出方程\eqref{2-2c}的解。
 这种方法称为\textbf{常数变易法}。
@@ -1157,15 +1186,15 @@ $$S = f + S'. $$
 \end{align*}
 
 因此，
-$$ \partial k(t) = \frac{b(t)}{g(t)} = b(t) \mathrm{e}^{\int_0^t a}. $$
+$$ \partial k(t) = \frac{b(t)}{g(t)} = b(t) \e^{\int_0^t a}. $$
 于是通过求积合可以得出函数$k$：
-$$ k(t) = \int_0^t b(u) \mathrm{e}^{\int_0^u a(v)}\mathrm{d}v \mathrm{d}u. $$
+$$ k(t) = \int_0^t b(u) \e^{\int_0^u a(v)}\mathrm{d}v \mathrm{d}u. $$
 代入$f$，得到$f$的表达式：
-$$ f(t) = \mathrm{e}^{-\int_0^t a} \int_0^t b(u) \mathrm{e}^{\int_0^u a(v)}\mathrm{d}v \mathrm{d}u. $$
+$$ f(t) = \e^{-\int_0^t a} \int_0^t b(u) \e^{\int_0^u a(v)}\mathrm{d}v \mathrm{d}u. $$
 $f$就是方程\eqref{2-2c}的一个特解。
 
 综上所述，方程\eqref{2-2c}的解集可以写成维直空间：
-$$\left\{\left.\mathrm{e}^{-\int_0^t a(u)\mathrm{d}u} \left(k + \int_0^t b(u) \mathrm{e}^{\int_0^u a(v)}\mathrm{d}v \mathrm{d}u\right) \, \right| \, k\in \mathbb{R}\right\}$$
+$$\left\{\left.\e^{-\int_0^t a(u)\mathrm{d}u} \left(k + \int_0^t b(u) \e^{\int_0^u a(v)}\mathrm{d}v \mathrm{d}u\right) \, \right| \, k\in \mathbb{R}\right\}$$
 
 \begin{et}
     \mbox{} \\
@@ -1192,21 +1221,21 @@ $$\left\{\left.\mathrm{e}^{-\int_0^t a(u)\mathrm{d}u} \left(k + \int_0^t b(u) \m
     $$ \partial v = - bv + mg.$$
     解这个微变方程，得到特定解：
     \begin{align*}
-        v(t) &= \mathrm{e}^{-bt} \int_0^t mg \mathrm{e}^{\int_0^u bs\mathrm{d}s} \mathrm{d}u\\
-        &= mg \cdot \mathrm{e}^{-bt} \int_0^t \mathrm{e}^{bu}\mathrm{d}u \\
-        &= mg \cdot \mathrm{e}^{-bt} \frac{\mathrm{e}^bt - 1}{b} \\
-        &= \frac{mg}{b}\left(1 - \mathrm{e}^{-bt}\right).
+        v(t) &= \e^{-bt} \int_0^t mg \e^{\int_0^u bs\mathrm{d}s} \mathrm{d}u\\
+        &= mg \cdot \e^{-bt} \int_0^t \e^{bu}\mathrm{d}u \\
+        &= mg \cdot \e^{-bt} \frac{\e^bt - 1}{b} \\
+        &= \frac{mg}{b}\left(1 - \e^{-bt}\right).
     \end{align*}
     于是一般解为
-    $$ v(t) = \frac{mg}{b}\left(1 - \mathrm{e}^{-bt}\right) + k\mathrm{e}^{-bt}. $$
+    $$ v(t) = \frac{mg}{b}\left(1 - \e^{-bt}\right) + k\e^{-bt}. $$
     其中$k$为常数。
     
     雨滴初速度$v(0) = v_0$，因此解得$k = v_0$，于是得到雨滴速度关于时间的函数：
-    $$ v(t) = \frac{mg}{b}\left(1 - \mathrm{e}^{-bt}\right) + v_0\mathrm{e}^{-bt}. $$
+    $$ v(t) = \frac{mg}{b}\left(1 - \e^{-bt}\right) + v_0\e^{-bt}. $$
     积合可得雨滴位移函数$x(t)$：
-    $$ x(t) = \frac{mg}{b}\left(t + \frac{\mathrm{e}^{-bt} - 1}{b}\right) - \frac{v_0\left(\mathrm{e}^{-bt} - 1\right)}{b}. $$
+    $$ x(t) = \frac{mg}{b}\left(t + \frac{\e^{-bt} - 1}{b}\right) - \frac{v_0\left(\e^{-bt} - 1\right)}{b}. $$
     雨滴从高处下落，在$x=2000$米处到达地面，代入各个物理量数值，到达地面用时满足方程：
-    $$ 3.267t + 10222 \left(\mathrm{e}^{-0.0003t} - 1\right) = 2000.  $$
+    $$ 3.267t + 10222 \left(\e^{-0.0003t} - 1\right) = 2000.  $$
     解得
     $$ t_{\text{落地}} \approx 2049\,\mbox{秒} $$
     这时的速度为$v(t_{\text{落地}}) \approx 1.608$米每秒。
@@ -1214,16 +1243,16 @@ $$\left\{\left.\mathrm{e}^{-\int_0^t a(u)\mathrm{d}u} \left(k + \int_0^t b(u) \m
     \indent 2.1. 解方程
     $$ \partial p(z) = -\frac{Mg}{RT} p(z). $$
     可得：
-    $$ p(z) = P_0\mathrm{e}^{-\frac{Mg}{RT}z}.$$
+    $$ p(z) = P_0\e^{-\frac{Mg}{RT}z}.$$
 
     \indent 2.2. 解方程
     $$ \partial p(z) = -\frac{Mg}{RT_0(1 - az)} p. $$
     可得：
     \begin{align*}
-        p(z) &= P_0\mathrm{e}^{\int_0^z -\frac{Mg}{RT_0(1 - ax)}\mathrm{d}x} \\
-        &= P_0\mathrm{e}^{\frac{Mg}{RT_0}\int_0^z \frac{1}{ax - 1}\mathrm{d}x} \\
-        &= P_0\mathrm{e}^{\frac{Mg}{RT_0}\frac{1}{a}\left(\ln{|az - 1|} - \ln{1}\right)} \\
-        &= P_0\mathrm{e}^{\frac{Mg\ln{1 - az}}{aRT_0}} \\
+        p(z) &= P_0\e^{\int_0^z -\frac{Mg}{RT_0(1 - ax)}\mathrm{d}x} \\
+        &= P_0\e^{\frac{Mg}{RT_0}\int_0^z \frac{1}{ax - 1}\mathrm{d}x} \\
+        &= P_0\e^{\frac{Mg}{RT_0}\frac{1}{a}\left(\ln{|az - 1|} - \ln{1}\right)} \\
+        &= P_0\e^{\frac{Mg\ln{1 - az}}{aRT_0}} \\
         &= P_0 (1 - az)^{\frac{Mg}{aRT_0}}.
     \end{align*}
     大气压$p$关于海拔高度$z$的函数为：
@@ -1233,13 +1262,13 @@ $$\left\{\left.\mathrm{e}^{-\int_0^t a(u)\mathrm{d}u} \left(k + \int_0^t b(u) \m
     $$ \partial p(z) = -\frac{Mg_0r_T^2}{RT(r_T + z)^2} p(z). $$
     可得：
     \begin{align*}
-        p(z) &= P_0\mathrm{e}^{\int_0^z -\frac{Mg_0r_T^2}{RT(r_T + x)^2}\mathrm{d}x} \\
-        &= P_0\mathrm{e}^{\frac{Mg_0r_T^2}{RT}\int_0^z -\frac{1}{(r_T + x)^2}\mathrm{d}x} \\
-        &= P_0\mathrm{e}^{\frac{Mg_0r_T^2}{RT}\left(\frac{1}{z + r_T} - \frac{1}{r_T}\right)} \\
-        &= P_0\mathrm{e}^{-\frac{Mg_0r_Tz}{RT(z + r_T)}}.
+        p(z) &= P_0\e^{\int_0^z -\frac{Mg_0r_T^2}{RT(r_T + x)^2}\mathrm{d}x} \\
+        &= P_0\e^{\frac{Mg_0r_T^2}{RT}\int_0^z -\frac{1}{(r_T + x)^2}\mathrm{d}x} \\
+        &= P_0\e^{\frac{Mg_0r_T^2}{RT}\left(\frac{1}{z + r_T} - \frac{1}{r_T}\right)} \\
+        &= P_0\e^{-\frac{Mg_0r_Tz}{RT(z + r_T)}}.
     \end{align*}
     大气压$p$关于海拔高度$z$的函数为：
-    $$ p(z) = P_0 \mathrm{e}^{-\frac{Mg_0r_Tz}{RT(z + r_T)}} . $$
+    $$ p(z) = P_0 \e^{-\frac{Mg_0r_Tz}{RT(z + r_T)}} . $$
 
 \end{so}
 
@@ -1265,12 +1294,12 @@ $$\left\{\left.\mathrm{e}^{-\int_0^t a(u)\mathrm{d}u} \left(k + \int_0^t b(u) \m
     $$
     \begin{array}[]{l}
         1).\;\forall t\in \mathbb{R},\,\,\,\partial f(t) + 2 t f(t) = 1. \\
-        2).\;\forall t \geqslant 0,\,\,\,\partial f(t) - \frac{1}{t + 1} f(t) = \mathrm{e}^{-t}. \\
-        3).\;\forall t\in \mathbb{R},\,\,\,\partial f(t) + 2t f(t) =\mathrm{e}^{t - t^2}, \; f(0) = 1. 
+        2).\;\forall t \geqslant 0,\,\,\,\partial f(t) - \frac{1}{t + 1} f(t) = \e^{-t}. \\
+        3).\;\forall t\in \mathbb{R},\,\,\,\partial f(t) + 2t f(t) =\e^{t - t^2}, \; f(0) = 1. 
     \end{array}
     $$
     \indent 3. 人空腹喝酒之后，体内可检测的酒精浓度随时间$t$（单位：小时）变化，可用函数$g(t)$（单位：克每升）表示。$g(t)$满足以下方程：
-    $$ \forall t\geqslant 0,\,\,\,\partial g(t) + g(t) = a \mathrm{e}^{-t}.$$
+    $$ \forall t\geqslant 0,\,\,\,\partial g(t) + g(t) = a \e^{-t}.$$
     其中常数$a$表示人体代谢酒精的能力。\\
     \indent 3.1. 解方程，用$a$和$t$表示函数$g$。\\
     \indent 3.2. 设$a = 5$，画出$g$的曲线。酒精浓度何时达到最大值？最终趋势如何？\\
@@ -1321,12 +1350,12 @@ $$ \partial^2 f_1 + a \partial f_1 + b f_1 = (r^2 + ar + b)f_1 = 0.$$
 特征式的每个根对应方程的一个解。
 
 如果特征式$x^2 + ax + b$有两个不同的根：$r_1, r_2$，那么我们就找到了方程的两个解：
-$$ f_1:\,\,\, t \mapsto \mathrm{e}^{r_1t}, \quad f_2:\,\,\, t \mapsto \mathrm{e}^{r_2t}, $$
+$$ f_1:\,\,\, t \mapsto \e^{r_1t}, \quad f_2:\,\,\, t \mapsto \e^{r_2t}, $$
 它们作为基底生成平面：
-$$ \left\{\left.t \mapsto A\mathrm{e}^{r_1t} + B\mathrm{e}^{r_2t}\,\right|\, A, B \in \mathbb{R}\right\}$$
+$$ \left\{\left.t \mapsto A\e^{r_1t} + B\e^{r_2t}\,\right|\, A, B \in \mathbb{R}\right\}$$
 
 如果特征式$x^2 + ax + b$有二重根$r = -\frac{a}{2}$，那么我们找到了方程的一个解：
-$$ f_1:\,\,\, t \mapsto \mathrm{e}^{rt}. $$
+$$ f_1:\,\,\, t \mapsto \e^{rt}. $$
 不过，从$f_1$出发，还可以找到另一个解。设$f_2: t\mapsto tf_1(t)$，计算它的微变函数：
 \begin{align*}
     \partial f_2(t) &= rt f_1(t) + f_1(t) \\
@@ -1335,7 +1364,7 @@ $$ f_1:\,\,\, t \mapsto \mathrm{e}^{rt}. $$
 因此
 $$ \forall\,\, t \geqslant 0,\,\,\,\partial^2 f_2(t) + a \partial f_2(t) + b f_2(t) = t(r^2 + ar + b)f_1(t) + (2r + a)f_1(t) = 0.$$
 于是$f_1$、$f_2$都是方程的解，它们作为基底生成平面：
-$$ \left\{\left.t \mapsto (At + B)\mathrm{e}^{rt}\,\right|\, A, B \in \mathbb{R}\right\}$$
+$$ \left\{\left.t \mapsto (At + B)\e^{rt}\,\right|\, A, B \in \mathbb{R}\right\}$$
 
 这个平面是否就是方程\eqref{2-2e}的解空间呢？
 
@@ -1377,18 +1406,18 @@ $h(0) = \frac{g(0)}{e_1(0)} = 0$，而对$g$求微变可知：
 因此$\partial h$是方程：
 $$ \partial f + \frac{2 \partial e_1 + a}{e_1} f = 0 $$
 的解。它可以写成：
-$$ \partial h (t) = k \mathrm{e}^{-\int_0^t \frac{2 \partial e_1(u) + a}{e_1(u)} \mathrm{d}u}. $$
+$$ \partial h (t) = k \e^{-\int_0^t \frac{2 \partial e_1(u) + a}{e_1(u)} \mathrm{d}u}. $$
 于是
-$$0 = \partial h (0) = k \mathrm{e}^0 = k.$$
+$$0 = \partial h (0) = k \e^0 = k.$$
 这说明$\partial h$是零函数，即$h$是常函数。然而$h(0) = 0$。所以$h$是零函数。
 
 综上所述，只要方程\eqref{2-2e}的特征式有根，那么它的解空间是上面求出的$f_1$、$f_2$生成的平面。
 
 若特征式有相异的两根$r_1, r_2$，则解空间为：
-$$ \left\{\left.t \mapsto A\mathrm{e}^{r_1t} + B\mathrm{e}^{r_2t}\,\right|\, A, B \in \mathbb{R}\right\}$$
+$$ \left\{\left.t \mapsto A\e^{r_1t} + B\e^{r_2t}\,\right|\, A, B \in \mathbb{R}\right\}$$
 
 若特征式有二重根$r$，则解空间为：
-$$ \left\{\left.t \mapsto (At + B)\mathrm{e}^{rt}\,\right|\, A, B \in \mathbb{R}\right\}$$
+$$ \left\{\left.t \mapsto (At + B)\e^{rt}\,\right|\, A, B \in \mathbb{R}\right\}$$
 
 如果特征式没有根，方程是否有解呢？我们来看之前的例子：
 \begin{equation}
@@ -1443,18 +1472,18 @@ $$ \left\{\left.t \mapsto A\sin{(\sqrt{a}t)} + B\cos{(\sqrt{a}t)}\,\right|\, A, 
     这个二次式不一定有根。
 
     若二次式有根，根为负数。方程的解为：
-    $$ t \mapsto A\mathrm{e}^{r_1t} + B\mathrm{e}^{r_2t} $$
+    $$ t \mapsto A\e^{r_1t} + B\e^{r_2t} $$
     其中$r_1<0$、$r_2<0$为特征式的相异两根，或
-    $$ t \mapsto (At + B)\mathrm{e}^{rt} $$
+    $$ t \mapsto (At + B)\e^{rt} $$
     其中$r = -\frac{R}{2L} < 0$为特征式的二重根。
 
     考虑初始情况，经计算，可以求出$A$、$B$的值。
 
     特征式有相异根的情况下，电势差为：
-    $$ u(t) = \frac{E}{r_2 - r_1}\left(r_2\mathrm{e}^{r_1t} - r_1\mathrm{e}^{r_2t}\right) $$ 
+    $$ u(t) = \frac{E}{r_2 - r_1}\left(r_2\e^{r_1t} - r_1\e^{r_2t}\right) $$ 
 
     特征式有二重根的情况下，电势差为：
-    $$ u(t) =  E(1 - rt)\mathrm{e}^{rt}$$
+    $$ u(t) =  E(1 - rt)\e^{rt}$$
 
     求微变可知，两种情况下，$u(t)$都单调递减。我们分别称其为单调衰减情况和临界情况。
 
@@ -1462,20 +1491,20 @@ $$ \left\{\left.t \mapsto A\sin{(\sqrt{a}t)} + B\cos{(\sqrt{a}t)}\,\right|\, A, 
     $$ \Delta = R^2C^2 - 4LC < 0.$$
 
     我们猜测方程的解为：
-    $$ u: \,\,\,t \mapsto \left(A\sin{(\omega t)} + B\cos{(\omega t)}\right)\mathrm{e}^{rt} $$
+    $$ u: \,\,\,t \mapsto \left(A\sin{(\omega t)} + B\cos{(\omega t)}\right)\e^{rt} $$
 
     其中
     $$\omega = \frac{\sqrt{4LC - R^2C^2}}{2LC} = \frac{\sqrt{-\Delta}}{2LC}. $$
 
     可以算出
     \begin{align*}
-        \partial u(t) &= ru(t) + \omega \left(A\cos{(\omega t)} - B\sin{(\omega t)}\right)\mathrm{e}^{rt} \\
+        \partial u(t) &= ru(t) + \omega \left(A\cos{(\omega t)} - B\sin{(\omega t)}\right)\e^{rt} \\
         &= ru(t) + \omega v(t),
     \end{align*}
 
     其中$v(t)$的微变为：
     \begin{align*}
-        \partial v(t) &= rv(t) + \omega^2 \left(- A\sin{(\omega t)} - B\cos{(\omega t)}\right)\mathrm{e}^{rt} \\
+        \partial v(t) &= rv(t) + \omega^2 \left(- A\sin{(\omega t)} - B\cos{(\omega t)}\right)\e^{rt} \\
         &= rv(t) - \omega^2 u(t),
     \end{align*}
 
@@ -1497,9 +1526,9 @@ $$ \left\{\left.t \mapsto A\sin{(\sqrt{a}t)} + B\cos{(\sqrt{a}t)}\,\right|\, A, 
     \end{align*}
 
     这说明$u$确实是方程的解。考虑初始值$u(0) = E$，$I(0) = 0$，解得：
-    $$ u(t) =  E\left(\cos{(\omega t)} - \frac{r}{\omega}\sin{(\omega t)}\right)\mathrm{e}^{rt}. $$
+    $$ u(t) =  E\left(\cos{(\omega t)} - \frac{r}{\omega}\sin{(\omega t)}\right)\e^{rt}. $$
 
-    可以看出$u$是某个周期函数和指数递减函数$t\mapsto \mathrm{e}^{rt}$的乘积。我们称这种情况为振荡衰减情况。
+    可以看出$u$是某个周期函数和指数递减函数$t\mapsto \e^{rt}$的乘积。我们称这种情况为振荡衰减情况。
 
 \end{so}
 
@@ -1532,7 +1561,7 @@ $$ \left\{\left.t \mapsto A\sin{(\sqrt{a}t)} + B\cos{(\sqrt{a}t)}\,\right|\, A, 
     \end{array}
     $$
     \indent 3. 写出以函数空间
-    $$ \left\{\left.t \mapsto A\mathrm{e}^{-2t} + B\mathrm{e}^{3t}\,\right|\, A, B \in \mathbb{R}\right\} $$
+    $$ \left\{\left.t \mapsto A\e^{-2t} + B\e^{3t}\,\right|\, A, B \in \mathbb{R}\right\} $$
     为解空间的微变方程。\\
     \indent 5. 方程\eqref{2-2e}讨论中的函数$e_1, e_2$具体是什么？写出它们的具体形式。\\
     \indent 4. 考虑微变方程
@@ -1848,7 +1877,7 @@ $$ (x_1 + y_1\imath) \cdot (x_2 + y_2\imath) = (x_1x_2 - y_1y_2) + (x_1y_2 + x_2
 \begin{align*}
     (x_1 + y_1\imath) \div (x_2 + y_2\imath) &= \frac{(x_1 + y_1\imath)(x_2 - y_2\imath)}{(x_2 + y_2\imath)(x_2 - y_2\imath)} \\
     &= \frac{(x_1x_2 + y_1y_2) + (x_2y_1 - x_1y_2)\imath}{x_1^2 + x_2^2} \\
-    &= \frac{x_1x_2 + y_1y_2}{x_2^2 + y_2^2} + \frac{x_2y_1 - x_1y_2}{x_2^2 + y_2^2}\imath
+    &= \frac{x_1x_2 + y_1y_2}{x_2^2 + y_2^2} + \frac{x_2y_1 - x_1y_2}{x_2^2 + y_2^2}\i
 \end{align*}
 
 根据复数乘法，我们可以有这样的结果：
@@ -2180,7 +2209,7 @@ $$ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0.$$
 对于$B = 0$的情况，如果$AC\neq 0$，将曲线按向量$\displaystyle\left(-\frac{D}{2A},\,\,-\frac{E}{2C}\right)$平移，
 就得到：
 $$ Ax^2 + Cy^2 + F' = 0.$$
-其中$F' = F - \frac{D^2}{4A} - \frac{\mathrm{e}^2}{4C}$。两边除以$AC$并移项，得到：
+其中$F' = F - \frac{D^2}{4A} - \frac{\e^2}{4C}$。两边除以$AC$并移项，得到：
 $$ \frac{x^2}{C} + \frac{y^2}{A} = -\frac{F'}{AC}.$$
 因此，根据$A$、$C$、$F'$的正负性，可以判断它或者是椭圆（$A,C$同号，$A,F'$异号），
 或者是双曲线（$A,C$异号，$F' \neq 0$），或者是两条过原点直线（$F' = 0$），或者是空集或单点集（$A,C,F'$同号）。
@@ -2190,7 +2219,7 @@ $$ Cy^2 + Dx + Ey + F = 0.$$
 
 如果$D = 0$，则曲线方程变为关于$y$的二次方程，图像为$y = y_0$类型的水平线，条数等于方程实根的个数。
 
-如果$D\neq 0$，按$\displaystyle\left(\frac{\mathrm{e}^2 - 4CF}{4CD},\,\,-\frac{E}{2C}\right)$平移，就得到：
+如果$D\neq 0$，按$\displaystyle\left(\frac{\e^2 - 4CF}{4CD},\,\,-\frac{E}{2C}\right)$平移，就得到：
 $$ Cy^2 = -Dx. $$
 即
 $$ y^2 = -\frac{D}{C}x. $$
@@ -2582,13 +2611,13 @@ $$ \forall -a\leqslant x \leqslant a, \,\,\, y = b\sqrt{1 - \frac{x^2}{a^2}}= \f
 这就是由$F$确定的隐函数。
 
 综上，对于无法整体视为函数图像的曲线，我们可以通过把平面拆分为子集的方法，把曲线的一部分视为函数图像。
-这样的函数称为由曲线方程确定的隐函数。通过研究隐函数，我们可以讨论曲线的性质。
+这样的函数称为由曲线方程确定的\textbf{显化函数}。通过研究显化函数，我们可以讨论曲线的性质。
 
-以椭圆为例。通过截取上半平面，我们得到了椭圆上半部分的隐函数
+以椭圆为例。通过截取上半平面，我们得到了椭圆上半部分的显化函数：
 $$ f: x\mapsto y = \frac{b}{a}\sqrt{a^2 - x^2}, \quad x \in [-a; a].  $$
 对$f$求微变可得：
 $$ \partial f(x) = -\frac{bx}{a}(a^2 - x^2)^{-\frac{1}{2}}$$
-微变函数在区间$(-a;0)$上严格单调递增，在$(0;a)$上严格单调递减。隐函数$f$在$0$处取得最大值。
+微变函数在区间$(-a;0)$上严格单调递增，在$(0;a)$上严格单调递减。显化函数$f$在$0$处取得最大值。
 曲线在$(x_0,\,\, y_0)$处的切线为：
 \begin{align*}
     y &= f(x_0) + \partial f(x_0)(x - x_0) \\
@@ -2607,6 +2636,12 @@ $$ \frac{x_0x}{a^2} + \frac{y_0y}{b^2} = 1.$$
 对$f$求二次微变可得：
 $$ \partial^2 f(x) = -\frac{ab}{(a^2 - x^2)^{\frac{3}{2}} }.$$
 $\partial^2 f$在区间$(-a;a)$上总小于零，这说明曲线总是上凸的。
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 计算双曲线$\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1$在某点$(x_0,\,\,y_0)$附近的显化函数和在该点的切线方程。如何选取平面的子集？\\
+    \indent 2. 一般来说，如何判断$F(x,\,\, y) = 0$确定的曲线在某点$(x_0,\,\,y_0)$附近能通过选取合适的子集来找到显化函数？
+\end{sk}
 
 \section{复值函数}
 
@@ -2627,7 +2662,7 @@ $$ t\mapsto u(t) + \imath v(t).$$
 
 除此以外，常见的经典函数是否能成为复值函数呢？比如，以下的写法是否可行呢？
 \begin{align*}
-    t &\mapsto \mathrm{e}^{\imath t} \\
+    t &\mapsto \e^{\imath t} \\
     t &\mapsto \imath^t \\
     t &\mapsto \sin{\imath t} \\
     t &\mapsto \ln{\imath t} 
@@ -2642,9 +2677,9 @@ $$ t\mapsto u(t) + \imath v(t).$$
 那么，我们是否也可以定义出满足某些良好性质的复值整式函数、复值幂函数呢？这种研究称为\textbf{实函数的复化}。
 具体来说，我们希望找出某两个实函数$u,v$，使得由上定义的复值函数：
 $$ t\mapsto u(t) + \imath v(t)$$
-满足我们对$t\mapsto \mathrm{e}^{\imath t}$函数性质的某些期望。
+满足我们对$t\mapsto \e^{\imath t}$函数性质的某些期望。
 
-比如，参考函数$t\mapsto \mathrm{e}^{at}$的性质，我们希望$f: t\mapsto \mathrm{e}^{\imath t}$满足：
+比如，参考函数$t\mapsto \e^{at}$的性质，我们希望$f: t\mapsto \e^{\imath t}$满足：
 \begin{enumerate}
     \item $f(0) = 1$；
     \item $\forall x, y \; \in \mathbb{R}, f(x + y) = f(x)\cdot f(y)$；
@@ -2653,12 +2688,10 @@ $$ t\mapsto u(t) + \imath v(t)$$
 \end{enumerate}
 等等。
 
-又比如，由于对实数来说，$a^t = \mathrm{e}^{t\ln{a}}$，所以我们希望有：
-$$ \imath^t = \mathrm{e}^{t\ln{\imath}} $$
-因为$\sin^2{t} + \cos^2{t} = 1$，我们希望有：
+又比如，因为$\sin^2{t} + \cos^2{t} = 1$，我们希望有：
 $$ \sin^2{(\imath t)} + \cos^2{(\imath t)} = 1 $$
 
-回到$t\mapsto \mathrm{e}^{\imath t}$，是否有这样的复值函数呢？来看上面提到的复值函数：
+回到$t\mapsto \e^{\imath t}$，是否有这样的复值函数呢？来看上面提到的复值函数：
 \begin{align*}
     h: \;t \;\mapsto \cos{t} + \imath \sin{t}
 \end{align*}
@@ -2668,26 +2701,37 @@ $$ \forall \, x, y\; \in \mathbb{R}, \quad h(x + y) = h(x)\cdot h(y).$$
 由于$\imath$是与自变量无关的常数，而正弦函数与余弦函数都是光滑函数，作为两者的直组合，$h$也是光滑函数。
 
 最后，可以验证：
-$$ \partial h(x) = \partial \cos(x) + \imath \partial \sin{x} = - \sin{x} + \imath \cos{x} = \imath h(x) $$
+$$ \partial h(x) = \partial \cos{(x)} + \imath \partial \sin{(x)} = - \sin{x} + \imath \cos{x} = \imath h(x) $$
 
 这样看来，$h$似乎就是一个很好的候选。如果我们定义：
-$$ \forall \, t \; \in \mathbb{R}, \quad  \mathrm{e}^{\imath t} = \cos{t} + \imath \sin{t}, $$
+$$ \forall \, t \; \in \mathbb{R}, \quad  \e^{\imath t} = \cos{t} + \imath \sin{t}, $$
 那么它满足前面我们希望它满足的所有性质。
 
-更一般地来说，给定复数$z = a + b\imath$，那么可以定义：
-$$ \forall \, t \; \in \mathbb{R}, \quad  \mathrm{e}^{z t} = \mathrm{e}^{at + b\imath t} = \mathrm{e}^{at} \left( \cos{bt} + \imath \sin{bt} \right), $$
+用归纳法可以验证，对任何自然数乃至整数$n$，有
+$$ \e^{n\imath t} = \cos{nt} + \imath \sin{nt} = (\cos{t} + \imath \sin{t})^n = \left( \e^{\imath t} \right)^n. $$
+进一步有：
+$$ \e^{\frac{\imath t}{n}} = \cos{\left(\frac{t}{n}\right)} + \imath \sin{\left(\frac{t}{n}\right)} = (\cos{t} + \imath \sin{t})^{\frac{1}{n}} = \left( \e^{\imath t} \right)^{\frac{1}{n}}. $$
+从而对任何有理数$q = \frac{m}{n}$，都有：
+$$ \e^{q\imath t} = \cos{qt} + \imath \sin{qt} = (\cos{t} + \imath \sin{t})^q = \left( \e^{\imath t} \right)^q. $$
 
-可以看到，复值的指数函数和实数指数函数有很大的不同。直观上来说，$t\mapsto \mathrm{e}^{t}$是单调递增的，而$t\mapsto \mathrm{e}^{\imath t}$
+一般来说，对实数$r$，可以定义：
+$$ \forall \, t \; \in \mathbb{R}, \quad \e^{r\imath t} = \cos{rt} + \imath \sin{rt} = (\cos{t} + \imath \sin{t})^r = \left( \e^{\imath t} \right)^r. $$
+
+更一般地来说，给定复数$z = a + b\imath$，那么可以定义：
+$$ \forall \, t \; \in \mathbb{R}, \quad  \e^{z t} = \e^{at + b\imath t} = \e^{at} \left( \cos{bt} + \imath \sin{bt} \right), $$
+
+可以看到，复值指数函数的行为和实值指数函数有很大的不同。直观上来说，$t\mapsto \e^{t}$是单调递增的，而$t\mapsto \e^{\imath t}$
 是一个周期函数，它的轨迹在复平面上是单位圆。随着$t$的变化，函数绕着单位圆不断“转圈”。这是两种完全不同的行为。
 
 比如，我们可以从上面推出：
-$$ \mathrm{e}^{\frac{\imath\pi}{2}} = \imath, \quad \mathrm{e}^{\imath\pi} = -1, \quad \mathrm{e}^{\frac{3\imath\pi}{2}} = -\imath, \quad \mathrm{e}^{2\imath\pi} = 1, $$
+$$ \e^{\frac{\imath\pi}{2}} = \imath, \quad \e^{\imath\pi} = -1, \quad \e^{\frac{3\imath\pi}{2}} = -\imath, \quad \e^{2\imath\pi} = 1. $$
+换句话说，它的最小周期是$2\pi$。$\e^{\imath t}$和$\e^{\imath(2\pi + t)}$总是相等的。
 
-再来看复数的对数。$\mathrm{e}^{\frac{\imath\pi}{2}} = \imath$启发我们，可以定义$\ln{\imath} = \frac{\imath\pi}{2}$。
+再来看复值的对数函数。$\e^{\frac{\imath\pi}{2}} = \imath$启发我们，可以定义$\ln{\imath} = \frac{\imath\pi}{2}$。
 这样定义似乎没什么问题，但我们发现：
-$$ \mathrm{e}^{\frac{5\imath\pi}{2}} = \mathrm{e}^{\frac{\imath\pi}{2}} \times \mathrm{e}^{2\imath\pi} = \imath \times 1 = \imath. $$
-于是又可以定义$\ln{\imath} = \frac{\imath\pi}{2}$。一般来说，考虑复数$z$的“极坐标”表示：
-$$ z = |z| \mathrm{e}^{\imath \theta}$$
+$$ \e^{\frac{5\imath\pi}{2}} = \e^{\frac{\imath\pi}{2}} \times \e^{2\imath\pi} = \imath \times 1 = \imath. $$
+于是又可以定义$\ln{\imath} = \frac{5\imath\pi}{2}$。一般来说，考虑复数$z$的“极坐标”表示：
+$$ z = |z| \e^{\imath \theta}$$
 其中$\theta$是$z$的幅角，那么可以定义
 $$\ln{z} = \ln{|z|} + \theta \imath.$$
 但复数的幅角$\theta$并不是唯一的。比如对任何整数$k$，$\theta + 2k\pi$也是$z$的幅角。因此，我们可以定义
@@ -2705,43 +2749,97 @@ $$ \ln{(z_1 \cdot z_2)} \tong{2\pi} \ln{z_1} + \ln{z_2} . $$
 这也是指数函数复化后性质改变的必然后果。复值指数函数不再是单调函数，而是周期函数。这使得作为反函数的对数函数无法保持所有的性质。
 
 \begin{et}
-    设$t$为实数，给出与复值指数函数兼容的函数：$f:\;t\mapsto \sin{\imath t}$、$g:\;t\mapsto \cos{\imath t}$。
+    设$t$为实数，给出与复值指数函数兼容的函数：$t\mapsto \sin{\imath t}$、$t\mapsto \cos{\imath t}$。
 \end{et}
 
 \begin{so}
-    根据复值指数函数的形式：
-    $$ \mathrm{e}^{\imath t} = \cos{t} + \imath \sin{t}, $$
-    有：
-    $$ \sin{t} = \frac{\mathrm{e}^{\imath t} - \mathrm{e}^{-\imath t}}{2\imath}.$$
+    根据复值指数函数的定义，
+    $$ \e^{\imath t} = \cos{t} + \imath \sin{t}, \qquad \e^{-\imath t} = \cos{t} - \imath \sin{t}. $$
+    因此有：
+    $$ \sin{t} = \frac{\e^{\imath t} - \e^{-\imath t}}{2\imath}.$$
     可以设想令
-    $$ f(t) = \sin{\imath t} = \frac{\mathrm{e}^{\imath (\imath t)} - \mathrm{e}^{-\imath (\imath t)}}{2\imath} = \imath \frac{\mathrm{e}^{t} - \mathrm{e}^{-t}}{2}.$$
+    $$ f(t) = \sin{\imath t} = \frac{\e^{\imath (\imath t)} - \e^{-\imath (\imath t)}}{2\imath} = \imath \frac{\e^{t} - \e^{-t}}{2}.$$
     同理，由于
-    $$ \cos{t} = \frac{\mathrm{e}^{\imath t} + \mathrm{e}^{-\imath t}}{2},$$
+    $$ \cos{t} = \frac{\e^{\imath t} + \e^{-\imath t}}{2},$$
     可以设想令
-    $$ g(t) = \cos{\imath t} = \frac{\mathrm{e}^{\imath (\imath t)} + \mathrm{e}^{-\imath (\imath t)}}{2} = \frac{\mathrm{e}^{t} + \mathrm{e}^{-t}}{2}.$$
+    $$ g(t) = \cos{\imath t} = \frac{\e^{\imath (\imath t)} + \e^{-\imath (\imath t)}}{2} = \frac{\e^{t} + \e^{-t}}{2}.$$
     可以验证：
     $$ f(0) = \sin{(\imath \cdot 0)} = 0, \quad g(0)=\cos{(\imath \cdot 0)} = 1,$$
     函数$f$、$g$都是光滑函数，且：
     \begin{align*}
-        \partial f(t) &= \imath \frac{\mathrm{e}^{t} + \mathrm{e}^{-t}}{2} = \imath g(t) = (\partial\sin)(\imath t)\cdot (\partial(\imath t)), \\
-        \partial g(t) &= \frac{\mathrm{e}^{t} - \mathrm{e}^{-t}}{2} = -\imath f(t) = (\partial\cos)(\imath t)\cdot (\partial(\imath t)).
+        \partial f(t) &= \imath \frac{\e^{t} + \e^{-t}}{2} = \imath g(t) = (\partial\sin)(\imath t)\cdot (\partial(\imath t)), \\
+        \partial g(t) &= \frac{\e^{t} - \e^{-t}}{2} = -\imath f(t) = (\partial\cos)(\imath t)\cdot (\partial(\imath t)).
     \end{align*}
     最后，它们满足：
     \begin{align*}
-        \forall \; t\in \mathbb{R}, \quad & \sin^2{(\imath t)} + \cos^2{(\imath t)} = \left(\imath \frac{\mathrm{e}^{t} - \mathrm{e}^{-t}}{2}\right)^2 + \left( \frac{\mathrm{e}^{t} + \mathrm{e}^{-t}}{2}\right)^2 \\
-        =\;& -\frac{\mathrm{e}^{2t} + \mathrm{e}^{-2t} - 2}{4} + \frac{\mathrm{e}^{2t} + \mathrm{e}^{-2t} + 2}{4} \\
+        \forall \; t\in \mathbb{R}, \quad & \sin^2{(\imath t)} + \cos^2{(\imath t)} = \left(\imath \frac{\e^{t} - \e^{-t}}{2}\right)^2 + \left( \frac{\e^{t} + \e^{-t}}{2}\right)^2 \\
+        =\;& -\frac{\e^{2t} + \e^{-2t} - 2}{4} + \frac{\e^{2t} + \e^{-2t} + 2}{4} \\
         =\;& 1.
     \end{align*}
     但另一方面，$t\mapsto \sin{\imath t}$、$t\mapsto \cos{\imath t}$都不再是周期函数。
 
 \end{so}
 
+\begin{et}
+    设$t$为实数，给出与复值指数函数兼容的幂函数：$t\mapsto t^{\imath}$。
+\end{et}
+
+\begin{so}
+    关键是定义$z$为复数时，$a^{z}$是什么。对于实值指数函数，有：
+    $$ a^{x} = \e^{x\ln{a}}. $$
+    这启发我们把$a^{z}$表达为$\e^{z\ln{a}}$。于是我们可以试着定义：
+    $$ t^{\imath} = \e^{\imath \ln{t}}. $$
+    这个定义对正实数$t$有意义。它可以写为：
+    $$ t^{\imath} = \cos{(\ln{t})} + \imath \sin{(\ln{t})} $$
+    检查它是否满足幂运算法则。首先，对任意正实数$a,b$，计算$a^{\imath} \cdot b^{\imath}$：
+    \begin{align*}
+        a^{\imath} \cdot b^{\imath} &= (\cos{(\ln{a})} + \imath \sin{(\ln{a})}) \cdot (\cos{(\ln{b})} + \imath \sin{(\ln{b})}) \\
+        &= \cos{(\ln{a} + \ln{b})} + \imath \sin{(\ln{a} + \ln{b})} \\
+        &= \cos{(\ln{ab})} + \imath \sin{(\ln{ab})} \\
+        &= (ab)^{\imath}
+    \end{align*}
+    另外，对任意实数$a$，定义：
+    $$ t^{\imath a} = \e^{\imath a\ln{t}} $$
+    这个定义与实值指数函数定义相容，且按这个定义，
+    $$  t^{\imath a} = \cos{(a\ln{t})} + \imath \sin{(a\ln{t})} $$
+    于是有：
+    \begin{align*}
+        t^{\imath a} &= \cos{(a\ln{t})} + \imath \sin{(a\ln{t})} = (\cos{(\ln{t})} + \imath \sin{(\ln{t})})^a = \left(t^\imath\right)^{a}, \\
+        t^{\imath a} &= \cos{(a\ln{t})} + \imath \sin{(a\ln{t})} = \cos{(\ln{t^a})} + \imath \sin{(\ln{t^a})} = \left(t^a\right)^{\imath}.
+    \end{align*}
+    结果说明这样定义的复值幂函数运算规律与实值幂函数相同。对一般复数$z = a + b\imath$，我们可以定义：
+    $$ \forall \, t\; \in \mathbb{R}, \quad t^{z} = t^a (\cos{(b\ln{t})} + \imath \sin{(b\ln{t})}). $$
+\end{so}
+
 \begin{sk}
     \mbox{} \\
-    \indent 1. 为什么$\mathrm{e}^{b\imath t} = \cos{bt} + \imath \sin{bt}$而不是$\cos{t} + \imath b\sin{t}$？\\
-    \indent 2. $\mathrm{e}^x$是级数$\sum_{n=0}^{\infty} \frac{x^n}{n!}$的和。这个关系在$x$为复数的时候是否成立？\\
+    \indent 1. 为什么$\e^{b\imath t} = \cos{bt} + \imath \sin{bt}$而不是$\cos{t} + \imath b\sin{t}$？\\
+    \indent 2. $\e^x$是级数$\sum_{n=0}^{\infty} \frac{x^n}{n!}$的和。这个关系在$x$为复数的时候是否成立？\\
     \indent 3. 如何定义$\imath^{\sqrt{2}}$？如何定义$\imath^{\imath}$？
 \end{sk}
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 考虑函数$f:\; t\mapsto \sqrt{1 + \imath t}$。\\
+    \indent 1.1. 计算$f(t)$的模长和幅角。\\
+    \indent 1.2. 找出实函数$u,v$使得：
+    $$ f(t) = u(t) + \imath v(t), $$
+    \indent 并说明使等式成立的实数$t$的范围。\\
+    \indent 1.3. 对函数$f:\;t\mapsto \frac{1}{\sqrt{1 + \imath t}}$，找出符合上述条件的实函数$u,v$。\\
+    \indent 2. 考虑函数：
+    $$ f:\; t \to \frac{1 - i}{1 + t + \imath(1 - t)}$$
+    \indent 2.1. 找出实函数$u,v$使得：
+    $$ f(t) = u(t) + \imath v(t). $$
+    \indent 2.2. 证明：函数$u,v$满足：
+    $$ u^2(t) + v^2(t) = v(t).$$
+    \indent 2.3. 描述$f$的图像。说明随着$t$变化，$f$在复平面上如何移动。
+
+\end{xt}
+
+% ############################## %
+% \chapter{对称和群}
+% 对称和群
+% ############################## %
 
 % \section{微变方程和参变曲线}
 % % 由微变方程确定的参变曲线
@@ -2784,7 +2882,7 @@ $$ \ln{(z_1 \cdot z_2)} \tong{2\pi} \ln{z_1} + \ln{z_2} . $$
     按$z_0$定义，我们有这样的关系：
     $$ \forall \; r > 0, \; \omega \in S^1,\quad  |P(r\omega)|^2 - |P(z_0)|^2 \geqslant 0. $$ 
 
-    设$k$是$a_1, a_2, \cdots, a_n$等系数中不等于零的系数里下标最小的，那么$1\geqslant k < n$。
+    设$k$是$a_1, a_2, \cdots, a_n$等系数中不等于零的系数里下标最小的，那么$1\leqslant k < n$。
     我们可以将$P$表示成：
     $$ P(x) = a_0 + x^k Q(x). $$
     其中$Q$是次数为$n - k$的整式。按定义，$Q(0) = a_k \neq 0$。
@@ -2803,13 +2901,13 @@ $$ \ln{(z_1 \cdot z_2)} \tong{2\pi} \ln{z_1} + \ln{z_2} . $$
     前面不等式说明，当$\omega$在单位圆$S^1$上取值时，$\omega^k \alpha$的实部总大于等于零。
     我们尝试用$S^1$上的不同$\omega$代入上面不等式，得到$\alpha$的限制条件。
 
-    从平面向量的角度俩看，$\omega^k \alpha$就是$\omega^k$和$\alpha$的内积。它的实部大于等于零，
-    就是说$\omega^k$和$\alpha$张成的角度不超过直角。
-    比如，$\omega^k$指向北，$\alpha$就要指向东北或西北，不能指向东南或西南。
+    从平面向量的角度来看，$\omega^k \alpha$的实部就是$\omega^k$和$\overline{\alpha}$的点积。它的实部大于等于零，
+    就是说$\omega^k$和$\overline{\alpha}$张成的角度不超过直角。
+    比如，$\omega^k$指向北，$\overline{\alpha}$就要指向东北或西北，不能指向东南或西南。
 
     然而，$\omega$沿着$S^1$转动的时候，$\omega^k$可以指向任意方向，这就对$\alpha$的方向提出了严格的要求。
 
-    将$\omega = 1$代入，这时$\omega^k = 1$，于是：$\Re(\alpha) \geqslant 0$。
+    将$\omega = 1$代入，这时$\omega^k = 1$，于是$\omega^k \alpha$的实部就是$\alpha$的实部：$\Re(\alpha) \geqslant 0$。
 
     再令$\omega$为$\omega^k = -1$的解，于是：$\Re(\alpha) \leqslant 0$。%，设$\omega$是$z^{2^j} = -1$
 

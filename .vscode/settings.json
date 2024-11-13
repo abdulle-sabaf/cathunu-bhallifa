@@ -91,7 +91,7 @@
       "git.ignoreWindowsGit27Warning": true,
       "workbench.editor.enablePreview": true,
     "git.autofetch": true,
-    "jupyter.sendSelectionToInteractiveWindow": true,
     "window.zoomLevel": -1,
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "jupyter.interactiveWindow.textEditor.executeSelection": true
 }
