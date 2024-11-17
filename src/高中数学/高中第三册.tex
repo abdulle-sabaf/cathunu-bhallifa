@@ -39,6 +39,8 @@
 \setlength\parskip{8pt}
 \setlength{\fboxsep}{12pt}
 \renewcommand\thesection{\arabic{chapter}.\arabic{section}}
+
+\newcommand{\e}{\mathrm{e}}
 \newcommand{\arccot}{\operatorname{arccot}}
 \newcommand{\dlim}[1]{^{\color{gray}\prime}#1}
 \newcommand{\lian}[1]{
@@ -1688,7 +1690,7 @@ $\sin{x}$和$\ln{(1+x)}$的“最大项”都是$x$，之后$\ln{(1+x)}$是$- \f
     也就是说，
     $$ \lian{x\to +\infty} x^2 \ln{\left(1 + \frac{1}{x}\right)} - x = -\frac{1}{2}. $$
     于是
-    $$ \lian{x\to +\infty} \frac{\left(1 + \frac{1}{x}\right)^{x^2}}{\mathrm{e}^x} = \mathrm{e}^{\lian{x\to +\infty}  x^2 \ln{\left(1 + \frac{1}{x}\right)} - x} = \frac{1}{\sqrt{e}}. $$
+    $$ \lian{x\to +\infty} \frac{\left(1 + \frac{1}{x}\right)^{x^2}}{\mathrm{e}^x} = \mathrm{e}^{\lian{x\to +\infty}  x^2 \ln{\left(1 + \frac{1}{x}\right)} - x} = \frac{1}{\sqrt{\mathrm{e}}}. $$
 \end{so}
 
 最后的问题：具有怎样性质的函数，才能在局部表示成多项式与高阶无穷小的和呢？我们有以下定理（证明见附录$B$）：

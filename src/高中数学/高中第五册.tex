@@ -39,6 +39,7 @@
 \setlength\parskip{8pt}
 \setlength{\fboxsep}{12pt}
 \renewcommand\thesection{\arabic{chapter}.\arabic{section}}
+\newcommand{\e}{\mathrm{e}}
 \newcommand{\arccot}{\operatorname{arccot}}
 \newcommand{\dlim}[1]{^{\color{gray}\prime}#1}
 \newcommand{\lian}[1]{
@@ -1300,8 +1301,8 @@ $$ (x^2, x, 3x, 5x, \cdots (2n+1)x, \cdots )$$
     因此，$\{f_n\}_{n\in\mathbb{N}}$逐点收敛到$[0;1)$上的零函数。
 
     不过，对任意正整数$n$，取$x_n = \frac{1}{n}$，则
-    $$f_n(x_n) = \frac{1}{e}.$$
-    因此，只要$0<r <\frac{1}{e}$，无论$n$有多大，总有$f_n(x) = \frac{1}{e} > r$。这说明函数列$\{f_n\}_{n\in\mathbb{N}}$
+    $$f_n(x_n) = \frac{1}{\e}.$$
+    因此，只要$0<r <\frac{1}{\e}$，无论$n$有多大，总有$f_n(x) = \frac{1}{\e} > r$。这说明函数列$\{f_n\}_{n\in\mathbb{N}}$
     并不一致收敛到零函数。
     
     直观来看，$f_n$的图像在靠近$0$时就会隆起，即便$n$越大时，隆起的部分越来越狭窄，但高度不变。

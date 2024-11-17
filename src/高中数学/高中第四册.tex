@@ -411,7 +411,7 @@ $$
     计算曲线图形的面积。\\
     \indent 1. 正弦函数$x\mapsto \sin{x}$在$[0;\pi]$上到$x$轴的面积。 \\
     \indent 2. 幂函数$x\mapsto x^n$在$[0;1]$上到$x$轴的面积。\\
-    \indent 3. 二次函数$\frac{\pi^2y}{4} = x^2$、正弦函数与$y$轴围成的图形的面积。
+    \indent 3. 二次函数$x \mapsto \frac{4x^2}{\pi^2}$与正弦函数围成的图形的面积。
 \end{et}
 
 \begin{so}
@@ -427,7 +427,15 @@ $$
         &= \frac{1}{n+1}
     \end{align*}
 
-    \indent 3. 
+    \indent 3. 直观来看，围成的图形上侧边界为正弦曲线，下侧为二次函数的曲线。
+    换句话说，围成的面积就是正弦曲线到$x$轴的面积减去二次函数曲线到$x$轴的面积，也就是两者在交点之间的积合之差。
+
+    \indent 分析两条曲线，可知它们交点的坐标为$(0,\;0)$和$\left(\frac{\pi}{2},\;1\right)$。也就是说，围成的面积$S$可以写为：
+    \begin{align*}
+        S &= \int_{0}^{\frac{\pi}{2}} \sin{x} - \int_{0}^{\frac{\pi}{2}} \frac{4x^2}{\pi^2} \\ 
+        &= -\left(\cos{\frac{\pi}{2}} - \cos{0}\right) - \frac{4}{3\pi^2} \left( \left( \frac{\pi}{2} \right)^3 - 0^3 \right) \\
+        &= 1 - \frac{\pi}{6}
+    \end{align*}
 \end{so}
 
 
@@ -1723,7 +1731,7 @@ $$ \imath^2 + 1 = 0$$
 $$ x^2 + 1 = (x - \imath)(x + \imath).$$
 这就将$x^2 + 1$分解成一次式的乘积。
 
-实数无法做到这一点。我们说$\imath$是\textbf{虚数}\footnote{$\imath$读作$i$。}。它不属于实数集$\mathbb{R}$。
+实数无法做到这一点。我们说$\imath$是\textbf{虚数}\footnote{$\imath$读“埃”。}。它不属于实数集$\mathbb{R}$。
 
 来看一般情况下的二次整式方程：
 $$ ax^2 + bx + c = 0  \qquad \qquad a,b,c \in \mathbb{R}, \,\,\, a \neq 0. $$
@@ -1748,21 +1756,24 @@ $$ x_1 = \frac{-b + \imath \sqrt{4ac - b^2} }{2a}, \qquad x_2 = \frac{-b - \imat
 那么，$\mathbb{R}(\imath)$是否包含了更高次整式的根呢？答案是肯定的。我们有如下定理：
 \begin{tm}{\textbf{整式有根定理}}
     \mbox{} \\
-    \indent 设$P$是实系数整式，如果$a$是$P$，那么$a$在$\mathbb{R}(\imath)$中。
+    \indent 设$P$是次数大于$0$的实系数整式，则$\mathbb{R}(\imath)$中总有数$a$使得$P(a) = 0$。
 \end{tm}
-整式有根定理告诉我们，实系数整式$P$所有的根都在$\mathbb{R}(\imath)$里面（证明见附录$B$）。
+整式有根定理告诉我们，实系数整式$P$所有的根都在$\mathbb{R}(\imath)$里面（证明见附录$A$）。
 
 数域$\mathbb{R}(\imath)$有这样重要的性质，因此成为了数学家重点研究的对象。
 我们一般称$\mathbb{R}(\imath)$的元素为\textbf{复数}，把数域$\mathbb{R}(\imath)$称为\textbf{复数域}，
 记作$\mathbb{C}$。
 其中形同$a\imath$的数（$a$为非零实数）称为\textbf{虚数}，而$\imath$叫做\textbf{虚数单位}。
 
+例如，$3 + 2\imath$、$\displaystyle\frac{\pi}{2} - 4.4\imath$、$\displaystyle\frac{3\imath}{2}$都是复数。
+其中$\displaystyle\frac{3\imath}{2}$是虚数。
+
 根据数域扩张的性质，$\mathbb{C}$可以写成：
 $$\mathbb{C} = \mathbb{R}(\imath) = \left\{\left. x + y\imath \, \right| \, x, y \in \mathbb{R} \right\}. $$
 我们可以把$\mathbb{R}(\imath)$里的数细分为三类：
 \begin{enumerate}
     \item 实数；
-    \item 形如$x\imath$的数（$x$为非零实数），称为\textbf{虚数}；
+    \item 形如$x\imath$的数（$x$为非零实数），称为\textbf{纯虚数}；
     \item 形如$x + y\imath$的数（$x, y$为非零实数）。
 \end{enumerate}
 
@@ -1848,8 +1859,8 @@ $$\mathbb{C} = \mathbb{R}(\imath) = \left\{\left. x + y\imath \, \right| \, x, y
 可以说$1$和$\imath$分别是实数和虚数的单位。
 复平面的原点是$0$。平面上，$\mathbb{R} = \mathbb{R}1$是一条直线，
 我们可以将它看作数轴，称为复平面的\textbf{实轴}。
-而直线$\mathbb{R}\imath$则称为\textbf{虚轴}。这样，复数$x+y\imath$作为复平面上的点，
-坐标为$(x,\,\,y)$，其中横坐标$x$称为它的\textbf{实部}，纵坐标$y$称为它的\textbf{虚部}。
+而直线$\mathbb{R}\imath$则称为\textbf{虚轴}。这样，复数$x+y\imath$作为复平面上的点，也叫\textbf{复向量}。
+它的坐标是$(x,\,\,y)$，其中横坐标$x$称为它的\textbf{实部}，纵坐标$y$称为它的\textbf{虚部}。
 
 复数$z$的实部记为$\Re(z)$，虚部记为$\Im(z)$。两个复数相等，当且仅当实部相等、虚部相等。
 
@@ -1858,7 +1869,7 @@ $$ |x + y\imath| = \sqrt{x^2 + y^2}.$$
 
 我们还可以定义实轴到复数对应向量的角度，称为复数的\textbf{幅角}。
 
-模长$r$，幅角为$\alpha$的复数，就是$r\cos{(\alpha)} + r\sin{(\alpha)}\imath$。可以用极坐标记为$(r,\,\,\alpha)$。
+模长$r$，幅角为$\alpha$的复数，就是$r\cos{\alpha} + r\sin{\alpha}\imath$。可以用极坐标记为$(r,\,\,\alpha)$。
 
 复数的加减法和平面向量一样。具体为：
 $$ (x_1 + y_1\imath) \pm (x_2 + y_2\imath) = (x_1 \pm x_2) + (y_1 \pm y_2)\imath. $$
@@ -1877,36 +1888,53 @@ $$ (x_1 + y_1\imath) \cdot (x_2 + y_2\imath) = (x_1x_2 - y_1y_2) + (x_1y_2 + x_2
 \begin{align*}
     (x_1 + y_1\imath) \div (x_2 + y_2\imath) &= \frac{(x_1 + y_1\imath)(x_2 - y_2\imath)}{(x_2 + y_2\imath)(x_2 - y_2\imath)} \\
     &= \frac{(x_1x_2 + y_1y_2) + (x_2y_1 - x_1y_2)\imath}{x_1^2 + x_2^2} \\
-    &= \frac{x_1x_2 + y_1y_2}{x_2^2 + y_2^2} + \frac{x_2y_1 - x_1y_2}{x_2^2 + y_2^2}\i
+    &= \frac{x_1x_2 + y_1y_2}{x_2^2 + y_2^2} + \frac{x_2y_1 - x_1y_2}{x_2^2 + y_2^2}\imath
 \end{align*}
 
 根据复数乘法，我们可以有这样的结果：
 \begin{align*}
-     & (\cos{(\alpha)} + \sin{(\alpha)}\imath) \cdot (\cos{(\beta)} + \sin{(\beta)}\imath) \\
-    =& (\cos{(\alpha)}\cos{(\beta)} - \sin{(\alpha)}\sin{(\beta)}) + (\cos{(\alpha)}\sin{(\beta)} + \cos{(\beta)}\sin{(\alpha)})\imath \\
-    =& \cos{(\alpha + \beta)} + \sin{(\alpha + \beta)}\imath.
+     & (\cos{\alpha} + \imath\sin{\alpha}) \cdot (\cos{\beta} + \imath\sin{\beta}) \\
+    =& (\cos{\alpha}\cos{\beta} - \sin{\alpha}\sin{\beta}) + (\cos{\alpha}\sin{\beta} + \cos{\beta}\sin{\alpha})\imath \\
+    =& \cos{(\alpha + \beta)} + \imath\sin{(\alpha + \beta)}.
 \end{align*}
 直观上可以这样理解：作单位圆上与实轴夹角为$\alpha$、$\beta$的点，那么它们对应复数的乘积等于单位圆上与实轴夹角为$\alpha+\beta$的点。
 
-\begin{figure}[h] 
-    % \vspace{-4pt}
+\vspace{-4pt}
+\begin{figure}[htp]
     \centering
-    \includegraphics[width=0.8\textwidth]{tu/复数乘法1.png}
+\begin{tikzpicture}[>=stealth]
+\draw[->](-3,0)--(3.2,0)node[below right]{$x$};
+\draw[->](0,-2.5)--(0,3)node[right]{$y$};
+\draw(0,0)node[below left]{$O$} circle(2);
+\coordinate (Z1) at (30:2);
+\coordinate (Z2) at (75:2);
+\coordinate (Z3) at (45:2);
+\coordinate (Z4) at (105:2);
+\draw[->, thick,blue](0,0)--(Z1)node[right,blue]{$z_1$};
+\draw[->, thick,blue](0,0)--(Z2)node[above right,blue]{$z_2$};
+\draw[->, thick,red](0,0)--(Z3)node[above right,red]{$\displaystyle\frac{z_2}{z_1}$};
+\draw[->, thick,red](0,0)--(Z4)node[above left,red]{$z_1 \cdot z_2$};
+\foreach \x in {1,2,3,4}
+{
+    \draw[fill](Z\x) circle(2pt);
+}
+\draw[->,semithick,cyan] (0:0.8) arc[radius=0.8, start angle=0, end angle=30];
+\draw[->,semithick,cyan] (75:0.8) arc[radius=0.8, start angle=75, end angle=105];
+\draw[->,semithick,cyan] (75:0.8) arc[radius=0.8, start angle=75, end angle=45];
+\end{tikzpicture}
     \caption*{\texttt{单位圆上的复数乘除法是旋转}}
 \end{figure}
 
-% $$ z_1\quad z_2 \quad z_1 \cdot z_2 \quad \frac{z_2}{z_1} $$
-
 同样，根据复数除法，可以得到：
 \begin{align*}
-    & (\cos{(\alpha)} + \sin{(\alpha)}\imath) \div (\cos{(\beta)} + \sin{(\beta)}\imath) \\
-   =& \frac{(\cos{(\alpha)}\cos{(\beta)} + \sin{(\alpha)}\sin{(\beta)}) + (\cos{(\alpha)}\sin{(\beta)} - \cos{(\beta)}\sin{(\alpha)})\imath}{\cos^2{\beta}+\sin^2{\beta}} \\
-   =& \cos{(\alpha - \beta)} + \sin{(\alpha - \beta)}\imath.
+    & (\cos{\alpha} + \imath\sin{\alpha}) \div (\cos{\beta} + \imath\sin{\beta}) \\
+   =& \frac{(\cos{\alpha}\cos{\beta} + \sin{\alpha}\sin{\beta}) + (\cos{\alpha}\sin{\beta} - \cos{\beta}\sin{\alpha})\imath}{\cos^2{\beta}+\sin^2{\beta}} \\
+   =& \cos{(\alpha - \beta)} + \imath\sin{(\alpha - \beta)}.
 \end{align*}
 直观上，单位圆上与实轴夹角为$\alpha$、$\beta$的两点，对应复数的商等于单位圆上与实轴夹角为$\alpha-\beta$的点。
 
-综上，乘以复数$\cos{(\alpha)} + \sin{(\alpha)}\imath$，就是在复平面上逆时针旋转$\alpha$角，而除以它，
-就是顺时针旋转$\alpha$角。而乘以$r\cos{(\alpha)} + r\sin{(\alpha)}\imath$可以理解为以原点为中心放缩$r$倍，
+综上，乘以复数$\cos{\alpha} + \imath\sin{\alpha}$，就是在复平面上逆时针旋转$\alpha$角，而除以它，
+就是顺时针旋转$\alpha$角。而乘以$r\cos{\alpha} + r\imath\sin{\alpha}$可以理解为以原点为中心放缩$r$倍，
 然后逆时针旋转$\alpha$角度。
 
 复数的加减法在复平面上有平移的效果，复数的乘除法在复平面上有旋转和放缩的效果。
@@ -1915,12 +1943,21 @@ $$ (x_1 + y_1\imath) \cdot (x_2 + y_2\imath) = (x_1x_2 - y_1y_2) + (x_1y_2 + x_2
 简称\textbf{共轭}，记作$\overline{z}$。复数的共轭，实部与它相等，虚部是它的相反数。
 把复数映射到其共轭，就是关于实轴的对称变换。
 
+复数$z$乘以它的共轭，乘积为：
+$$ z \cdot \overline{z} = (x+ y\imath)(x - y\imath) = x^2 + y^2 = |z|^2. $$
+复数与它的共轭的乘积总是实数，是它的模的平方。
+
+关于复数的共轭，有这样的结论（证明见附录$A$）：
+\begin{tm}{\textbf{虚根成对定理}}
+    如果复数$z=x+y\imath$是实系数整式$P$的根，那么它的共轭$\overline{z}=x-y\imath$也是$P$的根。
+\end{tm}
+
 共轭变换把复数映射到复数，它的出发集和到达集都是复数域。我们把出发集为复数域（也就是自变量为复数）的映射称为\textbf{复变函数}。
 
 复变函数把复数映射到复数。如果一个函数只把复数映射到实数，也称为\textbf{复变实函数}。
-反之，出发集是实数域，把实数映射到复数的函数，称为\textbf{实变复函数}；把实数映射到复数的函数，称为\textbf{实变复函数}；
+反之，出发集是$\mathbb{R}$，把实数映射到复数的函数，称为\textbf{实变复函数}；
 只把实数映射到实数的函数，称为\textbf{实函数}。以往我们只研究实函数，称其为实变函数。
-以后，我们也会用实变函数泛指自变量为实数的映射\footnote{除特殊情况，实变函数不再专指实函数。}。
+以后，我们会用实变函数泛指自变量为实数的映射\footnote{除特殊情况，实变函数不再专指实函数。}。
 
 根据平面上对称变换和平移、旋转、放缩的关系，我们有：
 \begin{align*}
@@ -1931,7 +1968,7 @@ $$ (x_1 + y_1\imath) \cdot (x_2 + y_2\imath) = (x_1x_2 - y_1y_2) + (x_1y_2 + x_2
 任意两个实数，可以比较大小。但两个复数一般无法比较大小。复数的模和幅角是实数，因此，我们可以比较两个复数模和幅角的大小，
 但实数之间的大于小于关系，对于复数没有意义。
 
-复数域上无法定义与复数的四则运算兼容的全序关系\footnote{全序关系：指任何两个元素都能进行比较。}。具体来说，想要定义复数之间的大于小于关系，使得任何两个复数之间都能比较大小，
+复数域上无法定义与复数的四则运算兼容的全序关系\footnote{全序关系：指任何两个元素都能进行比较大小。}。具体来说，想要定义复数之间的大于小于关系，使得任何两个复数之间都能比较大小，
 那么这个大小关系就不能像实数的大小关系一样，和加法、乘法相容。
 
 比如，我们可以定义两个复数的大小关系为它们模长的大小关系，模长相等则比较幅角大小。
@@ -2014,12 +2051,12 @@ $$
     \mbox{} \\
     \indent 1. 为什么说基底$(1,\,\,\imath)$构成直角坐标系？\\
     \indent 2. 复数的乘除法可以转为角度的加减法。这让你想到什么函数？它们之间有什么联系？\\
-    \indent 3. 把$\imath$换成另一个复数，比如$\displaystyle \frac{-1+\sqrt{3}\imath}{2}$，能否构建复平面？有什么不同？
+    \indent 3. 把$\imath$换成其他复数，如$\displaystyle \frac{-1+\sqrt{3}\imath}{2}$，能否构建复平面？有什么不同？
 \end{sk}
 
 \begin{xt}
     \mbox{} \\
-    \indent 1. 算一算：\\
+    \indent 1. 算一算：
     $$
     \begin{array}[]{ll}
         1). \;(1.7 - \imath) + (6 - 2.9\imath)   & 2).\; (9\imath + 5.33) - (4 + 8.8\imath) \\
@@ -2028,7 +2065,7 @@ $$
         7). \;\displaystyle\frac{(1 + 2\imath)^2 - (1 - \imath)^2}{(3 + 2\imath)^2 + \imath + 2} & 8). \;\displaystyle\frac{(2 + \imath)^2 + (1 - \imath)^2 - \imath}{1 + \imath + (2\imath - 1)^2} \\
     \end{array}
     $$
-    \indent 2. 算一算：\\
+    \indent 2. 算一算：
     $$
     \begin{array}[]{ll}
         1). \;|2 - 2.9\imath|^2   & 2).\; |1 - 2a + (a - 1)\imath|^2 \\[4pt]
@@ -2039,23 +2076,174 @@ $$
     \indent 4. 验证以下说法：\\
     \indent 4.1. 复数$z$是实数，当且仅当它等于它的实部；复数$z$是虚数，当且仅当它等于它的虚部。\\
     \indent 4.2. 复数$z$的实部是$iz$的虚部，虚部是$-iz$的实部。\\
-    \indent 4.3. 复数$z$的实部等于$\overline{z}$的实部，虚部等于$\overline{z}$的虚部的相反数。\\
-    \indent 4.4. 复数$z$的模等于$\overline{z}$的模。\\
-    \indent 5. 设非零复数$z = r(\cos{(\alpha)} + \sin{(\alpha)}\imath)$。\\
-    \indent 5.1. 证明：对任意自然数$n$，$z^n = r^n(\cos{(n\alpha)} + \sin{(n\alpha)}\imath)$。 \\
+    \indent 4.3. 复数$z$的共轭等于自己，当且仅当它是实数。\\
+    \indent 4.4. 复数$z$的实部等于$\overline{z}$的实部，虚部等于$\overline{z}$的虚部的相反数。\\
+    \indent 4.5. 复数$z$的模等于$\overline{z}$的模。\\
+    \indent 5. 设非零复数$z = r(\cos{\alpha} + \imath\sin{\alpha})$。\\
+    \indent 5.1. 证明：对任意自然数$n$，$z^n = r^n(\cos{(n\alpha)} + \imath\sin{(n\alpha)})$。 \\
     \indent 5.2. 证明：对任意正整数$n$，有$n$个复数$x$满足$x^n = z$。写出这$n$个复数。它们在复平面上有何关系？\\
-    \indent 5.3. 证明：对任意有理数$q$，$r^q(\cos{(q\alpha)} + \sin{(q\alpha)}\imath) = z^q$。 \\
+    \indent 5.3. 证明：对任意有理数$q$，$r^q(\cos{(q\alpha)} + \imath\sin{(q\alpha)}) = z^q$。 \\
     \indent 6. 证明：复数的共轭满足：\\
     \indent 6.1. $ \overline{\overline{z}} = z.$ \\
     \indent 6.2. $ \overline{z_1 \pm z_2} = \overline{z_1}\pm \overline{z_2}.$ \\
     \indent 6.3. $ z + \overline{z} = 2\Re(z), \quad z - \overline{z} = 2\Im(z).$\\
-    \indent 6.4. $\overline{z_1 \cdot z_2} = \overline{z_1}\cdot \overline{z_2}, \quad \overline{\frac{z_1}{z_2}} = \frac{\overline{z_1}}{\overline{z_2}}.$ \\
-    \indent 6.5. $ z\cdot \overline{z} = \overline{z} \cdot z = |z|^2.$ \\
+    \indent 6.4. $\displaystyle\overline{z_1 \cdot z_2} = \overline{z_1}\cdot \overline{z_2}, \quad \overline{\left(\frac{z_1}{z_2}\right)} = \frac{\overline{z_1}}{\overline{z_2}}.$ \\
+    \indent 6.5. $ z\cdot \overline{z} = |z|^2 = |\overline{z}|^2.$ \\
     \indent 7. 证明：对任意复数$z$、$w$，有\\
     \indent 7.1. $ |z + w| \leqslant |z| + |w|.$ \\
-    \indent 7.2. $ |z + w|^2 + |z - w|^2 \leqslant 2(|z|^2 + |w|^2).$ 
+    \indent 7.2. $ |z + w|^2 + |z - w|^2 \leqslant 2(|z|^2 + |w|^2).$ \\
+    \indent 7.3. $ \displaystyle|zw| = |z|\cdot |w|, \quad \left|\frac{z}{w}\right| = \frac{|z|}{|w|}. $
+\end{xt}
 
-    \indent 7.3. $ \displaystyle|zw| = |z|\cdot |w|, \quad \left|\frac{z_1}{z_2}\right| = \frac{|z_1|}{|z_2|}. $
+\section{单位根}
+
+让我们来看这样的方程：
+$$ x^n = 1.$$
+其中$n$是正整数。根据整数有根定理的推论，它在$\mathbb{C}$中有$n$个解。我们可以把这$n$个解都找出来。它们分别是：
+\begin{align*}
+    \begin{cases}
+        z_1 &= \cos{\left(\frac{2\pi}{n}\right)} + \imath \sin{\left(\frac{2\pi}{n}\right)} \\
+        z_2 &= \cos{\left(\frac{4\pi}{n}\right)} + \imath \sin{\left(\frac{4\pi}{n}\right)} \\
+        & \quad\quad \vdots \\[-4pt]
+        z_k &= \cos{\left(\frac{2k\pi}{n}\right)} + \imath \sin{\left(\frac{2k\pi}{n}\right)} \\
+        & \quad\quad \vdots \\[-4pt]
+        z_n &= \cos{\left(\frac{2n\pi}{n}\right)} + \imath \sin{\left(\frac{2n\pi}{n}\right)} = 1. \\
+    \end{cases}
+\end{align*}
+
+在复平面上画出这$n$个复数，可以发现，它们都在单位圆上。
+我们把这$n$个解称为$\boldsymbol{n}$\textbf{次单位根}。
+
+单位根都在单位圆上，它们的模都是$1$。不仅如此，$n$个$n$次单位根$z_1,z_2,\cdots, z_n$都可以看作$z_1$的乘方，分别是$z_1$的$1$次方、$2$次方、……$n$次方。
+因此，我们也会把$n$次单位根记为$\omega_n^1, \omega_n^2, \cdots, \omega_n^n$或$\omega_n^0, \omega_n^1, \omega_n^2, \cdots, \omega_n^{n-1}$，
+其中$\omega_n$就是$z_1$，也叫做$\boldsymbol{n}$\textbf{次基本单位根}。
+
+\vspace{-4pt}
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=stealth]
+\draw[->](-2.5,0)--(2.7,0)node[below right]{$x$};
+\draw[->](0,-2)--(0,2.7)node[right]{$y$};
+\draw(0,0)node[below left]{$O$} circle(1.5);
+\coordinate (Z1) at (0:1.5);
+\coordinate (Z2) at (36*2:1.5);
+\coordinate (Z3) at (36*4:1.5);
+\coordinate (Z4) at (36*6:1.5);
+\coordinate (Z5) at (36*8:1.5);
+\draw[->, thick,blue](0,0)--(Z1)node[above right,blue]{$z_5=1$};
+\draw[->, thick,blue](0,0)--(Z2)node[above,blue]{$z_1$};
+\draw[->, thick,blue](0,0)--(Z3)node[above left,blue]{$z_2$};
+\draw[->, thick,blue](0,0)--(Z4)node[below left,blue]{$z_3$};
+\draw[->, thick,blue](0,0)--(Z5)node[below right,blue]{$z_4$};
+\foreach \x in {1,2,3,4,5}
+{
+    \draw[fill](Z\x) circle(1.5pt);
+}
+\end{tikzpicture}
+    \caption*{$n$\texttt{次单位根“等角分布”在单位圆上（}$n=5$\texttt{）}}
+\end{figure}
+
+直观上，这说明单位根的幅角都是$z_1$的整数倍。换句话说，这些复数在单位圆上“等角分布”，是单位向量$(0,\;1)$逆时针不断旋转相同的角度次第形成的。
+相邻的两个单位根$z_i$和$z_{i+1}$的夹角总是$\displaystyle \frac{2\pi}{n}$。
+
+\vspace{-4pt}
+\begin{minipage}{.45\textwidth}
+    \centering
+    \begin{tikzpicture}[>=stealth]
+    \draw[->](-2.5,0)--(2.7,0)node[right]{$x$};
+    \draw[->](0,-2)--(0,2.7)node[right]{$y$};
+    \draw(0,0)node[below left]{$O$} circle(1.5);
+    \draw[thick,blue](1.5,0)node[above right]{$z_3$}--(120:1.5)node[above]{$z_1$}--(240:1.5)node[below]{$z_2$}--cycle;
+    
+    \end{tikzpicture}
+    \end{minipage}\hfill
+    \begin{minipage}{.45\textwidth}
+    \centering
+    \begin{tikzpicture}[>=stealth]
+        \draw[->](-2.5,0)--(2.7,0)node[right]{$x$};
+        \draw[->](0,-2)--(0,2.7)node[right]{$y$};
+        \draw(0,0)node[below left]{$O$} circle(1.5);
+    \draw[thick,blue](1.5,0)node[above right]{$z_4$}--(0,1.5)node[above right]{$z_1$}--(-1.5,0)node[above left]{$z_2$}--(0,-1.5)node[below left]{$z_3$}--cycle;
+    
+    \end{tikzpicture}
+    \end{minipage}
+
+$n\geqslant 3$时，我们可以说$n$次单位根是单位圆的内接正$n$边形的顶点，其中固定的顶点是$(0,\;1)$。
+这个正$n$边形关于复平面的$x$轴对称，因此，单位根之间也有对称的关系。根据虚根成对定理，单位根的共轭还是单位根。
+比如，$z_1$的共轭就是$z_{n-1}$，$z_2$的共轭就是$z_{n-2}$，等等。一般来说，$z_k$的共轭是$z_{n-k}$。
+
+如果$n$是偶数，那么$-1$也是单位根。这时，所有单位根为顶点的单位圆内接正$n$边形不仅关于复平面的$x$轴对称，还关于$y$轴对称。
+
+\begin{figure}[h]
+    \vspace{-8pt}
+    \centering
+\begin{tikzpicture}[>=stealth]
+    \draw[->](-2.5,0)--(2.7,0)node[below]{$x$};
+    \draw[->](0,-2)--(0,2.5)node[right]{$y$};
+    \draw(0,0)node[below left]{$O$} circle(1.5);
+\foreach \x in {0,1,2,...,4}
+{
+    \draw[fill,blue](\x*72:1.5) circle(1.5pt);
+}
+\node at (1.4,-0.05)[above right,blue]{$z_{5} = \omega_{5}^{5} = 1$};
+\node at (78:1.5)[above right,blue]{$z_1 = \omega_{5}$};
+\node at (150:1.5)[above left,blue]{$z_2 = \omega_{5}^{2}$};
+\node at (200:1.2)[below left,blue]{$\begin{array}{r}
+    z_3 = \omega_{5}^{3} \\[-4pt] = \overline{z_2}\phantom{\,}
+\end{array}$};
+\node at (-78:1.4)[below right,blue]{$z_{4} = \omega_{5}^{4} = \overline{z_1}$};
+\end{tikzpicture}
+\begin{tikzpicture}[>=stealth]
+    \draw[->](-2.5,0)--(2.7,0)node[below]{$x$};
+    \draw[->](0,-2)--(0,2.5)node[right]{$y$};
+    \draw(0,0)node[below left]{$O$} circle(1.5);
+\foreach \x in {0,1,2,...,11}
+{
+    \draw[fill,blue](\x*30:1.5) circle(1.5pt);
+}
+\node at (1.4,-0.05)[above right,blue]{$z_{12} = \omega_{12}^{12} = 1$};
+\node at (30:1.35)[above right,blue]{$z_1 = \omega_{12}$};
+\node at (65:1.4)[above right,blue]{$z_2 = \omega_{12}^{2}$};
+\node at (-25:1.4)[below right,blue]{$z_{11} = \omega_{12}^{11} = \overline{z_1}$};
+\end{tikzpicture}
+\caption*{$5$\texttt{次单位根（左）和}$12$\texttt{次单位根（右）在复平面上的分布}}
+\end{figure}
+
+我们可以用单位根来表示一般复数开方的结果。比如，设$r$为正实数，那么$x^n = r$的解为：
+$$ \forall k\in  [1..n], \quad z_k = \sqrt[n]{r}\left(\cos{\frac{2k\pi}{n}} + \imath \sin{\frac{2k\pi}{n}}\right) = \sqrt[n]{r}\omega_n^k. $$
+我们把这$n$个解都称为$a$的$n$次方根。
+
+同理，如果复数$z$可以表示为$z = r(\cos{\alpha} + \imath \sin{\alpha})$，那么$x^n = z$的解为：
+$$ \forall k\in  [1..n], \; z_k = \sqrt[n]{r}\left(\cos{\frac{2k\pi + \alpha}{n}} + \imath \sin{\frac{2k\pi + \alpha}{n}}\right) = \sqrt[n]{r}\left(\cos{\frac{\alpha}{n}} + \imath \sin{\frac{\alpha}{n}}\right)\omega_n^k. $$
+我们把这$n$个解都称为$z$的$n$次方根。
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 比较$n$次单位根和$n$次同余系，它们有什么共同点？\\
+    \indent 2. 考虑复数数列$\displaystyle\left\{\cos{\frac{k\sqrt{2}\pi}{n}} + \imath \sin{\frac{k\sqrt{2}\pi}{n}} \right\}_{k\in\mathbb{N}}$，它在复平面上对应的点有什么特征，有什么规律？
+\end{sk}
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 写出$3$次单位根和$4$次单位根。 \\
+    \indent 2. 验证以下结论：\\
+    \indent 2.1. 任意$n$次单位根的任意乘方仍然是$n$次单位根。\\
+    \indent 2.2. 如果$m$整除$n$，那么$m$次单位根也是$n$次单位根。\\
+    \indent 2.3. 如果$k$与$n$互素，那么$n$次单位根可以表示为$\omega_n^k, \omega_n^{2k}, \cdots , \omega_n^{nk}$，不重复也不遗漏。\\
+    \indent 2.4. $ \forall n\in\mathbb{Z}^+, \quad \omega_n + \omega_n^2 + \cdots + \omega_n^n = 0. $\\
+    \indent 3. 在$\mathbb{C}$中解以下方程：
+    \begin{align*}
+        1)\;& x^5 + 1 = 0,  & 2)\;& x^{12} + 63x^6 - 64 = 0 \\
+        3)\;& x^3 = 1 - \sqrt{3}\imath,  & 4)\;& 4x^8 - 2x^4 + 1 = 0 
+    \end{align*}
+    \indent 4. 考虑四个两两不同的复数：$z_1,z_2,z_3,z_4$。\\
+    \indent 4.1. 证明：两个非零复数之比为实数，当且仅当它们幅角相差$\pi$的倍数。\\
+    \indent 4.2. 将$z_1,z_2,z_3,z_4$在复平面上的点记为$A,B,C,D$，解释以下复数的直观意义：
+    $$ \frac{z_1 - z_2}{z_3 - z_2}, \quad \frac{z_4 - z_2}{z_4 - z_3}  $$
+    \indent 4.3. 证明：以下条件成立，当且仅当$A,B,C,D$四点共线或共圆。
+    $$ \frac{z_1 - z_3}{z_2 - z_3} = r \frac{z_1 - z_4}{z_2 - z_4}, \quad r\in \mathbb{R}. $$
+    \indent 并分别说明$r$为正数、负数时的情况。
+
 \end{xt}
 
 \chapter{平面的曲线}
@@ -2623,7 +2811,7 @@ $$ \partial f(x) = -\frac{bx}{a}(a^2 - x^2)^{-\frac{1}{2}}$$
     y &= f(x_0) + \partial f(x_0)(x - x_0) \\
     &= y_0 -\frac{bx_0}{a\sqrt{a^2 - x_0^2}}(x - x_0) \\
     &= y_0 - \frac{b^2x_0(x - x_0)}{a^2y_0} \\
-    &= y_0 - \frac{a^2y_0^2 + b^2x_0^2 - b^2x_0x}{a^2y_0} \\
+    &= \frac{a^2y_0^2 + b^2x_0^2 - b^2x_0x}{a^2y_0} \\
 \end{align*}
 由于
 $$ \frac{x_0^2}{a^2} + \frac{y_0^2}{b^2} = 1,$$
@@ -3000,7 +3188,11 @@ $$ \overline{a}(\overline{x} - \overline{z_1})(\overline{x} - \overline{z_2})\cd
     P(x) &= \overline{a}(\overline{x} - \overline{z_1})(\overline{x} - \overline{z_2})\cdots(\overline{x} - \overline{z_n}) \\
     &= a(x - \overline{z_1})(x - \overline{z_2})\cdots(x - \overline{z_n}). 
 \end{align*}
-这说明$P$的根的共轭仍然是它的根。换句话说，偶数次实系数整式$P$的根要么是实数，要么是成对出现的，每对根互为共轭\footnote{详细证明留作习题2。}。
+这说明$P$的根的共轭仍然是它的根。
+\begin{tm}{\textbf{虚根成对定理}}
+    如果复数$z$是实系数整式$P$的根，那么它的共轭$\overline{z}$也是$P$的根。
+\end{tm}
+虚根成对定理说明，偶数次实系数整式$P$的根要么是实数，要么是成对出现的，每对根互为共轭\footnote{详细证明留作习题2。}。
   
 如果$P$的根$z_i$不是实数，那么二次式$(x - z_i)(x - \overline{z_i})$是$P$的因式。将其展开，可以得到：
 \begin{align*}
