@@ -41,6 +41,7 @@
 \renewcommand\thesection{\arabic{chapter}.\arabic{section}}
 
 \newcommand{\e}{\mathrm{e}}
+\newcommand{\dash}{\,–\,}
 \newcommand{\arccot}{\operatorname{arccot}}
 \newcommand{\dlim}[1]{^{\color{gray}\prime}#1}
 \newcommand{\lian}[1]{
@@ -2161,22 +2162,30 @@ $$ \mathbb{K}_n[x] = \{a_0 + a_1 x + \cdots + a_n x^n \, | \, a_0, a_1, \cdots ,
 $$ a_0 f + a_1 \partial f + \cdots + a_n \partial^n f = 0. $$
 这个方程所有解的集合$S_P$也是平直空间。
 
-方便起见，平直空间的元素，也称为向量。对应的二元运算也称为加法、数乘。
+方便起见，平直空间的元素，也称为向量或点。对应的二元运算也称为加法、数乘。
 其他的概念也沿用平面、立体空间中的称呼。
+
+设$n$是正整数，$\mathbb{K}$是数域，记所有$n$元有序数组的集合为：
+$$ \mathbb{K}^n = \{(x_1, x_2, \cdots , x_n) \, | \, x_1, x_2, \cdots , x_n \in \mathbb{K}\}$$
+我们可以定义有序数组的加法和数乘：
+\begin{align*}
+    (x_1, x_2, \cdots , x_n) + (y_1, y_2, \cdots , y_n) &= (x_1 + y_1, x_2 + y_2, \cdots , x_n + y_n) \\
+    a\cdot (x_1, x_2, \cdots , x_n) &= (a\cdot x_1, a\cdot x_2, \cdots , a\cdot x_n)
+\end{align*}
+关于这样定义的加法和数乘运算，$\mathbb{K}^n$是$\mathbb{K}$上的平直空间。当$\mathbb{K}=\mathbb{R}$时，$n=2,3$的情况分别对应平面和立体空间。
 
 \begin{xt}
     \mbox{} \\
     \indent 1. 证明：零向量只有一个，任何向量乘$0$得到零向量。\\
     \indent 2. 证明：零向量乘任何数得到零向量。\\
-    \indent 3. 证明：任何向量$\mathbf{a}$都有唯一的反向量$\mathbf{b}$，满足$\mathbf{a} + \mathbf{b} = \mathbf{0}$。\\
+    \indent 3. 证明：任何向量$\mathbf{a}$都有唯一的反向量$\mathbf{a}_{\text{反}}$，满足$\mathbf{a} + \mathbf{a}_{\text{反}} = \mathbf{0}$。\\
     \indent 4. 实数集是否是平直空间？有理数集、整数集呢？数轴上的区间是否是平直空间？\\
-    \indent 5. 给定正整数$n$，由次数为$n$的整式构成的集合是否是平直空间？\\
+    \indent 5. 给定正整数$n$，所有$n$次整式构成的集合是否是平直空间？\\
     \indent 6. 所有有理数列的集合$\mathbb{Q}^\mathbb{N}$是否是平直空间？\\
     \indent 7. 所有奇函数的集合是否是平直空间？所有偶函数的集合呢？\\
-    \indent 8. 所有有序数组$(a, b, c, d)$（其中元素为实数）的集合是否是平直空间？\\
-    \indent 9. 所有在区间$[0;1]$上连续的函数的集合是否是平直空间？所有有界函数的集合是否是平直空间？\\
-    \indent 10. 所有在区间$[0;1]$上$3$次可微的函数的集合是否是平直空间？\\
-    \indent 11. 平面中的直线是否是平直空间？立体空间中的平面是否是平直空间。
+    \indent 8. 所有在区间$[0;1]$上连续的函数的集合是否是平直空间？所有有界函数的集合是否是平直空间？\\
+    \indent 9. 所有在区间$[0;1]$上$3$次可微的函数的集合是否是平直空间？\\
+    \indent 10. 平面中的直线是否是平直空间？立体空间中的平面是否是平直空间。
 \end{xt}
 
 \section{子空间与和空间}
@@ -2205,11 +2214,11 @@ $$ a_0 f + a_1 \partial f + \cdots + a_n \partial^n f = 0. $$
 这就要由运算封闭的性质来保证。对子集中元素$\mathbf{u}$，
 零向量可以写成$\mathbf{u} - \mathbf{u}$，因此根据封闭性质，还在子集中。
 
-用这个方法，可以验证$\mathbb{Q}_n[x]$是$\mathbb{R}[x]$的子空间，
-如果正整数$n<m$，那么$\mathbb{Q}_n[x]$是$\mathbb{R}_m[x]$的子空间。
+用这个方法，可以验证$\mathbb{K}_n[x]$是$\mathbb{K}[x]$的子空间，
+如果正整数$n\leqslant m$，那么$\mathbb{K}_n[x]$是$\mathbb{K}_m[x]$的子空间。
 
-对于立体空间来说，过原点的平面是它的子空间，而过原点的直线是它的子空间，
-也是包含它的平面的子空间。可以证明：
+对于立体空间来说，过原点的平面是它的子空间，而过原点的直线既是它的子空间，
+也是包含该直线的平面的子空间。可以证明：
 
 \begin{tm}
     给定平直空间$\mathbb{V}$，$\mathbb{V}$的两个子空间的交集仍然是$\mathbb{V}$的子空间。
@@ -2252,6 +2261,21 @@ $\mathbb{U}_1 \cap \mathbb{U}_2 = \{\mathbf{0}\}$，就说$\mathbb{V}$
 $$\mathbb{V} = \mathbb{U}_1 \oplus \mathbb{U}_2.$$
 要注意的是，这里的$\oplus$只是记录两个子空间交集为$\{\mathbf{0}\}$的性质，并不是一种运算。
 
+平直空间还可以直接组成更大的空间。我们可以定义空间的直积：
+
+\begin{df}{\textbf{空间的直积}}
+    \mbox{} \\
+    两个平直空间$\mathbb{U}_1$、$\mathbb{U}_2$的\textbf{直积空间}$\mathbb{U}_1 \otimes \mathbb{U}_2$是：
+    $$ \mathbb{U}_1 \otimes \mathbb{U}_2 = \{ (\mathbf{u}_1, \, \mathbf{u}_2) \,|\, \mathbf{u}_1 \in \mathbb{U}_1,\,\,\, \mathbf{u}_2 \in \mathbb{U}_2\}.$$
+\end{df}
+
+直积来自我们用相交的两个坐标轴表示平面的做法。两个空间的直积，就是用这两个空间的向量做“坐标”的空间。新空间的向量是两个空间的向量组成的有序二元组。我们定义新空间向量的加法和数乘运算：
+\begin{align*}
+    (\mathbf{u}_1, \, \mathbf{u}_2) + (\mathbf{v}_1, \, \mathbf{v}_2) &= (\mathbf{u}_1 + \mathbf{v}_1, \, \mathbf{u}_2 + \mathbf{v}_2) \\
+    a \cdot (\mathbf{u}_1, \, \mathbf{u}_2) &= (a\cdot \mathbf{u}_1, \, a \cdot \mathbf{u}_2) 
+\end{align*}
+不难验证，新空间关于新运算是平直空间。
+
 \begin{sk}
     \mbox{} \\
     \indent 1. 子空间的交集、和空间，与子集的交集、并集有什么相似之处？有没有类似空集的概念？\\
@@ -2261,7 +2285,7 @@ $$\mathbb{V} = \mathbb{U}_1 \oplus \mathbb{U}_2.$$
 
 \begin{xt}
     \mbox{} \\
-    \indent 1. 给出以下平直空间的（非平凡的）子空间的例子。\\
+    \indent 1. 给出以下平直空间的（非平凡的）子空间的例子。
     $$
     \begin{array}{ll}
         1. \quad \mathbb{R}_3[x] & \qquad 2. \quad \{f: \mathbb{R} \rightarrow \mathbb{R} \, | f(0) = 0, \,\,\, f(1) = 0\} \\
@@ -2274,19 +2298,32 @@ $$\mathbb{V} = \mathbb{U}_1 \oplus \mathbb{U}_2.$$
     \indent 4. 证明：如果$\mathbb{U}_1$、$\mathbb{U}_2$是$\mathbb{V}$的子空间，
     那么$\mathbb{U}_1 + \mathbb{U}_2$是$\mathbb{V}$的子空间。\\
     \indent 5. 证明：$\mathbb{V}$平直空间能写成两个子空间$\mathbb{U}_1$、$\mathbb{U}_2$的直和，
-    当且仅当$\mathbb{V}$中任意元素都能以唯一的方式写成$\mathbb{U}_1$中元素与$\mathbb{U}_2$中元素的和。
+    当且仅当$\mathbb{V}$中任意元素都能以唯一的方式写成$\mathbb{U}_1$中元素与$\mathbb{U}_2$中元素的和。\\
+    \indent 6. 验证：两个平直空间的直积是平直空间。\\
+    \indent 7. 考虑直积空间$\mathbb{V}_1 = \mathbb{R}^2\otimes \mathbb{R}^2$和$\mathbb{V}_2 = \mathbb{R}\otimes \mathbb{R}\otimes \mathbb{R}\otimes \mathbb{R}$。\\
+    \indent 7.1. $\mathbb{V}_1$和$\mathbb{V}_2$的元素是什么样的？各自写出三个例子。\\
+    \indent 7.2. 证明如下定义的映射$g$是双射：
+    \begin{align*}
+        g:\quad \qquad \mathbb{V}_1 \qquad &\rightarrow \quad \mathbb{V}_2 \\
+        ((a,b), \,\, (c,d)) &\mapsto (a, \,b, \,c, \,d)
+    \end{align*}
+    \indent 7.3. 证明：对$\mathbb{V}_1$中任意元素$\mathbf{u}_1$和$\mathbf{u}_2$，以及任意实数$s, t$，都有：
+    \begin{align*}
+        g(s\cdot \mathbf{u}_1 + t\cdot \mathbf{u}_2) = s\cdot g(\mathbf{u}_1) + t\cdot g(\mathbf{u}_2).
+    \end{align*}
+    \indent 7.4. 综合以上结论，你如何总结$\mathbb{V}_1$和$\mathbb{V}_2$之间的关系？\\
 \end{xt}
 
 \section{生成空间}
 以上的章节中，我们已经认识到，平直空间是一种特殊的集合。给定集合，我们可以将它补充成平直空间。
 \begin{df}{\textbf{生成空间}}
     给定系数域为$\mathbb{K}$的平直空间$\mathbb{V}$的子集$A$，它的\textbf{生成空间}是\footnote{如果没有强调$A$是哪个平直空间的子集，一般来说，要约定系数域$\mathbb{K}$。我们约定：如果没有强调，系数域一般是实数集$\mathbb{R}$。}：
-    $$ \vect{A} = \left\{\left. \sum_{i=1}^n a_i \mathbf{u}_i \, \right| \, n\in\mathbb{Z}^+, \,\,\, \forall 1\leqslant i \leqslant n \,\,\, a_i \in \mathbb{K}, \,\,\, \mathbf{u}_i \in \mathbb{V} \, \right\} $$
+    $$ \vect{A} = \left\{\left. \sum_{i=1}^n a_i \mathbf{u}_i \, \right| \, n\in\mathbb{Z}^+, \,\,\, \forall 1\leqslant i \leqslant n \,\,\, a_i \in \mathbb{K}, \,\,\, \mathbf{u}_i \in A\, \right\} $$
     即考虑集合中有限个元素的直组合，所有这样的直组合的集合就是它的生成空间。
     
-    反之，如果某个集合$A$的生成空间是平直空间$\mathbb{U}$，就说$A$是$\mathbb{U}$的\textbf{生成集}。
+    反之，如果集合$A$的生成空间是平直空间$\mathbb{U}$，就说$A$是$\mathbb{U}$的\textbf{生成集}。
 
-    约定空集的生成空间是平凡空间$\{\mathbf{0}\}$。
+    约定空集$\varnothing$的生成空间是平凡空间$\{\mathbf{0}\}$。
 \end{df}
 
 显然，集合$A$的生成空间是它的母集。
@@ -2297,7 +2334,7 @@ $$\mathbb{V} = \mathbb{U}_1 \oplus \mathbb{U}_2.$$
 
 作为推论，不难得出：平直空间的生成空间就是自己。
 
-根据定义可以给定集合$A$、$B$，那么：
+给定集合$A$、$B$，那么根据定义可以推断：
 \begin{itemize}
     \item 如果$A\subset B$，那么$\vect{A}$是$\vect{B}$的子空间。
     \item $\vect{A\cap B}$是$\vect{A}\cap\vect{B}$的子空间。
@@ -2308,16 +2345,16 @@ $$\mathbb{V} = \mathbb{U}_1 \oplus \mathbb{U}_2.$$
 因此，我们可以定义“允许元素重复的集合”：
 \begin{df}{\textbf{族}}
     \mbox{} \\
-    设$A$为集合，在$A$中可重复地抽取元素，放在一起，称为\textbf{族}。族可以是有序的。
+    从集合$A$中可重复地抽取元素，放在一起，称为\textbf{族}。族可以是有序的。
 \end{df}
 我们可以把生成空间的概念扩大到向量族的生成空间。
 这样定义的生成空间也有以上提到的基本性质。
 
 如果某个平直空间能通过有限个向量生成，就说它是\textbf{有限生成空间}。
 比如，$\mathbb{R}_3[x]$就是有限生成空间，因为每个向量都是$\{1, x, x^2, x^3\}$的直组合。
-可以验证
+可以验证：
 $$\mathbb{R}_3[x] = \vect{\{1, x, x^2, x^3\}}.$$
-而$\mathbb{R}[x]$就不是有限生成空间。考虑$\mathbb{R}[x]$中$n$个元素，设它们之中最高的次数是$m$，
+而$\mathbb{R}[x]$就不是有限生成空间。考虑$\mathbb{R}[x]$中任何有限个元素，设它们之中最高的次数是$m$，
 那么它们的直组合的次数不会超过$m$，因此无法生成次数大于$m$的整式。
 
 平面和立体空间的基本定理说明，它们都是有限生成空间。
@@ -2371,7 +2408,7 @@ $\mathbb{R}_3[x]$的一个基底是$(1, x, x^2, x^3)$。
 一般来说，$(1, x, \cdots, x^n)$是$\mathbb{R}_n[x]$的基底。
 
 和平面、立体空间一样，平直空间的基底也满足：
-\begin{tm}{\textbf{向量的唯一分解}}\label{tm:4-3-20}
+\begin{tm}{\textbf{向量的唯一分解}}\label{tm:4-3-20}\\
     $ \mathcal{B} = (\mathbf{e}_1, \mathbf{e}_2, \cdots , \mathbf{e}_n )$是平直空间$\mathbb{V}$的一组基，
     当且仅当空间中每个元素$\mathbf{u}$都能以唯一的方式写成
     $$ \mathbf{u} = a_1\mathbf{e}_1 +a_2 \mathbf{e}_2 + \cdots + a_n\mathbf{e}_n, \,\,\, a_1,\,a_2,\,\cdots,\, a_n \,\in\,\mathbb{F}.$$
@@ -2438,6 +2475,19 @@ $$ (3,1) = 3\cdot(1,0) + 0.25\cdot(0,4).$$
 如果我们把空间的和比作集合的并，把空间的交比作集合的交，把空间的维数比作集合的元素个数，
 则这个关系和有穷集合的关系是一致的。
 
+$n$维的空间具体长什么样子呢？考虑到我们把平面上的点写作$(x, y)$，把立体空间中的点写作$(x, y, z)$，我们猜想：数域$\mathbb{K}$上的$n$维空间大概可以用$n$元有序数组表示。考虑$n$维空间$\mathbb{V}$的基底$(\mathbf{e}_1, \mathbf{e}_2, \cdots, \mathbf{e}_n)$，根据基底的定义，空间中任何向量都能以唯一方式写成基向量的直组合：
+$$ \forall \mathbf{u} \in \mathbb{V}, \quad \mathbf{u} = a_1\mathbf{e}_1 + \cdots + a_n \mathbf{e}_n. $$
+其中的$a_1, \cdots , a_n$是唯一取决于$\mathbf{u}$的$n$个数。因此，我们可以用有序数组$(a_1, \cdots , a_n)$唯一表示$\mathbf{u}$。换句话说，给定基底时，所有$n$元有序数组的集合$\mathbb{K}^n$能够表示$\mathbb{V}$。
+
+考虑映射：
+\begin{align*}
+    h:\quad \qquad \mathbb{K}^n\qquad &\rightarrow \qquad \mathbb{V} \\
+    (x_1, x_2, \cdots , x_n) &\mapsto x_1\cdot \mathbf{e}_1 + x_2\cdot \mathbf{e}_2 + \cdots + x_n\cdot \mathbf{e}_n
+\end{align*}
+基底的性质告诉我们$h$是双射。此外，$h$满足：
+$$ \forall s, t \in \mathbb{K}, \; \mathbf{u}, \mathbf{v}\in \mathbb{K}^n, \quad s\cdot h(\mathbf{u}) + t\cdot h(\mathbf{v}) = h(s\cdot \mathbf{u} + t\cdot \mathbf{v}). $$
+这个关系式告诉我们，通过映射$h$，$\mathbb{K}^n$中对向量的操作，就可以变成$\mathbb{V}$中的同样操作；反之亦然。这说明两者作为平直空间，本质上是一样的。我们说这两个空间是\textbf{同构}的，$h$叫做平直空间之间的\textbf{同构映射}或\textbf{直同构}。
+
 \begin{sk}
     \mbox{} \\
     \indent 1. 能否把$\mathbb{R}$看作系数域为$\mathbb{Q}$的平直空间？它是否是有限维空间？\\
@@ -2453,6 +2503,7 @@ $$ (3,1) = 3\cdot(1,0) + 0.25\cdot(0,4).$$
     \indent 1.4. 有限维空间的直无关向量族的元素个数等于空间的维数，则直无关向量族是空间的基底。\\
     \indent 2. 给出$\{(x,\,\,y,\,\,z)\in\mathbb{R}^3 \, | \, x + 2y + z = 0 \}$的一个补空间。\\
     \indent 3. 请把$(1,\,\,1, \,\,1)$、$(0,\,\, -1, \,\,1)$扩充为$\mathbb{R}^3$的基底。\\
+    \indent 4. 验证本节提到的$\mathbb{K}^n$到$\mathbb{V}$的映射$h$的性质。\\
     \indent 5. 设$S_2$为满足方程$\partial^2 f + f = 0$的实变函数的集合。\\
     \indent 5.1. 证明：如果$f,g\in S_2$满足$f(0) = g(0)$，$\partial f(0) = \partial g(0)$，那么$f = g$。\\
     \indent 5.2. 分别找出$S_2$中满足$f(0) = 0, \,\,\, \partial f(0) = 1$以及$f(0) = 1, \,\,\, \partial f(0) = 0$的函数$f_1$、$f_2$。\\
@@ -3053,6 +3104,8 @@ $$\int_a^b (-f) = -\int_a^b f. $$
 
 积合不仅定义了函数曲线的面积，也定义了区间的长度。只要令函数$f$为常函数$x\mapsto 1$，
 那么$f$在区间上的积合就是区间的长度。换句话说，面积和长度，都是不可数个数在适宜定义下的和。
+
+积合怎样反映了函数到$x$轴的面积呢？具体的构造，参见附录$A$。
 
 \begin{sk}
     \mbox{} \\
@@ -4112,13 +4165,12 @@ $P_n$的各项互不相干扰，而加起来，就模拟了$f$在$a$处的各次
 
 \section{构造积合}
 
-我们把连续函数在闭区间上的积合定义为函数曲线到$x$轴的面积。这个说法并不严谨。
-严格来说，给定闭区间和在区间上的函数，积合将其映射到一个数。
-这个数就是函数在闭区间上的积合。
-这样的映射是否一定存在呢？
-能不能用我们已经知道的知识和方法，构造出这个面积呢？
+我们把连续函数在闭区间上的积合定义为函数曲线到$x$轴的面积。
+严格来说，给定闭区间和在区间上的函数，积合将其映射到一个数，这个数就是函数在闭区间上的积合。
+这样的映射是否一定存在呢？能不能用我们已经知道的知识和方法，构造出这个面积呢？
 
-如果函数是常函数，或者可以分成几段，每段都是常函数的情形下，我们把它映射到一个矩形的面积，或多个矩形的面积之和。
+如果函数是常函数，那么我们可以把它的积合定义为一个矩形的面积。
+如果函数可以分成几段，每段都是常函数，我们可以把它的积合定义为若干个矩形的面积之和。
 从这个方法出发，对一般的函数，我们也希望用一系列的矩形来近似表示“函数曲线到$x$轴的面积”。
 
 \begin{figure}[h] %this figure will be at the right
@@ -4135,7 +4187,7 @@ $P_n$的各项互不相干扰，而加起来，就模拟了$f$在$a$处的各次
     我们用数列$(x_0, x_1, \cdots, x_n)$表示这个分割。
 
     如果区间的分割有$n$个子区间，就说它是区间的$\boldsymbol{n}$\textbf{阶分割}。
-    如果区间的分割使得所有子区间长度都不超过某个数$d$，就说它是区间的$\boldsymbol{d}$\textbf{\,–\,分割}。
+    如果区间的分割使得所有子区间长度都不超过某个数$d$，就说它是区间的$\boldsymbol{d}$\textbf{\dash 分割}。
 
     设$f$是定义在$I$上的函数。给定区间的某个分割，
     在该分割的各个子区间中取样$c_i\in [x_{i-1}; x_{i}]$，其函数值$f(c_i)$与区间长度的乘积的总和：
@@ -4207,14 +4259,14 @@ $S^{\text{上}}$的下确界大于等于$S^{\text{下}}$的上确界。
 
 \begin{tm}\label{tm:c-1-10}
     设函数$f$在闭区间$[a; b]$上连续。对任何$r>0$，都可以找到$d>0$，
-    使得$f$关于区间的所有$d$\,–\,分割的上下限和之差都小于$r$。
+    使得$f$关于区间的所有$d$\dash 分割的上下限和之差都小于$r$。
 \end{tm}
 
 \begin{proof}
     函数$f$在闭区间$[a; b]$上连续，因此一致连续。也就是说，对任意正数$r$，
     可以找到$d>0$，只要区间中两点$x,y$距离小于等于$d$，就有：
     $$ |f(x) - f(y)| < \frac{r}{b - a}. $$
-    对任何的$d$\,–\,分割，按照定义，其任一子区间内两点距离小于等于$d$，因此该子区间的最大值和最小值之差小于$\frac{r}{b - a}$。
+    对任何的$d$\dash 分割，按照定义，其任一子区间内两点距离小于等于$d$，因此该子区间的最大值和最小值之差小于$\frac{r}{b - a}$。
     
     把各个子区间上的最大值和最小值之差乘以子区间长度再加起来，
     就是上限和与下限和之差。也就是说：

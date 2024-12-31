@@ -2475,6 +2475,32 @@ $$\mathbb{P}(B \, | \, A) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(A)} = \frac{\
 $$\mathbb{P}(A_1\cap A_2\cap \cdots \cap A_n) = \mathbb{P}(A_1) \mathbb{P}(A_2) \cdots \mathbb{P}(A_n),$$
 就说它们相互独立。
 
+\begin{et}
+    一共有$1000$个灯泡，其中有$k$个次品。从中随机抽取$10$个检验，发现有$3$个次品。$k$最有可能是多少？
+\end{et}
+
+\begin{so}
+    记事件“$10$个抽检灯泡里有$3$个次品”为$Y$。把不同的$k$作为条件，求出条件下发生事件$Y$的概率，然后比较找出使得条件概率最大的$k$。
+
+    设$1000$个灯泡中有$k$个次品，那么事件$Y$的条件概率是：
+    \begin{align*}
+        \mathbb{P}(Y \,|\, k ) = \frac{\mathrm{C}_{k}^3 \cdot \mathrm{C}_{1000-k}^7}{\mathrm{C}_{1000}^{10}} = \frac{\frac{k!}{3!(k-3)!}\cdot \frac{(1000-k)!}{7!(993-k)!}}{\frac{1000!}{990!\cdot 10!}} = \frac{10!\cdot 990!}{3!\cdot 7!\cdot 1000!}\cdot \frac{k! (1000-k)!}{(k-3)!(993-k)!}
+    \end{align*}
+
+    比较$\mathbb{P}(Y \,|\, k )$和$\mathbb{P}(Y \,|\, k+1 )$的大小，可以发现两者比值为：
+    \begin{align*}
+        \frac{\mathbb{P}(Y \,|\, k )}{\mathbb{P}(Y \,|\, k + 1 )}= \frac{\frac{k! (1000-k)!}{(k-3)!(993-k)!}}{\frac{(k+1)! (999-k)!}{(k-2)!(992-k)!}} = \frac{(k - 2)(1000 - k)}{(k + 1)(993 - k)}
+    \end{align*}
+    可以看到，$k$很小（比如$k=3$）的时候，比值小于$1$；$k$很大（比如$k=992$）的时候，比值大于$1$。实际上，
+    \begin{align*}
+        \frac{(k - 2)(1000 - k)}{(k + 1)(993 - k)} - 1 &= \frac{10k -2993}{(k + 1)(993 - k)}
+    \end{align*}
+    因此$k<300$时比值小于$1$，而$k\geqslant 300$时比值大于$1$。
+    这说明概率$\mathbb{P}(Y \,|\, k )$从$k$很小的时候开始不断增大，至$k=300$时达到最大值，而从$k=301$起逐渐减小。
+
+    因此，$k$最有可能是$300$。
+\end{so}
+
 \begin{xt}
     \mbox{} \\
     \indent 1. 证明：$\mathbb{P}(A \, | \, B) + \mathbb{P}(A^c \, | \, B) = 1$。 \\

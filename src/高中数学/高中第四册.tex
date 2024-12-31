@@ -40,22 +40,22 @@
 \setlength{\fboxsep}{12pt}
 \renewcommand\thesection{\arabic{chapter}.\arabic{section}}
 \newcommand{\arccot}{\operatorname{arccot}}
-\newcommand{\dlim}[1]{^{\color{gray}\prime}#1}
+\newcommand{\dlim}[1]{^{\color{gray}\prime}#1}  % 大数分节号
 \newcommand{\lian}[1]{
     \underset{#1}{\operatorname{lian}\,}
 }
 \newcommand{\e}{\mathrm{e}}
-\renewcommand{\d}{\partial}
-\newcommand{\tong}[1]{\overset{#1}{\equiv\joinrel\equiv}}
-\newcommand{\di}[1]{\,\mathrm{d}#1}
-\newcommand{\qu}[2]{\displaystyle\left(#1;#2\right)}
+\newcommand{\dash}{\,–\,}
+\newcommand{\tong}[1]{\overset{#1}{\equiv\joinrel\equiv}}  % 同余等号
+\newcommand{\di}[1]{\,\mathrm{d}#1}  % 微元d
+\newcommand{\qu}[2]{\displaystyle\left(#1;#2\right)}  % 开区间
 % developpements limites
-\newcommand{\oveq}[1]{\overset{#1}{=}} 
+\newcommand{\oveq}[1]{\overset{#1}{=}}   % equal over
 \newcommand{\olim}[1]{\mathit{o}\left(#1\right)}  % petit o
 \newcommand{\Olim}[1]{\mathcal{O}\left(#1\right)}  % grand O
 \newcommand{\Tlim}[1]{\mathcal{\Theta}\left(#1\right)}  % grand theta
 \newcommand{\eqlim}[1]{\overset{#1}{\sim}}  % equivalence
-\newcommand{\vect}[1]{\left\langle #1 \right\rangle}
+\newcommand{\vect}[1]{\left\langle #1 \right\rangle}  % generated space
 
 
 \theoremstyle{definition}
@@ -407,8 +407,8 @@ $$
 和我们已经学习过的大多数数学概念一样，积合也来自实际生活、生产中的需要。使用积合作为工具，可以解决许多实践中的问题。
 下面我们来看一些典型的例子。
 
-\begin{et}
-    计算曲线图形的面积。\\
+\begin{et}{\textbf{曲边图形的面积}}\\
+    计算以下曲线图形的面积。\\
     \indent 1. 正弦函数$x\mapsto \sin{x}$在$[0;\pi]$上到$x$轴的面积。 \\
     \indent 2. 幂函数$x\mapsto x^n$在$[0;1]$上到$x$轴的面积。\\
     \indent 3. 二次函数$x \mapsto \frac{4x^2}{\pi^2}$与正弦函数围成的图形的面积。
@@ -437,6 +437,140 @@ $$
         &= 1 - \frac{\pi}{6}
     \end{align*}
 \end{so}
+
+要注意的是，积合表示的是函数曲线到$x$轴的有向面积。如果一个函数在定义区间上有正有负，
+那么它在区间上的积合表示它在$x$轴上方部分的面积减去$x$轴下方部分的面积的差。反之，如果我们不考虑面积的正负，
+那么我们需要计算函数绝对值的积合。
+
+积合不但能表示平面上曲边图形的面积，还能用来处理立体空间中的概念。
+
+\begin{et}{\textbf{旋转体的体积}}\\
+    立体空间$Oxyz$中，设有$xOy$平面上的连续函数曲线：$y = f(x)$，它在区间$[a;b]$上的部分绕$x$轴旋转，计算得到的旋转体的体积。
+    以此计算圆锥和球的体积。
+\end{et}
+
+\begin{so}
+    为方便起见，我们首先考虑函数$f$在区间$[a;b]$上不小于$0$的情况。
+
+    考虑$f$为常函数$x\mapsto r$的情况，这时的旋转体是底面半径为$r$的圆柱，因此体积为$\pi r^2 (b - a)$。因此，仿造从函数曲线到$x$轴的面积来定义积合的方法，
+    我们可以定义$[a,b]$上的连续函数曲线对应的旋转体体积。与通过函数曲线到$x$轴的面积构造积合的唯一不同是，
+    常函数$x\mapsto r$不再对应矩形面积$r(b - a)$，而是对应圆柱体积$\pi r^2 (b - a)$。
+    
+    对区间作分割$(x_0, x_1, \cdots, x_n)$，分割出的每个小区间$[x_{i-1};x_i]$上取样$c_i$，用半径为$c_i$，
+    高为$x_i - x_{i-1}$圆柱近似表示旋转体在$[x_{i-1};x_i]$部分的体积，于是旋转体的体积近似表示为：
+    $$ \sum_{i=1}^n (x_i - x_{i-1}) \pi f^2(c_i) $$
+
+    从另一个角度来看，如果我们考虑函数$g: x\mapsto \pi f^2(x)$，那么同样的分割下，旋转体的体积近似等于$g$的取样和。
+    因此，当分割越来越精细，上述取样和趋于$g$的函数曲线到$x$轴的面积，也就是旋转体的体积。
+    换句话说，$[a;b]$上的连续函数$f$的曲线绕$x$轴旋转得到的旋转体的体积，就是$\pi f^2$在$[a;b]$上的积合：
+    $$ V = \int_a^b \pi f^2(x) = \pi \int_a^b f^2(x). $$
+
+    如果函数$f$在区间上有正有负，那么可以考虑它的绝对值函数$x\mapsto |f(x)|$。它绕$x$轴旋转得到的旋转体和$f$是一样的。
+    因此，旋转体的体积是$ \pi \int_a^b |f(x)|^2$，也就是$ \pi \int_a^b f^2(x)$。
+    这说明上述公式对区间$[a;b]$上的任何连续函数都适用。
+
+    以圆锥为例。考虑以$x = h$上的圆$y^2 + z^2 = r$为底，以$y = \frac{rx}{h}$为母线的圆锥。这时的函数为$x\mapsto \frac{rx}{h}$，
+    所以按上述公式，圆锥体积为：
+    $$ V = \int_0^h \pi \frac{r^2x^2}{h^2} = \frac{\pi r^2}{h^2}\cdot \frac{h^3 - 0^3}{3} = \frac{\pi r^2h}{3}. $$
+
+    再来看球体。考虑以原点为圆心，半径为$r$的球。它可以看作$[-r;r]$上的函数$x\mapsto \sqrt{r^2 - x^2}$对应的旋转体的体积。
+    所以按上述公式，球的体积为：
+    \begin{align*}
+        V &= \int_{-r}^r \pi \left(\sqrt{r^2 - x^2}\right)^2 = \pi \int_{-r}^r \left(r^2 - x^2\right) \\
+        &= \pi \left(r^2(r - (-r)) - \frac{r^3 - (-r)^3}{3}\right) = \pi \left(2r^3 - \frac{2r^3}{3}\right) \\
+        &= \frac{4\pi r^3}{3}.
+    \end{align*}
+\end{so}
+
+同样的思考方式，可以用来计算曲线的长度。我们曾经（不严谨地）定义曲线长度为曲线上的点连成的折线长度的上极限。
+使用积合的概念可以更好地理解和计算曲线的长度。
+
+\begin{et}{\textbf{光滑曲线的长度}}\\
+    设实函数$f$在区间$[a;b]$上连续可微，计算它在$[a;b]$上的长度。
+    并据此计算$x\mapsto x^2$在区间$[0;1]$上的长度。    
+\end{et}
+
+\begin{so}
+    考虑$f$在区间上的某个分割$(x_0, x_1, \cdots, x_n)$，在分割很细的时候，
+    我们可以近似地把每一段上的曲线看作连接两端得到的线段，因此曲线近似于一条折线。
+    这些折线的长度和小于曲线长度。但我们可以想象，随着分割越来越精细，折线的长度和将趋于某个上极限，这个极限就是曲线的长度。
+
+    然而，这个上极限不总是存在。对我们所知的一些曲线，比如圆弧来说，上极限存在。
+    但也有一些曲线，当我们以某种方式分割时，随着分割越来越精细，折线的长度和将趋于正无穷。
+    我们无法给这种曲线定义长度，一般认为它们无限长。上极限存在的曲线称为\textbf{可求长曲线}。
+
+    对连续可微函数来说，我们可以证明上述的上极限存在。函数$f$连续可微，因此在区间$[x_{i-1};x_i]$上，
+    折线的长度$s_i$可以用$\partial f$来近似表示：
+    \begin{align*}
+        s_i^2 &= (x_i - x_{i-1})^2 + (f(x_i) - f(x_{i-1}))^2 = (x_i - x_{i-1})^2\left( 1 + \left(\frac{f(x_i) - f(x_{i-1})}{x_i - x_{i-1}}\right)^2\right) \\
+        s_i &= (x_i - x_{i-1})\sqrt{1 + \left(\frac{f(x_i) - f(x_{i-1})}{x_i - x_{i-1}}\right)^2} \\
+        &= (x_i - x_{i-1})\sqrt{1 + \left(\partial f(x_{i-1}) + \olim{1}\right)^2}\\
+        &= (x_i - x_{i-1})\sqrt{1 + \partial f^2(x_{i-1}) + \olim{1}}\\
+        &= (x_i - x_{i-1})\left(\sqrt{1 + \partial f^2(x_{i-1})} + \olim{1}\right)
+    \end{align*}
+    其中的无穷小$\olim{1}$是关于$x_i - x_{i-1}$的函数，当$x_i - x_{i-1}$趋于$0$时趋于$0$。
+
+    对$h$\dash 分割来说，按照定义，所有小区间的长度都小于$h$，因此，$h$趋于$0$时，所有的$x_i - x_{i-1}$都趋于$0$，因此以上的$\olim{1}$都趋于$0$。
+    因此$h$趋于$0$时，$h$\dash 分割下所有折线的长度和为：
+    \begin{align*}
+        l &= \sum_{i=0}^{n-1} s_i = \sum_{i=1}^{n} (x_{i+1} - x_{i})\left(\sqrt{1 + \partial f^2(x_{i-1})} + \olim{1}\right) \\
+        &= \sum_{i=1}^{n} (x_{i+1} - x_{i})\sqrt{1 + \partial f^2(x_{i-1})} + \sum_{i=1}^{n} (x_{i+1} - x_{i})\olim{1} \\
+        &= \sum_{i=1}^{n} (x_{i+1} - x_{i})\sqrt{1 + \partial f^2(x_{i-1})} + (b - a)\olim{1} \\
+        &= \sum_{i=1}^{n} (x_{i+1} - x_{i})\sqrt{1 + \partial f^2(x_{i-1})} + \olim{1}
+    \end{align*}
+    我们把$l$拆成了两项的和。当分割不断变得更精细，$h$趋于$0$时，第二项$\olim{1}$趋于$0$，
+    而第一项则与函数$g: \;x\mapsto \sqrt{1 + \partial f^2(x) }$的取样和一样。
+    这说明：如果$g$在区间上可积，那么折线长度和$l$就趋于它的积合：
+    $$ \int_a^b \sqrt{1 + \partial f^2(x) }. $$
+    由于我们设定$f$连续可微，因而$\partial f$与$x\mapsto \sqrt{1 + x^2}$都是连续函数，
+    故它们的复合函数$g$也是连续函数，因此可积。于是以上积合存在，并且是折线长度和$l$的极限。
+    我们称它为连续可微函数$f$在$[a;b]$上的长度。以$x\mapsto x^2$为例，可以计算它在$[0;1]$上的长度。 
+    \begin{align*}
+        l &= \int_0^1 \sqrt{1 + (2x)^2 } = \int_0^1 \sqrt{1 + 4x^2 } \\
+        &= \frac{1\cdot \sqrt{1 + 4\cdot 1^2} - 0\cdot \sqrt{1 + 4\cdot 0^2}}{2} + \frac{1}{4}\left( \ln{\left(1 + \frac{\sqrt{1 + 4\cdot 1^2}}{2}\right)} -  \ln{\left(0 + \frac{\sqrt{1 + 4\cdot 0^2}}{2}\right)}\right) \\
+        &= \frac{\sqrt{5}}{2} + \frac{\ln{\left(2 + \sqrt{5}\right)}}{4}.
+    \end{align*}
+
+\end{so}
+
+从以上的例子来看，科学研究和生产实践中，如果我们想使用积合作为工具，计算某个量$Q$在一段区间$[a;b]$上的和，而$Q$满足以下条件：
+\begin{enumerate}
+    \item $Q$是由区间的起点和终点决定的量：它在任意区间$[u;v]$上的值可以表示为$Q(u,\, v)$。
+    \item $Q$在区间$I$上可加，也就是说，只要$u < v < w \in I$，就有：
+            $$ Q(u, v) + Q(v, w) = Q(u, w).$$
+\end{enumerate}
+那么，可以用类似的方法来处理：
+\begin{enumerate}
+    \item 确定$Q$所对应的某个函数$g$，使得在任意区间$[u;u + \di{u}]$上有：
+    $$Q(u, \, u + \di{u}) = g(t)\di{u} + \olim{\di{u}},$$
+    其中$t\in [u;u+ \di{u}]$是某种取样结果\footnote{实际上$g$也可以是关于$u$、$v$或$\di{u}$的函数。}，$\olim{\di{u}}$是$\di{u}$在$0$处的高阶无穷小。
+    \item 对任意$h$\dash 分割$(x_0, x_1, \cdots, x_n)$，论证取样和
+    $$Q(a, b) = \sum_{i=1}^n Q(x_{i-1},\, x_i)$$
+    可以写为：
+    $$Q(a, b) = \sum_{i=1}^n g(t_i)(x_i - x_{i-1}) + \olim{1},$$
+    其中$\olim{1}$是$h$在$0$处的无穷小。
+    \item 论证$g$在$I$上可积。从而随着分割不断精细，以上取样和趋于$g$在区间$I$上的积分。因此$Q(a, b)$的值就等于$g$在区间$I$上的积分。
+\end{enumerate}
+这种方法源自历史上对随着时间或路径变化的物理量的累积效果的研究，称为\textbf{微积分法}或\textbf{微元法}。
+历史上，通常把在微小区间中找到函数$g$和近似关系$Q(u,u + \di{u}) \approx g(t)\di{u}$的过程称为\textbf{微分}，
+把微小区间$[u;u+\di{u}]$上的累积量$\di{Q} = Q(u, u + \di{u}) \approx g(t)\di{u}$称为\textbf{微元}，
+把随后论证取样和关系的过程称为\textbf{积分}。总的过程可以概括为“求微元，先微分，后积分”。
+
+% 《微元法的一个理解与思考》梁东颖,晁绵涛, 应用数学进展, 2023, 12(5), 2187-2192 DOI: 10.12677/aam.2023.125223
+% https://www.hanspub.org/journal/aam https://doi.org/10.12677/aam.2023.125223
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 证明以下的体积公式。\\
+    \indent 1.1. 椭圆$\displaystyle\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$绕$x$轴旋转得到的旋转体的体积为：
+    $$ V = \frac{4\pi}{3} ab^2. $$
+    \indent 1.2. 圆$x^2 + (y - b)^2 = a^2$绕$x$轴旋转得到的旋转体的体积为：
+    $$ V = 2\pi^2 a^2 b. $$
+    \indent 2. 计算以下旋转体的体积。\\
+    \indent 2.1. 将直线$\frac{x}{3} + y = 2$与$x$轴、$y$轴围成的三角形绕$x$轴旋转，得到的旋转体的体积。\\
+    \indent 2.2. 曲线$y^2 = x$与直线$x=4$围成的图形绕$x$轴旋转，得到的旋转体的体积。\\
+    \indent 2.3. 曲线$y = \cos{x}$在$\displaystyle\left[-\frac{\pi}{2};\frac{\pi}{2}\right]$上的曲线绕$x$轴旋转得到的旋转体的体积。
+\end{xt}
 
 
 \chapter{方程与空间}
@@ -594,7 +728,7 @@ $$ P = (x - r_1) P_1$$
 也就是说，$P$可以写成
 $$ P = a_n (x - r_1)(x - r_2)\cdots (x - r_n).$$
 这说明：$n$次整式至多有$n$个根。上式的$n$个根里，某些根可能是同一个数，称为\textbf{重根}。比如，如果$r_1 = r_2$，
-但不等于其他的根，就说$P$有$2$\,–\,重根$r_1$，$r_1$的\textbf{重数}是$2$。如果$n$个根各不相同，就说$P$（的根）是\textbf{散的}，是\textbf{散根整式}。
+但不等于其他的根，就说$P$有$2$\dash 重根$r_1$，$r_1$的\textbf{重数}是$2$。如果$n$个根各不相同，就说$P$（的根）是\textbf{散的}，是\textbf{散根整式}。
 
 描述整式方程的根时，我们应该说明是否计入重根。比如，我们说一元二次方程总有两个根，这时是计入重根的。
 又比如，我们说$x^5 = 0$只有一个根，这时不计重根。
@@ -3039,6 +3173,18 @@ $$ \ln{(z_1 \cdot z_2)} \tong{2\pi} \ln{z_1} + \ln{z_2} . $$
 % \begin{xt}
 %     \mbox{} \\
 % \end{xt}
+
+\section{空间中的直变换}
+
+\section{旋转变换}
+
+\section{投影变换}
+
+\section{反射变换}
+
+\section{空间的基变换}
+
+\section{相似矩阵和对角矩阵}
 
 \begin{appendix}
 

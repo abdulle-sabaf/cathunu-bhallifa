@@ -25,6 +25,7 @@
 \usepackage{pifont}
 \usepackage[b]{esvect}
 \usepackage[perpage,symbol*]{footmisc}
+\usetikzlibrary{bending}
 \DefineFNsymbols{circled}{{\ding{192}}{\ding{193}}{\ding{194}}
 {\ding{195}}{\ding{196}}{\ding{197}}{\ding{198}}{\ding{199}}{\ding{200}}{\ding{201}}}
 \setfnsymbol{circled}
@@ -60,6 +61,16 @@
         \tikz[baseline] \draw (0,.1ex) -- (.4em,.1ex) -- (.4em,1.5ex) -- (0em,1.5ex) -- cycle;}
     }
 }
+\newcommand{\tr}{%
+    \mathord{
+        \begin{tikzpicture}[baseline=-0.2em, line width=0.3pt]
+        \draw (-0.15em, 0.15em) -- (0.06em, -0.06em);
+        \draw (45:0.15em) arc[start angle=45, end angle=225, radius=0.15em];
+    \end{tikzpicture}
+    }
+}
+% \text{%
+%         \tikz[baseline] \draw (0.2ex,0.1ex) arc[start angle=225, end angle=45, x radius=0.7ex, y radius=0.7ex];\tikz \draw (-2em,1ex) -- (1ex - 2em, 0) ;}
 
 \theoremstyle{definition}
 \newtheorem{df}{定义}[section] 
@@ -469,7 +480,7 @@ $$ \| \mathbf{u} \| = \sqrt{\nji{\mathbf{u}}{\mathbf{u}}}.$$
 
 一般来说，我们可以给任何平直空间配备内积：
 \begin{df}{\textbf{内积空间}}
-    设有系数为数域$\mathbb{K}$（如有理数或实数）上的平直空间$\mathbb{V}$及映射：
+    设有$\mathbb{R}$上的平直空间$\mathbb{V}$及映射：
     \begin{align*}
         \mathbb{V}\times \mathbb{V} \;&\rightarrow \;\mathbb{R} \\
         (\mathbf{u}, \mathbf{v}) \;&\mapsto \; \nji{\mathbf{u}}{\mathbf{v}}
@@ -481,25 +492,73 @@ $$ \| \mathbf{u} \| = \sqrt{\nji{\mathbf{u}}{\mathbf{u}}}.$$
         \item $\forall \, s, t \in \mathbb{K}, \; \mathbf{u}, \mathbf{v}, \mathbf{w}\in \mathbb{V}$，$\nji{s\mathbf{u} + t\mathbf{v}}{\mathbf{w}} = s\nji{\mathbf{u}}{\mathbf{w}} + t\nji{\mathbf{v}}{\mathbf{w}}$；
         \item $\forall \, \mathbf{u}, \mathbf{v} \in \mathbb{V}$，$\nji{\mathbf{u}}{\mathbf{v}} = \nji{\mathbf{v}}{\mathbf{u}}$。
     \end{enumerate}
-    就说$\mathbb{V}$是数域$\mathbb{K}$上的\textbf{内积空间}。以上映射称为空间的\textbf{内积映射}或\textbf{内积}。
+    就说$\mathbb{V}$是$\mathbb{R}$上的\textbf{内积空间}。以上映射称为空间的\textbf{内积映射}或\textbf{内积}。
 \end{df}
 
 定义了内积的平直空间总能定义长度；定义了长度的平直空间总能定义距离。
 反过来，通过长度不一定能定义内积。可以说，距离、长度、角度是对空间结构越来越高的要求。
 
-平面和立体空间是典型的内积空间，它们的系数域是实数域，维数分别是$2$和$3$。我们通常将它们分别记作$\mathbb{R}^2$、$\mathbb{R}^3$。
+平面和立体空间是典型的内积空间，它们的系数域是实数域，维数分别是$2$和$3$。我们知道它们作为平直空间，与$\mathbb{R}^2$、$\mathbb{R}^3$同构，本质上是一样的。那么，引入内积后是否还能这么说呢？
 
-我们来回忆$\mathbb{R}^2$、$\mathbb{R}^3$中的长度。平面中一点$P(x, \,\,y)$对应的向量长度为：
-$$ \| \vv{OP} \| = \sqrt{x^2 + y^2}.$$
+我们来回忆平面和立体空间中的长度。按照经典的设定，给定直角坐标系，平面中一点$P(x, \,\,y)$对应的向量长度为：
+$$ | \vv{OP} | = \sqrt{x^2 + y^2}.$$
+对应的，向量$\mathbf{u} = (x_1, \,\,y_1)$和$\mathbf{v} = (x_2, \,\,y_2)$的经典内积为：
+$$ \nji{\mathbf{u}}{\mathbf{v}} = x_1x_2 + y_1y_2 $$
 立体空间中一点$P(x, \,\,y, \,\,z)$对应的向量长度为：
-$$ \| \vv{OP} \| = \sqrt{x^2 + y^2 + z^2}.$$
+$$ | \vv{OP} | = \sqrt{x^2 + y^2 + z^2}.$$
+对应的，向量$\mathbf{u} = (x_1, \,\,y_1,\,\,z_1)$和$\mathbf{v} = (x_2, \,\,y_2,\,\,z_2)$的内积为：
+$$ \nji{\mathbf{u}}{\mathbf{v}} = x_1x_2 + y_1y_2 + z_1z_2.$$
+
+通过内积可以定义角度。从平面和立体空间的例子来说，我们定义两个向量$\mathbf{u} = \vv{OA}$和$\mathbf{v} = \vv{OB}$间的角度$\alpha$为满足：
+$$ \cos{\alpha } = \frac{\nji{\mathbf{u}}{\mathbf{v}}}{|\mathbf{u}|\cdot|\mathbf{v}|}$$
+的角度。为了保证唯一性，我们通常给$\alpha$设定一个范围，比如$\left[-\frac{\pi}{2};\frac{\pi}{2}\right]$或$[0,\pi]$。
+
+给定直角坐标系的时候，经典内积是唯一确定的。基底改变的时候，内积的形式也会改变。一般来说，$n$维平直空间里，某个内积$\nji{\cdot}{\cdot}$在基底$\mathfrak{B} = (\mathbf{e}_1, \mathbf{e}_2, \cdots, \mathbf{e}_n)$下的形式可以用这样的矩阵来表示：
+$$ K_{\mathfrak{B}} = \begin{bmatrix}
+    \nji{\mathbf{e}_1}{\mathbf{e}_1} & \nji{\mathbf{e}_1}{\mathbf{e}_2} & \cdots & \nji{\mathbf{e}_1}{\mathbf{e}_n} \\ \nji{\mathbf{e}_2}{\mathbf{e}_1} & \nji{\mathbf{e}_2}{\mathbf{e}_2} & \cdots & \nji{\mathbf{e}_2}{\mathbf{e}_n} \\ \vdots & \vdots & \ddots & \vdots \\ \nji{\mathbf{e}_n}{\mathbf{e}_1} & \nji{\mathbf{e}_n}{\mathbf{e}_2} & \cdots & \nji{\mathbf{e}_n}{\mathbf{e}_n} 
+\end{bmatrix} $$
+这是一个$n$行$n$列的矩阵（也叫方阵），它第$i$行第$j$列的元素是$\nji{\mathbf{e}_i}{\mathbf{e}_j}$。我们称$K_{\mathfrak{B}}$是内积关于基底$\mathfrak{B}$的矩阵，可以用它来表示任意两个向量的内积。具体情形，我们用$n=2$时的例子来说明。
+
+设有向量$\mathbf{u} = u_1\mathbf{e}_1 + u_2\mathbf{e}_2$，$\mathbf{v} = v_1\mathbf{e}_1 + v_2\mathbf{e}_2$，它们的内积可以写成：
+\begin{align*}
+    \nji{\mathbf{u}}{\mathbf{v}} &= \nji{u_1\mathbf{e}_1 + u_2\mathbf{e}_2}{v_1\mathbf{e}_1 + v_2\mathbf{e}_2} \\
+    &= u_1v_1 \nji{\mathbf{e}_1}{\mathbf{e}_1} + u_1v_2 \nji{\mathbf{e}_1}{\mathbf{e}_2} + u_2v_1 \nji{\mathbf{e}_2}{\mathbf{e}_1} + u_2v_2 \nji{\mathbf{e}_2}{\mathbf{e}_2} \\
+\end{align*}
+可以看到，除了向量$\mathbf{u}, \mathbf{v}$自身在基底下的坐标，它们的内积还取决于$4$个量：基向量两两的内积。我们模仿向量经历直变换过程的矩阵表示，来记录以上结果。首先，我们把向量$\mathbf{u}, \mathbf{v}$表示为：
+$$ \mathbf{u} = \begin{bmatrix}
+    u_1\\ u_2
+\end{bmatrix},\quad \mathbf{v} = \begin{bmatrix}
+    v_1\\ v_2
+\end{bmatrix}. $$
+然后记录：
+$$ K_{\mathfrak{B}} \mathbf{v} = \begin{bmatrix}
+     \nji{\mathbf{e}_1}{\mathbf{e}_1} & \nji{\mathbf{e}_1}{\mathbf{e}_2} \\ \nji{\mathbf{e}_2}{\mathbf{e}_1} & \nji{\mathbf{e}_2}{\mathbf{e}_2}
+\end{bmatrix}\begin{bmatrix}
+    v_1\\ v_2
+\end{bmatrix} = \begin{bmatrix}
+    v_1\nji{\mathbf{e}_1}{\mathbf{e}_1} + v_2\nji{\mathbf{e}_1}{\mathbf{e}_2}\\ v_1\nji{\mathbf{e}_2}{\mathbf{e}_1} + v_2\nji{\mathbf{e}_2}{\mathbf{e}_2}
+\end{bmatrix}.$$
+再定义：
+\begin{align*}
+    \mathbf{u}^{\tr} K_{\mathfrak{B}} \mathbf{v} =& \begin{bmatrix}
+        u_1 & u_2
+    \end{bmatrix}\begin{bmatrix}
+        v_1\nji{\mathbf{e}_1}{\mathbf{e}_1} + v_2\nji{\mathbf{e}_1}{\mathbf{e}_2}\\ v_1\nji{\mathbf{e}_2}{\mathbf{e}_1} + v_2\nji{\mathbf{e}_2}{\mathbf{e}_2}
+    \end{bmatrix} \\
+    &\;= u_1 (v_1\nji{\mathbf{e}_1}{\mathbf{e}_1} + v_2\nji{\mathbf{e}_1}{\mathbf{e}_2}) + u_2 (v_1\nji{\mathbf{e}_2}{\mathbf{e}_1} + v_2\nji{\mathbf{e}_2}{\mathbf{e}_2}) \\
+    &\;= u_1v_1 \nji{\mathbf{e}_1}{\mathbf{e}_1} + u_1v_2\nji{\mathbf{e}_1}{\mathbf{e}_2} + u_2v_1\nji{\mathbf{e}_2}{\mathbf{e}_1} + u_2v_2\nji{\mathbf{e}_2}{\mathbf{e}_2}.
+\end{align*}
+这样，我们就把内积记录为：
+$$ \nji{\mathbf{u}}{\mathbf{v}} = \mathbf{u}^{\tr} K_{\mathfrak{B}} \mathbf{v}. $$
+其中$\mathbf{u}^{\tr}$表示把$\mathbf{u}$横着写，称为它的\textbf{转置}。
+
+如果$\mathfrak{B}$的基向量在内积中相互垂直，即只要$i\neq j$，内积$\nji{\mathbf{e}_i}{\mathbf{e}_j} = 0$，我们就说$\mathfrak{B}$是\textbf{正交基}。这时矩阵$K_{\mathfrak{B}}$就只有对角元素非零，我们称它是对角矩阵。如果正交基向量按内积定义的长度为$1$，即内积$\nji{\mathbf{e}_i}{\mathbf{e}_i} = 1$，我们就说$\mathfrak{B}$是\textbf{幺正基}。这时矩阵$K_{\mathfrak{B}}$的对角元素都是$1$，我们称它为单位矩阵。平面、立体空间的直角坐标系和经典内积都对应幺正基。
 
 \section{经典空间}
 
 我们已经定义过平面和立体空间中的点积，也就是经典内积。它们对应着直观的距离和角度。通过内积定义长度和距离。
 
-对一般正整数$n$，我们可以定义$n$维的平直空间$\mathbb{R}^n$。这时，要如何赋予它长度呢？
-下面定义$n$维经典空间$\mathbb{R}^n$以及其中的经典内积。
+对一般正整数$n$，我们可以定义$n$维的平直空间$\mathbb{R}^n$。
 \begin{df}
     设$n$是正整数，$n$维平直空间$\mathbb{R}^n$是所有有序实数组$(x_1, x_2, \cdots, x_n)$构成的空间。
     其中任何数组$(x_1, x_2, \cdots, x_n)$称为空间中的向量。其加法和数乘定义为：
@@ -507,22 +566,34 @@ $$ \| \vv{OP} \| = \sqrt{x^2 + y^2 + z^2}.$$
         (x_1, x_2, \cdots, x_n) + (y_1, y_2, \cdots, y_n) &= (x_1 + y_1, x_2 + y_2, \cdots, x_n + y_n) \\
         t\cdot (x_1, x_2, \cdots, x_n) &= (tx_1, tx_2, \cdots, t x_n)
     \end{align*}
-    可以验证，这样定义的空间$\mathbb{R}^n$是平直空间。我们也称它为$\boldsymbol{n}$\textbf{维经典空间}。
+    可以验证，这样定义的空间$\mathbb{R}^n$是平直空间。
 
     定义$\mathbb{R}^n$上的经典内积。设有两个向量$\mathbf{u}, \mathbf{v}$：
     $$ \mathbf{u} = (u_1, u_2, \cdots, u_n), \quad  \mathbf{v} = (v_1, v_2, \cdots, v_n), $$
     它们的经典内积为：
     $$ \nji{\mathbf{u}}{\mathbf{v}} = u_1v_1 + u_2v_2 + \cdots + u_n v_n.$$
     这样定义的内积也叫点积。它对应的长度是：
-    $$ \forall \mathbf{u} = (u_1, u_2, \cdots, u_n) \in \mathbb{R}^n, \;\; \| \mathbf{u}\| = \sqrt{u_1^2 + u_2^2 + \cdots + u_n^2} .$$
+    $$ \forall \mathbf{u} = (u_1, u_2, \cdots, u_n) \in \mathbb{R}^n, \;\; \| \mathbf{u}\|_2 = \sqrt{u_1^2 + u_2^2 + \cdots + u_n^2} .$$
     对应的距离是：
     \begin{align*}
         \forall \mathbf{u} = (u_1, u_2, &\cdots, u_n), \; \mathbf{v} = (v_1, v_2, \cdots, v_n) \in \mathbb{R}^n, \\
-        \eth(\mathbf{u}, \mathbf{v}) &= \| \mathbf{u} - \mathbf{v}\| = \sqrt{(u_1 - v_1)^2 + (u_2 - v_2)^2 + \cdots + (u_n - v_n)^2} .
+        \eth(\mathbf{u}, \mathbf{v}) &= \| \mathbf{u} - \mathbf{v}\|_2 = \sqrt{(u_1 - v_1)^2 + (u_2 - v_2)^2 + \cdots + (u_n - v_n)^2} .
     \end{align*}
-    也就是我们说的二次距离$\ell_2$。
+    也就是我们说的经典长度和距离。
 \end{df}
 不难验证，$n=1$时，经典空间$\mathbb{R}^n$就是实数轴；$n=2$和$n=3$时，经典空间$\mathbb{R}^n$就是符合我们直观体验的平面和立体空间。
+
+除了经典长度，我们也可以用其他长度，比如坐标的绝对值之和，记作：
+$$ \left\|\mathbf{u}\right\|_1 = |u_1| + |u_2| + \cdots + |u_n|,$$
+或坐标差的最大值，记作：
+$$ \left\| \mathbf{u} \right\|_{\infty} = \text{大}(|u_1|, |u_2|,\cdots, |u_n|). $$
+对应的距离分别是：
+\begin{align*}
+    \left\|\mathbf{u} - \mathbf{v}\right\|_1\;\, &= |u_1 - v_1| + |u_2 - v_2| + \cdots + |u_n - v_n|,\\
+    \left\| \mathbf{u} - \mathbf{v} \right\|_{\infty} &= \text{大}(|u_1 - v_1|, |u_2 - v_2|,\cdots, |u_n - v_n|).   
+\end{align*}
+ 
+这三种长度是讨论平面向量时最常见的，称为\textbf{二次模}（$\ell_2$）、\textbf{一次模}（$\ell_1$）和\textbf{极模}（$\ell_{\infty}$）。对应的距离分别称为\textbf{二次距离}、\textbf{一次距离}和\textbf{绝对距离}。
 
 定义了距离和长度，就可以讨论序列的极限，这说明我们定义了一个邻域结构。我们一般用开球来说明这个结构：
 \begin{df}
@@ -534,14 +605,12 @@ $$ \| \vv{OP} \| = \sqrt{x^2 + y^2 + z^2}.$$
     $$ \Omega(\mathbb{R}) = \left\{\bigcup_{I \in \mathcal{J}} I \, \Bigg| \,\mathcal{J} \subseteq  \mathcal{K}^n \right\}.$$
     给定实数$x$和包含$x$的集合$N$。如果有$U\in\Omega(\mathbb{R})$使得$x\in U\subseteq N$，就说$N$是$x$的邻域。
 
-    我们称$\Omega(\mathbb{R}^n)$和依此定义的邻域结构为实数集$\mathbb{R}^n$上的\textbf{经典结构}，也叫\textbf{经典邻则}。
-    以后提到$\mathbb{R}^n$上的邻域、开集、闭集等概念，我们都默认是这个经典邻则下的概念。
+    我们称$\Omega(\mathbb{R}^n)$和依此定义的邻域结构为$\mathbb{R}^n$上的\textbf{经典结构}，也叫\textbf{经典邻则}。以后提到$\mathbb{R}^n$上的邻域、开集、闭集等概念，我们都默认是这个经典邻则下的概念。配备了经典内积和邻则的空间$\mathbb{R}^n$叫做$\boldsymbol{n}$\textbf{维经典空间}。
 \end{df}
 
 不难验证，这样定义的经典邻则和$\mathbb{R}$上的经典邻则兼容。
 
-要注意，以上定义的经典邻则是基于长度的。长度定义了开球，开球定义了邻则。如果长度变了，邻则是否改变呢？
-为此我们引进等价长度的概念：
+要注意，以上定义的经典邻则是基于长度的。长度定义了开球，开球定义了邻则。如果长度变了，邻则是否改变呢？为此我们引进等价长度的概念：
 \begin{df}
     考虑平直空间$\mathbb{V}$中的模映射$f$和$g$。如果有系数$a,b>0$使得$\forall \mathbf{u} \in \mathbb{V}$，都有：
     $$ af(\mathbf{u}) \leqslant g(\mathbf{u}) \leqslant bf(\mathbf{u}).$$
@@ -549,6 +618,9 @@ $$ \| \vv{OP} \| = \sqrt{x^2 + y^2 + z^2}.$$
 \end{df}
 要注意的是，这样定义的等价长度是对称的。如果有系数$a,b>0$使得$f$和$g$满足上面的不等式，那么$\forall \mathbf{u} \in \mathbb{V}$，都有：
 $$ \frac{1}{b}\cdot g(\mathbf{u}) \leqslant f(\mathbf{u}) \leqslant \frac{1}{a}\cdot g(\mathbf{u}). $$
+因此可以验证，等价长度的关系是等价关系。两种长度等价，那么它们定义的邻则是同一个邻则、同一个邻域结构，因而有同样的连续函数——在某长度下连续的函数，在等价的长度下也连续。
+
+不难验证，以上提到的三种长度$\ell_1$、$\ell_2$、$\ell_{\infty}$是等价的。因此，它们对应同一个邻则，也就是经典邻则。不至于混淆的时候，我们把经典空间的这三种长度（模映射）都简记为$\mathbf{u}\mapsto \|\mathbf{u}\|$。
 
 
 \chapter{经典空间里的曲线}
@@ -564,7 +636,7 @@ $$ \frac{1}{b}\cdot g(\mathbf{u}) \leqslant f(\mathbf{u}) \leqslant \frac{1}{a}\
 \end{align*}
 实变向量函数和实函数的出发集都是实数域。不同在于实函数将实数自变量映射为实数，而向量函数将实数自变量映射为向量。
 
-\section{向量函数}
+\section{实变向量函数}
 
 给定了平直空间中的基底，我们可以把实变向量函数用各个坐标的函数表示。比如平面的直线可以用以下的映射表示：
 \begin{align*}
@@ -768,7 +840,7 @@ $\sinh$和$\cosh$分别称为\textbf{双曲正弦函数}和\textbf{双曲余弦�
     \indent 6.2. 该曲线是否有对称中心？是否有对称轴？
 \end{xt}
 
-\section{向量函数的性质}
+\section{实变向量函数的性质}
 % 连续和可微
 对于实函数，我们建立了连续和微变的概念，可以用来分析函数曲线的性质。
 对于向量函数，我们也希望能建立类似的概念，以分析曲线的性质。
@@ -776,30 +848,16 @@ $\sinh$和$\cosh$分别称为\textbf{双曲正弦函数}和\textbf{双曲余弦�
 连续和微变的概念建立在极限之上。比如，给定函数$f$，$f$在一点$a$连续的定义是：
 $$ f (a) = \lian{x\to a} f(x).$$
 对于向量函数$g$，我们也想类似定义它在一点的微变。因此，我们要在平直空间中定义极限。
-这就要用到平面空间中装备的长度（距离）以及相应的邻则。
+这就要用到平直空间中配备的长度（距离）以及相应的邻则。
 
 上式中的极限是这样定义的：
 对任意$r>0$，都有$d>0$，使得只要$|x - a| < d$（$x$和$a$距离足够小），就有
 $$\left|f(x) - f(a)\right| < r,$$
 即$f(x)$和$f(a)$距离也足够小。其中我们用绝对值函数来表示自变量和应变量的距离。
 
-对于向量函数，自变量是实数，我们可以继续用绝对值表示自变量的距离。对于应变量，我们使用平面上的经典长度对应的距离，即两点$(x_1, y_1)$、$(x_2, y_2)$的坐标差的平方和：
+对于向量函数，自变量是实数，我们可以继续用绝对值表示自变量的距离。对于应变量，我们使用经典空间中的长度$\ell_2$对应的距离，即两点坐标差的平方和。在平面来说，两点$(x_1, y_1)$、$(x_2, y_2)$的距离是：
 $$ \left\| (x_1, y_1) - (x_2, y_2)\right\| = \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}. $$
-除了经典距离，我们也可以用其他距离，比如坐标差的绝对值之和：
-$$ \left\| (x_1, y_1) - (x_2, y_2)\right\| = |x_1 - x_2| + |y_1 - y_2|,$$
-或坐标差的最大值：
-$$ \left\| (x_1, y_1) - (x_2, y_2)\right\| = \text{大}(|x_1 - x_2|,\; |y_1 - y_2|). $$
-这三种距离是讨论平面向量的距离时最常见的，分别称为\textbf{二次距离}、\textbf{一次距离}和\textbf{绝对距离}，
-它们分别来自三种模映射，称为\textbf{二次模}（$\ell_2$）、\textbf{一次模}（$\ell_1$）和\textbf{极模}（$\ell_{\infty}$），
-对应的符号为：
-\begin{align*}
-    \| (x, y)\|_2 \;&= \sqrt{x^2 + y^2} \\
-    \| (x, y)\|_1 \;&= |x| + |y| \\
-    \| (x, y)\|_{\infty} &= \text{大}(|x|,\; |y|)
-\end{align*}
-不难验证，以上三种模映射是等价的。因此，它们对应同一个邻则，也就是经典邻则。
-
-在立体空间乃至一般的$n$维平直空间中，也可以定义以上三种距离，它们对应的模映射是等价的，也都对应空间的经典邻则。
+它对应平面的经典邻则。
 
 为了定义极限，我们还需要空间满足一个关键性质：
 \begin{tm}{\textbf{经典空间的完备性质}}
@@ -808,7 +866,7 @@ $$ \left\| (x_1, y_1) - (x_2, y_2)\right\| = \text{大}(|x_1 - x_2|,\; |y_1 - y_
 完备性质是分析空间中向量函数的基础。讨论实变函数时，我们首先确定实数域是完备的，因此我们讨论的实数序列和函数的极限一定仍旧是实数。
 同样，$n$维经典空间的完备性质，确保我们可以讨论空间中向量序列、向量函数的极限，它们一定仍旧是空间中的点。
 
-有了完备性质保证，使用以上任一个距离，就可以定义实变向量函数在一点的极限，比如：
+有了完备性质保证，就可以定义实变向量函数在一点的极限，比如：
 \begin{df}{\textbf{向量函数在一点的极限}}
     设有实变向量函数$f$，$a$是$f$定义域中一点，$l$是$f$到达集中的向量。如果对任意$r>0$，都有$d>0$，使得只要$|x - a| < d$，就有
     $$\left\|f(x) - l\right\| < r.$$
@@ -837,7 +895,7 @@ $$ \left\| (x_1, y_1) - (x_2, y_2)\right\| = \text{大}(|x_1 - x_2|,\; |y_1 - y_
 
 不过，相比实函数，多维平直空间中的极限、连续、可微性质还是不够直观。我们希望能将它直接用实函数来表示。
 对于经典空间中的实变向量函数，我们可以证明：
-\begin{tm}\label{tm:b-1-10}
+\begin{tm}\label{tm:1-1-10}
     \textbf{实变向量函数的局部性质}\\
     给定实变向量函数$f: t\mapsto (x(t),\,\, y(t))$。
     \begin{itemize}
@@ -846,14 +904,194 @@ $$ \left\| (x_1, y_1) - (x_2, y_2)\right\| = \text{大}(|x_1 - x_2|,\; |y_1 - y_
         \item $f$在$t_0$处可微，当且仅当函数$x$和$y$都在$t_0$处可微。这时微变率为$(\partial x(t_0),\,\,\partial y(t_0))$。
     \end{itemize}
 \end{tm}
-也就是说，经典空间中实变向量函数的极限、连续、可微性质，可以直接用各个作为分量的实函数的极限、连续、可微性质来描述。
-其中的极限、连续、可微性质，指的是经典二次距离意义下的极限、连续、可微性质，但对于等价的一次距离、绝对距离，仍然成立。
+也就是说，经典空间中实变向量函数的极限、连续、可微性质，可以直接用各个作为分量的实函数的极限、连续、可微性质来描述。其中的极限、连续、可微性质，指的是经典长度意义下的极限、连续、可微性质，但对于等价的长度，比如$\ell_1$、$\ell_{\infty}$，仍然成立。
+
+实变向量函数的微变运算是否与实函数的微变类似呢？我们不难验证以下结论：
+
+两个实变向量函数的和（或差）在某处的微变，等于两者在该处微变的和（或差）：
+$$ \forall f, g, \quad \partial (f \pm g)(t) = \partial f(t) \pm \partial g(t). $$
+
+两个实变向量函数的乘积的微变为：
+$$ \forall f, g, \quad \partial (f \cdot g)(t) = f(t) \cdot \partial g(t) + g(t) \cdot \partial f(t). $$
+
+两个实变向量函数的商的微变为：
+$$ \forall f, g, \quad \partial \left( \frac{f}{g}\right)(t) = \frac{g(t)\cdot \partial f(t) - f(t)\cdot \partial g(t)}{g^2(t)}. $$
+和之前关于实函数除法的微变类似，这个式子成立的条件是$g(t)$的任何坐标分量都不为$0$。
+
+实变向量函数$f$和实函数$g$的复合的微变为：
+$$ \partial (f \circ g) (t) = \partial f(g(t)) \cdot \partial g(t). $$
+
+这里只验证乘积和复合：
+\begin{proof}
+    设经典空间为$\mathbb{R}^n$，对实数$t$来说，函数$f,g$的函数值分别是：
+    $$ f(t) = (f_1(t), f_2(t), \cdots, f_n(t)), \quad g(t) = (g_1(t), g_2(t), \cdots, g_n(t)). $$
+    其中$f_1, f_2, \cdots, f_n$和$g_1, g_2, \cdots, g_n$分别是$f,g$的分量实函数。于是$(f \cdot g)(t)$定义为：
+    $$ (f \cdot g)(t) = (f_1(t)g_1(t), f_2(t)g_2(t), \cdots, f_n(t)g_n(t)). $$
+    因此，乘积$f\cdot g$的微变就是：
+    \begin{align*}
+        \partial (f \cdot g)(t) &= (\partial (f_1(t)g_1(t)), \partial (f_2(t)g_2(t)), \cdots, \partial (f_n(t)g_n(t))) \\
+        &= (f_1(t)\partial g_1(t) + \partial f_1(t) g_1(t), f_2(t)\partial g_2(t) + \partial f_2(t) g_2(t), \\
+        &\;\quad \cdots, f_n(t)\partial g_n(t) + \partial f_n(t) g_n(t)) \\
+        &= (f_1(t)\partial g_1(t), f_2(t)\partial g_2(t), \cdots, f_n(t)\partial g_n(t)) \\
+        &\;\quad + (\partial f_1(t) g_1(t), \partial f_2(t) g_2(t), \cdots, \partial f_n(t) g_n(t)) \\
+        &= f(t) \cdot \partial g(t) + g(t) \cdot \partial f(t).
+    \end{align*}
+
+    对函数的复合来说，$g$是实函数：$g(t)\in\mathbb{R}$。于是
+    $$ (f \circ g) (t) = (f_1(g(t)), f_2(g(t)), \cdots, f_n(g(t))). $$
+    所以，它的每个分量函数就是$f$的分量函数与$g$的复合。因此，对各个分量函数计算微变，得到复合函数的微变：
+    \begin{align*}
+        \partial (f \circ g) (t) &= (\partial (f_1(g(t))), \partial (f_2(g(t))), \cdots, \partial (f_n(g(t)))) \\
+        &= (\partial f_1(g(t)) \cdot \partial g(t), \partial f_2(g(t)) \cdot \partial g(t), \cdots, \partial f_n(g(t)) \cdot \partial g(t)) \\
+        &= (\partial f_1(g(t)), \partial f_2(g(t)), \cdots, \partial f_n(g(t)) ) \cdot \partial g(t) \\
+        &= \partial f(g(t)) \cdot \partial g(t)
+    \end{align*}
+    
+\end{proof}
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 实变向量函数的微变的运算，与实函数相比，有哪些不同？为什么？\\
+    \indent 2. 如果实变向量函数取值的平直空间不是有限维空间，能否定义连续和微变？相比取值在经典空间$\mathbb{R}^n$上的实变向量函数，有哪些要注意的？
+\end{sk}
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 证明：如果实函数$f_1$、$f_2$在$a$处分别是$g_1$、$g_2$的高阶无穷小，那么取值在经典空间中的实变向量函数$t\mapsto (f_1(t), f_2(t))$在$a$处是$t\mapsto (g_1(t), g_2(t))$的高阶无穷小。\\
+    \indent 2. 验证实变向量函数的商的微变运算法则。\\
+    \indent 3. 设有从$\mathbb{R}$到$\mathbb{R}^n$的实变向量函数$t\mapsto \mathbf{v}(t)$，定义函数$\e^{\mathbf{v}}$：
+    $$ t\mapsto \e^{\mathbf{v}(t)} = \left(\e^{v_1(t)}, \e^{v_2(t)}, \cdots , \e^{v_n(t)}\right)$$
+    其中实函数$v_1, v_2, \cdots, v_n$是向量函数$\mathbf{v}(t)$的分量函数。\\
+    \indent 3.1. 证明：如果$\mathbf{v}$在一点$t_0$连续，那么$\e^{\mathbf{v}}$也在$t_0$连续。\\
+    \indent 3.2. 证明：如果$\mathbf{v}$在一点$t_0$可微，那么$\e^{\mathbf{v}}$也在$t_0$可微。用$\mathbf{v}$相关函数的微变表示$\e^{\mathbf{v}}$的微变。\\
+    \indent 3.3. 设$n=2$，考虑函数$f: t\mapsto (1 - \cos{t}, \sin{t})$，画出$f$在平面上的图像。\\
+    \indent 3.4. 在平面上描述函数$\e^f$在$t=0$附近的图像。
+\end{xt}
+
+\section{实变复函数的性质}
+
+实变复函数指的是自变量为实数、值为复数的映射。如果我们把复数看作$\mathbb{R}$上的平直空间，把复数看作向量，那么实变复函数也是一种实变向量函数。因此，我们可以讨论实变复函数作为实变向量函数的性质。
+
+从平直空间的角度来看，复平面就是二维的实平直空间，复数的模就是经典长度$\ell_2$，因此，我们可以定义相应的内积。而这样定义的内积又和平面上的经典内积一样。于是，复数的幅角就对应经典内积产生的角度。
+
+相比经典空间，复平面缺少邻则，我们通常将经典空间$\mathbb{R}^2$中的邻则应用到复平面上。也就是说，复平面上的典型开集是开“圆盘”：
+$$ \forall z \in \mathbb{C}, r\geqslant 0,  \bigcirc(z, r) = \{x \in \mathbb{C} \, | \, |x - z_0| < r \} $$
+作为经典空间，复平面也是完备空间。因此，我们也可以定义实变复函数的极限和连续性质。
+\begin{df}{\textbf{实变复函数在一点的极限和连续}}
+    设有实变复函数$f$，$a$是$f$定义域中一点，$z\in\mathbb{C}$是复数。如果对任意$r>0$，都有$d>0$，使得只要$|x - a| < d$，就有
+    $$|f(x) - z| < r.$$
+    就说$f$在$a$处有极限$z$。
+
+    如果$f$在定义域中某点$a$处的极限就是$f(a)$，就说$f$在$a$处连续。
+\end{df}
+
+同样，我们可以定义实变复函数局部的微变：
+\begin{df}
+    设有实变复函数$f$，如果$f$在某点$a$附近有定义，那么对于附近的一点$x$，$f$在$a$到$x$的变率为：
+    $$ \frac{f(x) - f(a)}{x - a}.$$
+    如果当$x$趋于$a$时，这个变率收敛到某个极限，就说函数$f$在$a$处\textbf{可微}。
+    我们把这个极限叫做函数$f$在点$a$处的\textbf{微变率}，简称\textbf{微变}，
+    记作$\partial f(a)$。
+    $$ \partial f(a) = \lian{{x\to a}} \frac{f(x) - f(a)}{x - a}. $$
+    同样可以定义左（右）可微、左（右）微变率、高次微变的概念。
+\end{df}
+
+实变复函数的连续和微变性质也满足：
+\begin{tm}\label{tm:1-2-10}
+    给定实变复函数$f: t\mapsto x(t) + \imath\, y(t)$。
+    \begin{itemize}
+        \item $f$在$t_0$处极限为$x_0 + \imath\, y_0$，当且仅当实函数$x$和$y$在$t_0$处极限分别为$x_0$和$y_0$。
+        \item $f$在$t_0$处连续，当且仅当函数$x$和$y$都在$t_0$处连续。
+        \item $f$在$t_0$处可微，当且仅当函数$x$和$y$都在$t_0$处可微。这时微变率为$\partial x(t_0)+ \imath\,\partial y(t_0)$。
+    \end{itemize}
+\end{tm}
+
+实变复函数的微变运算也可以参照实变向量函数的微变运算。实变复函数的和与差的微变，与实变向量函数一样。但实变复函数乘积和商的微变运算则需要验证，因为复函数值乘积的定义使用复数乘法。
+
+设有实变复函数$f: t\mapsto f_1(t) + \imath f_2 (t)$、$g: t\mapsto g_1(t) + \imath g_2 (t)$，那么复函数$t\mapsto f(t) g(t)$的函数值可以写为：
+\begin{align*}
+    f(t) g(t) &= (f_1(t) + \imath f_2 (t))\cdot (g_1(t) + \imath g_2 (t)) \\
+    &= f_1(t)g_1(t) - f_2 (t)g_2 (t) + \imath (f_1 (t) g_2 (t) + g_1(t) f_2 (t))
+\end{align*}
+于是乘积的微变为：
+\begin{align*}
+    \partial (f(t) g(t)) &= \partial (f_1(t)g_1(t)) - \partial (f_2 (t)g_2 (t)) + \imath \partial (f_1 (t) g_2 (t) ) + \imath \partial (g_1(t) f_2 (t)) \\
+    &= \partial f_1(t)g_1(t) + f_1(t) \partial g_1(t) - \partial f_2 (t)g_2 (t) - f_2 (t) \partial g_2 (t) \\ 
+    &\;\quad + \imath ( \partial f_1 (t) g_2 (t) + f_1 (t) \partial g_2 (t)) +   \imath (\partial g_1(t) f_2 (t) + g_1(t) \partial f_2 (t)) \\
+    &= \partial f_1(t)g_1(t) - \partial f_2 (t)g_2 (t) + \imath ( \partial f_1 (t) g_2 (t) + \partial g_1(t) f_2 (t)) \\
+    &\;\quad + f_1(t) \partial g_1(t) - f_2 (t) \partial g_2 (t) + \imath (f_1 (t) \partial g_2 (t) + g_1(t) \partial f_2 (t)) \\
+    &= \partial f(t) \cdot g(t) + f(t) \cdot \partial g(t)
+\end{align*}
+它的形式和一般实函数的乘积的微变一致。
+
+而对于复函数$t\mapsto \frac{f(t)}{g(t)}$，我们要先将分母化为实函数：
+\begin{align*}
+    \frac{f(t)}{g(t)} &= \frac{f(t)}{g_1(t) + \imath g_2 (t)} = \frac{f(t)(g_1(t) - \imath g_2 (t))}{(g_1(t) + \imath g_2 (t))(g_1(t) - \imath g_2 (t))} \\
+    &= \frac{f(t)\overline{g}(t)}{g_1^2(t) + g_2^2 (t)}
+\end{align*}
+其中$\overline{g}: t\mapsto g_1(t) - \imath g_2 (t)$是$g$的共轭函数。于是，我们可以计算$t\mapsto \frac{f(t)}{g(t)}$的微变：
+\begin{align*}
+    \partial \left(\frac{f(t)}{g(t)}\right) &= \partial \left(f(t) \cdot \frac{\overline{g}(t)}{g_1^2(t) + g_2^2 (t)}\right) = \partial f(t) \cdot \frac{\overline{g}(t)}{g_1^2(t) + g_2^2 (t)} + f(t) \cdot \partial \left(\frac{\overline{g}(t)}{g_1^2(t) + g_2^2 (t)}\right) \\
+    &= \frac{\partial f(t)\overline{g}(t) + f(t) \partial \overline{g}(t)}{g_1^2(t) + g_2^2 (t)} + f(t) \overline{g}(t) \cdot \partial \left(\frac{1}{g_1^2(t) + g_2^2 (t)}\right) \\
+    % &= \frac{\partial f(t)\overline{g}(t) + f(t) \partial \overline{g}(t)}{g_1^2(t) + g_2^2 (t)} - 2f(t) \overline{g}(t) \cdot \frac{g_1(t) \partial g_1(t) + g_2(t) \partial g_2(t)}{\left(g_1^2(t) + g_2^2 (t)\right)^2} \\
+    % &= \frac{\partial f(t)\overline{g}(t)}{g_1^2(t) + g_2^2 (t)} + \frac{f(t) \partial \overline{g}(t) \left(g_1^2(t) + g_2^2 (t)\right) - 2f(t) \overline{g}(t) \cdot(g_1(t) \partial g_1(t) + g_2(t) \partial g_2(t))}{\left(g_1^2(t) + g_2^2 (t)\right)^2} \\
+    % &= \frac{\partial f(t)\overline{g}(t)}{g_1^2(t) + g_2^2 (t)} + f(t)\frac{ (\partial g_1(t) - \imath \partial g_2 (t)) \left(g_1^2(t) + g_2^2 (t)\right) - 2 (g_1(t) - \imath g_2 (t)) \cdot(g_1(t) \partial g_1(t) + g_2(t) \partial g_2(t))}{\left(g_1^2(t) + g_2^2 (t)\right)^2} \\
+% \end{align*}
+%
+% \begin{align*}
+%     &\;\; (\partial g_1(t) - \imath \partial g_2 (t)) \left(g_1^2(t) + g_2^2 (t)\right) - 2 (g_1(t) - \imath g_2 (t)) \cdot(g_1(t) \partial g_1(t) + g_2(t) \partial g_2(t)) \\
+%     =&\;\; \partial g_1(t) \left(g_1^2(t) + g_2^2 (t)\right) - \imath \partial g_2 (t) \left(g_1^2(t) + g_2^2 (t)\right) \\
+%     &\;\quad - 2 g_1(t) \cdot(g_1(t) \partial g_1(t) + g_2(t) \partial g_2(t)) + 2\imath g_2 (t) (g_1(t) \partial g_1(t) + g_2(t) \partial g_2(t) \\
+%     =&\;\; g_1^2(t) \partial g_1(t) + g_2^2 (t) \partial g_1(t) - \imath g_1^2(t) \partial g_2 (t) -\imath g_2^2 (t) \partial g_2 (t)  \\
+%     &\;\quad - 2 g_1^2(t) \partial g_1(t) - 2 g_1(t) g_2(t) \partial g_2(t) + 2\imath g_2 (t) g_1(t) \partial g_1(t) + 2\imath g_2^2 (t) \partial g_2(t) \\
+%     =& -g_1^2(t) \partial g_1(t) + \imath g_2^2(t) \partial g_2 (t) + g_2^2 (t) \partial g_1(t) - \imath g_1^2(t) \partial g_2 (t) \\
+%     &\;\quad - 2 g_1(t) g_2(t) \partial g_2(t) + 2\imath g_1(t) g_2 (t) \partial g_1(t) \\
+%     =& -g_1^2(t)( \partial g_1(t) + \imath \partial g_2 (t)) + g_2^2(t) (\partial g_1(t) + \imath \partial g_2 (t)) - 2 g_1(t) g_2 (t) (\partial g_2(t) - \imath \partial g_1(t)) \\
+%     =& ( \partial g_1(t) + \imath \partial g_2 (t))(g_2^2(t) - g_1^2(t)) + 2 \imath g_1(t) g_2 (t)  (\partial g_1(t) + \imath \partial g_2(t)) \\
+%     =& (\partial g_1(t) + \imath \partial g_2(t))(g_2^2(t) - g_1^2(t) + 2 \imath g_1(t) g_2 (t)) \\
+%     =& (\partial g_1(t) + \imath \partial g_2(t))(g_2(t) + \imath g_1(t))^2 \\
+%     =& -\overline{g}^2(t) \partial g(t) 
+% \end{align*}
+%
+% \begin{align*}
+%     &\;\; \frac{\partial f(t)\overline{g}(t)}{g_1^2(t) + g_2^2 (t)} + f(t)\frac{ (\partial g_1(t) - \imath \partial g_2 (t)) \left(g_1^2(t) + g_2^2 (t)\right) - 2 (g_1(t) - \imath g_2 (t)) \cdot(g_1(t) \partial g_1(t) + g_2(t) \partial g_2(t))}{\left(g_1^2(t) + g_2^2 (t)\right)^2} \\
+%     =&\;\; \frac{\partial f(t)\overline{g}(t)}{g(t) \cdot \overline{g}(t)} - f(t)\frac{ \overline{g}^2(t) \partial g(t) }{g^2(t) \cdot \overline{g}^2(t)} \\
+    &= \frac{\partial f(t)\overline{g}(t)}{g_1^2(t) + g_2^2 (t)} - f(t)\frac{ \overline{g}^2(t) \partial g(t) }{\left(g_1^2(t) + g_2^2 (t)\right)^2} = \frac{\partial f(t)\overline{g}(t)}{g(t) \cdot \overline{g}(t)} - f(t)\frac{ \overline{g}^2(t) \partial g(t) }{g^2(t) \cdot \overline{g}^2(t)} \\
+    &= \frac{\partial f(t)}{g(t)} - f(t)\frac{  \partial g(t) }{g^2(t) } \\
+    &= \frac{\partial f(t) \cdot g(t) - f(t) \cdot \partial g(t) }{g^2(t) }
+\end{align*}
+
+可以看到，实变复函数的商的微变，计算方式与实函数一样。成立的条件是分母$g$在$t$处不为$0$。至此我们发现，实变复函数的微变的四则运算与实函数一致。我们还可以验证，实变复函数与实函数的复合函数的微变，计算方式与实函数也一致。这说明，实变复函数的微变的运算与实函数相同。
+
+\begin{et}
+    计算函数$f: t\mapsto \cos{t} + \imath \sin{t}$的微变。
+\end{et}
+
+\begin{so}
+    按照定理\ref{tm:1-2-10}，可以分别计算实部、虚部函数的微变，然后得到$f$的微变。
+    \begin{align*}
+        \partial f(x) &= \partial (\cos{x}) + \partial (\sin{x}) \imath \\
+        &= -\sin{x} + \imath \cos{x}
+    \end{align*}
+    我们还可以计算高次微变：
+    \begin{align*}
+        \partial^2 f(x) &= \partial (\partial f(x)) = \partial (-\sin{x}) + \partial (\cos{x}) \imath \\
+        &= -\cos{x} - \imath \sin{x} = -f(x)
+    \end{align*}
+    这一点对任意实数$x$成立。所以，$f$是直微变方程$\partial^2 f + f = 0$的解。这个方程在实函数范围内的解是$\sin$和$\cos$函数，在实变复函数范围内的解是它们的直组合。
+\end{so}
+
+\begin{sk}
+    \mbox{}\\
+    \indent 1. 小明认为，由于复数的加减乘除规则与实数一样，所以实变复函数的微变的四则运算必然和实函数一样。这种说法有道理吗？为什么？\\
+    \indent 2. 实变复函数的微变的运算法则，与$\mathbb{R}$到$\mathbb{R}^2$的实变向量函数的微变有什么不同？为什么？\\
+    \indent 3. 考虑函数$t \mapsto \e^{\imath t}$，这个函数的微变是什么？小明说是$t \mapsto \imath \e^{\imath t}$，有道理吗？\\
+    \indent 4. 考虑实函数$t \mapsto r(t)$、$t \mapsto \theta(t)$，以$r(t)$为模长、$\theta(t)$为幅角的实变复函数的微变是什么？
+\end{sk}
 
 \section{平面曲线的局部性质}
 
-直观上，实变向量函数就是平面、立体空间中的曲线。把自变量看作时间的流逝，那么向量函数的值就是点的运动轨迹，也就是曲线。
-我们把描述曲线的实变向量函数值用坐标表示，称为曲线的参变映射，用参变映射描述的曲线称为参变曲线。如果实变向量函数连续或可微，那么曲线的参变映射连续或可微。
-通过讨论参变映射的局部性质，我们就能理解平直空间曲线的局部性质。
+直观上，实变向量函数就是平面、立体空间中的曲线。把自变量看作时间的流逝，那么向量函数的值就是点的运动轨迹，也就是曲线。我们把描述曲线的实变向量函数值用坐标表示，称为曲线的参变映射，用参变映射描述的曲线称为参变曲线。如果实变向量函数连续或可微，那么曲线的参变映射连续或可微。通过讨论参变映射的局部性质，我们就能理解平直空间曲线的局部性质。
 
 举例来说，圆的参变映射中，函数$x$和$y$都连续且可微，所以参变映射$f$也连续且可微。$f$在$t_0$处的微变是：
 \begin{align*}
@@ -2922,6 +3160,28 @@ $n$维经典空间中向量函数的极限、连续和可微性质，和实函�
 另外要注意的是，证明中用的距离是$\ell_2$，而我们可以证明，与$\ell_2$等价的距离，有同样的结论，只是$p,q$要作相应的改变。
 
 有了定理\ref{tm:b-1-10}，我们就能方便地分析经典空间中的向量函数的极限、连续和可微性质。
+
+\section{分析复值函数}
+
+我们已经介绍过实变复值函数的概念。实变复值函数是$\mathbb{R}$到$\mathbb{C}$的映射。而我们知道，
+$\mathbb{C}$可以看作实数域上的二维平直空间。因此，我们可以试着使用讨论实变复值函数作为经典空间中的向量函数的性质。
+
+学习复数时，我们将$\mathbb{C}$看作在$\mathbb{R}$中添加$x^2 + 1$的根$\imath$得到的数域。
+它可以看作$\mathbb{R}$上的二维平直空间，我们称它为复平面，而复数可以看作复平面中的向量。
+
+通过定义复数的模，我们给复平面配备了模映射，从而赋之以距离和度量。复平面上的向量$z = a + b\imath$，模长是：
+$$ |z| = \sqrt{a^2 + b^2},$$
+复平面上两个向量$z_1 = a_1 + b_1\imath$，$z_2 = a_2 + b_2\imath$，距离为：
+$$ \eth(z_1,\, z_2) = |z_1 - z_2| = \sqrt{(a_1 - a_2)^2 + (b_1 - b_2)^2}. $$
+如果我们定义复数$z_1, z_2$作为向量的内积为：
+$$ \nji{z_1}{z_2} = a_1a_2 + b_1b_2,$$
+那么就有：
+$$ \forall z \in \mathbb{C}, \quad |z|^2 = \nji{z}{z}. $$
+这说明复平面可以看作$\mathbb{R}$上的二维经典空间$\mathbb{R}^2$。
+
+而我们还定义了$\mathbb{C}$作为平直空间的基底：$(1,\, \imath)$，在这个基底下，两个基向量的内积为：
+$$ \nji{1}{\imath} = \nji{1 + 0\imath}{0 + 1\imath} = 1\cdot 0 + 0\cdot 1 = 0.$$
+也就是说，两个基向量垂直。
 
 \chapter{函数的级数}
 
