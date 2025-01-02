@@ -622,6 +622,82 @@ $$ \frac{1}{b}\cdot g(\mathbf{u}) \leqslant f(\mathbf{u}) \leqslant \frac{1}{a}\
 
 不难验证，以上提到的三种长度$\ell_1$、$\ell_2$、$\ell_{\infty}$是等价的。因此，它们对应同一个邻则，也就是经典邻则。不至于混淆的时候，我们把经典空间的这三种长度（模映射）都简记为$\mathbf{u}\mapsto \|\mathbf{u}\|$。
 
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 定义经典空间$\mathbb{R}^n$中两点的\textbf{位乘}和\textbf{位除}运算。任意两点$\mathbf{u} = (u_1, u_2, \cdots, u_n)$、$\mathbf{v} = (v_1, v_2, \cdots, v_n)$的积、商分别为：
+    \begin{align*}
+        \mathbf{u} \times \mathbf{v} &= (u_1 v_1, u_2 v_2, \cdots, u_n v_n) \\
+        \mathbf{u} \div \mathbf{v} &= \left(\frac{u_1}{v_1}, \frac{u_2}{v_2}, \cdots, \frac{u_2}{v_2}\right)
+    \end{align*}
+    \indent 1.1. 证明：$\mathbb{R}^n$中两点的位乘关于加法满足分配律。\\
+    \indent 1.2. 定义$\mathbb{R}^n$中两点的位乘的单位元素。如果某点$\mathbf{a}\in\mathbb{R}^n$使得$\forall \mathbf{u}\in\mathbb{R}^n$，
+    $$\mathbf{u}\times \mathbf{a} = \mathbf{a}\times \mathbf{u} = \mathbf{u}.  $$
+    就说$\mathbf{a}$是位乘的单位元素。请找出一个单位元素。$\mathbb{R}^n$中位乘的单位元素是否只有一个？\\
+    \indent 1.3. 定义$\mathbb{R}^n$中两点位乘的逆元素。$\forall \mathbf{u}\in\mathbb{R}^n$，如果某点$\mathbf{v}\in\mathbb{R}^n$使得：
+    $$\mathbf{u}\times \mathbf{v} = \mathbf{v}\times \mathbf{u} = \mathbf{a}.  $$
+    就说$\mathbf{v}$是$\mathbf{u}$关于位乘的逆元素。其中$\mathbf{a}$是前一问中的单位元素。$\mathbb{R}^n$中哪些点有关于位乘的逆元素？哪些点没有？\\
+    \indent 1.4. 对比整数、有理数、实数和复数的乘除法，你如何评价位乘和位除？
+\end{xt}
+
+\section{复平面}
+
+我们学习过复数和复平面的概念。从平直空间的角度来看，复平面就是二维的实平直空间，复数的模就是经典长度$\ell_2$，因此，我们可以定义相应的内积：
+$$ \forall \; z_1 = x_1 + \imath y_1, z_2 = x_2 + \imath y_2 \in \mathbb{C}, \quad \nji{z_1}{z_2} = x_1x_2 + y_1y_2 = z_1 \cdot \overline{z_2} = \overline{z_1}\cdot z_2. $$
+这样定义的复数内积和平面上的经典内积一样。于是，复数的幅角就对应经典内积产生的角度。
+
+相比经典空间，复平面缺少邻则，我们通常将经典空间$\mathbb{R}^2$中的邻则应用到复平面上。也就是说，复平面上的典型开集是开“圆盘”：
+$$ \forall z \in \mathbb{C}, r\geqslant 0,  \bigcirc(z, r) = \{x \in \mathbb{C} \, | \, |x - z_0| < r \} $$
+于是，复平面也可以视为经典空间了。作为经典空间，复平面也是完备空间。因此，我们也可以定义复数列的极限、自敛数列等概念。
+
+考虑复数构成的数列$\{z_n\}_{n\in\mathbb{N}}$，我们可以这样定义它的极限：
+\begin{df}{\textbf{复数列的极限}}
+    对于复数列$\{z_n\}_{n\in\mathbb{N}}$来说，设某个复数$z$满足：
+    $$ \forall \;r > 0 ,\; \exists N\in \mathbb{N},\;\, \mbox{使得}\;\; \forall \; n>N, \quad | z_n - z | < r, $$
+    就说$z$是复数列$\{z_n\}$的极限。
+
+\end{df}
+
+注意：这里的$|z_n - z|$指的是复数$z_n - z$的模长，它代替了实数情形下的绝对值，表示两个复数作为复平面上点的距离。
+
+定义了复数的数列，我们自然也定义了复数的级数。
+\begin{df}{\textbf{复数的级数}}
+    \mbox{} \\
+    给定复数列$\{z_n\}_{n\in\mathbb{N}}$，表达式：
+    $$ z_0 + z_1 + z_2 + \cdots + z_n + \cdots $$
+    称为$\{z_n\}$的\textbf{级数}，简记为$\sum_{n\in\mathbb{N}} z_n$或$\sum z_n$。
+    $z_n$称为\textbf{级数的通项}，$\{z_n\}_{n\in\mathbb{N}}$也称为级数的\textbf{通项数列}。
+    
+    如果$\{z_n\}$的部分和序列：
+    $$ z_0, z_0 + z_1, \cdots , \sum_{i=0}^n z_i, \cdots $$
+    有极限，就说\textbf{级数收敛}，其极限称为\textbf{级数和}，记作：
+    $$ \sum_{i=0}^\infty z_i $$
+    否则说\textbf{级数发散}。
+    
+\end{df}
+
+复数的级数和实数的级数有类似的性质。比如，对于复级数是否收敛的问题，我们也会考察由它各项的模构成的级数。
+
+给定复级数$\sum_{n\in\mathbb{N}} z_n$，我们把正项级数$\sum_{n\in\mathbb{N}} |z_n|$称为\textbf{级数的模}或级数对应的\textbf{模级数}。如果级数的模收敛，那么级数收敛。和实数的情形一样，我们把模收敛的复级数称为绝对收敛。
+
+\begin{et}
+    证明：对任意复数$z$，$\sum_{n\in\mathbb{N}}\frac{z^{n}}{n!}$收敛。
+\end{et}
+\begin{so}
+    $x\geqslant 0$时，我们已经证明了正项级数$\sum_{n\in\mathbb{N}}\frac{x^{n}}{n!}$收敛。
+    对于一般的$z\in\mathbb{C}$，考虑级数的模：$\sum_{n\in\mathbb{N}}\left|\frac{z^{n}}{n!}\right| = \sum_{n\in\mathbb{N}}\frac{|z|^{n}}{n!}$，
+    $|z|\geqslant 0$，因此又回到了正项级数的情况。级数的模收敛，也就是说，$\sum_{n\in\mathbb{N}}\frac{z^{n}}{n!}$绝对收敛。
+\end{so}
+
+我们把级数$\sum \frac{z^{n}}{n!}$的和记作$\e^{z}$。我们后面会看到，这样的定义是有道理的。
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 说明本节定义的复数内积对应的长度是复数的模长。\\
+    \indent 2. 参考实数列的情形，给出复数列成为自敛数列的充要条件。\\ 
+    \indent 3. 参考实数级数的情形，证明：如果复级数的模级数收敛，那么级数收敛。\\
+    \indent 4. 参考实数级数的情形，证明：如果复级数收敛，那么通项趋于$0$。\\
+    \indent 5. 证明：如果复数$z$的模小于$1$，那么级数$\sum_{n\in\mathbb{N}} z^n$收敛。
+\end{xt}
 
 \chapter{经典空间里的曲线}
 
@@ -636,11 +712,18 @@ $$ \frac{1}{b}\cdot g(\mathbf{u}) \leqslant f(\mathbf{u}) \leqslant \frac{1}{a}\
 \end{align*}
 实变向量函数和实函数的出发集都是实数域。不同在于实函数将实数自变量映射为实数，而向量函数将实数自变量映射为向量。
 
-\section{实变向量函数}
-
-给定了平直空间中的基底，我们可以把实变向量函数用各个坐标的函数表示。比如平面的直线可以用以下的映射表示：
+当平直空间是经典空间$\mathbb{R}^n$时，我们可以进一步把实变向量函数用各个坐标的函数表示：
 \begin{align*}
     f: \mathbb{R} &\rightarrow \mathbb{R}^2 \\
+    t\quad &\mapsto (f_1(t),\, f_2(t),\, \cdots ,\, f_n(t))
+\end{align*}
+$f$是关于实数$t$的实变向量函数，而其中$f_1,f_2, \cdots, f_n$分别是$\mathbb{R}$到$\mathbb{R}$的实函数。对给定的$t$，它们的值可以看作$f$的坐标分量，因此也叫做$f$的\textbf{分量函数}或\textbf{坐标函数}。
+
+\section{实变向量函数}
+
+经典空间中，我们可以把实变向量函数用各个分量函数表示。比如平面的直线可以用以下的映射表示：
+\begin{align*}
+    f: \mathbb{R} &\rightarrow \mathbb{R}^n \\
     t\quad &\mapsto\left\{
         \begin{array}[]{rl}
             x(t) &= x_0 + t \\
@@ -897,44 +980,52 @@ $$ \left\| (x_1, y_1) - (x_2, y_2)\right\| = \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2
 对于经典空间中的实变向量函数，我们可以证明：
 \begin{tm}\label{tm:1-1-10}
     \textbf{实变向量函数的局部性质}\\
-    给定实变向量函数$f: t\mapsto (x(t),\,\, y(t))$。
+    给定实变向量函数$f: t\mapsto (f_1(t),\, f_2(t),\, \cdots ,\, f_n(t))$。
     \begin{itemize}
-        \item $f$在$t_0$处极限为$(x_0,\,\,y_0)$，当且仅当实函数$x$和$y$在$t_0$处极限分别为$x_0$和$y_0$。
-        \item $f$在$t_0$处连续，当且仅当函数$x$和$y$都在$t_0$处连续。
-        \item $f$在$t_0$处可微，当且仅当函数$x$和$y$都在$t_0$处可微。这时微变率为$(\partial x(t_0),\,\,\partial y(t_0))$。
+        \item $f$在$t$处极限为$(y_1,\,y_2,\,\cdots,\, y_n)$，当且仅当实函数$f_1,f_2, \cdots, f_n$在$t$处极限分别为$y_1, y_2, \cdots, y_n$。
+        \item $f$在$t$处连续，当且仅当函数$f_1,f_2, \cdots, f_n$都在$t$处连续。
+        \item $f$在$t$处可微，当且仅当函数$f_1,f_2, \cdots, f_n$处可微。这时微变率为$(\partial f_1(t),\,\partial f_2(t), \cdots, \partial f_n(t))$。
     \end{itemize}
 \end{tm}
-也就是说，经典空间中实变向量函数的极限、连续、可微性质，可以直接用各个作为分量的实函数的极限、连续、可微性质来描述。其中的极限、连续、可微性质，指的是经典长度意义下的极限、连续、可微性质，但对于等价的长度，比如$\ell_1$、$\ell_{\infty}$，仍然成立。
+也就是说，经典空间中实变向量函数的极限、连续、可微性质，可以直接用各个作为分量的实函数的极限、连续、可微性质来描述。比如函数$f$的微变就可以写成：
+$$ \partial f (t) = (\partial f_1(t),\,\partial f_2(t), \cdots, \partial f_n(t)). $$
+我们说的极限、连续、可微性质，指的是经典长度意义下的极限、连续、可微性质，但对于等价的长度，比如$\ell_1$、$\ell_{\infty}$，仍然成立。
 
 实变向量函数的微变运算是否与实函数的微变类似呢？我们不难验证以下结论：
 
-两个实变向量函数的和（或差）在某处的微变，等于两者在该处微变的和（或差）：
-$$ \forall f, g, \quad \partial (f \pm g)(t) = \partial f(t) \pm \partial g(t). $$
+两个实变向量函数$f,g$的和（或差）在某处的微变，等于两者在该处微变的和（或差）：
+$$\partial (f \pm g)(t) = \partial f(t) \pm \partial g(t). $$
 
-两个实变向量函数的乘积的微变为：
-$$ \forall f, g, \quad \partial (f \cdot g)(t) = f(t) \cdot \partial g(t) + g(t) \cdot \partial f(t). $$
+两个实变向量函数$f,g$的位乘的微变为：
+\begin{align*}
+    \partial (f \times g)(t) &= f(t) \times \partial g(t) + g(t) \times \partial f(t) \\
+    &= ({\scriptstyle f_1(t) \partial g_1(t) + g_1(t) \partial f_1(t), f_2(t) \partial g_2(t) + g_2(t) \partial f_2(t) , \cdots, f_n(t) \partial g_n(t) + g_n(t) \partial f_n(t)}).
+\end{align*}
 
-两个实变向量函数的商的微变为：
-$$ \forall f, g, \quad \partial \left( \frac{f}{g}\right)(t) = \frac{g(t)\cdot \partial f(t) - f(t)\cdot \partial g(t)}{g^2(t)}. $$
+两个实变向量函数$f,g$的位除的微变为：
+\begin{align*}
+    \partial \left(f \div g\right)(t) &= \left(g(t)\times \partial f(t) - f(t)\times \partial g(t)\right) \div g^2(t) \\
+    &= \left({\scriptstyle \frac{g_1(t)\partial f_1(t) - f_1(t) \partial g_1(t)}{g_1^2(t)}, \frac{g_2(t)\partial f_2(t) - f_2(t)\partial g_2(t)}{g_2^2(t)},\cdots , \frac{g_n(t)\partial f_n(t) - f_n(t)\partial g_n(t)}{g_n^2(t)}} \right)
+\end{align*}
 和之前关于实函数除法的微变类似，这个式子成立的条件是$g(t)$的任何坐标分量都不为$0$。
 
 实变向量函数$f$和实函数$g$的复合的微变为：
-$$ \partial (f \circ g) (t) = \partial f(g(t)) \cdot \partial g(t). $$
+$$ \partial (f \circ g) (t) = \partial g(t) \cdot \partial f(g(t)). $$
 
-这里只验证乘积和复合：
+这里只验证位乘和复合：
 \begin{proof}
     设经典空间为$\mathbb{R}^n$，对实数$t$来说，函数$f,g$的函数值分别是：
     $$ f(t) = (f_1(t), f_2(t), \cdots, f_n(t)), \quad g(t) = (g_1(t), g_2(t), \cdots, g_n(t)). $$
-    其中$f_1, f_2, \cdots, f_n$和$g_1, g_2, \cdots, g_n$分别是$f,g$的分量实函数。于是$(f \cdot g)(t)$定义为：
+    其中$f_1, f_2, \cdots, f_n$和$g_1, g_2, \cdots, g_n$分别是$f,g$的分量实函数。于是位乘$f \times g$定义为：
     $$ (f \cdot g)(t) = (f_1(t)g_1(t), f_2(t)g_2(t), \cdots, f_n(t)g_n(t)). $$
-    因此，乘积$f\cdot g$的微变就是：
+    因此，位乘$f\times g$的微变就是：
     \begin{align*}
-        \partial (f \cdot g)(t) &= (\partial (f_1(t)g_1(t)), \partial (f_2(t)g_2(t)), \cdots, \partial (f_n(t)g_n(t))) \\
+        \partial (f \times g)(t) &= (\partial (f_1(t)g_1(t)), \partial (f_2(t)g_2(t)), \cdots, \partial (f_n(t)g_n(t))) \\
         &= (f_1(t)\partial g_1(t) + \partial f_1(t) g_1(t), f_2(t)\partial g_2(t) + \partial f_2(t) g_2(t), \\
         &\;\quad \cdots, f_n(t)\partial g_n(t) + \partial f_n(t) g_n(t)) \\
         &= (f_1(t)\partial g_1(t), f_2(t)\partial g_2(t), \cdots, f_n(t)\partial g_n(t)) \\
         &\;\quad + (\partial f_1(t) g_1(t), \partial f_2(t) g_2(t), \cdots, \partial f_n(t) g_n(t)) \\
-        &= f(t) \cdot \partial g(t) + g(t) \cdot \partial f(t).
+        &= f(t) \times \partial g(t) + g(t) \times \partial f(t).
     \end{align*}
 
     对函数的复合来说，$g$是实函数：$g(t)\in\mathbb{R}$。于是
@@ -944,7 +1035,7 @@ $$ \partial (f \circ g) (t) = \partial f(g(t)) \cdot \partial g(t). $$
         \partial (f \circ g) (t) &= (\partial (f_1(g(t))), \partial (f_2(g(t))), \cdots, \partial (f_n(g(t)))) \\
         &= (\partial f_1(g(t)) \cdot \partial g(t), \partial f_2(g(t)) \cdot \partial g(t), \cdots, \partial f_n(g(t)) \cdot \partial g(t)) \\
         &= (\partial f_1(g(t)), \partial f_2(g(t)), \cdots, \partial f_n(g(t)) ) \cdot \partial g(t) \\
-        &= \partial f(g(t)) \cdot \partial g(t)
+        &=  \partial g(t) \cdot \partial f(g(t))
     \end{align*}
     
 \end{proof}
@@ -970,13 +1061,8 @@ $$ \partial (f \circ g) (t) = \partial f(g(t)) \cdot \partial g(t). $$
 
 \section{实变复函数的性质}
 
-实变复函数指的是自变量为实数、值为复数的映射。如果我们把复数看作$\mathbb{R}$上的平直空间，把复数看作向量，那么实变复函数也是一种实变向量函数。因此，我们可以讨论实变复函数作为实变向量函数的性质。
+实变复函数指的是自变量为实数、值为复数的映射。如果我们把复数看作$\mathbb{R}$上的平直空间，把复数看作向量，那么实变复函数也是一种实变向量函数。而我们知道复空间可以补充为完备的经典空间。因此，我们可以讨论实变复函数作为实变向量函数的性质。
 
-从平直空间的角度来看，复平面就是二维的实平直空间，复数的模就是经典长度$\ell_2$，因此，我们可以定义相应的内积。而这样定义的内积又和平面上的经典内积一样。于是，复数的幅角就对应经典内积产生的角度。
-
-相比经典空间，复平面缺少邻则，我们通常将经典空间$\mathbb{R}^2$中的邻则应用到复平面上。也就是说，复平面上的典型开集是开“圆盘”：
-$$ \forall z \in \mathbb{C}, r\geqslant 0,  \bigcirc(z, r) = \{x \in \mathbb{C} \, | \, |x - z_0| < r \} $$
-作为经典空间，复平面也是完备空间。因此，我们也可以定义实变复函数的极限和连续性质。
 \begin{df}{\textbf{实变复函数在一点的极限和连续}}
     设有实变复函数$f$，$a$是$f$定义域中一点，$z\in\mathbb{C}$是复数。如果对任意$r>0$，都有$d>0$，使得只要$|x - a| < d$，就有
     $$|f(x) - z| < r.$$
@@ -1006,7 +1092,7 @@ $$ \forall z \in \mathbb{C}, r\geqslant 0,  \bigcirc(z, r) = \{x \in \mathbb{C} 
     \end{itemize}
 \end{tm}
 
-实变复函数的微变运算也可以参照实变向量函数的微变运算。实变复函数的和与差的微变，与实变向量函数一样。但实变复函数乘积和商的微变运算则需要验证，因为复函数值乘积的定义使用复数乘法。
+实变复函数的微变运算可以参照实函数的微变运算。实变复函数的四则运算的微变，与实函数一样。我们只验证实变复函数乘积和商的微变运算。
 
 设有实变复函数$f: t\mapsto f_1(t) + \imath f_2 (t)$、$g: t\mapsto g_1(t) + \imath g_2 (t)$，那么复函数$t\mapsto f(t) g(t)$的函数值可以写为：
 \begin{align*}
@@ -1061,7 +1147,7 @@ $$ \forall z \in \mathbb{C}, r\geqslant 0,  \bigcirc(z, r) = \{x \in \mathbb{C} 
     &= \frac{\partial f(t) \cdot g(t) - f(t) \cdot \partial g(t) }{g^2(t) }
 \end{align*}
 
-可以看到，实变复函数的商的微变，计算方式与实函数一样。成立的条件是分母$g$在$t$处不为$0$。至此我们发现，实变复函数的微变的四则运算与实函数一致。我们还可以验证，实变复函数与实函数的复合函数的微变，计算方式与实函数也一致。这说明，实变复函数的微变的运算与实函数相同。
+可以看到，实变复函数的商的微变，计算方式与实函数一样。成立的条件是分母$g$在$t$处不为$0$。我们还可以验证，实变复函数与实函数的复合函数的微变，计算方式与实函数也一致。这说明，实变复函数的微变的运算与实函数相同。
 
 \begin{et}
     计算函数$f: t\mapsto \cos{t} + \imath \sin{t}$的微变。
@@ -1447,9 +1533,7 @@ $$
 
 \chapter{函数的级数}
 
-研究可微函数时，我们讨论过分析函数在某点附近的行为的问题。
-我们的研究方法是：把函数在该点附近表示成多项式。换句话说，我们把函数表示成一系列简单函数的和。
-比如，指数函数在$0$附近可以写成：
+研究可微函数时，我们讨论过分析函数在某点附近的行为的问题。我们的研究方法是：把函数在该点附近表示成多项式。换句话说，我们把函数表示成一系列简单函数的和。比如，指数函数在$0$附近可以写成：
 $$\mathrm{e}^x = 1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \cdots + \frac{x^n}{n!} + \olim{x^n}.$$
 那么，我们能不能把$\mathrm{e}^x$直接写成无穷多个简单函数的和呢？
 
@@ -1457,25 +1541,19 @@ $$\mathrm{e}^x = 1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \cdots + \frac{x^n}{n!}
 那么，这个收敛的极限是否等于$\mathrm{e}^x$呢？进一步来说，我们能否用多项式函数$\sum_{n=0}^N\frac{x^{n}}{n!}$
 近似表示$\mathrm{e}^x$呢？
 
-进一步的研究，仍然要用到级数。
-级数除了可以用来研究数列的收敛性质，也可以用来研究函数的收敛性质。这也是级数方法更常见的应用。
-不过，在此之前，我们需要做一些准备工作，比如定义什么是函数的数列，什么叫函数的收敛，等等。
+进一步的研究，仍然要用到级数。级数除了可以用来研究数列的收敛性质，也可以用来研究函数的收敛性质。这也是级数方法更常见的应用。不过，在此之前，我们需要做一些准备工作，比如定义什么是函数的数列，什么叫函数的收敛，等等。
 
-\section{函数列}
+\section{函数的极限}
 
-给定区间$I$，我们把在$I$上有定义的实函数的集合记为$\mathcal{A}_I(\mathbb{R})$，
-把其中连续函数的集合记为$\mathcal{L}_I(\mathbb{R})$，
-其中$k$次可微的函数的集合记为$\mathcal{W}_I^k(\mathbb{R})$。
+给定区间$I$，我们把所有从$I$到某个数域$\mathbb{K}$的函数的集合记为$\mathcal{A}_I(\mathbb{K})$，比如定义在$I$上的所有实函数的集合记为$\mathcal{A}_I(\mathbb{R})$、所有复函数的集合记为$\mathcal{A}_I(\mathbb{C})$。把其中连续函数的集合记为$\mathcal{L}_I(\mathbb{K})$，其中$k$次可微的函数的集合记为$\mathcal{W}_I^k(\mathbb{K})$。
 
-定义函数列为可数个函数按顺序的排列。也就是说，函数列和数列基本一样，只不过数列的每一项是函数。
-比如一个由$[0;1]$上的连续实函数组成的数列：
+定义函数列为可数个函数按顺序的排列。也就是说，函数列和数列基本一样，只不过数列的每一项元素是函数。比如，一个由$[0;1]$上的连续实函数组成的数列：
 $$ (x^2, x, 3x, 5x, \cdots (2n+1)x, \cdots )$$
 它属于集合$\mathcal{L}_{[0;1]}(\mathbb{R})^{\mathbb{N}}$。
 
-接下来定义函数列的收敛。怎么判断一个函数是否接近另一个函数呢？
-与数列不同，函数列的收敛有多种定义。这里只介绍两种常用的定义。
+接下来定义函数列的收敛。怎么判断一个函数是否接近另一个函数呢？与数列不同，函数列的收敛有多种定义。这里只介绍两种常用的定义。
 \begin{df}{\textbf{函数列逐点收敛}}
-    设有定义在区间$I$上的函数列\footnote{即“由定义在区间$I$上的函数构成的函数列”，为了方便，做一定省略。下同。}$\{f_n\}$。
+    设有定义在区间$I$上的函数列\footnote{即“由定义在区间$I$上的函数构成的函数列”为了方便的省略说法。下同。}$\{f_n\}$。
     如果有定义在$I$上的函数$f$，使得对任意$r>0$，任意$x\in I$，都有正整数$N_x$，使得只要$n>N_x$，
     就有：
     $$ |f_n(x) - f(x) | < r.$$
@@ -1483,7 +1561,7 @@ $$ (x^2, x, 3x, 5x, \cdots (2n+1)x, \cdots )$$
 \end{df}
 
 \begin{ex}
-    考虑定义在$[0;1]$上的函数列$\{f_n\}$：
+    考虑定义在$[0;1]$上的实函数列$\{f_n\}$：
     \begin{align*}
         \forall n\in \mathbb{Z}^+, \;\, f_n \,: \,\; [-1;1]\; &\rightarrow \; \mathbb{R} \\
         x \;&\mapsto \; \frac{(2n-1)x^{\frac{2n}{2n-1}} + 1}{2n} \qquad\qquad\phantom{9} 
@@ -1506,7 +1584,7 @@ $$ (x^2, x, 3x, 5x, \cdots (2n+1)x, \cdots )$$
 \end{df}
 
 \begin{ex}
-    考虑定义在$[0;1]$上的函数列$\{f_n\}$：
+    考虑定义在$[0;1]$上的实函数列$\{f_n\}$：
     \begin{align*}
         \forall n\in \mathbb{Z}^+, \;\, f_n \,: \,\; [-1;1]\; &\rightarrow \; \mathbb{R} \\
         x \;&\mapsto \; \frac{(2n-1)x^{\frac{2n}{2n-1}} + 1}{2n} \qquad\qquad\phantom{9} 
@@ -1533,7 +1611,7 @@ $$ (x^2, x, 3x, 5x, \cdots (2n+1)x, \cdots )$$
 而一致收敛要求步调一致。
 
 \begin{ex}
-    考虑定义在$[0;1)$上的函数列$\{f_n\}_{n\in\mathbb{N}}$，其通项为：
+    考虑定义在$[0;1)$上的实函数列$\{f_n\}_{n\in\mathbb{N}}$，其通项为：
     $$ f_n: x \mapsto \frac{nx}{\mathrm{e}^{nx}}. $$
     对$[0;1)$中任意$x$，由于$0\leqslant x<1$，而$t$趋于无穷大时，$\mathrm{e}^t$是$t$的高阶无穷大，因此，随着$n$增大，$nx$趋于正无穷，从而$\frac{nx}{\mathrm{e}^{nx}}$趋于$0$。
     因此，$\{f_n\}_{n\in\mathbb{N}}$逐点收敛到$[0;1)$上的零函数。
@@ -1550,7 +1628,9 @@ $$ (x^2, x, 3x, 5x, \cdots (2n+1)x, \cdots )$$
 
 不过，容易证明：\textbf{一致收敛的函数列，必然也逐点收敛}。
 
-那么，一致收敛相比逐点收敛有什么优点呢？来看下面的例子。
+\section{函数极限的性质}
+
+一致收敛相比逐点收敛有什么优点呢？来看下面的例子。
 
 \begin{ex}
     考虑定义在$[-1;1]$上的函数列$\{f_n\}_{n\in\mathbb{N}}$，其通项为：
@@ -1742,7 +1822,7 @@ $n$趋于无穷时，$f_n(c)$趋于$0$，所以函数列$\{f_n\}$在$\left[c;\fr
     \indent 2. 函数项级数的收敛性质如何与函数列的收敛性质对应？用自己的话概括一下。
 \end{sk}
 
-\section{幂级数}
+\chapter{幂级数}
 
 最简单的函数项级数是以整幂函数为通项的级数：
 $$ 1 + x + x^2 + \cdots + x^n + \cdots$$
@@ -1756,10 +1836,10 @@ $$ a_0 + a_1x + a_2x^2 + \cdots + a_n x^n + \cdots$$
 如果级数$\sum a_n x^n$收敛，那么$f(x) = \sum a_n x^n$。直觉上，我们希望$f$就是幂级数的部分和收敛到的函数。
 
 \begin{df}
-    给定数列$\{a_n\}_{n\in\mathbb{N}}$，考虑使得数项级数$\sum a_n x^n$逐点收敛的$x$的集合$J$。则可以定义函数：
+    给定由数域$\mathbb{K}$中的数构成的数列$\{a_n\}_{n\in\mathbb{N}}$，考虑使得数项级数$\sum a_n x^n$逐点收敛的$x$的集合$J$。则可以定义函数：
     $$
     \begin{array}{rl}
-        f: \,\, J\subseteq\mathbb{R} &\rightarrow \mathbb{R} \\
+        f: \,\, J\subseteq \mathbb{K} &\rightarrow \mathbb{K} \\
         x &\displaystyle \mapsto \sum_{n=0}^{+\infty} a_n x^n        
     \end{array}
     $$
@@ -1792,14 +1872,14 @@ $$ a_0 + a_1x + a_2x^2 + \cdots + a_n x^n + \cdots$$
 
 \end{proof}
 
-如果对某个$x$，$\sum a_n x^n$收敛，那么对于绝对值比$x$小的数，级数也收敛。
-这说明，数轴上使得$\sum a_n x^n$收敛的数应该大致是一个关于原点对称的区间。
+如果对某个正数$x$，$\sum a_n x^n$收敛，那么对于绝对值或模比$x$小的数，级数也收敛。
+这说明，数轴上使得$\sum a_n x^n$收敛的实数应该大致是一个关于原点对称的区间，而复平面上使得$\sum a_n x^n$收敛的复数应该大致是一个以原点为中心的圆。
 
 \begin{tm}\label{tm:1-1-10}
     设$\displaystyle\sum_{n=0}^{+\infty} a_n x^n$为幂级数。要么有唯一的非负实数$R$，使得：
     \begin{enumerate}
-        \item 只要$x$的绝对值小于$R$，那么级数$\sum a_n x^n$收敛。
-        \item 只要$x$的绝对值大于$R$，那么级数$\sum a_n x^n$发散。
+        \item 只要$x$的绝对值（或模）小于$R$，那么级数$\sum a_n x^n$收敛。
+        \item 只要$x$的绝对值（或模）大于$R$，那么级数$\sum a_n x^n$发散。
     \end{enumerate}
     这样的$R$称为幂级数的\textbf{收敛半径}。要么对任何实数，级数$\sum a_n x^n$收敛。
     这时我们说幂级数的收敛半径是无穷大。
@@ -1811,8 +1891,8 @@ $$ a_0 + a_1x + a_2x^2 + \cdots + a_n x^n + \cdots$$
 
     $A$是实数集的子集，而且$0\in A$，因此$A$是非空集合。
 
-    如果$A$没有上界，那么对任意$x$，总有$A$中元素$M$比它的绝对值大。按照定理\ref{tm:1-1-0}，级数$\sum a_n x^n$收敛。
-    也就是说，对任何实数，级数$\sum a_n x^n$收敛。
+    如果$A$没有上界，那么对任意$x$，总有$A$中元素$M$比它的绝对值（或模）大。按照定理\ref{tm:1-1-0}，级数$\sum a_n x^n$收敛。
+    也就是说，对任何数，级数$\sum a_n x^n$收敛。
 
     如果$A$有上界，那么它有上确界$c\geqslant 0$。我们将证明：上确界$c$就是我们要找的$R$。
     
@@ -1831,9 +1911,9 @@ $$ a_0 + a_1x + a_2x^2 + \cdots + a_n x^n + \cdots$$
 
 \end{proof}
 
-可以看到，只要确定了收敛半径$R$，那么$(-R;R)$肯定在幂级数的收敛域$J$中。而对于实数收敛半径$R$，只要$|x|>R$，
+可以看到，只要确定了收敛半径$R$，那么$\bigcirc(0,R)$肯定在幂级数的收敛域$J$中。而对于实数收敛半径$R$，只要$|x|>R$，
 那么$x$就不在$J$中。于是要么收敛半径为无穷大，这时收敛域$J$是全体实数；要么收敛半径是非负实数$R$，
-这时收敛域就是$(-R;R)$或加上两边的端点$-R$、$R$，即$(-R;R)$、$(-R;R]$、$[-R;R)$、$[-R;R]$四者之一。
+这时收敛域就是$\bigcirc(0,R)$内部或者加上圆上的某些点。对于实数来说，就是$(-R;R)$或加上两边的端点$-R$、$R$，即$(-R;R)$、$(-R;R]$、$[-R;R)$、$[-R;R]$四者之一。
 
 来看一些常见的幂级数。我们知道对任意$x$，级数$\sum_{n=0}^{+\infty} \frac{x^n}{n!}$收敛。
 我们定义幂级数：
@@ -1849,14 +1929,14 @@ $$ x \mapsto \sum_{n=0}^{+\infty} x^n $$
 它的通项是等比数列。当$|x|<1$时，级数收敛，$|x|>1$时，级数发散。因此收敛半径为$1$。
 $|x|<1$时，幂级数的值为：$\frac{1}{1 - x}$。
 
-$x = \pm 1$时，级数都不收敛，因此收敛域为$(-1;1)$。
+$x = \pm 1$时，级数都不收敛，因此，它在实数中的收敛域为$(-1;1)$。
 
 把$x$换成$cx$，可以得到系数数列为：$a_n = c^n$的幂级数。它的收敛半径是$\frac{1}{|c|}$。
-$|x|<\frac{1}{|c|}$时，幂级数的值为：$\frac{1}{1 - cx}$。收敛域为$\qu{-\frac{1}{|c|}}{\frac{1}{|c|}}$。
+$|x|<\frac{1}{|c|}$时，幂级数的值为：$\frac{1}{1 - cx}$。它在实数中的收敛域为$\qu{-\frac{1}{|c|}}{\frac{1}{|c|}}$。
 
 把$x$换成$x^2$，可以得到幂级数：
 $$ x \mapsto \sum_{n=0}^{+\infty} x^{2n} $$
-它的收敛半径也是$1$，收敛域为$(-1;1)$。$|x|<1$时，幂级数的值为：$\frac{1}{1 - x^2}$。
+它的收敛半径也是$1$，实数中的收敛域为$(-1;1)$。$|x|<1$时，幂级数的值为：$\frac{1}{1 - x^2}$。
 
 另一类基本的幂级数是：
 $$ x \mapsto \sum_{n=0}^{+\infty} \frac{x^n}{n^c}$$
@@ -1933,9 +2013,9 @@ $x=1$不属于收敛域。
     \indent 4. 记幂级数$f: x\mapsto \sum a_n x^n $，证明：$f$是偶函数，当且仅当所有的系数$a_{2n+1} = 0$。$f$是奇函数，当且仅当所有的系数$a_{2n} = 0$。
 \end{xt}
 
-\section{幂级数的基本性质}
+\section{实幂级数的基本性质}
 
-幂函数的收敛半径和系数数列相关。考虑两个幂函数$\sum a_n x^n$、$\sum b_n x^n$，设它们的收敛半径分别是$R_a$、$R_b$。
+我们来看实幂级数作为实变函数的性质。幂函数的收敛半径和系数数列相关。考虑两个幂函数$\sum a_n x^n$、$\sum b_n x^n$，设它们的收敛半径分别是$R_a$、$R_b$。
 如果$\{a_n\} = \Olim{\{b_n\}}$，即数列$\left\{\frac{a_n}{b_n}\right\}$是有界的，那么对使得$\sum b_n x^n$收敛的$x>0$，
 级数$\sum a_n x^n$的部分和可以写成：
 \begin{align*}
@@ -1961,13 +2041,13 @@ $$ \forall n, \; c_n = \sum_{k=0}^n a_k b_{n-k}.$$
 作为函数，幂级数有怎样的性质呢？首先，幂级数在收敛域内是连续函数（证明见附录）。
 
 \begin{tm}
-    幂级数是其收敛域上的连续函数。
+    实幂级数是其收敛域上的连续函数。
 \end{tm}
 
-不仅如此，我们还能推出，幂函数的微变与积合函数也可以表示为幂函数。
+不仅如此，我们还能推出，实幂函数的微变与积合函数也可以表示为幂函数。
 
 \begin{tm}
-    若幂级数$S(x) = \sum a_n x^n$的收敛半径为$R$，则它在$(-R;R)$的任何闭子区间上可积。它的积合函数也是收敛半径为$R$的幂级数：
+    若实幂级数$S(x) = \sum a_n x^n$的收敛半径为$R$，则它在$(-R;R)$的任何闭子区间上可积。它的积合函数也是收敛半径为$R$的幂级数：
     $$ \forall x, \in (-R;R),\,\,\, \int_0^x S =  \sum_{n=0}^{+\infty} \frac{a_n x^{n+1}}{n + 1}. $$
 \end{tm}
 
@@ -1989,7 +2069,7 @@ $$\forall k\in \mathbb{N}, \,\,\, a_k = \frac{\partial^k S(0)}{k!}.$$
 幂级数这种良好的性质，可以用来分析很多函数相关的问题。如果我们能够把函数展开为幂级数，就可以方便地对它进行微变、积合操作。
 
 \begin{et}
-    研究幂级数：$S(x) = \sum_{n=0}^{+\infty} \frac{x^n}{n!}. $
+    研究实幂级数：$S(x) = \sum_{n=0}^{+\infty} \frac{x^n}{n!}. $
 \end{et}
 
 \begin{so}
@@ -2015,7 +2095,7 @@ $$\forall k\in \mathbb{N}, \,\,\, a_k = \frac{\partial^k S(0)}{k!}.$$
 \begin{sk}
     \mbox{} \\
     \indent 1. 幂级数系数的微变表示，和我们学过的哪个公式相似？为什么？\\
-    \indent 2. 如果幂级数的收敛域是$[-R;R]$，是否在$[-R;R]$上可积？举出例子或反例。
+    \indent 2. 如果实幂级数的收敛域是$[-R;R]$，是否在$[-R;R]$上可积？举出例子或反例。
 \end{sk}
 
 \begin{xt}    
@@ -2036,36 +2116,36 @@ $$\forall k\in \mathbb{N}, \,\,\, a_k = \frac{\partial^k S(0)}{k!}.$$
     $S(x)$在$(-r;r)$上恒等于$0$，证明：$S(x)$在$(-R;R)$上恒等于$0$。
 \end{xt}
 
-\section{函数的幂级数展开}
+\section{实函数的幂级数展开}
 
 幂级数可以看作多项式函数的极限。
-我们用有理数的极限表示了所有的实数。那么，幂级数作为多项式函数的极限，能否用来表示任意函数呢？
+我们用有理数的极限表示了所有的实数。那么，幂级数作为多项式函数的极限，能否用来表示任意实函数呢？
 
-上一节已经证明，幂级数总是光滑函数。
+上一节已经证明，实幂级数总是光滑函数。
 因此，我们希望任意光滑函数都对应某个幂级数。
 
-上一节中，我们把一些经典函数表示成了幂级数。比如：
+上一节中，我们把一些经典实变函数表示成了幂级数。比如：
 $$ \forall x, \,\,\, \mathrm{e}^x = \sum_{n=0}^{+\infty} \frac{x^n}{n!}. $$
 
 我们知道，足够光滑的函数，可以在局部展开。它的局部展开的形式和幂级数的部分和函数一样，都是多项式函数。
 而幂级数的系数可以用它在$0$处的微变来表示，其形式和函数的局部展开一样。
 那么，是否无穷光滑的函数，就能展开为幂级数？而幂级数的系数就是它局部展开的样子？
 
-这样，我们就可以把函数的局部展开变成一个宏观的、整体的性质。
-通过研究多项式函数及其极限，就能研究各种各样的函数。
+这样，我们就可以把实函数的局部展开变成一个宏观的、整体的性质。
+通过研究多项式函数及其极限，就能研究各种各样的实函数。
 
-我们把能够在一定区间上展开为幂级数的函数称为\textbf{可展函数}，对应的幂级数称为函数在对应区间上的\textbf{幂级数展开}。
-比方说，对于函数$f$，如果有$r>0$和级数$\sum a_n$，使得
+我们把能够在一定区间上展开为幂级数的实函数称为\textbf{可展函数}，对应的幂级数称为实函数在对应区间上的\textbf{幂级数展开}。
+比方说，对于实函数$f$，如果有$r>0$和级数$\sum a_n$，使得
 $$\forall x\in (-r;r),\,\,\, f(x) = \sum a_n x^n,$$
 就说$f$在$(-r;r)$上可展开为幂级数。
 
-经典函数中的指数函数、正弦函数、余弦函数都可以在其定义域上展开为幂级数，因此都是可展函数。
+经典实函数中的指数函数、正弦函数、余弦函数都可以在其定义域上展开为幂级数，因此都是可展函数。
 
-如果函数$f$可以在$(-R;R)$上展开为幂级数，那么它一定在$(-R;R)$上光滑，并且可以写成：
+如果实函数$f$可以在$(-R;R)$上展开为幂级数，那么它一定在$(-R;R)$上光滑，并且可以写成：
 $$ f(x) = \sum_{n=0}^{+\infty} \frac{\partial^n f(0)}{n!} x^n. $$
 这就是我们希望的结果：可展函数的幂级数是其局部展开的“极限”。
 
-那么，是否所有的光滑函数都可以在某个区间上展开为幂级数呢？我们可以看这样的例子：
+那么，是否所有的光滑实函数都可以在某个区间上展开为幂级数呢？我们可以看这样的例子：
 $$ f: x\mapsto \begin{cases} \mathrm{e}^{-\frac{1}{x}} & x > 0 \\ 0 & x \leqslant 0 \end{cases}.$$
 它作为经典函数（指数函数和反比例函数）的复合，在$x\neq 0$时是光滑的。
 $f$在$x<0$的任意次微变函数都是零函数，而在$0$右侧的$n$次微变函数可以写成：
@@ -2090,9 +2170,7 @@ $$ \forall x \in (-R;R) ,\,\,\, f(x) = \sum_{n=0}^{+\infty} \frac{\partial^n f(0
 %     \indent 2. 如果幂级数的收敛域是$[-R;R]$，是否在$[-R;R]$上可积？举出例子或反例。
 % \end{sk}
 
-不是所有光滑函数都可以展开为幂级数。我们把可以展开为幂级数的函数称为\textbf{可解析函数}。能够展开的区间称为函数的\textbf{解析域}。
-以下给出一些常见基本函数的幂级数展开，及其解析域：
-
+不是所有光滑实函数都可以展开为幂级数。我们把可以展开为幂级数的函数称为\textbf{可解析函数}。能够展开的区间称为函数的\textbf{解析域}。以下给出一些常见基本实函数的幂级数展开，及其解析域：
 
 \begin{center}
     \renewcommand{\arraystretch}{2}
