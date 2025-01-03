@@ -1,0 +1,175 @@
+% File settings - applied to all
+% 导入第三方库
+\usepackage{ctex}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage[table,dvipsnames]{xcolor}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{polynom}
+\usepackage{xfrac}
+\usepackage{eucal}
+\usepackage{titlesec}
+\usepackage{amsthm}
+\usepackage{mhchem}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{verbatim}
+\usepackage[makeroom]{cancel}
+\usepackage[toc,page]{appendix}
+\usepackage{fontspec,xunicode,xltxtra}
+\usepackage{xeCJK} 
+\usepackage{caption}
+\usepackage[b]{esvect}
+\usepackage{thmtools, thm-restate}
+\usepackage{pifont}
+\usepackage[perpage,symbol*]{footmisc}
+
+% 修改脚注的编号为加圈样式，并且各页单独编号
+\DefineFNsymbols{circled}{{\ding{192}}{\ding{193}}{\ding{194}}
+{\ding{195}}{\ding{196}}{\ding{197}}{\ding{198}}{\ding{199}}{\ding{200}}{\ding{201}}}
+\setfnsymbol{circled}
+
+% 自定义颜色
+\definecolor{gl}{RGB}{246, 252, 240}
+\definecolor{gd}{RGB}{236, 244, 230}
+\definecolor{bg}{RGB}{242, 244, 228}
+
+% 定义字体
+\setCJKmainfont[BoldFont=STZhongsong]{STSong}  % 普通字体、粗体
+\setCJKmonofont{simkai.ttf} % \texttt
+\setCJKsansfont{simfang.ttf} % \textsf
+
+% 自制命令
+\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}  % 章节使用阿拉伯数字
+\renewcommand{\parallel}{\mathrel{/\mskip-4mu/}}  % 平行符号
+\renewcommand{\proofname}{\indent\bf 证明}  % 自定义证明标题
+\renewcommand{\qedsymbol}{\hfill$\square$}  % 自定义证毕符号
+\newcommand{\e}{\mathrm{e}}  % 自然底数
+\newcommand{\dash}{\,–\,}  % 短折号
+\newcommand{\tong}[1]{\overset{#1}{\equiv\joinrel\equiv}}  % 同余等号
+\newcommand{\di}[1]{\,\mathrm{d}#1}  % 微元d
+\newcommand{\qu}[2]{\displaystyle\left(#1;#2\right)}  % 开区间
+% 局部展开 developpements limites
+\newcommand{\oveq}[1]{\overset{#1}{=}}   % equal over
+\newcommand{\olim}[1]{\mathit{o}\left(#1\right)}  % petit o
+\newcommand{\Olim}[1]{\mathcal{O}\left(#1\right)}  % grand O
+\newcommand{\Tlim}[1]{\mathcal{\Theta}\left(#1\right)}  % grand theta
+\newcommand{\eqlim}[1]{\overset{#1}{\sim}}  % equivalence
+\newcommand{\vect}[1]{\left\langle #1 \right\rangle}  % 生成空间 generated space
+
+\newcommand{\arccot}{\operatorname{arccot}}  % 反余弦函数
+\newcommand{\dlim}[1]{^{\color{gray}\prime}#1}  % 数字分隔符
+\newcommand{\lian}[1]{  % 极限符号
+    \underset{#1}{\operatorname{lian}\,}
+}
+\newcommand{\nji}[2]{\displaystyle\left( #1 \,|\, #2 \right)}  % 内积
+\newcommand{\dangle}{  % 角符号
+    \mathord{
+        \text{  %
+            \tikz[baseline] \draw (0.8em,0ex) -- (0.3em, 0ex) -- (.6em, 1.5ex) -- (.8em, 1.5ex) -- (.5em, 0ex) -- cycle;
+        }
+    }
+}
+\newcommand{\xangle}{  % 角符号
+    \mathord{
+        \text{%
+        \tikz[baseline] \draw (0.8em,1.5ex) -- (0.3em, 0ex) -- (.64em, 0ex) -- (.8em, .36ex) -- (.42em, .36ex) -- cycle;
+        }
+    }
+}
+\newcommand{\bu}{  % 补集符号
+    \mathbin{
+        \text{
+            \tikz[baseline=-0.6ex]{
+                \node[draw, fill=black, minimum size=0.8ex, inner sep=0pt, rectangle] (bu) {};
+                \node[draw=none, fill=white, minimum size=0.6ex, inner sep=0pt, circle] at (bu.center) {};
+            }
+        }
+    }
+}
+\newcommand{\rectbx}{  % 长方形符号
+    \mathord{
+        \text{%
+            \tikz[baseline] \draw (0,.1ex) -- (.4em,.1ex) -- (.4em,1.5ex) -- (0em,1.5ex) -- cycle;
+        }
+    }
+}
+\newcommand{\tr}{  % 矩阵转置符号 A^{\tr} 
+    \mathord{
+        \begin{tikzpicture}[baseline=-0.2em, line width=0.3pt]
+        \draw (-0.15em, 0.15em) -- (0.06em, -0.06em);
+        \draw (45:0.15em) arc[start angle=45, end angle=225, radius=0.15em];
+    \end{tikzpicture}
+    }
+}
+\newcommand{\arcangle}{\mathord{\mathpalette\doarcangle\relax}}  % 带弧的角度符号 - 交角
+\newcommand{\doarcangle}[2]{  % 
+    \hbox{%
+        \sbox0{$#1B$}%
+        \sbox2{$#1<$}%
+        \raisebox{\dimexpr\dp0+(\ht0-\ht2)/2}{%
+            $#1<\mspace{-9mu}\mathrel{)}\mspace{2mu}$%
+        }%
+    }%
+}
+\newcommand{\parasbx}{  % 平行四边形符号
+    \mathord{
+        \text{%
+            \tikz[baseline] \draw (0,.1ex) -- (.8em,.1ex) -- (1em,1.6ex) -- (.2em,1.6ex) -- cycle;
+        }
+    }
+}
+\usetikzlibrary{calc,topaths}
+\newcommand{\widearc}[1]{  % 可伸缩圆弧符号
+    \tikz[baseline=(wideArcAnchor.base)]{
+        \node[inner sep=0] (wideArcAnchor) {$#1$}; 
+        \coordinate (wideArcAnchorA) at ($(wideArcAnchor.north west) + (0.15em,0.1em)$);
+        \coordinate (wideArcAnchorB) at ($(wideArcAnchor.north east) + (0.0em,0.1em)$);
+        \draw[line width=0.1ex,line cap=round,out=45,in=135] (wideArcAnchorA) to (wideArcAnchorB);
+    }
+}
+
+% 定义、定理、证明等块环境
+\theoremstyle{definition}
+\newtheorem{df}{定义}[section] 
+\newtheorem*{po}{公理}
+\newtheorem{pp}{命题}[section]
+\newtheorem{tm}{定理}[section]
+\newtheorem{cor}{推论}[pp]
+\newtheorem{ex}{例子}[section]
+\newtheorem{et}{例题}[section]
+\newtheorem*{ex*}{例子}
+\newtheorem*{so}{解答}
+\theoremstyle{plain}
+\newtheorem{sk}{思考}[section]
+\newtheorem{xt}{习题}[section]
+\renewenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
+% \declaretheorem[name=定义, numberwithin=section, shaded={rulecolor={rgb}{0.1,0.7,0.4},
+% rulewidth=2pt, bgcolor={rgb}{0.96,1,0.99}}]{df}
+% \declaretheorem[name=定理, numberwithin=section, shaded={rulecolor={rgb}{0.1,0.4,0.7},
+% rulewidth=2pt, bgcolor={rgb}{0.96,0.99,1}}]{tm}
+% \declaretheorem[name=思考, numberwithin=section, shaded={rulecolor={rgb}{0,0.7,0.7},
+% rulewidth=2pt, bgcolor={rgb}{0.98,1,1}}]{sk}
+% \declaretheorem[name=习题, numberwithin=section, shaded={rulecolor={rgb}{0.91,0.84,0.42},
+% rulewidth=2pt, bgcolor={rgb}{1,0.98,0.93}}]{xt}
+
+\setlength{\intextsep}{2pt}%
+\setlength{\columnsep}{2pt}%
+% 列举环境
+\setlist{label=\textbullet}
+% 列举环境行间距
+\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
+\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
+\setdescription{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
+% 章节间距
+\setlength\parskip{8pt}
+% 文本框间距
+\setlength{\fboxsep}{12pt}
+% 章节字体大小
+\titleformat{\section}{\zihao{-2}\bfseries}{ \thesection }{16pt}{}

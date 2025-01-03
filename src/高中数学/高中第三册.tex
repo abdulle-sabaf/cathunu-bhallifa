@@ -1,86 +1,8 @@
 \documentclass[12pt,UTF8]{ctexbook}
-\usepackage{ctex}
-\usepackage{array}
-\usepackage{graphicx}
-\usepackage{wrapfig}
-\usepackage[table,dvipsnames]{xcolor}
-\usepackage{tabularx}
-\usepackage{longtable}
-\usepackage{float}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{xfrac}
-\usepackage{eucal}
-\usepackage{titlesec}
-\usepackage{amsthm}
-\usepackage{tikz-cd}
-\usepackage{enumitem}
-\usepackage{verbatim}
-\usepackage{fontspec,xunicode,xltxtra}
-\usepackage{xeCJK} 
-\usepackage{caption}
-\usepackage{thmtools, thm-restate}
-% 修改脚注的编号为加圈样式，并且各页单独编号
-\usepackage{pifont}
-\usepackage{enumitem}
-\usepackage[perpage,symbol*]{footmisc}
-\DefineFNsymbols{circled}{{\ding{192}}{\ding{193}}{\ding{194}}
-{\ding{195}}{\ding{196}}{\ding{197}}{\ding{198}}{\ding{199}}{\ding{200}}{\ding{201}}}
-\setfnsymbol{circled}
 
-\definecolor{gl}{RGB}{246, 252, 240}
-\definecolor{gd}{RGB}{236, 244, 230}
-\definecolor{bg}{RGB}{242, 244, 228}
+% 导入设定
+\input{../shared/settings}
 
-\setlist{label=\textbullet}
-\setCJKmainfont[BoldFont=STZhongsong]{STSong}
-\setCJKmonofont{simkai.ttf} % for \texttt
-\setCJKsansfont{simfang.ttf} % for \textsf
-\setlength\parskip{8pt}
-\setlength{\fboxsep}{12pt}
-\renewcommand\thesection{\arabic{chapter}.\arabic{section}}
-
-\newcommand{\e}{\mathrm{e}}
-\newcommand{\dash}{\,–\,}
-\newcommand{\arccot}{\operatorname{arccot}}
-\newcommand{\dlim}[1]{^{\color{gray}\prime}#1}
-\newcommand{\lian}[1]{
-    \underset{#1}{\operatorname{lian}\,}
-}
-\newcommand{\di}[1]{\,\mathrm{d}#1}
-% developpements limites
-\newcommand{\oveq}[1]{\overset{#1}{=}} 
-\newcommand{\olim}[1]{\mathit{o}\left(#1\right)}  % petit o
-\newcommand{\Olim}[1]{\mathcal{O}\left(#1\right)}  % grand O
-\newcommand{\Tlim}[1]{\mathcal{\Theta}\left(#1\right)}  % grand theta
-\newcommand{\eqlim}[1]{\overset{#1}{\sim}}  % equivalence
-\newcommand{\vect}[1]{\left\langle #1 \right\rangle}
-\newcommand{\bu}{\mathbin{\text{\tikz[baseline=-0.6ex]{
-    \node[draw, fill=black, minimum size=0.8ex, inner sep=0pt, rectangle] (bu) {};
-    \node[draw=none, fill=white, minimum size=0.6ex, inner sep=0pt, circle] at (bu.center) {};
-}}}}
-
-\theoremstyle{definition}
-\newtheorem{df}{定义}[section] 
-\newtheorem*{po}{公理}
-\newtheorem{pp}{命题}[section]
-\newtheorem{tm}{定理}[section]
-\newtheorem{cor}{推论}[pp]
-\newtheorem{ex}{例子}[section]
-\newtheorem{et}{例题}[section]
-\newtheorem*{ex*}{例子}
-\newtheorem*{so}{解答}
-\theoremstyle{plain}
-\newtheorem{sk}{思考}[section]
-\newtheorem{xt}{习题}[section]
-\renewenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
-
-% 列举环境的行间距
-\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
-\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
-\setdescription{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
-% 章节字体大小
-\titleformat{\section}{\zihao{-2}\bfseries}{ \thesection }{16pt}{}
 % 封面
 \title{\zihao{0} \bfseries 第三册}
 \author{\zihao{2} \texttt{大青花鱼}}
@@ -93,19 +15,15 @@
 \newpage
 
 \chapter{无穷}
+
 我们已经学习过无穷的概念。我们用数数原则来判定无穷。简单来说，数得尽的集合是有穷的，数不尽的集合是无穷的。
 现在，我们来进一步探讨无穷的性质。
 
-数数原则把集合分成有穷的和无穷的两种。有穷的集合，集合元素的个数是可以知道的，
-因为按照定义，它是数得尽的。
+数数原则把集合分成有穷的和无穷的两种。有穷的集合，集合元素的个数是可以知道的，因为按照定义，它是数得尽的。
 
-我们把有穷集合的元素个数称为\textbf{集合的势}，用数字绝对值的符号来表记。
-比如，空集的势就是$0$，记作$|\varnothing| = 0$。集合$\{2,5,1\}$的势是$3$，
-记作$|\{2, 5, 1\}| = 3$。
+我们把有穷集合的元素个数称为\textbf{集合的势}，用数字绝对值的符号来表记。比如，空集的势就是$0$，记作$|\varnothing| = 0$。集合$\{2,5,1\}$的势是$3$，记作$|\{2, 5, 1\}| = 3$。
 
-比较两个集合的势，可以用最简单的“对消法”：每次从一个集合中“拿掉”一个元素，
-相应地，也从另一个集合中“拿掉”一个元素。直到某个集合的元素被“拿光”。
-如果另一个集合里还有元素，就说明前者的势小于后者；如果另一个集合里也没有元素了，就说明两者的势相等。
+比较两个集合的势，可以用最简单的“对消法”：每次从一个集合中“拿掉”一个元素，相应地，也从另一个集合中“拿掉”一个元素。直到某个集合的元素被“拿光”。如果另一个集合里还有元素，就说明前者的势小于后者；如果另一个集合里也没有元素了，就说明两者的势相等。
 
 容易验证，有穷集合的势有以下的基本性质：
 \begin{enumerate}
@@ -117,33 +35,19 @@
 
 有穷集合的基本性质符合我们日常生活中的经验。对于无穷集合，它们是否也成立呢？
 
-来看以下的例子。
+让我们来设想这样一个例子。
 
 一个旅馆里有无穷个房间。房间的号码是正整数：$1$号、$2$号、$3$号……
 
-一天，有一个客人来旅馆里住宿。可所有的房间都住了人，怎么办呢？
-旅馆的老板说：这样吧，我们把$1$号房的客人转到$2$号房，把$2$号房的客人转到$3$号房，
-把$3$号房的客人转到$4$号房……以此类推，$n$号房的人转到$n+1$号房。
+一天，有一个客人来旅馆里住宿。可所有的房间都住了人，怎么办呢？旅馆的老板说：这样吧，我们把$1$号房的客人转到$2$号房，把$2$号房的客人转到$3$号房，把$3$号房的客人转到$4$号房……以此类推，$n$号房的人转到$n+1$号房。这样，$1$号房就空出来了。客人顺利入住。
 
-这样，$1$号房就空出来了。客人顺利入住。
+又一天，有无穷多个客人来旅馆里住宿。可所有的房间都住了人，怎么办呢？旅馆的老板一看，每个客人有一个正整数号码，没有重复的也没有缺少的，恰好和房号一样。老板说：这样吧，我们把$1$号房的客人转到$2$号房，把$2$号房的客人转到$4$号房，把$3$号房的客人转到$6$号房……以此类推，$n$号房的人转到$2n$号房。
 
-又一天，有无穷多个客人来旅馆里住宿。可所有的房间都住了人，怎么办呢？
-旅馆的老板一看，每个客人有一个正整数号码，没有重复的也没有缺少的，恰好和房号一样。
-老板说：这样吧，我们把$1$号房的客人转到$2$号房，把$2$号房的客人转到$4$号房，
-把$3$号房的客人转到$6$号房……以此类推，$n$号房的人转到$2n$号房。
+这样，所有奇数号的房间就空出来了。于是，$1$号客人住$1$号房，$2$号客人住$3$号房，$3$号客人住$5$号房，……以此类推，$n$号客人入住$2n-1$号房。这样，所有的客人都顺利入住了。
 
-这样，所有奇数号的房间就空出来了。于是，$1$号客人住$1$号房，$2$号客人住$3$号房，$3$号客人住$5$号房，……以此类推，
-$n$号客人入住$2n-1$号房。这样，所有的客人都顺利入住了。
+以上的情况似乎有点违反我们的直觉。集合$\{2,3,4,\cdots\}$和$\{2,4,6,\cdots\}$是$\{1,2,3,\cdots\}$的真子集，但它们的势与$\{1,2,3,\cdots\}$相等。这说明，无穷集合的势，有着不同的性质。
 
-以上的情况似乎有点违反我们的直觉。集合$\{2,3,4,\cdots\}$和$\{2,4,6,\cdots\}$是$\{1,2,3,\cdots\}$的真子集，
-但它们的势与$\{1,2,3,\cdots\}$相等。这说明，无穷集合的势，有着不同的性质。
-
-为此，我们首先要定义无穷集合的势的关系。我们从“对消法”出发来构思。
-“对消法”中，我们实际上在给两个集合的元素建立一一对应的关系。
-每次从两个集合里分别“拿掉”的元素形成一一对应。
-
-如果一个集合“拿光”的时候，另一个集合也“拿光”了，
-说明我们给两个集合的元素建立了一一对应的映射，也就是双射。
+为此，我们首先要定义无穷集合的势的关系。我们从“对消法”出发来构思。“对消法”中，我们实际上在给两个集合的元素建立一一对应的关系。每次从两个集合里分别“拿掉”的元素形成一一对应。如果一个集合“拿光”的时候，另一个集合也“拿光”了，说明我们给两个集合的元素建立了一一对应的映射，也就是双射。
 
 如果一个集合“拿光”的时候，另一个集合还有“剩余”，就说明我们无法在两个集合的元素之间建立双射。
 我们可以从前一个集合出发，建立到后一个集合的单射；但无法从后一个集合出发，建立到前一个集合的单射。
@@ -160,9 +64,7 @@ $n$号客人入住$2n-1$号房。这样，所有的客人都顺利入住了。
     \end{itemize}
 \end{df}
 
-用这个定义，就可以理解无穷旅馆的例子。对于集合$\{1,2,3,\cdots\}$和$\{2,3,4,\cdots\}$来说，
-我们有双射$n\mapsto n+1$，因此两者等势。
-对于集合$\{1,2,3,\cdots\}$和$\{2,4,6,\cdots\}$来说，我们有双射$n\mapsto 2n$，因此两者等势。
+用这个定义，就可以理解无穷旅馆的例子。对于集合$\{1,2,3,\cdots\}$和$\{2,3,4,\cdots\}$来说，我们有双射$n\mapsto n+1$，因此两者等势。对于集合$\{1,2,3,\cdots\}$和$\{2,4,6,\cdots\}$来说，我们有双射$n\mapsto 2n$，因此两者等势。
 
 注意：
 \begin{enumerate}
@@ -199,21 +101,6 @@ $n$号客人入住$2n-1$号房。这样，所有的客人都顺利入住了。
 
     \indent 6. 证明：如果集合$A$、$B$满足$|A| < |B|$，那么$|A| = |B|$不成立。
 
-    % \indent 6. 证明：定义\ref{df:1-0-0} 中集合的势小于等于的关系满足：\\
-    % \indent \begin{itemize}
-    %     \item 自返性：任意集合$A$的势等于自己：$|A| = |A|$。
-    %     \item 对称性：任何集合$A$、$B$，$|A| \leqslant |B|$和$|B| \leqslant |A|$至少有一个成立。
-    %     \item 传递性：若集合$A$的势小于等于集合$B$的势，集合$B$的势小于等于集合$C$的势，则集合$A$的势小于等于集合$C$的势。
-    % \end{itemize}
-
-    % \indent 7. 证明：定义\ref{df:1-0-0} 中集合的势小于的关系满足：
-    % \indent \begin{itemize}
-    %     \item 自背性：任意集合$A$的势不小于自己：$|A| < |A|$总不成立。
-    %     \item 三分律：任何集合$A$、$B$的势总恰好满足$|A| < |B|$、$|A| = |B|$、$\qquad |B| < |A|$之一。
-    %     \item 传递性：若集合$A$的势小于集合$B$的势，集合$B$的势小于集合$C$的势，则集合$A$的势小于集合$C$的势。
-    % \end{itemize}
-    
-    
 \end{xt}
 
 \section{常见无穷集合的势}
@@ -3423,14 +3310,6 @@ $$
 \begin{appendix}
 
 \chapter{无穷集合的势}
-
-\begin{df}{\textbf{像和原像}}\label{df:a-1-0}
-    给定映射$f$，记$f$的定义域为$D$。
-    $f$将集合$A\subseteq D$映射得到的集合，称为$A$经过$f$映射的\textbf{像}，记作$f(A)$。
-    给定$f$值域的子集$B$，将集合：
-    $$ \{x \in D \, | \, f(x) \in B \}$$
-    称为$B$（关于$f$）的\textbf{原像}，记为$f^{(-1)}(B)$。
-\end{df}
 
 \begin{po}{\textbf{选择公理}}
     可以同时从任意多个非空集合里各选择一个元素，构成一个新集合。

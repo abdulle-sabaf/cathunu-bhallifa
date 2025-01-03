@@ -1,72 +1,8 @@
 \documentclass[12pt,UTF8]{ctexbook}
-\usepackage{ctex}
-\usepackage{caption}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{wrapfig}
-\usepackage{array}
-\usepackage[table, dvipsnames, svgnames, x11names]{xcolor}
-\usepackage{colortbl}% 
-\usepackage{tabularx}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{xfrac}
-\usepackage{eucal}
-\usepackage{titlesec}
-\usepackage{amsthm}
-\usepackage{tikz-cd}
-\usepackage{enumitem}
-\usepackage{verbatim}
-\usepackage{fontspec,xunicode,xltxtra}
-\usepackage{xeCJK} 
 
-% 修改脚注的编号为加圈样式，并且各页单独编号
-\usepackage{pifont}
-\usepackage[perpage,symbol*]{footmisc}
-\DefineFNsymbols{circled}{{\ding{192}}{\ding{193}}{\ding{194}}
-{\ding{195}}{\ding{196}}{\ding{197}}{\ding{198}}{\ding{199}}{\ding{200}}{\ding{201}}}
-\setfnsymbol{circled}
+% 导入设定
+\input{../shared/settings}
 
-\definecolor{gl}{RGB}{246, 252, 240}
-\definecolor{gd}{RGB}{236, 244, 230}
-\definecolor{bg}{RGB}{242, 244, 228}
-
-
-\setCJKmainfont[BoldFont=STZhongsong]{STSong}
-\setCJKmonofont{simkai.ttf} % for \texttt
-\setCJKsansfont{simfang.ttf} % for \textsf
-\setlength\parskip{8pt}
-\setlength{\fboxsep}{12pt}
-\renewcommand\thesection{\arabic{chapter}.\arabic{section}}
-\theoremstyle{definition}
-\newtheorem{df}{定义}[section] 
-\newtheorem*{po}{公理}
-\newtheorem{pp}{命题}[section]
-\newtheorem{tm}{定理}[section]
-\newtheorem{cor}{推论}[pp]
-\newtheorem{ex}{例子}[section]
-\newtheorem{et}{例题}[section]
-\newtheorem*{so}{解答}
-\theoremstyle{plain}
-\newtheorem{sk}{思考}[section]
-\newtheorem{xt}{习题}[section]
-% \newenvironment{proof2}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
-\renewenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
-% 列举环境的行间距
-\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
-\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
-\setdescription{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
-\setlength{\intextsep}{2pt}%
-\setlength{\columnsep}{2pt}%
-% 新函数
-\renewcommand{\parallel}{\mathrel{/\mskip-4mu/}}
-\newcommand{\dlim}[1]{^{\color{gray}\prime}#1}
-\newcommand{\bu}{\mathbin{\text{\tikz[baseline=-0.6ex]{
-    \node[draw, fill=black, minimum size=0.8ex, inner sep=0pt, rectangle] (bu) {};
-    \node[draw=none, fill=white, minimum size=0.6ex, inner sep=0pt, circle] at (bu.center) {};
-}}}}
-% 章节字体大小
-\titleformat{\section}{\zihao{-2}\bfseries}{ \thesection }{16pt}{}
 % 封面
 \title{\zihao{0} \bfseries 第三册}
 \author{\zihao{2} \texttt{大青花鱼}}

@@ -1,100 +1,12 @@
 \documentclass[12pt,UTF8]{article}
-\usepackage{ctex}
-\usepackage{caption}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{wrapfig}
-\usepackage{array}
-\usepackage{longtable}
-\usepackage[table, dvipsnames, svgnames, x11names]{xcolor}
-\usepackage{colortbl}% 
-\usepackage{tabularx}
-\usepackage{amsmath, tikz}
-\usepackage{amssymb}
-\usepackage{xfrac}
-\usepackage{eucal}
-\usepackage{titlesec}
-\usepackage{amsthm}
-\usepackage{ifthen}
-\usepackage{tikz-cd}
-\usepackage{enumitem}
-\usepackage{verbatim}
-\usepackage{fontspec,xunicode,xltxtra}
-\usepackage{xeCJK} 
-\usepackage[b]{esvect}
 \usepackage{multicol}
 
-% 修改脚注的编号为加圈样式，并且各页单独编号
-\usepackage{pifont}
-\usepackage[perpage,symbol*]{footmisc}
-\DefineFNsymbols{circled}{{\ding{192}}{\ding{193}}{\ding{194}}
-{\ding{195}}{\ding{196}}{\ding{197}}{\ding{198}}{\ding{199}}{\ding{200}}{\ding{201}}}
-\setfnsymbol{circled}
+% 导入设定
+\input{../shared/settings}
 
-
-\setCJKmainfont[BoldFont=STZhongsong]{STSong}
-\setCJKmonofont{simkai.ttf} % for \texttt
-\setCJKsansfont{simfang.ttf} % for \textsf
-\setlength\parskip{8pt}
-\setlength{\fboxsep}{12pt}
-\setlength{\columnsep}{16pt}
-\renewcommand\thesection{\arabic{chapter}.\arabic{section}}
-\newtheorem{df}{定义}[section] 
-\newtheorem{pp}{命题}[section]
-\newtheorem{tm}{定理}[section]
-\newtheorem{et}{例题}[section]
-\newtheorem{ex}{例子}[section]
-\newtheorem{sk}{思考}[section]
-\newtheorem{po}{公理}
-\newtheorem*{so}{解答}
-\newtheorem{xt}{习题}[section]
-\newtheorem{cor}{推论}[pp]
-\renewenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
-% \renewcommand{\proofname}{\indent\bf 证明}
-% \renewcommand{\qedsymbol}{\hfill$\square$}
-\newcommand{\arcangle}{\mathord{\mathpalette\doarcangle\relax}}
-\newcommand{\doarcangle}[2]{%
-  \hbox{%
-    \sbox0{$#1B$}%
-    \sbox2{$#1<$}%
-    \raisebox{\dimexpr\dp0+(\ht0-\ht2)/2}{%
-      $#1<\mspace{-9mu}\mathrel{)}\mspace{2mu}$%
-    }%
-  }%
-}
-\newcommand{\tong}[1]{\overset{#1}{\equiv\joinrel\equiv}}
-\newcommand{\parasbx}{%
-    \mathord{
-        \text{%
-            \tikz[baseline] \draw (0,.1ex) -- (.8em,.1ex) -- (1em,1.6ex) -- (.2em,1.6ex) -- cycle;
-        }
-    }
-}
-\newcommand{\bu}{\mathbin{\text{\tikz[baseline=-0.6ex]{
-    \node[draw, fill=black, minimum size=0.8ex, inner sep=0pt, rectangle] (bu) {};
-    \node[draw=none, fill=white, minimum size=0.6ex, inner sep=0pt, circle] at (bu.center) {};
-}}}}
-\usetikzlibrary{calc,topaths}
-\newcommand{\widearc}[1]{%
-    \tikz[baseline=(wideArcAnchor.base)]{
-        \node[inner sep=0] (wideArcAnchor) {$#1$}; 
-        \coordinate (wideArcAnchorA) at ($(wideArcAnchor.north west) + (0.15em,0.1em)$);
-        \coordinate (wideArcAnchorB) at ($(wideArcAnchor.north east) + (0.0em,0.1em)$);
-    %
-        \draw[line width=0.1ex,line cap=round,out=45,in=135] (wideArcAnchorA) to (wideArcAnchorB);
-    }
-}
-% 列举环境的行间距
-\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
-\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
-\setdescription{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
 \setlength{\intextsep}{2pt}%
 % \setlength{\columnsep}{2pt}%
 \setlength{\abovecaptionskip}{0.1cm}
-% 新函数
-\renewcommand\parallel{\mathrel{/\mskip-4mu/}}
-% 章节字体大小
-\titleformat{\section}{\zihao{-2}\bfseries}{ \thesection }{16pt}{}
 % 封面
 \title{\zihao{0} \bfseries 数学符号常例}
 % \author{\zihao{2} \texttt{大青花鱼}}
@@ -104,11 +16,6 @@
 \begin{document}
 \maketitle
 
-% \begin{multicols*}{2}
-%     We are most indebted to Archimedes for contributions he made to the understanding of basic principles of physical phenomena. This is reflected in the many legends that are attributed to him. However, it is in his mathematical treatises that his true genius is to be discovered. The story of the survival of these treatises down to our own time is intricate and complicated, and has been traced in extraordinary detail. It is through three manuscripts that we know the texts of Archimedes treatises in Greek. One was last seen in 1311, a second was last seen in the 1550s, and the third is the Archimedes Palimpsest.    
-    
-%     In October 1998, the Archimedes Palimpsest was sold to a private American collector at Christie’s in New York. The collector deposited the manuscript at The Walters Art Museum in Baltimore, renowned worldwide for its extraordinary holdings of medieval manuscripts and its expertise in manuscript conservation. It has since become the subject of a worldwide campaign of conservation, imaging, and study, to fully reveal texts in the manuscript obliterated by a medieval priest over 750 years earlier. When the manuscript was sold at auction in 1998 it was described as “perhaps the most important scientific manuscript ever sold at auction.” It has since become the most important palimpsest in the world.
-% \end{multicols*}
 以下是本系列中常用的符号，以及相应的解释。
 
 \vspace{18pt}

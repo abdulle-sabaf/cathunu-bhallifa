@@ -1,79 +1,8 @@
 \documentclass[12pt,UTF8]{ctexbook}
-\usepackage{ctex}
-\usepackage{array}
-\usepackage{graphicx}
-\usepackage{wrapfig}
-\usepackage[table,dvipsnames]{xcolor}
-\usepackage{tabularx}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{xfrac}
-\usepackage{eucal}
-\usepackage{titlesec}
-\usepackage{amsthm}
-\usepackage{tikz-cd}
-\usepackage{enumitem}
-\usepackage{verbatim}
-\usepackage{fontspec,xunicode,xltxtra}
-\usepackage{xeCJK} 
-\usepackage{caption}
-\usepackage{thmtools, thm-restate}
-% 修改脚注的编号为加圈样式，并且各页单独编号
-\usepackage{pifont}
-\usepackage[perpage,symbol*]{footmisc}
-\DefineFNsymbols{circled}{{\ding{192}}{\ding{193}}{\ding{194}}
-{\ding{195}}{\ding{196}}{\ding{197}}{\ding{198}}{\ding{199}}{\ding{200}}{\ding{201}}}
-\setfnsymbol{circled}
 
-\definecolor{gl}{RGB}{246, 252, 240}
-\definecolor{gd}{RGB}{236, 244, 230}
-\definecolor{bg}{RGB}{242, 244, 228}
+% 导入设定
+\input{../shared/settings}
 
-
-\setCJKmainfont[BoldFont=STZhongsong]{STSong}
-\setCJKmonofont{simkai.ttf} % for \texttt
-\setCJKsansfont{simfang.ttf} % for \textsf
-\setlength\parskip{8pt}
-\setlength{\fboxsep}{12pt}
-\renewcommand\thesection{\arabic{chapter}.\arabic{section}}
-\newcommand{\arccot}{\operatorname{arccot}}
-\newcommand{\dlim}[1]{^{\color{gray}\prime}#1}
-\newcommand{\lian}[1]{
-    \underset{#1}{\operatorname{lian}\,}
-}
-\newcommand{\bu}{\mathbin{\text{\tikz[baseline=-0.6ex]{
-    \node[draw, fill=black, minimum size=0.8ex, inner sep=0pt, rectangle] (bu) {};
-    \node[draw=none, fill=white, minimum size=0.6ex, inner sep=0pt, circle] at (bu.center) {};
-}}}}
-\theoremstyle{definition}
-\newtheorem{df}{定义}[section] 
-\newtheorem*{po}{公理}
-\newtheorem{pp}{命题}[section]
-\newtheorem{tm}{定理}[section]
-\newtheorem{cor}{推论}[pp]
-\newtheorem{ex}{例子}[section]
-\newtheorem{et}{例题}[section]
-\newtheorem*{ex*}{例子}
-\newtheorem*{so}{解答}
-\theoremstyle{plain}
-\newtheorem{sk}{思考}[section]
-\newtheorem{xt}{习题}[section]
-\renewenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
-% \declaretheorem[name=定义, numberwithin=section, shaded={rulecolor={rgb}{0.1,0.7,0.4},
-% rulewidth=2pt, bgcolor={rgb}{0.96,1,0.99}}]{df}
-% \declaretheorem[name=定理, numberwithin=section, shaded={rulecolor={rgb}{0.1,0.4,0.7},
-% rulewidth=2pt, bgcolor={rgb}{0.96,0.99,1}}]{tm}
-% \declaretheorem[name=思考, numberwithin=section, shaded={rulecolor={rgb}{0,0.7,0.7},
-% rulewidth=2pt, bgcolor={rgb}{0.98,1,1}}]{sk}
-% \declaretheorem[name=习题, numberwithin=section, shaded={rulecolor={rgb}{0.91,0.84,0.42},
-% rulewidth=2pt, bgcolor={rgb}{1,0.98,0.93}}]{xt}
-
-% 列举环境的行间距
-\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
-\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
-\setdescription{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
-% 章节字体大小
-\titleformat{\section}{\zihao{-2}\bfseries}{ \thesection }{16pt}{}
 % 封面
 \title{\zihao{0} \bfseries 第一册}
 \author{\zihao{2} \texttt{大青花鱼}}
@@ -183,12 +112,78 @@ $$ \bigcap_{1\leqslant i\leqslant n} A_i . $$
         \item $A \subseteq B$，则$B^{\bu} \subseteq A^{\bu}$；
         \item $A \setminus B = A \cap B^{\bu}$；
         \item $(A \setminus B) \cap C = (A \cap C) \setminus (B \cap C)$；
-        \item  $(A \setminus B) \setminus C = A \setminus (B \cup C)$；
+        \item  $(A \setminus B) \setminus C = A \setminus (B \cup C)$。
     \end{itemize}   
     \indent 5. 参考叠圈图，证明：
+    $$ \left(\bigcap_{i\in I} A_i \right)^{\bu} = \bigcup_{i\in I} A_i^{\bu}, \quad\quad \left(\bigcup_{i\in I} A_i \right)^{\bu} = \bigcap_{i\in I} A_i^{\bu}.$$
+    \indent 6. 定义集合$A,B$的对称差为：$A \veebar B = (A \setminus B) \cup (B \setminus A)$。对称差表示集合$A,B$不共同的部分。证明：
     \begin{itemize}
-        \item 
+        \item $A \veebar B = B \veebar A $；
+        \item $(A \veebar B) \veebar C = A \veebar (B \veebar C) $；
+        \item $A \veebar B = A^{\bu} \veebar B^{\bu}$；
     \end{itemize}
+\end{xt}
+
+\section{集合与映射}
+
+我们用\textbf{映射}表示事物之间的对应关系。把一个事物对应到另一个事物，可以理解为事物的变换或对事物进行操作。
+因此映射也叫做\textbf{变换}或\textbf{操作}。把数量对应到数量的映射，叫做\textbf{函数}。
+
+把事物对应到自己的映射叫做\textbf{恒等映射}或\textbf{等映射}。比如，把每个自然数对应到自己的映射就叫自然数集上的恒等映射，也叫恒等函数。任何非空集合上都有恒等映射。恒等映射的定义域和值域相同。
+
+总把事物对应到同一个对象的映射叫做\textbf{恒映射}或\textbf{常映射}。比如，把任意自然数对应到$0$的映射就是恒映射。
+
+把全集的某个子集$A$里的元素映射到$1$，把其余元素映射到$0$的映射，叫做集合$A$的\textbf{指示函数}。比如，把所有偶数映射到$1$，把所有奇数映射到$0$的映射，叫做关于偶数集合的指示函数。
+
+每个一元式都可以用来定义映射。比如，$x^2 - x + 3.5$这个一元式，就定义了把任何数$x$对应到$x^2 - x + 3.5$的映射。因此，为了方便，我们会把一元式定义的映射直接用一元式表示。
+
+我们把映射涉及的事物用两个集合记录：\textbf{出发集}和\textbf{到达集}。映射把出发集的一个元素对应到到达集的一个元素。
+用变量$x$指代出发集的元素，$x$的取值在出发集里变化时，映射对应的元素也在到达集里变化，可以用变量$y$表示。
+一般称$x$为\textbf{自变量}，$y$为\textbf{应变量}。出发集和到达集都是数集的时候，映射就叫做函数。
+
+需要强调的是，映射可以把多个元素对应到同一个元素，但不会把一个元素对应到多个元素。
+
+如果把映射记作$f$，那么可以用$y = f(x)$或$f:x\mapsto y$表达“映射把出发集的元素和到达集的元素对应起来”这件事。
+对出发集的元素$x$来说，如果映射$f$把它和到达集的元素$y$对应起来，就说$y$是$x$（经过$f$映射）的\textbf{值}，记作$f(x) = y$。
+
+出发集中，某个映射涉及的元素集合称为映射的\textbf{定义域}；
+到达集里，某个映射涉及的元素集合则称为映射的\textbf{值域}。定义域是出发集的子集，值域是到达集的子集。
+
+举例来说，映射$f$的定义域是$\{1,2,3,4,5\}$，它把$1,2,3,4,5$分别对应到$6,7,8,7,6$。
+那么它的值域是$\{6,7,8\}$。具体来说，$f(2) = 7$，$f(3) = 8$。
+
+考虑映射$f$的定义域的子集$S$。$S$中元素经过$f$映射的值，构成值域的子集。
+我们把它叫做$S$（关于$f$）的\textbf{像集}，简称$S$的\textbf{像}，记作$f(S)$。
+
+反之，考虑映射$f$的值域的子集$T$。$T$中元素总是$f$的定义域中元素的值。
+我们把$f$的定义域里值属于$T$的元素集合起来。这个集合叫做$T$关于$f$的\textbf{原像}，记作$f^{(-1)}(T)$。
+
+举例来说，映射$f$的定义域是$\{1,2,3,4,5\}$，它把$1,2,3,4,5$分别对应到$6,7,8,7,6$。
+那么，集合$\{1,2,3,4\}$的像集是$\{6,7,8\}$；集合$\{1,2\}$的像集是$\{6,7\}$。
+集合$\{7,8\}$的原像是$\{2,3,4\}$；集合$\{6,8\}$的原像是$\{1,3,5\}$。
+
+我们约定，空集的像集是空集，空集的原像是空集。
+
+如果映射$f$的值域等于某个集合，就说$f$是这个集合上的\textbf{满射}。满射表示$f$的像充满了这个集合。
+
+如果$f$不把定义域中任意两个元素映射到同一个对象，就说$f$是\textbf{单射}。单射表示$f$“不会重复”，不同的元素经过$f$映射的值是不同的对象。
+
+如果$f$既是（某个集合上的）满射，又是单射，就说$f$是（定义域到这个集合上的）\textbf{双射}或\textbf{一一对应}。
+
+\begin{xt}\label{xt:2-2-0}
+    \mbox{} \\
+    \indent 1. 映射$f$的定义域是$\{1,2,3\}$，值域是$\{4,5\}$。\\
+    \indent 1.1. 写出一个满射$f$。\\
+    \indent 1.2. $f$能否是单射？为什么？\\
+    \indent 2. 判断以下说法是否正确。\\
+    \indent 2.1. 映射的定义域的元素构成的集合，其像集的原像总是自己。\\
+    \indent 2.2. 映射的值域的元素构成的集合，其原像的像集总是自己。\\
+    \indent 2.3. 映射$f$是集合$A$上的满射，说明$A$中任何元素$a$总能写成$a = f(x)$，其中$x$是定义域中某个元素。\\
+    \indent 2.4. 映射$f$是单射，说明定义域中每个元素恰好被对应到一个对象。\\ 
+    \indent 3. 考虑以下映射和集合，给出相应的像集或原像。\\
+    \indent 3.1. 映射$f$把正整数对应到它的$3$倍数。比如：$f(1) = 3$，$f(2) = 6$，等等。求集合$\{21, 39, 87\}$的像集和原像。\\
+    \indent 3.2. 映射$g$把月份对应到它的天数（不考虑闰年）。比如一月的值是$31$，二月的值是$28$，等等。求集合$\{30\}$的原像。\\
+    \indent 3.3. 映射$h$把汉字对应到它的笔画数。比如“数”的值是$13$，“学”的值是$8$，等等。设集合$S$是$\{1,2\}$的原像，请写出它的十个元素。 % 一二七八九 十人入丁乃 儿了几刀刁 力匕卜厂又
 \end{xt}
 
 \chapter{数列初步}
