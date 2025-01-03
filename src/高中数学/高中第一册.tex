@@ -41,6 +41,10 @@
 \newcommand{\lian}[1]{
     \underset{#1}{\operatorname{lian}\,}
 }
+\newcommand{\bu}{\mathbin{\text{\tikz[baseline=-0.6ex]{
+    \node[draw, fill=black, minimum size=0.8ex, inner sep=0pt, rectangle] (bu) {};
+    \node[draw=none, fill=white, minimum size=0.6ex, inner sep=0pt, circle] at (bu.center) {};
+}}}}
 \theoremstyle{definition}
 \newtheorem{df}{定义}[section] 
 \newtheorem*{po}{公理}
@@ -80,6 +84,112 @@
 \maketitle
 \tableofcontents
 \newpage
+
+\chapter{集合与映射}
+
+集合与映射是数学学习中极重要的概念。初中阶段，我们已经掌握了它们的定义和基本性质。在开始高中部分的学习前，让我们再次梳理集合与映射的相关知识，在初中的基础上，更加深入地理解它们的含义。
+
+\section{集合}
+我们用集合表示一类事物。把不同性质的事物聚集在一起，合起来考虑，就是\textbf{集合}，简称\textbf{集}。
+构成集合的事物称为集合的\textbf{元素}。
+\begin{enumerate}
+    \item 集合的元素互不相同。
+    \item 集合的元素没有顺序。
+    \item 集合的元素是确定的：一个事物要么属于该集合，要么不属于。
+\end{enumerate}
+
+某个事物$a$属于集合$A$，记作$a\in A$。某个事物$a$不属于集合$A$，记作$a\notin A$。
+
+记录集合的方式有许多种。我们可以直接在大括号中列出集合的元素，比如：$\{1,2,3\}$是一个集合。重复列出的元素视为同一个，比如：$\{1,2,2,3\}$也是集合，它和$\{1,2,3\}$是一样的。此外，也可以在大括号中用条件描述集合。集合的元素是满足条件的元素，比如：
+$$\{ a\, |\, a\mbox{是偶数}\}$$
+竖线左边是元素的样子，右边是它满足的条件。
+
+没有元素的集合称为\textbf{空集}，记为$\varnothing$。
+
+如果集合$A$的元素都是集合$B$的元素，就说$A$是$B$的\textbf{子集}，或者说$A$包含于$B$，记为$A\subseteq B$，
+$B$是$A$的\textbf{母集}，或者说$A$包含$B$，记为$B\supseteq A$。
+如果两者不相同，就说$A$是$B$的\textbf{真子集}，记为$A\subset B$，$B$是$A$的\textbf{真母集}，
+记为$B\supset A$。
+
+给定集合$A$、$B$，$B$中不属于$A$的元素也构成一个集合，称为$A$在$B$中的\textbf{差集}，记为$B\setminus A$。讨论问题的时候，我们可能会默认某个集合是问题涉及的所有事物的集合，其他集合都是它的子集。这样的集合一般称为\textbf{全集}。全集存在的时候，集合$A$作为全集的子集，在全集中的差集可以简称为$A$的\textbf{补集}，记为$\bar{A}$或$A^{\bu}$。
+
+集合与全集的基本关系可以归纳为：
+\begin{enumerate}
+    \item 零一律：$A \cap X = A$、$A \cap \varnothing = \varnothing$、$A \cup X = X$、$A \cup \varnothing = A$；
+    \item 排中律：$A \cup A^{\bu} = X$、$A \cup A^{\bu} = \varnothing$；
+    \item 对合律：$\left(A^{\bu}\right)^{\bu} = A$。
+\end{enumerate}
+其中$X$是全集。
+
+如果要记录满足某些条件的子集，在大括号中用条件描述集合时，可以在竖线左边注明全集是什么。比如，我们要记录所有偶数的集合，可以写成：
+$$ \{ a\in \mathbb{Z}\, |\, a\mbox{是偶数}\} $$
+竖线左边注明了全集是整数集$\mathbb{Z}$。
+
+考虑若干个集合。由属于其中至少一个集合的元素构成的集合，称为这些集合的\textbf{并集}；
+由属于所有集合的元素构成的集合，称为这些集合的\textbf{交集}。
+两个集合$A, B$的并集记为$A\cup B$，交集记为$A\cap B$。
+
+多个集合的并集或交集，可以用大写的并集、交集符号来表示。比如，集合$A_1, A_2, \cdots, A_n$的交集可以写成：
+$$ \bigcap_{1\leqslant i\leqslant n} A_i . $$
+通常，为了方便描述一群集合的交集或并集，我们会为这群集合注明\textbf{指标}。指标一般在右下角，也叫下标或角标。比如上面的$i$就是集合的下标。有了指标，我们就能方便地指出现在在讨论哪个集合。比如我们约定，说$A_i$就表示“集合$A_1, A_2, \cdots, A_n$里的任一个集合”。
+
+这些集合的指标本身，也构成一个集合，称为\textbf{指标集}。指标集一般是前$n$个正整数，也有无穷个乃至不知道多少个的。很多时候，我们只是形式上赋予这些集合一个指标集（一般记作$I$），方便讨论，指标集具体到底是什么样子的，我们并不关心。
+
+几个集合交集为空集，就说它们\textbf{不相交}，否则就说它们相交。几个集合中任取两个，都不相交，就说它们两两不相交。如果集合$A$的一些子集两两不相交，而且它们的并集是$A$，就说这些集合是$A$的\textbf{分划}。反之，我们说取集合$A$的某个分划$B_1, B_2, \cdots, B_n$，就表示这些集合的并集是$A$，且两两不相交。集合$A$的任一个元素都属于分划中的某个集合，且不会同时属于两个集合。
+
+如果我们把两个集合的交集、并集和取关于全集的补集看作某种运算，那么它们也像四则运算一样，满足一些基本的运算律。
+\begin{enumerate}
+    \item 自等律：$A \cup A = A \cap A = A$；
+    \item 交换律：$A \cup B = B \cup A$、$A \cap B = B \cap A$；
+    \item 结合律：$A \cap (B \cap C) = (A \cap B) \cap C$、$A \cup (B \cup C) = (A \cup B) \cup C$；
+    \item 分配律：$(A \cap B) \cup (A \cap C) = A \cap (B \cup C)$、$(A \cup B) \cap (A \cup C) = A \cup (B \cap C)$;
+    \item 逆分配律：$(A \cap B)^{\bu} = A^{\bu} \cup B^{\bu}$、$(A \cup B)^{\bu} = A^{\bu} \cap B^{\bu}$。
+\end{enumerate}
+
+上面的运算律可以直接从定义出发演绎出来，也通过画出叠圈图来验证。
+
+多个集合的运算方法，也可以用叠圈图来表示。我们可以根据叠圈图中各个部分的关系，清楚地指出多个集合的并集或交集的关系。一般来说，对于多个集合的交集、并集、补集，我们有这样的结论：
+
+\begin{enumerate}
+    \item 如果一群集合$\{A_i | i \in I\}$里的集合都相同，那么它们的交集和并集都是自身。
+    \item 一群集合$\{A_i | i \in I\}$的交集和并集与$I$的顺序无关；
+    \item $\{A_i | i \in I\}$的交集与$\{B_j | j \in J\}$的交集的并集，是它们之间两两集合的并集的交集：
+    $$ \left(\bigcap_{i\in I} A_i \right) \cup  \left(\bigcap_{j\in J} B_j \right) = \bigcap_{i\in I,j\in J} (A_i \cup B_j). $$
+    \item $\{A_i | i \in I\}$的并集与$\{B_j | j \in J\}$的并集的交集，是它们之间两两集合的交集的并集：
+    $$ \left(\bigcup_{i\in I} A_i \right) \cap  \left(\bigcup_{j\in J} B_j \right) = \bigcup_{i\in I,j\in J} (A_i \cap B_j). $$
+\end{enumerate}
+
+我们只证明第三条：
+\begin{so}
+    从定义出发。记$\left(\bigcap_{i\in I} A_i \right) \cup  \left(\bigcap_{j\in J} B_j \right) = X$，$\bigcap_{i\in I,j\in J} (A_i \cup B_j) = Y$。
+    
+    $\forall x \in X$，$x$或者属于$\bigcap_{i\in I} A_i$，或者属于$\bigcap_{j\in J} B_j$。如果$x$属于$\bigcap_{i\in I} A_i$，那么$x$属于任意一个$A_i$。因此它也属于任意的$A_i \cup B_j$。这说明它属于$Y$。同理，如果$x$属于$\bigcap_{j\in J} B_j$，那么$x$属于任意一个$B_j$。因此它也属于任意的$A_i \cup B_j$。这说明它属于$Y$。无论如何，$x$属于$Y$。
+
+    另一方面，$\forall y \in Y$，它属于任意的$A_i \cup B_j$。于是，固定某个$i$，则对所有$j$，$y$都属于$A_i \cup B_j$。只有两个解释：或者$y$属于任意的$B_j$，也就是属于$\bigcap_{j\in J} B_j$，从而属于$X$；或者$y$不属于$\bigcap_{j\in J} B_j$，$y\in A_i$。
+    
+    如果$y$不属于$\bigcap_{j\in J} B_j$，$y\in A_i$，那么这个结论需要对所有$i$成立，因为$y$属于任意的$A_i \cup B_j$，而“$y$不属于$\bigcap_{j\in J} B_j$”与$i$无关。这就说明$y$属于$\bigcap_{i\in I} A_i$，从而属于$X$。无论如何，$y$属于$X$。
+
+    以上说明了：$\forall x \in X$，$x\in Y$；$\forall y \in Y$，$y\in X$。因此，$X=Y$。
+
+\end{so}
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 说明集合与全集的运算律。\\
+    \indent 2. 说明两个集合的运算律。\\
+    \indent 3. 在关于多个集合的交集、并集、补集的结论里，参照第三条，给出第四条的证明。\\
+    \indent 4. 参考叠圈图，证明：
+    \begin{itemize}
+        \item $A \subseteq B$，则$B^{\bu} \subseteq A^{\bu}$；
+        \item $A \setminus B = A \cap B^{\bu}$；
+        \item $(A \setminus B) \cap C = (A \cap C) \setminus (B \cap C)$；
+        \item  $(A \setminus B) \setminus C = A \setminus (B \cup C)$；
+    \end{itemize}   
+    \indent 5. 参考叠圈图，证明：
+    \begin{itemize}
+        \item 
+    \end{itemize}
+\end{xt}
 
 \chapter{数列初步}
 

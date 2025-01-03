@@ -69,6 +69,10 @@
     \end{tikzpicture}
     }
 }
+\newcommand{\bu}{\mathbin{\text{\tikz[baseline=-0.6ex]{
+    \node[draw, fill=black, minimum size=0.8ex, inner sep=0pt, rectangle] (bu) {};
+    \node[draw=none, fill=white, minimum size=0.6ex, inner sep=0pt, circle] at (bu.center) {};
+}}}}
 % \text{%
 %         \tikz[baseline] \draw (0.2ex,0.1ex) arc[start angle=225, end angle=45, x radius=0.7ex, y radius=0.7ex];\tikz \draw (-2em,1ex) -- (1ex - 2em, 0) ;}
 
@@ -642,7 +646,7 @@ $$ \frac{1}{b}\cdot g(\mathbf{u}) \leqslant f(\mathbf{u}) \leqslant \frac{1}{a}\
 \section{复平面}
 
 我们学习过复数和复平面的概念。从平直空间的角度来看，复平面就是二维的实平直空间，复数的模就是经典长度$\ell_2$，因此，我们可以定义相应的内积：
-$$ \forall \; z_1 = x_1 + \imath y_1, z_2 = x_2 + \imath y_2 \in \mathbb{C}, \quad \nji{z_1}{z_2} = x_1x_2 + y_1y_2 = z_1 \cdot \overline{z_2} = \overline{z_1}\cdot z_2. $$
+$$ \forall \; z_1 = x_1 + \imath y_1, z_2 = x_2 + \imath y_2 \in \mathbb{C}, \quad \nji{z_1}{z_2} = x_1x_2 + y_1y_2 = \Re(z_1 \cdot \overline{z_2}). $$
 这样定义的复数内积和平面上的经典内积一样。于是，复数的幅角就对应经典内积产生的角度。
 
 相比经典空间，复平面缺少邻则，我们通常将经典空间$\mathbb{R}^2$中的邻则应用到复平面上。也就是说，复平面上的典型开集是开“圆盘”：
@@ -689,6 +693,7 @@ $$ \forall z \in \mathbb{C}, r\geqslant 0,  \bigcirc(z, r) = \{x \in \mathbb{C} 
 \end{so}
 
 我们把级数$\sum \frac{z^{n}}{n!}$的和记作$\e^{z}$。我们后面会看到，这样的定义是有道理的。
+% TODO 详细定义 e^z
 
 \begin{xt}
     \mbox{} \\
@@ -1824,13 +1829,15 @@ $n$趋于无穷时，$f_n(c)$趋于$0$，所以函数列$\{f_n\}$在$\left[c;\fr
 
 \chapter{幂级数}
 
-最简单的函数项级数是以整幂函数为通项的级数：
+一种简单的函数项级数是以整幂函数为通项的级数：
 $$ 1 + x + x^2 + \cdots + x^n + \cdots$$
 如果在每个整幂函数前加上系数，就得到：
 $$ a_0 + a_1x + a_2x^2 + \cdots + a_n x^n + \cdots$$
 我们称这样的函数项级数为\textbf{幂级数}。幂级数的形式和整式函数很像。
 如果系数数列$\{a_n\}$在有限项之后都是$0$，那么幂级数就是一般的整式函数。实际上，幂级数的部分和就是整式函数。
 也就是说，幂级数就是次数不断增长的整式函数列的极限。
+
+\section{幂级数的收敛性质}
 
 怎样的幂级数收敛呢？如果只考虑单个$x$的值，我们就得到数项级数：$\sum a_n x^n$。考虑这样的函数$f$：
 如果级数$\sum a_n x^n$收敛，那么$f(x) = \sum a_n x^n$。直觉上，我们希望$f$就是幂级数的部分和收敛到的函数。
@@ -1843,9 +1850,7 @@ $$ a_0 + a_1x + a_2x^2 + \cdots + a_n x^n + \cdots$$
         x &\displaystyle \mapsto \sum_{n=0}^{+\infty} a_n x^n        
     \end{array}
     $$
-    $f$称为（关于数列$\{a_n\}_{n\in\mathbb{N}}$）的幂级数，记为
-    $$ x\mapsto \sum_{n=0}^{+\infty} a_n x^n. $$
-    不至于混淆时，也简记为$\sum_{n\in\mathbb{N}} a_n x^n$或$\sum a_n x^n$。
+    $f$称为关于数列$\{a_n\}$的幂级数，记为$\sum_{n\in\mathbb{N}} a_n x^n$或$\sum a_n x^n$。数列$\{a_n\}$称为$f$的\textbf{系数数列}。
 \end{df}
 换句话说，幂级数就是部分和函数$f_N : x\mapsto \sum_{n=0}^{N} a_n x^n$在$J$中逐点收敛到的函数。
 我们称$J$为幂级数的\textbf{收敛域}，$J$就是幂级数的定义域。
@@ -2508,9 +2513,9 @@ $(x-r;x+r)$是包含$x$的开集，所以是$x$的邻域。而对于一般的开
 \end{tm}
 
 \begin{proof}
-    用反证法。反设对某个$x\in U$来说，没有这样的$r$，那么$\forall r>0$，$(x-r;x+r)$里总有$U^c$的元素。
-    然而，$(x-r;x+r)$作为开集，也是$x$的邻域。这说明$x$的任何邻域里都有$U^c$的元素，即$x$是$U^c$的极限点。
-    然而$U^c$作为开集的补集是闭集。这说明$x\in U^c$，矛盾！
+    用反证法。反设对某个$x\in U$来说，没有这样的$r$，那么$\forall r>0$，$(x-r;x+r)$里总有$U^{\bu}$的元素。
+    然而，$(x-r;x+r)$作为开集，也是$x$的邻域。这说明$x$的任何邻域里都有$U^{\bu}$的元素，即$x$是$U^{\bu}$的极限点。
+    然而$U^{\bu}$作为开集的补集是闭集。这说明$x\in U^{\bu}$，矛盾！
 \end{proof}
 
 同理，我们可以说，$x$的任何邻域里总包含$(x-r;x+r)$形式的区间，其中$r>0$。进一步说，$(x-r;x+r)$也是开集，所以也是$x$的邻域。
@@ -2545,20 +2550,20 @@ $(x-r;x+r)$是包含$x$的开集，所以是$x$的邻域。而对于一般的开
 \end{tm}
 
 \begin{proof}
-    设$S$是有邻空间，邻则为$\Omega$。$B$是空间中的闭集，于是按定义，补集$B^c$是开集。
+    设$S$是有邻空间，邻则为$\Omega$。$B$是空间中的闭集，于是按定义，补集$B^{\bu}$是开集。
 
-    首先用反证法证明闭集的聚点都属于自己。反设有$B$的聚点$x\notin B$，则$x\in B^c$。
+    首先用反证法证明闭集的聚点都属于自己。反设有$B$的聚点$x\notin B$，则$x\in B^{\bu}$。
 
-    $B^c$是开集，因此是$x$的邻域，因此可以找到邻域$x\in U \subseteq B^c$。这说明$U$的任何元素都不属于$B$。
+    $B^{\bu}$是开集，因此是$x$的邻域，因此可以找到邻域$x\in U \subseteq B^{\bu}$。这说明$U$的任何元素都不属于$B$。
 
     另一方面，$x$是$B$的聚点，因此$x$的任何邻域都包含$B$的元素。$U$作为$x$的邻域，也应该包含$B$的元素。矛盾！
 
     因此，$B$的聚点总属于$B$。
 
-    再证明聚点都属于自己的集合总是闭集。设集合$B$的聚点都属于$B$。我们希望证明$B^c$中任一点都有母集是$B^c$的邻域，这就证明了$B^c$是开集，从而证明$B$是闭集。
+    再证明聚点都属于自己的集合总是闭集。设集合$B$的聚点都属于$B$。我们希望证明$B^{\bu}$中任一点都有母集是$^{\bu}$的邻域，这就证明了$B^{\bu}$是开集，从而证明$B$是闭集。
 
-    设点$x\in B^c$，由于$B$的聚点都属于$B$，所以$x$不是$B$的聚点。这说明$x$的某个邻域$U_x$除了$x$没有属于$B$的元素。
-    但$x \notin B$，所以$U_x$中没有$B$的元素，即$U_x\subseteq B^c$。$U_x$就是我们要找的邻域。
+    设点$x\in B^{\bu}$，由于$B$的聚点都属于$B$，所以$x$不是$B$的聚点。这说明$x$的某个邻域$U_x$除了$x$没有属于$B$的元素。
+    但$x \notin B$，所以$U_x$中没有$B$的元素，即$U_x\subseteq B^{\bu}$。$U_x$就是我们要找的邻域。
 
 \end{proof}
 
@@ -2656,7 +2661,7 @@ $(x-r;x+r)$是包含$x$的开集，所以是$x$的邻域。而对于一般的开
     \indent 2.1. 证明：所有内点的集合是开集。\\
     \indent 2.2. 证明：集合$A$所有内点的集合就是集合$A$的内部。\\
     \indent 3. 有邻空间中的集合$A$的边界为$\partial A$。证明：
-    $$ \partial A = \overline{A} \cap \overline{A^c}. $$
+    $$ \partial A = \overline{A} \cap \overline{A^{\bu}}. $$
 \end{xt}
 
 
@@ -2904,7 +2909,7 @@ $(x-r;x+r)$是包含$x$的开集，所以是$x$的邻域。而对于一般的开
 
 \begin{proof}
     首先证明开集中的点总是集合内开球的球心。用反证法：反设以开集$U$中的点$x$为球心的任何开球都有不属于$U$的点，
-    那么由于这些开球也是$x$的邻域，这说明$x$是$U^c$的极限点。然而$U^c$是闭集，它的极限点属于$U^c$。这说明$x$不属于$U$，矛盾！
+    那么由于这些开球也是$x$的邻域，这说明$x$是$U^{\bu}$的极限点。然而$U^{\bu}$是闭集，它的极限点属于$U^{\bu}$。这说明$x$不属于$U$，矛盾！
 
     另一方面，如果以集合$U$中的点$x$为球心，总能作包含于$U$的开球。那么由于这个开球是$x$的邻域，按照开集的定义，$U$就是开集。
 \end{proof}

@@ -49,6 +49,10 @@
 \theoremstyle{plain}
 \newtheorem{sk}{思考}[section]
 \newtheorem{xt}{习题}[section]
+\newcommand{\bu}{\mathbin{\text{\tikz[baseline=-0.6ex]{
+    \node[draw, fill=black, minimum size=0.8ex, inner sep=0pt, rectangle] (bu) {};
+    \node[draw=none, fill=white, minimum size=0.6ex, inner sep=0pt, circle] at (bu.center) {};
+}}}}
 % \newenvironment{proof2}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
 \renewenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
 % 列举环境的行间距
@@ -652,9 +656,7 @@ $B$是$A$的\textbf{母集}，或者说$A$包含$B$，记为$B\supseteq A$。
 如果两者不相同，就说$A$是$B$的\textbf{真子集}，记为$A\subset B$，$B$是$A$的\textbf{真母集}，
 记为$B\supset A$。
 
-如果$A$是$B$的子集，那么$B$中不属于$A$的元素也构成一个集合，称为$A$在$B$中的\textbf{补集}，记为$B\setminus A$。
-讨论问题的时候，我们可能会默认某个集合是问题涉及的所有事物的集合，其他集合都是它的子集。这样的集合一般称为\textbf{全集}。
-全集存在的时候，集合$A$在全集中的补集可以简称为$A$的补集，记为$\bar{A}$或$A^c$。
+集合也可以做“减法”。从集合$A$中去掉属于$B$的元素，只剩下不属于$B$的元素。这些元素也构成一个集合，称为$B$在$A$中的\textbf{差集}，记为$A\setminus B$。讨论问题的时候，我们可能会默认某个集合是问题涉及的所有事物的集合，其他集合都是它的子集。这样的集合一般称为\textbf{全集}。全集存在的时候，集合$A$作为全集的子集，在全集中的差集，可以简称为$A$的\textbf{补集}，记为$\bar{A}$或$A^{\bu}$。
 
 \begin{ex}\label{ex:2-0-10}
     \mbox{} \\ 

@@ -62,7 +62,7 @@
 \setlength{\intextsep}{2pt}%
 \setlength{\columnsep}{2pt}%
 % 新函数
-\renewcommand\parallel{\mathrel{/\mskip-4mu/}}
+\renewcommand{\parallel}{\mathrel{/\mskip-4mu/}}
 \newcommand{\arcangle}{\mathord{\mathpalette\doarcangle\relax}}
 \newcommand{\doarcangle}[2]{%
   \hbox{%
@@ -73,6 +73,10 @@
     }%
   }%
 }
+\newcommand{\bu}{\mathbin{\text{\tikz[baseline=-0.6ex]{
+    \node[draw, fill=black, minimum size=0.8ex, inner sep=0pt, rectangle] (bu) {};
+    \node[draw=none, fill=white, minimum size=0.6ex, inner sep=0pt, circle] at (bu.center) {};
+}}}}
 % 章节字体大小
 \titleformat{\section}{\zihao{-2}\bfseries}{ \thesection }{16pt}{}
 % 封面

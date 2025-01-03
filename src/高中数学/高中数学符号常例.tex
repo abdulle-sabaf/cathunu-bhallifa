@@ -91,6 +91,10 @@
 \newcommand{\Tlim}[1]{\mathcal{\Theta}\left(#1\right)}  % grand theta
 \newcommand{\eqlim}[1]{\overset{#1}{\sim}}  % equivalence
 \newcommand{\vect}[1]{\left\langle #1 \right\rangle}
+\newcommand{\bu}{\mathbin{\text{\tikz[baseline=-0.6ex]{
+    \node[draw, fill=black, minimum size=0.8ex, inner sep=0pt, rectangle] (bu) {};
+    \node[draw=none, fill=white, minimum size=0.6ex, inner sep=0pt, circle] at (bu.center) {};
+}}}}
 % 列举环境的行间距
 \setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
 \setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
@@ -99,7 +103,7 @@
 % \setlength{\columnsep}{2pt}%
 \setlength{\abovecaptionskip}{0.1cm}
 % 新函数
-\renewcommand\parallel{\mathrel{/\mskip-4mu/}}
+\renewcommand{\parallel}{\mathrel{/\mskip-4mu/}}
 % 章节字体大小
 \titleformat{\section}{\zihao{-2}\bfseries}{ \thesection }{16pt}{}
 % 封面
@@ -111,11 +115,6 @@
 \begin{document}
 \maketitle
 
-% \begin{multicols*}{2}
-%     We are most indebted to Archimedes for contributions he made to the understanding of basic principles of physical phenomena. This is reflected in the many legends that are attributed to him. However, it is in his mathematical treatises that his true genius is to be discovered. The story of the survival of these treatises down to our own time is intricate and complicated, and has been traced in extraordinary detail. It is through three manuscripts that we know the texts of Archimedes treatises in Greek. One was last seen in 1311, a second was last seen in the 1550s, and the third is the Archimedes Palimpsest.    
-    
-%     In October 1998, the Archimedes Palimpsest was sold to a private American collector at Christie’s in New York. The collector deposited the manuscript at The Walters Art Museum in Baltimore, renowned worldwide for its extraordinary holdings of medieval manuscripts and its expertise in manuscript conservation. It has since become the subject of a worldwide campaign of conservation, imaging, and study, to fully reveal texts in the manuscript obliterated by a medieval priest over 750 years earlier. When the manuscript was sold at auction in 1998 it was described as “perhaps the most important scientific manuscript ever sold at auction.” It has since become the most important palimpsest in the world.
-% \end{multicols*}
 以下是本系列中常用的符号，以及相应的解释。
 
 \vspace{18pt}
@@ -140,8 +139,8 @@
     $\mathbb{Z}^-$ & 负整数集 \\
     $A\cap B$ & $A$和$B$的交集 \\
     $A\cup B$ & $A$和$B$的并集 \\
-    $B\setminus A$ & $A$在$B$中的补集 \\
-    $A^c$ & $A$在全集中的补集 \\
+    $B\setminus A$ & $A$在$B$中的差集 \\
+    $A^{\bu}$ & $A$在全集中的补集 \\
     $f:\; \mathbb{Z} \rightarrow \mathbb{R}$ & $f$是从$\mathbb{Z}$到$\mathbb{R}$的映射 \\
     $x\mapsto x+1$ & 把$x$对应到$x+1$的映射 \\
     $f(x)$ & $x$经$f$映射的值 \\

@@ -55,7 +55,10 @@
 \newcommand{\Tlim}[1]{\mathcal{\Theta}\left(#1\right)}  % grand theta
 \newcommand{\eqlim}[1]{\overset{#1}{\sim}}  % equivalence
 \newcommand{\vect}[1]{\left\langle #1 \right\rangle}
-
+\newcommand{\bu}{\mathbin{\text{\tikz[baseline=-0.6ex]{
+    \node[draw, fill=black, minimum size=0.8ex, inner sep=0pt, rectangle] (bu) {};
+    \node[draw=none, fill=white, minimum size=0.6ex, inner sep=0pt, circle] at (bu.center) {};
+}}}}
 
 \theoremstyle{definition}
 \newtheorem{df}{定义}[section] 
@@ -2463,7 +2466,7 @@ $$ (3,1) = 3\cdot(1,0) + 0.25\cdot(0,4).$$
     给定有限生成空间$\mathbb{V}$的子空间$\mathbb{U}$，存在另一个子空间$\mathbb{W}$，使得
     $$ \mathbb{V} = \mathbb{U} + \mathbb{W}.$$
     且$\mathbb{U} \cap \mathbb{W} = \{\mathbf{0}\}$。
-    $\mathbb{W}$称为子空间$\mathbb{U}$的\textbf{补空间}，一般记作$\mathbb{U}^c.$
+    $\mathbb{W}$称为子空间$\mathbb{U}$的\textbf{补空间}，一般记作$\mathbb{U}^{\bu}.$
 \end{tm}
 
 这让我们联想到集合的补集。实际上，我们还可以证明：
@@ -4564,7 +4567,7 @@ $S^{\text{上}}$的下确界等于$S^{\text{下}}$的上确界。这就是我们
     给定有限生成空间$\mathbb{V}$的子空间$\mathbb{U}$，存在另一个子空间$\mathbb{W}$，使得
     $$ \mathbb{V} = \mathbb{U} + \mathbb{W}.$$
     且$\mathbb{U} \cap \mathbb{W} = \{\mathbf{0}\}$
-    $\mathbb{W}$称为子空间$\mathbb{U}$的\textbf{补空间}，一般记作$\mathbb{U}^c.$
+    $\mathbb{W}$称为子空间$\mathbb{U}$的\textbf{补空间}，一般记作$\mathbb{U}^{\bu}.$
 \end{tm}
 
 \begin{proof}

@@ -70,9 +70,11 @@
         }
     }
 }
-
+\newcommand{\bu}{\mathbin{\text{\tikz[baseline=-0.6ex]{
+    \node[draw, fill=black, minimum size=0.8ex, inner sep=0pt, rectangle] (bu) {};
+    \node[draw=none, fill=white, minimum size=0.6ex, inner sep=0pt, circle] at (bu.center) {};
+}}}}
 \usetikzlibrary{calc,topaths}
-
 \newcommand{\widearc}[1]{%
     \tikz[baseline=(wideArcAnchor.base)]{
         \node[inner sep=0] (wideArcAnchor) {$#1$}; 
@@ -131,8 +133,8 @@
     $\mathbb{Z}^-$ & 负整数集 \\
     $A\cap B$ & $A$和$B$的交集 \\
     $A\cup B$ & $A$和$B$的并集 \\
-    $B\setminus A$ & $A$在$B$中的补集 \\
-    $A^c$ & $A$在全集中的补集 \\
+    $B\setminus A$ & $A$在$B$中的差集 \\
+    $A^{\bu}$ & $A$在全集中的补集 \\
     $f:\; \mathbb{Z} \rightarrow \mathbb{R}$ & $f$是从$\mathbb{Z}$到$\mathbb{R}$的映射 \\
     $x\mapsto x+1$ & 把$x$对应到$x+1$的映射 \\
     $f(x)$ & $x$经$f$映射的值 \\

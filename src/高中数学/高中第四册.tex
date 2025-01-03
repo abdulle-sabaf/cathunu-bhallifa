@@ -56,7 +56,10 @@
 \newcommand{\Tlim}[1]{\mathcal{\Theta}\left(#1\right)}  % grand theta
 \newcommand{\eqlim}[1]{\overset{#1}{\sim}}  % equivalence
 \newcommand{\vect}[1]{\left\langle #1 \right\rangle}  % generated space
-
+\newcommand{\bu}{\mathbin{\text{\tikz[baseline=-0.6ex]{
+    \node[draw, fill=black, minimum size=0.8ex, inner sep=0pt, rectangle] (bu) {};
+    \node[draw=none, fill=white, minimum size=0.6ex, inner sep=0pt, circle] at (bu.center) {};
+}}}}
 
 \theoremstyle{definition}
 \newtheorem{df}{定义}[section] 
@@ -3157,6 +3160,21 @@ $$ \ln{(z_1 \cdot z_2)} \tong{2\pi} \ln{z_1} + \ln{z_2} . $$
     \indent 2.3. 描述$f$的图像。说明随着$t$变化，$f$在复平面上如何移动。
 
 \end{xt}
+
+\section{复变函数}
+
+% TODO 初步介绍复变函数的特征
+上一节中我们已经发现了讨论自变量为复数的函数，也就是复变函数的必要性。复数域和实数域的差别，导致复变函数与实变函数有本质的区别。形式相似乃至相同的函数，作为复变函数和实变函数，可能有完全不一样的性质。
+
+根据取值的不同，复变函数又分为复变实值函数和复变复值函数。前者可以看作后者的一种特殊情况。我们提及复变函数时，一般指后者，把前者特别用复变实值函数来强调。
+
+首先来看复变实值函数。它的取值在$\mathbb{R}$中，所以我们可以用立体空间来呈现它。给定从$\mathbb{C}$到$\mathbb{R}$的函数$f$，在给定了直角坐标系$Oxyz$的立体空间中，我们把$\mathbb{C}$看作水平面$Oxy$，把其中每个复数$w$的实部和虚部看作水平面上的横坐标和纵坐标，把它映射到的函数值$f(w)$看作立体空间的竖坐标。这样，复变实值函数的每个自变量$w$和$f(w)$就对应立体空间中一点。于是，整体来说，我们就把$f$在$\mathbb{C}$上的值的集合变成了立体空间中的点集。我们把这样呈现的点集称为复变实值函数的图像。
+
+举例来说，考察函数$w\mapsto |w|^2$，它把任意复数对应到自己的模长的平方，也就是一个实数。按上面的方法，用立体空间中的函数来对比，它相当于：$z = x^2 + y^2$。这个函数的立体图像是一个圆锥。
+
+平面中，实函数的图像与任何竖直直线至多有一个交点。同样，立体空间中，复变实值函数与任何竖直直线至多有一个交点。这是映射的基本性质决定的。
+
+作为数域，$\mathbb{C}$的性质和$\mathbb{R}$不同，这些不同点造成了实变函数和复变函数的差别。比如，我们介绍实函数时，往往依照从小到大的顺序来描述它的图像，把函数曲线看作自变量沿数轴方向运动的结果。$\mathbb{C}$上没有与四则运算兼容的全序，所以没有必然的“方向”、“顺序”。我们无法像介绍实变函数图像一样介绍复变实质函数的图像。
 
 % ############################## %
 % \chapter{对称和群}

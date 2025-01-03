@@ -37,7 +37,7 @@
 \setCJKsansfont{simfang.ttf} % for \textsf
 \setlength\parskip{8pt}
 \setlength{\fboxsep}{12pt}
-\renewcommand\thesection{\arabic{chapter}.\arabic{section}}
+\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
 \theoremstyle{definition}
 \newtheorem{df}{定义}[section] 
 \newtheorem*{po}{公理}
@@ -52,14 +52,17 @@
 \newtheorem{sk}{思考}[section]
 \newtheorem{xt}{习题}[section]
 \renewenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
-\renewcommand\parallel{\mathrel{/\mskip-4mu/}}
-\newcommand\dangle{%
+\renewcommand{\parallel}{\mathrel{/\mskip-4mu/}}
+\newcommand{\dangle}{%
     \mathord{\text{%
         \tikz[baseline] \draw (0.8em,0ex) -- (0.3em, 0ex) -- (.6em, 1.5ex) -- (.8em, 1.5ex) -- (.5em, 0ex) -- cycle;}}}
-\newcommand\xangle{%
+\newcommand{\xangle}{%
     \mathord{\text{%
         \tikz[baseline] \draw (0.8em,1.5ex) -- (0.3em, 0ex) -- (.64em, 0ex) -- (.8em, .36ex) -- (.42em, .36ex) -- cycle;}}}
-
+\newcommand{\bu}{\mathbin{\text{\tikz[baseline=-0.6ex]{
+    \node[draw, fill=black, minimum size=0.8ex, inner sep=0pt, rectangle] (bu) {};
+    \node[draw=none, fill=white, minimum size=0.6ex, inner sep=0pt, circle] at (bu.center) {};
+}}}}
 % 列举环境的行间距
 \setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
 \setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}

@@ -39,11 +39,11 @@
 \setCJKsansfont{simfang.ttf} % for \textsf
 \setlength\parskip{8pt}
 \setlength{\fboxsep}{12pt}
-\renewcommand\thesection{\arabic{chapter}.\arabic{section}}
+\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
 
 \usetikzlibrary{calc,topaths}
 
-\newcommand\widearc[1]{%
+\newcommand{\widearc}[1]{%
     \tikz[baseline=(wideArcAnchor.base)]{
         \node[inner sep=0] (wideArcAnchor) {$#1$}; 
         \coordinate (wideArcAnchorA) at ($(wideArcAnchor.north west) + (0.15em,0.1em)$);
@@ -52,6 +52,10 @@
         \draw[line width=0.1ex,line cap=round,out=45,in=135] (wideArcAnchorA) to (wideArcAnchorB);
     }
 }
+\newcommand{\bu}{\mathbin{\text{\tikz[baseline=-0.6ex]{
+    \node[draw, fill=black, minimum size=0.8ex, inner sep=0pt, rectangle] (bu) {};
+    \node[draw=none, fill=white, minimum size=0.6ex, inner sep=0pt, circle] at (bu.center) {};
+}}}}
 
 % \newcommand{\jch}[2][]{
 %     \begin{tikzpicture}[baseline]
@@ -1769,7 +1773,7 @@ $$ S_1 = \big\{\varnothing, \{\mbox{AR}, \mbox{DR}\},\{\mbox{AN}, \mbox{DN}\}, \
 
 一般来说，两个事件互斥时，对应的集合不相交，它们的概率之和等于它们的并集的概率。比如，两个事件对立，概率之和就是全集的概率，也就是$1$：
 $$
-\mathbb{P}(A) + \mathbb{P}(A^c) = 1
+\mathbb{P}(A) + \mathbb{P}(A^{\bu}) = 1
 $$
 
 基本事件两两互斥，并集是终集（全集）。所以，基本事件的概率之和等于$1$。

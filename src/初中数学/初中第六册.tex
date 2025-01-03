@@ -57,6 +57,10 @@
 % \renewcommand{\proofname}{\indent\bf 证明}
 % \renewcommand{\qedsymbol}{\hfill$\square$}
 \newcommand{\tong}[1]{\overset{#1}{\equiv\joinrel\equiv}}
+\newcommand{\bu}{\mathbin{\text{\tikz[baseline=-0.6ex]{
+    \node[draw, fill=black, minimum size=0.8ex, inner sep=0pt, rectangle] (bu) {};
+    \node[draw=none, fill=white, minimum size=0.6ex, inner sep=0pt, circle] at (bu.center) {};
+}}}}
 % 列举环境的行间距
 \setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
 \setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
@@ -2503,11 +2507,11 @@ $$\mathbb{P}(A_1\cap A_2\cap \cdots \cap A_n) = \mathbb{P}(A_1) \mathbb{P}(A_2) 
 
 \begin{xt}
     \mbox{} \\
-    \indent 1. 证明：$\mathbb{P}(A \, | \, B) + \mathbb{P}(A^c \, | \, B) = 1$。 \\
+    \indent 1. 证明：$\mathbb{P}(A \, | \, B) + \mathbb{P}(A^{\bu} \, | \, B) = 1$。 \\
     \indent 2. 证明：如果事件$A_1,A_2$互斥，那么$\mathbb{P}(A_1 \cup A_2\, | \, B) = \mathbb{P}(A_1 \, | \, B) + \mathbb{P}(A_2 \, | \, B)$。 \\
-    \indent 3. 证明：$\mathbb{P}(A) = \mathbb{P}(A \, | \, B) \mathbb{P}(B) + \mathbb{P}(A \, | \, B^c) \mathbb{P}(B^c)$。 \\
+    \indent 3. 证明：$\mathbb{P}(A) = \mathbb{P}(A \, | \, B) \mathbb{P}(B) + \mathbb{P}(A \, | \, B{\bu}) \mathbb{P}(B^{\bu})$。 \\
     \indent 4. 证明全概率公式：如果$B_1, B_2, \cdots, B_k$两两互斥，且并集为全集，那么$\mathbb{P}(A) = \mathbb{P}(A \, | \, B_1) \mathbb{P}(B_1) + \mathbb{P}(A \, | \, B_2) \mathbb{P}(B_2) + \cdots + \mathbb{P}(A \, | \, B_k) \mathbb{P}(B_k)$。 \\
-    \indent 5. 证明：$\displaystyle\mathbb{P}(B \, | \, A) = \frac{\mathbb{P}(A \, | \, B) \mathbb{P}(B)}{\mathbb{P}(A \, | \, B) \mathbb{P}(B) + \mathbb{P}(A \, | \, B^c) \mathbb{P}(B^c)}$。 \\
+    \indent 5. 证明：$\displaystyle\mathbb{P}(B \, | \, A) = \frac{\mathbb{P}(A \, | \, B) \mathbb{P}(B)}{\mathbb{P}(A \, | \, B) \mathbb{P}(B) + \mathbb{P}(A \, | \, B^{\bu}) \mathbb{P}(B^{\bu})}$。 \\
     \indent 6. 证明反条件概率公式：如果$B_1, B_2, \cdots, B_k$两两互斥，且并集为全集，那么
     $$\forall i\in[1..k], \,\,\, \mathbb{P}(B_i \, | \, A) = \frac{\mathbb{P}(A \, | \, B_i) \mathbb{P}(B_i)}{\mathbb{P}(A \, | \, B_1) \mathbb{P}(B_1) + \mathbb{P}(A \, | \, B_2) \mathbb{P}(B_2) + \cdots + \mathbb{P}(A \, | \, B_k) \mathbb{P}(B_k)}.$$ 
     \indent 7. 抛掷两枚硬币，假设两次抛掷互不影响，每枚硬币抛出正反的概率相同。定义$A$为事件“第一枚抛出正面”，$B$为“第二枚抛出正面”，$C$为“两枚硬币抛掷结果相同”。 \\
