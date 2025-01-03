@@ -1,57 +1,8 @@
 \documentclass[12pt,UTF8]{ctexbook}
-\usepackage{ctex}
-\usepackage{array}
-\usepackage{graphicx}
-\usepackage{wrapfig}
-\usepackage[table,dvipsnames]{xcolor}
-\usepackage{tabularx}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{xfrac}
-\usepackage{eucal}
-\usepackage{titlesec}
-\usepackage{amsthm}
-\usepackage{tikz-cd}
-\usepackage{enumitem}
-\usepackage{verbatim}
-\usepackage{fontspec,xunicode,xltxtra}
-\usepackage{xeCJK} 
-\usepackage{caption}
-\usepackage{thmtools, thm-restate}
 
-\definecolor{gl}{RGB}{246, 252, 240}
-\definecolor{gd}{RGB}{236, 244, 230}
-\definecolor{bg}{RGB}{242, 244, 228}
+% 导入设定
+\input{../shared/settings}
 
-\setCJKmainfont[BoldFont=STZhongsong]{STSong}
-\setCJKmonofont{simkai.ttf} % for \texttt
-\setCJKsansfont{simfang.ttf} % for \textsf
-\setlength\parskip{8pt}
-\setlength{\fboxsep}{12pt}
-\renewcommand\thesection{\arabic{chapter}.\arabic{section}}
-\newcommand{\arccot}{\operatorname{arccot}}
-\newcommand{\dlim}[1]{^{\color{gray}\prime}#1}
-\newcommand{\lian}[1]{
-    \underset{#1}{\operatorname{lian}\,}
-}
-\newtheorem{df}{定义}[section] 
-\newtheorem{pp}{命题}[section]
-\newtheorem{tm}{定理}[section]
-\newtheorem{ex}{例子}[section]
-\newtheorem{et}{例题}[section]
-\newtheorem{sk}{思考}[section]
-\newtheorem*{po}{公理}
-\newtheorem*{so}{解答}
-\renewenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
-\newtheorem{xt}{习题}[section]
-\newtheorem{cor}{推论}[pp]
-
-% 列举环境的行间距
-\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
-\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
-\setdescription{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
-% 章节字体大小
-\titleformat{\section}{\zihao{-2}\bfseries}{ \thesection }{16pt}{}
 % 封面
 \title{\zihao{0} \bfseries 第三册习题集}
 \author{\zihao{2} \texttt{大青花鱼}}
@@ -62,7 +13,6 @@
 \maketitle
 \tableofcontents
 \newpage
-
 
 \chapter{无穷}
 
