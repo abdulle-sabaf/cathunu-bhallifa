@@ -741,12 +741,12 @@ $$ T: \,\,\, (x, \,\, y) \mapsto (x,\,\, 0)$$
     $$ P = a\mathbf{u} + b\mathbf{v}.$$
     其中$a, b$是相应的分量。那么，把$P$映射到$a\mathbf{u}$的点变换
     \begin{align*}
-        \mathrm{Ty}_\mathbf{u} : \,\, \gamma\,\,&\rightarrow \,\, \gamma  \\
+        \touying{\mathbf{u}, \mathbf{v}} : \,\, \gamma\,\,&\rightarrow \,\, \gamma  \\
         P &\mapsto \,\, a\mathbf{u} 
     \end{align*}
     就称为沿$\mathbf{v}$到$\mathbf{u}$的\textbf{投影变换}。
     它把任何向量映射到直线$\mathbb{R}\mathbf{u}$上。
-    $\mathbf{u}$称为$\mathrm{Ty}_\mathbf{u}$的\textbf{方向向量}，$\mathbf{v}$称为\textbf{投影向量}。
+    $\mathbf{u}$称为$\touying{\mathbf{u}, \mathbf{v}}$的\textbf{方向向量}，$\mathbf{v}$称为\textbf{投影向量}。
 \end{df}
 
 \begin{wrapfigure}[9]{r}{0.38\textwidth} %this figure will be at the right
@@ -784,7 +784,7 @@ $$
   \end{array}\right.
 $$
 也就是说，投影变换可以写为：
-$$ \mathrm{Ty}_\mathbf{u} :\,\,\, P \mapsto \,\, \frac{(\mathbf{v}\,|\,\mathbf{v})(\mathbf{u}\,|\,P) - (\mathbf{u}\,|\,\mathbf{v})(\mathbf{P}\,|\,\mathbf{v})}{(\mathbf{u}\,|\,\mathbf{u})(\mathbf{v}\,|\,\mathbf{v}) - (\mathbf{u}\,|\,\mathbf{v})^2}\mathbf{u}. $$
+$$ \touying{\mathbf{u},\mathbf{v}} :\,\,\, P \mapsto \,\, \frac{(\mathbf{v}\,|\,\mathbf{v})(\mathbf{u}\,|\,P) - (\mathbf{u}\,|\,\mathbf{v})(\mathbf{P}\,|\,\mathbf{v})}{(\mathbf{u}\,|\,\mathbf{u})(\mathbf{v}\,|\,\mathbf{v}) - (\mathbf{u}\,|\,\mathbf{v})^2}\mathbf{u}. $$
 
 如果$\mathbf{u}, \mathbf{v}$是标准直角坐标系的基底，那么
 \begin{align*}
@@ -799,7 +799,7 @@ $$
   \end{array}\right.
 $$
 投影变换写为：
-$$ \mathrm{Ty}_\mathbf{u} :\,\,\, P \mapsto \,\, (\mathbf{u}\,|\,P)\mathbf{u}. $$
+$$ \touying{\mathbf{u}} :\,\,\, P \mapsto \,\, (\mathbf{u}\,|\,P)\mathbf{u}. $$
 
 同样考虑正投影。如果方向向量换成$\mathbf{u} = \left(\frac{1}{2},\,\,\frac{\sqrt{3}}{2}\right)$，
 投影向量换成$\mathbf{v} = \left(-\frac{\sqrt{3}}{2},\,\,\frac{1}{2}\right)$。那么两者构成标准直角坐标系的基底。
@@ -816,7 +816,7 @@ $$ \mathrm{Ty}_\mathbf{u} :\,\,\, P \mapsto \,\, (\mathbf{u}\,|\,P)\mathbf{u}. $
 投影变换和反射变换有密切关系。给定长度为$1$的方向向量$\mathbf{u}$\footnote{也叫做\textbf{单位方向向量}。}，
 平面中一点$P$以及它关于$\mathbb{R}\mathbf{u}$的对称点$Q$，
 到$\mathbf{u}$的正投影是重合的。设$P$到$\mathbf{u}$的正投影为点$H$，则：
-$$ \vv{OH} = \mathrm{Ty}_\mathbf{u}(P) = (\mathbf{u}\,|\,P)\mathbf{u},  $$
+$$ \vv{OH} = \touying{\mathbf{u}}(P) = (\mathbf{u}\,|\,P)\mathbf{u},  $$
 $H$是$P$到$\mathbb{R}\mathbf{u}$的垂足，而$\vv{HP}$和$\vv{HQ}$大小相等、方向相反。因此：
 \begin{align*}
     \qquad \vv{OQ} &= \vv{OH} + \vv{HQ}  \\
@@ -834,7 +834,7 @@ $H$是$P$到$\mathbb{R}\mathbf{u}$的垂足，而$\vv{HP}$和$\vv{HQ}$大小相�
 
 也就是说，给定单位方向向量$\mathbf{u}$，关于直线$\mathbb{R}\mathbf{u}$的反射变换可以表示为：
 \begin{align*}
-    \mathrm{Fs}_\mathbf{u} : \,\, \gamma\,\,&\rightarrow \,\, \gamma  \\
+    \fanshe{\mathbf{u}} : \,\, \gamma\,\,&\rightarrow \,\, \gamma  \\
     P &\mapsto \,\, 2(\mathbf{u}\,|\,P)\mathbf{u} - P 
 \end{align*}
 其中$\mathbf{u}$是对称轴的单位方向向量。
@@ -850,7 +850,7 @@ $H$是$P$到$\mathbb{R}\mathbf{u}$的垂足，而$\vv{HP}$和$\vv{HQ}$大小相�
     &= (-y, \,\, -x) 
 \end{align*}
 
-即它关于直线$x+y=0$的对称点。于是$\mathrm{Fs}_\mathbf{u}$将标准单位正方形变换为它关于$x+y=0$的对称图形，即
+即它关于直线$x+y=0$的对称点。于是$\fanshe{\mathbf{u}}$将标准单位正方形变换为它关于$x+y=0$的对称图形，即
 以$(0,\,\,0)$、$(0,\,\,-1)$、$(-1,\,\,-1)$、$(-1,\,\,0)$为顶点的正方形。
 
 如果对称轴不过原点，可以通过平移变换将它移到过原点的位置。比如，设对称轴为$\mathbb{R}\mathbf{u} + \mathbf{v}$，
@@ -858,7 +858,7 @@ $H$是$P$到$\mathbb{R}\mathbf{u}$的垂足，而$\vv{HP}$和$\vv{HQ}$大小相�
 $$ Q - \mathbf{v} = 2(\mathbf{u}\,|\,P - \mathbf{v})\mathbf{u} - P + \mathbf{v}. $$
 也就是说，一般的反射变换可以写成：
 \begin{align*}
-    \mathrm{Fs}_{\mathbf{u}, \mathbf{v}} : \,\, \gamma\,\,&\rightarrow \,\, \gamma  \\
+    \fanshe{\mathbf{u}, \mathbf{v}} : \,\, \gamma\,\,&\rightarrow \,\, \gamma  \\
     P &\mapsto \,\, 2(\mathbf{u}\,|\,P - \mathbf{v})\mathbf{u} - P + 2\mathbf{v}. 
 \end{align*}
 
@@ -868,7 +868,7 @@ $$ Q - \mathbf{v} = 2(\mathbf{u}\,|\,P - \mathbf{v})\mathbf{u} - P + \mathbf{v}.
     $$ P = a\mathbf{u} + b\mathbf{v}.$$
     其中$a, b$是相应的分量。那么，把$P$映射到$a\mathbf{u}$的点变换
     \begin{align*}
-        \mathrm{Ty}_\mathbf{u} : \,\, \gamma\,\,&\rightarrow \,\, \gamma  \\
+        \touying{\mathbf{u}} : \,\, \gamma\,\,&\rightarrow \,\, \gamma  \\
         P &\mapsto \,\, a\mathbf{u} - b\mathbf{v}
     \end{align*}
     就称为沿$\mathbf{v}$到$\mathbf{u}$的\textbf{反射变换}。
@@ -950,7 +950,7 @@ $$ (x,\,\,y) \mapsto \,\, \left(x\cos{(\alpha)} - y\sin{(\alpha)}, \,\,x\sin{(\a
 如果$U$不是原点，坐标是$(x_U, \,\,y_U)$，那么$\vv{UP} = (x_P - x_U, \,\, y_P - y_U)$。$\vv{UP}$旋转变为$\vv{UQ}$的运动和前面类似。
 因此通过$Q = U + \vv{UQ}$就可得到$Q$。于是旋转变换可以表示为：
 \begin{align*}
-    \mathrm{Xz}_{(U,\,\,\alpha)} : \,\, \gamma\,\,&\rightarrow  \,\,\gamma  \\
+    \xuan{(U,\,\,\alpha)} : \,\, \gamma\,\,&\rightarrow  \,\,\gamma  \\
     (x,\,\,y)  &\mapsto \,\, (x_U,\,\,y_U) +\big((x - x_U)\cos{(\alpha)} - (y - y_U)\sin{(\alpha)}, \\
     &\qquad (x - x_U)\sin{(\alpha)} + (y - y_U)\cos{(\alpha)}\big). 
 \end{align*}
@@ -1001,7 +1001,7 @@ $$ \left(\sqrt{2}, \,\, 45^\circ\right) \mapsto \,\, \left(\sqrt{2}, \,\, 70^\ci
     \mbox{}\\
     \indent 1. 如何描述图形关于某点的中心对称变换？ \\
     \indent 2. 如何描述一般的相似变换？\\
-    \indent 3. 给定向量$\mathbf{u}, \mathbf{v}$，能否用$\mathrm{Fs}_{\mathbf{u}}$和$\mathrm{Ty}_{\mathbf{u}}$表示$\mathrm{Fs}_{\mathbf{u}, \mathbf{v}}$？\\
+    \indent 3. 给定向量$\mathbf{u}, \mathbf{v}$，能否用$\fanshe{\mathbf{u}}$和$\mathrm{Ty}_{\mathbf{u}}$表示$\fanshe{\mathbf{u}, \mathbf{v}}$？\\
     \indent 4. 如果平面中任两点之间的距离经过某个变换后都不变，就说这个变换是\textbf{保距变换}。本节提到的变换中，哪些变换是保距变换？\\
     \indent 5. 如果平面中任意角经过某个变换后角度都不变，就说这个变换是\textbf{保角变换}。本节提到的变换中，哪些变换是保角变换？
 \end{sk}

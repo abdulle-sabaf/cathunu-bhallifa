@@ -674,7 +674,7 @@ $$ - a_n (r_1 + r_2 + \cdots + r_n) = a_{n-1}. $$
 $$ a_n (-1)^k \sum_{\substack{J\subset S_n\\|J|=k}} \prod_{i\in J}r_{i} = a_{n-k}. $$
 其中$S_n$是前$n$个正整数的集合。$x$的每个$n-k$次项是从$n$个一次式中选$n-k$个$x$和$k$个$-r_i$相乘的结果。因此
 我们考虑$S_n$的所有$k$元子集$J$，将子集元素为下标的$r_i$乘起来，然后全部相加。
-这$C_n^k$项之和称为关于$r_1, r_2, \cdots , r_n$的$\boldsymbol{k}$\textbf{次基本对称式}，记为$s_{k}(r_1, r_2, \cdots , r_n)$，简记为$s_k$。
+这$\bino{n}{k}$项之和称为关于$r_1, r_2, \cdots , r_n$的$\boldsymbol{k}$\textbf{次基本对称式}，记为$s_{k}(r_1, r_2, \cdots , r_n)$，简记为$s_k$。
 
 举例来说，当$n=5$，$k=2$时，关于$r_1, r_2, \cdots , r_n$的基本对称式$s_{k}$就是：
 $$ s_{2} = r_1r_2 + r_1r_3 + r_1r_4 + r_1r_5 + r_2r_3 + r_2r_4 + r_2r_5 + r_3r_4 + r_3r_5 + r_4r_5.$$
@@ -2455,7 +2455,7 @@ $$ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0.$$
 对于$B = 0$的情况，如果$AC\neq 0$，将曲线按向量$\displaystyle\left(-\frac{D}{2A},\,\,-\frac{E}{2C}\right)$平移，
 就得到：
 $$ Ax^2 + Cy^2 + F' = 0.$$
-其中$F' = F - \frac{D^2}{4A} - \frac{\e^2}{4C}$。两边除以$AC$并移项，得到：
+其中$F' = F - \frac{D^2}{4A} - \frac{E^2}{4C}$。两边除以$AC$并移项，得到：
 $$ \frac{x^2}{C} + \frac{y^2}{A} = -\frac{F'}{AC}.$$
 因此，根据$A$、$C$、$F'$的正负性，可以判断它或者是椭圆（$A,C$同号，$A,F'$异号），
 或者是双曲线（$A,C$异号，$F' \neq 0$），或者是两条过原点直线（$F' = 0$），或者是空集或单点集（$A,C,F'$同号）。
@@ -2465,7 +2465,7 @@ $$ Cy^2 + Dx + Ey + F = 0.$$
 
 如果$D = 0$，则曲线方程变为关于$y$的二次方程，图像为$y = y_0$类型的水平线，条数等于方程实根的个数。
 
-如果$D\neq 0$，按$\displaystyle\left(\frac{\e^2 - 4CF}{4CD},\,\,-\frac{E}{2C}\right)$平移，就得到：
+如果$D\neq 0$，按$\displaystyle\left(\frac{E^2 - 4CF}{4CD},\,\,-\frac{E}{2C}\right)$平移，就得到：
 $$ Cy^2 = -Dx. $$
 即
 $$ y^2 = -\frac{D}{C}x. $$
@@ -2963,11 +2963,7 @@ $$ \e^{q\imath t} = \cos{qt} + \imath \sin{qt} = (\cos{t} + \imath \sin{t})^q = 
 一般来说，对实数$r$，可以定义：
 $$ \forall \, t \; \in \mathbb{R}, \quad \e^{r\imath t} = \cos{rt} + \imath \sin{rt} = (\cos{t} + \imath \sin{t})^r = \left( \e^{\imath t} \right)^r. $$
 
-更一般地来说，给定复数$z = a + b\imath$，那么可以定义：
-$$ \forall \, t \; \in \mathbb{R}, \quad  \e^{z t} = \e^{at + b\imath t} = \e^{at} \left( \cos{bt} + \imath \sin{bt} \right), $$
-
-可以看到，复值指数函数的行为和实值指数函数有很大的不同。直观上来说，$t\mapsto \e^{t}$是单调递增的，而$t\mapsto \e^{\imath t}$
-是一个周期函数，它的轨迹在复平面上是单位圆。随着$t$的变化，函数绕着单位圆不断“转圈”。这是两种完全不同的行为。
+可以看到，这样定义的复值指数函数的行为和实值指数函数有很大的不同。直观上来说，$t\mapsto \e^{t}$是单调递增的，而$t\mapsto \e^{\imath t}$是一个周期函数，它的轨迹在复平面上是单位圆。随着$t$的变化，函数绕着单位圆不断“转圈”。这是两种完全不同的行为。
 
 比如，我们可以从上面推出：
 $$ \e^{\frac{\imath\pi}{2}} = \imath, \quad \e^{\imath\pi} = -1, \quad \e^{\frac{3\imath\pi}{2}} = -\imath, \quad \e^{2\imath\pi} = 1. $$
@@ -2993,6 +2989,8 @@ $$ \ln{|z_1z_2|} + \theta \imath + 2k\pi\imath = \ln{|z_1|} + \theta_1 \imath + 
 也就是说，复对数函数只能做到：
 $$ \ln{(z_1 \cdot z_2)} \tong{2\pi} \ln{z_1} + \ln{z_2} . $$
 这也是指数函数复化后性质改变的必然后果。复值指数函数不再是单调函数，而是周期函数。这使得作为反函数的对数函数无法保持所有的性质。
+
+要注意的是，以上定义的复值指数函数，并不是从实变量的指数函数得来的，而是一个满足我们想象的条件的“候选”。这样定义是否有道理呢？是否与实变指数函数兼容呢？我们将在下一册继续研究。
 
 \begin{et}
     设$t$为实数，给出与复值指数函数兼容的函数：$t\mapsto \sin{\imath t}$、$t\mapsto \cos{\imath t}$。
@@ -3053,13 +3051,12 @@ $$ \ln{(z_1 \cdot z_2)} \tong{2\pi} \ln{z_1} + \ln{z_2} . $$
         t^{\imath a} &= \cos{(a\ln{t})} + \imath \sin{(a\ln{t})} = (\cos{(\ln{t})} + \imath \sin{(\ln{t})})^a = \left(t^\imath\right)^{a}, \\
         t^{\imath a} &= \cos{(a\ln{t})} + \imath \sin{(a\ln{t})} = \cos{(\ln{t^a})} + \imath \sin{(\ln{t^a})} = \left(t^a\right)^{\imath}.
     \end{align*}
-    结果说明这样定义的复值幂函数运算规律与实值幂函数相同。对一般复数$z = a + b\imath$，我们可以定义：
-    $$ \forall \, t\; \in \mathbb{R}, \quad t^{z} = t^a (\cos{(b\ln{t})} + \imath \sin{(b\ln{t})}). $$
+    结果说明这样定义的复值幂函数运算规律与实值幂函数相同。
 \end{so}
 
 \begin{sk}
     \mbox{} \\
-    \indent 1. 为什么$\e^{b\imath t} = \cos{bt} + \imath \sin{bt}$而不是$\cos{t} + \imath b\sin{t}$？\\
+    \indent 1. 为什么$\e^{b\imath t} = \cos{bt} + \imath \sin{bt}$而不是$\cos{t} + b\imath \sin{t}$？\\
     \indent 2. $\e^x$是级数$\sum_{n=0}^{\infty} \frac{x^n}{n!}$的和。这个关系在$x$为复数的时候是否成立？\\
     \indent 3. 如何定义$\imath^{\sqrt{2}}$？如何定义$\imath^{\imath}$？
 \end{sk}
@@ -3087,43 +3084,410 @@ $$ \ln{(z_1 \cdot z_2)} \tong{2\pi} \ln{z_1} + \ln{z_2} . $$
 % TODO 初步介绍复变函数的特征
 上一节中我们已经发现了讨论自变量为复数的函数，也就是复变函数的必要性。复数域和实数域的差别，导致复变函数与实变函数有本质的区别。形式相似乃至相同的函数，作为复变函数和实变函数，可能有完全不一样的性质。
 
-根据取值的不同，复变函数又分为复变实值函数和复变复值函数。前者可以看作后者的一种特殊情况。我们提及复变函数时，一般指后者，把前者特别用复变实值函数来强调。
+根据取值的不同，复变函数又分为复变实值函数和复变复值函数。前者可以看作后者的一种特殊情况。我们提及复变函数时，一般指后者，把前者专称为复变实函数。
 
-首先来看复变实值函数。它的取值在$\mathbb{R}$中，所以我们可以用立体空间来呈现它。给定从$\mathbb{C}$到$\mathbb{R}$的函数$f$，在给定了直角坐标系$Oxyz$的立体空间中，我们把$\mathbb{C}$看作水平面$Oxy$，把其中每个复数$w$的实部和虚部看作水平面上的横坐标和纵坐标，把它映射到的函数值$f(w)$看作立体空间的竖坐标。这样，复变实值函数的每个自变量$w$和$f(w)$就对应立体空间中一点。于是，整体来说，我们就把$f$在$\mathbb{C}$上的值的集合变成了立体空间中的点集。我们把这样呈现的点集称为复变实值函数的图像。
+首先来看复变实函数。它的取值在$\mathbb{R}$中，所以我们可以用立体空间来呈现它。给定从$\mathbb{C}$到$\mathbb{R}$的函数$f$，在给定了直角坐标系$Oxyz$的立体空间中，我们把$\mathbb{C}$看作水平面$Oxy$，把其中每个复数$w$的实部和虚部看作水平面上的横坐标和纵坐标，把它映射到的函数值$f(w)$看作立体空间的竖坐标。这样，复变实函数的每个自变量$w$和$f(w)$就对应立体空间中一点。于是，整体来说，我们就把$f$在$\mathbb{C}$上的值的集合变成了立体空间中的点集。我们把这样呈现的点集称为复变实函数的图像。
 
 举例来说，考察函数$w\mapsto |w|^2$，它把任意复数对应到自己的模长的平方，也就是一个实数。按上面的方法，用立体空间中的函数来对比，它相当于：$z = x^2 + y^2$。这个函数的立体图像是一个圆锥。
 
-平面中，实函数的图像与任何竖直直线至多有一个交点。同样，立体空间中，复变实值函数与任何竖直直线至多有一个交点。这是映射的基本性质决定的。
+平面中，实函数的图像与任何竖直直线至多有一个交点。同样，立体空间中，复变实函数与任何竖直直线至多有一个交点。这是映射的基本性质决定的。
 
 作为数域，$\mathbb{C}$的性质和$\mathbb{R}$不同，这些不同点造成了实变函数和复变函数的差别。比如，我们介绍实函数时，往往依照从小到大的顺序来描述它的图像，把函数曲线看作自变量沿数轴方向运动的结果。$\mathbb{C}$上没有与四则运算兼容的全序，所以没有必然的“方向”、“顺序”。我们无法像介绍实变函数图像一样介绍复变实质函数的图像。
+
+分析复平面上的函数图像的常见方法包括：
+\begin{enumerate}
+    \item 将复平面按实轴和虚轴分为网格，分析各个格子中函数的图像。
+    \item 以原点为圆心构造不同半径的同心圆，分析各个圆中函数的图像。
+    \item 以某个方向（比如平行于实轴）画平行线，分析各个平行线上函数的图像。
+\end{enumerate}
+
+\begin{figure}[h] %this figure will be at the right
+    % \vspace{4pt}
+    \centering
+    \includegraphics[width=0.7\textwidth]{tu/复变倒数1.png}
+    \caption*{\texttt{函数}$z\mapsto\frac{1}{|z|}$\texttt{，用网格分析函数，用颜色表示函数值变化}}
+\end{figure}
+
+另外，复平面作为平面的特性与作为直线的数轴有本质区别，并对函数图像的分析有深刻影响。比如，如果实函数$f$在$0$处无定义，那么函数的图像必然是不连续的，例如在$0$处断为两截，我们无法讨论函数从$0$的一侧到另一侧的连续变化。然而，如果复变实函数$f$在$0$处无定义，函数的图像可以是一张在$0$处“缺了一点”的曲面，并不是断裂的，而是连通的。我们可以“绕过”无定义的$0$点，从$0$点一侧连到$0$点另一侧，讨论函数值的连续变化。
+
+如果函数的值也是复数，那么我们甚至无法像复变实函数一样，用立体空间来呈现函数的性质了。这时我们要直观地理解函数的变化，就更加困难了。
+
+如何直观呈现复变函数呢？常用的方法包括：
+\begin{enumerate}
+    \item 把自变量和函数值看作平面的向量，以自变量在复平面对应的点为起点，用函数值的模长和幅角对应的长短、方向的箭头来表现函数。这种方法来自物理学中的场论，把函数看成一种向量场。
+    \item 把函数的值用两个实数表示，然后作为竖坐标，分别在两个立体空间中展现。常见的做法是分别展现函数值的模长和幅角。
+    \item 把函数值的模长作为竖坐标，另外用颜色表示函数值的幅角，在立体空间展现函数的彩色图像。颜色变化表示函数幅角变化。
+\end{enumerate}
+
+\begin{et}
+    研究复变函数$\displaystyle f: z \mapsto \frac{1}{z}$。
+\end{et}
+
+\begin{so}
+    显然，$z = 0$时$f$无定义。对于非零复数$z$，记$z = a + b\imath $，计算$f(z)$：
+    \begin{align*}
+        f(z) &= \frac{1}{a + b\imath} = \frac{a - b\imath}{(a + b\imath)(a - b\imath)} \\
+        &= \frac{a - b\imath}{a^2 + b^2} = \frac{a}{a^2 + b^2} - \frac{b}{a^2 + b^2} \imath
+    \end{align*}
+    只要$z \neq 0$，$f(z)$总有定义。
+
+    我们也可以这样理解$f(z)$：
+    $$ f(z) = \frac{\overline{z}}{\phantom{z}|z|^2}. $$
+    从以上结果来看，$f(z)$的幅角和$\overline{z}$的幅角一样，是$z$的幅角的相反数。$f(z)$的模长是$z$的模的倒数。从函数图像来看，$f$除了在$0$处无定义，在其他地方很可能是连续乃至光滑的。论证这一点，需要定义复变函数的连续和光滑（可微）性质。
+\end{so}
+
+\begin{et}
+    研究复变指数函数$\displaystyle f: z \mapsto \e^z$。
+\end{et}
+
+\begin{so}
+    首先我们要定义$f$。$f$在$\mathbb{R}$上有定义。如何对一般的复数$z$定义$\e^z$呢？我们可以回顾定义实函数$x\mapsto \e^x$的过程。
+    
+    首先，我们在正整数集上定义了指数函数$x\mapsto a^x$，通过逆运算定义了有理数上的指数函数$x\mapsto a^x$。而由于有理数在数轴上密集分布，我们发现，可以用有理数来逼近任何实数。于是，对于任意实数$x$，我们把的$a^x$定义为有理数列$\{q_n\}$趋向$x$时$a^{q_n}$的极限。我们发现，这样的定义的实函数$x\mapsto a^x$很好，有优良的性质（连续、可微、光滑等）。通过研究指数函数和对数函数的性质，我们还发现了常数$\e$的特殊地位，于是定义了$x\mapsto \e^x$。
+
+    要讨论$\e^z$，我们同样可以从定义$a^z$开始（$a$是$1$以外的正数）。$z$是整数的时候，我们发现指数函数的根本性质是它满足：
+    \begin{equation}
+        \forall x, y \in \mathbb{N}, \quad a^{m + n} = a^m \cdot a^n. \label{4-6-0} 
+    \end{equation}
+    指数函数拓展到有理数乃至实数的过程，都是从这个性质出发。这个性质是指数函数的根本性质。及至复数范围，我们也希望指数函数保留这个性质。也就是说，对任意复数$z_1, z_2$：
+    \begin{equation}
+        \e^{z_1 + z_2} = \e^{z_1} \cdot \e^{z_2}. \label{4-6-1}
+    \end{equation}
+    为此我们可以假设：
+    \begin{equation}
+        \forall x, y \in \mathbb{R}, \quad a^{(x + y)\imath} = a^{x\imath} \cdot a^{y\imath}. \label{4-6-3}
+    \end{equation}
+    以及：
+    \begin{equation}
+        \forall x, y \in \mathbb{R}, \quad a^{x+y\imath} = a^x \cdot a^{y\imath},  \label{4-6-2}
+    \end{equation}
+    这样，由于$a^x$和$a^{y\imath}$都是复数，而复数的乘法满足交换律与结合律，于是：
+    \begin{align*}
+        \forall \; z_1 = x_1 + y_1\imath, \,&\; z_2 = x_2 + y_2\imath \; \in \mathbb{C}, \\
+        a^{z_1 + z_2} &= a^{(x_1 + x_2) + (y_1 + y_2)\imath} = a^{(x_1 + x_2)} \cdot a^{(y_1 + y_2)\imath} \\
+        &= a^{x_1} \cdot a^{x_2} \cdot a^{y_1\imath} \cdot a^{y_2\imath} \\
+        &= a^{x_1} \cdot a^{y_1\imath} \cdot a^{x_2} \cdot a^{y_2\imath} \\
+        &= a^{x_1 + y_1\imath} \cdot a^{x_2 + y_2\imath} \\
+        &= a^{z_1} \cdot a^{z_2}.
+    \end{align*}
+
+    如何让这两个等式成立呢？对于\eqref{4-6-3}，上一节我们已经验证过，如果以下假设成立：
+    \begin{equation}
+        \forall \; t\in\mathbb{R}, \quad \e^{\imath t} = \cos{t} + \imath \sin{t}. \label{4-6-4}
+    \end{equation}
+    那么\eqref{4-6-3}就成立。于是，我们把\eqref{4-6-3}转化为验证\eqref{4-6-4}。
+
+    % 为了让\eqref{4-6-3}成立，我们比照指数函数的根本性质\eqref{4-6-0}，假设：
+    % \begin{equation}
+    %     \forall \; t\in\mathbb{R}, \quad \e^{\imath t} = \cos{t} + \imath \sin{t}. \label{4-6-4}
+    % \end{equation}
+    % 事实上，如果关系\eqref{4-6-4}成立，那么可以用之前的方式推出：
+    % $$ \forall \; q \in \mathbb{Q}, \quad a^{q\imath} = \left(a^{\imath}\right)^q. $$
+    % 而$a^{\imath}$作为复数，可以写成：
+    % $$a^{\imath} = r\cos{\theta} + r\imath\sin{\theta}, $$
+    % 其中$r$和$\theta$分别是$a^{\imath}$的模长和幅角。于是：
+    % $$ a^{q\imath} = \left(a^{\imath}\right)^q = r^q\cos{(q\theta)} + r^q\imath\sin{(q\theta)}. $$
+    % 对于一般实数$t$，我们希望建立$a^{t\imath}$和$a^{q\imath}$的关系：
+    % $$ \forall \; t\in\mathbb{R}, \quad a^{t\imath} = \lian{q\to t} a^{q\imath} = \lian{q\to t} \big(r^q\cos{(q\theta)} + r^q\sin{(q\theta)}\imath \big), $$
+    % 事实上，如果我们假定以下关系成立：
+    % \begin{equation}
+    %     a^{t\imath} = r^t\cos{(t\theta)} + r^t\sin{(t\theta)}\imath = \lian{q\to t} \big(r^q\cos{(q\theta)} + r^q\sin{(q\theta)}\imath \big), \label{4-6-5}
+    % \end{equation}
+    % 这样，我们就可以验证关系\eqref{4-6-3}成立：
+    % \begin{align*}
+    %     \forall \; \{x_n\} ,\, \{y_n\} &\in \mathbb{Q}^{\mathbb{N}}, \\
+    %     \{x_n\} \to x, &\; \{y_n\} \to y \; \in \mathbb{R}, \\
+    %     a^{x\imath} \cdot a^{y\imath} &= \lian{n \to +\infty} \left(a^{\imath}\right)^{x_n} \cdot \lian{n \to +\infty} \left(a^{\imath}\right)^{y_n} = \lian{n \to +\infty} \left(a^{\imath}\right)^{(x_n + y_n)} \\
+    %     &= a^{(x + y)\imath}.  \tag{$\{x_n + y_n\} \to x + y$}
+    % \end{align*}
+
+    等式\eqref{4-6-2}和\eqref{4-6-4}是否成立呢？后面的学习中，我们会进一步讨论这些问题。到时我们将发现$z \mapsto \e^z$的更多性质。
+\end{so}
+
+复变函数有着与实变函数截然不同的独特性质，但由于自变量是复数，比实变函数更抽象，难以直观理解。既然如此，我们要如何研究复变函数呢？我们将在后面的学习中逐步了解、掌握相关的工具，为分析、研究复变函数打下基础。
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 有没有可能用平面的曲线描述复变函数的性质？\\
+    \indent 2. 说明：如果$\forall t\in\mathbb{R}, \;\,e^{it} = \cos{t} + \imath \sin{t}$成立，那么可以按照本节的方法定义任意复数$z$的指数$\e^z$。\\
+    \indent 3. 是否能像从有理数的指数函数拓展到实变指数函数一样，把实变指数函数拓展到复变指数函数？\\
+    \indent 4. 给定复数$z$，能否用级数定义$e^z$？这样定义的复变指数函数，是否满足$\e^x\cdot \e^y = \e^{x + y}$？
+\end{sk}
 
 % ############################## %
 % \chapter{对称和群}
 % 对称和群
 % ############################## %
 
-% \section{微变方程和参变曲线}
-% % 由微变方程确定的参变曲线
+\chapter{无限与概率}
 
-% \begin{sk}
-%     \mbox{} \\
-% \end{sk}
+预测未来，是人类社会的重要活动。研究如何预测未来，处理不确定的事情，这样的理论称为概率论。我们已经学习过一些概率论的基本知识。
 
-% \begin{xt}
-%     \mbox{} \\
-% \end{xt}
+对于不确定的事情，我们把它所有可能的最终状态或局面看成一个集合，称为终集。集合中的每个元素称为事情的终态或结果。事件是终集的子集。“有什么事件”代表了我们对事情的认知，我们认知中的事件的集合称为知集。从集合的角度来看，知集是终集幂集的子集。知集满足：
 
-\chapter{空间中的直变换}
+\begin{enumerate}
+    \item 空集属于知集；
+    \item 如果集合$A$属于知集，那么$A$的补集也属于知集；
+    \item 如果集合$A$和$B$属于知集，那么它们的交集和并集也属于知集。
+\end{enumerate}
 
-\section{旋转变换}
+随着我们对事情认知逐渐深入，我们能讨论的事件越来越多，认识越来越细致，表现为终集和知集不断扩大。
 
-\section{投影变换}
+预测随机事件时，我们主要关心事情有多大可能发生。我们用$0$到$1$之间的数表示某件事多么有可能发生，把这个数称为事件的概率。一件事越有可能发生，概率就越大。用数学的语言来说，概率是把集合映射到$0$与$1$之间的数的映射。我们一般把概率映射记为$\mathbb{P}$，它满足：
 
-\section{反射变换}
+\begin{enumerate}
+    \item 任意事件$A$的概率$\mathbb{P}(A)\in[0;1]$；
+    \item 空集的概率是$0$，全集的概率是$1$；
+    \item 如果$A\subseteq B$，那么$\mathbb{P}(A)\leqslant \mathbb{P}(B)$；
+    \item 如果$A\cap B$是空集，那么$\mathbb{P}(A\cup B) = \mathbb{P}(A) + \mathbb{P}(B)$。
+\end{enumerate}
 
-\section{空间的基变换}
+如何讨论事件的概率？我们把知集中的基本事件的概率合起来看，称为概率的分布。只要知道了基本事件的概率，通过概率的性质，就能推出其他事件的概率。这样，我们就有了讨论不确定事件的基本工具。
 
-\section{相似矩阵和对角矩阵}
+不过，以前我们的讨论仅限于终集是有限集合的情况。如果终集是无限集合，会发生什么事呢？
+
+\begin{ex}
+    从自然数集合$\mathbb{N} = \{0,1,2,3,\cdots\}$中随机选取一个数，这个数是偶数的概率是多少？
+\end{ex}
+
+乍一看，这个问题的答案似乎是$\frac{1}{2}$，因为我们直觉上认为偶数和奇数“一样多”，甚至对于无限集合的势的讨论，也支持这个结论。但是，如果我们想用以上的工具来严格讨论这个问题，就会遇到困难。首先，我们要讨论的终集是$\mathbb{N}$，基本事件是任何自然数构成的单元集。而如何“随机选取一个数”，就涉及到概率分布的问题。
+
+$\mathbb{N}$上的概率分布是怎样的呢？
+
+\section{无限集合上的概率问题}
+
+让我们回忆投骰子的实验。骰子的六面对应六个终态：$\{1,2,3,4,5,6\}$。如果我们假设投骰子的概率遵从均匀分布。每个基本事件的概率相等，都是$\frac{1}{6}$。于是“点数是偶数”的概率是：
+
+$$ \mathbb{P}(\mbox{点数是偶数}) = \mathbb{P}(\{2,4,6\}) = \mathbb{P}(\{2\}) + \mathbb{P}(\{4\}) + \mathbb{P}(\{6\}) = \frac{1}{6} + \frac{1}{6} + \frac{1}{6} = \frac{1}{2}.$$
+
+对终集为$\mathbb{N}$的情况，我们可以猜测：
+\begin{align*}
+    \mathbb{P}(\mbox{选的数是偶数}) = \mathbb{P}(\{0,2,4,6,\cdots\}) = \sum_{n=0}^{+\infty} \mathbb{P}(2n).
+\end{align*}
+
+要让这个式子成立，有两个必要的条件：首先，对任意$n$，我们能够合理地给出$\mathbb{P}(2n)$的值；其次，这无限个值可以求和。
+
+如果我们不做多想，希望“在$\mathbb{N}$里随机选取一个数”也和投骰子一样，得到任何结果的概率都相等，也就是说对任意$n$，$\mathbb{P}(n)$都等于某个常数$c$。按概率的定义，$0\leqslant c\leqslant 1$。如果$c>0$，那么级数$\sum_{n=0}^{+\infty} \mathbb{P}(2n)$发散，无法求和。如果$c=0$，那么级数$\sum_{n=0}^{+\infty} \mathbb{P}(n)$的和为$0$，这说明全集的概率是$0$而不是$1$！
+
+上面的矛盾情形让我们认识到，想当然地把有限的情况推广到无限是不行的。我们甚至无法轻松讨论“在$\mathbb{N}$里随机选取一个数”这种看来再简单不过的问题。那么困难到底出在哪里呢？
+
+为了讨论无限集合上的概率问题，我们首先要定义“无限个概率相加”。使用级数的概念，我们可以处理可数个数相加。使用积合的概念，我们可以处理闭区间上的数“相加”。让我们先来处理可数个概率相加的问题。终集是有限集合时，我们这样规定：
+\begin{quotation}
+    如果$A\cap B$是空集，那么$\mathbb{P}(A\cup B) = \mathbb{P}(A) + \mathbb{P}(B)$。
+\end{quotation}
+这个规律可以轻松地推广到任意有限个集合：
+\begin{quotation}
+    \noindent 如果$A_1,A_2, \cdots, A_n$两两不相交，那么$\displaystyle\Pr{\bigcup_{i=1}^n A_i} = \sum_{i=1}^n \mathbb{P}(A_i).$
+\end{quotation}
+如果可数无限个集合，两两不相交，那么我们希望有这样的性质：
+\begin{quotation}
+    \noindent 如果$A_1,A_2, \cdots$两两不相交，那么$\displaystyle\Pr{\bigcup_{i=1}^{+\infty} A_i} = \sum_{i=1}^{+\infty} \mathbb{P}(A_i).$
+\end{quotation}
+我们把这个性质叫做概率的\textbf{可数可加}性质。
+
+以上定义涉及到可数无穷个集合的并集。它是否有定义？是否属于知集？为此，我们要修改知集的基本性质，具体来说，我们要将知集的第三条性质改为：
+\begin{quotation}
+    \noindent 如果一族集合$\{A_i\}_{i\in\mathbb{N}}$都属于知集，那么它们的并集$\bigcup_{i\in\mathbb{N}} A_i$和交集$\bigcap_{i\in\mathbb{N}} A_i$也属于知集。
+\end{quotation}
+这样修改之后，配合概率的可数可加性质，我们就可以讨论可数无穷集合上的概率问题了。我们把终集、知集和概率映射三者视为讨论任何概率问题的基础，将它们合称为\textbf{概率空间}。
+
+\begin{ex}
+    我们想知道正整数里有哪些素数，最容易想到的方法是“筛法”，即不断用已知最小的素数作为“筛子”，筛去它的倍数，剩余的数里最小的\footnote{除去$1$以外最小的。下同。}就是下一个素数。如果我们把全体正整数看作终集，把全体素数的集合看作事件，那么筛法的每一步操作都是在扩大知集。而最终把“是素数”这个事件纳入知集。
+
+    把所有正整数记为$\Omega$。我们从最小的素数$2$开始，首先筛去$2$的倍数。这时知集变为$\{\varnothing, \Omega, B_2, B_2^{\bu}\}$，有$2^{2^1} = 4$个元素。其中$B_2$是所有$2$的倍数的集合。
+    $$B_2 = \{2,4,6,\cdots\}$$
+    $B_2^{\bu}$中最小的是$3$，接下来筛去$3$的倍数。这时知集扩大为
+    \begin{align*}
+        \{\varnothing, \Omega, B_2, B_2^{\bu}, B_3, B_3^{\bu}, B_2\cup B_3, B_2\cap B_3, B_2\cup B_3^{\bu}, B_2\cap B_3^{\bu},\\
+        B_2^{\bu}\cup B_3, B_2^{\bu}\cap B_3, B_2^{\bu}\cup B_3^{\bu}, B_2^{\bu}\cap B_3^{\bu}, \\ (B_2\cap B_3^{\bu})\cup(B_2^{\bu}\cap B_3), (B_2\cap B_3)\cup(B_2^{\bu}\cap B_3^{\bu})\}
+    \end{align*}
+    % $$\{\varnothing, \Omega, B_2, B_2^{\bu}, B_3, B_3^{\bu}, B_2\cup B_3, B_2\cap B_3, B_2\cup B_3^{\bu}, B_2\cap B_3^{\bu}, B_2^{\bu}\cup B_3, B_2^{\bu}\cap B_3, B_2^{\bu}\cup B_3^{\bu}, B_2^{\bu}\cap B_3^{\bu}\}$$
+    一共$2^{2^2} = 16$个元素。其中$B_3= \{3,6,9,\cdots\}$是所有$3$的倍数的集合。所有被筛去的数的集合是$B_2\cup B_3$，剩余的数在$B_2^{\bu}\cap B_3^{\bu}$里，其中最小的是$5$。
+    
+    于是再筛去$5$的倍数集合$B_5$，知集继续扩大至$2^{2^3} = 256$个元素。依此类推，最终的知集里会有所有的“素数的倍数”的集合：$B_2, B_3, B_5, B_7, \cdots$。于是我们可以得到单个素数的集合：
+    \begin{align*}
+        \{2\} &= B_2 \setminus \left(B_3 \cup B_5 \cup B_7\cap\cdots\right) = B_2 \setminus \bigcup_{i=2}^{+\infty} B_{s_i} = B_2 \cap \left(\bigcup_{i=2}^{+\infty} B_{s_i} \right)^{\bu}, \\
+        \{3\} &= B_3 \setminus \left(B_5 \cup B_7 \cup B_{11}\cap\cdots\right) = B_3 \setminus \bigcup_{i=3}^{+\infty} B_{s_i} = B_3 \cap \left(\bigcup_{i=3}^{+\infty} B_{s_i} \right)^{\bu}, \\
+        \{5\} &= B_5 \setminus \left(B_7 \cup B_{11} \cup B_{13}\cap\cdots\right) = B_5 \setminus \bigcup_{i=4}^{+\infty} B_{s_i} = B_5 \cap \left(\bigcup_{i=4}^{+\infty} B_{s_i} \right)^{\bu}, \\
+        &\vdots
+    \end{align*}
+    其中$s_i$是从小到大数起的第$i$个素数。于是全体素数的集合可以写为：
+    $$ S = \{2\}\cup \{3\} \cup \{5\}\cup \{7\}\cup\cdots .$$
+    它也在最终的知集里。
+\end{ex}
+
+从可数可加性可以推出以下的基本性质：
+\begin{tm}
+    给定递增事件序列$A_1\subseteq A_2\subseteq \cdots \subseteq A_n \subseteq A_{n+1} \subseteq \cdots$，那么
+    $$ \Pr{\bigcup_{n=1}^{+\infty} A_n} = \lian{n\to+\infty} \mathbb{P}(A_n). $$
+    给定递减事件序列$A_1\supseteq A_2\supseteq \cdots \supseteq A_n \supseteq A_{n+1} \supseteq \cdots$，那么
+    $$ \Pr{\bigcap_{n=1}^{+\infty} A_n} = \lian{n\to+\infty} \mathbb{P}(A_n). $$
+\end{tm}
+
+\begin{proof}
+    根据递增事件序列$A_1\subseteq A_2\subseteq \cdots \subseteq A_n \subseteq \cdots$定义新序列：
+    $$ B_1 = A_1, \; B_2 = A_2\setminus A_1, \; B_3 = A_3\setminus A_2, \; \cdots$$
+    $\{B_i\}_{i\in\mathbb{N}}$两两不相交，于是：
+    $$ \Pr{\bigcup_{i=1}^{+\infty} B_i} = \sum_{i=1}^{+\infty} \mathbb{P}(B_i). $$
+    而根据定义可以验证：
+    \begin{align*}
+        A_n = \bigcup_{i=1}^{n} B_i ,\quad \bigcup_{i=1}^{+\infty} A_i = \bigcup_{i=1}^{+\infty} B_i .
+    \end{align*}
+    于是：
+    \begin{align*}
+        \mathbb{P}(A_n) = \sum_{i=1}^{n} \mathbb{P}(B_i) , \quad
+        \Pr{\bigcup_{i=1}^{+\infty} A_i} = \Pr{\bigcup_{i=1}^{+\infty} B_i} .
+    \end{align*}
+    因此：
+    $$ \Pr{\bigcup_{i=1}^{+\infty} A_i} = \Pr{\bigcup_{i=1}^{+\infty} B_i} = \sum_{i=1}^{+\infty} \mathbb{P}(B_i) = \lian{n\to+\infty} \mathbb{P}(A_n). $$
+
+    根据递减事件序列$A_1\supseteq A_2\supseteq \cdots \supseteq A_n \supseteq \cdots$定义新序列：
+    $$ B_1 = A_1\setminus A_1 = \varnothing, \; B_2 = A_1\setminus A_2, \; B_3 = A_1\setminus A_3, \; \cdots$$
+
+    $\{B_i\}_{i\in\mathbb{N}}$满足$B_1\subseteq B_2\subseteq \cdots \subseteq B_n \subseteq \cdots$，于是根据前面结论：
+    $$ \Pr{\bigcup_{i=1}^{+\infty} B_i} = \lian{n\to+\infty}  \mathbb{P}(B_i). $$
+
+    根据定义，$B_n$和$A_n$不相交，并集为$A_1$，所以
+    $$ \mathbb{P}(B_n) + \mathbb{P}(A_n) = \mathbb{P}(A_1). $$
+
+    集合$\bigcup_{i=1}^{+\infty} B_i$和$\bigcap_{i=1}^{+\infty} A_i$不相交，并集为$A_1$，所以
+    $$ \Pr{\bigcup_{i=1}^{+\infty} B_i} + \Pr{\bigcap_{i=1}^{+\infty} A_i} = \mathbb{P}(A_1). $$
+
+    因此：
+    \begin{align*}
+        &\mathbb{P}(A_1) - \Pr{\bigcap_{i=1}^{+\infty} A_i} = \Pr{\bigcup_{i=1}^{+\infty} B_i} = \lian{n\to+\infty}  \mathbb{P}(B_n) \\
+        =\;& \lian{n\to+\infty} \left( \mathbb{P}(A_1) - \mathbb{P}(A_n) \right) = \mathbb{P}(A_1) - \lian{n\to+\infty} \mathbb{P}(A_n).
+    \end{align*}
+    
+    也就是说：
+    $$ \Pr{\bigcap_{i=1}^{+\infty} A_i} = \lian{n\to+\infty} \mathbb{P}(A_n). $$
+\end{proof}
+
+这两个基本性质可以看作“子集概率不大于母集”延伸到可数无穷的情形。从中又可以推出“并集概率不大于概率之和”的延伸：
+\begin{tm}
+    给定事件序列$\{A_i\}_{i\in\mathbb{N}}$，则它们并集的概率满足：
+    $$ \Pr{\bigcup_{i=1}^{+\infty} A_i} \leqslant \sum_{i=1}^{+\infty} \mathbb{P}(A_i). $$
+\end{tm}
+
+\begin{proof}
+    可数可加性质说明，如果$\{A_i\}_{i\in\mathbb{N}}$两两不相交，那么不等号可以变为等号。对于一般的情况，我们可以构造两两不相交的事件序列：
+    $$ B_1 = A_1, \; B_2 = A_2\setminus A_1, \; B_3 = A_3\setminus (A_1 \cup A_2), \; B_4 = A_4\setminus (A_1 \cup A_2 \cup A_3), \; \cdots$$
+    可以验证$\{B_i\}_{i\in\mathbb{N}}$两两不相交，且$\bigcup_{i=1}^{+\infty} A_i = \bigcup_{i=1}^{+\infty} B_i$，于是：
+    $$  \Pr{\bigcup_{i=1}^{+\infty} A_i} = \Pr{\bigcup_{i=1}^{+\infty} B_i} = \sum_{i=1}^{+\infty} \mathbb{P}(B_i). $$
+    而任意$B_i$总是$A_i$的子集，所以$\mathbb{P}(B_i)\leqslant \mathbb{P}(A_i)$。因此：
+    $$ \Pr{\bigcup_{i=1}^{+\infty} A_i} = \sum_{i=1}^{+\infty} \mathbb{P}(B_i) \leqslant \sum_{i=1}^{+\infty} \mathbb{P}(A_i). $$
+\end{proof}
+
+\section{等比分布和指数分布}
+
+既然以$\mathbb{N}$为终集的概率空间无法均匀分布，那么可以有怎样的分布呢？
+
+从前面的讨论，我们发现，讨论$\mathbb{N}$上的概率分布$\mathbb{P}$的实质是讨论通项非负的收敛无穷级数：
+$$ \sum_{n=1}^{+\infty} \mathbb{P}(\{k\}) = 1. $$
+所以，无穷级数的性质会反映为$\mathbb{P}$的性质。比如，我们知道要使级数收敛，通项必须收敛到$0$，而且要收敛得足够快。因此，任何以$\mathbb{N}$为终集的概率分布，必然有“概率随着数增大而趋于$0$”。
+
+反过来，从任何收敛的正项级数出发，是否都可以构造概率分布进而构造概率空间呢？答案是肯定的。
+\begin{tm}{\textbf{概率空间存在定理}}
+    设有正项级数：
+    $$ \sum_{n=1}^{+\infty} a_n = S > 0,$$
+    那么它对应一个$\mathbb{N}$上的概率空间。即有概率分布$\mathbb{P}$使得：
+    $$ \forall n\in\mathbb{N},\quad \mathbb{P}(\{n\}) = \frac{a_n}{S}.$$
+    它对应的终集是$\mathbb{N}$，知集是其幂集$\Omega = 2^{\mathbb{N}}$。
+\end{tm}
+
+\begin{proof}
+    我们要证明的是映射：
+    $$ \forall n\in\mathbb{N},\quad \mathbb{P}(\{n\}) = \frac{a_n}{S}.$$
+    满足作为概率分布的基本性质：
+    \begin{enumerate}
+        \item $\forall A \in \Omega$，$\Pr{A} \geqslant 0.$
+        \item $\Pr{\Omega} = 1.$
+        \item $\forall A \subseteq B$，$\Pr{A} \leqslant \Pr{B}.$
+        \item 给定可数个两两不相交的集合$\{A_i\}_{i\in \mathbb{N}} $，
+        $$ \Pr{\bigcup_{i\in \mathbb{N}} A_i} = \sum_{i\in \mathbb{N}} \Pr{A_i}. $$
+    \end{enumerate}
+
+    记$b_n = \frac{a_n}{S}$，则级数$\sum b_n$是和为$1$的正项级数。根据映射$\mathbb{P}$的定义和可求和数族的性质，任意事件$\mathbb{N}$的子集对应的概率，都可以定义为基本事件族的概率的和：
+    $$ \forall A \in \Omega, \quad \Pr{A} = \sum_{i\in A} \Pr{\{n\}} = \sum_{i\in A} b_n. $$
+    即$\mathbb{P}$对基本事件可数可加。
+
+    据此可以证明前面三个基本性质。首先，由于$\sum b_n$是正项级数，
+    $$\forall A \in \Omega ,\quad \Pr{A} = \sum_{i\in A} b_n \geqslant 0.$$
+    
+    其次，$\sum b_n$的和为$1$，这说明
+    $$\Pr{\Omega} = \sum_{n\in \mathbb{N}} b_n = 1.$$
+
+    再者，对于$A \subseteq B$，由于$\sum_{i\in A} b_i$和$\sum_{i\in B} b_i$都是可求和数族，根据可求和数组的基本性质，
+    $$\Pr{A} = \sum_{i\in A} b_i \leqslant \sum_{i\in B} b_i = \Pr{B}.$$
+    
+    最后我们来证明这样的定义下，任意事件的概率都可数可加。
+
+    给定可数个两两不相交的集合$\{A_i\}_{i\in \mathbb{N}} $，我们要证明：
+    $$ \Pr{\bigcup_{i\in \mathbb{N}} A_i} = \sum_{i\in \mathbb{N}} \Pr{A_i}. $$
+    记$B = \bigcup_{i\in \mathbb{N}} A_i$，由于集合$A_i$两两不相交，$B$中任何一个元素恰好属于某个$A_i$，没有重复没有遗漏。因此，
+    $$ \Pr{B} = \sum_{k\in B} b_k = \sum_{n\in \mathbb{N}} \sum_{i\in A_n} b_i = \sum_{i\in \mathbb{N}} \Pr{A_i}. $$
+
+\end{proof}
+
+概率空间存在定理告诉我们，对$\mathbb{N}$上的概率空间来说，分布的具体“长相”是最重要的。知道了概率分布，自然能造出对应的概率空间。具体来说，$\mathbb{N}$上有哪些概率分布呢？
+
+\begin{ex}
+    考虑不断掷硬币的独立实验。每次掷硬币都是一次独立事件，掷出正面的概率都是$0<p<1$，反面的概率都是$1-p$。那么掷第$n$次时首次出现正面的概率是怎样的？
+\end{ex}
+
+\begin{so}
+    对任意正整数$n$，设掷硬币第$n$次时首次出现正面，那么前$n-1$次都是反面。于是随机变量“首次出现正面的次数”$X$遵从的分布为：
+    $$ \Pr{X=n} = (1 - p)^{n-1} p.$$
+    因此我们讨论的是以下的分布：
+    $$ \forall n \in \mathbb{N}, \quad \Pr{X=n} = (1 - p)^{n-1} p. $$
+    对所有的$n$求和：
+    \begin{align*}
+        \sum_{n=1}^{+\infty} \Pr{X=n} &= \sum_{n=1}^{+\infty}(1 - p)^{n-1} p = p\cdot \sum_{n=1}^{+\infty}(1 - p)^{n-1} \\
+        &= p \cdot \frac{1}{1 - (1 - p)} = 1.
+    \end{align*}
+    严格来说，这是正整数集合$\mathbb{Z}^+$上的分布。它的“通项”是一个无穷等比数列。所以我们称它为\textbf{等比分布}。
+\end{so}
+
+等比分布的公比为$1 - p$，所以它对应一个递缩等比数列。“首项”$\Pr{X=n}$是最大的，其后不断变小。我们还可以计算“前$n$次都不出现正面”的概率：
+\begin{align*}
+    \Pr{\mbox{前}n\mbox{次都不出现正面}} &= \sum_{k=n+1}^{+\infty} \Pr{X=k} = \sum_{k=n+1}^{+\infty} (1 - p)^{k-1}p\\ 
+    &= p(1 - p)^{n}\cdot \sum_{k=0}^{+\infty} (1 - p)^k = p(1 - p)^{n}\cdot \frac{1}{1 - (1 - p)} \\
+    &= (1 - p)^{n}.
+\end{align*}
+
+另一个例子和二项分布有关。
+
+% \begin{ex}
+%     考虑
+% \end{ex}
+
+% 讨论实变函数中的可测函数
+
+\section{可测函数的积分}
+
+% 引入勒贝格积分
+
+\section{可数无限概率空间}
+
+% 定义可数个元素构成的事件集合和概率空间。定义事件的概率。
+
+% ----------------- 第六册 --------------
+
+% \chapter{离散随机变量}
+
+% \section{随机变量的性质}
+
+% \section{正态分布}
+
+% \section{大数定律}
+
+% \section{中心极限定理}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%% %
+%                            %
+%          APPENDIX          %
+%                            %
+% %%%%%%%%%%%%%%%%%%%%%%%%%% %
 
 \begin{appendix}
 

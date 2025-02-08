@@ -29,6 +29,8 @@
 \usepackage{thmtools, thm-restate}
 \usepackage{pifont}
 \usepackage[perpage,symbol*]{footmisc}
+\usepackage{xparse} % For defining commands with optional arguments
+\usepackage{tikz-3dplot}
 
 % 修改脚注的编号为加圈样式，并且各页单独编号
 \DefineFNsymbols{circled}{{\ding{192}}{\ding{193}}{\ding{194}}
@@ -39,6 +41,8 @@
 \definecolor{gl}{RGB}{246, 252, 240}
 \definecolor{gd}{RGB}{236, 244, 230}
 \definecolor{bg}{RGB}{242, 244, 228}
+% \definecolor{grid3}{RGB}{200, 200, 200} % 自定义颜色 (RGB 值)
+% \tdplotsetmaincoords{60}{105} % 设置观察角度 (θ, φ)
 
 % 定义字体
 \setCJKmainfont[BoldFont=STZhongsong]{STSong}  % 普通字体、粗体
@@ -134,6 +138,18 @@
         \draw[line width=0.1ex,line cap=round,out=45,in=135] (wideArcAnchorA) to (wideArcAnchorB);
     }
 }
+\newcommand{\bino}[2]{\mathrm{C}_{#1}^{#2}}
+\NewDocumentCommand{\pilo}{m o}{%
+    \mathrm{P}_{#1}\IfValueT{#2}{^{#2}}
+}
+\NewDocumentCommand{\bmat}{m o}{%
+    \left[\,#1\,\right]\IfValueT{#2}{_{#2}}
+}
+\newcommand{\fanshe}[1]{\text{反}_{#1}}
+\newcommand{\touying}[1]{\text{投}_{#1}}
+\newcommand{\xuan}[1]{\text{旋}_{#1}}
+
+\renewcommand{\Pr}[1]{\mathbb{P}\left(#1\right)}
 
 % 定义、定理、证明等块环境
 \theoremstyle{definition}
