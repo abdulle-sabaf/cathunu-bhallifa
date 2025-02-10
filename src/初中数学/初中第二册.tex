@@ -667,10 +667,63 @@ $$ p \leftarrow q = (\neg q) \leftarrow (\neg p). $$
 $$ p \leftrightarrow q = q \leftrightarrow p = (\neg p) \leftarrow (\neg q) = (\neg q) \leftarrow (\neg p). $$
 
 \begin{sk}\label{sk:2-2-1}
-    给定一个充分条件假言命题，分别写出它的否定、它的逆命题的否定、它的否命题的否定和它的逆否命题的否定。
-    这些命题之间有什么关系？
+    \mbox{} \\
+    1. 给定一个充分条件假言命题，分别写出它的否定、它的逆命题的否定、它的否命题的否定和它的逆否命题的否定。
+    这些命题之间有什么关系？\\
+    2. 观察以下关系图。图中的关系是否正确？如何验证？
 \end{sk}
+
+\begin{tikzpicture}[
+    node distance=3cm and 4cm,  % 水平和垂直间距
+    every node/.style={
+        draw, 
+        rectangle, 
+        minimum width=2.5cm, 
+        minimum height=0.8cm, 
+        align=center,
+        font=\small
+    },
+    label/.style={
+        align=center,
+        font=\small,
+        draw=none % 不绘制边框
+    }
+]
+
+% 定义四个命题节点
+\node (original) {若\(p\)，则\(q\)};
+\node [below right= of original] (inverse_negation) {若\(\neg q\)，则\(\neg p\)};
+
+\node [right= of original] (inverse) {若\(q\)，则\(p\)};
+\node [below= of original] (negation) {若\(\neg p\)，则\(\neg q\)};
+
+% 在节点下方添加说明性例子
+\node [label,above=-0.2em of original, draw=none] {原命题};
+\node [label,below=-0.2em of inverse_negation, draw=none] {逆否命题};
+\node [label,above=-0.2em of inverse, draw=none] {逆命题};
+\node [label,below=-0.2em of negation, draw=none] {否命题};
+
+% 绘制横向箭头
+\draw[draw=red,<->] (original.east) -- node[label,above=-0.2em] {互逆} (inverse.west);
+\draw[draw=red,<->] (negation.east) -- node[label,below=-0.2em] {互逆} (inverse_negation.west);
+
+% 绘制竖向箭头
+\draw[draw=blue,<->] (original.south) -- node[label,left=-1.3em] {互否} (negation.north);
+\draw[draw=blue,<->] (inverse.south) -- node[label,right=-1.3em] {互否} (inverse_negation.north);
+
+% 绘制对角线双向箭头（保持文字正放）
+\draw[draw=orange,<->] (original.south east) to[out=-37,in=143] 
+    node[label,midway,sloped=false] {互\phantom{安安安安安安.}\\为\phantom{安安}\\\phantom{安安}逆\\\phantom{.安安安安安安}否} 
+    (inverse_negation.north west);
+
+\draw[draw=orange,<->] (inverse.south west) to[out=-143,in=37] 
+    node[label,midway,sloped=false] {\phantom{安安安安安安.}否\\\phantom{安安}逆\\为\phantom{安安}\\互\phantom{.安安安安安安}} 
+    (negation.north east);
+
+\end{tikzpicture}
+
 \begin{xt}\label{xt:2-2-1}
+    \mbox{} \\
     \indent 1. 写出以下命题的逆命题、否命题和逆否命题。\\
     \indent 1.1.  如果我无法完成这套体操动作，你也无法完成。\\
     \indent 1.2. 如果既约分数的分母是偶数，那么它的分子是奇数。\\
