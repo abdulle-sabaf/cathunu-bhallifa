@@ -2267,7 +2267,7 @@ p_f \,\,\, : \,\,\,  \{10,20,30,40,50,60\} &\rightarrow \qquad\qquad\qquad [0; 1
 \end{align*}
 因此，随机变量$f$的期望
 $$ \mathbb{E}(f) = \sum_{s\in S} f(s) \mathbb{P}(\{s\}) = \sum_{x \in X} x p_f(x). $$
-这是因为当$x$遍历$X$时，使$f(s) = x$的$s$也遍历了$S$，没有重复也没有遗漏。
+这是因为当$x$遍历$X$时，使$f(s) = x$的$s$也遍历了$S$，没有重复也没有遗漏\footnote{不至于混淆时，\(p_f(x)\)也写作\(\Pr{f=x}\)。}。
 
 同理可以推出，随机变量$f$的变差可以写成：
 $$ \mathrm{Var}(f)  = \sum_{x\in X} \left(x - \mathbb{E}(f)\right)^2 p_f(x).$$ 

@@ -2679,15 +2679,24 @@ $$ \mathbf{u} = u_1\mathbf{e}_1 + u_2\mathbf{e}_2 + u_3\mathbf{e}_3. $$
 $$ \xuan{B, \alpha}(\mathbf{u}) = u_1\mathbf{e}_1 + (u_2\cos{\alpha} - u_3\sin{\alpha})\mathbf{e}_2 + (u_2\sin{\alpha} + u_3\cos{\alpha}) \mathbf{e}_3.$$
 
 \subsection{剪映射}
-立体空间中的剪映射可以用以下矩阵表示：
+立体空间中的剪映射$f$可以用以下矩阵表示：
 $$ \begin{bmatrix}
     1 & a & b \\ 0 & 1 & c \\ 0 & 0 & 1
 \end{bmatrix}. $$
+这个矩阵说明了剪映射如何是改变基向量的。
+\begin{align*}
+    f(\mathbf{e}_1) &= \phantom{a}\mathbf{e}_1 \\
+    f(\mathbf{e}_2) &= a\mathbf{e}_1 + \phantom{c}\mathbf{e}_2 \\
+    f(\mathbf{e}_3) &= b\mathbf{e}_1 + c\mathbf{e}_2 + \mathbf{e}_3 
+\end{align*}
+在剪映射$f$作用下，基向量$\mathbf{e}_1$保持不变，$\mathbf{e}_2$沿$\mathbf{e}_1$方向移动$a$个单位，而$\mathbf{e}_3$沿$\mathbf{e}_1, \mathbf{e}_2$方向分别移动$b,c$个单位。
 
 \section{空间的基变换}
+空间中的直变换也包括基变换。基变换把空间的一组基底转为另一组基底。
 
-\section{相似矩阵和对角矩阵}
+\section{特征值和特征向量}
 
+% 观察平面和空间的变换，我们发现，有一类向量能帮助我们理解
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%% %
 %                            %

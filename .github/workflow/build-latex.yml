@@ -1,0 +1,33 @@
+# name: Build LaTeX and Deploy PDF
+
+# on:
+#   push:
+#     branches:
+#       - main  # 指定触发工作流的分支，例如 main
+#   workflow_dispatch:  # 允许手动触发工作流
+
+# jobs:
+#   build-latex:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v3
+
+#       - name: Install LaTeX dependencies
+#         run: |
+#           sudo apt-get update
+#           sudo apt-get install -y texlive-latex-extra pandoc
+
+#       - name: Compile LaTeX to PDF
+#         run: |
+#           pdflatex your_main_file.tex  # 替换为你的主 .tex 文件名
+#           pdflatex your_main_file.tex  # 通常需要运行两次以解决交叉引用
+
+#       - name: Upload PDF to GitHub Pages
+#         uses: peaceiris/actions-gh-pages@v3
+#         with:
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
+#           publish_dir: .  # 假设 PDF 文件在当前目录
+#           publish_branch: gh-pages  # 指定 GitHub Pages 的分支
+#           commit_message: "Deploy PDF"

@@ -107,7 +107,7 @@
     \item 开邻域是其中每一点的邻域。从其中每一点出发，总可以“稍微动一动”，还在开邻域里。
     \item 闭邻域“隔开”了其外每一点。从闭邻域外的点出发，总可以“稍微动一动”，而不跑到闭邻域里面去。
 \end{itemize}
-这两种邻域抽象了“里外”的概念。
+这两种邻域抽象了“内外”的概念。
 
 举例来说，考虑$x=1$的情况，对于给定的$r$来说，$(1-r;1+r)$是开邻域，$[1-r;1+r]$是闭邻域。
 
@@ -1655,7 +1655,7 @@ $$ (x^2, x, 3x, 5x, \cdots (2n+1)x, \cdots )$$
 但是，如果逐点收敛不能保持极限的连续性或可微性的话，那么很多性质也无法传递到极限$f$上去。
 
 如果函数列一致收敛的话，我们可以证明（见附录）：
-\begin{tm}\textbf{一致收敛保证极限}\\
+\begin{tm}\textbf{一致收敛保证极限}\label{tm:2-1-10}\\
     已知区间$I$上的函数列$\{f_n\}_{n\in\mathbb{N}}$一致收敛到$f$，
     且函数列的每一项$f_n$都在区间的一端$a$点处\footnote{也可以是无穷远处。}有极限$u_n$。
     那么数列$\{u_n\}$收敛到某个数$u$，且$u$是$f$在$a$处的极限。
@@ -1665,7 +1665,7 @@ $$ (x^2, x, 3x, 5x, \cdots (2n+1)x, \cdots )$$
 
 因此，连续函数的函数列如果一致收敛，极限也是连续函数。更进一步（证明见附录）：
 
-\begin{tm}{\textbf{微变的一致极限}}
+\begin{tm}{\textbf{微变的一致极限}}\label{tm:2-1-20}
     已知函数列$\{f_n\}_{n\in\mathbb{N}}$中每一项都在区间$I$上可微，且微变函数连续。
     设函数列逐点收敛到函数$f$，且函数列$\{\partial f_n\}_{n\in\mathbb{N}}$一致收敛到函数$g$，
     那么$\{f_n\}_{n\in\mathbb{N}}$一致收敛到$f$，
@@ -1675,7 +1675,7 @@ $$ (x^2, x, 3x, 5x, \cdots (2n+1)x, \cdots )$$
 也就是说，在函数列收敛，且其微变函数一致收敛时，我们可以交换微变操作和函数列的极限操作：
 $$ \lian{n\to \infty} \partial f_n = \partial \lian{n\to \infty} f_n. $$
 
-\begin{tm}{\textbf{积合的一致极限}}
+\begin{tm}{\textbf{积合的一致极限}}\label{tm:2-1-30}
     已知函数列$\{f_n\}_{n\in\mathbb{N}}$中每一项$f_n$都在闭区间$[a;b]$上连续。
     如果函数列一致收敛到函数$f$，那么$f$在$I$上可积，且满足：
     $$ \forall x \in [a; b],\quad \int_{a}^x f = \lian{n\to \infty} \int_{a}^x f_n. $$
@@ -1755,6 +1755,96 @@ $n$趋于无穷时，$f_n(c)$趋于$0$，所以函数列$\{f_n\}$在$\left[c;\fr
     \indent 4.2. 对任意$n$，计算$f_n$在$[0;1]$上的积合。$\{f_n\}$是否在$[0;1]$上一致收敛到$f$？\\
     \indent 4.3. 给定$a>0$，$\{f_n\}$是否在$[a;1]$上一致收敛到$f$？
 \end{xt}
+
+\section{整式逼近连续函数}
+有了一致收敛作为工具，我们就希望把一些的函数用简单的函数来近似，证明它们是更简单函数一致收敛的结果。一个重要的基本结论是：闭区间上的连续函数可以看作整式函数一致收敛的结果。我们把这个现象称为连续函数的整式一致逼近。具体来说：
+
+\begin{tm}
+    记定义在闭区间$[a;b]$上所有连续函数的集合为$\mathcal{C}_{[a;b]}(\mathbb{R})$，所有实系数整式函数的集合为$\mathcal{P}_{[a;b]}(\mathbb{R})$。那么任意$f\in\mathcal{C}_{[a;b]}(\mathbb{R})$都是$\mathcal{P}_{[a;b]}(\mathbb{R})$中整式函数列$\{p_n\}_{n\in\mathbb{N}}$一致收敛的极限。或者说
+    $$ \forall \, r > 0, \;\, \exists \, p \, \in \mathcal{P}_{[a;b]}(\mathbb{R}) \; \mbox{使得：} \underset{x\in [a;b]}{\text{上}} \left| f(x) - p(x) \right| \leqslant r.$$
+\end{tm}
+
+如何找到如此逼近任何连续函数的整式函数呢？为了方便讨论，不妨设我们讨论的是闭区间$[0;1]$上的连续函数$f$。一个“幼稚”的想法是：把$[0;1]$均匀划分成$n$分，建立$n+1$个“考察点”：
+$$ x_0 = 0, \; x_1 = \frac{1}{n}, \; x_2 = \frac{2}{n}, \cdots, \; x_{n-1} = \frac{n-1}{n}, \; x_{n} = 1. $$
+如果某个整式和$f$在这些“考察点”上的值一样，那么它就能一致地逼近$f$。
+
+这个想法的问题在于，这样的整式往往在“考察点”以外的地方偏离$f$。因此，一个替代的想法是：制造一系列更“平稳”的整式，让整式在各个“考察点”$x_k$上逐渐趋于$f(x_k)$。这里我们借鉴概率论的思想，对任意正整数$n$，定义以下一系列整式函数：
+\begin{align*}
+    b_{n,0}:\; x &\mapsto \;\bino{n}{0} x^0(1 - x)^{n-0} = (1 - x)^{n} \\
+    b_{n,1}:\; x &\mapsto \;\bino{n}{1} x^1(1 - x)^{n-1} = nx(1 - x)^{n-1} \\
+    &\quad \vdots \\
+    b_{n,k}:\; x &\mapsto \;\bino{n}{k} x^k(1 - x)^{n-k} \\
+    &\quad \vdots \\
+    b_{n,n}:\; x &\mapsto \;\bino{n}{n} x^n(1 - x)^{n-n} = x^{n} 
+\end{align*}
+然后定义逼近函数$p_n$：
+\begin{align*}
+    p_n: \; x\mapsto \sum_{k=0}^n f\left(x_k\right) b_{n,k}(x) = \sum_{k=0}^n f\left(\frac{k}{n}\right) \bino{n}{k} x^k(1 - x)^{n-k}
+\end{align*}
+证明$\{p_n\}_{n\in\mathbb{N}}$一致收敛到$f$。
+
+为什么这样定义呢？分析函数$b_{n,k}$可知，它的图像在$[0;1]$上先升后降\footnote{不包括$k=0,k=n$的情况。}，像一个山峰，最高点在$x_k$处取得。随着$n$增大，越远离$x_k$，$b_{n,k}(x)$的值越快速趋于$0$。另一方面，分析$p_n$在$x_k$处的值：
+\begin{align*}
+    p_n(x_k) = \sum_{i=0}^n b_{n,i}(x_k) = \sum_{i=0}^n \bino{n}{i} x_k^i(1 - x_k)^{n-i} f(x_i) 
+\end{align*}
+$p_n(x_k)$可以看作对$f(x_0), f(x_1), \cdots, f(x_n)$的加权平均。其权重让我们想到$n$次二项分布。如果考虑系数为$x_k$的$n$次二项分布的随机变量$X$，那么$p_n(x_k)$就是$\displaystyle f\left(\frac{X}{n}\right)$的期望。如果我们研究$\frac{X}{n}$，会发现它的期望是$x_k$，而$n$趋于无穷时，变差趋于$0$。这说明$\frac{X}{n}$将越来越集中于$x_k$，也就是说，$p_n(x_k)$会越来越趋近$f(x_k)$。我们把这种逼近方法称为\textbf{二项逼近}。
+
+\begin{tm}{\textbf{整式一致逼近定理}}
+    对任意$f\in\mathcal{C}_{[a;b]}(\mathbb{R})$，整式函数列$\{p_n\}_{n\in\mathbb{N}}$：
+    \begin{align*}
+        \forall n\in\mathbb{N},\;\, p_n: \; x\mapsto \sum_{k=0}^n f\left(\frac{k}{n}\right) \bino{n}{k} x^k(1 - x)^{n-k}
+    \end{align*}
+    一致收敛到$f$。
+\end{tm}
+
+\begin{figure}[h]
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.8\textwidth]{tu/整式一致逼近1.png}
+    \captionsetup{justification=centering}
+    \caption*{$n$\texttt{增大时，}$p_n$\texttt{逐渐逼近连续函数}$f$。}
+\end{figure}
+
+整式一致逼近定理说明，整式函数集合$\mathcal{P}_{[a;b]}(\mathbb{R})$在连续函数$\mathcal{C}_{[a;b]}(\mathbb{R})$中稠密，就像有理数集合与实数集合的关系一样。一般的连续函数没有显式表示，我们对它所知甚少，而整式函数有给定的形式，性质良好，容易研究。而通过整式一致逼近定理，我们对整式函数的研究就能帮助我们理解一般的连续函数了。
+
+\begin{et}
+    设有$f\in\mathcal{C}_{[0;1]}(\mathbb{R})$，满足：
+    $$ \forall n\in \mathbb{N}, \quad \int_0^1 x^n f(x) = 0. $$
+    \indent 1. 设$p_n$是在$[0;1]$上一致逼近$f$的整式函数，证明通项为$x\mapsto p_n(x) f(x)$的函数列一致收敛到$x\mapsto f^2(x)$。\\
+    \indent 2. 证明：
+    $$ \int_0^1 f^2 = \lian{n\to +\infty} \int_0^1 p_n f. $$
+    \indent 3. 对任意$n\in\mathbb{N}$，计算：
+    $$ \int_0^1 p_n f $$
+    并说明$f$的性质。
+\end{et}
+
+\begin{so}
+    $f$是$[0;1]$上满足某种积合性质的连续函数。
+
+    \indent 1. $f$在$[0;1]$上连续，因此有界，设正数$M$是$|f|$的上界。根据一致收敛的定义，对任意$r>0$，都有$N\in \mathbb{N}$，使得只要$n>N$，就有：
+    $$ \forall x\in [0;1], \quad |p_n(x) - f(x)| \leqslant \frac{r}{M}. $$
+    于是只要$n>N$，就有：
+    $$ \forall x\in [0;1], \quad |p_n(x) f(x) - f^2(x)| = |p_n(x) - f(x)| \cdot |f(x)| \leqslant \frac{r}{M} \cdot M = r. $$
+    这说明$\{p_n f\}_{n\in\mathbb{N}}$一致收敛到$f^2$。
+
+    \indent 2. $p_n f$总是$[0;1]$上的连续函数，因此根据定理\ref{tm:2-1-30}，$\{p_n f\}_{n\in\mathbb{N}}$一致收敛的极限的积合等于积合的极限。
+
+    \indent 3. 对任意$n$，记$p_n = a_0 + a_1 x + \cdots + a_m x^m$。按照条件，
+    $$ \forall m\in \mathbb{N}, \quad \int_0^1 x^m f(x) = 0. $$
+    所以，根据积合的基本性质：
+    $$ \int_0^1 p_n f = \int_0^1 \sum_{k=0}^m a_k x^k f(x) = \sum_{k=0}^m a_k \int_0^1 x^k f(x) = \sum_{k=0}^m a_k \cdot 0 = 0. $$
+
+    综上可知，
+    $$ \int_0^1 f^2 = \lian{n\to +\infty} \int_0^1 p_n f = \lian{n\to +\infty} 0 = 0. $$
+    但$f^2$总大于等于$0$，因此根据积合的基本性质，$f^2$在$[0;1]$上是零函数，从而$f$也是零函数。
+
+\end{so}
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 为什么整式函数具有一致逼近任意闭区间上连续函数的能力？其他种类的函数可以吗？\\
+    \indent 2. 如果$f$在闭区间上连续可微，能否找到整式函数列$\{p_n\}_{n\in\mathbb{N}}$一致逼近它，并且其微变函数列$\{\partial p_n\}_{n\in\mathbb{N}}$也一致逼近$\partial f$？如果$f$在闭区间上光滑，能否找到整式函数列$\{p_n\}_{n\in\mathbb{N}}$，在任意$n$次微变后仍然一致逼近$f$的$n$次微变？
+\end{sk}
 
 \section{函数项级数}
 
@@ -2157,12 +2247,6 @@ $$ \forall x \in (-R;R) ,\,\,\, f(x) = \sum_{n=0}^{+\infty} \frac{\partial^n f(0
     \caption*{\texttt{函数}$\displaystyle \mathrm{e}^{-\frac{1}{x}}$\texttt{在}$0$\texttt{处太平坦了}}
 \end{figure}
 
-% \begin{sk}
-%     \mbox{} \\
-%     \indent 1. 幂级数系数的微变表示，和我们学过的哪个公式相似？为什么？\\
-%     \indent 2. 如果幂级数的收敛域是$[-R;R]$，是否在$[-R;R]$上可积？举出例子或反例。
-% \end{sk}
-
 不是所有光滑实函数都可以展开为幂级数。我们把可以展开为幂级数的函数称为\textbf{可解析函数}。能够展开的区间称为函数的\textbf{解析域}。以下给出一些常见基本实函数的幂级数展开，及其解析域：
 
 \begin{center}
@@ -2175,7 +2259,7 @@ $$ \forall x \in (-R;R) ,\,\,\, f(x) = \sum_{n=0}^{+\infty} \frac{\partial^n f(0
         \hline
         $\sin{x} = \displaystyle  \sum_{n=0}^{+\infty} \frac{(-1)^n}{(2n+1)!} x^{2n+1} $ & $R=+\infty$ \\ 
         \hline
-        $\sin{x} = \displaystyle  \sum_{n=0}^{+\infty} \frac{(-1)^n}{(2n)!} x^{2n} $ & $R=+\infty$ \\
+        $\cos{x} = \displaystyle  \sum_{n=0}^{+\infty} \frac{(-1)^n}{(2n)!} x^{2n} $ & $R=+\infty$ \\
         \hline
         $\displaystyle \frac{1}{1 - x} = \sum_{n=0}^{+\infty} x^n $ & $R = 1$ \\
         \hline
@@ -2213,6 +2297,7 @@ $$ \e^{z} = \sum_{n=0}^{+\infty} \frac{z^{n}}{n!} $$
 \end{align*}
 这样我们就证明了：
 $$ \forall \; t\in\mathbb{R}, \quad \e^{\imath t} = \cos{t} + \imath \sin{t}. $$
+这个公式叫做\textbf{欧拉公式}，反映了复平面作为“平面”的性质，说明了复平面和我们直观理解的平面之间的联系。要注意的是公式成立的基础是三角函数展开成级数形式恰好与指数函数展开的级数形式吻合。但三角函数的展开源自三角函数的微变，后者又源自“圆弧的弧长和弦长的比值会趋于$1$”的直观结论。因此，如果我们想要不依赖直观感受，严格定义三角函数及其性质的话，会用另一种方法来定义三角函数。具体定义和相关讨论见附录。
 
 \begin{appendix}
 
@@ -2237,7 +2322,7 @@ $$ \forall \; t\in\mathbb{R}, \quad \e^{\imath t} = \cos{t} + \imath \sin{t}. $$
     给定一个集合$S$，以及$S$的一些子集构成的集合$\Omega$。如果$\Omega$的元素满足以下条件：
     \begin{enumerate}
         \item $\Omega$的元素的并集，仍然是$\Omega$的元素；
-        \item 有限个$\Omega$的元素的并集，仍然是$\Omega$的元素；
+        \item 有限个$\Omega$的元素的交集，仍然是$\Omega$的元素；
         \item 空集$\varnothing$和$S$都是$\Omega$的元素。
     \end{enumerate}
     就说它是$S$上的\textbf{开闭结构}。装备了某种开闭结构$\Omega$的集合$S$称为\textbf{开闭空间}。$S$的元素称为开闭空间的点，$\Omega$中的元素称为空间的\textbf{开集}，开集（关于$S$）的补集称为空间的\textbf{闭集}。
@@ -3532,6 +3617,108 @@ $$ \lian{n\to\infty} \int_I f_n = \int_I f = \int_I \lian{n\to\infty} f_n. $$
     \indent 2. 函数列$\{f_n\}_{n\in\mathbb{N}}$在$I$的任意子闭区间上一致收敛到函数$f$，它是否在$I$上收敛到$f$？
 \end{sk}
 
+\section{整式逼近连续函数}
+
+有了一致收敛作为工具，我们就希望把一些的函数用简单的函数来近似，证明它们是更简单函数一致收敛的结果。一个重要的基本结论是：连续函数可以看作整式函数一致收敛的结果。我们把这个现象称为连续函数的整式逼近。具体来说：
+
+\begin{tm}
+    记定义在闭区间$[a;b]$上所有连续函数的集合为$\mathcal{C}_{[a;b]}(\mathbb{R})$，所有实系数整式函数的集合为$\mathcal{P}_{[a;b]}(\mathbb{R})$。那么任意$f\in\mathcal{C}_{[a;b]}(\mathbb{R})$都是$\mathcal{P}_{[a;b]}(\mathbb{R})$中整式函数列$\{p_n\}_{n\in\mathbb{N}}$一致收敛的极限。或者说
+    \[ \forall \, r > 0, \;\, \exists \, p \, \in \mathcal{P}_{[a;b]}(\mathbb{R}) \; \mbox{使得：} \forall x\in [a;b],\quad \left| f(x) - p(x) \right| \leqslant r.\]
+\end{tm}
+
+\begin{proof}
+    为了方便叙述，不妨设区间为$[0;1]$。设$f\in\mathcal{C}_{[0;1]}(\mathbb{R})$。对任意正整数$n$，定义以下一系列整式函数：
+    \begin{align*}
+        b_{n,0}:\; x &\mapsto \;\bino{n}{0} x^0(1 - x)^{n-0} = (1 - x)^{n} \\
+        b_{n,1}:\; x &\mapsto \;\bino{n}{1} x^1(1 - x)^{n-1} = nx(1 - x)^{n-1} \\
+        &\quad \vdots \\
+        b_{n,k}:\; x &\mapsto \;\bino{n}{k} x^k(1 - x)^{n-k} \\
+        &\quad \vdots \\
+        b_{n,n}:\; x &\mapsto \;\bino{n}{n} x^n(1 - x)^{n-n} = x^{n} 
+    \end{align*}
+    然后定义逼近函数$p_n$：
+    \begin{align*}
+        p_n: \; x\mapsto \sum_{k=0}^n f\left(x_k\right) b_{n,k}(x) = \sum_{k=0}^n f\left(\frac{k}{n}\right) \bino{n}{k} x^k(1 - x)^{n-k}
+    \end{align*}
+    下面证明$\{p_n\}_{n\in\mathbb{N}}$一致收敛到$f$。
+
+    $\forall x\in[0;1]$，作差可得：
+    \begin{align*}
+        |p_n(x) - f(x)| &= \left| \sum_{k=0}^n f\left(\frac{k}{n}\right) b_{n,k}(x) - f\left(x\right) \sum_{k=0}^n  b_{n,k}(x) \right| \\ 
+        &= \left|\sum_{k=0}^n \left(f\left(\frac{k}{n}\right) - f(x)\right) b_{n,k}(x) \right| \\
+        &\leqslant \sum_{k=0}^n \left|f\left(\frac{k}{n}\right) - f(x) \right| b_{n,k}(x) .
+    \end{align*}
+    我们把最后得到的$n+1$项分为两部分。具体来说，给定$d>0$，我们把$\{0,1,\cdots,n\}$划分成两个子集：
+    $$ S_{\text{近}} = \left\{k \, \left| \, \left|\frac{k}{n} - x \right|\right. \leqslant d\right\}, \quad S_{\text{远}} = \left\{k \, \left| \, \left|\frac{k}{n} - x \right|\right. > d\right\}. $$
+    $S_{\text{近}}$表示足够接近$x$（距离不大于$d$）的$x_k$对应的项，$S_{\text{远}}$则表示不够接近$x$的$x_k$对应的项。于是：
+    $$ \sum_{k=0}^n \left|f\left(\frac{k}{n}\right) - f(x) \right| \bino{n}{k} x^k(1 - x)^{n-k} = I_{\text{近}} + I_{\text{远}}. $$
+    其中
+    $$ I_{\text{近}} = \sum_{k\in S_{\text{近}}} \left|f\left(\frac{k}{n}\right) - f(x) \right| b_{n,k}(x), \quad I_{\text{远}} = \sum_{k\in S_{\text{远}}} \left|f\left(\frac{k}{n}\right) - f(x) \right| b_{n,k}(x). $$
+
+    首先考虑$S_{\text{近}}$中的项。由于$f$在$[0;1]$上连续，它在$[0;1]$上一致连续。根据一致连续的定义，只要$x$和$x_k$足够接近，它们的函数值就足够接近。因此，对任意$r>0$，都有$d>0$，使得只要$|x - x_k| \leqslant d$，就有
+    $$ \left|f\left(\frac{k}{n}\right) - f(x) \right| \leqslant \frac{r}{2}. $$
+    于是：
+    \begin{align*}
+        I_{\text{近}} \leqslant \frac{r}{2} \sum_{k\in S_{\text{近}}} b_{n,k}(x) \leqslant \frac{r}{2} \sum_{k=0}^n \bino{n}{k} x^k(1 - x)^{n-k} = \frac{r}{2} \cdot (x + 1 - x)^n = \frac{r}{2}.
+    \end{align*}
+
+    再考虑$S_{\text{远}}$中的项。我们说过，由于$b_{n,k}(x)$总体向$x_k$集中，$x$远离$x_k$时，$b_{n,k}(x)$应该趋于$0$。于是，我们希望证明$ \sum_{k\in S_{\text{远}}} b_{n,k}(x) $随着$n$趋于无穷而趋于$0$。这样，由于$f$在$[0;1]$上连续，因此有界，设$M$是$|f|$的上界，那么$|f\left(x_k\right) - f(x)|$总小于等于$2M$。而我们总可以选择正整数$N$，使得$n>N$时
+    $$ \sum_{k\in S_{\text{远}}} b_{n,k}(x) \leqslant \frac{r}{4M}. $$
+    这样$n>N$时，
+    $$ I_{\text{远}} \leqslant 2M \cdot \sum_{k\in S_{\text{远}}} b_{n,k}(x) \leqslant 2M \cdot\frac{r}{4M}\leqslant \frac{r}{2}, $$
+    于是
+    $$ \forall x\in [0;1],\quad |p_n(x) - f(x)| \leqslant  I_{\text{近}} + I_{\text{远}} \leqslant \frac{r}{2} + \frac{r}{2} = r. $$
+    也就是说，对任意$r>0$，总有正整数$N$（以及适当选择的$d$），使得只要$n>N$，就有$ |p_n(x) - f(x)|\leqslant r$。即$\{p_n\}_{n\in\mathbb{N}}$一致收敛到$f$。
+
+    对于一般区间$[a;b]$上的连续函数$f$，可以先将它转化为$[0;1]$上的连续函数$g: x\mapsto f(ax + b - a)$。使用以上方法得到一致收敛到$g$的整式函数$p_n$，则整式函数$x\mapsto g\left(\frac{x - a}{b - a}\right) $就一致收敛到$f$。
+
+    最后来证明$ \sum_{k\in S_{\text{远}}} b_{n,k}(x) $随着$n$趋于无穷而趋于$0$。
+
+    首先，按照$S_{\text{远}}$的定义：
+    $$ \sum_{k\in S_{\text{远}}} b_{n,k}(x) \leqslant \sum_{k\in S_{\text{远}}}  \frac{1}{d^2}\left(\frac{k}{n} - x\right)^2 b_{n,k}(x). $$
+    然而我们可以验证以下等式：
+    $$ \sum_{k=0}^n \left(\frac{k}{n} - x\right)^2 b_{n,k}(x) = \frac{x(1 - x)}{n}. $$
+    这说明
+    \begin{align*}
+        \sum_{k\in S_{\text{远}}} b_{n,k}(x) &\leqslant \sum_{k\in S_{\text{远}}}  \frac{1}{d^2}\left(\frac{k}{n} - x\right)^2 b_{n,k}(x) \leqslant \frac{1}{d^2} \sum_{k=0}^n \left(\frac{k}{n} - x\right)^2 b_{n,k}(x) \\
+        &= \frac{x(1 - x)}{nd^2} \leqslant \frac{1}{4nd^2}.
+    \end{align*}
+    即$I_{\text{远}}$是$\frac{1}{n}$的同阶无穷小，因此随$n$趋于无穷而趋于$0$。
+    
+\end{proof}
+
+能够使用整式函数一致逼近任意闭区间上的连续函数，是连续函数一个重要的性质。分析连续函数时，我们总可以将它大致看作整式函数，然后使用整式函数的性质进行分析和研究。工程学上，用整式函数近似表示一般函数的方法称为多项式拟合。使用多项式可以大幅降低计算需求，提高效率。
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 以上证明中用来一致逼近的整式$p_n$，次数随着$n$增大而增大。能否限制$p_n$的次数，但仍然一致逼近$f$？\\
+    \indent 2. 以上证明中，我们不要求整式$p_n$一定和$f$在某点重合。如果我们要求对任意$n$，$p_n$和$f$总要在某点$c$重合，能否做到？如果要求对任意$n$，$p_n$和$f$总要在某$k$个设定的点重合，能否做到？
+\end{sk}
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 下面分步证明本节中提到的等式：
+    \[\forall n \geqslant 1, \forall x, \quad \sum_{k=0}^n \left(\frac{k}{n} - x\right)^2 b_{n,k}(x) = \frac{x(1 - x)}{n}.\]
+    \indent 1.1. 证明：
+    \[\forall n \geqslant 1, \forall x, \quad \sum_{k=0}^n k \bino{n}{k} x^k(1 - x)^{n-k} = \sum_{k=1}^n n \bino{n-1}{k-1} x^k(1 - x)^{n-k}. \]
+    \indent 1.2. 证明：
+    \[\forall n \geqslant 1, \forall x, \quad \sum_{k=0}^n k \bino{n}{k} x^k(1 - x)^{n-k} = nx.\]
+    \indent 1.3. 证明：
+    \[\forall n \geqslant 2, \forall x, \quad \sum_{k=0}^n k(k - 1) \bino{n}{k} x^k(1 - x)^{n-k} = \sum_{k=2}^n n(n - 1) \bino{n-2}{k-2} x^k(1 - x)^{n-k}. \]
+    \indent 1.4. 证明：
+    \[\forall n \geqslant 2, \forall x, \quad \sum_{k=0}^n k(k - 1) \bino{n}{k} x^k(1 - x)^{n-k} = n(n - 1) x^2. \]
+    \indent 1.5. 证明：
+    \[\forall n \geqslant 1, \forall x, \quad \sum_{k=0}^n \left(\frac{k}{n} - x\right)^2 b_{n,k}(x) = \frac{x(1 - x)}{n}.\]
+    \indent 2. 设$f$是定义在$\mathbb{R}$上的连续函数。有整式函数列$\{p_n\}_{n\in\mathbb{N}}$在$\mathbb{R}$上一致收敛到$f$。\\
+    \indent 2.1. 证明：存在正整数$N$，使得只要$n>N$，那么对任意$x\in\mathbb{R}$，都有$|p_n(x) - p_N(x)| \leqslant 1$。\\
+    \indent 2.2. 这说明整式$p_n - p_N$有什么性质？为什么？\\
+    \indent 2.3. 证明：$f$是整式函数。\\
+    \indent 3. 设有$f\in\mathcal{C}_{[0;1]}(\mathbb{R})$，我们要证明：有偶整式函数列一致收敛到$f$。换句话说，有整式函数列$\{p_n\}_{n\in\mathbb{N}}$在$[0;1]$上收敛到$f$，且满足$\forall n, p_n(x) = p_n(-x)$。\\
+    \indent 3.1. 证明有整式函数列$\{Q_n\}_{n\in\mathbb{N}}$在$[-1;1]$上收敛到连续偶函数$g$，且$\forall 0\leqslant x\leqslant 1$，$g(x) = f(x)$。\\
+    \indent 3.2. 证明有偶整式函数列$\{p_n\}_{n\in\mathbb{N}}$在$[-1;1]$上收敛到$g$。\\
+    \indent 3.3. 证明$\{p_n\}_{n\in\mathbb{N}}$在$[0;1]$上收敛到$f$。
+\end{xt}
+
 \section{函数项级数}
 
 函数项级数指通项为函数的级数。最基本的函数项级数是通项为幂函数$x\mapsto x^n$的级数，称为\textbf{幂级数}。
@@ -3684,7 +3871,7 @@ $$ \lian{n\to\infty} \int_I f_n = \int_I f = \int_I \lian{n\to\infty} f_n. $$
     \indent 3.5. 证明$\lian{x\to +\infty} S(x) = 0$，并给出$S$在正无穷处的等价无穷小。\\
 \end{xt}
 
-\section{幂级数}
+\chapter{幂级数}
 
 以整幂函数为通项的级数称为\textbf{幂级数}。幂级数的形式和整式函数很像，可以看作“无穷多项”的整式函数。
 \begin{df}
@@ -3808,13 +3995,13 @@ $$ |a_n x^n| = \left|\frac{a_n}{n^p  b_n} \right| \cdot \left(\left| \frac{x}{y}
 
 这说明实幂级数$\sum a_n x^n$作为函数在$(-R;R)$的任何闭子区间上连续，从而在$(-R;R)$上连续。
 
-\begin{tm}
+\begin{tm}\label{tm:c-4-0}
     若实幂级数的收敛半径为$R$，则它是$(-R;R)$上的连续函数。
 \end{tm}
 
 那么它在$-R$和$R$处是否连续呢？我们有这样的结论：
 
-\begin{tm}
+\begin{tm}\label{tm:c-4-10}
     设实幂级数$\sum a_n x^n$的收敛半径为$R$。若级数$\sum a_n R^n$收敛，那么幂级数在$R$处左连续；
     若级数$\sum a_n (-R)^n$收敛，那么幂级数在$-R$处右连续。
 \end{tm}
@@ -3873,12 +4060,12 @@ $$ |a_n x^n| = \left|\frac{a_n}{n^p  b_n} \right| \cdot \left(\left| \frac{x}{y}
 
 从$\sum a_n x^n$在$(-R;R)$的任何闭子区间上依极模收敛还能推出，实幂级数的微变与积合函数也可以表示为幂级数。
 
-\begin{tm}
+\begin{tm}\label{tm:c-4-20}
     若实幂级数$S(x) = \sum a_n x^n$的收敛半径为$R$，则它在$(-R;R)$的任何闭子区间上可积。它的积合函数也是收敛半径为$R$的幂级数：
     $$ \forall x, \in (-R;R),\,\,\, \int_0^x S =  \sum_{n=0}^{+\infty} \frac{a_n x^{n+1}}{n + 1}. $$
 \end{tm}
 
-\begin{tm}
+\begin{tm}\label{tm:c-4-30}
     若实幂级数$S(x) = \sum a_n x^n$的收敛半径为$R$，则它在$(-R;R)$上光滑。它的微变函数也是收敛半径为$R$的幂级数：
     $$ \forall x, \in (-R;R),\,\,\, \partial S(x) =  \sum_{n=1}^{+\infty} na_n x^{n-1} = \sum_{n=0}^{+\infty} (n + 1)a_{n+1} x^{n}. $$
     一般来说，它的任意次微变都是收敛半径为$R$的幂级数：
@@ -3907,17 +4094,72 @@ $$\forall k\in \mathbb{N}, \,\,\, a_k = \frac{\partial^k S(0)}{k!}.$$
 
 \end{proof}
 
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 幂级数系数的微变表示，和我们学过的哪个公式相似？为什么？\\
+    \indent 2. 如果幂级数的收敛域是$[-R;R]$，是否在$[-R;R]$上可积？举出例子或反例。
+\end{sk}
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 证明以下函数是光滑函数：
+    \begin{align*}
+        1).& 
+        x \mapsto \begin{cases}
+            \frac{\sin{x}}{x} & x\neq 0 \\
+            1 & x = 0 
+        \end{cases}
+        &2).&
+        x \mapsto \begin{cases}
+            \frac{1}{\sin{x}} - \frac{1}{x} & x\in (-\pi;\pi), x\neq 0 \\
+            0 & x = 0 
+        \end{cases} \\
+        3).& 
+        x \mapsto \begin{cases}
+            \mathrm{e}^{-\frac{1}{|x|}} & x\neq 0 \\
+            0 & x = 0 
+        \end{cases}
+        &4).&
+        x \mapsto \begin{cases}
+            \frac{\mathrm{e}^{\sqrt{x}} + \mathrm{e}^{-\sqrt{x}}}{2} & x\geqslant 0 \\
+            \frac{\mathrm{e}^{\sqrt{-x}} + \mathrm{e}^{-\sqrt{-x}}}{2} & x < 0 
+        \end{cases}
+    \end{align*}
+    \indent 2. 给定幂级数$\sum_{n=0}^{+\infty} a_n x^n$，其收敛半径$R>0$，首项$a_0=1$。\\
+    \indent 2.1. 证明，存在数列$\{b_n\}_{n\in\mathbb{N}}$，使得：
+    $$
+    b_0 = 1, \quad \forall n > 0, \;\, \sum_k=0^n a_k b_{n-k} = 0.
+    $$
+    \indent 2.2. 证明：存在$x>0$，使得级数$\sum_{n=0}^{+\infty} b_n x^n$收敛。\\
+    \indent 2.3. 证明：幂级数$\sum_{n=0}^{+\infty} b_n x^n$的收敛半径大于$0$。
+\end{xt}
+
 \section{实函数的幂级数展开}
 
 我们把能够在一定区间上展开为幂级数的实函数称为\textbf{可展函数}，对应的幂级数称为函数在对应区间上的\textbf{幂级数展开}。比方说，对于实函数$f$，如果有$r>0$和级数$\sum a_n$，使得
-$$\forall x\in (-r;r),\,\,\, f(x) = \sum a-n x^n,$$
-就说$f$在$(-r;r)$上可展开为幂级数。
+$$\forall x\in (-r;r),\,\,\, f(x) = \sum_{i=0}^{+\infty} a_n x^n,$$
+就说$f$在$(-r;r)$上可展开为幂级数。我们也把可以展开为幂级数的函数称为\textbf{可解析函数}。能够展开的区间称为函数的\textbf{解析域}。
 
-经典实函数中的指数函数、正弦函数、余弦函数都可以在其定义域上展开为幂级数，因此都是可展函数。
+接下来我们会看到，经典实函数中的指数函数、正弦函数、余弦函数都可以在其定义域上展开为幂级数，因此都是可展函数。
 
 如果实函数$f$可以在$(-R;R)$上展开为幂级数，那么它一定在$(-R;R)$上光滑，并且可以写成：
 $$ f(x) = \sum_{n=0}^{+\infty} \frac{\partial^n f(0)}{n!} x^n. $$
 这就是我们希望的结果：可展函数的幂级数是其局部展开的“极限”。
+
+\begin{proof}
+    设$f$可以在$(-R;R)$上展开为幂级数：
+    $$\forall x\in (-R;R),\,\,\, f(x) = \sum_{i=0}^{+\infty} a_n x^n,$$
+    那么根据定理\ref{tm:c-4-30}，$f$是收敛半径至少为$R$的幂级数函数，于是它的任意次微变都至少是收敛半径为$R$的幂级数，因此在$(-R;R)$上光滑。
+
+    对$f$求$n$次微变，就可得到：
+    $$ \partial^n f(x) = n! \sum_{i=n}^{+\infty} a_i x^{i-n}. $$
+    于是
+    $$ \partial^n f(0) = n! a_n. $$
+    这就证明幂级数的系数是由$f$在$0$处的微变率唯一决定的。
+\end{proof}
+
+这个结论还说明，只要两个可展函数在某个开区间内相等，那么它们的系数也相等，从而在各自的收敛域内完全相等。这就是我们说可展函数是可解析的原因。它的所有信息都反映在表达式里。另一方面，我们也说可展函数是“刚硬”的，它的所有性质都被任一点上的局部性质决定。
 
 那么，是否所有的光滑函数都可以在某个区间上展开为幂级数呢？我们可以看这样的例子：
 $$ f: x\mapsto \begin{cases} \mathrm{e}^{-\frac{1}{x}} & x > 0 \\ 0 & x \leqslant 0 \end{cases}.$$
@@ -3963,45 +4205,163 @@ $$ \forall x \in (-R;R) ,\,\,\, f(x) = \sum_{n=0}^{+\infty} \frac{\partial^n f(0
     \caption*{\texttt{函数}$\displaystyle \mathrm{e}^{-\frac{1}{x}}$\texttt{在}$0$\texttt{处太平坦了}}
 \end{figure}
 
-% \begin{sk}
-%     \mbox{} \\
-%     \indent 1. 幂级数系数的微变表示，和我们学过的哪个公式相似？为什么？\\
-%     \indent 2. 如果幂级数的收敛域是$[-R;R]$，是否在$[-R;R]$上可积？举出例子或反例。
-% \end{sk}
+那么，如何才能让光滑函数$f$在一点$a$处的局部展开给出足够的信息呢？我们来分析函数的值$f(x)$和它的局部展开的差别。根据微变展开定理：
+$$ f(x) = f(a) + \sum_{k=1}^n \frac{\partial^k f (a)}{k!}(x - a)^k + \frac{\partial^{n+1} f (c)}{(n+1)!}(x - a)^{n+1}, $$
+其中$c$是$x$与$a$之间的数。我们想知道对于$a$某个邻域里的任意$x$，余项：
+$$ Y_n = \frac{\partial^{n+1} f (c)}{(n+1)!}(x - a)^{n+1} $$
+是否总随着$n$趋于无穷而消失。因为这样的话，就说明它在该邻域里可展，从而展开的结果也必然是以上微变展开的形式。这就是我们想要的结果。当$x - a$很小的时候，可以看到，$\frac{(x - a)^{n+1}}{(n+1)!}$快速趋于$0$。所以，如果$n$增大时，$f$在$c$处的微变率增长不是很快，那么$Y_n$就会随着$n$趋于$0$了。也就是说，我们希望有一个限制$f$的高次微变增长的条件。
 
-\begin{xt}
-    \mbox{} \\
-    \indent 1. 证明以下函数是光滑函数：
+我们可以给出如下的充分条件：
+\begin{tm}\label{tm:c-5-10}
+    设$f$是开区间$I$上的光滑实函数。如果对于$a\in I$来说，有正数$M>0$和$q>0$，使得：
+    $$ \forall x \in I, \; \forall n \in \mathbb{N},\quad |\partial^n f (x)| \leqslant \frac{M n!}{q^n}, $$
+    那么$f$在$(a-q;a+q)\cap I$上可展开为幂级数。
+\end{tm}
+
+\begin{proof}
+    考虑光滑函数在$a$处的微变展开，$\forall x \in I$，微变展开的余项为：
+    $$ Y_n = \frac{\partial^{n+1} f (c)}{(n+1)!}(x - a)^{n+1} $$
+    其中$c$是$x$与$a$之间的数。根据条件，可以估计$\partial^{n+1} f (c)$的大小：
     \begin{align*}
-        1).& 
-        x \mapsto \begin{cases}
-            \frac{\sin{x}}{x} & x\neq 0 \\
-            1 & x = 0 
-        \end{cases}
-        &2).&
-        x \mapsto \begin{cases}
-            \frac{1}{\sin{x}} - \frac{1}{x} & x\in (-\pi;\pi), x\neq 0 \\
-            0 & x = 0 
-        \end{cases} \\
-        3).& 
-        x \mapsto \begin{cases}
-            \mathrm{e}^{-\frac{1}{|x|}} & x\neq 0 \\
-            0 & x = 0 
-        \end{cases}
-        &4).&
-        x \mapsto \begin{cases}
-            \frac{\mathrm{e}^{\sqrt{x}} + \mathrm{e}^{-\sqrt{x}}}{2} & x\geqslant 0 \\
-            \frac{\mathrm{e}^{\sqrt{-x}} + \mathrm{e}^{-\sqrt{-x}}}{2} & x < 0 
-        \end{cases}
+        |\partial^{n+1} f (c)| &\leqslant \frac{M (n+1)!}{q^{n+1}},
     \end{align*}
-    \indent 2. 给定幂级数$\sum_{n=0}^{+\infty} a_n x^n$，其收敛半径$R>0$，首项$a_0=1$。\\
-    \indent 2.1. 证明，存在数列$\{b_n\}_{n\in\mathbb{N}}$，使得：
-    $$
-    b_0 = 1, \quad \forall n > 0, \;\, \sum_k=0^n a_k b_{n-k} = 0.
-    $$
-    \indent 2.2. 证明：存在$x>0$，使得级数$\sum_{n=0}^{+\infty} b_n x^n$收敛。\\
-    \indent 2.3. 证明：幂级数$\sum_{n=0}^{+\infty} b_n x^n$的收敛半径大于$0$。
-\end{xt}
+    因此，余项的大小：
+    \begin{align*}
+        \left|\frac{\partial^{n+1} f (c)}{(n+1)!}(x - a)^{n+1}\right| &\leqslant \frac{M |x - a|^{n+1}}{q^{n+1}} = M\left|\frac{x - a}{q}\right|^{n+1}
+    \end{align*}
+    而
+    \begin{align*}
+        \forall x\in(a-q;a+q)\cap I, \quad \frac{|x - a|}{q} < 1,
+    \end{align*}
+    因此，
+    $$ \forall x\in(a-q;a+q)\cap I, \quad  \lian{n\to +\infty}M\left|\frac{x - a}{q}\right|^{n+1} = 0. $$
+    这说明函数列：
+    $$ \forall n\in\mathbb{N}, \quad h_n: x\mapsto f(x) - f(a) - \sum_{k=1}^n \frac{\partial^k f (a)}{k!}(x - a)^k $$
+    在$(a-q;a+q)\cap I$上一致收敛到$0$。即$\displaystyle x\mapsto f(a) + \sum_{k=1}^n \frac{\partial^k f (a)}{k!}(x - a)^k$一致收敛到$f$。所以：
+    $$ \forall x\in (a-q;a+q)\cap I,\quad f(x) = f(a) + \sum_{n=1}^{+\infty} \frac{\partial^n f (a)}{n!}(x - a)^n. $$
+\end{proof}
+
+用这个结论来判定常见的经典函数。对指数函数来说，其$n$次微变为：
+$$ |\partial^n \e^x| = \e^x, $$
+于是只需要考察数列$\left\{\frac{n!}{q^n}\right\}$。对任意正数$q$，$n$趋于无穷时，这个数列趋于无穷大，因此必有最小项。记其最小项的倒数的值为$D$，对任意区间$[a;b]$来说，只需要将$M$设为比$D\e^b$更大的数，就能使指数函数的任意次微变小于$\frac{M n!}{q^n}$。这说明指数函数在任意地方都可以展开为幂级数。
+
+对正弦函数、余弦函数来说，其$n$次微变仍然是正弦、余弦函数，因此绝对值总小于等于$1$。可以将$M$设为某个比$D$大的正数，那么$\frac{M n!}{q^n}$总大于$1$，因而大于正弦、余弦函数的任意次微变，这就说明正弦、余弦函数在任意地方都可以展开为幂级数。
+
+对对数函数$x\mapsto \ln{x}$来说，它的$n$次微变为：
+$$ |\partial^n \ln{x}| = \frac{(n - 1)!}{x^n}, $$
+因此对区间$[a;b]$来说，只要选择$M=1,q=a$，那么
+\begin{align*}
+    |\partial^n \ln{x}| &= \frac{(n - 1)!}{x^n} \leqslant \frac{(n - 1)!}{a^n} \leqslant \frac{M n!}{a^n}
+\end{align*}
+这说明对数函数在任意地方都可以展开为幂级数。
+
+进一步来说，由于我们已经证明了幂级数函数$\sum \frac{x^n}{n!}$的收敛半径是无穷大，而它作为可展函数，在一定的开区间上等于可展函数$\e^x$，说明它在$\mathbb{R}$上都等于$\e^x$。我们说指数函数的是全局可展的\footnote{从定义来说，函数可展是偏向局部的性质。}，称为\textbf{全纯函数}或\textbf{完全函数}。
+
+同理，由于我们也可以证明正弦、余弦函数展成的幂级数的收敛半径是无穷大，因此正弦、余弦函数的也是全局可展的，是全纯函数。
+
+对数函数展成的幂级数则不同，它的收敛半径是有限的。把对数函数在点$a$处展开为幂级数：
+$$ \ln{x} = \ln{a} + \sum_{i=1}^{+\infty} \frac{(-1)^{n-1}}{n} \left(\frac{x - a}{a}\right)^n. $$
+这个幂级数的收敛半径是$a$。因此，$\ln{x}$在$a$处展开的结果只在$(0;2a)$上成立。我们说它在收敛半径内一致可展，即对应的幂级数在收敛半径内的所有闭区间都一致收敛到对数函数。
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 本节提到的例子$\e^{-\frac{1}{x}}$是怎么不符合定理\ref{tm:c-5-10}中的充分条件的？详细说明。\\
+    \indent 2. 对数函数展开为幂级数的推导中对$M,q$的要求与其他函数有什么不同？说明了什么？\\
+    \indent 3. 复变函数能否展开成幂级数？以指数函数、对数函数、正弦和余弦函数为例，研究自变量为复数时的情况。
+\end{sk}
+
+% \begin{xt}
+%     \mbox{} \\
+%     \indent 1. 
+% \end{xt}
+
+\section{三角函数的解析定义}
+
+欧拉公式反映了复平面作为“平面”的性质：
+$$ \forall \; t\in\mathbb{R}, \quad \e^{\imath t} = \cos{t} + \imath \sin{t}. $$
+公式成立的基础是三角函数展开成幂级数形式恰好与指数函数展开的幂级数形式吻合。但三角函数的展开源自三角函数的微变，后者又源自“圆弧的弧长和弦长的比值会趋于$1$”的直观结论。因此，如果我们想要不依赖直观感受，严格定义三角函数及其性质的话，会用另一种方法来定义三角函数。
+
+具体来说，我们把三角函数定义为以下微变方程在完全光滑实函数集合$\mathcal{C}^{\infty}(\mathbb{R})$上的解：
+\begin{equation}
+    \partial^2 f + f = 0. \label{2-a}
+\end{equation}
+我们已经证明过，方程\eqref{2-a}的解空间是光滑函数构成的二维平面，可以用基底$\mathbf{e}_1, \mathbf{e}_2$来生成。其中$\mathbf{e}_1, \mathbf{e}_2$是光滑函数，满足：
+$$
+\begin{array}{ll}
+    \mathbf{e}_1(0) = 0, &\quad \partial \mathbf{e}_1(0) = 1, \\
+    \mathbf{e}_2(0) = 1, &\quad \partial \mathbf{e}_2(0) = 0.
+\end{array}
+$$
+$\mathbf{e}_1, \mathbf{e}_2$就是我们熟悉的正弦和余弦三角函数。现在我们反过来，用它们作为方程\eqref{2-a}的解的性质，反推出它们作为三角函数的基本直观性质。这就完成了对正弦和余弦三角函数的重新定义。
+
+首先证明$\mathbf{e}_2 = \partial \mathbf{e}_1$。对方程\eqref{2-a}求微变可知：
+$$ \partial^2 \partial \mathbf{e}_1 + \partial \mathbf{e}_1 = 0. $$
+这说明$\partial \mathbf{e}_1$也是方程\eqref{2-a}的解。
+因而根据基底的定义，$\partial \mathbf{e}_1$可以写为$\mathbf{e}_1, \mathbf{e}_2$的直组合。
+$$ \exists s, t \in \mathbb{R}, \quad \partial \mathbf{e}_1 = s\mathbf{e}_1 + t\mathbf{e}_2. $$
+于是
+$$ 1 = \partial \mathbf{e}_1(0) = s\mathbf{e}_1(0) + t\mathbf{e}_2(0), \quad 0 = \mathbf{e}_1(0) = -\partial^2 \mathbf{e}_1(0) = -s\partial \mathbf{e}_1(0) - t\partial \mathbf{e}_2(0). $$
+可以解出$s = 0, t = 1$。也就是说，$\mathbf{e}_2 = \partial \mathbf{e}_1$。
+
+同理可得$\mathbf{e}_1 = -\partial \mathbf{e}_2$。这也说明$\mathbf{e}_1, \mathbf{e}_2$都是完全光滑的函数。
+
+接下来证明两函数的平方和为$1$，也就是勾股定理。考虑函数$h: x\mapsto \mathbf{e}_1^2(x) + \mathbf{e}_2^2(x)$，求微变可知：
+\begin{align*}
+    \forall x, \;\; \partial h(x) &= 2 \partial \mathbf{e}_1(x)\mathbf{e}_1(x) + 2\partial \mathbf{e}_2(x)\mathbf{e}_2(x) \\
+    &= 2 \mathbf{e}_2(x)\mathbf{e}_1(x) - 2 \mathbf{e}_1(x)\mathbf{e}_2(x) = 0.
+\end{align*}
+这说明$h$是常函数，
+$$\forall x, \;\; \mathbf{e}_1^2(x) + \mathbf{e}_2^2(x) = h(x) = h(0) = \mathbf{e}_1^2(0) + \mathbf{e}_2^2(0) = 1. $$
+
+还可以证明三角函数的和角、差角定理。给定常数$a\in\mathbb{R}$，考虑函数
+\begin{align*}
+    f_a: \;\; \forall x\in \mathbb{R}, \;\; x\mapsto \mathbf{e}_1(x + a).
+\end{align*}
+容易验证，$f_a$也是方程\eqref{2-a}的解。因此它可以写成$\mathbf{e}_1, \mathbf{e}_2$的直组合。
+$$ \exists s, t \in \mathbb{R}, \quad f_a = s\mathbf{e}_1 + t\mathbf{e}_2. $$
+验证$f_a$在$0$和$1$上的值，得到方程组：
+$$
+\begin{array}{ll}
+    \mathbf{e}_1(a) = f_a(0) = s\mathbf{e}_1(0) + t \mathbf{e}_2(0) = t,\\
+    \partial \mathbf{e}_1(a) = \partial f_a(0) = s\partial \mathbf{e}_1(0) + t \partial \mathbf{e}_2(0) = s.
+\end{array}
+$$
+于是有：
+$$ \mathbf{e}_1(x + a) = \partial \mathbf{e}_1(a)\mathbf{e}_1(x) + \mathbf{e}_1(a)\mathbf{e}_2(x) =  \mathbf{e}_2(a)\mathbf{e}_1(x) + \mathbf{e}_1(a)\mathbf{e}_2(x). $$
+
+用同样的方法论证函数：
+\begin{align*}
+    x\mapsto \mathbf{e}_2(x + a)
+\end{align*}
+可以得到：
+$$ \mathbf{e}_2(x + a) = \partial \mathbf{e}_2(a)\mathbf{e}_1(x) + \mathbf{e}_2(a)\mathbf{e}_2(x) = -\mathbf{e}_1(a)\mathbf{e}_1(x) + \mathbf{e}_2(a)\mathbf{e}_2(x). $$
+
+从这些基本性质可以推出：
+\begin{align*}
+    \lian{x\to 0} \frac{\mathbf{e}_1(x)}{x} = \lian{x\to 0} \frac{\mathbf{e}_1(x) - \mathbf{e}_1(0)}{x - 0} = \partial \mathbf{e}_1(0) = 1.
+\end{align*}
+
+不仅如此，对一般的正整数$n$，有：
+\begin{align*}
+    \mathbf{e}_1(x) &= \mathbf{e}_1(0) + \sum_{k=1}^n \frac{\partial^k \mathbf{e}_1 (0)}{k!}x^k + Y_n(\mathbf{e}_1) \\
+    &= \sum_{k=0}^{\lfloor\frac{n}{2}\rfloor} \frac{(-1)^{k}}{(2k+1)!}x^{2k+1}  + Y_n(\mathbf{e}_1) \\
+    \mathbf{e}_2(x) &= \mathbf{e}_2(0) + \sum_{k=1}^n \frac{\partial^k \mathbf{e}_2 (0)}{k!}x^k  + Y_n(\mathbf{e}_2) \\
+    &= \sum_{k=0}^{\lfloor\frac{n}{2}\rfloor} \frac{(-1)^{k}}{(2k)!}x^{2k} + Y_n(\mathbf{e}_2) 
+\end{align*}
+而从勾股定理可知$\mathbf{e}_1, \mathbf{e}_2$及其任意次微变的绝对值不大于$1$，于是根据定理\ref{tm:c-5-10}，它们在任意地方可以展开为幂级数，乃至是全纯函数：
+
+\begin{align*}
+    \mathbf{e}_1(x) &= \sum_{n=0}^{+\infty} \frac{(-1)^n}{(2n+1)!} x^{2n+1} \\
+    \mathbf{e}_2(x) &= \sum_{n=0}^{+\infty} \frac{(-1)^n}{(2n)!} x^{2n} 
+\end{align*}
+
+这样，我们用不依赖直观经验的方法重新定义了正弦、余弦函数。
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 为什么正弦、余弦函数与微分方程\eqref{2-a}相关？说说你的想法。\\
+    \indent 2. 能否用微分方程定义其它三角函数？
+\end{sk}
 
 \end{appendix}
 
