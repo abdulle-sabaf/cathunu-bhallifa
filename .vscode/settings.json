@@ -1,6 +1,6 @@
 {
     // Latex workshop
-    "latex-workshop.latex.outDir": "../../悟数学",
+    "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/悟数学",
     "latex-workshop.latex.tools": [
           {
             "name": "latexmk",
@@ -10,6 +10,7 @@
             "-interaction=nonstopmode",
             "-file-line-error",
             "-pdf",
+            "-verbose",
             "%DOC%"
             ]
           },
@@ -21,6 +22,7 @@
             "-interaction=nonstopmode",
             "-file-line-error",
             "--output-directory=%OUTDIR%",
+            "-verbose",
             "%DOC%"
               ]
           },          
@@ -66,7 +68,7 @@
             ]
           }
         ],
-    "latex-workshop.view.pdf.viewer": "tab",  
+    // "latex-workshop.view.pdf.viewer": "tab",  
     "latex-workshop.latex.clean.fileTypes": [
         "*.aux",
         "*.bbl",

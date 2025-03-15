@@ -11,6 +11,7 @@
 *.cb
 *.cb2
 .*.lb
+*.pdf
 
 ## Intermediate documents:
 *.dvi
@@ -274,17 +275,18 @@ TSWLatexianTemp*
 
 # Makeindex log files
 *.lpz
-src/旋转1.png
+
 src/初中数学/极坐标例1南北极地图.jpg
 src/初中数学/四面体1.png
 src/初中数学/旋转变换例1.png
 src/初中数学/圆柱1.png
 src/初中数学/圆锥2.png
 src/初中数学/圆锥例1.jpg
-悟数学/*.rar
 src/高中数学/草稿*.tex
-悟数学/草稿*.pdf
 src/高中数学/tu/Separation_axioms.png
-code/*
 
+code/
+.vscode/
+悟数学/*
+build/
 **/草稿*
