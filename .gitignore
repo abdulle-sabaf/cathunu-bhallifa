@@ -11,7 +11,6 @@
 *.cb
 *.cb2
 .*.lb
-*.pdf
 
 ## Intermediate documents:
 *.dvi
@@ -287,6 +286,6 @@ src/高中数学/tu/Separation_axioms.png
 
 code/
 .vscode/
-悟数学/*
+悟数学/*.rar
 build/
 **/草稿*
