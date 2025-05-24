@@ -73,7 +73,6 @@
     也就是说，$l_i$、$l_j$截得的线段成相同的比例，截得的三角形相似。
 
 \end{proof}
-% TODO 补上证明
 
 一般来说，如果两个三角形相似，它们对应的边是否成比例呢？
 \begin{tm}\label{tm:0-0-1}
@@ -164,8 +163,8 @@ $MN$也叫做关于边$BC$的中位线。另外要注意的是：我们只知道
 \end{tm}
 \begin{proof}
     过$C$作$AP$的平行线，与射线$BA$交于点$D$。$CD \parallel AP$，所以同位角$\angle BAP = \angle BDC$，
-    内错角$\angle PAC = \angle DAC$。而$AP$是角平分线，所以$\angle BAP = \angle PAC$。
-    于是$\angle BDC = \angle DAC$，$\triangle ACD$是等腰三角形，$|AC| = |AD|$。\\
+    内错角$\angle PAC = \angle DCA$。而$AP$是角平分线，所以$\angle BAP = \angle PAC$。
+    于是$\angle BDC = \angle DCA$，$\triangle ACD$是等腰三角形，$|AC| = |AD|$。\\
     另一方面，$CD \parallel AP$，所以$\triangle BAP \sim \triangle BDC$，因此，
     $$\frac{|BP|}{|PC|} = \frac{|BA|}{|AD|} = \frac{|BA|}{|AC|}.$$
 \end{proof}
@@ -223,7 +222,7 @@ $MN$也叫做关于边$BC$的中位线。另外要注意的是：我们只知道
 \end{proof}
 
 勾股定理是数学中非常重要的定理，也是非常有名的定理。它的证明方法有四百多种，涉及各种各样的技巧和知识。
-勾股定理在西方也称为毕达哥拉斯定理。
+勾股定理在西方也称为\textbf{毕达哥拉斯定理}。
 
 从勾股定理出发，可以得出这样的推论：
 \begin{cor}{\textbf{垂距定理}}\label{cr:0-2-0}
@@ -238,12 +237,15 @@ $MN$也叫做关于边$BC$的中位线。另外要注意的是：我们只知道
 根据垂距定理，记$P$到直线$l$的垂足为$D_P$，那么点$P$到$l$的距离就是$|PD_P|$。
 
 \begin{sk}\label{sk:0-2-0}
-    能不能定义一条直线到另一条直线的距离？如果能，怎么定义？如果不能，为什么？
+    \mbox{} \\
+    \indent 1. 能不能定义一条直线到另一条直线的距离？如果能，怎么定义？如果不能，为什么？
 \end{sk}
 
-\begin{xt}\label{xt:0-2-0} 证明垂距定理。
-\end{xt}
+\begin{xt}\label{xt:0-2-0} 
+    \mbox{} \\
+    \indent 1. 证明垂距定理。\\
 
+\end{xt}
 
 \chapter{三角形的四线五心}
 证明三角形性质的时候，我们用到了三角形的中点和辅助线。三角形的特殊点和相关辅助线对我们了解三角形的性质是很有帮助的。
@@ -699,10 +701,9 @@ $5$开$3$次方记为$\sqrt[3]{5}$。为了方便，$n=2$时，一般忽略$\sqr
 
 开方是映射吗？我们知道$3^2 =9$，但同时也有$(-3)^2 =9$，那么可不可以说，$9$开平方得到$-3$呢？
 
-为了让开方成为映射，我们约定：\textbf{方根总是正数}。这样，开方运算就定义了一个映射。
+当$n$是偶数的时候，$n$次乘方运算的结果总大于等于零。正数和负数的乘方都是正数。为了让开方成为映射，我们约定：\textbf{正数的方根总是正数}\footnote{也有约定正数的方根不止一个，这时其中大于零的称为\textbf{算术方根}。}。这样，开方运算就定义了一个映射。
 
-当$n$是偶数的时候，$n$次乘方运算的结果总大于等于零。因此，只有大于等于零的数可以开偶数次方，
-负数无法开偶数次方。
+偶数次乘方的结果不会是负数。因此，只有大于等于零的数可以开偶数次方，负数无法开偶数次方。
 
 当$n$是奇数的时候，$n$次乘方运算的结果可以大于或小于零，因此，正数和负数都可以开奇数次方。
 $-1$的奇数次方仍是$-1$，因此$-1$开奇数次方也是$-1$。
@@ -760,19 +761,95 @@ $\sqrt{2}$能够表示为长度或两点间的距离，所以$\sqrt{2}$是实数
     总得到有理数。这就造成了矛盾！\\
     因此，原命题为真：任何无理数和任何有理数进行有限次加减乘除（不包括乘以$0$），得到的结果仍然是无理数。
 \end{proof}
-比如，$\sqrt{2}+1$，$\frac{\sqrt{7} - 2}{5}$等等都是无理数。
+
+比如，$\sqrt{2}+1$，$\displaystyle\frac{\sqrt{7} - 2}{5}$，$\displaystyle\frac{2\sqrt{3} + 19}{3}$等等都是无理数。
 
 \begin{xt}\label{xt:3-1-0}
     证明：\\
     1. 当$n,m$是正整数时，$\sqrt[n]{m}$要么是整数，要么是无理数。\\
-    2. $\frac{2 - \sqrt{3}}{\sqrt{3} - 1}$是无理数。\\
+    2. $\displaystyle\frac{2 - \sqrt{3}}{\sqrt{3} - 1}$是无理数。\\
     下面的式子能否表达成更简单的方式？\\
     1. $\sqrt{8 - 2\sqrt{7}}$\\
     2. $\sqrt[3]{26 - 15\sqrt{3}}$
 \end{xt}
 
-\section{二次方根}
-有理数开平方的结果，叫做\textbf{二次方根}。前面提到的$\sqrt{2}$就是二次方根。
+\section{方根的乘除法}
+
+无理数与有理数的加减乘除（不包括乘以$0$）不会得到有理数。那么，我们要如何处理含有无理数的式子呢？
+
+我们先来看最简单的无理数：平方根。
+
+给定两个正数$q$和$r$，它们的平方根的乘积满足：
+\begin{align*}
+    \left(\sqrt{q}\sqrt{r}\right)^2 &=  \left(\sqrt{q}\sqrt{r}\right)\left(\sqrt{q}\sqrt{r}\right)  \\
+    &= \left(\sqrt{q}\sqrt{q}\right)\left(\sqrt{r}\sqrt{r}\right) = qr  
+\end{align*}
+所以
+$$\sqrt{q}\sqrt{r} = \sqrt{qr}.$$
+同样，$r \neq 0$时，
+$$\frac{\sqrt{q}}{\sqrt{r}} = \sqrt{\frac{q}{r}}.$$
+
+一般的方根也可以这样操作。给定两个正数$q$和$r$和正整数$k$，$q$和$r$的$k$次方根的乘积满足：
+\begin{align*}
+    \left(\sqrt[k]{q}\sqrt[k]{r}\right)^k &= \overbrace{\left(\sqrt[k]{q}\sqrt[k]{r}\right)\left(\sqrt[k]{q}\sqrt[k]{r}\right) \cdots \left(\sqrt[k]{q}\sqrt[k]{r}\right)}^{k\mbox{次}}   \\
+    &= \overbrace{\sqrt[k]{q}\sqrt{q}\cdots \sqrt[k]{q}}^{k\mbox{次}}\cdot\overbrace{\sqrt[k]{r}\sqrt[k]{r}\cdots \sqrt[k]{r}}^{k\mbox{次}} = qr  
+\end{align*}
+所以
+$$\sqrt[k]{q}\sqrt[k]{r} = \sqrt[k]{qr}.$$
+同样，$r \neq 0$时，
+$$\frac{\sqrt[k]{q}}{\sqrt[k]{r}} = \sqrt[k]{\frac{q}{r}}.$$
+
+同次方根的积就是积的同次方根；同次方根的商就是商的同次方根。
+
+不同次数的方根一般不能这样乘除。给定两个正数$q$、$r$和正整数$k$、$m$，我们可以这样计算它们的乘积：
+\begin{align*}
+    \left(\sqrt[k]{q}\sqrt[m]{r}\right)^{km} &= \overbrace{\left(\sqrt[k]{q}\sqrt[m]{r}\right)\left(\sqrt[k]{q}\sqrt[m]{r}\right) \cdots \left(\sqrt[k]{q}\sqrt[m]{r}\right)}^{km\mbox{次}}   \\
+    &= \overbrace{\sqrt[k]{q}\sqrt{q}\cdots \sqrt[k]{q}}^{km\mbox{次}}\cdot\overbrace{\sqrt[m]{r}\sqrt[m]{r}\cdots \sqrt[m]{r}}^{km\mbox{次}} = q^mr^k  
+\end{align*}
+所以
+$$\sqrt[k]{q}\sqrt[m]{r} = \sqrt[km]{q^mr^k}.$$
+同样，$r \neq 0$时，
+$$\frac{\sqrt[k]{q}}{\sqrt[m]{r}} = \sqrt[km]{\frac{q^m}{r^k}}.$$
+
+\begin{et}
+    计算：\\
+    \indent 1. $\sqrt{15}\cdot\sqrt{60}$ \\
+    \indent 2. $\sqrt[3]{9}\cdot\sqrt[3]{24}$ \\
+    \indent 3. $\sqrt[3]{12}\cdot\sqrt{3}$ \\
+    \indent 4. $\sqrt[4]{324}\cdot\sqrt{2}$ \\
+\end{et}
+
+\begin{so}
+    1. 解： 
+    \begin{align*}
+        \sqrt{15}\cdot\sqrt{60} = \sqrt{15\cdot 60} = \sqrt{900} = 30. 
+    \end{align*}
+
+    2. 解：
+    \begin{align*}
+        \sqrt[3]{9}\cdot\sqrt[3]{24} = \sqrt[3]{9\cdot 24} = \sqrt[3]{216} = 6. 
+    \end{align*}
+
+    3. 解：
+    \begin{align*}
+        \sqrt[3]{12}\cdot\sqrt{3} &= \sqrt[6]{12^2\cdot 3^3} = \sqrt[6]{3888}. 
+    \end{align*}
+
+    4. 解：
+    \begin{align*}
+        \sqrt[4]{324}\cdot\sqrt{2} &= \sqrt[4]{324\cdot 2^2} = \sqrt[4]{1296} = 6. 
+    \end{align*}
+           
+\end{so}
+
+\begin{sk}
+    \mbox{}\\
+    \indent 1. 为什么例题中计算$\sqrt[4]{324}\cdot\sqrt{2}$没用到$8$次方根？\\
+    \indent 2. 方根的加减有没有规律？两个$k$次方根的和的$k$次方，有什么特征？
+\end{sk}
+
+\section{二次方根的估计}
+有理数开平方的结果，叫做平方根或\textbf{二次方根}。
 只要有理数$q$大于等于$0$，就存在二次方根$\sqrt{q}$。按照二次方根的定义，
 $$\forall q\in\mathbb{Q}^+, \quad \left(\sqrt{q}\right)^2 = q.$$
 
@@ -799,35 +876,28 @@ $\sqrt{2}$的大小。如果$\frac{a+b}{2}$比$\sqrt{2}$大，就用$\frac{a+b}{
 
 一般来说，二次方根$\sqrt{q}$也可以用类似的方法求得。
 \begin{sk}\label{sk:3-2-0}
-    以上方法中，为什么需要取平均数？有没有别的方法更新上下限？
+    \mbox{}\\
+    \indent 1. 对大于$2$的整数$k$，怎么求$k$次方根？说说你的想法。\\
+    \indent 2. 本节的估计法中，为什么需要取平均数？有没有别的方法更新上下限？
 \end{sk}
-
-二次方根的乘除运算：给定两个有理数$q$和$r$，它们的二次方根的乘积满足：
-\begin{align*}
-    \left(\sqrt{q}\sqrt{r}\right)^2 &=  \left(\sqrt{q}\sqrt{r}\right)\left(\sqrt{q}\sqrt{r}\right)  \\
-    &= \left(\sqrt{q}\sqrt{q}\right)\left(\sqrt{r}\sqrt{r}\right) = qr  
-\end{align*}
-所以
-$$\sqrt{q}\sqrt{r} = \sqrt{qr}.$$
-同样，$r \neq 0$时，
-$$\frac{\sqrt{q}}{\sqrt{r}} = \sqrt{\frac{q}{r}}.$$
 
 \begin{xt}\label{xt:3-2-0}
     \mbox{}\\
-    以下的二次方根大约有多大（精确到两位小数）？\\
-    \indent 1. $\sqrt{3}, \sqrt{5}, \sqrt{7}$.\\
-    \indent 2. $\sqrt{1.6}, \sqrt{9.2}$.\\
-    \indent 3. $\sqrt{\frac{5}{4}}, \sqrt{\frac{7}{3}}$.\\
-    算一算：\\
-    \indent 1. $\sqrt{2.4} \cdot \sqrt{9.6}$\\
-    \indent 2. $\sqrt{\frac{1.78}{0.92}}.$
+    \indent 1. 以下的二次方根大约有多大（精确到两位小数）？\\
+    \indent 1.1. $\sqrt{3},\quad \sqrt{5},\quad \sqrt{7}$.\\
+    \indent 1.2. $\sqrt{1.6},\quad \sqrt{9.2}$.\\
+    \indent 1.3. $\displaystyle\sqrt{\frac{5}{4}}, \quad \sqrt{\frac{7}{3}}$.\\
+    \indent 1.4. $\sqrt{2} + 1.6,\quad \sqrt{12.5} - 1$.\\
+    \indent 2. 计算并估计以下的二次方根的值（精确到两位小数）：\\
+    \indent 2.1. $\sqrt{2.4} \cdot \sqrt{9.6}$\\
+    \indent 2.2. $\displaystyle\frac{\sqrt{7} - 2}{5}, \quad \frac{4\sqrt{3} + 1}{5}$\\
+    \indent 2.3. $\displaystyle\sqrt{\frac{9}{10}}, \quad\sqrt{\frac{1.78}{0.92}} + 1  $\\
+    \indent 2.4. $\displaystyle\frac{2 - \sqrt{3}}{\sqrt{3} - 1}, \quad \frac{1 + \sqrt{5}}{1 + \sqrt{3}}$
 \end{xt}
 
 \chapter{图形和坐标}
 \section{平面直角坐标系}
-我们已经了解了数轴的概念。数轴把数和形状结合了起来，
-给定了一条直线，确定了原点、单位长度和正方向，我们就可以把数
-和直线上的点联系起来。
+我们已经了解了数轴的概念。数轴把数和形状结合了起来，给定了一条直线，确定了原点、单位长度和正方向，我们就可以把数和直线上的点联系起来。
 
 \begin{sk}\label{sk:4-0-0}
     如何在数轴上找到$\frac{7}{11}$对应的点？$\sqrt{2} - 1$呢？

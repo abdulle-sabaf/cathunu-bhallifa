@@ -1,19 +1,230 @@
 \documentclass[12pt,UTF8]{ctexbook}
 
-% 导入设定
+% % 导入设定
 \input{../shared/settings}
 
-% 封面
-\title{\zihao{0} \bfseries 测试页}
-\author{\zihao{2} \texttt{大青花鱼}}
-% \date{\bfseries\today}
-\date{}
-% 正文
-\begin{document}
-\maketitle
-\tableofcontents
-\newpage
+% % 封面
+% \title{\zihao{0} \bfseries 测试页}
+% \author{\zihao{2} \texttt{大青花鱼}}
+% % \date{\bfseries\today}
+% \date{}
+% % 正文
+% \begin{document}
+% \maketitle
+% \tableofcontents
+% \newpage
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{calc,arrows.meta}
 
+\begin{document}
+
+% \begin{tikzpicture}[scale=0.75]
+%     % 方城参数
+%     \pgfmathsetmacro{\citySize}{4}    % 方城边长
+%     \pgfmathsetmacro{\treeNorth}{1}   % 北门出城100步
+%     \pgfmathsetmacro{\walkSouth}{1}   % 南门出城100步
+%     \pgfmathsetmacro{\walkWest}{12}    % 西行1200步
+%     \pgfmathsetmacro{\door}{0.24}    % 城门用
+
+%     % 绘制坐标轴
+%     \draw[->] (-12.8,0) -- (3,0) node[below right] {$x(100\mbox{\texttt{步}})$};
+%     \draw[->] (0,-3.5) -- (0,4.8) node[below right] {$y(100\mbox{\texttt{步}})$};
+
+%     \foreach \x in {-12,...,-1} {
+%         \draw (\x,0) -- (\x,-0.1);
+%         \node [below] at (\x,0) {\x};
+%     }
+    
+%     \foreach \x in {1,2} {
+%         \draw (\x,0) -- (\x,-0.1);
+%         \node [below] at (\x,0) {\x};
+%     }
+
+%     \foreach \y in {-3,...,-1} {
+%         \draw (0,\y) -- (-0.1,\y);
+%         \node [left] at (0,\y) {\y};
+%     }
+
+%     \foreach \y in {1,...,4} {
+%         \draw (0,\y) -- (-0.1,\y);
+%         \node [left] at (0,\y) {\y};
+%     }
+
+%     % 绘制方城（以原点为中心）
+%     \draw[thick, draw=Sepia] (-\citySize/2, -\citySize/2) rectangle (\citySize/2, \citySize/2);
+%     \draw[thick, draw=Sepia] (-\door/2, \citySize/2) -- (-\door/2, \citySize/2 + \door/2);
+%     \draw[thick, draw=Sepia] (\door/2, \citySize/2) -- (\door/2, \citySize/2 + \door/2);
+%     \draw[thick, draw=Sepia] (-\door/2, -\citySize/2) -- (-\door/2, -\citySize/2 - \door/2);
+%     \draw[thick, draw=Sepia] (\door/2, -\citySize/2) -- (\door/2, -\citySize/2 - \door/2);
+%     \draw[thick, draw=Sepia] (\citySize/2, -\door/2) -- (\citySize/2 + \door/2, -\door/2);
+%     \draw[thick, draw=Sepia] (\citySize/2, \door/2) -- (\citySize/2 + \door/2, \door/2);
+%     \draw[thick, draw=Sepia] (-\citySize/2, -\door/2) -- (-\citySize/2 - \door/2, -\door/2);
+%     \draw[thick, draw=Sepia] (-\citySize/2, \door/2) -- (-\citySize/2 - \door/2, \door/2);
+    
+%     % 绘制树
+%     \node[draw, circle, fill=green!50!black, inner sep=2pt] at (0, \citySize/2 + \treeNorth) {};
+%     \node[above] at (0, \citySize/2 + \treeNorth) {};
+    
+%     % 绘制南门出城路径
+%     \draw[-{Latex[length=2.5mm,width=2mm]}, thick, draw=red] (0, \citySize/2) -- node[right] {\texttt{北门出城直走}$100$\texttt{步}}  (0, \citySize/2 + \walkSouth);
+%     \draw[thick, draw=red] (0, -\citySize/2) -- (0, -\citySize/2 - \walkSouth);
+%     \draw[-{Latex[length=2.5mm,width=2mm]}, thick, draw=red] (0, -\citySize/2 - \walkSouth) -- node[above] {\texttt{南门出城直走}$100$\texttt{步转西走}$1200$\texttt{步}} (-\walkWest, -\citySize/2 - \walkSouth);
+    
+%     % 绘制视角线
+%     \draw[dashed] (0, \citySize/2 + \treeNorth) -- (-\walkWest, -\citySize/2 - \walkSouth);
+
+%     \draw[-{Stealth[length=6mm,width=3mm]}, thick] (-10,3) -- (-10, 3.5);
+%     \node[above] at (-10, 3.5) {\texttt{北}};
+    
+% \end{tikzpicture}
+
+% \newpage
+
+% \begin{align*}
+%     22 \times 3000 \times b + 50000 \times (m - 5) &= 66000\cdot \left(-m - 1 - \sum_{i=0}^{5+m} \frac{i\e^{-4}4^i}{i!} + (5+m) \sum_{i=0}^{5} \frac{\e^{-4}4^i}{i!} \right) + 50000 \cdot (m - 5) \\
+%     &= 6\dlim{6000}\cdot \left((5+m) \sum_{i=0}^{5} \frac{\e^{-4}4^i}{i!} - \sum_{i=0}^{5+m} \frac{i\e^{-4}4^i}{i!}\right) -1\dlim{6000} m - 31\dlim{6000}  
+% \end{align*}
+
+% \begin{tikzpicture}
+%     \begin{axis}[
+%         width=12cm, height=6cm,
+%         xlabel={},
+%         ylabel={\texttt{概率}},
+%         xtick={1,2,...,12},
+%         ytick={0,0.05,...,0.4},
+%         ymin=0, ymax=0.45,
+%         xmin=0, xmax=12,
+%         grid=both,
+%         grid style={line width=.1pt, draw=gray!30, dashed},
+%         axis lines=middle,
+%         enlargelimits={upper=0.1},
+%         yticklabel style={
+%             /pgf/number format/fixed,
+%             /pgf/number format/precision=2
+%         }
+%     ]
+    
+%     % 定义二项分布的概率质量函数
+%     \pgfmathdeclarefunction{binomial}{1}{%
+%       \pgfmathparse{(0.4) * ((1 - 0.4)^(\x - 1))}%
+%     }
+    
+%     \addplot+[ybar, samples at={1,2,...,12}, fill=Sepia!30] 
+%         (\x, {binomial(\x)});
+        
+%     \end{axis}
+    
+%     \node [below] at (10.2cm,-0.18cm) {$\ldots$};
+
+%     \node [above] at (9.6cm,0.14cm) {\texttt{随机变量值}};
+
+%     \node [below, align=center] at (6cm, -1cm) {\texttt{系数}$p=0.4$\texttt{的等比分布}};
+
+% \end{tikzpicture}
+    
+
+% \newpage
+
+% \begin{tikzpicture}
+%     \begin{axis}[
+%         width=12cm, height=6cm,
+%         xlabel={},
+%         ylabel={\texttt{概率}},
+%         xtick={0,2,...,20},
+%         ytick={0,0.02,...,0.12},
+%         ymin=0, ymax=0.12,
+%         xmin=0, xmax=20,
+%         yticklabel style={
+%             /pgf/number format/fixed,
+%             /pgf/number format/precision=2
+%         },
+%         grid=both,
+%         grid style={line width=.1pt, draw=gray!30, dashed},
+%         axis lines=middle,
+%         enlargelimits={upper=0.1}
+%     ]
+    
+%     % 定义泊松分布的概率质量函数
+%     \pgfmathdeclarefunction{poisson}{1}{%
+%       \pgfmathparse{exp(-#1) * (#1^\x) / \x!}%
+%     }
+    
+%     \addplot+[ybar, samples at={0,...,20}, fill=Sepia!30] 
+%         (\x, {poisson(10)});
+    
+%     \end{axis}
+    
+%     \node [below] at (10.2cm,-0.18cm) {$\ldots$};
+
+%     \node [above] at (9.6cm,0.14cm) {\texttt{随机变量值}};
+
+%     \node [below, align=center] at (6cm, -1cm) {\texttt{系数}$a=10$\texttt{的指数分布}};
+    
+% \end{tikzpicture}
+
+% \begin{tikzpicture}
+
+% \def\maxDots{12}
+% \def\maxRollValue{6}
+
+% \def\xunit{0.9cm}
+% \def\yunit{0.5cm}
+% \def\xdif{0.9}
+% \def\ydif{0.5}
+
+% \draw [->,line width=1pt,>={Stealth[]}] (0,0) -- (\maxDots*\xunit,0) node[above left] {总点数};
+% \draw [->,line width=1pt,>={Stealth[]}] (0,0) -- (0,\maxRollValue*\yunit+1.5*\yunit);
+
+% \foreach \x in {2,...,\maxDots} {
+%     \draw (\x*\xunit-\xunit,0) -- (\x*\xunit-\xunit,-0.1*\yunit);
+%     \node [below] at (\x*\xunit-\xunit,0) {\x};
+% }
+
+% \foreach \y in {1,...,\maxRollValue} {
+%     \draw (0,\y*\yunit) -- (-0.1*\xunit,\y*\yunit);
+%     \node [left] at (0,\y*\yunit) {\y};
+% }
+
+% \node [below left] at (0,0) {O};
+
+% \foreach \i in {1,...,\maxRollValue} {
+%     \foreach \j in {\i,...,\maxRollValue} {
+%         \pgfmathsetmacro{\maxVal}{max(\i,\j)}
+%         \pgfmathsetmacro{\minVal}{min(\i,\j)}
+%         \pgfmathsetmacro{\sumVal}{\i+\j}
+        
+%         \draw [red!80!black, fill=red!10] ($(\sumVal*\xunit-\xunit,\maxVal*\yunit) + (-0.4*\xunit, -0.4*\yunit)$) rectangle ($(\sumVal*\xunit-\xunit,\maxVal*\yunit) + (0.4*\xunit, 0.4*\yunit)$);
+%         \draw [red!80!black, fill=red!10] ($(\sumVal*\xunit-\xunit,\minVal*\yunit) + (-0.4*\xunit, -0.4*\yunit)$) rectangle ($(\sumVal*\xunit-\xunit,\minVal*\yunit) + (0.4*\xunit, 0.4*\yunit)$);
+%         \node [font=\scriptsize] at (\sumVal*\xunit-\xunit,\maxVal*\yunit) {(\i,\j)};
+%         \node [font=\scriptsize] at (\sumVal*\xunit-\xunit,\minVal*\yunit) {(\j,\i)};
+%     }
+% }
+
+% % 新增直方图部分
+% \begin{scope}[yshift=-4cm]
+%     \foreach \sumVal/\probability in {2/1,3/2,4/3,5/4,6/5,7/6,8/5,9/4,10/3,11/2,12/1} {
+%         \pgfmathsetmacro{\barHeight}{\probability*\ydif}
+%         \draw [red!80!black, fill=red!20, fill opacity=0.5] (\sumVal*\xdif-\xdif-0.4*\xdif,0) rectangle (\sumVal*\xdif+0.4*\xdif-\xdif,\barHeight);
+%         % \node [below] at (\sumVal*\xdif-\xdif, -0.2*\ydif) {\sumVal};
+%         % \node [left] at (\sumVal*\xdif-0.6*\xdif, \barHeight/2) {\probability};
+%     }
+%     \draw [->, line width=1pt, >={Stealth[]}, line cap=round] (0,0) -- (\maxDots*\xunit, 0);
+%     \draw [line width=1pt, >={Stealth[]}, line cap=round] (0,0) -- (0, \maxRollValue*\yunit + 3*\yunit);
+%     \node [below left] at (0,0) {O};
+%     \foreach \x in {2,...,\maxDots} {
+%         \draw (\x*\xunit-\xunit,0) -- (\x*\xunit-\xunit,-0.1*\yunit);
+%         \node [below] at (\x*\xunit-\xunit,0) {\x};
+%     }
+    
+%     \foreach \y in {1,...,\maxRollValue} {
+%         \draw (0,\y*\yunit) -- (-0.1*\xunit,\y*\yunit);
+%         \node [left] at (0,\y*\yunit) {\y/36};
+%     }
+% \end{scope}
+
+% \end{tikzpicture}
 
 % \(\bmat{f}[B] \touying{(\mathbf{a}, \mathbf{b})}, \quad \fanshe{(\mathbf{a}, \mathbf{b})}, \quad \xuan{(\mathbf{a}, \mathbf{b})}\)
 

@@ -3081,7 +3081,6 @@ $$ \ln{(z_1 \cdot z_2)} \tong{2\pi} \ln{z_1} + \ln{z_2} . $$
 
 \section{复变函数}
 
-% TODO 初步介绍复变函数的特征
 上一节中我们已经发现了讨论自变量为复数的函数，也就是复变函数的必要性。复数域和实数域的差别，导致复变函数与实变函数有本质的区别。形式相似乃至相同的函数，作为复变函数和实变函数，可能有完全不一样的性质。
 
 根据取值的不同，复变函数又分为复变实值函数和复变复值函数。前者可以看作后者的一种特殊情况。我们提及复变函数时，一般指后者，把前者专称为复变实函数。
@@ -3242,7 +3241,7 @@ $$ \ln{(z_1 \cdot z_2)} \tong{2\pi} \ln{z_1} + \ln{z_2} . $$
     \item 如果$A\cap B$是空集，那么$\mathbb{P}(A\cup B) = \mathbb{P}(A) + \mathbb{P}(B)$。
 \end{enumerate}
 
-如何讨论事件的概率？我们把知集中的基本事件的概率合起来看，称为概率的分布。只要知道了基本事件的概率，通过概率的性质，就能推出其他事件的概率。这样，我们就有了讨论不确定事件的基本工具。
+如何讨论事件的概率？我们把知集中的基本事件的概率合起来看，称为\textbf{事件概率的分布}。只要知道了基本事件的概率，通过概率的性质，就能推出其他事件的概率。这样，我们就有了讨论不确定事件的基本工具。
 
 不过，以前我们的讨论仅限于终集是有限集合的情况。如果终集是无限集合，会发生什么事呢？
 
@@ -3252,11 +3251,11 @@ $$ \ln{(z_1 \cdot z_2)} \tong{2\pi} \ln{z_1} + \ln{z_2} . $$
 
 乍一看，这个问题的答案似乎是$\frac{1}{2}$，因为我们直觉上认为偶数和奇数“一样多”，甚至对于无限集合的势的讨论，也支持这个结论。但是，如果我们想用以上的工具来严格讨论这个问题，就会遇到困难。首先，我们要讨论的终集是$\mathbb{N}$，基本事件是任何自然数构成的单元集。而如何“随机选取一个数”，就涉及到概率分布的问题。
 
-$\mathbb{N}$上的概率分布是怎样的呢？
+$\mathbb{N}$上的概率是怎样分布的呢？
 
 \section{无限集合上的概率问题}
 
-让我们回忆投骰子的实验。骰子的六面对应六个终态：$\{1,2,3,4,5,6\}$。如果我们假设投骰子的概率遵从均匀分布。每个基本事件的概率相等，都是$\frac{1}{6}$。于是“点数是偶数”的概率是：
+让我们回忆投骰子的实验。骰子的六面对应六个终态：$\{1,2,3,4,5,6\}$。如果我们假设投骰子的概率遵从均匀分布。每个基本事件的概率相等，都是$\frac{1}{6}$。于是事件“点数是偶数”的概率是：
 
 $$ \mathbb{P}(\mbox{点数是偶数}) = \mathbb{P}(\{2,4,6\}) = \mathbb{P}(\{2\}) + \mathbb{P}(\{4\}) + \mathbb{P}(\{6\}) = \frac{1}{6} + \frac{1}{6} + \frac{1}{6} = \frac{1}{2}.$$
 
@@ -3378,19 +3377,19 @@ $$ \mathbb{P}(\mbox{点数是偶数}) = \mathbb{P}(\{2,4,6\}) = \mathbb{P}(\{2\}
     $$ \Pr{\bigcup_{i=1}^{+\infty} A_i} = \sum_{i=1}^{+\infty} \mathbb{P}(B_i) \leqslant \sum_{i=1}^{+\infty} \mathbb{P}(A_i). $$
 \end{proof}
 
-\section{可数无限集合上的分布}
+\section{可数无穷集合上的概率空间}
 
-既然以$\mathbb{N}$为终集的概率空间无法均匀分布，那么可以有怎样的分布呢？
+既然以$\mathbb{N}$为终集的概率无法均匀分布，那么可以有怎样的概率映射呢？
 
-从前面的讨论，我们发现，讨论$\mathbb{N}$上的概率分布$\mathbb{P}$的实质是讨论通项非负的收敛无穷级数：
-$$ \sum_{n=1}^{+\infty} \mathbb{P}(\{k\}) = 1. $$
-所以，无穷级数的性质会反映为$\mathbb{P}$的性质。比如，我们知道要使级数收敛，通项必须收敛到$0$，而且要收敛得足够快。因此，任何以$\mathbb{N}$为终集的概率分布，必然有“概率随着数增大而趋于$0$”。
+从前面的讨论，我们发现，讨论$\mathbb{N}$上的概率映射$\mathbb{P}$的实质是讨论通项非负的收敛无穷级数：
+$$ \sum_{n=0}^{+\infty} \mathbb{P}(\{k\}) = 1. $$
+所以，无穷级数的性质会反映为概率映射的性质。比如，我们知道要使级数收敛，通项必须收敛到$0$，而且要收敛得足够快。因此，任何以$\mathbb{N}$为终集的概率映射，必然有“概率随着数增大而趋于$0$”。
 
-反过来，从任何收敛的正项级数出发，是否都可以构造概率分布进而构造概率空间呢？答案是肯定的。
+反过来，从任何收敛的正项级数出发，是否都可以构造概率映射，进而构造概率空间呢？答案是肯定的。
 \begin{tm}{\textbf{概率空间存在定理}}
     设有正项级数：
-    $$ \sum_{n=1}^{+\infty} a_n = S > 0,$$
-    那么它对应一个$\mathbb{N}$上的概率空间。即有概率分布$\mathbb{P}$使得：
+    $$ \sum_{n=0}^{+\infty} a_n = S > 0,$$
+    那么它对应一个$\mathbb{N}$上的概率空间。即有概率映射$\mathbb{P}$使得：
     $$ \forall n\in\mathbb{N},\quad \mathbb{P}(\{n\}) = \frac{a_n}{S}.$$
     它对应的终集是$\mathbb{N}$，知集是其幂集$\Omega = 2^{\mathbb{N}}$。
 \end{tm}
@@ -3398,7 +3397,7 @@ $$ \sum_{n=1}^{+\infty} \mathbb{P}(\{k\}) = 1. $$
 \begin{proof}
     我们要证明的是映射：
     $$ \forall n\in\mathbb{N},\quad \mathbb{P}(\{n\}) = \frac{a_n}{S}.$$
-    满足作为概率分布的基本性质：
+    满足作为概率映射的基本性质：
     \begin{enumerate}
         \item $\forall A \in \Omega$，$\Pr{A} \geqslant 0.$
         \item $\Pr{\Omega} = 1.$
@@ -3429,20 +3428,95 @@ $$ \sum_{n=1}^{+\infty} \mathbb{P}(\{k\}) = 1. $$
 
 \end{proof}
 
-概率空间存在定理告诉我们，对$\mathbb{N}$上的概率空间来说，分布的具体“长相”是最重要的。知道了概率分布，自然能造出对应的概率空间。一般的可数集合与$\mathbb{N}$等势，因此也可以用以上的方法构造对应的概率空间。
+概率空间存在定理告诉我们，对$\mathbb{N}$上的概率空间来说，单元集的概率是最重要的。知道了单元集上的概率，自然能造出对应的概率空间。一般的可数集合与$\mathbb{N}$等势，因此也可以用以上的方法构造对应的概率空间。
 
 \section{离散随机变量的分布}
 
-以上提到的是概率空间中的分布。概率空间中的随机变量也遵从某种分布。设$X$是某概率空间$\Omega, \Sigma, \mathbb{P}$上的随机变量，它将$\Omega$中的元素映射到集合$S$中。如果$S$是有限或可数无限集合，就说随机变量$X$是\textbf{离散}的。我们已经学习过取值在有限集合上的离散随机变量。下面来看取值在可数无限集合上的随机变量。
+以上提到的是概率空间中的概率。概率空间中的随机变量，是把终集的元素映射到某个值域上的映射。随机变量给每个事件对应一个$0$与$1$之间的数，称为它的概率。随机变量是我们研究随机事件的主要手段。讨论随机变量时，我们也希望像讨论概率空间的概率一样，讨论它每个取值的概率。这样，把随机变量取到各个可能值的概率合起来，叫做\textbf{随机变量值的分布}，或者称为\textbf{随机变量遵从的分布}。
 
-我们说随机变量给每个基本事件对应一个$0$与$1$之间的数，称为它的概率。另一种方式是直接讨论随机变量每个取值的概率。随机变量遵从的分布
+举例来说，一个骰子，投掷一次，可能朝上的点数是$1,2,3,4,5,6$。把朝上的点数作为随机变量，那么它的取值范围是集合$\{1,2,3,4,5,6\}$，和终集一样。所有可能的事件，分别是单元集：$\{1\}$、$\{2\}$、$\{3\}$、$\{4\}$、$\{5\}$、$\{6\}$。这时，事件集和取值的集合，元素数量一样，都是$6$。
+
+% 例子：说明概率空间全事件分布和值的分布的区别
+\begin{tikzpicture}
+
+    \def\maxDots{12}
+    \def\maxRollValue{6}
+    
+    \def\xunit{0.9cm}
+    \def\yunit{0.5cm}
+    \def\xdif{0.9}
+    \def\ydif{0.5}
+    
+    \draw [->,line width=1pt,>={Stealth[]}] (0,0) -- (\maxDots*\xunit,0) node[above left] {\texttt{总点数}};
+    \draw [->,line width=1pt,>={Stealth[]}] (0,0) -- (0,\maxRollValue*\yunit+1.5*\yunit);
+    
+    \foreach \x in {2,...,\maxDots} {
+        \draw (\x*\xunit-\xunit,0) -- (\x*\xunit-\xunit,-0.1*\yunit);
+        \node [below] at (\x*\xunit-\xunit,0) {\x};
+    }
+    
+    \foreach \y in {1,...,\maxRollValue} {
+        \draw (0,\y*\yunit) -- (-0.1*\xunit,\y*\yunit);
+        \node [left] at (0,\y*\yunit) {\y};
+    }
+    
+    \foreach \i in {1,...,\maxRollValue} {
+        \foreach \j in {\i,...,\maxRollValue} {
+            \pgfmathsetmacro{\maxVal}{max(\i,\j)}
+            \pgfmathsetmacro{\minVal}{min(\i,\j)}
+            \pgfmathsetmacro{\sumVal}{\i+\j}
+            
+            \draw [red!80!black, fill=red!10] ($(\sumVal*\xunit-\xunit,\maxVal*\yunit) + (-0.4*\xunit, -0.4*\yunit)$) rectangle ($(\sumVal*\xunit-\xunit,\maxVal*\yunit) + (0.4*\xunit, 0.4*\yunit)$);
+            \draw [red!80!black, fill=red!10] ($(\sumVal*\xunit-\xunit,\minVal*\yunit) + (-0.4*\xunit, -0.4*\yunit)$) rectangle ($(\sumVal*\xunit-\xunit,\minVal*\yunit) + (0.4*\xunit, 0.4*\yunit)$);
+            \node [font=\scriptsize] at (\sumVal*\xunit-\xunit,\maxVal*\yunit) {(\i,\j)};
+            \node [font=\scriptsize] at (\sumVal*\xunit-\xunit,\minVal*\yunit) {(\j,\i)};
+        }
+    }
+    
+    % 新增直方图部分
+    \begin{scope}[yshift=-4cm]
+        \foreach \sumVal/\probability in {2/1,3/2,4/3,5/4,6/5,7/6,8/5,9/4,10/3,11/2,12/1} {
+            \pgfmathsetmacro{\barHeight}{\probability*\ydif}
+            \draw [red!80!black, fill=red!20, fill opacity=0.5] (\sumVal*\xdif-\xdif-0.4*\xdif,0) rectangle (\sumVal*\xdif+0.4*\xdif-\xdif,\barHeight);
+        }
+        \draw [->, line width=1pt, >={Stealth[]}, line cap=round] (0,0) -- (\maxDots*\xunit, 0);
+        \draw [line width=1pt, >={Stealth[]}, line cap=round] (0,0) -- (0, \maxRollValue*\yunit + 3*\yunit);
+        
+        \foreach \x in {2,...,\maxDots} {
+            \draw (\x*\xunit-\xunit,0) -- (\x*\xunit-\xunit,-0.1*\yunit);
+            \node [below] at (\x*\xunit-\xunit,0) {\x};
+        }
+        
+        \foreach \y in {1,...,\maxRollValue} {
+            \draw (0,\y*\yunit) -- (-0.1*\xunit,\y*\yunit);
+            \node [left] at (0,\y*\yunit) {\y/36};
+        }
+    \end{scope}
+
+    \node [below, align=center] at (\maxDots*\xunit*0.5, -5cm) {\texttt{投掷两个骰子时所有的结果以及总点数遵从的分布}};
+    
+\end{tikzpicture}
+
+如果投掷两次，把朝上点数加起来总点数作为随机变量，那么它的取值范围是集合$\{2,3,4,5,6,7,8,9,10,11,12\}$。而所有可能的结果，如果区分先后次序，那么有$36$个，可以记为：
+$$ \left\{(i,j) \, | \, 1\leqslant i, j \leqslant 6\right\}. $$
+其中$(i,j)$表示第一次投掷点数为$i$，第二次投掷点数为$j$。于是终集有$36$个元素，取值的集合只有$11$个元素。事件对应的知集显然比只考虑总点数对应的集合更细，比如我们可以考虑“第一次点数不超过$4$，第二次点数不小于$3$”的事件。但是，如果仅仅考虑“两次投掷的总点数”这个问题，我们可以忽略一些细节。比如$(3,4)$、$(2,5)$这些结果，对应的都是“总点数$7$点”，因此，我们可以不去区分。换言之，我们直接给出总点数集合$\{2,3,4,5,6,7,8,9,10,11,12\}$每个值对应的概率，对讨论“总点数不超过$9$”、“总点数是偶数”这样的问题，并没有影响。当然，由于不知道$\{(3,4)\}$、$\{(2,5)\}$这些事件的概率，我们没法具体讨论“总点数是$7$的具体原因”这种问题。但如果我们只把总点数作为随机变量，只讨论总点数相关的某些问题，我们可以不需要这些细节，只需要知道总点数集合$\{2,3,4,5,6,7,8,9,10,11,12\}$每个值对应的概率，也就是随机变量值的分布。
+
+设$X$是某概率空间$(\Omega, \Sigma, \mathbb{P})$上的随机变量，它将$\Omega$中的元素映射到集合$S$中。如果$S$是有限或可数无限集合，并且$S$的每个值关于随机变量的原像都是知集的元素，就说随机变量$X$是\textbf{离散}的。我们把这些原像作为知集的基本事件。例如，当随机变量$X$的值域是$\mathbb{N}$时，我们说基本事件是
+$$S_n =\{s \in \Omega \, | \, X(s) = n\}.$$
+这些基本事件的概率满足：
+$$ \sum_{n=0}^{+\infty} \mathbb{P}(S_n) = 1. $$
+掌握了这些基本事件的概率，就掌握了离散随机变量。
+
+要注意的是，离散随机变量所在的概率空间，终集$\Omega$和$S_n$本身不一定是可数无穷集合，可能是不可数的集合。
+
+讨论离散随机变量值的分布，是比讨论随机变量所处的概率空间中的事件概率更“粗略”的方式。不过，对于终集是无限集合的随机变量来说，所有元素都单个作为事件的话，知集往往是不可数的。“过大”的知集使我们很难直接讨论随机变量所处的概率空间中的事件概率，因此，用离散随机变量值的分布来讨论问题，更加方便。
 
 \begin{ex}
     考虑不断掷硬币的独立实验，掷出正面就停止。每次掷硬币都是一次独立事件，掷出正面的概率都是$0<p<1$，反面的概率都是$1-p$。那么掷第$n$次时首次出现正面的概率是怎样的？
 \end{ex}
 
 \begin{so}
-    对任意正整数$n$，设掷硬币第$n$次时首次出现正面，那么前$n-1$次都是反面。于是随机变量“首次出现正面的次数”$X$遵从的分布为\footnote{这里的$\Pr{X=n}$表示$\Pr{\{s\in\mathbb{N}\,| \, X(s) = n\}}$。下同。}：
+    对任意正整数$n$，设掷硬币第$n$次时首次出现正面，那么前$n-1$次都是反面。于是随机变量“首次出现正面的次数”$X$遵从的分布为\footnote{这里$\Pr{X=n}$中的$\mathbb{P}$其实是随机变量$X$对应的概率映射，$\Pr{X=n}$应该写成$\Pr{\{s\in\Omega\,| \, X(s) = n\}}$。但为了方便，我们这里用$\mathbb{P}$直接表示随机变量值的分布。这是一种“符号的滥用”，需要注意区分。下同。}：
     $$ \Pr{X=n} = (1 - p)^{n-1} p.$$
     因此我们讨论的是以下的分布：
     $$ \forall n \in \mathbb{N}, \quad \Pr{X=n} = (1 - p)^{n-1} p. $$
@@ -3454,21 +3528,77 @@ $$ \sum_{n=1}^{+\infty} \mathbb{P}(\{k\}) = 1. $$
     严格来说，这是正整数集合$\mathbb{Z}^+$上的分布。它的“通项”是一个无穷等比数列。所以我们称它为\textbf{等比分布}。
 \end{so}
 
-等比分布的公比为$1 - p$，所以它对应一个递缩等比数列。“首项”$\Pr{X=n}$是最大的，其后不断变小。我们还可以计算“前$n$次都不出现正面”的概率：
+\begin{tikzpicture}
+    \begin{axis}[
+        width=10cm, height=6cm,
+        xlabel={},
+        ylabel={\texttt{概率}$\Pr{X=n}$},
+        xtick={1,2,...,12},
+        ytick={0,0.05,...,0.4},
+        ymin=0, ymax=0.45,
+        xmin=0, xmax=12,
+        grid=both,
+        grid style={line width=.1pt, draw=gray!30, dashed},
+        axis lines=middle,
+        enlargelimits={upper=0.1},
+        yticklabel style={
+            /pgf/number format/fixed,
+            /pgf/number format/precision=2
+        }
+    ]
+    
+    % 定义二项分布的概率质量函数
+    \pgfmathdeclarefunction{binomial}{1}{%
+      \pgfmathparse{(0.4) * ((1 - 0.4)^(\x - 1))}%
+    }
+    
+    \addplot+[ybar, samples at={1,2,...,12}, fill=blue!30] 
+        (\x, {binomial(\x)});
+        
+    \end{axis}
+    
+    \node [below] at (8.4cm,-0.18cm) {$\ldots$};
+
+    \node [above] at (8cm,0.14cm) {\texttt{随机变量值}$n$};
+
+    \node [below, align=center] at (5.2cm, -1cm) {\texttt{系数}$p=0.4$\texttt{的等比分布（只显示$n\leqslant 12$的项）}};
+
+\end{tikzpicture}
+
+等比分布的公比为$1 - p$，所以它对应一个递缩等比数列。“首项”$\Pr{X=n}$是最大的，其后不断变小。我们可以计算“前$n$次都不出现正面”的概率：
 \begin{align*}
     \Pr{\mbox{前}n\mbox{次都不出现正面}} &= \sum_{k=n+1}^{+\infty} \Pr{X=k} = \sum_{k=n+1}^{+\infty} (1 - p)^{k-1}p\\ 
     &= p(1 - p)^{n}\cdot \sum_{k=0}^{+\infty} (1 - p)^k = p(1 - p)^{n}\cdot \frac{1}{1 - (1 - p)} \\
     &= (1 - p)^{n}.
 \end{align*}
 
-另一个例子和二项分布有关。
+我们还可以计算等比分布的期望：
+\begin{align*}
+    \mathbb{E}(X) = \sum_{n=1}^{+\infty} n \Pr{X=n} = \sum_{n=1}^{+\infty} n(1 - p)^{n-1} p.
+\end{align*}
+于是
+\begin{align*}
+    (1 - p)\mathbb{E}(X) &=\sum_{n=1}^{+\infty} n(1 - p)^{n} p = \sum_{n=2}^{+\infty} (n - 1)(1 - p)^{n-1} p \\
+    &= \sum_{n=1}^{+\infty} (n - 1)(1 - p)^{n-1} p - (1 - 1)(1 - p)^{1-1} p \\ 
+    &= \sum_{n=1}^{+\infty} (n - 1)(1 - p)^{n-1} p \\
+    &= \sum_{n=1}^{+\infty} n(1 - p)^{n-1} p - \sum_{n=1}^{+\infty} (1 - p)^{n-1} p \\
+    &= \mathbb{E}(X) - 1 \\
+\end{align*}
+因此：
+\begin{align*}
+    \mathbb{E}(X) &= \frac{1}{1 - (1 - p)} = \frac{1}{p}.
+\end{align*}
+
+可以看出，等比分布的期望和$p$成反比。$p$越小，期望越大。从上面的例子来看，每次抛出正面的概率越小，首次抛出正面的次数就越大。
+
+另一个例子和二项分布有关，涉及到不可数无穷集合的情况。
 
 \begin{ex}
     某县今年平均每天有10名婴儿出生，估计下一年的婴儿出生数量大致不变。那么，明年每天出生的婴儿数量如何分布？
 \end{ex}
 
 \begin{so}
-    为了简化问题，方便讨论，我们假设“婴儿出生”这件事是瞬时的，比如我们认定剪断脐带的瞬间作为“婴儿出生”的时刻。此外，“婴儿出生”的事件在一年、一天中“均匀发生”，即在任意很短的时间段内，事件发生的概率和时间段长度成正比。最后，假设足够短时间段内发生多于一次“婴儿出生”（包括多胞胎）的概率，相比发生至多一次的概率可以忽略。
+    为了简化问题，方便讨论，我们假设“婴儿出生”这件事是瞬时的，比如我们认定剪断脐带的瞬间作为“婴儿出生”的时刻。此外，“婴儿出生”的事件在一年、一天中“均匀发生”，即在任意很短的时间段内，事件发生的概率和时间段长度成正比。最后，假设足够短时间段内发生多于一次“婴儿出生”（包括多胞胎）的概率，相比发生至多一次的概率可以忽略，而且一个婴儿在某时刻出生的概率与前后是否有其他婴儿出生无关。
 
     在这样的假设下，如果我们把一天的时间$T$分为很多小时间段，比如分成$n$个$\frac{T}{n}$长的时间段，那么当$n$足够大的时候，每段时间内要么有一次“婴儿出生”，要么没有。这是一个$n$次二项分布。设其正面概率为$p_n$，那么一天的$n$个时间段里发生$k$次事件的概率为：
     $$ \Pr{X = k} = \bino{n}{k} p_n^k(1 - p_n)^{n-k}. $$
@@ -3483,31 +3613,161 @@ $$ \sum_{n=1}^{+\infty} \mathbb{P}(\{k\}) = 1. $$
     $$ \frac{a^k\e^{-a}}{k!}. $$
     于是我们可以认为\footnote{以上的假设和推导都有不严谨之处，这里不作讨论，仅作思路的演示。有兴趣的读者可以在专门学习概率论的时候做严格的推导。}：
     $$ \forall k \in \mathbb{N}, \quad \Pr{X = k} = \frac{a^k\e^{-a}}{k!}. $$
-    这是一个$\mathbb{N}$上的概率分布。我们可以验证，所有概率都非负，它们的和为$1$：
+    可以验证，所有概率都非负，它们的和为$1$：
     \begin{align*}
         \sum_{k=0}^{+\infty} \Pr{X = k} &= \sum_{k=0}^{+\infty} \frac{a^k\e^{-a}}{k!} \\
         &= \e^{-a} \cdot \sum_{k=0}^{+\infty} \frac{a^k}{k!} = \e^{-a} \cdot \e^{a} \\
         &= 1.
     \end{align*}
-    这个分布第$k$项的形式很像指数函数展开式的第$k$项，所以叫做\textbf{指数分布}。
+    我们把这个分布叫做\textbf{乍生分布}，它第$k$项的形式很像指数函数展开式的第$k$项。乍生分布的取值是自然数，但它所在的概率空间是不可数的集合$\mathbb{R}^+$。以我们目前掌握的工具，只能讨论这种随机变量值的分布，无法更精细地处理它所在概率空间的所有事件。
 
-    % 我们来求随机变量$X$的期望：
-    % \begin{align*}
-    %     \mathbb{E}(X) &= \sum_{i=0}^{+\infty} k \Pr{X = k} \\
-    %     &= \sum_{i=0}^{+\infty} k \frac{a^k\e^{-a}}{k!} = \sum_{i=1}^{+\infty} k \frac{a^k\e^{-a}}{k!} \\
-    %     &= a \sum_{i=1}^{+\infty} \frac{a^{k-1}\e^{-a}}{(k - 1)!} = a \sum_{i=0}^{+\infty} \frac{a^k\e^{-a}}{k!} \\
-    %     &= a.
-    % \end{align*}
-    % 也就是说，$X$的期望是$a$，符合我们的假设。我们把$a$称为指数分布的系数。于是该县明年每天出生的婴儿数遵从系数$a=10$的指数分布。
+    我们可以求随机变量$X$的期望：
+    \begin{align*}
+        \mathbb{E}(X) &= \sum_{i=0}^{+\infty} k \Pr{X = k} \\
+        &= \sum_{i=0}^{+\infty} k \frac{a^k\e^{-a}}{k!} = \sum_{i=1}^{+\infty} k \frac{a^k\e^{-a}}{k!} \\
+        &= a \sum_{i=1}^{+\infty} \frac{a^{k-1}\e^{-a}}{(k - 1)!} = a \sum_{i=0}^{+\infty} \frac{a^k\e^{-a}}{k!} \\
+        &= a.
+    \end{align*}
+    也就是说，$X$的期望是$a$，符合我们的假设。我们把$a$称为乍生分布的系数。于是该县明年每天出生的婴儿数遵从系数$a=10$的乍生分布。
 \end{so}
 
+% 乍生分布（泊松分布）的直方图
+\begin{tikzpicture}
+    \begin{axis}[
+        width=12cm, height=6cm,
+        xlabel={},
+        ylabel={\texttt{概率}$\Pr{X=n}$},
+        xtick={0,2,...,20},
+        ytick={0,0.02,...,0.12},
+        ymin=0, ymax=0.12,
+        xmin=0, xmax=20,
+        yticklabel style={
+            /pgf/number format/fixed,
+            /pgf/number format/precision=2
+        },
+        grid=both,
+        grid style={line width=.1pt, draw=gray!30, dashed},
+        axis lines=middle,
+        enlargelimits={upper=0.1}
+    ]
+    
+    % 定义泊松分布的概率质量函数
+    \pgfmathdeclarefunction{poisson}{1}{%
+      \pgfmathparse{exp(-#1) * (#1^\x) / \x!}%
+    }
+    
+    \addplot+[ybar, samples at={0,...,20}, fill=blue!30] 
+        (\x, {poisson(10)});
+    
+    \end{axis}
+    
+    \node [below] at (0,-0.06cm) {$0$};
+    
+    \node [below] at (10.22cm,-0.18cm) {$\ldots$};
 
+    \node [above] at (9.6cm,0.14cm) {\texttt{随机变量值}$n$};
+
+    \node [below, align=center] at (6cm, -1cm) {\texttt{系数}$a=10$\texttt{的乍生分布（只显示$n\leqslant20$的项）}};
+    
+\end{tikzpicture}
+
+乍生分布的假设是一段时间内发生的机会“均匀”的事件：事件发生的概率与时间段长度成正比。这有些近似于我们想要的“在无限个选项中均匀地随机选一个”的实验。但要注意的是，它要遵循的前提假设是：事件发生是瞬间的，与前后是否发生无关。
+
+\begin{et}
+    甲企业有多个供应商，每天会有供应商的载货卡车到达企业场地卸货交付。每次卸货交付需要一个工作日。甲企业有$5$个仓库作为卸货交付场地，每个恰好能支持一个供应商一天的卸货交付工作。如果当天到达的供应商卡车数量太多，就要租借附近的仓库，产生的额外成本为每日$3000$元。根据历史情况估计，假设每个工作日供应商的载货卡车到达的数量遵循系数为$4$的乍生分布，那么每天有多大的概率产生额外成本？平均每天产生的额外成本是多少？假设从下个月开始，每日载货卡车到达的数量遵循系数为$8$的乍生分布，为此再租新的仓库，支付每个仓库每月$5\dlim{0000}$元的租金，是否划算？要租几个仓库？
+\end{et}
+
+\begin{so}
+    按题意，每天到达的车数超过仓库个数，就要产生额外成本。因此，我们要计算一日到达车数超过$5$的概率。一日到达车数的随机变量$X$遵循系数为$4$的乍生分布。因此，
+    \begin{align*}
+        \Pr{X>5} &= 1 - \Pr{X \leqslant 5}= 1 - \sum_{i=0}^5 \Pr{X = i} \\
+        &= 1 - \sum_{i=0}^{5} \frac{\e^{-4}4^i}{i!} \\
+        &\approx 1 - 0.0183 - 0.0733 - 0.1465 - 0.1954 - 0.1954 - 0.1563 \\
+        &\approx 0.2149
+    \end{align*}
+    因此，每天有$21.48\%$的可能产生额外成本。
+
+    $X>5$的时候，要租$X-5$个仓库。因此，日均需要仓库数的期望$b$为：
+    \begin{align*}
+        b&= \sum_{i=6}^{+\infty} (i - 5)\Pr{X = i} = \sum_{i=6}^{+\infty} i\Pr{X = i} - 5 \sum_{i=6}^{+\infty} \Pr{X = i} \\
+        &= \mathbb{E}(X) - \sum_{i=0}^{5} i\Pr{X = i} - 5 \Pr{X>5} = 4 - \sum_{i=0}^{5} \frac{i\e^{-4}4^i}{i!} - 5 \Pr{X>5} \\
+        &\approx 4 - 0.0733 - 0.2931 - 0.5862 - 0.7815 - 0.7815 - 5\cdot 0.2149 \\
+        &\approx 0.4103 
+    \end{align*}
+    每天每个仓库产生$3000$元额外成本，因此每天额外成本的期望是
+    $$3000 \times b \approx 1231\; \mbox{（元）}$$
+
+    如果从下个月开始，每日载货卡车到达的数量遵循系数为$8$的乍生分布，那么按照以上的方法，可以算出每天额外成本的期望是$9477$元。设每月有$22$个工作日，那么每月额外成本期望为$20\dlim{8502}$元，显然超过一个仓库的月租。因此，需要考虑租更多的仓库。
+
+    假设新租了$m$个仓库，总仓库数变为$5+m$。日均需要额外仓库数的期望$b$为：
+    \begin{align*}
+        b &= 4 - \sum_{i=0}^{5+m} \frac{i\e^{-4}4^i}{i!} - (5+m) \Pr{X>5+m} \\
+        &= -m - 1 - \sum_{i=0}^{5+m} \frac{i\e^{-4}4^i}{i!} + (5+m) \sum_{i=0}^{5+m} \frac{\e^{-4}4^i}{i!}
+    \end{align*}
+    于是每月额外成本与新仓库月租，合计成本$B$为：
+    \begin{align*}
+        B =\; & 22 \times 3000 \times b + 50000 \times (m - 5) \\
+        =\;& 66000\cdot \left( (5+m) \sum_{i=0}^{5+m} \frac{\e^{-4}4^i}{i!} - \sum_{i=0}^{5+m} \frac{i\e^{-4}4^i}{i!}  -m - 1\right) + 50000 \cdot (m - 5) \\
+        =\;& 6\dlim{6000}\cdot \left((5+m) \sum_{i=0}^{5+m} \frac{\e^{-4}4^i}{i!} - \sum_{i=0}^{5+m} \frac{i\e^{-4}4^i}{i!}\right) -16000 m - 316000 
+    \end{align*}
+    
+    分别计算$m=1,2,3,\cdots$的情况,得到$B$的值为：
+    \begin{center}
+        \begin{tabular}{  | p{3em}<{\centering} | p{6em}<{\centering} | p{6em}<{\centering} | }
+            \hline
+            $m$ & $5+m$ & $B$（元） \\
+            \hline
+            $0$ & $5$ & $208502$\\
+            \hline 
+            $1$ & $6$ & $205124$ \\
+            \hline 
+            $2$ & $7$ & $209806$\\
+            \hline 
+            $3$ & $8$ & $223702$ \\
+            \hline 
+            $4$ & $9$ & $246810$ \\
+            \hline 
+            $5$ & $10$ & $278107$ \\
+            \hline 
+            $6$ & $11$ & $315955$ \\
+            \hline 
+            $7$ & $12$ & $358568$ \\
+            \hline 
+            $8$ & $13$ & $404358$ \\
+            \hline
+            $9$ & $14$ & $452102$ \\
+            \hline
+        \end{tabular}
+    \end{center}
+    随着$m$增大，$B$先减小后增大，最小值为$m=1$时的$205124$元。因此，新租一个仓库比较划算。
+\end{so}
 
 \begin{sk}
     \mbox{} \\
-    \indent 1. 指数分布的例子里，为什么可以假设足够短时间内发生多于一次事件的概率，相比发生至多一次的概率，可以忽略？\\
-    % \indent 2. 
+    \indent 1. 是否有值的分布相同，但在概率空间中的分布不同的随机变量？如果有，举出例子。\\
+    \indent 2. 乍生分布的例子里，为什么可以假设足够短时间内发生多于一次事件的概率，相比发生至多一次的概率，可以忽略？\\
+    \indent 3. 给定无限集合$\Omega$及其分划$\Omega = \sum_{i\in\mathbb{N}} S_n$，给定收敛正项级数$\{a_n\}$，其级数和为$1$。是否有随机变量$X$和概率映射$\mathbb{P}$，使得：
+    $$ \forall n\in\mathbb{N}, \;\; X^{(-1)} (n) = S_n, \quad \Pr{S_n} = a_n \; ?$$
 \end{sk}
+
+\section{随机变量的函数}
+
+生活和生产实践中遇到的随机问题，可以用随机变量来描述。如果我们掌握随机变量的分布，就可以理解随机问题。很多时候，能够描述随机问题的随机变量往往不是我们已知分布的随机变量，而是与它们有关的函数，因此，我们需要学习用随机变量来理解和它们有关的函数。
+
+\begin{ex}
+    
+\end{ex}
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 给定$0<p<1$，\\
+    \indent 1.1. 计算$S_2 = \sum_{n=1}^{+\infty} n(n - 1)(1 - p)^{n-1} p$。\\
+    \indent 1.2. 随机变量$X$遵从系数为$p$的等比分布，计算它的方差：
+    $$ \mathrm{Var}(X) = \mathbb{E}(X - \mathbb{E}(X))^2.$$
+\end{xt}
+
+
+
 % 讨论实变函数中的可测函数
 
 % 引入勒贝格积分

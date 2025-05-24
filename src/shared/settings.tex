@@ -30,6 +30,7 @@
 \usepackage[perpage,symbol*]{footmisc}
 \usepackage{xparse} % For defining commands with optional arguments
 \usepackage{tikz-3dplot}
+\usepackage{pgfplots}
 
 % 修改脚注的编号为加圈样式，并且各页单独编号
 \DefineFNsymbols{circled}{{\ding{192}}{\ding{193}}{\ding{194}}
@@ -49,6 +50,8 @@
 \setCJKsansfont{simfang.ttf} % \textsf
 
 % 自制命令
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{calc,topaths,positioning,arrows.meta}
 \renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}  % 章节使用阿拉伯数字
 \renewcommand{\parallel}{\mathrel{/\mskip-4mu/}}  % 平行符号
 \renewcommand{\proofname}{\indent\bf 证明}  % 自定义证明标题
@@ -57,6 +60,7 @@
 \newcommand{\dash}{\,–\,}  % 短折号
 \newcommand{\tong}[1]{\overset{#1}{\equiv\joinrel\equiv}}  % 同余等号
 \newcommand{\di}[1]{\,\mathrm{d}#1}  % 微元d
+\newcommand{\diff}{\,\mathrm{D}}  % 微元d
 \newcommand{\qu}[2]{\displaystyle\left(#1;#2\right)}  % 开区间
 % 局部展开 developpements limites
 \newcommand{\oveq}[1]{\overset{#1}{=}}   % equal over
@@ -128,7 +132,6 @@
         }
     }
 }
-\usetikzlibrary{calc,topaths,positioning}
 \newcommand{\widearc}[1]{  % 可伸缩圆弧符号
     \tikz[baseline=(wideArcAnchor.base)]{
         \node[inner sep=0] (wideArcAnchor) {$#1$}; 
