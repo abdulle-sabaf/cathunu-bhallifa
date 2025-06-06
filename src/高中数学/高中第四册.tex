@@ -496,6 +496,14 @@ $$
     \indent 2.3. 曲线$y = \cos{x}$在$\displaystyle\left[-\frac{\pi}{2};\frac{\pi}{2}\right]$上的曲线绕$x$轴旋转得到的旋转体的体积。
 \end{xt}
 
+\section{积合与级数}
+% 可积函数和级数的关系
+% 在前面的章节中，我们已经学习了级数的概念。级数是对数列的求和，而积合则是对函数的求积。
+% 在某种意义上，级数可以看作是对函数的离散求积，而积合则是对函数的连续求积。
+% 在实际应用中，级数和积合有着密切的联系。许多数学问题可以通过级数的求和来解决，而积合则可以用来处理连续函数的性质。
+% 在本节中，我们将探讨积合与级数之间的关系，并通过一些例子来说明它们的应用。
+
+
 
 \chapter{方程与空间}
 
@@ -3377,7 +3385,7 @@ $$ \mathbb{P}(\mbox{点数是偶数}) = \mathbb{P}(\{2,4,6\}) = \mathbb{P}(\{2\}
     $$ \Pr{\bigcup_{i=1}^{+\infty} A_i} = \sum_{i=1}^{+\infty} \mathbb{P}(B_i) \leqslant \sum_{i=1}^{+\infty} \mathbb{P}(A_i). $$
 \end{proof}
 
-\section{可数无穷集合上的概率空间}
+\subsection{可数无穷集合上的概率空间}
 
 既然以$\mathbb{N}$为终集的概率无法均匀分布，那么可以有怎样的概率映射呢？
 
@@ -3432,7 +3440,7 @@ $$ \sum_{n=0}^{+\infty} \mathbb{P}(\{k\}) = 1. $$
 
 \section{离散随机变量的分布}
 
-以上提到的是概率空间中的概率。概率空间中的随机变量，是把终集的元素映射到某个值域上的映射。随机变量给每个事件对应一个$0$与$1$之间的数，称为它的概率。随机变量是我们研究随机事件的主要手段。讨论随机变量时，我们也希望像讨论概率空间的概率一样，讨论它每个取值的概率。这样，把随机变量取到各个可能值的概率合起来，叫做\textbf{随机变量值的分布}，或者称为\textbf{随机变量遵从的分布}。
+以上提到的是概率空间中的概率。概率空间中的随机变量，是把终集的元素映射到某个值域上的映射。随机变量给每个事件对应一个$0$与$1$之间的数，称为它的概率。随机变量是我们研究随机事件的主要手段。讨论随机变量时，我们也希望像讨论概率空间的概率一样，讨论它每个取值的概率。这样，把随机变量取到各个可能值的概率合起来，叫做随机变量的\textbf{概率密度函数}，也叫\textbf{随机变量值的分布}，或者称为\textbf{随机变量遵从的分布}。
 
 举例来说，一个骰子，投掷一次，可能朝上的点数是$1,2,3,4,5,6$。把朝上的点数作为随机变量，那么它的取值范围是集合$\{1,2,3,4,5,6\}$，和终集一样。所有可能的事件，分别是单元集：$\{1\}$、$\{2\}$、$\{3\}$、$\{4\}$、$\{5\}$、$\{6\}$。这时，事件集和取值的集合，元素数量一样，都是$6$。
 
@@ -3547,7 +3555,7 @@ $$ \sum_{n=0}^{+\infty} \mathbb{P}(S_n) = 1. $$
         }
     ]
     
-    % 定义二项分布的概率质量函数
+    % 定义二项分布的概率密度函数
     \pgfmathdeclarefunction{binomial}{1}{%
       \pgfmathparse{(0.4) * ((1 - 0.4)^(\x - 1))}%
     }
@@ -3651,7 +3659,7 @@ $$ \sum_{n=0}^{+\infty} \mathbb{P}(S_n) = 1. $$
         enlargelimits={upper=0.1}
     ]
     
-    % 定义泊松分布的概率质量函数
+    % 定义泊松分布的概率密度函数
     \pgfmathdeclarefunction{poisson}{1}{%
       \pgfmathparse{exp(-#1) * (#1^\x) / \x!}%
     }
@@ -3742,21 +3750,156 @@ $$ \sum_{n=0}^{+\infty} \mathbb{P}(S_n) = 1. $$
     随着$m$增大，$B$先减小后增大，最小值为$m=1$时的$205124$元。因此，新租一个仓库比较划算。
 \end{so}
 
+上面的例子中，我们计算了给定概率分布的随机变量的期望。随机变量的期望是对随机变量值的“加权平均数值”。对于取值于$\mathbb{N}$的离散随机变量$X$，它的期望是：
+\[
+    \mathbb{E}(X) = \sum_{n=0}^{+\infty} n \Pr{X=n}.
+\]
+可以看出，随机变量期望的本质是求和，所以它满足以下的性质：
+\begin{itemize}
+    \item 直性：对于任意的系数$a$和$b$，以及随机变量$X$和$Y$：
+    \[
+        \mathbb{E}(aX + bY) = a\mathbb{E}(X) + b\mathbb{E}(Y).
+    \]
+    \item 非负性：如果随机变量$X$的值总不小于$0$，那么：$\mathbb{E}(X) \geqslant 0.$
+    \item 单调性：如果$\forall \; s\in \Omega, \; X(s)\leqslant Y(s)$，那么$\mathbb{E}(X) \leqslant \mathbb{E}(Y).$
+\end{itemize}
+这些性质和我们熟悉的级数、积分的性质一致。
+
+如果要估计的对象不是随机变量$X$，而是关于$X$的函数：$f(X)$，那么它的期望是：
+\[
+    \mathbb{E}(f(X)) = \sum_{n=0}^{+\infty} f(n) \Pr{X=n}.
+\]
+它表示对随机变量$X$的每个可能取值$n$，计算函数$f(n)$的值，然后乘以对应的概率$\Pr{X=n}$，最后求和。
+
+要注意的是，不是所有的函数$f$都能保证期望存在。比如，$f(x) = x^2$，如果随机变量$X$的分布是$\Pr{X=n} = \frac{1}{n^2}$，那么期望就不存在，因为：
+\[
+    \mathbb{E}(f(X)) = \sum_{n=1}^{+\infty} n^2 \cdot \frac{1}{n^2} = \sum_{n=1}^{+\infty} 1 = +\infty.
+\]
+使得期望存在的函数$f$，通常是有界的，或者是绝对值单调递减的。比如，$f(x) = \frac{1}{x}$，如果随机变量$X$的分布是$\Pr{X=n} = \frac{1}{n^2}$，那么期望就存在：
+\[
+    \mathbb{E}(f(X)) = \sum_{n=1}^{+\infty} \frac{1}{n} \cdot \frac{1}{n^2} = \sum_{n=1}^{+\infty} \frac{1}{n^3}.
+\]
+不难看出，使得期望存在的关键是让级数$\sum_{n=0}^{+\infty} f(n) \Pr{X=n}$收敛，它与$f$的性质和概率密度函数的大体趋势有关。
+
+我们介绍过随机变量的方差。随机变量的方差是对随机变量值的“离散程度”的估计。它的定义是：
+\[
+    \text{Var}(X) = \mathbb{E}((X - \mathbb{E}(X))^2) = \sum_{n=0}^{+\infty} (n - \mathbb{E}(X))^2 \Pr{X=n}.
+\]
+要注意的是，上式里的期望$\mathbb{E}(X)$是一个数，不需要和方差同时计算。方差的计算需要先计算$\mathbb{E}(X)$，然后再计算每个可能取值与期望的差的平方，乘以对应的概率，最后求和。
+
+例如，我们可以计算等比分布的方差。设随机变量$X$遵从系数为$p$的等比分布，那么它的方差是：
+\begin{align*}
+    \text{Var}(X) &= \mathbb{E}((X - \mathbb{E}(X))^2) = \sum_{n=0}^{+\infty} \left(n - \frac{1}{p}\right)^2 \Pr{X=n} \\
+    &= \sum_{n=1}^{+\infty} \left(n - \frac{1}{p}\right)^2 (1 - p)^{n-1} p \\
+    &= \sum_{n=1}^{+\infty} \left(pn^2 - 2n + \frac{1}{p}\right) (1 - p)^{n-1} \\
+    &= p\sum_{n=1}^{+\infty} n^2 (1 - p)^{n-1} - 2\sum_{n=1}^{+\infty} n (1 - p)^{n-1} + \frac{1}{p}\sum_{n=1}^{+\infty} (1 - p)^{n-1} \\
+    &= p\cdot \frac{2 - p}{p^3} - 2\cdot \frac{1}{p^2} + \frac{1}{p}\cdot \frac{1}{1 - (1 - p)} \\
+    &= \frac{2 - p}{p^2} - \frac{2}{p^2} + \frac{1}{p^2} \\
+    &= \frac{1 - p}{p^2}.
+\end{align*}
+
+又比如，设随机变量$X$遵从系数为$a$的乍生分布，那么它的方差是：
+\begin{align*}
+    \text{Var}(X) &= \mathbb{E}((X - \mathbb{E}(X))^2) = \sum_{n=0}^{+\infty} \left(n - a\right)^2 \Pr{X=n} \\
+    &= \sum_{n=0}^{+\infty} (n^2 - 2an + a^2) \frac{a^n\e^{-a}}{n!} \\
+    &= \sum_{n=0}^{+\infty} n^2 \frac{a^n\e^{-a}}{n!} - 2a\sum_{n=0}^{+\infty} n \frac{a^n\e^{-a}}{n!} + a^2\sum_{n=0}^{+\infty} \frac{a^n\e^{-a}}{n!} \\
+    &= a^2 + a - 2a^2 + a^2 \\
+    &= a.
+\end{align*}
+
+随机变量$X$的方差是$X - \mathbb{E}(X)$平方的期望，因此根据期望的非负性，取值为实数的随机变量，方差总大于等于$0$。
+
+一般来说，随机变量是否总有方差？并不一定。有限集合上的随机变量总有方差，但在无限集合上，随机变量的方差可能不存在。比如，$\mathbb{N}$上的随机变量$X$有方差，当且仅当级数：
+\[
+    \sum_{n=0}^{+\infty} n^2 \Pr{X=n}
+\]
+收敛。这与随机变量的分布有关。
+
+\begin{sk}
+    \mbox{}\\
+    \indent 1. $\mathbb{N}$上的实随机变量$X$的值总大于等于零，但它的期望等于$0$，那么它什么时候大于$0$？它大于$0$的概率是多少？它能不能有大于$0$的值？\\
+    \indent 2. $\mathbb{N}$上的实随机变量$X$的方差等于$0$，它的值有什么性质？
+\end{sk}
+
+\subsection{随机变量的方望}
+上面的计算中我们发现，要计算遵从某个随机分布的随机变量$X$的函数$f(X)$的期望，比如其方差，我们需要计算以下形式的级数：
+\[
+    \sum_{n=0}^{+\infty} n^1 \Pr{X=n}, \quad \sum_{n=0}^{+\infty} n^2 \Pr{X=n}, \quad \sum_{n=0}^{+\infty} n^3 \Pr{X=n}, \quad \ldots
+\]
+我们把这样的级数称为随机分布的\textbf{方望}。方望是对随机变量值的某种“平均值”的估计。设随机变量$X$的分布为$\Pr{X=n}$，那么它的第$\boldsymbol{k}$\textbf{次方望}定义为：
+\[
+    \mu_k = \mathbb{E}(X^k) = \sum_{n=0}^{+\infty} n^k \Pr{X=n}.
+\]
+方望的定义与期望类似，但它是对随机变量值的$n$次方的加权平均。显然，一次方望就是期望，而$0$次方望总是$1$。
+
+给定随机变量的分布，如何计算方望呢？观察$k$次方望的定义，我们可以考虑以下由无穷级数定义的函数：
+\[
+    \forall 0\leqslant x \leqslant 1, \quad \mu(x) = \sum_{n=0}^{+\infty} \Pr{X=n} x^n.
+\]
+不难证明我们用来定义函数的级数对$0\leqslant x \leqslant 1$收敛，因此函数$\mu$契义，且$\mu(1) = 1$。我们可以通过对这个级数求微变来计算方望。对$\mu(x)$求$k$次微变：
+\[
+    \mu^{(k)}(x) = \sum_{n=0}^{+\infty} n(n-1)(n-2)\cdots(n-k+1) \Pr{X=n} x^{n-k}.
+\]
+如果我们令$x=1$，那么： 
+\[
+    \partial^k \mu(1) = \sum_{n=0}^{+\infty} n(n-1)(n-2)\cdots(n-k+1) \Pr{X=n}.
+\]
+$n(n-1)(n-2)\cdots(n-k+1)$是一个关于$n$的首一$k$次多项式，因此可以表示成$n^k$和$1,n,\cdots,n^{k-1}$的直组合：
+\[
+    n(n-1)(n-2)\cdots(n-k+1) = n^k + \sum_{i=0}^{k-1} a_i n^i.
+\]
+于是，
+\begin{align*}
+    \partial^k \mu(1) &= \sum_{n=0}^{+\infty} n(n-1)(n-2)\cdots(n-k+1) \Pr{X=n} \\
+    &= \sum_{n=0}^{+\infty} \left(n^k + \sum_{i=0}^{k-1} a_i n^i \right) \Pr{X=n} \\
+    &= \sum_{n=0}^{+\infty} n^k \Pr{X=n} + \sum_{i=0}^{k-1} a_i \sum_{n=0}^{+\infty} n^i \Pr{X=n} \\
+    &= \mu_k + \sum_{i=0}^{k-1} a_i \mu_i.
+\end{align*}
+于是我们可以用递推的方式得到$\mu_k$：
+\[
+    \forall k \in \mathbb{Z}^+, \quad \mu_k = \partial^k \mu(1) - \sum_{i=0}^{k-1} a_i \mu_i.
+\]
+
+这种方法称为\textbf{母函数法}。其中用到的函数$\mu$称为概率分布对应的\textbf{母函数}。用母函数法，我们可以计算等比分布的二次方望。设立等比分布的母函数：
+\[
+    \mu(x) = \sum_{n=1}^{+\infty} (1 - p)^{n-1} p x^n = px\sum_{n=0}^{+\infty} ((1 - p)x)^{n-1} = \frac{px}{1 - (1 - p)x}, \quad 0 < x < 1.
+\]
+对$\mu(x)$求微变：
+\[
+    \partial \mu(x) = \frac{p(1 - (1 - p)x) + px(1 - p)}{(1 - (1 - p)x)^2} = \frac{p}{(1 - (1 - p)x)^2}.
+\]
+于是：
+$$ \partial \mu(1) = \frac{p}{(1 - (1 - p))^2} = \frac{p}{p^2} = \frac{1}{p}.$$
+回到一次微变的级数表达式：
+$$ \partial \mu(1) = \sum_{n=1}^{+\infty} n (1 - p)^{n-1} p 1^{n-1} = \sum_{n=1}^{+\infty} n (1 - p)^{n-1} p = \mu_1, $$
+因此一次方望就是$\displaystyle \frac{1}{p}$。
+
+对$\partial \mu(x)$再求微变：
+\[
+    \partial^2 \mu(x) = \partial \frac{p}{(1 - (1 - p)x)^2} = \frac{p(2(1 - (1 - p)x)(1 - p))}{(1 - (1 - p)x)^4} = \frac{2p(1 - p)}{(1 - (1 - p)x)^3}.
+\]
+于是：
+$$ \partial^2 \mu(1) = \frac{2p(1 - p)}{(1 - (1 - p))^3} = \frac{2 - 2p}{p^2}. $$
+回到二次微变的级数表达式：
+\begin{align*}
+    \partial^2 \mu(1) &= \sum_{n=1}^{+\infty} n(n - 1) (1 - p)^{n-1} p = \sum_{n=1}^{+\infty} n^2 (1 - p)^{n-1} p - \sum_{n=1}^{+\infty} n (1 - p)^{n-1} p \\
+    &= \mu_2 - \mu_1.
+\end{align*}
+所以二次方望是：
+\[
+\mu_2 = \partial^2 \mu(1) + \mu_1 = \frac{2 - 2p}{p^2} + \frac{1}{p} = \frac{2 - p}{p^2}.
+\]
+根据一次方望、二次方望的值，就可以算出等比分布的方差。
+
+以上的计算里，我们用到了无穷级数为值的函数的微变。我们一方面将级数和作为$x$的函数直接求微变，另一方面又在级数中对每一项求微变，然后说每一项微变的和就是函数的微变。为什么可以这样计算呢？这涉及到通项是函数的无穷级数的性质。我们将在下一册继续研究。
+
 \begin{sk}
     \mbox{} \\
     \indent 1. 是否有值的分布相同，但在概率空间中的分布不同的随机变量？如果有，举出例子。\\
     \indent 2. 乍生分布的例子里，为什么可以假设足够短时间内发生多于一次事件的概率，相比发生至多一次的概率，可以忽略？\\
-    \indent 3. 给定无限集合$\Omega$及其分划$\Omega = \sum_{i\in\mathbb{N}} S_n$，给定收敛正项级数$\{a_n\}$，其级数和为$1$。是否有随机变量$X$和概率映射$\mathbb{P}$，使得：
+    \indent 3. 给定无限集合$\Omega$及其分划$\Omega = \sum_{i\in\mathbb{N}} S_n$，给定收敛正项级数$\sum a_n$，其级数和为$1$。是否有随机变量$X$和概率映射$\mathbb{P}$，使得：
     $$ \forall n\in\mathbb{N}, \;\; X^{(-1)} (n) = S_n, \quad \Pr{S_n} = a_n \; ?$$
 \end{sk}
-
-\section{随机变量的函数}
-
-生活和生产实践中遇到的随机问题，可以用随机变量来描述。如果我们掌握随机变量的分布，就可以理解随机问题。很多时候，能够描述随机问题的随机变量往往不是我们已知分布的随机变量，而是与它们有关的函数，因此，我们需要学习用随机变量来理解和它们有关的函数。
-
-\begin{ex}
-    
-\end{ex}
 
 \begin{xt}
     \mbox{} \\
@@ -3764,8 +3907,245 @@ $$ \sum_{n=0}^{+\infty} \mathbb{P}(S_n) = 1. $$
     \indent 1.1. 计算$S_2 = \sum_{n=1}^{+\infty} n(n - 1)(1 - p)^{n-1} p$。\\
     \indent 1.2. 随机变量$X$遵从系数为$p$的等比分布，计算它的方差：
     $$ \mathrm{Var}(X) = \mathbb{E}(X - \mathbb{E}(X))^2.$$
+    \indent 2. 计算乍生分布的二次方望，并用它来验证乍生分布的方差公式。 \\
 \end{xt}
 
+\section{多维离散随机变量}
+\subsection{联合分布与边际分布}
+
+在实际问题中，我们常常需要同时研究多个随机变量的行为。设 \(X\) 和 \(Y\) 是定义在同一概率空间上的两个离散随机变量，如何来描述它们共同的结果呢？我们用称为\textbf{联合分布}或\textbf{联合概率密度函数}的映射$\mathbb{P}_{X,Y}$来描述：
+\[
+\forall x, y \in \Omega,\;\; \mathbb{P}_{X,Y}(x,y) = \Pr{\{X = x\; \mbox{且}\; Y = y\}}
+\]
+映射$\mathbb{P}_{X,Y}$要成为随机变量的联合分布，须满足两条基本性质：
+\begin{enumerate}
+    \item 非负性： \( \forall x, y \in \Omega,\; p_{X,Y}(x,y) \geq 0\) 
+    \item 归一性： \( \displaystyle\sum_{x\in \Omega} \sum_{y\in \Omega} p_{X,Y}(x,y) = 1\)。
+\end{enumerate}
+联合分布$\mathbb{P}_{X,Y}$描述了两个随机变量同时取特定值的概率。它可以看作是一个二维表格，其中每个单元格对应于某一对$(x,y)$的概率。
+
+由两个随机变量的联合分布可推导出每个随机变量自身的分布，称为\textbf{边际分布}：
+\begin{align*}
+\mathbb{P}_X(x) &= \Pr{X = x} = \sum_{y\in \Omega} \mathbb{P}_{X,Y}(x,y) \\
+\mathbb{P}_Y(y) &= \Pr{Y = y} = \sum_{x\in \Omega} \mathbb{P}_{X,Y}(x,y)
+\end{align*}
+这里求和遍历另一随机变量的所有可能取值。边际分布反映了单个随机变量的概率特性，不再考虑与其他随机变量的关联。
+
+\begin{ex}
+考虑投掷两枚均匀骰子的试验。令 \(X\) 为第一枚骰子的点数，\(Y\) 为第二枚骰子的点数。其联合分布为：
+\[
+\forall x,y \in \mathbb{N},\;\;
+\mathbb{P}_{X,Y}(x,y) = \begin{cases} 
+\frac{1}{36} & \text{如果 } 1 \leq x \leq 6,\ 1 \leq y \leq 6 \\
+0 & \text{其他情况}
+\end{cases}
+\]
+\(X\) 的边际分布为 \(\forall x\in [1..6],\; \mathbb{P}_X(x) = \frac{1}{6}\)，这正是单枚骰子的均匀分布。
+
+令 \(X\) 为第一枚骰子的点数，\(Z\) 为两枚骰子的点数之和。其联合分布为：
+\[
+\forall x,z \in \mathbb{N},\;\;
+\mathbb{P}_{X,Z}(x,z) = \begin{cases} 
+\frac{1}{36} & \text{如果 } 1 \leq x \leq 6,\ x+1 \leq z \leq x+6 \\
+0 & \text{其他情况}
+\end{cases}
+\]
+\(X\) 的边际分布仍为 \(\forall x\in [1..6],\; \mathbb{P}_X(x) = \frac{1}{6}\)。而$Z$的边际分布为：
+\[
+\mathbb{P}_Z(z) = \begin{cases} 
+\frac{z-1}{36} & \text{如果 } 2 \leq z \leq 7 \\
+\frac{13-z}{36} & \text{如果 } 8 \leq z \leq 12 \\
+0 & \text{其他情况}
+\end{cases}
+\]
+
+\end{ex}
+
+\section{条件随机变量和独立性}
+
+我们学习过条件概率和事件的独立性。条件概率让我们描述在已知一个事件发生的情况下，另一个事件发生的概率。而事件之间的\textbf{独立性}则是指一个事件是否发生，不影响另一个事件发生的概率。如果事件$A,B$相互独立，那么$B$发生时$A$发生的概率应该和$A$发生的概率一样。也就是说，
+$$\mathbb{P}(A) = \mathbb{P}(A \, | \, B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)}.$$
+即：
+$$\mathbb{P}(A \cap B) = \mathbb{P}(A) \cdot \mathbb{P}(B).$$
+
+给定概率空间中概率不为$0$的随机事件$A$，我们也可以定义离散随机变量$X$在$A$发生时的\textbf{条件随机变量}$X|A$，它的概率分布称为$A$时$X$的\textbf{条件分布}：
+\[
+\forall x \in \Omega,\;\;
+\mathbb{P}_{A}(X = x) = \Pr{X=x | A} = \frac{\mathbb{P}(\{X = x\}\cap A)}{\mathbb{P}(A)}.
+\]
+要注意的是，条件分布的定义依赖于事件$A$的发生，因此它是一个新的随机变量，其取值范围和原随机变量$X$相同，但概率分布不一定相同。
+
+我们还可以依此定义依赖于随机变量的条件随机变量。观察到其中一个随机变量的取值时，另一个随机变量的分布会随之改变。具体来说，设$X,Y$是随机变量。\(X|Y=y\) 表示概率不为$0$的事件 \(Y=y\) 发生时$X$的条件随机变量，它的\textbf{条件分布}为：
+\[
+\mathbb{P}_{Y}(X=x|y) = \Pr{X=x | Y=y} = \frac{\mathbb{P}(\{X=x\}\cap\{Y=y\})}{\mathbb{P}(Y=y)}
+\]
+条件分布具有归一性 \(\sum_x \mathbb{P}(X=x|A) = 1\)，其期望称为$A$时$X$的\textbf{条件期望}：
+\[
+\mathbb{E}(X|A) = \sum_{x\in \Omega} x \cdot \mathbb{P}(X=x|A).
+\]
+类似可以定义条件随机变量的方差、方望。
+
+\begin{ex}
+连续抛掷同一枚硬币三次。假设每次出现正面和反面的概率相同。定义随机变量：
+\[
+X = \begin{cases} 1 & \text{第一次正面} \\ 0 & \text{第一次反面} \end{cases}, \quad 
+Y = \text{正面出现的总次数}
+\]
+那么 \(Y=1\) 时 \(X\) 的条件分布为：
+\begin{align*}
+    \Pr{X=0|Y=1} &= \frac{\mathbb{P}(\{X=0\}\cap\{Y=1\})}{\mathbb{P}(Y=1)} = \frac{\frac{2}{8}}{\frac{3}{8}} = \frac{2}{3},\\
+    \Pr{X=1|Y=1} &= \frac{\mathbb{P}(\{X=1\}\cap\{Y=1\})}{\mathbb{P}(Y=1)} = \frac{\frac{1}{8}}{\frac{3}{8}} = \frac{1}{3},
+\end{align*}
+
+$X$的条件期望： \(\displaystyle\mathbb{E}(X|Y=1) = 0 \times \frac{2}{3} + 1 \times \frac{1}{3} = \frac{1}{3}\)。
+\end{ex}
+
+我们学习过两个随机事件相互独立的定义。事件$A$独立于$B$，是指$A$发生的概率不受$B$的影响。也就是说，
+$$\mathbb{P}(A) = \mathbb{P}(A \, | \, B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)}.$$
+同理，给定有限集合$S$上的两个随机变量 \(X\) 和 \(Y\)，$X$独立于$Y$，就是说对任意$X$可能的取值$x$，事件$X=x$的概率不受$Y$的影响。也就是说，$Y$取不同的值时，事件$X=x$总独立于事件$Y=y$：
+$$
+\forall x,y \in \Omega,\;\;\mathbb{P}(X = x) = \mathbb{P}(X = x \, | \, Y = y) = \frac{\mathbb{P}(\{X = x\} \cap \{Y = y\})}{\mathbb{P}(Y = y)}.$$
+换句话说：
+\[
+\forall x,y \in \Omega,\;\;
+\Pr{\{X = x\}\cap\{Y = y\}} = \Pr{X = x} \cdot \Pr{Y = y}
+\]
+只要$X,Y$的联合分布可分解为边际分布的乘积：\(\mathbb{P}_{X,Y}(x,y) = \mathbb{P}_X(x) \cdot \mathbb{P}_Y(y)\)，就说\(X\) 和 \(Y\)相互独立。要注意的是，使用条件分布定义独立性时，需要确保$\Pr{Y=y}$不为$0$，但$\Pr{Y=y} = 0$的情况是可能的。因此，我们一般采用“联合分布可分解为边际分布的乘积”来定义随机变量相互独立。用条件分布定义的独立性仅用来帮助理解。使用“联合分布可分解为边际分布的乘积”定义独立性，说明“独立”是相互的关系。$X$独立于$Y$，则$Y$独立于$X$。反之亦然。本质上来说，两个随机变量相互独立，意味着一个变量的取值不影响另一个变量的分布规律。
+
+\begin{ex}
+之前连续抛掷硬币的例子里，事件$X=0$和$Y=1$相互不独立，因为：
+\[
+\Pr{\{X=0\}\cap\{Y=1\}} = \frac{1}{4} \neq \Pr{X=0}\Pr{Y=1} = \frac{1}{2} \cdot \frac{3}{8} = \frac{3}{16}
+\]
+而随机变量 \(X\) 与 \(Y\) 相互也不独立，因为 \(Y\) 的值依赖于第一次抛掷的结果。我们可以这样验证：
+\[
+\Pr{\{X=1\}\cap\{Y=0\}} = 0 \neq \Pr{X=1}\Pr{Y=0} = \frac{1}{2} \cdot \frac{1}{8} = \frac{1}{16}.
+\]
+\end{ex}
+
+设随机变量$X,Y$相互独立，我们来计算$XY$的期望：
+\begin{align*}
+\mathbb{E}(XY) &= \sum_{x,y\in \Omega} xy \Pr{\{X=x\}\cap\{Y=y\}} = \sum_{x,y\in \Omega} xy \Pr{X=x} \Pr{Y=y} \\
+&= \left(\sum_{x\in \Omega} x \Pr{X=x}\right) \left(\sum_{y\in \Omega} y \Pr{Y=y}\right) = \mathbb{E}(X) \mathbb{E}(Y).
+\end{align*}
+相互独立的两个随机变量，其乘积的期望等于它们各自期望的乘积。这是一个非常有用的结论。
+
+要注意的是：这个结论反过来并不成立。即使两个随机变量的乘积的期望等于它们各自期望的乘积，也不能说明它们一定相互独立。下面是一个简单的反例：
+设随机变量$X$是取值为$\{-1,0,1\}$的均匀分布，取每个值的概率都是$\displaystyle \frac{1}{3}$。设$Y=X^2$，那么$X,Y$的联合分布为：
+\begin{center}
+\begin{tabular}{c|ccc}
+ & \(Y=0\) & \(Y=1\) \\ \hline
+\(X=-1\) & 0 & \(\frac{1}{3}\)  \\
+\(X=0\) & \(\frac{1}{3}\) & 0 \\
+\(X=1\) & 0 & \(\frac{1}{3}\)
+\end{tabular}
+\end{center}
+根据联合分布可以计算$XY$的期望：
+\[\mathbb{E}(XY) = (-1)\cdot0\cdot0 + (-1)\cdot1\cdot\frac{1}{3} + 0\cdot0\cdot\frac{1}{3} + 0\cdot 1\cdot 0 + 1\cdot 0\cdot 0 + 1\cdot1\cdot\frac{1}{3} = 0.\]
+计算$Y$的边际分布：
+\(\Pr{Y=0} = \frac{1}{3}\), \(\Pr{Y=1} = \frac{2}{3}\)。计算$X,Y$的期望：
+\(\mathbb{E}(X) = 0\), \(\mathbb{E}(Y) = \frac{2}{3}\)。因此$X,Y$期望的乘积：
+\[\mathbb{E}(X) \cdot \mathbb{E}(Y) = 0 \cdot \frac{2}{3} = 0 = \mathbb{E}(XY).\]
+但$X,Y$并不相互独立，因为：
+\[\Pr{\{X=0\}\cap\{Y=0\}} = \frac{1}{3} \neq \Pr{X=0}\Pr{Y=0} = \frac{1}{3} \cdot 0 = 0.
+\]
+从联合分布的表格来看，显然$Y$的分布受$X$取值影响而变化，$X$的分布也受$Y$取值影响而变化，因此它们并不相互独立。
+
+\subsection{协方差与相关系数}
+
+随机变量相互不独立时，我们想要“测量”它们之间的关联程度。\textbf{协方差}就是一种度量随机变量之间有多么相关的方法。随机变量$X,Y$的协方差$\text{Cov}$定义为：
+\[
+\text{Cov}(X,Y) = \mathbb{E}((X - \mathbb{E}(X))(Y - \mathbb{E}(Y)))
+\]
+它可以简化为：
+\[
+\text{Cov}(X,Y) = \mathbb{E}(XY) - \mathbb{E}(X)\mathbb{E}(Y)
+\]
+协方差的想法来自方差。显然，如果$X=Y$，那么$X,Y$的协方差就是$X$的方差。取值为实数的随机变量，方差总是非负数。和方差不同的是，协方差可以是正数、负数或零。它的正负表示了随机变量之间的关系的“方向”：
+\begin{itemize}
+    \item 如果 \(\text{Cov}(X,Y) > 0\)，则 \(X\) 和 \(Y\) 趋向于同向变化，即当 \(X\) 增大时，\(Y\) 也倾向增大。它们之间的关系类似正系数的正比例关系，我们说 \(X\) 和 \(Y\) 正相关。
+    \item 如果 \(\text{Cov}(X,Y) < 0\)，则 \(X\) 和 \(Y\) 趋向于反向变化，即当 \(X\) 增大时，\(Y\) 倾向减小。它们之间的关系类似于负系数的正比例关系，我们说 \(X\) 和 \(Y\) 负相关。
+    \item 如果 \(\text{Cov}(X,Y) = 0\)，则 \(X\) 和 \(Y\) 之间没有类似正比例的方向性关系。
+\end{itemize}
+这种“方向”来自于实数轴的方向，即实数集的序关系。但这种“方向”是$X,Y$把$\Omega$的元素“投影”在实数轴上的结果，因此只能反映随机变量的部分性质。协方差等于零，并不意味着随机变量之间没有任何关系。
+
+协方差具有以下基本性质：
+\begin{itemize}
+    \item 若 \(X,Y\) 相互独立，则 \(\text{Cov}(X,Y) = 0\)
+    \item \(\forall a,b,c,d \in \mathbb{R}, \;\,\text{Cov}(aX+b,cY+d) = ac\cdot\text{Cov}(X,Y)\)
+    \item \(\text{Var}(X+Y) = \text{Var}(X) + \text{Var}(Y) + 2\text{Cov}(X,Y)\)
+\end{itemize}
+
+可以看到，协方差的值依赖于随机变量自身的尺度和离散程度，因此它的数值不易直接比较。比如，如果把$X$和$Y$分别乘以某个系数，变为$100X$和$1000Y$，那么协方差将变成原来的$10\dlim{0000}$倍。为了消除这种影响，我们引入\textbf{相关系数}。相关系数定义为：
+\[
+\rho_{X,Y} = \frac{\text{Cov}(X,Y)}{\sigma_X \sigma_Y}
+\]
+其中 \(\sigma_X = \sqrt{\text{Var}(X)}\), \(\sigma_Y = \sqrt{\text{Var}(Y)}\)。
+
+实随机变量的相关系数总介于$-1$和$1$之间。证明如下：
+\begin{align*}
+    \rho^2_{X,Y} &= \frac{\text{Cov}^2(X,Y)}{\sigma_X^2 \sigma_Y^2} = \frac{\mathbb{E}^2((X - \mathbb{E}(X))(Y - \mathbb{E}(Y)))}{\text{Var}(X)\text{Var}(Y)} \\[2ex]
+    &= \frac{\mathbb{E}^2((X - \mathbb{E}(X))(Y - \mathbb{E}(Y)))}{\mathbb{E}((X - \mathbb{E}(X))^2)\mathbb{E}((Y - \mathbb{E}(Y))^2)} 
+\end{align*}
+
+构造关于实数$t$的二次函数：
+\begin{align*}
+    f(t) &= \mathbb{E}(((X - \mathbb{E}(X)) + t(Y - \mathbb{E}(Y)))^2) \\
+    &= \mathbb{E}((X - \mathbb{E}(X))^2) + 2t\mathbb{E}((X - \mathbb{E}(X))(Y - \mathbb{E}(Y))) + t^2\mathbb{E}((Y - \mathbb{E}(Y))^2).
+\end{align*}
+$f(t)$是随机变量$(X - \mathbb{E}(X)) + t(Y - \mathbb{E}(Y))$的平方的期望。对任意实数$t$，$(X - \mathbb{E}(X)) + t(Y - \mathbb{E}(Y))$的平方总大于等于$0$，因此，根据期望的非负性，$f(t)$总大于等于$0$。这说明作为二次函数，它的判别式小于等于$0$：
+\begin{align*}
+    0 \geqslant 
+    \Delta = 4\mathbb{E}^2((X - \mathbb{E}(X))(Y - \mathbb{E}(Y))) - 4\mathbb{E}((X - \mathbb{E}(X))^2)\mathbb{E}((Y - \mathbb{E}(Y))^2) 
+\end{align*}
+于是得到：
+\begin{align*}
+    \mathbb{E}((X - \mathbb{E}(X))^2)\mathbb{E}((Y - \mathbb{E}(Y))^2) &\geqslant \mathbb{E}^2((X - \mathbb{E}(X))(Y - \mathbb{E}(Y))) \\[2ex]
+    1 &\geqslant \frac{\mathbb{E}^2((X - \mathbb{E}(X))(Y - \mathbb{E}(Y)))}{\mathbb{E}((X - \mathbb{E}(X))^2)\mathbb{E}((Y - \mathbb{E}(Y))^2)} = \rho^2_{X,Y} 
+\end{align*}
+这说明：
+$$ -1 \leqslant \rho_{X,Y} \leqslant 1.$$
+
+另外要注意的是：相关系数的分母是随机变量的方差，所以要求随机变量方差不为零。对取值为实数的随机变量，就是要求它不为常数。
+
+\begin{ex}
+    设随机变量 \(X\) 和 \(Y\) 的联合分布为：
+    \begin{center}
+        \begin{tabular}{c|cc}
+            & \(Y=0\) & \(Y=1\) \\ \hline
+            \(X=0\) & 0.3 & 0.2 \\
+            \(X=1\) & 0.1 & 0.4
+        \end{tabular}
+    \end{center}
+    边际分布：\(\Pr{X=0}=\Pr{X=1}=0.5\), \(\Pr{Y=0}=0.4\)，\(\Pr{Y=1}=0.6\)。
+
+    计算协方差：
+    \begin{align*}
+        \mathbb{E}(XY) &= (0\cdot0)\cdot0.3 + (0\cdot1)\cdot0.2 + (1\cdot0)\cdot0.1 + (1\cdot1)\cdot0.4 = 0.4 \\
+        \mathbb{E}(X) &= 0.5,\quad \mathbb{E}(Y) = 0.6 \\
+        \text{Cov}(X,Y) &= \mathbb{E}(XY) - \mathbb{E}(X)\mathbb{E}(Y) = 0.4 - 0.5 \times 0.6 = 0.1
+    \end{align*}
+    方差：\(\text{Var}(X) = \mathbb{E}(X^2) - \mathbb{E}^2(X)= 0.25\), \(\text{Var}(Y) = \mathbb{E}(Y^2) - \mathbb{E}^2(Y) = 0.24\)，相关系数：
+    $$ \rho_{X,Y} = \frac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)\cdot\text{Var}(Y)}} = \frac{0.1}{\sqrt{0.25 \times 0.24}} = \frac{0.1}{\sqrt{0.06}} \approx 0.408 $$
+    这表明 \(X\) 和 \(Y\) 中度正相关。
+\end{ex}
+
+习题：
+1. 设随机变量 \(X\) 和 \(Y\) 的联合分布为：
+\begin{center}
+    \begin{tabular}{c|cc}
+        & \(Y=0\) & \(Y=1\) \\ \hline
+        \(X=0\) & 0.2 & 0.3 \\
+        \(X=1\) & 0.1 & 0.4
+    \end{tabular}
+\end{center}
+计算协方差和相关系数。
+2. 设随机变量 \(X\) 和 \(Y\) 的联合分布为：
+$$ \forall m, n\in \mathbb{N},\;\, \mathbb{P}_{X,Y}(m, n) = \frac{1}{(m+n+1)(m+n+2)} $$ 
+2.1. 计算 \(X\) 和 \(Y\) 的边际分布。\\
+2.2. \(X\) 和 \(Y\) 是否相互独立？\\
+2.3. 计算 \(X\) 和 \(Y\) 的期望和方差。\\
+2.4. 计算 \(X\) 和 \(Y\) 的协方差和相关系数。
 
 
 % 讨论实变函数中的可测函数

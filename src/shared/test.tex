@@ -1,4 +1,7 @@
 \documentclass[12pt,UTF8]{ctexbook}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{subcaption}
 
 % % 导入设定
 \input{../shared/settings}
@@ -19,6 +22,180 @@
 \usetikzlibrary{calc,arrows.meta}
 
 \begin{document}
+
+% \section{问题背景}
+% 研究某城市25-35岁居民的教育年限（$Y$，单位：年）与年收入（$X$，单位：万元）的关系。随机抽样1000名居民，得到联合分布数据如下：
+
+% \section{数据分布}
+% \begin{table}[h!]
+% \centering
+% \caption{教育年限与收入的联合频数分布（样本量$n=1000$）}
+% \label{tab:joint-dist}
+% \begin{tabular}{c|ccccc|c}
+% \toprule
+% \multirow{2}{*}{$X$\textbackslash $Y$} & \multicolumn{4}{c}{教育年限 $Y$ (年)} & \multirow{2}{*}{合计} \\
+% & 12 & 16 & 18 & 20 & \\
+% \midrule
+% 10 & 140 & 40 & 10 & 0 & 190 \\
+% 20 & 90 & 140 & 40 & 10 & 280 \\
+% 30 & 40 & 90 & 100 & 40 & 270 \\
+% 40 & 10 & 40 & 80 & 60 & 190 \\
+% 50 & 0 & 10 & 20 & 40 & 70 \\
+% \hline
+% 合计 & 280 & 320 & 250 & 150 & 1000 \\
+% \bottomrule
+% \end{tabular}
+% \end{table}
+
+% \section{基于事件的条件分布}
+% 定义随机事件：
+% \[
+% A_1 = \{Y \leq 16\} \quad (\text{高等教育以下}), \quad 
+% A_2 = \{Y > 16\} \quad (\text{高等教育以上})
+% \]
+
+% \subsection{条件概率计算}
+% \begin{align*}
+% P(A_1) &= \frac{280 + 320}{1000} = 0.6, \quad 
+% P(A_2) = \frac{250 + 150}{1000} = 0.4 \\
+% P(X=x|A_1) &= \frac{P(X=x, Y\leq16)}{P(A_1)}, \quad 
+% P(X=x|A_2) = \frac{P(X=x, Y>16)}{P(A_2)}
+% \end{align*}
+
+% \begin{table}[h!]
+% \centering
+% \caption{条件分布 $P(X|A_1)$ 和 $P(X|A_2)$}
+% \label{tab:event-cond}
+% \begin{tabular}{c|cc|cc}
+% \toprule
+% \multirow{2}{*}{收入 $X$} & \multicolumn{2}{c|}{频数} & \multicolumn{2}{c}{条件概率} \\
+% & $A_1$ & $A_2$ & $P(X|A_1)$ & $P(X|A_2)$ \\
+% \midrule
+% 10 & 180 & 10 & 0.300 & 0.025 \\
+% 20 & 230 & 50 & 0.383 & 0.125 \\
+% 30 & 130 & 140 & 0.217 & 0.350 \\
+% 40 & 50 & 140 & 0.083 & 0.350 \\
+% 50 & 10 & 60 & 0.017 & 0.150 \\
+% \hline
+% 合计 & 600 & 400 & 1.000 & 1.000 \\
+% \bottomrule
+% \end{tabular}
+% \end{table}
+
+% \subsection{分布可视化}
+% \begin{figure}[h!]
+% \centering
+% \begin{tikzpicture}
+% \begin{axis}[
+%     ybar, 
+%     bar width=6mm,
+%     title={事件条件对收入分布的影响},
+%     xlabel={收入 \(X\) (万元)},
+%     ylabel={概率},
+%     symbolic x coords={10,20,30,40,50},
+%     xtick=data,
+%     legend pos=north west,
+%     ymajorgrids=true,
+%     width=0.9\textwidth,
+%     height=0.6\textwidth
+% ]
+% \addplot coordinates {(10,0.300) (20,0.383) (30,0.217) (40,0.083) (50,0.017)};
+% \addplot coordinates {(10,0.025) (20,0.125) (30,0.350) (40,0.350) (50,0.150)};
+% \legend{\(X|A_1\) (教育≤16年), \(X|A_2\) (教育>16年)}
+% \end{axis}
+% \end{tikzpicture}
+% \caption{事件条件对收入分布的影响}
+% \label{fig:event-cond}
+% \end{figure}
+
+% \section{基于随机变量的条件分布}
+% 定义条件随机变量 $X|Y=y$ 的概率质量函数：
+% \[
+% P(X=x|Y=y) = \frac{P(X=x,Y=y)}{P(Y=y)}
+% \]
+
+% \begin{table}[h!]
+% \centering
+% \caption{条件分布 $P(X|Y=y)$ 随教育年限 $y$ 的变化}
+% \label{tab:rv-cond}
+% \begin{tabular}{c|cccc}
+% \toprule
+% \multirow{2}{*}{收入 $X$} & \multicolumn{4}{c}{教育年限 $Y=y$ (年)} \\
+% & 12 & 16 & 18 & 20 \\
+% \midrule
+% 10 & 0.500 & 0.125 & 0.040 & 0.000 \\
+% 20 & 0.321 & 0.438 & 0.160 & 0.067 \\
+% 30 & 0.143 & 0.281 & 0.400 & 0.267 \\
+% 40 & 0.036 & 0.125 & 0.320 & 0.400 \\
+% 50 & 0.000 & 0.031 & 0.080 & 0.267 \\
+% \hline
+% 合计 & 1.000 & 1.000 & 1.000 & 1.000 \\
+% \bottomrule
+% \end{tabular}
+% \end{table}
+
+% \subsection{分布可视化}
+% \begin{figure}[h!]
+% \centering
+% \begin{tikzpicture}
+% \begin{axis}[
+%     ybar, 
+%     bar width=4mm,
+%     title={不同教育年限下的收入分布},
+%     xlabel={收入 \(X\) (万元)},
+%     ylabel={概率},
+%     symbolic x coords={10,20,30,40,50},
+%     xtick=data,
+%     legend style={at={(0.5,-0.2)}, anchor=north, legend columns=4},
+%     ymajorgrids=true,
+%     width=1.0\textwidth,
+%     height=0.6\textwidth
+% ]
+% \addplot coordinates {(10,0.500) (20,0.321) (30,0.143) (40,0.036) (50,0.000)};
+% \addplot coordinates {(10,0.125) (20,0.438) (30,0.281) (40,0.125) (50,0.031)};
+% \addplot coordinates {(10,0.040) (20,0.160) (30,0.400) (40,0.320) (50,0.080)};
+% \addplot coordinates {(10,0.000) (20,0.067) (30,0.267) (40,0.400) (50,0.267)};
+% \legend{\(Y=12\), \(Y=16\), \(Y=18\), \(Y=20\)}
+% \end{axis}
+% \end{tikzpicture}
+% \caption{不同教育水平下的条件收入分布}
+% \label{fig:rv-cond}
+% \end{figure}
+
+% \section{关键结论}
+% \begin{enumerate}
+% \item \textbf{事件条件改变分布形状}：从图\ref{fig:event-cond}可见：
+%   \begin{itemize}
+%   \item $X|A_1$ 呈右偏分布（众数20万）
+%   \item $X|A_2$ 呈钟形分布（众数30-40万）
+%   \end{itemize}
+  
+% \item \textbf{随机变量条件精细调节分布}：从图\ref{fig:rv-cond}可见：
+%   \begin{align*}
+%   \text{教育水平 } \uparrow \quad \Rightarrow \quad & \text{低收入概率} \downarrow \\
+%   & \text{高收入概率} \uparrow \\
+%   & \text{分布中心} \rightarrow \text{右移}
+%   \end{align*}
+  
+% \item \textbf{期望收入对比}：
+%   \begin{align*}
+%   E[X|A_1] &= 21.8 \text{ 万元}, \quad 
+%   E[X|A_2] = 33.5 \text{ 万元} \\
+%   E[X|Y=12] &= 18.2 \text{ 万元}, \quad 
+%   E[X|Y=16] = 24.8 \text{ 万元} \\
+%   E[X|Y=18] &= 32.4 \text{ 万元}, \quad 
+%   E[X|Y=20] = 37.3 \text{ 万元}
+%   \end{align*}
+% \end{enumerate}
+
+% \section{理论启示}
+% \begin{itemize}
+% \item \textbf{事件条件} ($X|A$)：生成\textbf{单一}条件分布，通过事件$A$改变样本空间
+% \item \textbf{随机变量条件} ($X|Y=y$)：生成\textbf{分布族}，展示$X$如何随$Y$取值变化
+% \item \textbf{分布演化}：当$Y$连续时，$X|Y=y$可形成条件密度曲面
+% \item \textbf{应用意义}：条件期望$E[X|Y]$是最小均方预测器
+% \end{itemize}
+
 
 % \begin{tikzpicture}[scale=0.75]
 %     % 方城参数
