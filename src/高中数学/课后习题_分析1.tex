@@ -1,0 +1,1736 @@
+\documentclass[12pt,UTF8]{ctexbook}
+% 导入设定
+\input{../shared/settings}
+\usepackage{extarrows}
+\usepackage{amsthm} % 定理环境
+\usepackage{amssymb}
+\usepackage{enumitem} % 自定义列表
+\usepackage{amsmath} % 数学公式
+\usepackage{geometry} % 页面布局
+\usepackage{indentfirst} % 首段缩进
+
+% 设置页面边距
+\geometry{a4paper, left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+
+% 自定义习题和解答环境
+% 定义无斜体的定理样式
+\newtheoremstyle{exercisestyle}%
+  {3pt}          % 空间大小（上间距）
+  {3pt}          % 空间大小（下间距）
+  {\upshape}     % 主体文本字体（正体）
+  {}             % 缩进量
+  {\bfseries}    % 定理头字体（加粗）
+  {:}            % 定理头标点
+  {0.5em}        % 定理头后空格
+  {} % 定理头格式
+\theoremstyle{exercisestyle}
+\newtheorem*{exercise}{题目}
+\newtheoremstyle{solutionstyle}%
+  {3pt}          % 空间大小（上间距）
+  {3pt}          % 空间大小（下间距）
+  {\upshape}     % 主体文本字体（正体）
+  {}             % 缩进量
+  {\bfseries}    % 定理头字体（加粗）
+  {:}            % 定理头标点
+  {0.5em}        % 定理头后空格
+  {\ensuremath{\blacktriangleright}\thmname{#1}} % 定理头格式
+\theoremstyle{solutionstyle}
+\newtheorem*{solution*}{解答}
+\newenvironment{solution}
+  {\begin{solution*}}
+  {\hfill\ensuremath{\qed}\end{solution*}}
+\renewcommand\qedsymbol{$\blacktriangleleft$}
+
+% 定义子问题列表样式
+\newlist{subquestions}{enumerate}{1}
+\setlist[subquestions]{label=\textbf{(\arabic*)}, ref=\arabic*, itemsep=0.5em, topsep=0.8em}
+% 封面
+\title{\zihao{0} \bfseries 分析习题集第一册}
+\author{\zihao{2} \texttt{大青花鱼}}
+% \date{\bfseries\today}
+\date{}
+% 正文
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\chapter{实数和复数}
+\section{1.1. 实数的正规十进制展开式}
+\begin{exercise}
+证明：区间$[0,1]$中的每个实数$x$都能唯一地表示为
+$$x = \sum_{n=1}^{+\infty} \frac{a_n}{10^n}$$
+其中$(a_n)_{n \geq 1}$是一个取值于$\{0,1,...,9\}$且从某项起一路全为$9$的数列（即对任意$N \ge 1$，都存在$n \ge N$使得$a_n \ne 9$）
+\end{exercise}
+
+\section{1.2. 有理数的刻画}\label{caractérisation-des-rationnels}
+\begin{exercise}
+设 $x \in [0,1]$。证明：$x$ 是有理数当且仅当$x$ 的规范十进制展开从某一位开始是循环的。  
+
+% （巴黎综合理工学院）
+\end{exercise}
+
+\section{1.3. 实数集的不可数性}\label{non-dénombrabilité-de-r}
+\begin{exercise}
+设 $f: \mathbb{N}^* \to [0,1]$。对每个 $k \geq 1$，记 $u_k$ 为 $f(k)$ 的正规十进制展开中的第 $k$ 位小数，并这样定义序列 $(v_n)_{n\geq 1}$：如果$u_k = 1$，那么$v_k = 0$，否则 $v_k = 1$。
+\begin{subquestions}
+\item 证明：可以定义$y = 0.v_1 v_2 \ldots v_n \ldots$，并且这就是$y$的规范展开。
+\item 证明：$y$ 在 $f$ 下没有原像。
+\item 从上可以得到什么结论？
+\end{subquestions}
+\end{exercise}
+
+\section{1.4. 实数集到自然数幂集的单射}
+\begin{exercise}
+构造一个单射
+$$
+\psi : \mathbb{R} \to \mathcal{P}(\mathbb{N})
+$$
+使得任意实数 $x$在$\psi$下的像$\psi(x)$ 是$\mathbb{N}$的无限子集，并且对任意不同的实数对 $(x, y)$，$\psi(x) \cap \psi(y)$ 是有限集。
+
+% （高等师范学校）
+\end{exercise}
+
+\section{1.5. 级数求和}\label{calcul-dune-somme}
+\begin{exercise}
+设 $x > 0$，计算  
+$$
+\sum_{n=0}^{+\infty} \mathbb{E}\left(\frac{x}{2^{n+1}} + \frac{1}{2}\right),
+$$  
+其中 $\mathbb{E}(\cdot)$ 表示取整函数（向下取整）。
+% （巴黎高等师范学院）
+\end{exercise}
+
+\section{1.6. Engel级数展开}
+\begin{exercise}
+设 $x \in [0,1]$。  
+\begin{subquestions}
+  \item 证明存在唯一的递增整数序列 $\{u_n\}_{n\in\mathbb{N}}$ 满足 $u_0 \geqslant 2$ 且  
+  $$
+  x = \sum_{n=0}^{+\infty} \frac{1}{u_0 u_1 \dots u_n}
+  $$
+  此即实数 $x$ 的 Engel 级数展开。  
+  \item 证明 $x$ 为有理数当且仅当序列 $\{u_n\}_{n\in\mathbb{N}}$ 驻定（从某一项起一直是同一个数）。
+\end{subquestions}
+\end{exercise}
+
+\section{1.7. 正实数作为级数的表示}
+\begin{exercise}
+设 $\{u_n\}_{n\in\mathbb{N}}$ 是严格递减的正实数序列，令 $\displaystyle S = \sum_{n=0}^{+\infty} u_n$，即 $S \in [0, +\infty]$。
+
+\begin{subquestions}
+\item 确定关于 $\{u_n\}_{n\in\mathbb{N}}$ 的充要条件，使得 $\forall x \in [0, S]$ 是其子列的级数和。
+\item 确定关于 $\{u_n\}_{n\in\mathbb{N}}$ 的充要条件，使得 $\forall x \in [0, S]$ ，上述子列均唯一存在。
+\end{subquestions}
+
+% （高等师范学校）
+\end{exercise}
+
+\section{1.8. 关于数 $e$}
+\begin{exercise}
+  \begin{subquestions}
+    \item 证明 $e$ 是无理数。
+    \item 证明向量组 $(1, e, e^2)$ 在 $\mathbb{Q}$ 上线性无关。
+  \end{subquestions}
+\end{exercise}
+
+\section{1.9. $\pi$ 的无理性}
+\begin{exercise}
+  对任意实系数多项式 $f \in \mathbb{R}[X]$，定义 $\mathrm{F} = \sum\limits_{k \geqslant 0} (-1)^k f^{(2k)}$。
+  \begin{subquestions}
+    \item 计算 $\int_0^{\pi} f(t) \sin t \di{t}$ 与 $F(0)$ 和 $F(\pi)$ 的关系。
+    \item 假设 $\pi = \frac{a}{b}$ 其中 $a, b$ 为正整数，定义 $f_n(x) = \frac{x^n (a - bx)^n}{n!}$，画出 $f_n$ 在 $[0, \pi]$ 上的图像。
+    \item 证明 $\int_0^{\pi} f_n(t) \sin t \di{t}$ 为整数，并由此推导 $\pi$ 的无理性。
+  \end{subquestions}
+\end{exercise}
+
+\section{1.10. $\frac{\arccos (1/3)}{\pi}$ 的无理性}
+\begin{exercise}
+证明：
+$$
+\alpha = \frac{\arccos (1/3)}{\pi} \notin \mathbb{Q}
+$$
+\begin{subquestions}
+\item 计算 $e^{i\alpha\pi}$ 。
+\item 证明 $\alpha \in \mathbb{Q}$ 当且仅当存在正整数 $n$ 使得 $(1 + 2i\sqrt{2})^n = 3^n$ 。
+\item 证明 $(1+2i\sqrt{2})^n = a_n + ib_n\sqrt{2}$ ，其中 $a_n$ 和 $b_n$ 是满足 $a_n - b_n \not\equiv 0 \pmod{3}$ 的整数。得出结论。
+\end{subquestions}
+\end{exercise}
+
+\section{1.11. 刘维尔数}
+\begin{exercise}
+\begin{subquestions}
+\item 设 $P \in \mathbb{Z}[X]$ 为次数 $m \geq 1$ 的多项式，$x$ 为其实根。证明存在常数 $K > 0$，使得对任意满足 $\displaystyle P(\frac{a}{b}) \neq 0$ 且属于区间 $[x-1,x+1]$ 的有理数 $\displaystyle\frac{a}{b}$，均有：
+$$
+\left|x-\frac{a}{b}\right| \geqslant \frac{K}{|b|^m}
+$$
+\item 设 $(u_n) \in [0, 9]^{\mathbb{N}}$ 为从某项起严格正的序列，定义刘维尔数：
+$$
+x = \sum_{n=0}^{+\infty} \frac{u_n}{10^{n!}}
+$$
+令 $\displaystyle s_n = \sum_{k=0}^n \frac{u_k}{10^{k!}}$，证明对任意 $n$ 有 $\displaystyle|x - s_n| \leq \frac{1}{10^{nn!}}$，并推出 $x$ 在 $\mathbb{Q}$ 上超越。
+\end{subquestions}
+\end{exercise}
+
+\section{1.12. Pisot数}
+\begin{exercise}
+  \begin{subquestions}
+    \item 设 $A$ 是 $\mathbb{N}^{\mathbb{N}}$ 的子集，且存在映射 $n_0: A \to \mathbb{N}$，使得对任意 $(u, v) \in A^2$ 有：
+    $$
+    (\forall k \leq \max(n_0(u), n_0(v)), \quad u_k = v_k) \iff u = v
+    $$
+    证明：$A$ 至多为可数集。
+
+    \item 设 
+    $$S = \left\{ t > 1 \,\middle|\, \exists \alpha > 0, \lim_{n \to +\infty} d(\alpha t^n, \mathbb{Z}) = 0 \right\},$$
+    对 $t \in S$ 取整数数列 $a_n$ 满足 $|\alpha t^n - a_n| \leq \frac{1}{2}$（$\forall n \in \mathbb{N}$）。证明：$a_{n+2} - \frac{a_{n+1}^2}{a_n}$ 趋于 $0$，并证明 $S$ 至多为可数集。
+
+    \item 设 $t > 1$ 是某个首一整系数多项式 $P \in \mathbb{Z}[X]$ 的根，且 $P$ 的所有其他复根模长均严格小于 $1$（称此类实数 $t$ 为 \emph{Pisot数}）。证明：$t \in S$。
+  \end{subquestions}
+\end{exercise}
+
+\section{加法群}
+\begin{exercise}
+    给定集合$G$和$G$上的二元运算$+$，如果$G$满足以下条件，就说它是关于运算$+$的\textbf{群}，记为$(G,+)$：
+    \begin{enumerate}[label=\arabic*.]
+        \item 满足结合律：$\forall a, b, c \in G$，$a + (b + c) = (a + b) + c$；
+        \item 存在零元素：$\exists n \in G$，使得$\forall a \in G$，$a + n = n + a = a$；
+        \item 存在逆元素：$\forall a \in G$，都有$b \in G$使得$a + b = b + a = n$。
+    \end{enumerate}
+    \begin{subquestions}
+        \item 证明：零元素是唯一的（通常记为$0$）。任何元素$a$的逆元素也是唯一的（通常记为$-a$）。
+        \item 证明：$\mathbb{Z}$、$\mathbb{Q}$、$\mathbb{R}$是关于数的加法$+$的群，而$\mathbb{N}$不是关于数的加法的群。
+        \item 如果群$(G, +)$中$G$的子集$H$也是关于$+$的群，就说$H$是$G$的子群。证明：$G$的非空子集$H$只要满足：$\forall a, b \in H$，$a - b \in H$，就是$G$的子群。
+        \item 如果$(G,+)$满足交换律：$\forall a, b \in G$，$a + b = b + a$，就说$G$是交换群。如果$(G,+)$中所有元素都可以通过某个元素不断加减自身得到，就说它是循环群（这个元素称为群的\textbf{生成元}）。证明：非平凡的循环群（指不仅有零元素）的生成元只有一对，互为逆元素。
+        \item 证明：循环群是交换群。举一个反例说明交换群不一定是循环群。
+    \end{subquestions}
+\end{exercise}
+
+\section{1.13. 实数的加法子群}
+\begin{exercise}
+  设 \(G\) 是 \((\mathbb{R}, +)\) 的一个非平凡加法子群（即 \(G \neq \{0\}\)）。  
+  \begin{subquestions}
+    \item 证明：\(G\) 要么在 \(\mathbb{R}\) 中稠密，要么形如 \(a\mathbb{Z}\)，其中 \(a > 0\)。
+    \item 设 \(\alpha\) 和 \(\beta\) 为非零实数。讨论它们生成的加法子群的性质。
+    \item 设 \(\beta \notin \mathbb{Q}\)。证明 \(\mathbb{N}\beta + \mathbb{Z}\) 在 \(\mathbb{R}\) 中稠密。
+    \item 设 \(\theta \notin 2\pi\mathbb{Q}\)。证明集合 \(\{e^{in\theta} \mid n \in \mathbb{N}\}\) 在复平面单位圆 \(S^1\) 上稠密。并求出序列 \((\sin n)_{n\geqslant 0}\) 的聚点集。
+  \end{subquestions}
+\end{exercise}
+
+\section{1.14. 一个不等式}
+\begin{exercise}
+  证明：在13个不同实数中，总可以选择两个，记为 \(x\) 和 \(y\)，使得 \(0 < \frac{x-y}{1+xy} < 2-\sqrt{3}\)。
+  % （巴黎综合理工学院）
+\end{exercise}
+
+\section{1.15. 重排不等式}
+\begin{exercise}
+设 \(x_1 \geqslant x_2 \geqslant \cdots \geqslant x_n\) 和 \(y_1 \geqslant y_2 \geqslant \cdots \geqslant y_n\) 为实数。设 \((z_1, \ldots, z_n)\) 是 \((y_1, \ldots, y_n)\) 的一个排列。证明：
+\[
+\sum_{i=1}^{n} (x_i - y_i)^2 \leqslant \sum_{i=1}^{n} (x_i - z_i)^2.
+\]
+% （巴黎综合理工学院）
+\end{exercise}
+
+\section{1.16. 切比雪夫不等式}
+\begin{exercise}
+  \begin{subquestions}
+    \item 设 \((x_1, \ldots, x_n)\) 和 \((y_1, \ldots, y_n)\) 为两个单调实数序列。比较
+    \[
+    \left(\frac{1}{n}\sum_{k=1}^n x_k\right) \times \left(\frac{1}{n}\sum_{k=1}^n y_k\right)
+    \quad \mbox{与} \quad 
+    \frac{1}{n}\sum_{k=1}^n x_k y_k
+    \]
+    的大小。
+    \item 设 \(f\) 和 \(g\) 为在区间 \([a, b]\) 上单调且分段连续的两个函数。比较 \(\int_a^b f \times \int_a^b g\) 与 \((b-a) \int_a^b fg\) 的大小。
+    % （巴黎综合理工学院）
+  \end{subquestions}
+\end{exercise}
+
+\section{1.17. 复数中的不等式}
+\begin{exercise}
+设 \( n \in \mathbb{N}^* \) 且 \( (z_1, \ldots, z_n) \in \mathbb{C}^n \)。证明存在子集 \( I \subset \hin{1}{n} \) 使得
+\[
+\left| \sum_{k \in I} z_k \right| \geqslant \frac{1}{\pi} \sum_{k=1}^n |z_k|.
+\]
+\textbf{提示}：
+对 \(\theta \in \mathbb{R}\)，定义：
+\[
+S_{\theta} = \left\{ j \in\hin{1}{n} \mid \theta - \frac{\pi}{2} \leqslant \arg z_j \leqslant \theta + \frac{\pi}{2} \right\},
+\]
+以及函数
+\[
+f(\theta) = \left| \sum_{k \in S_{\theta}} z_k \right|.
+\]
+寻找 \( f \) 的一个下界，并在 \([0, 2\pi]\) 上积分。
+% （巴黎综合理工学院）
+\end{exercise}
+
+\section{1.18. 复数中的不等式(2)}
+\begin{exercise}
+设 \( n \in \mathbb{N}^* \) 且 \( z_1, \ldots, z_n \) 为非零复数，记 \( 1 \leq k \leq n \) 时，\( \rho_k \) 为其模，\( \theta_k \) 为其辐角。记 \( I_n \) 为从 \(\hin{1}{n}\) 到 \(\{-1, 1\}\) 的所有函数的集合。
+\begin{subquestions}
+\item 证明
+\[
+\max_{\varepsilon \in I_n} \Big| \sum_{k=1}^n \varepsilon(k) z_k \Big| = \sup_{\theta \in \mathbb{R}} \sum_{k=1}^n \rho_k |\cos(\theta_k - \theta)|.
+\]
+
+\item 证明
+\[
+\sum_{k=1}^{n} |z_k| \leqslant \frac{\pi}{2} \max_{\varepsilon \in I_n} \left| \sum_{k=1}^{n} \varepsilon(k) z_k \right|.
+\]
+
+\item 证明 \( \displaystyle\frac{\pi}{2} \) 是使得上述不等式对所有 \( n \) 和所有非零复数 \( n \)-元组 \( (z_1,\ldots,z_n) \) 成立的最小的正常数。
+\end{subquestions}
+% （巴黎高等师范学校）
+\end{exercise}
+
+\section{1.19. 一个围堵引理}
+\begin{exercise}
+设 \( z_1, z_2, \ldots, z_n \) 为模不超过 1 的复数。
+\begin{subquestions}
+\item 证明存在一个 \( n \)元组 \( (\varepsilon_1, \ldots, \varepsilon_n) \in \{1, -1\}^n \) 使得对所有 \( p \in \hin{1}{n} \)，有 \( |\varepsilon_1 z_1 + \cdots + \varepsilon_p z_p| \leqslant \sqrt{3} \)。
+\item 设 \( (z_n)_{n \geq 0} \) 为趋于 0 的复数序列。证明存在一个通项属于 \( \{1, -1\} \)的序列 \( (\varepsilon_n)_{n \geqslant 0} \) ，使得级数 \( \sum \varepsilon_n z_n \) 收敛。
+\end{subquestions}
+% （巴黎高等师范学校）
+\end{exercise}
+
+\section{1.20. Shapiro函数方程}
+\begin{exercise}
+  \begin{subquestions}
+    \item 确定复数集 \(\mathbb{C}\) 的非空有限子集 \(A\)，使得 \(A\) 在函数 \(f: z \mapsto z^2 + z + 1\) 和 \(g: z \mapsto z^2 - z + 1\) 下稳定。
+    \item 由此推导出集合 \(\{P \in \mathbb{R}[X] \mid P(X^2 + X + 1) = P(X)P(X + 1)\}\)。
+  \end{subquestions}
+  % （巴黎综合理工学院）
+\end{exercise}
+
+\section{1.21. 保持单位圆盘不变的分式线性变换}
+\begin{exercise}
+确定复平面上保持单位闭圆盘 \( D_0 = \{z \, | \, |z| \leqslant 1\}\) 不变的分式线性变换 \( f \) 的群（即满足 \( f(D_0) = D_0 \)），其中 \( D_0 \) 是以 \( 0 \) 为中心、半径为 \( 1 \) 的闭圆盘。
+% (\text{巴黎综合理工学院})
+\end{exercise}
+
+\section{1.22. 多边形序列}
+\begin{exercise}
+设 \(0 \le \theta_1 \le \cdots \le \theta_n < 2\pi\) ， \(a, b\) 为非负实数，$a + b = 1$。定义 \(\theta_j^{(0)} = \theta_j\)。对于正整数$k$，当 \(1 \le j < n\) 时 \(\theta_j^{(k+1)} = a\theta_j^{(k)} + b\theta_{j+1}^{(k)}\)，当 \(j = n\) 时 \(\theta_n^{(k+1)} = a\theta_n^{(k)} + b(\theta_1^{(k)} + 2\pi)\)。研究当 \(k\) 趋于正无穷时 \(\theta_{j+1}^{(k)} - \theta_j^{(k)}\) 的极限。
+% （高等师范学校）
+\end{exercise}
+
+\section{1.23. Lebesgue外测度}
+\begin{exercise}
+设 \(E \subset \mathbb{R}\)。对于任意覆盖 \(E\)且至多可数的开区间族 \(F = \bigl((a_i, b_i)\bigr)_{i \in I}\) ，定义 \(\ell(F) = \sum_{i \in I} (b_i - a_i) \in \mathbb{R} \cup \{+\infty\}\)。则 \(E\) 的 Lebesgue 外测度定义为
+\[
+\mu(E) = \inf_{F} \ell(F),
+\]
+其中下确界取遍所有覆盖 \(E\) 的至多可数开区间族。
+\begin{subquestions}
+\item 区间的外测度是多少？
+\item 证明可数个外测度为零的集合的并集的外测度仍为零。
+\item \(\mathbb{Q}\) 的外测度是多少？
+\end{subquestions}
+% （高等师范学校）
+\end{exercise}
+
+\section{1.24. 区间的有限覆盖}
+\begin{exercise}
+假设对每个实数 \(x\) 给定一个以 \(x\) 为中心的开区间 \(I(x)\)，其长度记为 \(\mu(I(x))\)，且不超过固定常数 \(c > 0\)。设 \(a < b\) 是两个实数。证明存在有限个实数 \(x_1, \ldots, x_n\)，使得
+\begin{enumerate}[label=(\textit{\roman*})]
+\item \([a, b] \subset \bigcup_{i=1}^{n} I(x_i)\) 且
+\item \(\sum_{i=1}^{n} \mu(I(x_i)) \leqslant 2(b-a) + c\)。
+\end{enumerate}
+% （巴黎综合理工学院）
+\end{exercise}
+
+\section{1.25. 无理数在子集中的稠密性}
+\begin{exercise}
+  设 \( M \) 是 \( \mathbb{R}^*_+ \) 的一个有上界子集，包含至少两个元素，且对任意 \( (a, b) \in M^2 \)，有 \( \sqrt{ab} \in M \)。证明 \( M \cap (\mathbb{R} \setminus \mathbb{Q}) \) 在区间 \( [\inf M, \sup M] \) 上稠密。
+  % （高等师范学校）
+\end{exercise}
+
+\section{1.26. 闭映射}\label{application-fermee}
+\begin{exercise}
+  设 \( P \in \mathbb{C}[X] \) 是一个非常数多项式。证明：多项式 \( P \) 将复平面 \( \mathbb{C} \) 中的闭集映射为闭集。
+  % （高等师范学校）
+\end{exercise}
+
+\section{1.27. $[0,1]$ 的可数划分}
+\begin{exercise}
+  % (巴黎高等师范学校)
+  \begin{subquestions}
+    \item 证明实数轴上的非空开集可以唯一表示为至多可数个两两不相交的非空开区间的并集。
+    \item 证明闭区间 \([0,1]\) 不能表示为可数无穷个两两不相交的非空闭集的并集（非常难）。
+  \end{subquestions}
+\end{exercise}
+
+\appendix
+\chapter{实数和复数解答}
+\section{1.1. 实数的正规十进制展开式}
+\begin{solution}
+这里陈述的十进制情形实际上对任意基数$b \geq 2$都成立。我们将处理一般情形。记$\mathcal T$为所有取值于$\{0,1,\ldots,b-1\}$且不会从某项起一路全为$b-1$的数列$(a_n)_{n\geq 1}$的集合。设$x$是区间$[0,1]$中的实数（我们限制在这个区间，因为任何实数都是一个整数（其整数部分）和一个$[0,1]$中实数的和）。让我们来证明：区间$[0,1]$中的每个实数$x$都能唯一地表示为
+$$x = \sum_{n=1}^{+\infty} \frac{a_n}{b^n}$$
+其中$(a_n)_{n \geq 1}$是一个取值于$\{0,1,\ldots,b-1\}$且不最终恒为$b-1$的数列。
+
+\textbf{分析}：设$(a_n)_{n\geqslant 1} \in \mathcal T$满足问题条件：
+$$x = \sum_{n=1}^{+\infty} \frac{a_n}{b^n} = \frac{a_1}{b} + \frac{a_2}{b^2} + \dots + \frac{a_n}{b^n} + \dots$$
+
+我们知道，在十进制中如何得到小数点后第一位$a_1$：只需乘以$b$，这会使小数点右移一位，然后取整数部分。事实上，将上式两边乘以$b$得：
+$$bx = a_1 + \sum_{n=2}^{+\infty} \frac{a_n}{b^{n-1}} = a_1 + \sum_{n=1}^{+\infty} \frac{a_{n+1}}{b^n}$$
+
+出现的和是一个属于$[0,1)$的实数，因为：
+$$0 \leqslant \sum_{n=1}^{+\infty} \frac{a_{n+1}}{b^n} < \sum_{n=1}^{+\infty} \frac{b-1}{b^n} = \frac{b-1}{b} \cdot \frac{1}{1 - \frac{1}{b}} = 1$$
+第二个不等式是严格的，因为存在至少一个整数$n > 1$使得$a_n < b - 1$。因此必然有$a_1 = \lfloor bx \rfloor$。于是我们有：
+$$bx - a_1 = \sum_{n=1}^{+\infty} \frac{a_{n+1}}{b^n}$$
+通过同样的推理，$a_2 = \lfloor bx - a_1 \rfloor$。更一般地，如果已知到第$p-1$项的$a_k$（$p \geqslant 2$），我们有：
+$$b^p x = a_1 b^{p-1} + a_2 b^{p-2} + \dots + a_{p-1} b + a_p + \sum_{n=p+1}^{+\infty} \frac{a_n}{b^{n-p}}$$
+即：
+$$a_p = b^p x - a_1 b^{p-1} - a_2 b^{p-2} - \dots - a_{p-1} b - \sum_{n=1}^{+\infty} \frac{a_{n+p}}{b^n}$$
+因此：
+$$a_p = \lfloor x b^p - a_1 b^{p-1} - a_2 b^{p-2} - \dots - a_{p-1} b \rfloor$$
+如果存在，数列$(a_n)$是唯一确定的。
+
+\textbf{综合}：前面的分析给出了通过递归定义整数$a_p$的算法。现在需要验证这个数列确实满足要求。考虑由$a_1 = \lfloor xb \rfloor$和对所有$p \ge 2$定义的：
+$$a_p = \lfloor xb^p - a_1b^{p-1} - a_2b^{p-2} - \cdots - a_{p-1}b \rfloor$$
+确定的数列$(a_p)_{p\geq 1}$。我们将依次证明：
+\begin{enumerate}
+    \item $x = \sum_{n=1}^{+\infty} \frac{a_n}{b^n}$；
+    \item 对所有$p \geqslant 1$，有$0 \leqslant a_p \leqslant b - 1$；
+    \item 数列$(a_p)$有无穷多个数不等于$b - 1$。
+\end{enumerate}
+
+对$p \ge 2$，根据整数部分的定义有：
+$$a_p \leqslant x b^p - a_1 b^{p-1} - a_2 b^{p-2} - \dots - a_{p-1} b < a_p + 1$$
+两边除以$b^p$得：
+$$\frac{a_p}{b^p} \leqslant x - \sum_{n=1}^{p-1} \frac{a_n}{b^n} < \frac{a_p+1}{b^p}$$
+即：
+$$0 \leqslant x - \sum_{n=1}^p \frac{a_n}{b^n} < \frac{1}{b^p} \quad (*)$$
+
+由于$\lim_{p \to +\infty} \frac{1}{b^p} = 0$，可得$x = \sum_{n=1}^{+\infty} \frac{a_n}{b^n}$。
+
+由于$x \in [0,1]$，有$xb \in [0,b]$，故$0 \leq a_1 \leq b-1$。设$p \geq 2$。根据(*)式对$p-1$的情形有：
+$$0 \leqslant x - \sum_{n=1}^{p-1} \frac{a_n}{b^n} < \frac{1}{b^{p-1}} \quad \text{且} \quad 0 \leqslant x b^p - \sum_{n=1}^{p-1} a_n b^{p-n} < b$$
+两边乘以$b^p$后。由于$a_p$是$xb^p-\sum_{n=1}^{p-1}a_nb^{p-n}$的整数部分，故有$0\leqslant a_p\leqslant b-1$。
+
+反证：假设存在$N \ge 3$使得对所有$n \geq N$有$a_n = b - 1$。则有：
+$$x = \sum_{n=1}^{+\infty} \frac{a_n}{b^n} = \sum_{n=1}^{N-1} \frac{a_n}{b^n} + \sum_{n=N}^{+\infty} \frac{b-1}{b^n} = \sum_{n=1}^{N-1} \frac{a_n}{b^n} + \frac{1}{b^N} \cdot \frac{b-1}{1-1/b} = \sum_{n=1}^{N-1} \frac{a_n}{b^n} + \frac{1}{b^{N-1}}$$
+因此$x - \sum_{n=1}^{N-1} \frac{a_n}{b^n} = \frac{1}{b^{N-1}}$，这与$p = N-1$时的不等式(*)矛盾。
+
+\textbf{结论}：对任意$x \in [0,1]$，存在唯一的数列$(a_n)_{n \geq 1} \in \mathcal T$使得
+$$x = \sum_{n=1}^{+\infty} \frac{a_n}{b^n}$$
+我们记作$x = 0.a_1 a_2 ... a_n ...$，称为$x$的$b$进制正规展开式。当$b = 10$时称为十进制展开式，$b = 2$时称为二进制展开式，$b = 3$时称为三进制展开式。对于任意正实数，将其整数部分（以$b$为基展开）放在小数点左边。对于负实数，在其绝对值的展开式前加负号。
+
+我们自然会问：如果允许从某位其一路全为$9$（一般情形为$b-1$）的数列，会发生什么事？简单的计算表明，$0, a_1 a_2 ... a_p 9999...$（其中$a_p < 9$）实际上等于$0.a_1 ... a_{p-1} a'_p$（其中$a'_p = a_p + 1$，例如$0.9999\ldots$等于$1$）。而后者是实际存在的十进制有限小数，即形如$\frac{a}{10^k}$（$a \in \mathbb{Z}$）的有理数。这说明任何非零的十进制有限小数恰好有两个展开式：其正规展开式（有限展开式）和唯一一个从某位起一路全为$9$的非正规无限展开式。对任意$b$进位制的情形，形如$\frac{a}{b^k}$的有理数（它们也有两个展开式）有时被称为$b$-进有理数。
+
+\end{solution}
+
+\section{1.2. 有理数的刻画}\label{caractérisation-des-rationnels}
+\begin{solution}
+我们将对任意整数 $b \geqslant 2$ 的进位制证明该结论。记$\mathcal T$为所有取值于$\{0,1,\ldots,b-1\}$且不会从某项起一路全为$b-1$的数列 $(a_n)_{n\geq 1}$ 的集合。我们已知存在唯一的序列 $(a_n)_{n\geq 1} \in \mathcal{T}$ 使得
+$$
+x = \sum_{n=1}^{+\infty} \frac{a_n}{b^n} = 0.a_1 a_2 a_3 \dots
+$$
+
+\begin{subquestions}
+\item 假设展开式从某一位起循环：存在 $N \geq 1$ 和 $d \geq 1$ 使得对任意 $n > N$，有 $a_{n+d} = a_n$。可写作
+$$
+x = 0.a_1 a_2 \dots a_N \underbrace{a_{N+1} \dots a_{N+d}}_{\text{周期}} \underbrace{a_{N+1} \dots a_{N+d}}_{\text{周期}} \dots
+$$
+将级数按循环周期分组求和，记 $\overline{a_{N+1}a_{N+2}\ldots a_{N+d}}$ 表示整数 $a_{N+d} + a_{N+d-1}b + \cdots + a_{N+1}b^{d-1}$（即该整数的 $b$ 进制表示）。则有
+$$
+x = \frac{\overline{a_1 \dots a_N}}{b^N} + \sum_{k=1}^{+\infty} \frac{\overline{a_{N+1} a_{N+2} \dots a_{N+d}}}{b^{N+kd}}.
+$$
+几何级数 $\sum_{k=1}^{+\infty} \frac{1}{b^{kd}}$ 的和为 $\frac{1}{b^d-1}$，从而
+$$
+x = \frac{\overline{a_1 \dots a_N}}{b^N} + \frac{\overline{a_{N+1} a_{N+2} \dots a_{N+d}}}{b^N (b^d - 1)},
+$$
+显然为有理数。例如在十进制中，展开式为 $0.45123123123\ldots$ 的循环小数可以写为有理数： $\frac{456}{10^2} + \frac{123}{10^2 \cdot 999}$。
+
+\item 反过来设 $x$ 为有理数且非零（$x=0$ 的情形显然成立）。设 $x = \frac{p}{q}$，其中 $p,q \in \mathbb{N}^*$ 且互素。应用前一题的算法：将 $x$ 表示为十进制时，每次乘以 $b$ 并取整数部分作为下一位小数。例如 $\frac{9}{14}$ 的展开过程：
+$$
+\frac{9}{14} = 0.6\underbrace{428571}_{\text{周期}}428571\dots
+$$
+一般情形下，分子始终在 $1$ 到 $q-1$ 之间，必然出现循环。设 $a_1$ 为 $\frac{bp}{q}$ 的整数部分，即 $bp$ 除以 $q$ 的商。第二位小数由余数 $r$ 继续计算 $\frac{r}{q}$，余数范围有限，这就导致序列出现循环周期。
+\end{subquestions}
+
+该结果由 Wallis 于 1693 年证明。关于周期长度的确定，补充以下事实：若 $x$ 为 $b$-进分数（如十进制中分母为 $10^N$），展开式将有限；若 $x$ 的分母 $q$ 与 $b$ 互素，则最小周期 $d$ 满足 $b^d \equiv 1 \pmod{q}$。例如 $b=10,q=7$ 时，$\bar{3}$ 在 $(\mathbb{Z}/7\mathbb{Z})^*$ 中阶为 $6$，故 $\frac{p}{7}$ 的周期均为 $6$。若 $q$ 与 $b$ 不互素，可分解为 $\frac{p'}{b^Nq'}$（其中 $\gcd(b,q')=1$），例如：
+$$
+\frac{39}{280} = \frac{39}{2^3 \cdot 5 \cdot 7} = \frac{39 \cdot 25}{10^3 \cdot 7} = \frac{975}{10^3 \cdot 7} = \frac{139}{10^3} + \frac{2}{10^3 \cdot 7}.
+$$
+其中 $\frac{139}{10^3}$ 给出小数点后前三位数字，而 $\frac{2}{10^3 \cdot 7}$ 的展开从第四位开始周期性。进一步地，由于 $\frac{2}{7} = 0.\overline{285714}$，有
+$$
+x = \frac{139}{10^3} + \frac{285714}{10^3 \cdot (10^6 - 1)} = 0.139285714285714\ldots
+$$
+因此小数展开为 $0.139285714285714\ldots$，从第四位起以长度为 6 的周期循环。
+
+综上，任何有理数的规范 $b$-进制展开要么有限，要么从某位起周期性；反之，任何从某位起周期性的 $b$-进制展开对应的数均为有理数。
+\end{solution}
+
+\section{1.3. 实数集的不可数性}\label{non-dénombrabilité-de-r}
+\begin{solution}
+\begin{subquestions}
+\item 将 $f(n)$（$n \geq 1$）的十进制展开纵向排列如下：
+\begin{align*}
+f(1) &= 0.\mathbf{u_1}\ldots \\
+f(2) &= 0.u_1\,\mathbf{u_2}\ldots \\
+f(3) &= 0.u_1u_2\,\mathbf{u_3}\ldots \\
+\vdots\;\; &= \quad \;\vdots \\
+f(k) &= 0.u_1u_2\,\ldots\ldots \mathbf{u_k}\ldots
+\vdots\;\; &= \quad \;\vdots \\
+\end{align*}
+
+实数 $y = 0.v_1 v_2 \ldots v_n \ldots$ 通过其正规十进制展开被良好定义，因为对所有 $k$，$v_k \neq 9$（参见习题 1.1），这说明它是$y$的规范展开。
+
+\item 根据正规十进制展开的唯一性，对任意整数 $k$，$y \neq f(k)$，因为 $y$ 的第 $k$ 位小数为 $v_k$，而 $v_k \neq u_k$。因此 $y$ 在 $f$ 下没有原像。
+
+\item 以上讨论表明，$f$必然不是满射，即不存在从 $\mathbb{N}$ 到 $[0,1]$ 的满射，从而更不存在到 $\mathbb{R}$ 的满射。结论是 $\mathbb{R}$ 不可数。
+\end{subquestions}
+\end{solution}
+
+\section{1.4. 实数集到自然数幂集的单射}
+\begin{solution}
+首先观察到，若映射 $\psi : \mathbb{R} \to \mathcal{P}(\mathbb{N})$ 满足 
+\begin{enumerate}[label=\arabic*.]
+    \item $\psi(x)$ 对任意 $x$ 都是无限集，且
+    \item 当 $x \neq y$ 时 $\psi(x) \cap \psi(y)$ 是有限集，
+\end{enumerate}
+则 $\psi$ 必然是单射。我们只需找到符合这两个条件的映射$\psi$。
+
+为了定义 $\psi$，我们使用十进制展开，其思想是将实数 $x$ 的小数部分转换为自然数序列。例如，对 $\pi = 3.1415926\ldots$，我们希望对应集合 $\{1, 14, 141, 1415, 14159, \ldots\}$。显然，具有相同小数部分的两个实数会生成相同集合。因此我们限制在区间 $[0, 1]$ 上定义该映射，这不会造成问题，因为 $[0,1]$ 与 $\mathbb{R}$ 等势（存在显式双射）。
+
+对任意 $x \in [0,1]$，我们定义子集 $\psi(x) = \left\{ \lfloor10^n x\rfloor \mid n \geq 1 \right\}$。由于序列 $(\lfloor10^n x\rfloor)_{n \geq 1}$ 趋向于无穷，$\psi(x)$ 是 $\mathbb{N}$ 的无限子集。然而，存在一个问题：第二个条件不成立。例如，若 $x = 0.0a_1a_2\ldots \in (0,1)$，则实数 $x/10 = 0.00a_1a_2\ldots$ 与 $x$ 具有相同的 $\psi$ 像。为了避免此问题，我们限制定义域为 $[0.1, 1]$（仍与 $\mathbb{R}$ 等势），因为该区间内所有实数的小数点后第一位数字均非零。
+
+将 $\psi$ 限制在 $[0.1, 1]$ 上时，根据十进制展开的唯一性（见习题 1.1），第二个条件成立。具体而言，若 $x \in [0.1, 1]$，对任意 $n \geq 1$，$\lfloor10^n x\rfloor$ 是 $\psi(x)$ 中唯一能用 $n$ 位十进制数字表示的整数。设 $x, y \in [0.1, 1]$ 满足 $\psi(x) \cap \psi(y)$ 无限，则存在严格递增函数 $\varphi : \mathbb{N} \to \mathbb{N}^*$ 使得对所有 $n$ 有 $\lfloor10^{\varphi(n)}x\rfloor = \lfloor10^{\varphi(n)}y\rfloor$。由此可得
+$$
+x = \lim_{n \to +\infty} \frac{\lfloor10^{\varphi(n)}x\rfloor}{10^{\varphi(n)}} = \lim_{n \to +\infty} \frac{\lfloor10^{\varphi(n)}y\rfloor}{10^{\varphi(n)}} = y.
+$$
+因此，上述构造的 $\psi$ 满足题目要求。
+
+进一步观察可知，若 $\psi(x) \cap \psi(y)$ 无限，则必有 $\psi(x) = \psi(y)$。事实上，若存在某个 $n$ 使得 $\lfloor10^n x\rfloor = \lfloor10^n y\rfloor$，则对任意 $p \leq n$ 有 $\lfloor10^p x\rfloor = \lfloor10^p y\rfloor$，因为 $\lfloor10^p x\rfloor$ 可通过保留 $\lfloor10^n x\rfloor$ 的前 $p$ 位数字得到。
+\end{solution}
+
+\section{1.5. 级数求和}\label{calcul-dune-somme}
+\begin{solution}
+\begin{subquestions}
+\item \textbf{解法一}：首先注意到该级数实际上是一个有限和。这是因为当 $n \to +\infty$ 时，$\frac{x}{2^{n+1}} \to 0$，所以 $\frac{x}{2^{n+1}} + \frac{1}{2} \to \frac{1}{2}$。由于该值严格小于 1 且大于 0，当 $n$ 足够大时，有：
+$$
+0 < \frac{x}{2^{n+1}} + \frac{1}{2} < 1,
+$$
+从而 $\mathbb{E}\left(\frac{x}{2^{n+1}} + \frac{1}{2}\right) = 0$。因此，级数中只有有限项非零。
+
+接下来，我们考虑 $x$ 的正规二进制展开（即不以无限多个 1 结尾的展开）：
+$$
+x = a_p 2^p + a_{p-1} 2^{p-1} + \cdots + a_1 \cdot 2 + a_0 + \sum_{i=1}^{+\infty} \frac{a_{-i}}{2^i},
+$$
+其中每个 $a_i \in \{0,1\}$，且 $a_p = 1$（即 $p = \lfloor \log_2 x \rfloor$ 是满足 $2^p \leq x < 2^{p+1}$ 的整数）。因此 $x \in [2^p, 2^{p+1})$。
+
+我们分析通项 $\mathbb{E}\left(\frac{x}{2^{k+1}} + \frac{1}{2}\right)$，其中 $k \geq 0$。将 $x$ 除以 $2^{k+1}$，得到：
+$$
+\frac{x}{2^{k+1}} = \sum_{-\infty}^{i=p} a_i 2^{i - k - 1}.
+$$
+将其按整数部分和小数部分拆分。注意到：
+\begin{itemize}
+    \item 当 $i > k$ 时，$2^{i - k - 1} \geqslant 1$，对应整数部分；
+    \item 当 $i \leqslant k$ 时，$0 < 2^{i - k - 1} < 1$，对应小数部分。
+\end{itemize}
+因此：
+$$
+\frac{x}{2^{k+1}} = \overbrace{\sum_{i=k+1}^{p} a_i 2^{i - k - 1}}^{\text{整数部分}} + \overbrace{\sum_{-\infty}^{i=k} a_i 2^{i - k - 1}}^{\text{小数部分}}.
+$$
+
+特别地，小数部分为：
+$$
+\frac{a_k}{2} + \frac{a_{k-1}}{2^2} + \cdots + \frac{a_0}{2^{k+1}} + \sum_{i=1}^{+\infty} \frac{a_{-i}}{2^{i + k + 1}}.
+$$
+由于所有 $a_i \in \{0,1\}$，该小数部分严格小于：
+$$
+\frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \cdots = 1.
+$$
+更精确地，其最大值在 $a_k = a_{k-1} = \cdots = 1$ 时趋近于 1，但由于是正规展开（不以无限个 1 结尾），小数部分严格小于 1。
+
+现在考虑：
+$$
+\frac{x}{2^{k+1}} + \frac{1}{2} = \left( \sum_{i=k+1}^{p} a_i 2^{i - k - 1} \right) + \left( \frac{a_k}{2} + \frac{a_{k-1}}{2^2} + \cdots \right) + \frac{1}{2}.
+$$
+于是原本的小数部分添上$\frac{1}{2}$之后变为：
+$$
+ \frac{a_k + 1}{2} + \frac{a_{k-1}}{2^2} + \cdots 
+$$
+它介于 $[0.5, 1.5)$ 之间。如果$a_k = 0$，则上式小于$1$，
+$$
+\mathbb{E}\left(\frac{x}{2^{k+1}} + \frac{1}{2}\right) = \sum_{i=k+1}^{p} a_i 2^{i - k - 1}.
+$$
+如果$a_k = 1$，则上式介于$[1, 1.5)$ 之间。于是
+$$
+\mathbb{E}\left(\frac{x}{2^{k+1}} + \frac{1}{2}\right) = \sum_{i=k+1}^{p} a_i 2^{i - k - 1} + 1.
+$$
+
+综上，无论 $a_k$ 为何值，都有：
+$$
+\mathbb{E}\left(\frac{x}{2^{k+1}} + \frac{1}{2}\right) = \sum_{i=k+1}^{p} a_i 2^{i - k - 1} + a_k.
+$$
+注意：当 $k = p$ 时，求和 $\sum_{i=p+1}^{p}$ 为空，即为$0$，因此上式退化为 $a_p$，与上述一致。
+
+现在计算总和：
+$$
+\sum_{k=0}^{+\infty} \mathbb{E}\left(\frac{x}{2^{k+1}} + \frac{1}{2}\right) = \sum_{k=0}^{p} \left( \sum_{i=k+1}^{p} a_i 2^{i - k - 1} + a_k \right) = \sum_{k=0}^{p} \sum_{i=k+1}^{p} a_i 2^{i - k - 1} + \sum_{k=0}^{p} a_k.
+$$
+因为当 $k > p$ 时，左边级数的项为$0$。
+
+其中的双重求和可以重新整理。交换求和顺序。固定 $i$（从 1 到 $p$），$k$ 满足 $0 \leq k \leq i-1$，因此：
+$$
+\sum_{k=0}^{p} \sum_{i=k+1}^{p} a_i 2^{i - k - 1} = \sum_{i=1}^{p} a_i \sum_{k=0}^{i-1} 2^{i - k - 1} = \sum_{i=1}^{p} a_i \sum_{k=0}^{i-1} 2^k = \sum_{i=1}^{p} a_i\left(2^i - 1\right).
+$$
+因此：
+$$
+\sum_{k=0}^{p} \sum_{i=k+1}^{p} a_i 2^{i - k - 1} + \sum_{k=0}^{p} a_k = \sum_{i=1}^{p} a_i\left(2^i - 1\right) + \sum_{k=0}^{p} a_k = \sum_{k=0}^{p} a_k 2^k.
+$$
+这正是 $x$ 的整数部分，即 $\mathbb{E}(x)$。
+
+因此：
+$$
+\sum_{n=0}^{+\infty} \mathbb{E}\left(\frac{x}{2^{n+1}} + \frac{1}{2}\right) = \mathbb{E}(x).
+$$
+
+\item \textbf{解法二}：这个解法建立在已经知道结果的前提上，只验证为何结果是$\mathbb{E}(x)$。设 $f(x) = \sum_{n=0}^{+\infty} \mathbb{E}\left(\frac{x}{2^{n+1}} + \frac{1}{2}\right)$，利用恒等式：
+$$
+f(2x) = f(x) + \mathbb{E}\left(x + \frac{1}{2}\right), \quad \mathbb{E}(x) + \mathbb{E}\left(x + \frac{1}{2}\right) = \mathbb{E}(2x).
+$$
+若 $f(x) = \mathbb{E}(x)$ 对 $x > 0$ 成立，则 $f(2x) = \mathbb{E}(2x)$。于是只要验证 $x \in [0,1]$ 时 $f(x) = 0$ 即可。而后者显然。
+
+\item \textbf{解法三}（组合数学法）：
+首先证明 $\mathbb{E}\left(\frac{x}{2^{k+1}} + \frac{1}{2}\right)$ 恰好表示区间 $[1,x]$ 内形如 $ 2^{k}(2m - 1)$ 的整数个数。事实上：
+$$
+1 \leqslant 2^{k}(2m-1) \leqslant x 
+\Longleftrightarrow 1 + 2^{k} \leqslant 2^{k+1}m \leqslant x + 2^{k}
+\iff \frac{1 + 2^{k}}{2^{k+1}} \leqslant m \leqslant \frac{x}{2^{k+1}} + \frac{1}{2}.
+$$
+由于 $\displaystyle 0 < \frac{1}{2} < \frac{1+2^k}{2^{k+1}} \leqslant 1$，可得整数$m$大于等于$1$：
+$$
+1 \leqslant 2^{k}(2m-1) \leqslant x 
+\Longleftrightarrow 1 \leqslant m \leqslant \mathbb{E}\left(\frac{x}{2^{k+1}} + \frac{1}{2}\right).
+$$
+因映射 $m \mapsto 2^k(2m-1)$ 是单射，故结论成立： $\mathbb{E}\left(\frac{x}{2^{k+1}} + \frac{1}{2}\right)$ 恰好是区间 $[1,x]$ 内形如 $ 2^{k}(2m - 1)$ 的整数个数。
+
+另一方面，对任意 $n \in \mathbb{N}$ 且 $1 \leqslant m \leqslant x$，存在唯一 $(k, m)$ 使得 $n = 2^{k}(2m - 1)$。因此可以按 $k$ 对区间 $[1,x]$ 内的整数进行划分，得到$[1,x]$ 内的整数的分划。于是：
+$$
+\sum_{k=0}^{+\infty} \mathbb{E}\left(\frac{x}{2^{k+1}} + \frac{1}{2}\right) = \mathbb{E}(x),
+$$
+因为 $\mathbb{E}(x)$ 恰为区间 $[1,x]$ 内的整数个数。
+\end{subquestions}
+\end{solution}
+
+\section{1.6. Engel级数展开}
+\begin{solution}
+\begin{subquestions}
+  \item 
+  记 $S$ 为所有满足 $u_n \in \mathbb{N}\setminus\{0,1\}$ 的递增序列 $\{u_n\}_{n\in\mathbb{N}}$ 构成的集合。  
+  对任意 $k \geq 0$，有 $\frac{1}{u_0 u_1 \dots u_k} \leq \frac{1}{2^{k+1}}$。由于几何级数 $\sum \frac{1}{2^{k+1}}$ 收敛，由正项级数比较判别法可知  
+  $$
+  \psi(u) = \sum_{k=0}^{+\infty} \frac{1}{u_0 u_1 \dots u_k}
+  $$
+  收敛。显然该级数严格正且被 $\sum_{k=0}^{+\infty} \frac{1}{2^{k+1}} = 1$ 上界限制。题目要求证明 $\psi: S \to [0,1]$ 是双射。
+
+  设 $x \in [0,1]$，若存在 $u \in S$ 使得 $\psi(u) = x$，则两边乘以 $u_0$ 得  
+  $$
+  x u_0 = 1 + \sum_{k=1}^{+\infty} \frac{1}{u_1 \dots u_k} \leq 1 + \sum_{k=0}^{+\infty} \frac{1}{u_0 u_1 \dots u_k} = 1 + x
+  $$
+  最后一个不等式由序列递增性保证。由此得 $0 < x u_0 - 1 \leq x$，进而 $u_0 = \left\lfloor \frac{1}{x} \right\rfloor + 1$。定义  
+  $$
+  x_1 = x u_0 - 1 = \sum_{k=1}^{+\infty} \frac{1}{u_1 \dots u_k}
+  $$
+  则 $x_1 = \psi((u_{n+1})_{n\geqslant 0})$。同理对 $x_1$ 应用相同推理得 $u_1 = \left\lfloor \frac{1}{x_1} \right\rfloor + 1$。归纳可知序列 $\{u_n\}_{n\in\mathbb{N}}$ 必由  
+  $$
+  x_0 = x,\quad u_n = \left\lfloor \frac{1}{x_n} \right\rfloor + 1,\quad x_{n+1} = u_n x_n - 1
+  $$
+  唯一确定。因此 $x$ 至多有一个原像。
+
+  反过来，上述递推关系定义了序列 $(x_n)_{n\geqslant 0}$ 和 $\{u_n\}_{n\in\mathbb{N}}$。用归纳法验证 $x_n \in [0,1]$：当 $n=0$ 时成立；若 $x_n > 0$，由取整函数定义 $\frac{1}{x_n} < u_n \leq \frac{1}{x_n} + 1$，故  
+  $$
+  0 < x_{n+1} = u_n x_n - 1 \leq x_n \leq 1
+  $$
+  由此得证。进一步观察到序列 $(x_n)$ 递减，且 $u_n = \left\lfloor \frac{1}{x_n} \right\rfloor + 1$ 递增，$u_0 \geq 2$，故 $(u_n) \in S$。最后验证 $\psi(u) = x$：  
+  $$
+  x = x_0 = \frac{1}{u_0} + \frac{x_1}{u_0} = \frac{1}{u_0} + \frac{1}{u_0 u_1} + \frac{x_2}{u_0 u_1} = \dots = \sum_{k=0}^n \frac{1}{u_0 \dots u_k} + \frac{x_{n+1}}{u_0 \dots u_n}
+  $$
+  由于 $u_k \geq 2$，余项 $\frac{x_{n+1}}{u_0 \dots u_n} \leq \frac{1}{2^{n+1}} \to 0$，故 $\psi(u) = x$。因此 $\psi$ 是双射。
+
+  \item 
+  若 Engel 展开在 $N$ 后驻定，则  
+  $$
+  x = \frac{1}{u_0} + \dots + \frac{1}{u_0 \dots u_{N-1}} \left( \sum_{k=0}^{+\infty} \frac{1}{u_N^k} \right) = \frac{1}{u_0} + \dots + \frac{1}{u_0 \dots u_{N-1}} \cdot \frac{u_N}{u_N - 1} \in \mathbb{Q}
+  $$
+  
+  反之，设 $x = \frac{p}{q} \in \mathbb{Q}$（$p \leq q$，且互素）。令 $x_0 = \frac{p}{q}$，递推定义 $x_{n+1} = u_n x_n - 1$。由辗转相除法记 $q = \alpha p + r$（$0 \leq r < p$）得 $u_0 = \alpha + 1$，且  
+  $$
+  x_1 = (\alpha + 1)\frac{p}{q} - 1 = \frac{p - r}{q}
+  $$
+  归纳可知 $x_n$ 分母恒为 $q$，而分子从$p$开始递减。而分子总大于$0$，因此严格递减至多发生$p-1$次。因此，必然在若干步之后，$x_n$ 的分子再也不严格减少，从而驻定。故 $(x_n)$ 和 $(u_n)$ 均最终驻定。  
+\end{subquestions}
+\end{solution}
+
+\section{1.7. 正实数作为级数的表示}
+\begin{solution}
+\begin{subquestions}
+\item 首先分析必要条件。如果 $\forall x \in [0, S]$ 总是 $\{u_n\}_{n\in\mathbb{N}}$ 子列的级数和，我们来研究 $\{u_n\}_{n\in\mathbb{N}}$ 需要满足什么条件。
+
+由于 $\{u_n\}_{n\in\mathbb{N}}$ 递减且有下界 $0$，必收敛于某 $\ell \geqslant 0$。若 $\ell > 0$，则任何子序列的和都发散至 $+\infty$，故必须有 $\displaystyle \lim_{n \to +\infty} u_n = 0$。
+
+此外，$\forall n \in \mathbb{N}$，$u_n\in [0, S]$，因此它可以写成$\displaystyle u_n = \sum_{k=0}^{+\infty} u_{\varphi(k)}$。显然$u_n$不在这个子列中。而$m < n$时，$\displaystyle u_m > u_n = \sum_{k=0}^{+\infty} u_{\varphi(k)}$，故$u_m$也不可能在子列中。这说明$\varphi(\mathbb{N}) \subset [n+1, +\infty)$。由此可得：
+$$
+u_n = \sum_{k\in\varphi(\mathbb{N})} u_k \leqslant \sum_{k=n+1}^{+\infty} u_k.
+$$
+
+因此必要条件为：
+\begin{enumerate}[label=\arabic*.]
+    \item $\displaystyle\lim_{n \to +\infty} u_n = 0$，
+    \item $\forall n \in \mathbb{N}$，$\displaystyle u_n \leq \sum_{k=n+1}^{+\infty} u_k$。
+\end{enumerate}
+
+接下来证明以上条件充分。对任意 $\alpha \in [0, S]$，构造子列 $\varphi$ 使得 $\displaystyle\sum_{k=0}^n u_{\varphi(k)} < \alpha$，每次都选择可能取到的最大项（下标最小的项）：
+\begin{enumerate}[label=\arabic*.]
+\item 正项数列$\{u_n\}_{n\in\mathbb{N}}$ 趋于$0$，因此对任意正数$r$，总有$n$使得从第$n$项起，$u_n < r$。
+\item 取 $\varphi(0)$ 为满足 $u_j < \alpha$ 的最小下标 $j$。
+\item 若 $\varphi(0),\dots,\varphi(n)$ 满足 $\sum_{k=0}^n u_{\varphi(k)} < \alpha$，则取 $\varphi(n+1)$ 为使得 $j > \varphi(n)$ 且 $u_j < \alpha - \sum_{k=0}^n u_{\varphi(k)}$ 的最小下标。
+\end{enumerate}
+
+由此构造的级数收敛且 $\displaystyle \sum_{k=0}^{+\infty} u_{\varphi(k)} \leq \alpha$。下面证明两者相等。
+
+由于我们每次都选择可能取到的最大项，所以，如果$\varphi(n+1) > \varphi(n)+1$，就说明$\varphi(n+1)$之前一项$u_{\varphi(n+1)-1}$被我们“抛弃”了。“抛弃”的原因是：
+$$  u_{\varphi(n+1)-1} + \sum_{k=0}^n u_{\varphi(k)} \geqslant \alpha, $$
+这时候被抛弃的项满足：
+$$
+u_{\varphi(n+1)-1} \geqslant \alpha - \sum_{k=0}^n u_{\varphi(k)} > \alpha - \sum_{k=0}^{+\infty} u_{\varphi(k)} \geqslant 0.
+$$
+这个不等关系说明，每个被“抛弃”的项都是子列$\varphi$级数和与$\alpha$之差的上界。
+
+若存在无穷多 $n$ 使得 $\varphi(n+1) > \varphi(n)+1$，则我们可以用这无穷多个被“抛弃”的项构造$\{u_n\}$的子列。它的每个元素都是子列$\varphi$级数和与$\alpha$之差的上界，而作为$\{u_n\}$的子列它趋于$0$。因此 $\sum u_{\varphi(k)} = \alpha$。
+
+若这样的 $n$ 有限，设其中最大的为 $n_0$，则按定义：
+$$ \forall m > n_0, \quad \sum_{i=0}^{n_0} u_{\varphi(i)} + u_{\varphi(n_0+1) - 1} \geqslant \alpha > \sum_{i=0}^{m} u_{\varphi(i)} ,$$
+即：
+$$
+\forall m > n_0, \quad u_{\varphi(n_0+1) - 1} > \sum_{i=n_0+1}^{m} u_{\varphi(i)}.
+$$
+令$m$趋于无穷即得：
+$$
+u_{\varphi(n_0+1) - 1} \geqslant \sum_{i=n_0+1}^{+\infty} u_{\varphi(i)}.
+$$
+但按照$n_0$的定义，从第$n_0$项起相邻项在 $\{u_n\}_{n\in\mathbb{N}}$里的下标也相邻，不再有被“抛弃”的项了。因此
+$$
+u_{\varphi(n_0+1) - 1} \geqslant \sum_{i=n_0+1}^{+\infty} u_{\varphi(i)} = \sum_{i=\varphi(n_0+1)}^{+\infty} u_{i}.
+$$
+根据我们前面总结的第二个条件，另一个方向的不等号也成立，因此两边相等：
+$$
+u_{\varphi(n_0+1) - 1} = \sum_{i=\varphi(n_0+1)}^{+\infty} u_{i} = \sum_{i=n_0+1}^{+\infty} u_{\varphi(i)}.
+$$
+于是
+$$
+\sum_{i=0}^{+\infty} u_{\varphi(i)}\leqslant \alpha \leqslant \sum_{i=0}^{n_0} u_{\varphi(i)} + u_{\varphi(n_0+1) - 1} = \sum_{i=0}^{n_0} u_{\varphi(i)} + \sum_{i=n_0+1}^{+\infty} u_{\varphi(i)} = \sum_{i=0}^{+\infty} u_{\varphi(i)}.
+$$
+这就证明子列级数和等于$\alpha$：
+$$
+\sum_{i=0}^{+\infty} u_{\varphi(i)} = \alpha.
+$$
+
+\item 我们来证明：子列唯一当且仅当$\forall n, \;\;\displaystyle u_n = \sum_{k=n+1}^{+\infty} u_k$（这说明级数收敛， $u_n \to 0$）。
+
+\textbf{必要性}：反设存在 $n_0$ 使得 $u_{n_0} < \sum_{k=n_0+1}^{+\infty} u_k$，则对 $\alpha \in \left( u_{n_0}, \sum_{k=n_0+1}^{+\infty} u_k \right)$，存在两种不同子列表示：一种用 $n_0$之后的项构成子列，级数和为$\alpha $；另一种用 $n_0$之后的项构成子列，级数和为$\alpha - u_{n_0}$，再把$u_{n_0}$添进去。前一种不含$u_{n_0}$，后一种含$u_{n_0}$。
+
+\textbf{充分性}：依条件，此时级数$\sum u_n$收敛。 
+$$
+\forall n\in \mathbb{N},\quad u_n = \sum_{k=n+1}^{+\infty} u_k = u_{n+1} + \sum_{k=n+2}^{+\infty} u_k = u_{n+1} + u_{n+1} = 2u_{n+1}.
+$$
+即 $\displaystyle u_n = \frac{u_0}{2^n}$，$S = 2u_0$。因此子列唯一性等价于正规二进制展开的唯一性。
+\end{subquestions}
+\end{solution}
+
+\section{1.8. 关于数 $e$}
+\begin{solution}
+  \begin{subquestions}
+    \item 回忆 $e$ 的定义为 $e = \sum_{n=0}^{+\infty} \frac{1}{n!}$。假设 $e = \frac{p}{q}$ 其中 $p, q \geqslant 1$ 且 $\gcd(p,q) = 1$，由此推导矛盾。此时有
+    $$
+    q!p = qq!e = \sum_{k=0}^{q} \frac{qq!}{k!} + q \sum_{k=q+1}^{+\infty} \frac{q!}{k!}.
+    $$
+    第一个求和项是自然数，$q!p$ 同样是自然数。我们证明 $\varepsilon_q = q \sum_{k=q+1}^{+\infty} \frac{q!}{k!}$ 属于区间 $(0,1)$，从而得到矛盾。显然 $\varepsilon_q > 0$ 且
+    $$
+    \varepsilon_q < q \sum_{h=1}^{+\infty} \frac{1}{(q+1)^h} = \frac{q}{q+1} \cdot \frac{1}{1 - \frac{1}{q+1}} = 1.
+    $$
+    \item 反设存在 $\alpha, \beta, \gamma \in \mathbb{Q}$ 不全为零，使得 $\alpha e + \beta e^2 + \gamma = 0$。通过除以 $e$ 并乘以适当整数，可得存在不全为零的整数 $a, b, c$ 使得 $ae + be^{-1} = c$。由于$e$是无理数，我们还可以确定$a,b$都不为$0$。不妨设 $a \in \mathbb{Z}^+$。
+    
+    我们同样对$e$和$e^{-1}$做近似研究，以找出矛盾。对函数 $f(x) = ae^x + be^{-x}$ 在 $x=0$ 处应用泰勒-拉格朗日公式可知，存在 $\alpha_n \in (0,1)$ 使得
+    $$
+    c = ae + be^{-1} = \overbrace{a \sum_{k=0}^{n} \frac{1}{k!} + b \sum_{k=0}^{n} \frac{(-1)^k}{k!}}^{\text{近似部分}} + \overbrace{\frac{ae^{\alpha_n} + (-1)^{n+1}be^{-\alpha_n}}{(n+1)!}}^{\text{余部}}.
+    $$
+    两边乘以 $n!$ 后，等式左边以及右边的近似部分变为整数，余部变为分母为$n+1$的分式：
+    $$A_n = \frac{ae^{\alpha_n} + (-1)^{n+1}be^{-\alpha_n}}{n+1}$$ 
+    于是$\forall n,\;\,A_n$必然是整数。但是，$A_n$分子的大小有上界：
+    \begin{align*}
+        \left|ae^{\alpha_n} + (-1)^{n+1}be^{-\alpha_n}\right| \leqslant ae^{\alpha_n} + |b|e^{-\alpha_n} \leqslant 3a + |b|.
+    \end{align*}
+    因此，当$n \geqslant 3a + |b|$时，$|A_n| < 1$。根据$b$的正负号，我们总可以通过设置$(-1)^{n+1}$使得分子不为$0$，于是此时$A_n$不再是整数，矛盾！
+  \end{subquestions}
+  
+  在大多数无理性或超越性证明中，反证法构造趋于零的正整数列是核心思想（见下题）。使用 $e^{-1}$ 而非 $e^2$ 的原因在于：若令 $f(x) = ae^x + be^{2x}$，其泰勒余项会含 $2^{n+1}$ 因子，从而无上界。这表明该方法无法推广至证明 $e$ 的超越性（任何关于$e$的有理多项式都不为$0$）。
+  
+  数 $\pi$ 也是超越数（林德曼定理，1882），其无理性最早由兰伯特（1761）通过正切函数连分数展开式证明。
+\end{solution}
+
+\section{1.9. $\pi$ 的无理性}
+\begin{solution}
+  \begin{subquestions}
+    \item 首先要注意到由于$f$是多项式，定义 $\mathrm{F}$ 的和是有限项，并非函数项无穷级数。对积分进行两次分部积分得：
+    $$
+    \int_0^{\pi} f(t) \sin t \di{t} = \left(f(\pi) + f(0)\right) - \int_0^{\pi} f''(t) \sin t \di{t}.
+    $$
+    重复此过程可得：
+    $$
+    \int_0^{\pi} f(t) \sin t \di{t} = F(\pi) + F(0).
+    $$
+    \item 函数 $f_n$ 在 $0$ 和 $\pi$ 处取零值，在区间 $(0, \pi)$ 上严格为正，且其 $n-1$ 阶导数在 $0$ 和 $\frac{a}{b}$ 处等于$0$。
+    \begin{figure}[htbp]
+      \centering
+      \includegraphics[width=0.5\textwidth]{pics/X_ENS_Analysis_1/chunk_1_20_page_15_Figure_8.jpeg}
+    \end{figure}
+    \item 根据第一问的结论，要证明 $I_n = \int_0^{\pi} f_n(t) \sin t \di{t}$ 为整数，只需验证 $f_n$ 及其任意阶导数在 $0$ 和 $\pi$ 处取整数值。考虑任意自然数$p$。对于 $x=0$，由于 $0$ 是 $f_n$ 的 $n$ 重根，故 $p < n$时，$f_n$ 的$p$ 阶导数为$0$。$p > n$时，利用函数乘积的导数公式可知：
+    $$
+    f_n^{(p)}(0) = \frac{1}{n!} \sum_{k=0}^p \binom{p}{k} (x^n)^{(k)} [(a - bx)^n]^{(p-k)} \Big|_{x=0}.
+    $$
+    考察右边的$p + 1$项，涉及到对$x^n$的各阶导数。$k < n$时，$x^n$的$k$阶导数在$0$处等于$0$，$k > n$时，$x^n$$k$阶导数是零映射，因此恒等于$0$。这说明，这$p + 1$项里只有$k=n$的项需要继续考察：
+    $$
+    f_n^{(p)}(0) = \frac{1}{n!}\binom{p}{n} (x^n)^{(n)}[(a - bx)^n]^{(p-n)}(0) = \binom{p}{n} [(a - bx)^n]^{(p-n)}(0).
+    $$
+    这是一个整系数多项式的导数，因此也是整系数多项式。它在$0$处的值当然是整数。同理可证$f_n$在 $\pi$ 处各阶导数为整数。这说明$I_n = \int_0^{\pi} f_n(t) \sin t \di{t}$ 为整数。
+    
+    由于 $f_n(t) \sin t > 0$ 在 $[0, \pi]$ 上成立，故 $I_n$ 为正整数。但根据不等式 $\displaystyle x(a - bx) \leq \frac{a^2}{4b}$，记$\displaystyle M = \frac{a^2}{4b}$，就有：
+    $$
+    1 \leq I_n \leq \int_0^\pi \frac{M^n}{n!} \di{t} = \frac{\pi M^n}{n!} \xrightarrow[n \to +\infty]{} 0,
+    $$
+    导致矛盾！故 $\pi \notin \mathbb{Q}$。
+  \end{subquestions}
+\end{solution}
+
+\section{1.10. $\frac{\arccos (1/3)}{\pi}$ 的无理性}
+\begin{solution}
+\begin{subquestions}
+\item 根据 $\alpha$ 的定义，有 $\cos \alpha \pi = \frac{1}{3}$ 。由于 $\alpha \pi$ 属于区间 $(0, \pi)$ ，其正弦值为正数：
+$$
+\sin \alpha \pi = \sqrt{1 - \left(\frac{1}{3}\right)^2} = \frac{2\sqrt{2}}{3}
+$$
+因此：
+$$
+e^{i\alpha\pi} = \cos \alpha \pi + i\sin \alpha \pi = \frac{1+2i\sqrt{2}}{3}
+$$
+
+\item 复数 $e^{i\alpha\pi}$ 是单位根当且仅当 $\alpha$ 为有理数。因此，$\alpha$ 为有理数当且仅当存在正整数 $n$ 使得 $e^{in\alpha\pi} = 1$ ，即 $(1+2i\sqrt{2})^n = 3^n$ 。
+
+\item 所有形如 $a+ib\sqrt{2}$（其中 $a,b \in \mathbb{Z}$）的复数显然构成 $\mathbb{C}$ 的子环。对任意 $n$，存在整数 $a_n,b_n$ 使得 $(1+2i\sqrt{2})^n = a_n + ib_n\sqrt{2}$ 。利用递推关系：
+$$
+\begin{aligned}
+(1+2i\sqrt{2})^{n+1} &= (a_n+ib_n\sqrt{2})(1+2i\sqrt{2}) \\
+&= (a_n - 4b_n) + i\sqrt{2}(b_n + 2a_n)
+\end{aligned}
+$$
+可得递推公式：
+$$
+\begin{cases}
+a_{n+1} = a_n - 4b_n \\
+b_{n+1} = b_n + 2a_n
+\end{cases}
+$$
+由此推出：
+$$
+a_{n+1} - b_{n+1} = -a_n - 5b_n \equiv -(a_n - b_n) \pmod{3}
+$$
+由于 $a_1 - b_1 = 1 - 2 = -1 \not\equiv 0 \pmod{3}$ ，通过归纳法可知对任意 $n \geq 1$ 有 $a_n - b_n \not\equiv 0 \pmod{3}$ 。因此不存在正整数 $n$ 使得 $(1 + 2i\sqrt{2})^n = 3^n$ ，这证明 $\alpha$ 是无理数。
+\end{subquestions}
+
+注：可以证明 $\frac{1}{\pi}\arccos \frac{1}{\sqrt{n}}$ 是无理数当且仅当 $n \notin \{1, 2, 4\}$ 。首次构造超越数的是刘维尔（1844年），而后埃尔米特（1873年）证明了 $e$ 的超越性，林德曼（1882年）证明了 $\pi$ 的超越性。
+\end{solution}
+
+\section{1.11. 刘维尔数}
+\begin{solution}
+\begin{subquestions}
+\item 应用有限增量不等式：记 $M > 0$ 为 $P'$ 在 $[x-1, x+1]$ 上的上界，由：
+$$
+\left| P\left(\frac{a}{b}\right) \right| = \left| P(x) - P\left(\frac{a}{b}\right) \right| \leq M \left| x - \frac{a}{b} \right|
+$$
+且 $b^m P\left(\frac{a}{b}\right) = \sum_{k=0}^m a_k a^k b^{m-k} \in \mathbb{Z} \setminus \{0\}$，故 $\left|b^m P\left(\frac{a}{b}\right)\right| \geq 1$，取 $K = \frac{1}{M}$ 即得结论。
+
+\item 对任意 $n \in \mathbb{N}$，有：
+$$
+|x - s_n| = \sum_{k=n+1}^{+\infty} \frac{u_k}{10^{k!}} \leq 9 \sum_{k=n+1}^{+\infty} \frac{1}{10^{k!}}
+$$
+利用 $k! \geq kn!$ 得 $\frac{1}{10^{k!}} \leq \left(\frac{1}{10^{n!}}\right)^k$，故：
+$$
+|x - s_n| \leq 9 \sum_{k=n+1}^{+\infty} \left(\frac{1}{10^{n!}}\right)^k = \frac{9}{10^{(n+1)n!}(1 - \frac{1}{10^{n!}})} \leq \frac{1}{10^{nn!}}
+$$
+
+假设 $x$ 代数，则存在非零 $P \in \mathbb{Z}[X]$ 使得 $P(x)=0$。由第一问存在 $K>0$，当 $n \geq n_0$ 时：
+$$
+|x - s_n| \geq \frac{K}{(10^{n!})^m}
+$$
+结合上式得 $(10^{n!})^{n-m} \leq \frac{1}{K}$，矛盾。故 $x$ 超越。
+
+% 注：刘维尔数因可被有理数极好逼近而超越。类似结论见代数教材第5.55题。
+\end{subquestions}
+\end{solution}
+
+\section{1.12. Pisot数}
+\begin{solution}
+  \begin{subquestions}
+    \item 对任意 $p \in \mathbb{N}$，令 $A_p$ 为 $A$ 中满足 $n_0(u) \leq p$ 的数列全体。映射 $u \mapsto (u_0, u_1, \ldots, u_p)$ 是 $A_p$ 到 $\mathbb{N}^{p+1}$ 的单射（而 $\mathbb{N}^{p+1}$ 可数），故 $A_p$ 至多可数。由于 $A = \bigcup_{p \in \mathbb{N}} A_p$ 是可数个至多可数集的并集，故 $A$ 至多可数。
+    
+    \item 由 $d(\alpha t^n, \mathbb{Z}) \to 0$ 可知，当 $n$ 足够大时 $a_n$ 唯一确定。根据假设 $a_n = \alpha t^n + o(1)$，故有：
+    $$
+    \frac{a_{n+1}^2}{a_n} = \frac{\alpha^2 t^{2n+2} + o(t^n)}{\alpha t^n + o(1)} = \frac{\alpha t^{n+2} + o(1)}{1 + o(t^{-n})} = \alpha t^{n+2} + o(1)
+    $$
+    因此 $a_{n+2} - \frac{a_{n+1}^2}{a_n} = o(1)$。
+
+    定义映射 $\psi: S \to \{(a_n)\}$，其中 $t = \lim_{n \to +\infty} \frac{a_{n+1}}{a_n}$ 且 $\psi$ 为单射。下面验证 $\psi(S)$ 满足第1问条件：对 $t \in S$，取 $\psi(t) = (a_n)$，存在 $n_0(a)$ 使得当 $n \geq n_0(a)$ 时 $\left| a_{n+2} - \frac{a_{n+1}^2}{a_n} \right| < \frac{1}{2}$。对另一序列 $\psi(t') = (b_n)$，若 $a_k = b_k$ 对所有 $k \leq \max(n_0(a), n_0(b)) = N$ 成立，则由三角不等式：
+    $$
+    |a_{N+1} - b_{N+1}| \leq \left|a_{N+1} - \frac{a_N^2}{a_{N-1}}\right| + \left|b_{N+1} - \frac{b_N^2}{b_{N-1}}\right| < \frac{1}{2} + \frac{1}{2} = 1
+    $$
+    因 $a_{N+1}, b_{N+1} \in \mathbb{Z}$，故 $a_{N+1} = b_{N+1}$，进而归纳得 $a = b$。由第1问结论，$\psi(S)$ 至多可数，故 $S$ 至多可数。
+
+    \item 设 $z_1, \ldots, z_p$ 为 $P$ 的其他根，牛顿公式 $S_n = t^n + z_1^n + \cdots + z_p^n \in \mathbb{Z}$（因 $P$ 的初等对称函数均为整数，且 $S_n$ 可表为其整系数多项式）。由 $|z_k| < 1$，$z_k^n \to 0$，故 $d(t^n, \mathbb{Z}) \to 0$，即 $t \in S$。
+  \end{subquestions}
+  例如黄金分割数 $\Phi = \frac{1+\sqrt{5}}{2}$ 是 Pisot 数。由本题结论，Pisot 数集可数。1944年 Raphael Salem 证明该集合为闭集。
+\end{solution}
+
+\section{加法群}
+\begin{solution}
+    \begin{subquestions}
+        \item 设群$(G, +)$有零元素$n, m$，则根据定义：$n = n + m = m$。设$a\in G$有逆元$b, c$，则
+        $$b = b + n = b + (a + c) = (b + a) + c = n + c = c. $$
+        此外，按定义$a + (-a) = n = (-a) + a$，所以$-a$的逆元素必定是$a$。
+        \item 分别验证满足群的定义条件即可。这里仅以$\mathbb{Z}$为例。整数关于整数加法显然满足结合律，它的零元素就是$0$，而逆元素即每个数的相反数。
+        
+        反证$\mathbb{N}$不是关于数的加法的群。反设$\mathbb{N}$是关于数的加法的群，那么显然只有$0$能作为零元素，但$\mathbb{N}$中没有$1$的逆元素，矛盾。
+        \item 分三步证明。
+        \begin{enumerate}[label=\arabic*.]
+            \item 零元素在$H$中：$H$非空，所以$\exists a \in H$，于是$0 = a - a\in H$。
+            \item $H$中元素总有逆元素：$\forall a \in H$，$-a = 0 - a \in H$。
+            \item $\forall a, b\in H$，$-b\in H$，所以$a + b = a - (-b) \in H$。
+        \end{enumerate}
+        这说明$H$是关于$+$的群，因此是$G$的子群。
+        \item 设$(G, +)$是循环群，$a, b$是它的生成元。那么$b$可由$a$不断加减得到。根据结合律可以将形同$+ a - a$、$-a + a$的部分不断消去，最后必然只剩下三种情况：
+        \begin{enumerate}[label=\arabic*.]
+            \item $b = a + \cdots + a$，即由$n$个$a$相加而成，$n$为正整数。
+            \item $b = -a - \cdots - a$，即由$n$个$-a$相加而成，$n$为正整数。
+            \item $b = 0$，这时群$G$是平凡的。
+        \end{enumerate}
+        如果$b\neq 0$由若干个$a$或若干个$-a$相加而成，则反之亦然。设$b$由$n$个$a$（或$-a$）相加而成，$a$又由$m$个$b$（或$-b$）相加而成，其中$m,n$是正整数，那么$a$由$mn$个$a$（或$-a$）相加而成。因此$mn = 1$，这说明$m = n = 1$，即$b = a$或$b = -a$。
+        \item 设$(G, +)$是循环群，按定义有$a\in G$使得$G$的所有元素$b$都能写成：
+        $$\exists n \in \mathbb{Z}, \;\, b = \overbrace{a + \cdots + a}^{n\text{个}a}, \quad \mbox{或}\; b = \overbrace{-a - \cdots - a}^{n\text{个}a}.$$
+        而$0 = a - a$也在群中。我们通常把$b$记作$b = na$，把群$G$记为$a\mathbb{Z}$。考虑$b, c\in G$，必有$n,m\in \mathbb{Z}$使得$b = na$，$c = ma$，于是，当$n,m \geqslant 0$时：
+        $$ b + c = \overbrace{a + \cdots + a}^{n\text{个}a} + \overbrace{a + \cdots + a}^{m\text{个}a} = \overbrace{a + \cdots + a}^{n + m\text{个}a} = \overbrace{a + \cdots + a}^{m\text{个}a} + \overbrace{a + \cdots + a}^{n\text{个}a} = c + b.$$
+        $n,m$的其他正负情形也可以类似证明。因此循环群$G$是交换群。这个结论的本质是$\mathbb{Z}$是交换群。
+
+        \textbf{反例：} $(\mathbb{Q},+)$ 是交换群但非循环群。证明：反设 $(\mathbb{Q},+)$ 是循环群，$a\neq 0$是生成元，那么$\mathbb{Q}$的生成元就是$a$和$-a$。然而$\displaystyle\frac{a}{2}\in \mathbb{Q}$无法通过$a$不断加减得到，矛盾！
+    \end{subquestions}
+\end{solution}
+
+\section{1.13. 实数的加法子群}
+\begin{solution}
+  \begin{subquestions}
+  \item 若 \(G\) 是循环群，即 \(G = a\mathbb{Z}\)（\(a > 0\)），则 \(a\) 是 \(G\) 中最小的正元素。若 \(G\) 在 \(\mathbb{R}\) 中稠密，则 \(G \cap \mathbb{R}_+^*\) 没有最小元素，下确界为 0。因此，我们自然会考虑 \(G_+ = G \cap \mathbb{R}_+^*\) 的下确界。\(G_+\) 非空（$G$非平凡表示存在非零 \(x \in G\)，故 \(x\) 和 \(-x\) 至少有一个属于 \(G_+\)）且有下界$0$，因此必有下确界$a \geqslant 0$。分两种情况讨论：
+  
+  \begin{itemize}
+    \item \(a > 0\)，下面证明 \(a \in G\)。反设 \(a \notin G\)。由于 \(a > 0\)，有 \(2a > a\)，$2a$不是下确界，故存在 \(x \in G_+\) 使得 \(a < x < 2a\)。同理存在 \(y \in G_+\) 使得 \(a < y < x\)，于是 \(a < y < x < 2a\)，故有 \(x - y \in G_+\)。然而 \(0 < x - y < a\)，这与 \(a = \inf G_+\) 矛盾。故 \(a \in G\)。
+    
+    \(a \in G\)说明 \(a\mathbb{Z} \subseteq G\)。下面证明\(G = a\mathbb{Z}\)。设 \(x \in G\)，令 \(k = \left\lfloor \frac{x}{a} \right\rfloor \in \mathbb{Z}\)。则 \(x - ka \in G\)，且 \(0 \leqslant x - ka < a\)。但 \(a = \min G_+\)，故 \(x - ka = 0\)，即 \(x = ka \in a\mathbb{Z}\)。因此 \(G = a\mathbb{Z}\)。
+    
+    \item \(a = 0\)。下面证明 \(G\) 在 \(\mathbb{R}\) 中稠密，即任意非空开区间内有$G$的元素。设 \((c, d)\) 为开区间（\(c < d\)）。由 \(a = 0\)可知，\(\exists \; g \in G_+\) 使得 \(0 < g < d - c\)。记$c = kg + r$，其中$k$是整数，$0\leqslant r < g < d - c$。于是$(k + 1)g = kg + g > kg + r = c$且$(k + 1)g < = kg + g < kg + d - c + r = d$。于是$G$中元素$(k + 1)g$在$(c, d)$中。故 \(G\) 稠密。
+  \end{itemize}
+    \item 考虑子群 \(G = \alpha \mathbb{Z} + \beta \mathbb{Z} \neq \{0\}\)。
+    
+    若存在 \(a > 0\) 使得 \(G = a\mathbb{Z}\)，则有整数$k, l$使得 \(\alpha = k a\)，\(\beta = l a\)，故 \(\frac{\alpha}{\beta} = \frac{k}{l} \in \mathbb{Q}\)。
+    
+    反之，若 \(\frac{\alpha}{\beta} \in \mathbb{Q}\)，设 \(\frac{\alpha}{\beta} = \frac{k}{l}\)（\(k,l\) 互质）。则
+    \[
+    \alpha \mathbb{Z} + \beta \mathbb{Z} = \left\{i\alpha + j\beta \, \middle| i, j \in \mathbb{Z}\, \right\} =  \left\{\frac{\beta}{l}(ik + jl) \, \middle| \, i, j \in \mathbb{Z} \right\}
+    \]
+    下面证明：$X = \{ik + jl \, | \, i, j \in \mathbb{Z} \} = \mathbb{Z}$。首先显然$X\subseteq \mathbb{Z}$。反之，由于$k, l$互素，因此有整数$m,n$使得$nk + ml = 1$，因此任意整数$a = a(nk + ml) = (an)k + (am)l \in X$。于是$X = \mathbb{Z}$。这说明
+    $$ \alpha \mathbb{Z} + \beta \mathbb{Z} =  \left\{\frac{\beta}{l}(ik + jl) \, \middle| \, i, j \in \mathbb{Z} \right\} = \frac{\beta}{l}\mathbb{Z}, $$
+    
+    \textbf{结论：} 若 \(\frac{\alpha}{\beta} \in \mathbb{Q}\)，则 \(G\) 是循环群；否则 \(G\) 在 \(\mathbb{R}\) 中稠密。
+    
+    \item 子群 \(G = \mathbb{Z} + \beta \mathbb{Z}\) 在 \(\mathbb{R}\) 中稠密（由上一问）。下面证明集合 \(\mathbb{N}\beta + \mathbb{Z}\) 仍稠密。设 \(a < b\) 为实数。存在 \(x = v\beta + u \in G\) 使得 \(0 < x < b - a\)。
+    
+    \begin{itemize}
+      \item 若 \(v \in \mathbb{N}\)（即 \(x \in \mathbb{N}\beta + \mathbb{Z}\)），取整数 \(n_0 < a\)。序列 \((k x + n_0)_{k \geqslant 0}\) 的项均在 \(\mathbb{N}\beta + \mathbb{Z}\) 中，且存在某 \(k\) 使得 \(k x + n_0 \in [a, b]\)（同问题 1 的论证）。
+      \item 若 \(v < 0\)，则 \(-x \in \mathbb{N}\beta + \mathbb{Z}\) 且 \(-(b - a) < -x < 0\)。取整数 \(n_0 > b\)，则序列 \((n_0 - k x)_{k \geqslant 0}\) 中存在项属于 \([a, b]\)。
+    \end{itemize}
+    
+    \item 记 \(X = \{ e^{i n \theta} \mid n \in \mathbb{N} \}\)。这是映射 \(f: x \mapsto e^{2i\pi x}\) 在集合 \(\mathbb{Z} + \frac{\theta}{2\pi} \mathbb{N}\) 上的像。由于 \(f\) 连续，且该集合在 \(\mathbb{R}\) 中稠密（由上一问），其像在 \(f(\mathbb{R}) = S^1\) 中稠密。
+    
+    当 \(\theta = 1\) 时，\(\frac{1}{2\pi} \notin \mathbb{Q}\)（因 \(\pi\) 无理），故 \(\{e^{i n} \mid n \in \mathbb{N}\}\) 在 \(S^1\) 上稠密。复数的虚部映射连续，故 \(\{\sin n \mid n \in \mathbb{N}\}\) 在 \([-1, 1]\) 上稠密。对任意 \(a \in [-1, 1]\)，\(\varepsilon > 0\) 和 \(N \in \mathbb{N}\)，存在 \(n \geqslant N\) 使得 \(|\sin n - a| \leqslant \varepsilon\)。这表明 \([-1, 1]\) 中每一点都是序列 \((\sin n)_{n \geqslant 0}\) 的聚点。显然聚点集包含于 \([-1, 1]\)，故聚点集为 \([-1, 1]\)。
+  \end{subquestions}
+  
+  由问题 1 可得，\(S^1\) 的子群要么有限（此时为 \(n\) 次单位根群，其中 \(n = |G|\)），要么在 \(S^1\) 中稠密。后续练习涉及不等式，读者可参考第 4 章的凸不等式练习。
+\end{solution}
+
+\section{1.14. 一个不等式}
+\begin{solution}
+  记 \(x_1 < x_2 < \cdots < x_{13}\) 为这些实数。
+
+  表达式 \(\frac{x-y}{1+xy}\) 使我们想起 \(\tan(\theta - \theta')\) 的展开式。考虑十三个实数 \(\theta_i = \arctan x_i\)，其中 \(1 \leq i \leq 13\)。它们在区间 \(I = \left[-\frac{\pi}{2}, \frac{\pi}{2}\right]\) 中并按升序排列。
+
+  由于区间 \(I\) 的长度等于 \(\pi\)，存在 \(k \in \{1, 2, \dots, 12\}\) 使得 \(\theta_{k+1} - \theta_k < \frac{\pi}{12}\)。由于正切函数在 \(\left[0, \frac{\pi}{2}\right)\) 上严格递增，有 \(0 < \tan(\theta_{k+1} - \theta_k) < \tan \frac{\pi}{12}\)。
+
+  但是，我们知道
+  \[
+  \tan(\theta_{k+1} - \theta_k) = \frac{\tan \theta_{k+1} - \tan \theta_k}{1 + \tan \theta_k \tan \theta_{k+1}} = \frac{x_{k+1} - x_k}{1 + x_k x_{k+1}}.
+  \]
+
+  实数 \(\alpha = \tan \frac{\pi}{12}\) 满足方程
+  \[
+  \frac{2\alpha}{1-\alpha^2} = \tan\frac{\pi}{6} = \frac{1}{\sqrt{3}}.
+  \]
+
+  解由此得到的二次方程，得 \(\alpha = -\sqrt{3} \pm 2\)。由于 \(\alpha > 0\)，得 \(\alpha = 2 - \sqrt{3}\)。最后，得到
+  \[
+  0 < \frac{x_{k+1} - x_k}{1 + x_k x_{k+1}} < 2 - \sqrt{3}.
+  \]
+
+  由此得证。
+\end{solution}
+
+\section{1.15. 重排不等式}
+\begin{solution}
+首先展开平方。在要证明的不等式中，两边可同时消去 \(\sum x_i^2\) 和 \(\sum_{i=1}^{n} y_i^2 = \sum_{i=1}^{n} z_i^2\)，因此等价于证明不等式
+\[
+\sum_{i=1}^{n} x_i z_i \leqslant \sum_{i=1}^{n} x_i y_i.
+\]
+首先假设 \(x_i\) 之间的不等式均为严格：\(x_1 > x_2 > \cdots > x_n\)。若 \(z_i\) 未按递减顺序排列，即存在 \(i < j\) 使得 \(z_i < z_j\)，则交换 \(z_i\) 和 \(z_j\) 会（严格）增大和 \(\sum_{i=1}^{n} x_i z_i\)。事实上，
+\[
+x_i z_i + x_j z_j < x_i z_j + x_j z_i,
+\]
+因为此不等式可改写为 \(x_i(z_i - z_j) + x_j(z_j - z_i) < 0\)，这等价于 \((x_i - x_j)(z_i - z_j) < 0\)。在通过排列 \(y_1, \ldots, y_n\) 得到的 \(n!\) 个和中，最大值在排列 \((z_1, \ldots, z_n)\) 满足 \(z_1 \geqslant z_2 \geqslant \cdots \geqslant z_n\) 时取得。此时，有 \(z_1 = y_1, z_2 = y_2, \ldots, z_n = y_n\)。这证明了该情况下的结论。
+
+对于一般情况，我们提供两种证明方法。
+
+• 可通过轻微扰动使 \(x_i\) 之间的不等式严格化。令 \(\varepsilon > 0\)，定义 \(x'_n = x_n\)，\(x'_{n-1} = x_{n-1} + \varepsilon\)，\(x'_{n-2} = x_{n-2} + 2\varepsilon\)，\(\ldots\)，\(x'_1 = x_1 + (n-1)\varepsilon\)。于是有 \(x'_n < x'_{n-1} < \cdots < x'_1\)，且由前述结论，
+\[
+\sum_{i=1}^{n} x'_i z_i \leqslant \sum_{i=1}^{n} x'_i y_i
+\]
+对任意通过排列 \((y_1, \ldots, y_n)\) 得到的 \(n\) 元组 \((z_1, \ldots, z_n)\) 成立。由于这对任意 \(\varepsilon > 0\) 成立，只需令 \(\varepsilon\) 趋于 \(0^+\) 即可得所求结论。
+
+• 也可直接将索引 \(1, \ldots, n\) 分组为 \((1, \ldots, i_1), (i_1 + 1, \ldots, i_2), \ldots, (i_{p-1} + 1, \ldots, i_p)\)（其中 \(i_p = n\)），使得
+\[
+x_1 = \cdots = x_{i_1} < x_{i_1+1} = \cdots = x_{i_2} < \cdots < x_{i_{p-1}+1} = \cdots = x_{i_p}.
+\]
+在不改变和 \(\sum_{i=1}^{n} x_i z_i\) 的前提下，可在每个索引组内重排 \(z_i\)，将其按递减顺序排列，使得 \(z_{i_{k-1}+1} \geqslant \cdots \geqslant z_{i_k}\)。若重排后 \(z_i\) 仍未全局按递减顺序排列，则存在 \(i < j\) 使得 \(z_i < z_j\)，此时索引 \(i\) 和 \(j\) 不属于同一组，且有 \(x_i > x_j\)。此时可如第一种情况那样得出结论。证毕
+\end{solution}
+
+\section{1.16. 切比雪夫不等式}
+\begin{solution}
+  \begin{subquestions}
+    \item 考虑两个量的差。乘以 \(n^2\) 后，需确定
+    \[
+    D = n \sum_{k=1}^{n} x_k y_k - \sum_{1 \leqslant i,j \leqslant n} x_i y_j
+    \]
+    的符号。首先对 \(x_i\) 求和，可得
+    \[
+    D = \sum_{i=1}^{n} x_i \left( (y_i - y_1) + (y_i - y_2) + \dots + (y_i - y_n) \right) = \sum_{i,j=1}^{n} x_i (y_i - y_j).
+    \]
+    由假设，当 \(i < j\) 时，差 \(x_i - x_j\)（相应地 \(y_i - y_j\)）均同号。因此，若两个序列单调性相同，则 \(D \geqslant 0\)，且
+    \[
+    \left(\frac{1}{n}\sum_{k=1}^n x_k\right) \times \left(\frac{1}{n}\sum_{k=1}^n y_k\right) \leqslant \left(\frac{1}{n}\sum_{k=1}^n x_k y_k\right).
+    \]
+    若两个序列单调性相反，则不等式方向反转。
+    \item 第一问提示使用黎曼和。记 \((x_{k,n})_{0\leq k\leq n}\) 为将区间 \([a, b]\) 等分为 \(n\) 个子区间的分点。假设 \(f\) 和 \(g\) 单调性相同。则对任意 \(n\)，由第一问有
+    \[
+    \left(\frac{b-a}{n}\sum_{k=1}^n f(x_{k,n})\right) \times \left(\frac{b-a}{n}\sum_{k=1}^n g(x_{k,n})\right) \leqslant \frac{(b-a)^2}{n}\sum_{k=1}^n f(x_{k,n})g(x_{k,n}).
+    \]
+    取极限得
+    \[
+    \int_{a}^{b} f(t) \di{t} \times \int_{a}^{b} g(t) \di{t} \leqslant (b-a)\int_{a}^{b} f(t)g(t) \di{t},
+    \]
+    当 \(f\) 和 \(g\) 单调性相反时，不等式方向反转。
+  \end{subquestions}
+  值得注意的是，很容易从上一题的重排不等式推导出切比雪夫不等式。例如，假设序列单调性相同。则有以下不等式：
+  \[
+  x_1y_1 + x_2y_2 + \dots + x_ny_n = x_1y_1 + x_2y_2 + \dots + x_ny_n
+  \]
+  \[
+  x_1y_2 + x_2y_3 + \dots + x_ny_1 \leqslant x_1y_1 + x_2y_2 + \dots + x_ny_n
+  \]
+  \[
+  \vdots
+  \]
+  \[
+  x_1y_n + x_2y_1 + \dots + x_ny_{n-1} \leqslant x_1y_1 + x_2y_2 + \dots + x_ny_n
+  \]
+  求和得
+  \[
+  (x_1 + \cdots + x_n)(y_1 + \cdots + y_n) \leqslant n(x_1y_1 + \cdots + x_ny_n),
+  \]
+  即为所求结果。
+\end{solution}
+
+\section{1.17. 复数中的不等式}
+\begin{solution}
+显然可以假设所有 \( z_i \) 非零。记 \( D_{\theta} \) 为复平面上过原点且法向量为 \( e^{i\theta} \) 的直线。则集合 \( S_{\theta} \) 是满足 \( z_j \) 位于由 \( D_{\theta} \) 界定的闭半平面内且包含 \( e^{i\theta} \) 的所有指标 \( j \in \hin{1}{n} \)。令 \( z_k = r_k e^{i\theta_k} \)，其中 \( r_k = |z_k| > 0 \) 且 \( \theta_k \in [0, 2\pi] \)。
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{pics/X_ENS_Analysis_1/chunk_21_40_page_7_Figure_3.jpeg}
+\end{figure}
+于是有
+\[
+\left| \sum_{j \in S_{\theta}} z_j \right| = \left| \sum_{j \in S_{\theta}} z_j e^{-i\theta} \right| \geqslant \Re \left( \sum_{j \in S_{\theta}} z_j e^{-i\theta} \right) = \sum_{j \in S_{\theta}} r_j \cos(\theta_j - \theta).
+\]
+函数 \( f \) 是 \([0, 2\pi]\) 上的阶梯函数，而函数 \(\theta \mapsto \sum_{j \in S_{\theta}} r_j \cos(\theta_j - \theta)\) 是分段连续的。于是有
+\[
+\int_0^{2\pi} f(\theta) \di{\theta} \geqslant \int_0^{2\pi} \sum_{j \in S_{\theta}} r_j \cos(\theta_j - \theta) \di{\theta} = \sum_{j=1}^n r_j \int_0^{2\pi} \cos(\theta - \theta_j) \chi_j(\theta) \di{\theta},
+\]
+其中函数 \(\chi_j\) 定义为：若 \( j \in S_\theta \) 则 \(\chi_j(\theta) = 1\)，否则为 0。
+
+然而，若固定 \( j \)，则 \( j \in S_\theta \) 当且仅当 \(\theta\) 属于 \(\left[\theta_j - \frac{\pi}{2}, \theta_j + \frac{\pi}{2}\right]\)（模 \(2\pi\)）。更精确来说：
+\begin{itemize}
+    \item 若 \(\theta_j \in \left[\frac{\pi}{2}, \frac{3\pi}{2}\right]\)，则 \(\chi_j^{-1}(1) = \left[\theta_j - \frac{\pi}{2}, \theta_j + \frac{\pi}{2}\right]\)；
+    \item 若 \(\theta_j \in \left[0, \frac{\pi}{2}\right]\)，则 \(\chi_j^{-1}(1) = \left[0, \theta_j + \frac{\pi}{2}\right] \cup \left[\theta_j + \frac{3\pi}{2}, 2\pi\right]\)；
+    \item 若 \(\theta_j \in \left[\frac{3\pi}{2}, 2\pi\right]\)，则 \(\chi_j^{-1}(1) = \left[\theta_j - \frac{\pi}{2}, 2\pi\right] \cup \left[0, \theta_j - \frac{3\pi}{2}\right]\)。
+\end{itemize}
+
+由余弦函数的 \(2\pi\)-周期性，在三种情况下均有
+\[
+\int_0^{2\pi} \cos(\theta - \theta_j) \chi_j(\theta) \di{\theta} = \int_{\theta_j - \frac{\pi}{2}}^{\theta_j + \frac{\pi}{2}} \cos(\theta - \theta_j) \di{\theta} = 2.
+\]
+因此，
+\[
+\int_0^{2\pi} f(\theta) \di{\theta} \geqslant 2 \sum_{j=1}^n r_j = 2 \sum_{j=1}^n |z_j|.
+\]
+因此，必存在 \(\theta_0 \in [0, 2\pi]\) 使得 \( 2\pi f(\theta_0) \geqslant 2 \sum_{i=1}^n |z_i| \)。取子集 \( I = S_{\theta_0} \) 即满足要求。
+\end{solution}
+
+\section{1.18. 复数中的不等式(2)}
+\begin{solution}
+\begin{subquestions}
+\item 设 \( \theta \in \mathbb{R} \)。记 \( D_{\theta} \) 为复平面上过原点且法向量为 \( e^{i\theta} \) 的直线。选择符号 \( \varepsilon(k) \) 使得 \( \varepsilon(k)z_k \) 属于由 \( D_{\theta} \) 界定的闭半平面且包含 \( e^{i\theta} \)。此时，\( \varepsilon(k) \) 恰好是 \( \cos(\theta - \theta_k) \) 的符号（当该量非零时，即 \( z_k \notin D_\theta \)）。于是有
+\begin{align*}
+\sum_{k=1}^{n} \rho_k |\cos(\theta_k - \theta)| &= \sum_{k=1}^{n} \varepsilon(k)\rho_k \cos(\theta_k - \theta) = \Re \left(\sum_{k=1}^{n} \varepsilon(k)z_k e^{-i\theta}\right)\\
+&\leqslant \left|e^{-i\theta} \sum_{k=1}^{n} \varepsilon(k)z_k\right| = \left|\sum_{k=1}^{n} \varepsilon(k)z_k\right|.
+\end{align*}
+
+这对所有 \( \theta \in \mathbb{R} \) 成立，因此有
+\[
+\sup_{\theta \in \mathbb{R}} \sum_{k=1}^n \rho_k |\cos(\theta_k - \theta)| \leqslant \max_{\varepsilon \in I_n} \left| \sum_{k=1}^n \varepsilon(k) z_k \right|.
+\]
+
+反之，设 \( \varepsilon \in I_n \)。令 \( \sum_{k=1}^n \varepsilon(k) z_k = r e^{i\theta} \) 其中 \( r \geq 0 \) 且 \( \theta \in \mathbb{R} \)。则有
+\begin{align*}  
+\left| \sum_{k=1}^{n} \varepsilon(k) z_k \right| &= r = \sum_{k=1}^{n} \varepsilon(k) z_k e^{-i\theta} = \Re \left( \sum_{k=1}^{n} \varepsilon(k) z_k e^{-i\theta} \right) \\
+&= \sum_{k=1}^{n} \varepsilon(k) \rho_k \cos(\theta_k - \theta) \leqslant \sum_{k=1}^{n} \rho_k |\cos(\theta_k - \theta)|,
+\end{align*}
+
+这证明了
+\[
+\max_{\varepsilon \in I_n} \Big| \sum_{k=1}^n \varepsilon(k) z_k \Big| \leqslant \sup_{\theta \in \mathbb{R}} \sum_{k=1}^n \rho_k |\cos(\theta_k - \theta)|
+\]
+从而得到所求等式。
+
+\item 由第1问，
+\[
+\int_0^{\pi} \sum_{k=1}^n \rho_k |\cos(\theta_k - \theta)| \di{\theta} \leqslant \pi \max_{\varepsilon \in I_n} \left| \sum_{k=1}^n \varepsilon(k) z_k \right|.
+\]
+计算左边的积分。由于 \( u \mapsto |\cos u| \) 是 \(\pi\)\dash 周期函数，对每个 \(k\) 有
+\[
+\int_0^{\pi} |\cos(\theta - \theta_k)| \di{\theta} = \int_{-\theta_k}^{\pi - \theta_k} |\cos u| \di{u} = \int_0^{\pi} |\cos u| \di{u} = 2.
+\]
+因此
+\[
+2\sum_{k=1}^{n}|z_{k}|=2\sum_{k=1}^{n}\rho_{k}\leqslant\pi\max_{\varepsilon\in I_{n}}\Big|\sum_{k=1}^{n}\varepsilon(k)z_{k}\Big|,
+\]
+即为所求不等式。
+
+\item 取 \( z_1, \ldots, z_n \) 为位于上半平面（虚部 \(\geqslant 0\) 的 \(2n\) 次单位根（除掉$-1$），即 \( z_k = e^{\frac{ik\pi}{2n}},\;\, k \in \hin{0}{n-1} \)。此时 \( \sum_{k=1}^{n} |z_k| = n \)。为估计第2问中不等式的右侧，使用第1问的结论。记函数
+\[
+f(\theta) = \sum_{k=0}^{n-1} \left| \cos \left( \theta - \frac{k\pi}{n} \right) \right|.
+\]
+
+易见 \( f \) 是 \( \displaystyle\frac{\pi}{n} \)\dash 周期函数，因此只需在 \(\displaystyle\left[0, \frac{\pi}{n}\right]\) 上求其最大值。为简化计算，假设 \( n = 2p \) 为偶数。则有
+\begin{align*}
+f(\theta) &= \sum_{k=0}^{p-1} \cos\left(\theta - \frac{k\pi}{n}\right) - \sum_{k=p}^{n-1} \cos\left(\theta - \frac{k\pi}{n}\right) \\
+&= \sum_{k=0}^{p-1} \cos\left(\theta - \frac{k\pi}{n}\right) + \cos\left(\theta + \frac{\pi}{2} - \frac{k\pi}{n}\right)
+\end{align*}
+
+利用等比数列求和，得到
+\[
+\sum_{k=0}^{p-1} \cos\left(\theta - \frac{k\pi}{n}\right) = \Re\left(e^{i\theta} \frac{1+i}{1 - e^{-i\pi/n}}\right) = \frac{\sqrt{2}\cos\left(\theta - \frac{\pi}{4} + \frac{\pi}{4p}\right)}{2\sin\frac{\pi}{4p}}.
+\]
+于是
+\[
+f(\theta) = \frac{\sqrt{2}}{2\sin\frac{\pi}{4p}} \left( \cos\left(\theta - \frac{\pi}{4} + \frac{\pi}{4p}\right) + \cos\left(\theta + \frac{\pi}{4} + \frac{\pi}{4p}\right) \right) = \frac{\cos(\theta + \frac{\pi}{4p})}{\sin\frac{\pi}{4p}}.
+\]
+
+在 \(\left[0, \frac{\pi}{n}\right]\) 上，\( f \) 的最大值为 \(\cot \frac{\pi}{4p} = \cot \frac{\pi}{2n}\)。若 \( C \) 是第2问不等式中适用的常数，则对所有偶数 \( n \) 有
+\[
+n \leqslant C \cot \frac{\pi}{2n}
+\]
+即 \( n \tan \frac{\pi}{2n} \leqslant C \)。取极限得 \( \frac{\pi}{2} \leqslant C \)。
+\end{subquestions}
+
+% 在习题 3.48 中，读者会找到一个 Riemann 定理，它断言如果 \(\sum u_n\) 是一个实半收敛级数，那么对任意实数 \(\lambda\)，存在 \(\mathbb{N}\) 的一个置换 \(\sigma\) 使得 \(\sum_{n=0}^{+\infty} u_{\sigma(n)} = \lambda\)。我们可以在复数域中提出相同的问题。Steinitz 定理断言，如果复级数 \(\sum z_n\) 收敛，则形式为 \(\sum z_{\sigma(n)}\) 的收敛级数的和的集合（其中 \(\sigma\) 是 \(\mathbb{N}\) 的置换）是 \(\mathbb{C}\) 的一个实仿射子空间。该定理可由以下围堵引理证明：如果 \(z_1, \ldots, z_n\) 是模 \(\leqslant 1\) 且和为零的复数，则存在 \(S_n\) 中的置换 \(\sigma\) 使得对所有 \(p\) 有 \(\left|\sum_{i=1}^p z_{\sigma(i)}\right| \leqslant \sqrt{5}\)（读者可在 Gonnord (S.) \& Tosel (N.) 的《Agrégation 分析主题》，拓扑与泛函分析，Ellipses, 1996, p.~18-22 中找到这些结果）。在下个习题中建立了类似的围堵引理。我们不再允许置换 \(z_i\)，但可以给它们赋符号。对于符号的适当选择，所有部分和的模 \(\leqslant \sqrt{3}\)。第2问给出了对级数的一个惊人应用：任意通项趋于零的复级数 \(\sum z_n\) 可通过适当“赋符号”而使其收敛。
+\end{solution}
+
+\section{1.19. 一个围堵引理}
+\begin{solution}
+\begin{subquestions}
+\item 用归纳法证明。记 \( D = \{z \in \mathbb{C} \mid |z| \leqslant 1\} \) 为 \( \mathbb{C} \) 中的单位闭圆盘。考虑关于正整数$n$的命题 \( (H_n) \)：
+\begin{quotation}
+  $(H_n) $：对任意$(z_1, \ldots, z_n) \in D^n$，都有$(\varepsilon_1, \ldots, \varepsilon_n) \in \{1, -1\}^n$，使得
+  $$ \forall k \in \hin{1}{n}, \left| \sum_{i=1}^k \varepsilon_i z_i \right| \leqslant \sqrt{3}. $$
+\end{quotation}
+
+\( (H_1) \) 显然成立，下面证明 \( (H_2) \)。设 \( (z_1, z_2) \in D^2 \)，我们要证明；$|z_1 + z_2|$和$|z_1 - z_2|$中至少有一个不大于$\sqrt{3}$。直观上，它们分别代表以$z_1$、$\pm z_2$为边的三角形的第三边。首先注意到三角形的几个基本性质：
+\begin{enumerate}[label=\arabic*.]
+  \item 三角形两边边长固定时，夹角越大，第三边越长。
+  \item 钝角三角形两边夹角固定时，任一边越长，第三边越长。
+\end{enumerate}
+固定$z_1$。若$z_2$的幅角与之相差$60^\circ$以内（橙色区域），那么边$z_1 - z_2$的对角必定不是最大角，边长不超过$z_1,z_2$中较长者，因此$|z_1 - z_2| \leqslant 1$。而如果$z_2$的幅角与$z_1$相差超过$60^\circ$，那么$-z_2$的幅角与$z_1$相差在$120^\circ$以内（脱离黄色区域）。我们考虑$z_1, -z_2, z_1 + z_2$构成的三角形，先旋转$-z_2$将它与$z_1$的夹角增加到$120^\circ$，这时$z_1+z_2$变长，再将这个钝角三角形的$z_1$、$-z_2$两边变长到$1$，$z_1+z_2$仍变长。最终$z_1+z_2$模长变为$\sqrt{3}$，因此原本$z_1 + z_2$的模长不超过$\sqrt{3}$。
+
+\begin{minipage}[t]{0.4\textwidth}
+\centering
+    \begin{tikzpicture}[scale=2, line cap=round, baseline=(current bounding box.center)]
+  % 1. 先绘制填充区域（确保不会覆盖坐标轴）
+  % 浅红色区域：-60° 到 60°
+  \fill[orange!20] (0,0) -- (-60:1) arc (-60:60:1) -- cycle;
+  
+  % 红色区域边界
+  \draw[orange, thin] (60:1) -- (0,0) -- (-60:1); 
+  
+  % 2. 绘制坐标轴和单位圆（在填充区域之上）
+  \draw[->, thick] (-1.2,0) -- (1.4,0); % x-axis
+  \draw[->, thick] (0,-1.2) -- (0,1.4); % y-axis
+  \draw[thick] (0,0) circle (1); % 单位圆
+  
+  % 3. 绘制向量并添加标签
+  
+  % z_2 = 40°
+  \draw[-{Stealth[length=3mm]}, thick, blue] (0,0) -- (40:1);
+  \node[blue] at (40:1.15) {$z_2$};
+  
+  % -z_2 = 220°
+  % \draw[-{Stealth[length=3mm]}, thick, blue] (0,0) -- (220:1);
+  % \node[blue] at (220:1.15) {$-z_2$};
+  
+  % z_2 = 40°
+  \draw[-{Stealth[length=3mm]}, thick, teal] (40:1) -- (1,0);
+  \node[teal,right] at (10:1) {$z_1 - z_2$};
+
+  % % -z_2 = 220°
+  % \draw[-{Stealth[length=3mm]}, thick, teal] (220:1) -- (1,0);
+  % \node[teal, left] at (-20:1) {$z_1 + z_2$};
+  
+  % z_1 = 1 (0°)
+  \draw[-{Stealth[length=3mm]}, thick, purple] (0,0) -- (0:1);
+  \node[purple, below] at (0:1.15) {$z_1$};
+
+\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.4\textwidth}
+\centering
+  \begin{tikzpicture}[scale=2, line cap=round, baseline=(current bounding box.center)]
+  % 1. 先绘制填充区域（确保不会覆盖坐标轴）
+  % 浅红色区域：-60° 到 60°
+  \fill[orange!20] (0,0) -- (-60:1) arc (-60:60:1) -- cycle;
+  % 浅红色区域：120° 到 240°
+  \fill[yellow!20] (0,0) -- (120:1) arc (120:240:1) -- cycle;
+  
+  % 红色区域边界
+  \draw[orange, thin] (60:1) -- (0,0) -- (-60:1); 
+  \draw[yellow, thin] (120:1) -- (0,0) -- (-120:1); 
+  
+  % 2. 绘制坐标轴和单位圆（在填充区域之上）
+  \draw[->, thick] (-1.2,0) -- (1.4,0); % x-axis
+  \draw[->, thick] (0,-1.2) -- (0,1.4); % y-axis
+  \draw[thick] (0,0) circle (1); % 单位圆
+  
+  % 3. 绘制向量并添加标签
+  
+  % z_2 = 40°
+  \draw[-{Stealth[length=3mm]}, thick, blue] (0,0) -- (80:1);
+  \node[blue] at (80:1.15) {$z_2$};
+  
+  % -z_2 = 220°
+  \draw[-{Stealth[length=3mm]}, thick, blue] (0,0) -- (260:1);
+  \node[blue] at (260:1.15) {$-z_2$};
+  
+  % % z_2 = 40°
+  % \draw[-{Stealth[length=3mm]}, thick, teal] (80:1) -- (1,0);
+  % \node[teal,right] at (10:1) {$z_1 - z_2$};
+
+  % -z_2 = 220°
+  \draw[-{Stealth[length=3mm]}, thick, teal] (260:1) -- (1,0);
+  \node[teal,right] at (-10:1) {$z_1 + z_2$};
+  
+  % z_1 = 1 (0°)
+  \draw[-{Stealth[length=3mm]}, thick, purple] (0,0) -- (0:1);
+  \node[purple, above] at (0:1.15) {$z_1$};
+
+\end{tikzpicture}
+\end{minipage}
+
+具体来说，若 \( |z_1 - z_2| \leqslant 1 \)，则选择 \( \varepsilon_1 = 1 \) 和 \( \varepsilon_2 = -1 \) 满足要求。假设 \( |z_1 - z_2| > 1 \)，则有
+\[
+|z_1 - z_2|^2 = |z_1|^2 + |z_2|^2 - 2 \Re(\overline{z_1} z_2) > 1
+\]
+从而
+\[
+|z_1 + z_2|^2 = |z_1|^2 + |z_2|^2 + 2 \Re(\overline{z_1} z_2) < 2(|z_1|^2 + |z_2|^2) - 1 \leqslant 4 - 1 = 3
+\]
+选择 \( \varepsilon_1 = \varepsilon_2 = 1 \) 满足要求。
+
+% 为证明 \( (H_2) \)，我们也可以使用平行四边形等式：
+% \[
+% |z_1 - z_2|^2 + |z_1 + z_2|^2 = 2(|z_1|^2 + |z_2|^2) \leqslant 4
+% \]
+% 因此 \( |z_1 - z_2| \leqslant \sqrt{2} \) 或 \( |z_1 + z_2| \leqslant \sqrt{2} \)。
+
+假设 \( (H_{n-1}) \) 成立（\( n \geq 3 \)），下证 \( (H_{n}) \) 成立。给定 \( (z_1, \ldots, z_n) \in D^n \)，我们的思路是将两个 \( z_i \) 合并以应用归纳假设。分两种情况讨论。
+\begin{enumerate}[label=\arabic*.]
+  \item 存在 \( \varepsilon \in \{\pm 1\} \) 使得 \( z_1 + \varepsilon z_2 \in D \)。对\( (z_1 + \varepsilon z_2, z_3, \ldots, z_n) \in D^{n-1} \)应用归纳假设。记 \( (\varepsilon_2, \ldots, \varepsilon_n) \) 是该 \( (n-1) \)元组对应的解决方案。则 \( (\varepsilon_2, \varepsilon_2 \varepsilon, \varepsilon_3, \ldots, \varepsilon_n) \in \{\pm 1\}^n \)是 \( (z_1, \ldots, z_n) \) 的解决方案。具体来验证：\( |\varepsilon_2 z_1| \leqslant 1 \leqslant \sqrt{3} \)，\( |\varepsilon_2 z_1 + \varepsilon_2 \varepsilon z_2| \leqslant 1 < \sqrt{3} \)，且对 \( k \geqslant 3 \)，
+    \[
+    \left| \varepsilon_2(z_1 + \varepsilon z_2) + \sum_{i=3}^k \varepsilon_i z_i \right| \leqslant \sqrt{3}.
+    \]
+  \item \( z_1 + z_2 \) 和 \( z_1 - z_2 \) 都不在 \( D \) 中。我们再考虑第三个向量$z_3$，希望证明\( z_1 \pm z_3 \)、\( z_2 \pm z_3 \)中有一个属于$D$，这样我们就回到$n-1$的情况。
+
+\vspace{4pt}
+\begin{minipage}[t]{0.4\textwidth}
+\centering
+\begin{tikzpicture}[scale=2, line cap=round, baseline=(current bounding box.center)]
+  % 1. 先绘制填充区域（确保不会覆盖坐标轴）
+  % 浅红色区域：-60° 到 60°
+  \fill[red!20] (0,0) -- (-60:1) arc (-60:60:1) -- cycle;
+  % 浅红色区域：120° 到 240°
+  \fill[red!20] (0,0) -- (120:1) arc (120:240:1) -- cycle;
+  
+  % 红色区域边界
+  \draw[red, thin] (60:1) -- (0,0) -- (120:1);
+  \draw[red, thin] (240:1) -- (0,0) -- (-60:1); 
+  
+  % 2. 绘制坐标轴和单位圆（在填充区域之上）
+  \draw[->, thick] (-1.2,0) -- (1.4,0); % x-axis
+  \draw[->, thick] (0,-1.2) -- (0,1.4); % y-axis
+  \draw[thick] (0,0) circle (1); % 单位圆
+  
+  % 3. 绘制向量并添加标签
+  % z_1 = 1 (0°)
+  \draw[-{Stealth[length=3mm]}, thick, purple] (0,0) -- (0:1);
+  \node[purple, above] at (0:1.15) {$z_1$};
+  
+  % z_2 = 40°
+  \draw[-{Stealth[length=3mm]}, thick, brown] (0,0) -- (40:1);
+  \node[brown] at (40:1.15) {$z_2$};
+  
+  % -z_2 = 220°
+  \draw[-{Stealth[length=3mm]}, thick, brown] (0,0) -- (220:1);
+  \node[brown] at (220:1.15) {$-z_2$};
+  
+  % z_2 = 40°
+  \draw[-{Stealth[length=3mm]}, thick, blue] (0,0) -- (80:1);
+  \node[blue] at (80:1.15) {$z_2$};
+  
+  % -z_2 = 220°
+  \draw[-{Stealth[length=3mm]}, thick, blue] (0,0) -- (260:1);
+  \node[blue] at (260:1.1) {$-z_2$};
+\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.4\textwidth}
+\centering
+\begin{tikzpicture}[scale=2, line cap=round, baseline=(current bounding box.center)]
+  % ================ 专业透明度处理 ================
+  % 1. 原始红色区域（带40%透明度）
+  \fill[red!40!white, fill opacity=0.4] (0,0) -- (-60:1) arc (-60:60:1) -- cycle;
+  \fill[red!40!white, fill opacity=0.4] (0,0) -- (120:1) arc (120:240:1) -- cycle;
+  
+  % 2. 新增蓝色区域（带40%透明度）
+  \fill[blue!40!white, fill opacity=0.4] (0,0) -- (20:1) arc (20:140:1) -- cycle;
+  \fill[blue!40!white, fill opacity=0.4] (0,0) -- (200:1) arc (200:320:1) -- cycle;
+  
+  % 3. 显式标记重叠区域（关键改进！）
+  % 重叠区域1：20°-60° (红+蓝)
+  \fill[purple!30, fill opacity=0.3] (0,0) -- (20:1) arc (20:60:1) -- cycle;
+  % 重叠区域2：200°-240° (红+蓝)
+  \fill[purple!30, fill opacity=0.3] (0,0) -- (200:1) arc (200:240:1) -- cycle;
+  
+  % ================ 基础元素（在填充之上绘制） ================
+  % 坐标轴和单位圆
+  \draw[->, thick] (-1.2,0) -- (1.4,0);
+  \draw[->, thick] (0,-1.2) -- (0,1.4);
+  \draw[thick] (0,0) circle (1);
+  
+  % ================ 向量和标签 ================
+  % 原有向量
+  \draw[-{Stealth[length=3mm]}, thick, purple] (0,0) -- (0:1);
+  \node[purple, above] at (0:1.15) {$z_1$};
+
+  % 新增向量
+  \draw[-{Stealth[length=3mm]}, thick, blue] (0,0) -- (80:1);
+  \node[blue] at (80:1.15) {$z_2$};
+  
+  % ================ 区域边界指示（可选但强烈推荐） ================
+  % 红色区域边界
+  \draw[red, thin] (60:1) -- (0,0) -- (120:1);
+  \draw[red, thin] (240:1) -- (0,0) -- (-60:1);
+  
+  % 蓝色区域边界
+  \draw[blue, thin] (20:1) -- (0,0) -- (140:1);
+  \draw[blue, thin] (200:1) -- (0,0) -- (320:1);
+\end{tikzpicture}
+\end{minipage}
+
+如何确定\( z_1 \pm z_3 \)、\( z_2 \pm z_3 \)中至少有一个属于$D$呢？$n=2$的情况说明，\( z_1 \pm z_2 \) 都不在 \( D \) 中，就等于说$z_2$脱离了左上图的红色区域。即$\pm z_2$的幅角与$z_1$相差都在$60^\circ$到$120^\circ$之间。同理，考虑\( z_2 \pm z_3 \)，如果两者都不在$D$中，说明$z_3$也脱离了右上图的蓝色区域。但当$z_2$脱离红色区域时，它对应的蓝色区域和$z_1$的红色区域覆盖了整个单位圆。因此，如果$z_3$不在蓝色区域中，就必然在红色区域中，于是\( z_1 \pm z_3 \)至少有一个属于$D$。这说明\( z_1 \pm z_3 \)、\( z_2 \pm z_3 \)中至少有一个属于$D$。
+
+现在回到 \( (H_n) \) 的证明。
+\begin{itemize}
+  \item 首先考虑 \( z_1 +\varepsilon z_3 \in D \) 的情况（$\varepsilon = \pm 1$）。我们对\( (n-1) \)元组 \( (z_1 + \varepsilon z_3, z_2, z_4, \ldots, z_n) \)应用归纳假设。记 \( (\varepsilon_1, \varepsilon_2, \varepsilon_4, \ldots, \varepsilon_n) \) 为解决方案。考虑 \( (\varepsilon_1, \varepsilon_2, \varepsilon \varepsilon_1, \varepsilon_4, \ldots, \varepsilon_n) \)，验证它满足要求：\( |\varepsilon_1 z_1| = 1 < \sqrt{3} \)，\( |\varepsilon_1 z_1 + \varepsilon_2 z_2 + \varepsilon \varepsilon_1 z_3| = |\varepsilon_1 (z_1 + \varepsilon z_3) + \varepsilon_2 z_2| \leqslant \sqrt{3} \)，向量多于$3$个时也一样。最后根据$n=2$的证明，\( z_1 \pm z_2 \)都不在$D$中就说明\( \varepsilon_1 z_1 + \varepsilon_2 z_2 \)必不大于$\sqrt{3}$。因此\( (\varepsilon_1, \varepsilon_2, \varepsilon \varepsilon_1, \varepsilon_4, \ldots, \varepsilon_n) \)满足要求。
+  \item \( z_2 +\varepsilon z_3 \in D \) 的情况类似。对\( (n-1) \)元组 \( (z_1,z_2 + \varepsilon  z_3, z_4, \ldots, z_n) \)应用归纳假设。记 \( (\varepsilon_1, \varepsilon_2, \varepsilon_4, \ldots, \varepsilon_n) \) 为解决方案。考虑 \( (\varepsilon_1, \varepsilon_2, \varepsilon \varepsilon_2, \varepsilon_4, \ldots, \varepsilon_n) \)，验证它满足要求：\( |\varepsilon_1 z_1| = 1 < \sqrt{3} \)，\( |\varepsilon_1 z_1 + \varepsilon_2 z_2 + \varepsilon \varepsilon_2 z_3| = |\varepsilon_1 z_1 + \varepsilon_2 (z_2 + \varepsilon z_3)| \leqslant \sqrt{3} \)，向量多于$3$个时也一样。最后根据$n=2$的证明，\( z_1 \pm z_2 \)都不在$D$中就说明$ \varepsilon_1 z_1 + \varepsilon_2 z_2 \leqslant\sqrt{3}$。因此\( (\varepsilon_1, \varepsilon_2, \varepsilon \varepsilon_2, \varepsilon_4, \ldots, \varepsilon_n) \)满足要求。
+\end{itemize}
+\end{enumerate}
+
+\item 由上述结果可知，若 \( a_1, \ldots, a_n \) 是模不超过 \( M > 0 \) 的复数，则存在 \( (\varepsilon_1, \ldots, \varepsilon_n) \in \{\pm 1\}^n \) 使得
+\[
+\forall k \in \hin{1}{n}, \quad \left| \sum_{i=1}^k \varepsilon_i a_i \right| \leqslant M\sqrt{3}.
+\]
+由于序列 \( (z_n) \) 有界，可取 \( M > 0 \) 使得对所有 \( n \in \mathbb{N} \)，\( |z_n| \leqslant M \)。构造严格递增的整数序列 \( N_k \)，使得 \( N_0 = 0 \) 且对所有 \( k \in \mathbb{N} \)，有：
+\[
+\forall n \geq N_k, \quad |z_n| \leqslant \frac{M}{2^k}.
+\]
+这是可能的，因为 \( (z_n) \) 趋于 0。
+
+现在在每个区间 \( [N_k, N_{k+1}-1] \) 上定义序列 \( (\varepsilon_n) \)，使得对所有 \( p \in [N_k, N_{k+1}-1] \)，
+\[
+\left| \sum_{j=N_k}^p \varepsilon_j z_j \right| \leqslant \frac{\sqrt{3}M}{2^k}.
+\]
+记 \( U_k \) 为级数 \( \sum \varepsilon_n z_n \) 中从 \( N_k \) 到 \( N_{k+1} - 1 \) 的分段和：
+\[
+U_k = \sum_{j=N_k}^{N_{k+1}-1} \varepsilon_j z_j.
+\]
+由于 \( |U_k| \leqslant \frac{\sqrt{3}M}{2^k} \)，级数 \( \sum U_k \) 绝对收敛。若对 \( n \in \mathbb{N} \)，记 \( \varphi(n) \) 为满足 \( N_k \leqslant n < N_{k+1} \) 的唯一指标 \( k \)，则
+\[
+\sum_{i=1}^n \varepsilon_i z_i = \sum_{k=0}^{\varphi(n)-1} U_k + \underbrace{\sum_{j=N_k}^n \varepsilon_i z_i}_{\leqslant \frac{\sqrt{3}M}{2^{\varphi(n)}}}.
+\]
+这证明了级数 \( \sum \varepsilon_i z_i \) 收敛。
+\end{subquestions}
+\end{solution}
+
+\section{1.20. Shapiro函数方程}
+\begin{solution}
+  \begin{subquestions}
+    \item 点 \(f(z)\) 和 \(g(z)\) 位于以 \(z^2 + 1\) 为圆心、\( |z| \) 为半径的圆上，且由于 \(|f(z) - g(z)| = 2|z|\)，它们在该圆上是直径的两端。
+    \begin{figure}[htbp]
+      \centering
+      \includegraphics[width=0.5\textwidth]{pics/X_ENS_Analysis_1/chunk_21_40_page_14_Figure_5.jpeg}
+    \end{figure}
+    
+    若 \(z^2 + 1 \neq 0\)，则复数 \(f(z)\) 和 \(g(z)\) 中必有一个的模严格大于 \(|z|\)。
+    
+    由此，若取 \(z \in A\) 为模最大的元素，则必有 \(z^2 + 1 = 0\)，即 \(z \in \{-i, i\}\)。由于 \(g(i) = -i\) 且 \(g(-i) = i\)，因此 \(\{-i, i\} \subset A\)，且 \(A \setminus \{-i, i\}\) 中的任意点的模严格小于 1。
+    
+    下面用反证法证明 \(A\) 等于集合 \(\{-i, i\}\)。反设$A$中除了\(\{-i, i\}\)还有别的数，取其中模最大的记为$z$。模比$z$大的就只有$\pm i$了。又\(z^2 + 1 \neq 0\)，因此 \(f(z)\) 与 \(g(z)\) 之一的模大于它，因此等于 \(i\) 或 \(-i\)。然而，\(f\) 下 \(i\) 的原像是 \(i\) 和 \(-1-i\)，\(-i\) 的原像是 \(-i\) 和 \(-1+i\)。对于 \(g\)，原像是它们的相反数。这些原像的模均 \(\geqslant 1\)，这导致矛盾。因此 \(A = \{-i, i\}\)。
+    
+    \item 常数解多项式为 0 和 1。设 \(P\) 为满足 \(\deg P \ge 1\) 的解，则 \(P\) 是首一多项式。设$z$是$P$的根，那么
+    $$P(z^2 + z + 1) = P(z)P(z + 1) = 0, \quad P(z^2 - z + 1) = P(z - 1)P(z) = 0.$$
+    这说明 \(P\) 的根集在 \(f\) 和 \(g\) 下稳定，因此是集合 \(\{-i, i\}\)。由于 \(P\) 是实系数多项式，根 \(i\) 和 \(-i\) 的重数相等，因此 \(P\) 必然具有形式 \((X^2 + 1)^n\)，其中 \(n \in \mathbb{N}^*\)。容易验证所有这些多项式都满足方程。
+  \end{subquestions}
+\end{solution}
+
+\section{1.21. 保持单位圆盘不变的分式线性变换}
+\begin{solution}
+分式线性变换是指形如 
+$$ z \mapsto \frac{az+b}{cz+d} $$
+的映射，其中 \( ad - bc \neq 0 \)（若 \( ad - bc = 0 \)，则分式线性变换退化为常函数）。
+
+这样的映射在 \( c=0 \) 时是从 \( \mathbb{C} \) 到 \( \mathbb{C} \) 的双射，否则是从 \( \mathbb{C} \setminus \left\{ -\frac{d}{c} \right\} \) 到 \( \mathbb{C} \setminus \left\{ \frac{a}{c} \right\} \) 的双射。若这样的分式线性变换 \( f \) 将 \( D_0 \) 映射到 \( D_0 \)，则它也将 \( D_0 \) 的补集映射到其补集。记 \( C_0 \) 为以 \( 0 \) 为中心、半径为 \( 1 \) 的圆周。\( C_0 \) 上的任意点 \( z \) 都是 \( \mathbb{C} \setminus D_0 \) 中某序列 \( (z_n) \) 的极限。由连续性，\( f(z) \) 是序列 \( (f(z_n)) \)（位于 \( \mathbb{C} \setminus D_0 \) 中）的极限。因此 \( f(z) \) 属于 \( \mathbb{C} \setminus D_0 \) 的闭包。此外，\( f(z) \) 属于 \( D_0 \)，故 \( z \) 属于 \( C_0 \)。于是有 \( f(C_0) \subset C_0 \)。我们首先寻找将 \( C_0 \) 映入 \( C_0 \) 的分式线性变换。
+
+这样的变换必须满足：\(\forall\; t \in \mathbb{R} \)，\( |f(e^{it})| = 1 \)，即 \( |a e^{it} + b| = |c e^{it} + d| \)。得到
+\[
+|a|^2 + |b|^2 + 2 \Re(a \overline{b} e^{it}) = |c|^2 + |d|^2 + 2 \Re(c \overline{d} e^{it})
+\]
+且存在 \( t_0 \in \mathbb{R} \) 使得
+\[
+|a|^2 + |b|^2 - |c|^2 - |d|^2 = 2 \Re\left( (c \overline{d} - a \overline{b}) e^{it} \right) = 2 \left| c \overline{d} - a \overline{b} \right| \cos(t_0 + t).
+\]
+于是为了使得这个等式不依赖于$t$，必须有
+\[
+c \overline{d} - a \overline{b} = 0 ,\quad \mbox{且}\;\; |a|^2 + |b|^2 = |c|^2 + |d|^2
+\]
+
+若 \( a = 0 \)，则 \( c\overline{d} = 0 \)，即$c,d$之一为$0$。但 \( ad - bc \neq 0 \)，所以$d = 0$。这说明 \( |b| = |c| \)。于是，对所有 \( z \in \mathbb{C}^* \)，
+\[
+|f(z)| = \left| \frac{b}{c z} \right| = \frac{1}{|z|}.
+\]
+该映射将 \( D_0 \) 映入其补集，不符合要求。
+
+若 \( a \neq 0 \)，则$b$可以写为\(\displaystyle b = \frac{\overline{c} d}{\overline{a}} \)，因而有
+\[
+|a|^2 + |b|^2 - |c|^2 - |d|^2 = |a|^2 + \frac{|c|^2 |d|^2}{|a|^2} - |c|^2 - |d|^2 = \frac{(|a|^2 - |c|^2)(|a|^2 - |d|^2)}{|a|^2}.
+\]
+此量为零，故 \( |a| = |c| \) 或 \( |a| = |d| \)。
+
+若 \( |a| = |c| \)，则存在 \( \alpha \in \mathbb{R} \) 使得 \( c = a e^{i\alpha} \)。进而 \( \overline{b} = \overline{d} e^{i\alpha} \)，故 \( d = b e^{i\alpha} \)，这导致 \( ad - bc = 0 \)。因此必须有 \( |a| = |d| \neq 0 \)。于是得到
+\[
+f(z) = \frac{a}{d} \left( \frac{z + \frac{b}{a}}{1 + \frac{c}{d} z} \right).
+\]
+存在 \( \alpha \in \mathbb{R} \) 使得 \( \frac{a}{d} = e^{i\alpha} \)。令 \( \frac{b}{a} = -z_0 \)。则有
+\[
+\frac{c}{d} = \frac{a \overline{b}}{d \overline{d}} = \frac{a \overline{b}}{a \overline{a}} = \frac{\overline{b}}{\overline{a}} = -\overline{z_0}
+\]
+最终得到$f$必须为以下形式：
+\[
+f(z) = e^{i\alpha} \frac{z - z_0}{1 - \overline{z_0} z}.
+\]
+此外，\( z_0 = f^{-1}(0) \)，故 \( z_0 \) 属于 \( D_0 \setminus C_0 \) 且 \( |z_0| < 1 \)。
+
+最后验证以上形式符合要求：给定 \( \alpha \in \mathbb{R} \) 且 \( z_0 \in \mathbb{C} \) 满足 \( |z_0| < 1 \)，则分式线性变换 \( f: z \mapsto e^{i\alpha} \frac{z - z_0}{1 - \overline{z_0} z} \) 将 \( D_0 \) 映射到 \( D_0 \)。函数 \( f \) 在 \( D_0 \) 上有定义，且对 \( z \in D_0 \)，我们有：
+\[
+|f(z)|^2 = \frac{|z - z_0|^2}{|1 - \overline{z_0} z|^2} = \frac{|z|^2 + |z_0|^2 - 2 \Re(z \overline{z_0})}{1 + |z|^2 |z_0|^2 - 2 \Re(z \overline{z_0})} \leqslant 1,
+\]
+这是因为：
+\[
+|z|^2 + |z_0|^2 - 1 - |z|^2 |z_0|^2 = (|z|^2 - 1)(1 - |z_0|^2) \leqslant 0.
+\]
+故有 \( f(D_0) \subset D_0 \)。易证 \( f^{-1} \) 由下式给出：
+\[
+f^{-1}(z) = e^{-i\alpha} \frac{z + e^{i\alpha} z_0}{1 + \overline{z_0} e^{-i\alpha}}.
+\]
+分式线性变换 \( f^{-1} \) 具有与 \( f \) 相同的形式，其中 \( \alpha \) 和 \( z_0 \) 分别被替换为 \( -\alpha \) 和 \( -e^{i\alpha} z_0 \)。因此也有 \( f^{-1}(D_0) \subset D_0 \)，即 \( D_0 \subset f(D_0) \)，最终 \( f(D_0) = D_0 \).
+
+\textbf{结论。} 一个分式线性变换保持 \( D_0 \) 不变，当且仅当它可以写为以下形式：
+\[ z \mapsto e^{i\alpha} \frac{z - z_0}{1 - \overline{z_0} z}. \]
+其中 \( \alpha \in \mathbb{R} \) ， \( z_0 \in \mathbb{C} \) 满足 \( |z_0| < 1 \)。
+
+若考虑保持以 \( 0 \) 为中心、半径为 \( 1 \) 的开圆盘不变的分式线性变换，结果相同。
+\end{solution}
+
+\section{1.22. 多边形序列}
+\begin{solution}
+重要的是从几何角度理解这个问题。将 \(n\) 个实数 \(\theta_i\) 与复平面上单位圆内的凸多边形 \(P\) 关联，其顶点为 \(e^{i\theta_j}\)（\(1 \leq j \leq n\)）。
+
+记\(\alpha_j = \theta_{j+1} - \theta_j\)（定义\(\alpha_n = \theta_1 - \theta_n + 2\pi\)），$\alpha_j$可解释为该多边形的中心角， \(\sum_{j=1}^{n} \alpha_j = 2\pi\) 恒成立。
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{pics/X_ENS_Analysis_1/chunk_21_40_page_17_Figure_5.jpeg}
+\end{figure}
+
+题目要研究的变换可以这样解释：对多边形 \(P_k = (\theta_j^{(k)})_{1 \leq j \leq n}\)，关联多边形 \(f(P_k) = (\theta_j^{(k+1)})_{1 \leq j \leq n}\)，其中 \(\theta_j^{(k+1)}\) 是 \(\theta_j^{(k)}\) 和 \(\theta_{j+1}^{(k)}\) 的加权重心，权重为正数 \(a\) 和 \(b\)。例如，当 \(a = b = 0.5\) 时，\(f(P_k)\) 的顶点就是 \(P_k\) 各边的中垂线与单位圆的交点。
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{pics/X_ENS_Analysis_1/chunk_21_40_page_18_Figure_1.jpeg}
+    \caption*{ \(a = b =0.5\) 时，前一个多边形（虚线）经 \(f\) 变换后的图像（实线）}
+\end{figure}
+
+题目要求研究当 \(k\) 趋于无穷时，角度 \(\alpha_j^{(k)} = \theta_{j+1}^{(k)} - \theta_j^{(k)}\) 的行为。
+
+显然，若 \(a = 1, b = 0\)，则函数 \(f\) 为常函数，序列 \(\alpha_j^{(k)}\) 也是常数列。当 \(a = 0\) 且 \(b = 1\) 时，多边形 \(f(P)\) 与 \(P\) 相同，但顶点编号集体往后挪一位。此时，序列 \(\alpha_j^{(k)}\) 是周期为 \(n\) 的周期序列。因此，接下来我们考虑 \(0 < a < 1\) 的情况。
+
+观察几个例子将帮助我们理解结果。
+\begin{enumerate}[label=\arabic*.]
+  \item 若取 \(n = 2\) 且 \(a = b = 1/2\)，经过一次变换 \(f\) 后得到两个对径点。此时，序列 \(\alpha_i^{(k)} = \theta_{i+1}^{(k)} - \theta_i^{(k)}\)（\(i = 1, 2\)）稳定在 \(\pi\)。
+  \item 更一般地，若 \(n\) 个点构成正多边形 \(P\)，则 \(f(P)\) 是由 \(P\) 旋转得到的另一个正多边形。此时，序列 \(\alpha_j^{(k)}\) 恒为 \(\frac{2\pi}{n}\)。
+  \item $a = b = 0.5$时，最大中心角与旁边的角平均，因此变小，最小中心角与旁边的角平均，因此变大。但所有角度和不变。这说明$f(P)$的最大最小角会向均值靠拢，最大最小角的差别比$P$的要更小。
+\end{enumerate}
+
+实际上，我们将证明： \(0 < a < 1\) 时，所有序列 \(\alpha_j^{(k)}\) 收敛到 \(\displaystyle\frac{2\pi}{n}\)。
+
+在后续中，索引 \(j\) 将模 \(n\) 理解。对所有 \(j\)（包括 \(j = n\)）和所有 \(k\)，
+\[
+\alpha_j^{(k+1)} = \theta_{j+1}^{(k+1)} - \theta_j^{(k+1)} = a(\theta_{j+1}^{(k)} - \theta_j^{(k)}) + b(\theta_{j+2}^{(k)} - \theta_{j+1}^{(k)}) = a\alpha_j^{(k)} + b\alpha_{j+1}^{(k)}.
+\]
+
+为简化，记 \(X_k\) 为 \(\mathbb{R}^n\) 中坐标为 \((\alpha_1^{(k)},\ldots,\alpha_n^{(k)})\) 的向量，则有 \(X_{k+1} = A X_k\)，其中 \(A\) 是矩阵
+\[
+\begin{pmatrix}
+a & b & 0 & \dots & 0 \\
+0 & a & b & & \\
+\vdots & & \ddots & \ddots & \\
+0 & & & a & b \\
+b & 0 & \dots & 0 & a
+\end{pmatrix} = a I_n + b M.
+\]
+
+问题转化为线性代数问题，即计算 \(A\) 的幂。矩阵 \(M\) 是一个置换矩阵，特征多项式为 \(X^n - 1\)。它是可对角化的，其特征值为 \(n\) 次单位根。因此，\(A\) 的特征值为 \(\lambda_{\omega} = a + b \omega\)，其中 \(\omega^{n} = 1\)。它们互不相同，且模小于 1（\(\lambda_{\omega}\) 位于连接 1 和 \(\omega\) 的线段上），唯一模为 1 的是 \(\lambda_1 = a + b = 1\)。
+
+因此，若记 \(p_{\omega}\) 为沿 \(A\) 的其他特征子空间之和到特征值 \(\lambda_{\omega}\) 的特征直线的投影，则有 \(A = \sum_{\omega^n=1} \lambda_{\omega} p_{\omega}\) 且对所有 \(k\)，\(A^k = \sum_{\omega^n=1} \lambda_{\omega}^k p_{\omega}\)。因此，\(A^k\) 收敛到特征值 1 的特征直线上的投影 \(p_1\)，即由向量 \((1, 1, \ldots, 1)\) 生成的直线，沿其他特征子空间之和的方向。
+
+因此，\(A^k X_0\) 收敛到一个所有分量相等的向量。由于对所有 \(k\) 有 \(\sum_{j=1}^{n} \alpha_j^{(k)} = 2\pi\)，这些分量值为 \(\frac{2\pi}{n}\)。因此，多边形 \(f^k(\mathbf{P})\) "收敛" 到一个正多边形。
+\end{solution}
+
+\section{1.23. Lebesgue外测度}
+\begin{solution}
+\begin{subquestions}
+\item 我们将证明区间的外测度等于其长度，这从定义上看并不显然。
+
+首先假设 \(E\) 是紧区间 \([a, b]\)。若 \(F\) 是 \(E\) 的一个覆盖族，则根据 Borel-Lebesgue 定理，可从中提取有限子覆盖 \(\mathbf{F}' = \bigl((a_{i_k}, b_{i_k})\bigr)_{1 \leq k \leq n}\)。由包含关系
+\[
+[a, b] \subset \bigcup_{1 \leq k \leq n} [a_{i_k}, b_{i_k}],
+\]
+可得
+\[
+\chi_{[a,b]} \leq \sum_{k=1}^{n} \chi_{(a_{i_k}, b_{i_k})} \quad (\text{其中 } \chi_{I} \text{ 表示 } I \text{ 的特征函数}),
+\]
+因此
+\[
+b - a = \int_{\mathbb{R}} \chi_{[a,b]}(x) \di{x} \leq \sum_{k=1}^{n} \int_{\mathbb{R}} \chi_{(a_{i_k}, b_{i_k})}(x) \di{x} = \sum_{k=1}^{n} (b_{i_k} - a_{i_k}) = \ell(F').
+\]
+由族 \((b_i - a_i)_{i \in I}\) 的和的定义，有 \(b - a \leq \ell(F)\)。这对任意覆盖 \([a, b]\) 的开区间族 \(F\) 成立，故 \(b - a \leq \mu([a, b])\)。
+
+为证反向不等式，注意到对任意 \(\varepsilon > 0\)，单元素族 \(F = (a - \varepsilon, b + \varepsilon)\) 覆盖 \([a, b]\)。因此 \(\mu([a, b]) \leq \ell(F) = b - a + 2\varepsilon\)。这对任意 \(\varepsilon > 0\) 成立，故 \(\mu([a, b]) \leq b - a\)，从而 \(\mu([a, b]) = b - a\)。
+
+考虑一般情况，注意到函数 \(\mu\) 关于包含关系单调递增。事实上，若 \(E \subset E'\) 且 \(F\) 是覆盖 \(E'\) 的至多可数开区间族，则 \(F\) 也覆盖 \(E\)，故 \(\mu(E) \leq \ell(F)\)，再由 \(\mu(E')\) 的定义得 \(\mu(E) \leq \mu(E')\)。因此，若 \(E\) 是端点 \(a, b\) 的有界区间，对 \(\varepsilon \in \bigl(0, \frac{b-a}{2}\bigr)\)，有
+\[
+b - a - 2\varepsilon = \mu([a + \varepsilon, b - \varepsilon]) \leq \mu(E) \leq \mu([a, b]) = b - a,
+\]
+故 \(\mu(E) = b - a\)。
+
+最后，若 \(E\) 是无界区间，则对任意 \(A > 0\)，存在 \(E\) 中的有界子区间 \(I\) 满足长度大于 \(A\)。因此 \(\mu(E) \geq \mu(I) \geq A\)，故 \(\mu(E) = +\infty\)。
+
+注：使用特征函数和积分非常简便但非必需。也可如后续练习所示，通过从 \(\mathbf{F}'\) 中提取基数最小的子覆盖 \(\mathbf{F}''\) 来论证。
+
+\item 设 \((E_n)_{n \in \mathbb{N}}\) 是满足 \(\mu(E_n) = 0\)（对所有 \(n\)）的可数族，且 \(E = \bigcup_{n \in \mathbb{N}} E_n\)。给定 \(\varepsilon > 0\)，由定义，对每个 \(n \in \mathbb{N}\)，存在覆盖 \(E_n\) 的至多可数开区间族 \(F_n = \bigl((a_{n,i}, b_{n,i})\bigr)_{i \in I_n}\) 使得 \(\ell(F_n) \leq \frac{\varepsilon}{2^{n+1}}\)。集合 \(I = \bigcup_{n \in \mathbb{N}} \{n\} \times I_n\) 至多可数（作为至多可数集的可数并）。族 \(F = \bigl((a_{n,i}, b_{n,i})\bigr)_{(n,i) \in I}\) 覆盖 \(E\)，且由可和族的性质，
+\[
+\mu(E) \leqslant \sum_{(n,i) \in I} (b_{n,i} - a_{n,i}) = \sum_{n \in \mathbb{N}} \left( \sum_{i \in I_n} (b_{n,i} - a_{n,i}) \right) = \sum_{n \in \mathbb{N}} \ell(F_n) \leqslant \sum_{n \in \mathbb{N}} \frac{\varepsilon}{2^{n+1}} = \varepsilon.
+\]
+由 \(\mu\) 的定义，得 \(\mu(E) = 0\)。
+
+\item 集合 \(\mathbb{Q}\) 可数，故可表示为可数个单点集（即长度为零的区间）的并。由问题 1 和 2 可得 \(\mu(\mathbb{Q}) = 0\)。
+\end{subquestions}
+实际上，本题中所有集合均为 Lebesgue 可测集。对此类集合，外测度等于 Lebesgue 测度。注意前两问提供了非平凡区间不可数的另一证明（参见练习 1.3），因为单点集的外测度为零。
+\end{solution}
+
+\section{1.24. 区间的有限覆盖}
+\begin{solution}
+  这道题是对紧致集的“有限子覆盖”的更细致讨论。$[a, b]$是紧致集，因此，可以从族 \((I(x))_{x\in[a,b]}\) 中提取 \([a, b]\) 的一个有限覆盖。这满足了条件$(i)$。然而，为了满足条件$(ii)$，不能取太多区间。因此，考虑在所有有限子覆盖中选择一个元素个数最少的子覆盖，记其基数为 \(n\)。记这个覆盖的区间为 \(I(x_1), \ldots, I(x_n)\)，且对每个 \(i\)，\(I(x_i) = (a_i, b_i)\)。
+
+考察这个覆盖的性质。这些性质将解释上界 \(2(b-a)+c\) 的来源。
+\begin{enumerate}[label=(\textit{\alph*})]
+  \item  \([a, b]\) 中的每个点最多属于这个覆盖中的两个区间。事实上，如果 \(\alpha\) 属于三个区间$[a_1, b_1]$、$[a_2, b_2]$、$[a_3, b_3]$，则$a_1, a_2, a_3$中有一个最小的，$b_1, b_2, b_3$中有一个最大的，这两者至多占据$1,2,3$里两个下标，对于另一个下标，对应的区间既不到最左端，也不到最右端。这说明三个区间中必有一个区间包含于另外两个区间的并集中，因此可以去掉，这与 \(n\) 的最小性矛盾。
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{pics/X_ENS_Analysis_1/chunk_41_60_page_2_Figure_4.jpeg}
+  \end{figure}
+  \item 点 \(a\) 和 \(b\) 各自最多属于覆盖中的一个区间。事实上，如果点 \(a\) 属于两个区间 \((a_{n_1}, b_{n_1})\) 和 \((a_{n_2}, b_{n_2})\)，且例如 \(b_{n_1} \leqslant b_{n_2}\)，则可以从子覆盖中去掉区间 \(I(x_{n_1})\) 而不破坏覆盖，这再次与 \(n\) 的最小性矛盾。点 \(b\) 的情况类似。
+  \item 覆盖中没有任何一个区间包含于另一个区间中，否则也可以去掉。
+\end{enumerate}
+
+于是可以假设 \(I(x_i)\) 按“递增顺序”排列，即
+\[
+a_1 < a_2 < b_1 < a_3 < b_2 < a_4 < b_3 < \dots < a_n < b_{n-1} < b_n.
+\]
+根据性质 $(b)$，有 \(a_1 < a < a_2\) 且 \(b_{n-1} < b < b_n\)。
+
+\vspace{8pt}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{pics/X_ENS_Analysis_1/chunk_41_60_page_3_Figure_1.jpeg}
+\end{figure}
+
+由于区间 \((a_1, b_1)\) 的中心 \(x_1\) 在 \([a, b]\) 中，有 \(a - a_1 \leqslant \frac{c}{2}\)（当 \(x_1 = a\) 时可能取等号）。同理，\(b_n - b \leqslant \frac{c}{2}\)。
+
+由于有限覆盖中最多有一个区间在 \(a\) 的左侧超出（即包含 \(a\) 的那个区间），且超出部分最多为 \(\frac{c}{2}\)（其中心在 \(a\) 右侧），同理最多有一个区间在 \(b\) 的右侧超出，且最多 \(\frac{c}{2}\)，而 \((a,b)\) 的其余部分最多被覆盖两次，因此显然（见上图）
+\[
+\sum_{i=1}^{n} \mu(I(x_i)) \leqslant 2(b-a) + \frac{c}{2} + \frac{c}{2}.
+\]
+严格证明如下。通过下式将问题转化为互不相交的区间：
+\[
+\sum_{i=1}^{n} (b_i - a_i) = (b_n - a_n) + \sum_{i=1}^{n-1} (b_i - a_{i+1}) + \sum_{i=1}^{n-1} (a_{i+1} - a_i) = b_n - a_1 + \sum_{i=1}^{n-1} (b_i - a_{i+1}).
+\]
+由前述，\(b_n - a_1 = (b_n - b) + (b - a) + (a - a_1) \leqslant (b - a) + c\)，且对于 \(i \in [1, n-1]\)，区间 \((a_{i+1}, b_i)\) 两两互不相交且包含于 \([a, b]\) 中，因此 \(\sum_{i=1}^{n-1} (b_i - a_{i+1}) \leqslant b - a\)。于是得到 \(\sum_{i=1}^{n} (b_i - a_i) \leqslant 2(b - a) + c\)，即所需的不等式 (ii)。
+\end{solution}
+
+\section{1.25. 无理数在子集中的稠密性}
+\begin{solution}
+  由假设，有 \( \inf M < \sup M \)。先证 \( M \) 在区间 \( I = [\inf M, \sup M] \) 上稠密。用反证法，假设区间里存在 \( \inf M \leqslant a < b \leqslant \sup M \) 使得 \( [a, b] \cap M = \emptyset \)。如果$a,b\in M$，那么$\sqrt{ab}\notin M$就导致了矛盾。问题是：$a,b$不一定属于$M$。但从直觉上，我们可以理解这种做法：如果$M$在$I$里有个“空洞”，那么从“空洞”两端找$M$中元素，它们的调和平均值就落在洞里面了。
+  
+  为此，我们先把这个“空洞” \( [a, b] \) 尽可能扩大：令
+  \begin{align*}
+  \alpha &= \inf \{ x \geqslant \inf M \mid [x, b] \cap M = \emptyset \} \\
+  \beta &= \sup \{ x \leqslant \sup M \mid [a, x] \cap M = \emptyset \}.
+  \end{align*}
+  $\alpha$和$\beta$分别是从$a, b$出发分别向左、向右延伸，直到无法再延伸，否则就会包含$M$中元素的极端点\footnote{但$\alpha$和$\beta$本身可能是$M$中的点。}。开区间 \( (\alpha, \beta) \) 与 \( M \) 的交集为空，但由构造，存在 \( M \) 中的元素任意接近 \( \alpha \)（从左侧）和 \( \beta \)（从右侧）。实际上，此开区间 \( (\alpha, \beta) \) 正是开集 \( \mathbb{R} \setminus \overline{M} \) 中包含 \( \frac{\alpha + \beta}{2} \) 的连通分支）。因此，可取 \( M \) 中的序列 \( (a_n) \) 收敛于 \( \alpha \)，和序列 \( (b_n) \) 收敛于 \( \beta \)。由假设，实数 \( \sqrt{a_n b_n} \) 属于 \( M \)，且收敛于 \( \sqrt{\alpha \beta} \in [\alpha, \beta] \)。对充分大的 \( n \)，它们属于开区间 \( (\alpha, \beta) \)，从而得出矛盾。
+
+  再证 \( M \cap (\mathbb{R} \setminus \mathbb{Q}) \) 在 \( [\inf M, \sup M] \) 上稠密。用反证法，反设存在区间 \( [a, b] \subset I \) 使得 \( M \cap [a, b] \) 中的所有元素均为有理数。利用整数的素因数分解，易知任意正有理数 \( x > 0 \) 可唯一表示为 \( x = \prod_{p \in \mathcal{P}} p^{\nu_p(x)} \)，其中 \( \mathcal{P} \) 为素数集，\( (\nu_p(x))_{p \in \mathcal{P}} \) 是几乎全为零的整数序列（即仅有有限项非零）。例如 \( \frac{12}{25} = 2^2 \cdot 3 \cdot 5^{-2} \)。需要以下结论：若 \( x \) 是有理数，则 \( \sqrt{x} \in \mathbb{Q} \) 当且仅当所有整数 \( \nu_p(x) \) 均为偶数。该条件显然充分；必要性是因为若 \( y = \sqrt{x} \in \mathbb{Q} \)，则 \( x = y^2 \) 且对任意素数 \( p \)，有 \( \nu_p(x) = 2\nu_p(y) \)。
+
+  回到本题。由 \( M \) 的稠密性，区间 \( [a, b] \) 包含 \( M \) 中的两个元素 \( x < y \)（根据反设，均为有理数）。于是\( \sqrt{xy} \) 仍属于 \( M \)，且因 \( \sqrt{xy} \in [x, y] \subset [a, b] \)，故也为有理数。重复此过程，将 \( y \) 替换为 \( y_1 = \sqrt{xy} \)，依此类推。定义序列 \( y_0 = y \) 和 \( y_{n+1} = \sqrt{x y_n} \)，则所有项均属于 \( M \cap \mathbb{Q} \)。取素数 \( p \)，序列 \( \nu_p(y_n) \) 取值于 \( \mathbb{Z} \) 且满足递推关系：
+  \[ \nu_p(y_{n+1}) = \frac{\nu_p(x) + \nu_p(y_n)}{2} \]
+  数列$\{\nu_p(y_n)\}_{n>0}$为差分等比数列，而且是整数列。求解通项可知：
+  \[\forall n\in \mathbb{N}^*, \quad \nu_p(y_n) = 2^{-n}\big(\nu_p(y) - \nu_p(x)\big) + \nu_p(x) \]
+  当$n$足够大时，$\nu_p(y_n)$不是整数，矛盾！
+
+  \textbf{结论。} 集合 \( M \cap (\mathbb{R} \setminus \mathbb{Q}) \) 在 \( I \) 上稠密。
+\end{solution}
+
+\section{1.26. 闭映射}\label{application-fermee}
+\begin{solution}
+  设 \( F \) 是复平面 \( \mathbb{C} \) 中的一个非空闭集（若 \( F \) 为空集则结论显然成立）。证明 \( P(F) \) 是闭集。设 \( (w_n) \) 是 \( P(F) \) 中的一个收敛序列，收敛于 \( w \in \mathbb{C} \)。需证 \( w \in P(F) \)。对每个 \( n \)，取 \( z_n \in F \) 使得 \( P(z_n) = w_n \)。序列 \( (z_n) \) 有界，否则可提取子序列 \( (z_{\varphi(n)}) \) 满足 \( |z_{\varphi(n)}| \to +\infty \)；由于当 \( |z| \to +\infty \) 时 \( |P(z)| \to +\infty \)（因为 \( P \) 非常数），故 \( |w_{\varphi(n)}| \to +\infty \)，矛盾。因此 \( (z_n) \) 有界，可提取收敛子序列 \( (z_{\psi(n)}) \) 收敛于 \( a \in F \)（因为 \( F \) 闭）。由 \( P \) 的连续性，序列 \( (w_{\psi(n)}) \) 收敛于 \( P(a) \)。但 \( (w_{\psi(n)}) \) 也收敛于 \( w \)，故由极限唯一性，\( w = P(a) \in P(F) \).
+
+  更一般地，若 \( f \) 是连续映射且紧致集的原像总是紧致集，则 \( f \) 将闭集映射为闭集。
+
+  % 下面这道题的第二问（非常难）取自 Gustave Choquet 的拓扑学课程（Masson 出版社）。
+\end{solution}
+
+\section{1.27. $[0,1]$ 的可数划分}
+\begin{solution}
+  \begin{subquestions}
+    \item 设 \( U \) 是实数轴上的非空开集。我们试图将 \( U \) 划分为开区间。为此，考虑定义在 \( U \) 上的二元关系 \( R \)：对于 \((x, y) \in U^2\)，\( x R y \) 当且仅当端点为 \( x \) 和 \( y \) 的线段是 \( U \)的子集。这显然是 \( U \) 上的一个等价关系。我们证明这个等价关系定义的等价类都是开区间。
+    
+    根据定义，等价类 \( I \) 是凸集：如果$x, y$在同一等价类，那么以它们为端点的区间是$U$的子集，因此，
+    $\forall \mu\in(0,1), \quad u_{\mu}  = (1 - \mu)x + \mu y \in U. $
+    于是以$u_{\mu},x$为端点、以$u_{\mu},y$为端点的区间也是$U$的子集，即是说$u_{\mu}$属于$x,y$所在的等价类。因此，任何等价类都是 \( \mathbb{R} \) 上的区间。
+    
+    如果 \( x \in I \)，由于 \( U \) 是开集，存在 \( \eta > 0 \) 使得 \((x - \eta, x + \eta) \subset U\)。但此时 \((x - \eta, x + \eta)\) 中的每一点都与 \( x \) 相关，因此 \((x - \eta, x + \eta) \subset I\)。这表明 \( I \) 是开集。综上，任何等价类$I$是开区间。
+    
+    由于 \( \mathbb{Q} \) 在 \( \mathbb{R} \) 中稠密，我们可以在每个等价类中找到一个有理数，从而定义一个从所有等价类的集合 \( U/R \) 到 \( \mathbb{Q} \) 的单射。由于 \( \mathbb{Q} \) 是可数的，我们推断 \( U/R \) 至多可数。最后，根据定义有 \( U = \bigcup_{I \in U/R} I \)，因此， \( U \) 是至多可数个两两不相交的非空开区间的并集。
+
+    剩余部分证明这是将 \( U \) 写成两两不相交的开区间并集的唯一方式。假设 \( U = \bigcup_j (a_j, b_j) \)，其中 \((a_j, b_j)\) 两两不相交。设 \( j \in J \)。
+
+    \((a_j, b_j)\) 中的所有元素显然与 \( R \) 相关，因此 \((a_j, b_j)\) 包含在关系 \( R \) 的一个等价类 \( I = (a, b) \) 中。实际上，二者相等。例如，假设 \( a < a_j \)。那么 \( a_j \in U \) 且存在 \( k \in J \) 使得 \( a_j \in [a_k, b_k] \)，但这是不可能的，因为此时 \([a_j, b_j] \cap [a_k, b_k] \neq \emptyset\)。类似地，可以证明 \( b_j = b \)。因此，区间 \((a_j, b_j)\) 是 \( R \) 的等价类，且我们得到了所有等价类，否则 \(\bigcup_j (a_j, b_j)\) 不等于 \( U \)。由此得证。
+
+    \( U/R \) 中的开区间称为 \( U \) 的连通分支。上述内容表明，它们是包含在 \( U \) 中的、关于包含关系极大的开区间。
+    \item 用反证法。反设存在这样的划分，并设 \([0,1] = \bigcup_{n=0}^{\infty} F_n\)，其中 \( F_n \) 是非空闭集。
+
+    证明的想法是构造一个嵌套的开区间序列 \((I_n)\) 满足：
+    \begin{enumerate}
+      \item $\forall n\in\mathbb{N},\;\; I_{n+1} \subseteq \overline{I_{n+1}} \subseteq I_{n} $；
+      \item $\forall n\in\mathbb{N},\;\,I_n$与$F_n$不相交。
+    \end{enumerate}
+
+    第一个条件保证 \(\bigcap_{n=0}^{\infty} I_n = \bigcap_{n=0}^{\infty} \overline{I_n}\)。由于闭区间套的交集非空，至少有一个点 \(\alpha\) 属于所有 \(I_n\)，因此不属于任何 \(F_n\)，这给出了所需的矛盾。
+    
+    然而，序列 \((I_n)\) 的构造并不简单。如果只要求$I_n$和$F_n$不相交，无法确保$I_{n+1}$与$F_{n+1}$不相交。如果$I_n$仅仅只和$F_n$不相交，却是某个$F_p$的子集（$p > n$），那么我们就无法构造$I_p\subseteq I_n$且$I_p$与$F_p$不相交，这个构造就进行不下去了。必须确保在每一步中，区间 \(I_n\) 不完全包含在某个闭集 \(F_p\) 中。
+
+    要避免这个情况，我们可以增加要求，要求$\overline{I_n}$和$F_n$相交，也就是说，$I_n$的端点恰好接着$F_n$的点，这样，如果有$p>n$使得$I_n\subseteq F_p$，那么$\overline{I_n}$作为其闭包也包含于$F_p$，但$\overline{I_n}$与$F_n$相交，这就使得$F_n$与$F_p$相交，与闭集两两不相交的条件矛盾。
+
+    不过，这样要求的话，又过于严格，因为$F_n$和$F_{n+1}$的位置关系不确定，找到和$F_n$“接壤”的$I_n$后，无法要求其子区间$I_{n+1}$一定要和$F_{n+1}$“接壤”。因此，我们寻找$\{F_{n+p}\}_{p>0}$中第一个与它“接壤的”。
+
+    下面是改进后的构造方法：
+
+    首先，通过合并两个闭集并重新编号，我们可以假设 \( 0 \) 和 \( 1 \) 属于 \( F_0 \)（这仅仅是为了避免考虑诱导拓扑）。
+
+    集合 \([0,1] \setminus F_0\) 是非空开集。取 \( I_0 \) 为该开集的一个连通分支。
+
+    为定义 \( I_1 \)，考虑第一个索引 \( k \) 使得 \( F_k \) 与 \( I_0 \) 相交，记为 \( k_1 \)。集合 \( I_0 \setminus F_{k_1} \) 是开集且非空：否则，会有 \( I_0 \subseteq F_{k_1} \)，从而 \(\overline{I_0} \subseteq F_{k_1}\)（因为 \( F_{k_1} \) 是闭集）；但 \( I_0 \) 的端点属于 \( F_0 \)，而 \( F_0 \) 和 \( F_{k_1} \) 不相交。
+
+    设 \( J \) 为 \( I_0 \setminus F_{k_1} \) 的一个连通分支。有两种情况：
+    \begin{enumerate}
+      \item \( J \) 的两个端点都在 \( F_{k_1} \) 中。它们是 \( I_0 \) 中的点，于是有 \(\overline{J} \subset I_0\)。此时令 \( I_1 = J \)。
+      \item \( J \) 的一个端点是 \( I_0 \) 的端点，另一个端点属于 \( F_{k_1} \)。在这种情况下，为了保证$\overline{J}\subseteq I_{n-1}$，将 \( J \) 替换为一个更小的区间 \( J' \)：保持属于 \( F_{k_1} \) 的端点，将另一个端点内移，使得 \(\overline{J'} \subset I_0\)；此时令 \( I_1 = J' \)。
+    \end{enumerate}
+    依此不断构造区间序列 \((I_n)_{n\geqslant 0}\) 和整数序列 \(0 = k_0 < k_1 < k_2 < \cdots < k_n < \cdots\) ，它们满足：
+    \begin{enumerate}
+      \item $\forall n\in\mathbb{N},\;\, I_n \subseteq \overline{I_n} \subseteq I_{n-1} $（约定$I_{-1} = [0,1]$）；
+      \item $\forall n\in\mathbb{N},\;\,I_n$与$F_0, F_1, \ldots, F_{k_n}$都不相交。
+      \item $\forall n\in\mathbb{N},\;\,\overline{I_n}$与$F_{k_n}$相交。
+    \end{enumerate}
+
+    序列 \((\overline{I_n})_{n\geqslant 0}\) 是闭区间套，因此其交集非空。如果 \(\alpha \in [0,1]\) 属于其交，则 \(\alpha\) 不属于任何 \(F_0, F_1, \ldots, F_{k_n}\)。由于这对所有 \(n\) 成立，\(\alpha\) 不属于任何 \(F_n\)，这给出了所需的矛盾。
+  \end{subquestions}
+
+  % 熟悉贝尔纲定理的读者可以写出一个稍短的证明，该证明的优点是可推广。实际上，可以证明一个连通且局部连通的完备度量空间不能划分为可数个非空闭集的并集。
+  % \footnote{例如，参见 GONNORD (S.) \& TOSEL (N.), Thèmes d'analyse pour l'Agrégation, Topologie et analyse fonctionnelle, Ellipses, 1996, p.~41}。
+\end{solution}
+
+\end{document}

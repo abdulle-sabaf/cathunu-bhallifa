@@ -283,9 +283,11 @@ src/初中数学/圆锥2.png
 src/初中数学/圆锥例1.jpg
 src/高中数学/草稿*.tex
 src/高中数学/tu/Separation_axioms.png
+src/高中数学/pics/**
 
 code/
 .vscode/
 悟数学/*.rar
 build/
 **/草稿*
+**/*test*

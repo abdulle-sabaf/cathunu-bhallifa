@@ -523,8 +523,8 @@ $$ \neg (p \wedge q) = (\neg p) \vee (\neg q), \quad \neg (p \vee q) = (\neg p) 
     \end{tabular}
 \end{center}
 我们发现，命题$p$和$q$取遍所有可能的情况时，充分条件假言命题“若$p$则$q$”的否定不是“若$p$则非$q$”，也不是“若非$p$则非$q$”，
-而是“$p$而且非$q$”。为了方便，我们把“若$p$则$q$”记为$p \rightarrow q$，于是：
-$$ \neg (p \rightarrow q) = p \wedge (\neg q).$$
+而是“$p$而且非$q$”。为了方便，我们把“若$p$则$q$”记为$p \Rightarrow q$，于是：
+$$ \neg (p \Rightarrow q) = p \wedge (\neg q).$$
 
 观察以下真值表，你有什么发现？
 \begin{center}
@@ -541,8 +541,8 @@ $$ \neg (p \rightarrow q) = p \wedge (\neg q).$$
     \end{tabular}
 \end{center}
 我们发现，命题$p$和$q$取遍所有可能的情况时，必要条件假言命题“只有$p$，才有$q$”的否定是“$q$而且非$p$”。
-为了方便，我们把“只有$p$，才有$q$”记为$p \leftarrow q$，于是：
-$$ \neg (p \leftarrow q) = (\neg p) \wedge q.$$
+为了方便，我们把“只有$p$，才有$q$”记为$p \Leftarrow q$，于是：
+$$ \neg (p \Leftarrow q) = (\neg p) \wedge q.$$
 
 观察以下真值表，你有什么发现？
 \begin{center}
@@ -559,8 +559,8 @@ $$ \neg (p \leftarrow q) = (\neg p) \wedge q.$$
     \end{tabular}
 \end{center}
 我们发现，命题$p$和$q$取遍所有可能的情况时，充要条件假言命题“$p$当且仅当$q$”的否定是选言命题“要么$p$，要么$q$”。
-为了方便，我们把“$p$当且仅当$q$”记为$p \leftrightarrow q$，把“要么$p$，要么$q$”记为$p \oplus q$。于是：
-$$ \neg (p \leftrightarrow q) = p \oplus q.$$
+为了方便，我们把“$p$当且仅当$q$”记为$p \Leftrightarrow q$，把“要么$p$，要么$q$”记为$p \oplus q$。于是：
+$$ \neg (p \Leftrightarrow q) = p \oplus q.$$
 
 \begin{sk}\label{sk:2-1-0}
     命题“要么$p$，要么非$q$”的否定是什么？
@@ -610,7 +610,7 @@ $$ \neg (p \leftrightarrow q) = p \oplus q.$$
 观察以下真值表，你有什么发现？
 \begin{center}
     \begin{tabular}{ p{3em}<{\centering} p{3em}<{\centering} p{4em}<{\centering} p{4em}<{\centering} p{6em}<{\centering} p{6em}<{\centering} }
-        \rowcolor{gd} $p$ & $q$ & $p\rightarrow q$ & $q\rightarrow p$ & $\neg p\rightarrow \neg q$ & $\neg q\rightarrow \neg p$ \\ [0.5ex] 
+        \rowcolor{gd} $p$ & $q$ & $p\Rightarrow q$ & $q\Rightarrow p$ & $\neg p\Rightarrow \neg q$ & $\neg q\Rightarrow \neg p$ \\ [0.5ex] 
         \noalign{{\color{white}\hrule height 2pt}} % \hline\hline
         \rowcolor{gl} 真 & 真 & 真 & 真 & 真 & 真 \\  
         \noalign{{\color{white}\hrule height 2pt}}% \hline
@@ -621,16 +621,16 @@ $$ \neg (p \leftrightarrow q) = p \oplus q.$$
         \rowcolor{gd} 假 & 假 & 真 & 真 & 真 & 真\\
     \end{tabular}
 \end{center}
-我们发现，命题$p$和$q$取遍所有可能的情况时，充分条件假言命题“$p\rightarrow q$”和它的逆否命题“$\neg q\rightarrow \neg p$”的真假值完全一样。
+我们发现，命题$p$和$q$取遍所有可能的情况时，充分条件假言命题“$p\Rightarrow q$”和它的逆否命题“$\neg q\Rightarrow \neg p$”的真假值完全一样。
 于是：
-$$ p \rightarrow q = (\neg q) \rightarrow (\neg p). $$
-另一方面，命题“$p\rightarrow q$”的逆命题“$q\rightarrow p$”和“$p\rightarrow q$”的否命题“$\neg p\rightarrow \neg q$”的真假值也完全一样。
-这是因为“$q\rightarrow p$”的逆否命题就是“$\neg p\rightarrow \neg q$”。
+$$ p \Rightarrow q = (\neg q) \Rightarrow (\neg p). $$
+另一方面，命题“$p\Rightarrow q$”的逆命题“$q\Rightarrow p$”和“$p\Rightarrow q$”的否命题“$\neg p\Rightarrow \neg q$”的真假值也完全一样。
+这是因为“$q\Rightarrow p$”的逆否命题就是“$\neg p\Rightarrow \neg q$”。
 
 观察以下真值表，你有什么发现？
 \begin{center}
     \begin{tabular}{ p{3em}<{\centering} p{3em}<{\centering} p{4em}<{\centering} p{4em}<{\centering} p{6em}<{\centering} p{6em}<{\centering} }
-        \rowcolor{gd} $p$ & $q$ & $p\leftarrow q$ & $q\leftarrow p$ & $\neg p\leftarrow \neg q$ & $\neg q\leftarrow \neg p$ \\ [0.5ex] 
+        \rowcolor{gd} $p$ & $q$ & $p\Leftarrow q$ & $q\Leftarrow p$ & $\neg p\Leftarrow \neg q$ & $\neg q\Leftarrow \neg p$ \\ [0.5ex] 
         \noalign{{\color{white}\hrule height 2pt}} % \hline\hline
         \rowcolor{gl} 真 & 真 & 真 & 真 & 真 & 真 \\  
         \noalign{{\color{white}\hrule height 2pt}}% \hline
@@ -641,17 +641,17 @@ $$ p \rightarrow q = (\neg q) \rightarrow (\neg p). $$
         \rowcolor{gd} 假 & 假 & 真 & 真 & 真 & 真\\
     \end{tabular}
 \end{center}
-我们发现，命题$p$和$q$取遍所有可能的情况时，必要条件假言命题“$p\leftarrow q$”
-和它的逆否命题“$\neg q\leftarrow \neg p$”的真假值完全一样。
+我们发现，命题$p$和$q$取遍所有可能的情况时，必要条件假言命题“$p\Leftarrow q$”
+和它的逆否命题“$\neg q\Leftarrow \neg p$”的真假值完全一样。
 于是：
-$$ p \leftarrow q = (\neg q) \leftarrow (\neg p). $$
-另一方面，我们还可以注意到，命题$p$和$q$取遍所有可能的情况时，“$q\rightarrow p$”的真假值和“$p\leftarrow q$”
-完全一样。这说明，充分条件假言命题“$p\rightarrow q$”的逆命题就是“$p\leftarrow q$”。
+$$ p \Leftarrow q = (\neg q) \Leftarrow (\neg p). $$
+另一方面，我们还可以注意到，命题$p$和$q$取遍所有可能的情况时，“$q\Rightarrow p$”的真假值和“$p\Leftarrow q$”
+完全一样。这说明，充分条件假言命题“$p\Rightarrow q$”的逆命题就是“$p\Leftarrow q$”。
 
 观察以下真值表，你有什么发现？
 \begin{center}
     \begin{tabular}{ p{3em}<{\centering} p{3em}<{\centering} p{4em}<{\centering} p{4em}<{\centering} p{6em}<{\centering} p{6em}<{\centering} }
-        \rowcolor{gd} $p$ & $q$ & $p \leftrightarrow q$  & $q \leftrightarrow p$  & $\neg p \leftrightarrow\neg q$ & $\neg q \leftrightarrow \neg p$ \\ [0.5ex] 
+        \rowcolor{gd} $p$ & $q$ & $p \Leftrightarrow q$  & $q \Leftrightarrow p$  & $\neg p \Leftrightarrow\neg q$ & $\neg q \Leftrightarrow \neg p$ \\ [0.5ex] 
         \noalign{{\color{white}\hrule height 2pt}} % \hline\hline
         \rowcolor{gl} 真 & 真 & 真 & 真 & 真 & 真 \\  
         \noalign{{\color{white}\hrule height 2pt}}% \hline
@@ -662,10 +662,10 @@ $$ p \leftarrow q = (\neg q) \leftarrow (\neg p). $$
         \rowcolor{gd} 假 & 假 & 真 & 真 & 真 & 真 \\
     \end{tabular}
 \end{center}
-我们发现，命题$p$和$q$取遍所有可能的情况时，充要条件假言命题“$p \leftrightarrow q$”
+我们发现，命题$p$和$q$取遍所有可能的情况时，充要条件假言命题“$p \Leftrightarrow q$”
 和它的逆命题、否命题、逆否命题的真假值完全一样。
 于是：
-$$ p \leftrightarrow q = q \leftrightarrow p = (\neg p) \leftarrow (\neg q) = (\neg q) \leftarrow (\neg p). $$
+$$ p \Leftrightarrow q = q \Leftrightarrow p = (\neg p) \Leftarrow (\neg q) = (\neg q) \Leftarrow (\neg p). $$
 
 \begin{sk}\label{sk:2-2-1}
     \mbox{} \\
@@ -869,19 +869,19 @@ $$ p,\quad\mbox{所以} \,\,\,p\vee q. $$
 第三、四、五个例子中，我们利用了假言判断的特性。第三个例子中，“他是法国人”为真，
 充分条件假言判断“如果他是法国人，那么他会讲法语”也为真。从充分条件假言判断的真值表可以看出，
 “他会讲法语”也为真。这叫做\textbf{充分条件假言推理}。它的一般形式是：
-$$ p\rightarrow q,\quad p,\quad\mbox{所以}\,\,\,q.$$
-第四个例子中，我们利用的是必要条件假言判断的特性。我们知道，必要条件假言命题$p\leftarrow q$的逆命题就是充分条件假言命题$p\rightarrow q$。
-因此$p\leftarrow q$的逆否命题就是$p\rightarrow q$的否命题：$(\neg p)\rightarrow (\neg q)$。
+$$ p\Rightarrow q,\quad p,\quad\mbox{所以}\,\,\,q.$$
+第四个例子中，我们利用的是必要条件假言判断的特性。我们知道，必要条件假言命题$p\Leftarrow q$的逆命题就是充分条件假言命题$p\Rightarrow q$。
+因此$p\Leftarrow q$的逆否命题就是$p\Rightarrow q$的否命题：$(\neg p)\Rightarrow (\neg q)$。
 这说明，我们可以用前后件的否命题推理。“只有射击俱乐部的正式会员，才能领取实弹”的逆否命题是
 “如果不是正式会员，就不能领取实弹”。“他不是正式会员”为真，于是“他不能领取实弹”为真。
 这叫做\textbf{必要条件假言推理}。一般形式为：
-$$ p\leftarrow q,\quad \neg p,\quad\mbox{所以}\,\,\, \neg q.$$
+$$ p\Leftarrow q,\quad \neg p,\quad\mbox{所以}\,\,\, \neg q.$$
 第五个例子中，我们利用的是充要条件假言判断的特性。从真值表可以知道，充要条件假言判断
 为真，前件（后件）为真时，后件（前件）也为真。“$819$是$3$的倍数，当且仅当$819$各位数字之和是$3$的倍数”为真，
 “$819$各位数字之和是$3$的倍数”为真，于是“$819$是$3$的倍数”为真。这叫做\textbf{充分条件假言推理}。它的一般形式是：
 \begin{align*}
-    p\leftrightarrow q,\quad p,\quad\mbox{所以}\,\,\,q.\\
-    p\leftrightarrow q,\quad q,\quad\mbox{所以}\,\,\,p.    
+    p\Leftrightarrow q,\quad p,\quad\mbox{所以}\,\,\,q.\\
+    p\Leftrightarrow q,\quad q,\quad\mbox{所以}\,\,\,p.    
 \end{align*}
 \begin{sk}\label{sk:2b-2-0}
     充分条件假言判断和推理有什么相同之处？命题相等和充要条件假言判断有什么相同之处？它们有什么区别？

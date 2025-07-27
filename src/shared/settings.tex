@@ -16,7 +16,7 @@
 \usepackage{eucal}
 \usepackage{titlesec}
 \usepackage{amsthm}
-\usepackage{mhchem}
+\usepackage[version=4]{mhchem}
 \usepackage{tikz-cd}
 \usepackage{enumitem}
 \usepackage{verbatim}
@@ -36,6 +36,19 @@
 \DefineFNsymbols{circled}{{\ding{192}}{\ding{193}}{\ding{194}}
 {\ding{195}}{\ding{196}}{\ding{197}}{\ding{198}}{\ding{199}}{\ding{200}}{\ding{201}}}
 \setfnsymbol{circled}
+% \makeatletter
+% % 定义 1–20 的圆圈数字
+% \newcommand*{\circled@num}[1]{%
+%   \ifcase#1\or\ding{172}\or\ding{173}\or\ding{174}\or\ding{175}\or
+%         \ding{176}\or\ding{177}\or\ding{178}\or\ding{179}\or\ding{180}\or
+%         \ding{181}\or⑪\or⑫\or⑬\or⑭\or⑮\or⑯\or⑰\or⑱\or⑲\or⑳\fi}
+% \newcommand*{\circled@nums}{}
+% \@for\next:=1,2,...,20\do{%
+%   \edef\circled@nums{\circled@nums{\expandafter\circled@num\expandafter{\next}}}
+% }
+% \DefineFNsymbols*{circled20}{\circled@nums}
+% \setfnsymbol{circled20}
+% \makeatother
 
 % 自定义颜色
 \definecolor{gl}{RGB}{246, 252, 240}
@@ -43,6 +56,23 @@
 \definecolor{bg}{RGB}{242, 244, 228}
 % \definecolor{grid3}{RGB}{200, 200, 200} % 自定义颜色 (RGB 值)
 % \tdplotsetmaincoords{60}{105} % 设置观察角度 (θ, φ)
+
+% 选修章节：正文标题、目录、页眉自动加星
+\makeatletter
+\newcommand{\sectionopt}[2][]{%
+  % #1 可选目录短标题，#2 正文标题
+  \def\optstar{*}%                                   % 星号
+  \def\optmark{\thesection\quad#2\optstar}%           % 页眉格式
+  % 1. 目录条目：手动写带*
+  \addcontentsline{toc}{section}{%
+    \numberline{\thesection}#2\optstar\ifx&#1&\else\space(#1)\fi}%
+  % 2. 页眉
+  \sectionmark{#2\optstar}%
+  % 3. 正文标题
+  \refstepcounter{section}%
+  \section*{\thesection\quad#2\optstar}%
+}
+\makeatother
 
 % % 定义字体
 \setCJKmainfont[BoldFont=STZhongsong]{STSong}  % 普通字体、粗体
@@ -52,15 +82,17 @@
 % 自制命令
 \pgfplotsset{compat=1.18}
 \usetikzlibrary{calc,topaths,positioning,arrows.meta}
+\usepgfplotslibrary{colormaps}  % <-- this line!
 \renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}  % 章节使用阿拉伯数字
 \renewcommand{\parallel}{\mathrel{/\mskip-4mu/}}  % 平行符号
 \renewcommand{\proofname}{\indent\bf 证明}  % 自定义证明标题
 \renewcommand{\qedsymbol}{\hfill$\square$}  % 自定义证毕符号
 \newcommand{\e}{\mathrm{e}}  % 自然底数
-\newcommand{\dash}{\,–\,}  % 短折号
+\newcommand{\dash}{\,–}  % 短折号
+\newcommand{\hin}[2]{[\![#1,#2]\!]}  % 整数罗列集合 \hin{1}{n}：从1到n的整数
 \newcommand{\tong}[1]{\overset{#1}{\equiv\joinrel\equiv}}  % 同余等号
 \newcommand{\di}[1]{\,\mathrm{d}#1}  % 微元d
-\newcommand{\diff}{\,\mathrm{D}}  % 微元d
+\newcommand{\diff}{\,\mathfrak{D}}  % 微元d
 \newcommand{\qu}[2]{\displaystyle\left(#1;#2\right)}  % 开区间
 % 局部展开 developpements limites
 \newcommand{\oveq}[1]{\overset{#1}{=}}   % equal over

@@ -65,8 +65,8 @@
 其中$a_x, b_x, a_y, b_y, a_z, b_z$等是描述方区范围的数。
 一般来说，在$n$维平直空间里，也可以定义
 \begin{align*}
-    (a_1;b_1)\times(a_2;b_2)\times\cdots\times(a_n;b_n) &= \{(x_1, x_2, \cdots, x_n) \, | \, \forall i\in[1..n],\,\, a_i < x_i < b_i\} \\
-    [a_1;b_1]\times[a_2;b_2]\times\cdots\times[a_n;b_n]\; &= \{(x_1, x_2, \cdots, x_n) \, | \, \forall i\in[1..n],\,\, a_i \leqslant x_i \leqslant b_i\} 
+    (a_1;b_1)\times(a_2;b_2)\times\cdots\times(a_n;b_n) &= \{(x_1, x_2, \cdots, x_n) \, | \, \forall i\in\hin{1}{n},\,\, a_i < x_i < b_i\} \\
+    [a_1;b_1]\times[a_2;b_2]\times\cdots\times[a_n;b_n]\; &= \{(x_1, x_2, \cdots, x_n) \, | \, \forall i\in\hin{1}{n},\,\, a_i \leqslant x_i \leqslant b_i\} 
 \end{align*}
 使用方区的概念，我们可以定义平面和空间上的“邻域”。比如数轴上一点$x$有邻域$(x-r;x+r)$，
 那么也可以说平面上一点$(x, y)$有开邻域$(x-r;x+r)\times(y-r;y+r)$和闭邻域$[x-r;x+r]\times[y-r;y+r]$。
@@ -1967,7 +1967,7 @@ $$ a_0 + a_1x + a_2x^2 + \cdots + a_n x^n + \cdots$$
 如果对某个正数$x$，$\sum a_n x^n$收敛，那么对于绝对值或模比$x$小的数，级数也收敛。
 这说明，数轴上使得$\sum a_n x^n$收敛的实数应该大致是一个关于原点对称的区间，而复平面上使得$\sum a_n x^n$收敛的复数应该大致是一个以原点为中心的圆。
 
-\begin{tm}\label{tm:1-1-10}
+\begin{tm}\label{tm:3-1-10}
     设$\displaystyle\sum_{n=0}^{+\infty} a_n x^n$为幂级数。要么有唯一的非负实数$R$，使得：
     \begin{enumerate}
         \item 只要$|x|<R$，那么级数$\sum a_n x^n$收敛。
@@ -2397,7 +2397,7 @@ $$ \forall \; t\in\mathbb{R}, \quad \e^{\imath t} = \cos{t} + \imath \sin{t}. $$
 
     条件二：有限个开集的交集仍然是开集。设$n$是正整数，考虑$n$个开集：$K_1, K_2, \cdots, K_n$的交集：
     $$ J = \bigcap_{1\leqslant i \leqslant n} K_i.$$
-    我们要证明：$J$是其任意元素的邻域。考虑$x\in J$，$\forall i\in [1..n]$，$x\in K_i$，因此$K_i$是它的邻域。
+    我们要证明：$J$是其任意元素的邻域。考虑$x\in J$，$\forall i\in\hin{1}{n}$，$x\in K_i$，因此$K_i$是它的邻域。
     而邻域的交集仍然是邻域，因此$J$是$x$的邻域。这就证明$J$是开集。
 
     条件三：空集和全集$S$是开集。首先，$S$是$S$中任意点的邻域的母集，因此是任意点的邻域。这说明$S$是开集。
@@ -2482,7 +2482,7 @@ $$ \forall \; t\in\mathbb{R}, \quad \e^{\imath t} = \cos{t} + \imath \sin{t}. $$
 
 \section{开闭空间的基底}
 
-\begin{tm}{\textbf{实数集的经典结构}}\label{tm:a-1-0}
+\begin{tm}{\textbf{实数集的经典结构}}\label{tm:4-1-0}
     在实数集$\mathbb{R}$上，考虑所有有界开区间的集合$\mathcal{K}$：
     $$ \mathcal{K} = \{ (a;b) \, | \, a, b \in \mathbb{R} \}$$
     则由$\mathcal{K}$中元素的并集构成的集合：
@@ -2809,14 +2809,14 @@ $(x-r;x+r)$是包含$x$的开集，所以是$x$的邻域。而对于一般的开
     给定有邻空间$X$和$X$的子集$A$，如果集合$B$的闭包是$A$的母集，就说$B$在$A$中\textbf{稠密}。
 \end{df}
 
-按闭包的定义，我们也可以说，稠密$B$在$A$中稠密，就是说$A$的任一点都是$B$的极限点。
+按闭包的定义，我们也可以说，集合$B$在$A$中稠密，就是说$A$的任一点都是$B$的极限点。
 
 \begin{tm}{\textbf{连续映射保持稠密性质}}
     设$f$是有邻空间$X$到有邻空间$Y$的连续映射，$X$的子集$B$在$A$中稠密，那么经过$f$映射，像$f(B)$在$f(A)$中稠密。
 \end{tm}
 
 \begin{proof}
-    设有集合$A,B$，$B$在$A$中稠密，那么$A$中任一点都是$B$的极限点。
+    若集合$B$在集合$A$中稠密，那么$A$中任一点都是$B$的极限点。
 
     $\forall y\in f(A)$，$\exists x\in A$，$f(x) = y$。考虑$y$的邻域$V$，由于$f$是连续映射，存在$x$的邻域$U$使得
     $f(U)\subseteq V$。由于$B$在$A$中稠密，$U$中必有$b\in B$，于是$f(b)\in f(U) \subseteq V$。这说明$y$的任意邻域都有$f(B)$的元素。
@@ -3046,7 +3046,7 @@ $(x-r;x+r)$是包含$x$的开集，所以是$x$的邻域。而对于一般的开
 于是又可以推出：
 
 \begin{tm}\label{tm:b-1-20}
-    如果$U_1,U_2,\cdots, U_n$是$\mathbb{R}$上的经典邻则的开集，那么\textbf{直积集合}：
+    如果$U_1,U_2,\cdots, U_n$是$\mathbb{R}$上的经典邻则的开集，那么\textbf{架积集合}：
     $$ U_1\times U_2\times \cdots \times U_n = \{(x_1, x_2, \cdots, x_n) \, | \, x_1\in U_1, x_2\in U_2, \cdots , x_n\in U_n\} $$
     是$\mathbb{R}^n$上的经典邻则的开集。
 \end{tm}
@@ -3902,7 +3902,7 @@ $$ \lian{n\to\infty} \int_I f_n = \int_I f = \int_I \lian{n\to\infty} f_n. $$
 如果对某个正数$x$，$\sum a_n x^n$收敛，那么对于绝对值或模比$x$小的数，级数也收敛。
 这说明，数轴上使得$\sum a_n x^n$收敛的实数应该大致是一个关于原点对称的区间，而复平面上使得$\sum a_n x^n$收敛的复数应该大致是一个以原点为中心的圆。
 
-\begin{tm}\label{tm:1-1-10}
+\begin{tm}\label{tm:a-1-10}
     设$\displaystyle\sum_{n=0}^{+\infty} a_n x^n$为幂级数。要么有唯一的非负实数$R$，使得：
     \begin{enumerate}
         \item 只要$|x|<R$，那么级数$\sum a_n x^n$收敛。

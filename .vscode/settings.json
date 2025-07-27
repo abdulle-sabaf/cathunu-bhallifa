@@ -3,29 +3,30 @@
     "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/悟数学",
     "latex-workshop.latex.tools": [
           {
-            "name": "latexmk",
-            "command": "latexmk",
+            "name": "xelatex2023",
+            "command": "C:/texlive/2023/bin/windows/xelatex.exe",
             "args": [
-            "-synctex=1",
-            "-interaction=nonstopmode",
-            "-file-line-error",
-            "-pdf",
-            "-verbose",
-            "%DOC%"
+              "-synctex=1",
+              "-interaction=nonstopmode",
+              "-file-line-error",
+              "--output-directory=%OUTDIR%",
+              "-verbose",
+              "%DOC%"
             ]
           },
           {
-            "name": "xelatex",
-            "command": "xelatex",
+            "name": "latexmk2023",
+            "command": "C:/texlive/2023/bin/windows/latexmk.exe",
             "args": [
-            "-synctex=1",
-            "-interaction=nonstopmode",
-            "-file-line-error",
-            "--output-directory=%OUTDIR%",
-            "-verbose",
-            "%DOC%"
-              ]
-          },          
+              "-synctex=1",
+              "-interaction=nonstopmode",
+              "-file-line-error",
+              "-pdf",
+              "-outdir=%OUTDIR%",
+              "-verbose",
+              "%DOC%"
+            ]
+          },         
           {
             "name": "pdflatex",
             "command": "pdflatex",
@@ -46,15 +47,15 @@
         ],
     "latex-workshop.latex.recipes": [
           {
-            "name": "xelatex",
+            "name": "xelatex2023",
             "tools": [
-            "xelatex"
+            "xelatex2023"
             ]
           },
           {
-            "name": "latexmk",
+            "name": "latexmk2023",
             "tools": [
-            "latexmk"
+            "latexmk2023"
             ]
           },
 
