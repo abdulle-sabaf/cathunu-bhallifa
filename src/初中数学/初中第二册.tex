@@ -2,86 +2,7 @@
 
 % 导入设定
 \input{../shared/settings}
-% \usepackage{ctex}
-% \usepackage{graphicx}
-% \usepackage{caption}
-% \usepackage{float}
-% \usepackage{wrapfig}
-% \usepackage{array}
-% \usepackage[table, dvipsnames]{xcolor}
-% \usepackage{colortbl}% 
-% \usepackage{tabularx}
-% \usepackage{amsmath}
-% \usepackage{amssymb}
-% \usepackage{xfrac}
-% \usepackage{eucal}
-% \usepackage{titlesec}
-% \usepackage{amsthm}
-% \usepackage{tikz-cd}
-% \usepackage{enumitem}
-% \usepackage{verbatim}
-% \usepackage{fontspec,xunicode,xltxtra}
-% \usepackage{xeCJK} 
 
-% % 修改脚注的编号为加圈样式，并且各页单独编号
-% \usepackage{pifont}
-% \usepackage[perpage,symbol*]{footmisc}
-% \DefineFNsymbols{circled}{{\ding{192}}{\ding{193}}{\ding{194}}
-% {\ding{195}}{\ding{196}}{\ding{197}}{\ding{198}}{\ding{199}}{\ding{200}}{\ding{201}}}
-% \setfnsymbol{circled}
-
-% \definecolor{gl}{RGB}{246, 252, 240}
-% \definecolor{gd}{RGB}{236, 244, 230}
-% \definecolor{bg}{RGB}{242, 244, 228}
-
-
-% \setCJKmainfont[BoldFont=STZhongsong]{STSong}
-% \setCJKmonofont{simkai.ttf} % for \texttt
-% \setCJKsansfont{simfang.ttf} % for \textsf
-% \setlength\parskip{8pt}
-% \setlength{\fboxsep}{12pt}
-% \renewcommand\thesection{\arabic{chapter}.\arabic{section}}
-% \theoremstyle{definition}
-% \newtheorem{df}{定义}[section] 
-% \newtheorem*{po}{公理}
-% \newtheorem{pp}{命题}[section]
-% \newtheorem{tm}{定理}[section]
-% \newtheorem{cor}{推论}[pp]
-% \newtheorem{ex}{例子}[section]
-% \newtheorem{et}{例题}[section]
-% \newtheorem*{so}{解答}
-% \theoremstyle{plain}
-% \newtheorem{sk}{思考}[section]
-% \newtheorem{xt}{习题}[section]
-% % \newenvironment{proof2}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
-% \renewenvironment{proof}{\paragraph{\textbf{证明：}}}{\hfill$\square$}
-
-% \renewcommand{\proofname}{\indent\bf 证明}
-% \renewcommand{\qedsymbol}{\hfill$\square$}
-% % 列举环境的行间距
-% \setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
-% \setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
-% \setdescription{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
-% \setlength{\intextsep}{2pt}%
-% \setlength{\columnsep}{2pt}%
-% % 新函数
-% \renewcommand{\parallel}{\mathrel{/\mskip-4mu/}}
-% \newcommand{\arcangle}{\mathord{\mathpalette\doarcangle\relax}}
-% \newcommand{\doarcangle}[2]{%
-%   \hbox{%
-%     \sbox0{$#1B$}%
-%     \sbox2{$#1<$}%
-%     \raisebox{\dimexpr\dp0+(\ht0-\ht2)/2}{%
-%       $#1<\mspace{-9mu}\mathrel{)}\mspace{2mu}$%
-%     }%
-%   }%
-% }
-% \newcommand{\bu}{\mathbin{\text{\tikz[baseline=-0.6ex]{
-%     \node[draw, fill=black, minimum size=0.8ex, inner sep=0pt, rectangle] (bu) {};
-%     \node[draw=none, fill=white, minimum size=0.6ex, inner sep=0pt, circle] at (bu.center) {};
-% }}}}
-% % 章节字体大小
-% \titleformat{\section}{\zihao{-2}\bfseries}{ \thesection }{16pt}{}
 % 封面
 \title{\zihao{0} \bfseries 第二册}
 \author{\zihao{2} \texttt{大青花鱼}}
@@ -93,277 +14,12 @@
 \tableofcontents
 \newpage
 
-\chapter{平面中的形状}
-
-生活中，很多东西形状有相似之处：
-月亮和瓶盖、书本和书柜、电线杆和铅笔……
-从“事物的多少”中，我们总结了数的概念；从“事物的形状”中，我们可以总结出\textbf{形}的概念。
-
-我们生活的世界中有各种各样的事物，有遥远的星空，有脚下的大地，有宏伟的山川，有细小的花草。
-四面八方，上下左右，各种事物之间位置不同。很长一段时期里，人们生活在地面上，认为大地是平的。
-各种各样的事物都坐落在平坦的大地上。平面是人类最早总结出的概念之一。
-古人很早就开始研究平面中的形状，产生了最早的\textbf{公理体系}。
-
-公理体系从几个最基本的假设和定义出发，认为这些假设和定义是不证自明的。依此推导对象的各种性质。
-以下我们也试着用类似的方式，介绍平面上各种形状的性质。为了更好地理解以下的内容，学习时最好准备
-一把刻度尺和足够的白纸。
-
-\section{点、直线、线段、射线}
-\textbf{点}是最基本的形，也是最特殊的形。点没有大小，没有形状，然而点是我们理解形状的基础。
-我们一般用大写字母$A,B,C$等标记点。
-
-点动起来就成了\textbf{线}。线没有宽度，只有长度。各种线中，\textbf{直线}是最基本的形。我们一般用小写字母$l,m,n$等标记直线。
-\begin{po}{\textbf{直线公理}}\label{po:0}
-    过不重合的两点有且仅有一条直线。
-\end{po}
-我们也说\textbf{两点确定一条直线}。两点$A,B$确定的直线称为直线$AB$。
-$A,B$把直线分成三部分。$A,B$与它们之间的部分合起来，叫做\textbf{线段}$AB$或线段$BA$。$A$和$B$叫做线段的\textbf{端点}。
-另外两部分分别叫做线段沿$A$和$B$的延长线。
-
-直线$l$上一点$A$把直线分为两部分，称为点的两侧。点$A$与其中一侧合起来，叫做\textbf{射线}。
-为了方便，我们也说$A$把$l$分成两条射线。$A$叫做射线的\textbf{端点}。
-以$A$为端点，经过$l$上某点$B$的射线，可以叫做射线$AB$。
-
-直线又把平面分为两部分，称为直线的两侧。给定一条直线，一点要么在直线上，要么在它两侧中的一侧。
-
-两条直线要么\textbf{重合}；要么恰好有一个公共点，称为\textbf{相交}，这时公共点称为\textbf{交点}；要么没有公共点，称为\textbf{平行}。
-两条直线$l,m$平行，记为$l \parallel m$。
-\begin{po}{\textbf{平行公理}}\label{po:1}
-    过直线外一点，有且仅有一条与它平行的直线。
-\end{po}
-\begin{po}{\textbf{相交公理}}\label{po:2}
-    两点分处某直线两侧，则它们确定的直线与其相交。
-\end{po}
-以上是一些基本概念和性质。公理体系中，它们分别叫做\textbf{公设}和\textbf{公理}。动手验证一下，这些概念和性质符合我们的直观感受吗？
-
-\begin{sk}\label{sk:0-0-0}
-    动手画一画，以下的说法对吗？\\
-    1. 直线$AB$和直线$BA$是同一条直线。\\
-    2. 射线$AB$和射线$BA$是同一条射线。\\
-    3. 线段沿两端的延长线是射线。\\
-    4. 线段$AB$是射线$AB$的一部分，线段$AB$和射线$AB$都是直线$AB$的一部分。\\
-    数一数：\\
-    1. 两点$A,B$把直线分成三部分，你能说出几条相关的射线？\\
-    2. 平面上三点能确定几条直线？四点呢？\\
-    3. 三条直线可以有几个交点？四条直线呢？\\
-    直线、射线和线段也可以定义成点的集合。\\
-    1. 作为点的集合，直线、直线上的线段和射线有什么关系？\\
-    2. 用集合的说法，怎么描述两条直线之间重合、相交和平行的关系？
-\end{sk}
-
-\section{距离和长度}
-
-生活中，我们经常接触到长度和距离的概念。比如，我们说“长江是中国最长的河流”，“上海和北京相距上千公里”等等。
-什么是长度？什么是距离？
-
-长度、位置和距离是密切联系的。我们用点表达位置，长度就是点运动产生的性质。
-点的运动产生了长度，点的位置变化产生了距离。两点之间最短线的长度就是距离。对于直线和线段来说，长度和距离是相等的。
-\begin{po}{\textbf{距离公理}}\label{po:3}
-    两点之间线段最短。
-\end{po}
-两点确定的线段的长度就是两点的距离。我们用$ |\, \cdot\,|$符号表示长度，比如，线段$AB$的长度记作$|AB|$。
-对线段来说，如果一条线段完全覆盖了另一条线段，
-那么它不比另一条线段短。如果两条线段可以互相覆盖，就说它们等长。我们用“$=$”表示线段等长。
-
-一般来说，位置不同的线段不一定互相覆盖。因此我们需要\textbf{等长公理}：
-\begin{po}{\textbf{等长公理}}\label{po:4}
-    \mbox{}\\
-    \indent \textbf{5.1.} 给定两点$A,B$以及直线$l$，对$l$上任一点$C$，$C$两侧各有一点$D$，使得线段$|AB| = |CD|$。\\
-    \indent \textbf{5.2.} 如果线段$|AB| = |CD|$，$|AB| = |EF|$，那么$|CD| = |EF|$。\\
-    \indent \textbf{5.3.} 线段$AC$上有点$B$，线段$A'C'$上有点$B'$，且线段$|AB| = |A'B'|$，线段$|BC| = |B'C'|$，那么$|AC| = |A'C'|$。
-\end{po}
-第一条公理告诉我们，可以在任意直线的任意位置上复现一条等长的线段。第二条公理告诉我们长度和具体的线段无关，是普遍的性质。
-第三条公理告诉我们长度可以相加。设线段$AC$上有一点$B$，我们说线段$AB$与线段$BC$（长度）之和是线段$AC$（的长度）。
-这样，给定了原点、单位长度和方向，我们就可以画出一条数轴了。
-
-\section{角和角度}
-点和线可以定义角的概念。角也是生活中常见的形状。钟面上的指针、桌椅的棱角、折扇的展开，都是角的形象。
-
-一点发出的两条射线，就构成一个角。两条射线的公共端点叫做角的\textbf{顶点}。其中一条射线叫做角的\textbf{始边}，另一条叫做角的\textbf{终边}。
-
-角有几种记法，取决于我们已知的信息。比如，如果我们知道角的顶点$O$和始边和终边上各一点$A,B$，可以把角记作$\angle AOB$。
-其中$\angle$表示角的意思。如果已知角的顶点$O$，而且相关图形上显然只有一个以$O$为顶点的角，那么可以把角简记作$\angle O$。
-如果不知道角的顶点，但相关图形上为角标示了记号，也可以直接使用这个记号。一般用小写希腊字母$\alpha, \beta, \gamma$或$1,2,3$等数字
-标示角。
-
-角与角之间可以比较大小吗？两个角的顶点、始边和终边都重合，就说两者相等。我们用“$=$”表示角相等。
-对于顶点和始边不重合的角，我们需要\textbf{等角公理}：
-\begin{po}{\textbf{等角公理}}\label{po:5}
-    \mbox{}\\
-    \indent \textbf{6.1.} 给定$\angle AOB$和射线$O'A'$，总有唯一的射线$O'B'$使得$\angle A'O'B' = \angle AOB$。\\
-    \indent \textbf{6.2.} 如果$\angle A = \angle B$，$\angle A = \angle C$，那么$\angle B = \angle C$。\\
-    \indent \textbf{6.3.} 给定$\angle AOB$和$\angle BOC$。如果$\angle A'O'B' = \angle AOB$，$\angle B'O'C' = \angle BOC$，
-    那么$\angle A'O'C' = \angle AOC$。
-\end{po}
-第一条公理告诉我们，可以从任何射线出发，复现一个角。第二条公理告诉我们，角的大小和顶点、射线的位置无关，是普遍的性质。
-第三条公理告诉我们，角度可以相加。我们说$\angle AOB$与$\angle BOC$的和是$\angle AOC$，记作$\angle AOB + \angle BOC = \angle AOC$。
-
-直线上一点把直线分为两条射线，于是形成一个角。这样的角叫做\textbf{平角}。
-所有的直线都是一样的，因此所有的平角都一样大。
-
-始边和终边重合的角叫做\textbf{零角}。直观上看，零角就是一条射线。
-所有的射线都是一样的，因此所有的零角都一样大。
-
-如果$\angle AOB$不是平角，记直线$OA$被$O$分成射线$OA$和$OA'$，则$\angle BOA'$叫做$\angle AOB$的\textbf{补角}。
-
-补角和自己一样大的角叫做\textbf{直角}。按照定义，一个平角等于两个直角。
-如果$\angle AOB$是直角，那么$\angle AOC$和$\angle COB$互为\textbf{补角}。
-
-\begin{wrapfigure}{r}{0.3\textwidth} %this figure will be at the right
-    \vspace{-15pt}
-    \flushright
-    \includegraphics[width=0.24\textwidth]{tu/角度1.png}
-\end{wrapfigure}
-
-如右图，$\angle AOB$和$\angle AOC$谁更大？$\angle AOC$到底指哪个角？
-
-我们约定：\textbf{逆时针方向是正向}。始边逆时针方向旋转到终边形成的角是正的，否则是负的。
-始边逆时针旋转到所在直线另一侧，形成平角；继续逆时针旋转到与自身重合，形成的角叫\textbf{周角}。
-
-一个周角就是射线旋转一周，等于两个平角。相差一个或几个周角的角，形状是一样的。
-
-为了方便，我们可以约定，只讨论负平角到正平角之间的角。如果某个角超过了这个范围，就相应加上或减去一个周角，
-直到从始边到终边旋转不超过一个平角。在某些情况下，也可以约定只讨论零角到周角之间的角。
-
-习惯上，我们把平角内部均匀分为$180$份，每份称为$1$度，也记作$1^\circ$。
-周角是$360$度的角，平角是$180$度的角，直角是$90$度的角。
-于是，每个角对应一个数，称为它的角度。角的大小，可以用角度来衡量。
-
-\begin{wrapfigure}{r}{0.3\textwidth} %this figure will be at the right
-    \vspace{-5pt}     
-    \flushright
-    \includegraphics[width=0.24\textwidth]{tu/角度2.png}
-\end{wrapfigure}
-
-给定直线$l$上点$O$为顶点的平角和对应的直角。直角所在的直线，把平面分为两侧。
-从平角的始边正向出发，终边和始边属于同侧的角，叫做\textbf{锐角}；终边和始边分属两侧的角，叫做\textbf{钝角}。
-
-量角器是日常用来衡量角度的工具。使用量角器，我们可以测量角的大小，也可以画出指定角度的角。
-
-\begin{wrapfigure}{l}{0.4\textwidth} %this figure will be at the left
-    \vspace{-5pt}     
-    \flushleft
-    \includegraphics[width=0.36\textwidth]{tu/角度3.png}
-    \caption*{\texttt{量角器\;\;\;\;\;}}
-\end{wrapfigure}
-
-把平角$180$等分来表示角的大小，这种方法叫做\textbf{角度制}。除此以外，还有\textbf{弧度制}等其他方法表示角的大小。
-
-\begin{sk}\label{sk:0-2-0}
-    \mbox{}\\
-    1. $470^\circ$的角是什么角？$4700^\circ$的角是什么角？画出两个角。谁比较大？\\
-    2. 锐角和钝角的角度可以是多少？它们和直角的大小关系如何？\\
-    3. 角度和长度有什么不同？为什么有这种不同？\\
-    4. 如何把一个角分为两半？\\
-    5. 从公理出发，你会怎么定义“旋转”？
-\end{sk}
-
-\chapter{直线与角的关系}
-上一章我们学习了直线和角的概念。现在我们来看直线和角的关系。
-
-\section{直线交角}
-\begin{wrapfigure}[5]{r}{0.24\textwidth} %this figure will be at the right
-    \vspace{-20pt}
-    \flushright
-    \includegraphics[width=0.21\textwidth]{tu/角度0.png}
-    % \captionsetup{labelformat=empty}
-    % \caption{对顶角}
-\end{wrapfigure}
-
-右图中，两条直线相交于一点，形成四个角。这四个角有什么关系？
-
-我们把处在$\angle 1$和$\angle 3$位置关系的一对角称为\textbf{对顶角}，$\angle 2$和$\angle 4$也是对顶角。
-$\angle 2$既是$\angle 1$的补角，也是$\angle 3$的补角。$\angle 1$和$\angle 3$是平角减去同一个角，所以相等。
-同理，$\angle 2 = \angle 4$。也就是说：\textbf{对顶角相等}。
-
-由于对顶角相等，我们可以定义直线的\textbf{交角}。$\angle AOB$始边所在直线$OA$逆时针旋转到与终边所在直线$OB$首次重合，形成的角称为
-$OA$到$OB$的交角，记为$\arcangle AOB$。每个交角对应一对顶角。线段、射线与直线之间的交角，都定义为它们所在直线的交角。比如，线段与直线的交角，就是线段所在的直线与它的交角。
-
-直线的交角总是正的，而且不超过平角。约定平行、重合的直线交角为平角。$\arcangle BOA$与$\arcangle AOB$互为补角。
-
-一条直线到另一条直线的交角为直角，就说它\textbf{垂直}于另一条直线。这时，另一条直线到它的交角也是直角。
-我们说两者互相\textbf{垂直}。相互垂直的两条直线$l,m$记为$l\perp m$。
-
-
-\section{同位角、内错角、同旁内角}
-如右图，两条平行的直线和同一条直线相交，形成了八个角。这八个角之间有什么关系呢？
-
-\begin{wrapfigure}{r}{0.4\textwidth} %this figure will be at the right
-    \flushright
-    \includegraphics[width=0.36\textwidth]{tu/三线八角.png}
-\end{wrapfigure}
-
-观察$\angle 1$和$\angle 5$，我们说这种位置关系的一对角是\textbf{同位角}。它们的终边属于同一条直线，始边属于两条直线交这条直线的同侧。
-我们可以发现：\textbf{两条线平行时，同位角相等}。除了$\angle 1 = \angle 5$，还有：$\angle 2 = \angle 6$，$\angle 3 = \angle 7$，$\angle 4 = \angle 8$。
-
-再看$\angle 3$和$\angle 5$，我们说这种位置关系的一对角是\textbf{内错角}。它们的始边属于同一条直线，终边属于两条直线交这条直线的异侧。$\angle 1 = \angle 3$，而$\angle 1 = \angle 5$，所以根据等角公理，$\angle 3 = \angle 5$。
-所以，\textbf{直线截两条平行线，得到的内错角相等}。同理，$\angle 4 = \angle 6$。
-
-最后来看$\angle 4$和$\angle 5$，我们说这种位置关系的一对角是\textbf{同侧内角}或\textbf{同旁内角}。一角的始边和另一角的终边属于同一条直线，该角的终边和另一角的始边属于两条直线交这条直线的同侧。
-$\angle 4$是$\angle 1$的补角，
-而$\angle 1 = \angle 5$，所以$\angle 4$与$\angle 5$加起来是平角。所以，\textbf{直线截两条平行线，得到的同旁内角和为平角}。
-
-\begin{sk}\label{sk:1-1-0}
-    \mbox{}\\
-    1. $\angle 2$和$\angle 5$的大小有什么关系？$\angle 1$和$\angle 6$呢？\\
-    2. $\angle 2$和$\angle 8$的大小有什么关系？$\angle 1$和$\angle 8$呢？\\
-    3. 如果两条线不再平行，同位角、内错角和同旁内角还相等吗？\\
-    4. 能不能用直线交角，解释同位角、内错角和同旁内角？
-\end{sk}
-
-同位角、内错角和同旁内角可以用来判断两条直线是否平行。如果两条直线平行，
-那么同位角相等、内错角相等，同旁内角相加是平角。反过来，如果同位角相等、内错角相等，或者同旁内角相加是平角，
-那么对应的两条直线平行。
-% https://commons.wikimedia.org/wiki/File:Diyarbakir_1050645_Droste_Effect.jpg
-\begin{wrapfigure}[6]{r}{0.24\textwidth} %this figure will be at the right
-    \vspace{50pt}
-    \flushright
-    \includegraphics[width=0.2\textwidth]{tu/675px-Diyarbakir_1050645_Droste_Effect.jpg}
-\end{wrapfigure}
-
-\section{相似和比例}
-观察右图，各个拱门之间有什么关系？
-两个图形可以形状一样，只有大小不同。
-这样的关系，称为相似关系。
-
-\begin{wrapfigure}{l}{0.27\textwidth} %this figure will be at the right
-    \vspace{-30pt}
-    \flushleft
-    \includegraphics[width=0.24\textwidth]{tu/比例1.png}
-\end{wrapfigure}
-
-用量角器测量相似图形相应位置的角度，以及相似部分的长度，你有什么发现？
-
-相似的图形，对应部位的角度相等，长度成比例。
-
-观察左图，从一点出发的两条射线和两条平行线相交。用刻度尺测量线段$AB$、$AD$、$AC$、$AE$、$BC$和$DE$的长度。你有什么发现？
-
-\begin{po}{\textbf{放缩公理}}\label{po:6}\\
-    从一点$A$出发的两条射线，每条线上取两点：$B,D$和$C,E$。如果
-    $$ \frac{|AB|}{|AD|} = \frac{|AC|}{|AE|},$$
-    那么，
-    $$ \frac{|AB|}{|AD|} = \frac{|AC|}{|AE|} = \frac{|BC|}{|DE|},$$
-    而且$\angle ABC = \angle ADE$，$\angle ACB = \angle AED$。
-\end{po}
-\begin{wrapfigure}{l}{0.27\textwidth} %this figure will be at the left
-    % \vspace{-10pt}
-    \includegraphics[width=0.24\textwidth]{tu/比例2.png}
-\end{wrapfigure}
-
-放缩公理用“比例相等”表达相似的本质：“形状一样”。从比例相等得到同位角相等。
-同位角$\angle ABC$和$\angle ADE$相等，$\angle ABC$和$\angle ADE$相等。
-换句话说，直线$BC$和直线$DE$平行。
-
-\begin{sk}\label{sk:1-2-0}
-    \mbox{}\\
-    1. 如果一点$A$出发的两条射线$AB$、$AC$和两条平行线分别相交于$B,D$和$C,E$，那么线段$AB$、$AD$、$AC$、$AE$、$BC$和$DE$的长度有什么关系，如何证明？（\textbf{提示}：注意平行线和$A$点的位置关系。）\\
-    2. 如左上图，直线$AB$、$CD$和$EF$平行，直线$AC$和$BD$平行。证明$|EC|$和$|CA|$之比等于$|FD|$和$|DB|$之比。（\textbf{提示}：连接$AF$。）\\
-    3. 给定线段$AB$，如何找出它的中点？（\textbf{提示}：自$A$作另一条射线。）\\
-    4. 给定线段$AB$和正整数$m$，如何找出$AB$上一点$C$，使得$|AB| = m\times |AC|$？\\
-    5. 给定直线$OA$，以线段$OA$长度为单位，$O$到$A$的方向为正方向，构建数轴。能否在数轴上找出长度为有理数$\frac{p}{q}$的线段$OB$？
-\end{sk}
-
 \chapter{判断和命题}
+
+数学自古以来也称为算学，我们已经学习了不少关于计算的方法和知识。不过，数学对现代社会产生重要影响，不仅仅由于计算，还在于数学给我们提供了思考问题的精确方法。
+
+上一本书中，我们学习了代数，也就是用字母等符号代替数字来思考的方法。通过用字母代替具体的数字，我们从繁多的运算和关系中抽出我们想讨论的性质和问题。我们说，考虑抽象的概念、性质和问题，是数学的根本任务。具体如何处理这些概念、思考这些问题呢？千百年来，数学家积累了一套思考的经验方法，总结出可行的规律，称为\textbf{思理}。掌握了思理，我们才能正确地思考，正确地处理抽象的概念和性质，正确地解决问题。我们已经接触过一些基本的思理。下面就让我们开始进一步的学习。
+
 \section{充分条件和必要条件}
 我们已经学过判断：\textbf{判断}，是对事物情况表达肯定或否定的态度。判断包括简单判断和复合判断。
 简单判断包括性质判断和关系判断。性质判断包括全判断、有判断和单判断；复合判断包括联言判断、或言判断、选言判断和假言判断。
@@ -732,19 +388,17 @@ $$ p \Leftrightarrow q = q \Leftrightarrow p = (\neg p) \Leftarrow (\neg q) = (\
     \indent 2. 证明：必要条件假言命题的逆命题是充分条件假言命题。
 \end{xt}
 
-\chapter{推理初步}
-我们可以见到，判断（命题）之间在真假方面是有联系的。利用其中的规律，
-我们可以通过已经知道是真的判断，得知另一些判断的真假。这种思考称为\textbf{推理}。
-推理过程中，已经知道真假的判断，叫做\textbf{前提}；通过思考得知真假的判断，称为\textbf{结论}。
+\chapter{从推理到证明}
+
+我们知道，判断（命题）之间在真假方面是有联系的。利用其中的规律，我们可以通过已经知道是真的判断，得知另一些判断的真假。这种思考称为\textbf{推理}。推理过程中，已经知道真假的判断，叫做\textbf{前提}；通过思考得知真假的判断，称为\textbf{结论}。
 
 语言形式上，日常语言中的推理一般用“因为……所以……”、“……，因此……”、“由于……，从而……”等句式来表示。
 前提一般写在结论前面。
 
 有些推理是符合客观现实的，我们通过总结客观事物的性质，可以验证它们是有效的推理。另外一些推理不符合
-客观事实，我们可以验证它们是无效的推理。
+客观事实，我们可以验证它们是无效的推理。哪些推理方式是有效的呢？这是一个非常关键的问题。在千百年的社会发展中，人们逐渐总结出一系列正确的推理方式。学会了正确的推理方式，才能得到正确的结论，正确地看待问题、解决问题。
 
-推理是数学和很多科学研究中常见的内容。对数学来说，推理和计算是两种主要的思维形式。
-数学中的推理形式比日常语言中的推理更复杂，因此要用专门的符号来表示。
+推理是数学和很多学科研究中常见的内容。对数学来说，推理和计算是两种主要的思维形式。数学中的推理形式比日常语言中的推理更复杂，因此要用专门的符号来表示。
 
 \section{换质法}
 
@@ -763,11 +417,13 @@ $$ p \Leftrightarrow q = q \Leftrightarrow p = (\neg p) \Leftarrow (\neg q) = (\
 我们发现，这种方法不会改变判断的真假。把判断改成否判断，同时把事物的性质改成矛盾的概念，判断的真假不变。
 因此，把一个判断作为前提，把如上改变后的判断作为结论，就得到一个有效的推理。我们一般用“因为……所以……”、“……，因此……”等句式
 描述推理。比如，对第三个例子，我们可以这么描述：
-
-因为这盒牛奶不是变质的，所以这盒牛奶是没变质的。
+\begin{quotation}
+    因为这盒牛奶不是变质的，所以这盒牛奶是没变质的。
+\end{quotation}
 
 我们把这种推理方法称为\textbf{换质法}。“质”指“肯定句”和“否定句”这两种形式，“换质”指从肯定换为否定或者从否定换为肯定。
 \begin{xt}\label{xt:2b-0-0}
+    \mbox{} \\
     以下推理是不是有效的推理？为什么？\\
     \indent 1. 因为蚂蚁不是植物，所以蚂蚁是动物。 \\
     \indent 2. 因为这盒牛奶不是脱脂的，所以这盒牛奶是全脂的。 \\
@@ -782,42 +438,32 @@ $$ p \Leftrightarrow q = q \Leftrightarrow p = (\neg p) \Leftarrow (\neg q) = (\
     \indent 2. 所有的西瓜都是水果。所有的水果都是西瓜。\\
     \indent 3. 陈家洛是红花会的总舵主。红花会的总舵主是陈家洛。
 \end{et}
-以上每个例子中，前一句话和后一句话的区别在于：后一句话把前一句话的断语变成了主语，然后把主语变成了对应的断语。
-比如，第二个例子中，后一句把“水果”改成了主语，把“西瓜”改成了宾语。我们把这种操作称为\textbf{换位法}，
-即交换了判断的主语和断语的位置。
+以上每个例子中，前一句话和后一句话的区别在于：后一句话把前一句话的断语变成了主语，然后把主语变成了对应的断语。比如，第二个例子中，后一句把“水果”改成了主语，把“西瓜”改成了宾语。我们把这种操作称为\textbf{换位法}，即交换了判断的主语和断语的位置。
 
 换位法是否改变了判断的真假？
 
 第一个例子中，我们可以确信，只要第一句是真的，那么第二句就是真的。
-如果有的物理学家是共产主义者，比如物理学家奥本海默是共产主义者，那么奥本海默这个共产主义者也的确是物理学家，
-于是，有的共产主义者是物理学家。
+有的物理学家是共产主义者，比如物理学家奥本海默是共产主义者，那么奥本海默这个共产主义者也的确是物理学家，于是，有的共产主义者是物理学家。
 
 第二个例子中，“所有的西瓜是水果”是真的，但“所有的水果是西瓜”是假的。比如苹果就不是西瓜。
 
-第三个例子中，如果陈家洛是红花会的总舵主，那么红花会的总舵主是不是陈家洛呢？如果红花会的总舵主只有一个，
-那么他就是陈家洛。如果红花会的总舵主不止一个，那么就不能说“红花会的总舵主是陈家洛”。
+第三个例子中，如果陈家洛是红花会的总舵主，那么红花会的总舵主是不是陈家洛呢？如果红花会的总舵主只有一个，那么他就是陈家洛。如果红花会的总舵主不止一个，那么就不能说“红花会的总舵主是陈家洛”。
 
-我们发现，换位法不总是有效的推理。什么时候，换位法有效呢？从前面的例子看出，换位法无效，总是因为前提里我们并没有在讨论某个概念的全体，
-在结论里我们却在讨论它的全体。
+我们发现，换位法不总是有效的推理。什么时候，换位法有效呢？从前面的例子看出，换位法无效，总是因为前提里我们并没有在讨论某个概念的全体，在结论里我们却在讨论它的全体。
 
 比如，第二个例子里，前提“所有的西瓜是水果”中讨论了所有的西瓜，但并没有涉及水果这个概念的全体。
-我们讨论这个判断的真假时，不需要检查每个水果。可到了结论里，我们却要讨论所有的水果。同样的，第三个例子里，
-我们讨论“陈家洛是红花会的总舵主”时，并没有涉及所有的红花会总舵主，只讨论陈家洛是不是总舵主。其他总舵主，如果有的话，
-并不在讨论范围内。而到了结论里，我们却要讨论“红花会的总舵主”全体了。
+我们讨论这个判断的真假时，不需要检查每个水果。可到了结论里，我们却要讨论所有的水果。同样的，第三个例子里，我们讨论“陈家洛是红花会的总舵主”时，并没有涉及所有的红花会总舵主，只讨论陈家洛是不是总舵主。其他总舵主，如果有的话，并不在讨论范围内。而到了结论里，我们却要讨论“红花会的总舵主”全体了。
 
 所以，换位法需要再加一条规则才是有效的推理：\textbf{前提中讨论的概念如果不涉及它的全体，结论中也不能涉及它的全体。}
 
-我们把“概念涉及它的全体”称为概念\textbf{周延}，把“概念不涉及它的全体”称为概念\textbf{不周延}。那么，
-换位法缺的规则可以复述为：\textbf{前提中讨论的概念如果不周延，它在结论中也不周延。}
+我们把“概念涉及它的全体”称为概念\textbf{周延}，把“概念不涉及它的全体”称为概念\textbf{不周延}。换位法缺的规则可以复述为：\textbf{前提中讨论的概念如果不周延，它在结论中也不周延。}
 
 举例来说，前提“有的水果不是西瓜”换位到结论“有的西瓜不是水果”是无效的推理，因为前提中
-“水果”不周延，而结论中，为了判断“不是水果”，我们需要检查所有的水果，结论中的“水果”周延。
+“水果”不周延；而结论中，为了判断“不是水果”，我们需要检查所有的水果，结论中的“水果”周延。
 
 对于主语来说，周延和全判断是一致的，不周延和有判断是一致的。全判断的主语是周延的，有判断的主语是不周延的。
 
-对于断语来说，否定后接的断语总是周延的：为了否定一个性质，我们需要检查这个性质所有的个体。肯定后接的断语总是不周延的：
-我们只需要对主语涉及的概念进行检查就可以了。比如，要判断“有的水果是西瓜”，我们只需要找一个是西瓜的水果就可以了；
-而要判断“有的水果不是西瓜”，我们要确认给出的水果不是西瓜，就必须检查每个西瓜。
+对于断语来说，否定后接的断语总是周延的：为了否定一个性质，我们需要检查这个性质所有的个体。肯定后接的断语总是不周延的：我们只需要对主语涉及的概念进行检查就可以了。比如，要判断“有的水果是西瓜”，我们只需要找一个是西瓜的水果就可以了；而要判断“有的水果不是西瓜”，我们要确认给出的水果不是西瓜，就必须检查每个西瓜。
 
 于是，换位法的规则又可以这么描述：
 \begin{center}
@@ -838,6 +484,590 @@ $$ p \Leftrightarrow q = q \Leftrightarrow p = (\neg p) \Leftarrow (\neg q) = (\
     \indent 3. 因为所有等温过程都不是等熵过程，所以所有等熵过程都不是等温过程。 \\
     \indent 4. 因为有的展品是非卖品，所以有的卖品不是展品。 \\
     \indent 5. 因为有的可解群是非交换群，所以有的交换群不是可解群。
+\end{xt}
+
+\section{三段论初步}
+
+换质法和换位法都是从一个前提得到一个结论的直接推理。通过多个前提得出结论，称为\textbf{间接推理}。下面我们来看最常用的一种间接推理：\textbf{三段论}。
+
+三段论由两个前提和一个结论构成，形式多种多样。不过，不是所有这样的推理都叫做三段论，还需要满足一些规定。有些三段论是有效的：只要两个前提是真的，结论就是真的；有些三段论是无效的：两个前提是真的时候，结论可以是真的也可以是假的。这里我们只介绍几种简单的三段论，更多的内容留到以后学习。
+
+首先来看一些基本定义。我们规定：三段论只能涉及三个概念。其中每个判断中的主语和断语分别涉及一个概念，每个概念会在两个判断中各出现一次。例如：
+\begin{quotation}
+    \noindent \ding{172}所有的鸟都是动物。\\
+    \ding{173}所有的麻雀都是鸟。\\
+    \ding{174}所以，所有的麻雀都是动物。
+\end{quotation}
+就是一个三段论。它包含两个前提（\ding{172}和\ding{173}）和一个结论（\ding{174}）共三个判断，
+涉及三个概念：“麻雀”、“鸟”和“动物”。
+每个概念在两个判断中分别出现一次。比如“鸟”就在\ding{172}和\ding{173}中各出现一次。
+
+组成三段论的每个判断可以是简单判断，也可以是复合判断。这里我们只研究由三个简单判断组成的三段论。
+
+我们把三段论涉及的三个概念称为\textbf{大项}、\textbf{中项}和\textbf{小项}。大项是结论的断语对应的概念。中项是在两个前提中都出现的概念。小项是结论的主语对应的概念。中项不在结论中出现。小项和大项除了在结论中出现，还各在前提中出现一次。出现大项的前提叫做\textbf{大前提}，出现小项的前提叫做\textbf{小前提}。
+
+具体来说，怎么找出这些概念呢？首先我们确定结论：结论是我们要得出的判断。结论的主语对应小项，断语对应大项。以上的例子中，“动物”是大项，“麻雀”是小项。于是，在前提中出现两次而在结论中没有出现的“鸟”是中项。接下来看前提里，大项所在的是大前提，小项所在的是小前提，所以\ding{172}是大前提，\ding{173}是小前提。
+
+中项在两个前提中各出现一次，每次可以是主语或断语。因此，它出现的位置一共有$4$种情况，称为四个格：
+\begin{align*}
+    \mbox{主断格：中} \rightarrow \mbox{大}, \quad \mbox{小} \rightarrow \mbox{中} \quad \Rightarrow \quad \mbox{小} \rightarrow \mbox{大}  \\
+    \mbox{双断格：大} \rightarrow \mbox{中}, \quad \mbox{小} \rightarrow \mbox{中} \quad \Rightarrow \quad \mbox{小} \rightarrow \mbox{大}  \\
+    \mbox{双主格：中} \rightarrow \mbox{大}, \quad \mbox{中} \rightarrow \mbox{小} \quad \Rightarrow \quad \mbox{小} \rightarrow \mbox{大}  \\
+    \mbox{断主格：大} \rightarrow \mbox{中}, \quad \mbox{中} \rightarrow \mbox{小} \quad \Rightarrow \quad \mbox{小} \rightarrow \mbox{大} 
+\end{align*}
+其中$\mbox{大} \rightarrow \mbox{中}$表示主语是大项，断语是中项，其余类似。可以看出，中项是连接小项和大项的“桥梁”。要注意的是，一般使用三段论时，并不会刻意把大前提放在小前提前面，因此需要根据大小相来区别，不要仅仅根据位置顺序判断大小前提。
+
+我们再来看判断的属性。每个判断都可以是全判断或有判断，可以是肯定或否定。所以每个判断都有四种可能：全肯定、全否定、有肯定、有否定。我们分别用“皆”、“莫”、“有”、“但”来标记这四种情况。比如，如果三段论的三句话都是全肯定判断，就说它是“皆皆皆”型三段论。
+
+接着来看几种最常见的三段论。首先是“熊猫眼”三段论。例如：
+\begin{quotation}
+    \noindent \ding{172}所有的科学规律都是不以人们的意志为转移的。\\
+    \ding{173}所有的物理学规律都是科学规律。\\
+    \ding{174}所以，所有的物理学规律都是不以人们的意志为转移的。
+\end{quotation}
+
+\begin{wrapfigure}[7]{r}{0.5\textwidth} %this figure will be at the right
+    \vspace{-16pt}
+    \flushright
+    \begin{tikzpicture}
+        % 参数设置
+        \def\ecc{0.6} % 离心率参数，可调整 (0 < \ecc < 1)
+        \def\aS{1.0} % 最小椭圆的长半轴
+        \def\aM{1.8} % 中间椭圆的长半轴
+        \def\aP{2.5} % 最大椭圆的长半轴
+        
+        % 计算焦距和短半轴
+        \pgfmathsetmacro{\cS}{\ecc*\aS}
+        \pgfmathsetmacro{\cM}{\ecc*\aM}
+        \pgfmathsetmacro{\cP}{\ecc*\aP}
+        
+        \pgfmathsetmacro{\bS}{\aS*sqrt(1-\ecc*\ecc)}
+        \pgfmathsetmacro{\bM}{\aM*sqrt(1-\ecc*\ecc)}
+        \pgfmathsetmacro{\bP}{\aP*sqrt(1-\ecc*\ecc)}
+        
+        % 定义左焦点位置（三个椭圆共享）
+        \coordinate (leftFocus) at (0,0);
+        
+        % 计算椭圆中心位置（保持左焦点在(-c, 0)）
+        % 椭圆中心在原点时，左焦点在(-c, 0)
+        % 要使左焦点在指定位置，椭圆中心需要向右平移c
+        \coordinate (centerS) at ($(leftFocus) + (\cS, 0)$);
+        \coordinate (centerM) at ($(leftFocus) + (\cM, 0)$);
+        \coordinate (centerP) at ($(leftFocus) + (\cP, 0)$);
+        
+        % 绘制最大椭圆（最外层，S集合）并填充
+        \fill[blue!20, opacity=0.7] (centerP) ellipse (\aP cm and \bP cm);
+        \draw[thick] (centerP) ellipse (\aP cm and \bP cm);
+        \node at ($(centerP) + (1.5, 1.0)$) {大项};
+        
+        % 绘制中间椭圆（M集合）并填充
+        \fill[yellow!30, opacity=0.7] (centerM) ellipse (\aM cm and \bM cm);
+        \draw[thick] (centerM) ellipse (\aM cm and \bM cm);
+        \node at ($(centerM) + (0.9, 0.7)$) {中项};
+        
+        % 绘制最小椭圆（P集合）并填充
+        \fill[red!30, opacity=0.7] (centerS) ellipse (\aS cm and \bS cm);
+        \draw[thick] (centerS) ellipse (\aS cm and \bS cm);
+        \node at ($(centerS) + (0.3, 0.3)$) {小项};
+            
+        % 计算边界框（考虑所有椭圆的顶点）
+        \pgfmathsetmacro{\leftmost}{\cP - \aP} % 最左点：左焦点-c-长半轴a
+        \pgfmathsetmacro{\rightmost}{\cP + \aP} % 最右点：左焦点-c+长半轴a
+        \pgfmathsetmacro{\topmost}{\bP}
+        \pgfmathsetmacro{\bottommost}{-\bP}
+        
+        % 绘制全集合方框
+        \def\padding{0.3}
+        \pgfmathsetmacro{\boxLeft}{\leftmost - \padding}
+        \pgfmathsetmacro{\boxRight}{\rightmost + \padding}
+        \pgfmathsetmacro{\boxTop}{\topmost + \padding}
+        \pgfmathsetmacro{\boxBottom}{\bottommost - \padding}
+        
+        \draw[gray, thick] (\boxLeft, \boxBottom) rectangle (\boxRight, \boxTop);
+    \end{tikzpicture}
+\end{wrapfigure}
+
+“熊猫眼”三段论属于主断格和“皆皆皆”型。它其实是叙述了两个嵌套的从属关系。从集合的角度来看，小项是中项的子集，而中项又是大项的子集。所以，小项是大项的子集。用叠圈图表示，就是说一个小圈在中圈里，而中圈又在大圈里，于是小圈在大圈里。
+
+\begin{wrapfigure}[4]{r}{0.36\textwidth} %this figure will be at the right
+    \vspace{-12pt}
+    \centering
+    \begin{tikzpicture}
+  % 参数设置
+  \def\ecc{0.3} % 离心率参数，可调整 (0 < \ecc < 1)
+  \def\aS{1.6}  % 小项
+  \def\aM{1.3}  % 中项
+  \def\aP{2.0}  % 大项
+  
+  % 计算焦距和短半轴
+  \pgfmathsetmacro{\cM}{\ecc*\aM}
+  \pgfmathsetmacro{\cP}{\ecc*\aP}
+  
+  \pgfmathsetmacro{\bM}{\aM*sqrt(1-\ecc*\ecc)}
+  \pgfmathsetmacro{\bP}{\aP*sqrt(1-\ecc*\ecc)}
+  
+  % 定义左焦点位置（三个椭圆共享）
+  \coordinate (leftFocus) at (0,0);
+  
+  % 要使左焦点在指定位置，椭圆中心需要向右平移c
+  \coordinate (centerM) at ($(leftFocus) + (\cM, 0)$);
+  \coordinate (centerP) at ($(leftFocus) + (\cP, 0)$);
+  \coordinate (centerS) at (-1,0);
+  
+  \fill[blue!30, opacity=0.7] (centerP) ellipse (\aP cm and \bP cm);
+  \fill[yellow!30, opacity=0.7] (centerM) ellipse (\aM cm and \bM cm);
+  \fill[red!20, opacity=0.7] (centerS) ellipse (\aS cm);
+
+  \draw[thick] (centerP) ellipse (\aP cm and \bP cm);
+  \draw[thick] (centerM) ellipse (\aM cm and \bM cm);
+  \draw[thick] (centerS) ellipse (\aS cm);
+
+  \node at ($(centerP) + (1.3, 0.8)$) {大项};
+  \node at ($(centerM) + (0.7, 0.3)$) {中项};
+  \node at ($(centerS) + (-0.8, 0.8)$) {小项};
+  
+  % 计算边界框（考虑所有椭圆的顶点）
+  \pgfmathsetmacro{\leftmost}{0.6 -\aM - \aP} % 最左点
+  \pgfmathsetmacro{\rightmost}{\aM + \aP - 0.7} % 最右点
+  \pgfmathsetmacro{\topmost}{\aP - 0.2}
+  \pgfmathsetmacro{\bottommost}{0.2 - \aP}
+  
+  % 绘制全集合方框
+  \def\padding{0.3}
+  \pgfmathsetmacro{\boxLeft}{\leftmost - \padding}
+  \pgfmathsetmacro{\boxRight}{\rightmost + \padding}
+  \pgfmathsetmacro{\boxTop}{\topmost + \padding}
+  \pgfmathsetmacro{\boxBottom}{\bottommost - \padding}
+  
+  \draw[gray, thick] (\boxLeft, \boxBottom) rectangle (\boxRight, \boxTop);
+    \end{tikzpicture}
+\end{wrapfigure}
+
+其次是“咬包子”三段论。例如：
+\begin{quotation}
+    \noindent \ding{172}所有的不锈钢制品都是金属制品。\\
+    \ding{173}有些筷子是不锈钢制品。\\
+    \ding{174}所以，有些筷子是金属制品。
+\end{quotation}
+“咬包子”三段论属于主断格和“皆有有”型。它叙述了如何干涉两个从属关系的概念。从集合的角度来看，中项是大项的子集，而小项和中项相交。所以，小项也和大项相交。用叠圈图表示，就是说一个小圈在大圈里，另一个圈和内部的小圈相交，就必然和大圈相交。
+
+要注意的是：上面的叠圈图里，小项和大项里除了中项以外的部分似乎必然相交，但实际上并不是必然的。例如：
+\begin{quotation}
+    \noindent \ding{172}所有个位数是$0$的数都是偶数。\\
+    \ding{173}有些$5$的倍数的个位数是$0$。\\
+    \ding{174}所以，有些$5$的倍数是偶数。
+\end{quotation}
+这个三段论是正确的。但我们也注意到，$5$的倍数要么个位数是$0$，要么个位数是$5$。后者必定不是偶数。
+
+再来看称为“单眼镜”的三段论。例如：
+\begin{quotation}
+    \noindent \ding{172}所有的石头都不是动物。\\
+    \ding{173}所有的兔子都是动物。\\
+    \ding{174}所以，所有的兔子都不是石头。
+\end{quotation}
+“单眼镜”三段论属于双断格和“莫皆莫”型。它叙述了两个从属关系的概念与互斥概念的关系。从集合的角度来看，作为母集的中项与大项不相交，那么作为其子集的小项也和大项不相交。用叠圈图表示，就是说一个小圈在大圈里，另一个圈和大圈不相交，就必然也不和小圈相交。
+
+\vspace{4pt}
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+  % 参数设置
+  \def\ecc{0.3} % 离心率参数，可调整 (0 < \ecc < 1)
+  \def\aS{1.1} 
+  \def\aM{1.8} 
+  \def\aP{1.1} 
+  \def\ect{0.0} % 离心率参数，可调整 (0 < \ecc < 1)
+  
+  % 计算焦距和短半轴
+  \pgfmathsetmacro{\cS}{\ecc*\aS}
+  \pgfmathsetmacro{\cM}{\ecc*\aM}
+  
+  \pgfmathsetmacro{\bS}{\aS*sqrt(1-\ecc*\ecc)}
+  \pgfmathsetmacro{\bM}{\aM*sqrt(1-\ecc*\ecc)}
+  
+  \coordinate (leftFocus) at (0,0);
+  
+  % 要使左焦点在指定位置，椭圆中心需要向右平移c
+  \coordinate (centerS) at (0.1, 0);
+  \coordinate (centerM) at ($(leftFocus) + (\cM, 0)$);
+  \coordinate (centerP) at (-3,0);
+  
+  
+  % 绘制中间椭圆并填充
+  \fill[yellow!30, opacity=0.6] (centerM) ellipse (\aM cm and \bM cm);
+  \draw[thick] (centerM) ellipse (\aM cm and \bM cm);
+  \node at ($(centerM) + (1.1, 0.7)$) {中项};
+  
+  % 绘制最小椭圆并填充
+  \fill[red!30, opacity=0.5] (centerS) ellipse (\aS cm and \bS cm);
+  \draw[thick] (centerS) ellipse (\aS cm and \bS cm);
+  \node at ($(centerS) + (0.5, 0.3)$) {小项};
+
+  % 绘制最大椭圆并填充
+  \fill[blue!20, opacity=0.7] (centerP) circle (\aP cm);
+  \draw[thick] (centerP) circle (\aP cm);
+  \node at ($(centerP) + (-0.2, 0.5)$) {大项};
+  
+  % 计算边界框（考虑所有椭圆的顶点）
+  \pgfmathsetmacro{\leftmost}{- 0.3 - \aP -\aM - \aS} % 最左点
+  \pgfmathsetmacro{\rightmost}{\aM + \aS - 0.3} % 最右点
+  \pgfmathsetmacro{\topmost}{\bM}
+  \pgfmathsetmacro{\bottommost}{-\bM}
+  
+  % 绘制全集合方框
+  \def\padding{0.3}
+  \pgfmathsetmacro{\boxLeft}{\leftmost - \padding}
+  \pgfmathsetmacro{\boxRight}{\rightmost + \padding}
+  \pgfmathsetmacro{\boxTop}{\topmost + \padding}
+  \pgfmathsetmacro{\boxBottom}{\bottommost - \padding}
+  
+  \draw[gray, thick] (\boxLeft, \boxBottom) rectangle (\boxRight, \boxTop);
+\end{tikzpicture}
+\end{figure}
+
+最后来看称为“单眼泪”的三段论。例如：
+\begin{quotation}
+    \noindent \ding{172}所有的石头都不是塑料制品。\\
+    \ding{173}有些碟子是塑料制品。\\
+    \ding{174}所以，有些碟子不是石头。
+\end{quotation}
+“单眼泪”三段论属于双断格和“莫有但”型。它叙述了两个交叉关系的概念与互斥概念的关系。从集合的角度来看，中项与大项不相交，小项和中项相交，那么至少相交那部分和大项不相交。用叠圈图表示，就是说如果一个圈子与两个不相交的圈子之一相交，那么它不会完全在另一个圈子里。
+
+\vspace{4pt}
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[scale=0.8]
+        % 参数设置
+        \def\ecc{0.0} % 离心率参数，可调整 (0 < \ecc < 1)
+        \def\aS{1.1} 
+        \def\aM{1.6} 
+        \def\aP{1.6} 
+        \def\ect{0.0} % 离心率参数，可调整 (0 < \ecc < 1)
+        
+        % 计算焦距和短半轴
+        \pgfmathsetmacro{\cS}{\ecc*\aS}
+        \pgfmathsetmacro{\cM}{\ecc*\aM}
+        
+        \pgfmathsetmacro{\bS}{\aS*sqrt(1-\ecc*\ecc)}
+        \pgfmathsetmacro{\bM}{\aM*sqrt(1-\ecc*\ecc)}
+        
+        \coordinate (leftFocus) at (0,0);
+        
+        \coordinate (centerS) at (0.3, -1.6);
+        \coordinate (centerM) at ($(leftFocus) + (\cM, 0)$);
+        \coordinate (centerP) at (-3.6,0);
+        
+        \fill[yellow!30, opacity=0.6] (centerM) ellipse (\aM cm and \bM cm);
+        \draw[thick] (centerM) ellipse (\aM cm and \bM cm);
+        \node at ($(centerM) + (0.5, 0.7)$) {中项};
+        
+        \fill[red!30, opacity=0.5] (centerS) ellipse (\aS cm and \bS cm);
+        \draw[thick] (centerS) ellipse (\aS cm and \bS cm);
+        \node at ($(centerS) + (-0.5, -0.3)$) {小项};
+
+        \fill[blue!20, opacity=0.7] (centerP) circle (\aP cm);
+        \draw[thick] (centerP) circle (\aP cm);
+        \node at ($(centerP) + (-0.5, 0.7)$) {大项};
+        
+        % 计算边界框
+        \pgfmathsetmacro{\leftmost}{- 1 - \aP -\aM - \aS} % 最左点
+        \pgfmathsetmacro{\rightmost}{\aM + \aS - 1} % 最右点
+        \pgfmathsetmacro{\topmost}{\bM}
+        \pgfmathsetmacro{\bottommost}{-\bM - 1}
+        
+        % 绘制全集合方框
+        \def\padding{0.3}
+        \pgfmathsetmacro{\boxLeft}{\leftmost - \padding}
+        \pgfmathsetmacro{\boxRight}{\rightmost + \padding}
+        \pgfmathsetmacro{\boxTop}{\topmost + \padding}
+        \pgfmathsetmacro{\boxBottom}{\bottommost - \padding}
+        
+        \draw[gray, thick] (\boxLeft, \boxBottom) rectangle (\boxRight, \boxTop);
+    \end{tikzpicture}
+    \begin{tikzpicture}[scale=0.8]
+        % 参数设置
+        \def\ecc{0.0} % 离心率参数，可调整 (0 < \ecc < 1)
+        \def\aS{1.1} 
+        \def\aM{1.6} 
+        \def\aP{1.6} 
+        \def\ect{0.0} % 离心率参数，可调整 (0 < \ecc < 1)
+        
+        % 计算焦距和短半轴
+        \pgfmathsetmacro{\cS}{\ecc*\aS}
+        \pgfmathsetmacro{\cM}{\ecc*\aM}
+        
+        \pgfmathsetmacro{\bS}{\aS*sqrt(1-\ecc*\ecc)}
+        \pgfmathsetmacro{\bM}{\aM*sqrt(1-\ecc*\ecc)}
+        
+        \coordinate (leftFocus) at (0,0);
+        
+        \coordinate (centerS) at (-1.5, -1.2);
+        \coordinate (centerM) at ($(leftFocus) + (\cM, 0)$);
+        \coordinate (centerP) at (-3.6,0);
+        
+        \fill[yellow!30, opacity=0.6] (centerM) ellipse (\aM cm and \bM cm);
+        \draw[thick] (centerM) ellipse (\aM cm and \bM cm);
+        \node at ($(centerM) + (0.5, 0.7)$) {中项};
+        
+        \fill[red!30, opacity=0.5] (centerS) ellipse (\aS cm and \bS cm);
+        \draw[thick] (centerS) ellipse (\aS cm and \bS cm);
+        \node at ($(centerS) + (-0.5, -0.3)$) {小项};
+
+        \fill[blue!20, opacity=0.7] (centerP) circle (\aP cm);
+        \draw[thick] (centerP) circle (\aP cm);
+        \node at ($(centerP) + (-0.5, 0.7)$) {大项};
+        
+        % 计算边界框
+        \pgfmathsetmacro{\leftmost}{- 1 - \aP -\aM - \aS} % 最左点
+        \pgfmathsetmacro{\rightmost}{\aM + \aS - 1} % 最右点
+        \pgfmathsetmacro{\topmost}{\bM}
+        \pgfmathsetmacro{\bottommost}{-\bM - 1}
+        
+        % 绘制全集合方框
+        \def\padding{0.3}
+        \pgfmathsetmacro{\boxLeft}{\leftmost - \padding}
+        \pgfmathsetmacro{\boxRight}{\rightmost + \padding}
+        \pgfmathsetmacro{\boxTop}{\topmost + \padding}
+        \pgfmathsetmacro{\boxBottom}{\bottommost - \padding}
+        
+        \draw[gray, thick] (\boxLeft, \boxBottom) rectangle (\boxRight, \boxTop);
+    \end{tikzpicture}
+\end{figure}
+
+可以看到，“单眼泪”三段论成立的关键，在于小项和中项的重叠部分（也就是“眼中”的“眼泪”）不在大项中。因此，小项在中项以外的部分是否与大项相交，都不妨碍“单眼泪”三段论成立。上面的叠圈图分别标示了两种情况。
+
+以上是几种有效的三段论。再来看几种常见的\textbf{无效三段论}。这些三段论对应我们思考时经常犯的错误。
+
+\begin{wrapfigure}[4]{r}{0.45\textwidth} %this figure will be at the right
+    \vspace{-16pt}
+    \flushright
+    \begin{tikzpicture}
+        % 参数设置
+        \def\ecc{0.6}  % 离心率（两个椭圆相同）
+        \def\aLeft{1.8}  % 左椭圆长半轴
+        \def\aRight{1.5} % 右椭圆长半轴
+        
+        % 计算焦距和短半轴
+        \pgfmathsetmacro{\c}{\ecc*\aLeft}  % 焦距
+        \pgfmathsetmacro{\bLeft}{\aLeft*sqrt(1-\ecc*\ecc)}  % 左椭圆短半轴
+        \pgfmathsetmacro{\bRight}{\aRight*sqrt(1-\ecc*\ecc)} % 右椭圆短半轴
+        
+        % 定义共享焦点位置
+        \coordinate (sharedFocus) at (0,0);
+        
+        % 计算椭圆中心位置
+        % 对于左椭圆：中心在(-c,0)，左焦点在(-2c,0)，右焦点在(0,0)
+        \def\pad{0.4}
+        \coordinate (centerLeft) at (-\c + \pad, 0);
+        % 对于右椭圆：中心在(c,0)，左焦点在(0,0)，右焦点在(2c,0)
+        \coordinate (centerRight) at (\c - \pad, 0);
+        
+        % 绘制左椭圆并填充
+        \fill[red!30, opacity=0.7] (centerLeft) ellipse (\aLeft cm and \bLeft cm);
+        \draw[thick, red] (centerLeft) ellipse (\aLeft cm and \bLeft cm);
+        \node at ($(centerLeft) + (-1.1, 0)$) {小项};
+        
+        % 绘制右椭圆并填充
+        \fill[blue!30, opacity=0.7] (centerRight) ellipse (\aRight cm and \bRight cm);
+        \draw[thick, blue] (centerRight) ellipse (\aRight cm and \bRight cm);
+        \node at ($(centerRight) + (1, 0)$) {大项};
+        
+        % 计算交集区域（通过裁剪）
+        \begin{scope}
+            \clip (centerRight) ellipse (\aRight cm and \bRight cm);
+            \fill[purple!40, opacity=0.5] (centerLeft) ellipse (\aLeft cm and \bLeft cm);
+        \end{scope}
+        
+        % 重新绘制椭圆边界，确保清晰
+        \draw[thick] (centerLeft) ellipse (\aLeft cm and \bLeft cm);
+        \draw[thick] (centerRight) ellipse (\aRight cm and \bRight cm);
+        
+        % 绘制小圆（位于共享焦点处）
+        \def\r{0.75}  % 小圆半径
+        \fill[yellow!40, opacity=0.8] (sharedFocus) circle (\r);
+        \draw[thick] (sharedFocus) circle (\r);
+        \node at ($(sharedFocus)$) {中项};
+        
+        % 绘制全集合方框
+        \def\padding{0.3}
+        \pgfmathsetmacro{\boxLeft}{-\c - \aLeft - \padding}
+        \pgfmathsetmacro{\boxRight}{\c + \aRight + \padding}
+        \pgfmathsetmacro{\boxTop}{max(\bLeft, \bRight) + \padding}
+        \pgfmathsetmacro{\boxBottom}{-max(\bLeft, \bRight) - \padding}
+        
+        \draw[gray, thick] (\boxLeft, \boxBottom) rectangle (\boxRight, \boxTop);
+    \end{tikzpicture}
+\end{wrapfigure}
+
+首先是“甲生疮”三段论。例如：
+
+\begin{quotation}
+    \noindent \ding{172}所有的蜜蜂都有翅膀。\\
+    \ding{173}所有的蜜蜂都是动物。\\
+    \ding{174}所以，所有的动物都有翅膀。
+\end{quotation}
+
+“甲生疮”三段论属于双主格和“皆皆皆”型。它讨论的是同时从属两个概念（具有两种属性）的问题。从集合的角度来看，中项同时是小项和大项的子集。但这不说明小项和大项有从属关系。用叠圈图表示，就是说一个圈同时在另两个圈里。这时，另两个圈不一定要是一个包含另一个。
+
+\begin{wrapfigure}[5]{r}{0.42\textwidth} %this figure will be at the right
+    \vspace{-20pt}
+    \flushright
+    \begin{tikzpicture}[scale=0.8]
+        % 参数设置
+        \def\ecc{0.0} % 离心率参数，可调整 (0 < \ecc < 1)
+        \def\aM{1.8} 
+        \def\aS{1} 
+        \def\aP{1} 
+        
+        % 计算焦距和短半轴
+        \pgfmathsetmacro{\cS}{\ecc*\aS}
+        \pgfmathsetmacro{\cM}{\ecc*\aM}
+        
+        \pgfmathsetmacro{\bS}{\aS*sqrt(1-\ecc*\ecc)}
+        \pgfmathsetmacro{\bM}{\aM*sqrt(1-\ecc*\ecc)}
+        
+        \coordinate (leftFocus) at (0,0);
+        
+        \coordinate (centerM) at (0, -1.8);
+        \coordinate (centerS) at (1.5, 0);
+        \coordinate (centerP) at (-1.5,0);
+        
+        \fill[yellow!30, opacity=0.6] (centerM) ellipse (\aM cm and \bM cm);
+        \draw[thick] (centerM) ellipse (\aM cm and \bM cm);
+        \node at ($(centerM) + (0, -0.3)$) {中项};
+        
+        \fill[red!30, opacity=0.5] (centerS) ellipse (\aS cm and \bS cm);
+        \draw[thick] (centerS) ellipse (\aS cm and \bS cm);
+        \node at ($(centerS) + (0.2, 0.2)$) {小项};
+
+        \fill[blue!20, opacity=0.7] (centerP) circle (\aP cm);
+        \draw[thick] (centerP) circle (\aP cm);
+        \node at ($(centerP) + (-0.2, 0.2)$) {大项};
+        
+        % 计算边界框
+        \pgfmathsetmacro{\leftmost}{-\aM - \aS} % 最左点
+        \pgfmathsetmacro{\rightmost}{\aM + \aS} % 最右点
+        \pgfmathsetmacro{\topmost}{\bM - 0.6}
+        \pgfmathsetmacro{\bottommost}{-\bM - 2}
+        
+        % 绘制全集合方框
+        \def\padding{0.3}
+        \pgfmathsetmacro{\boxLeft}{\leftmost - \padding}
+        \pgfmathsetmacro{\boxRight}{\rightmost + \padding}
+        \pgfmathsetmacro{\boxTop}{\topmost + \padding}
+        \pgfmathsetmacro{\boxBottom}{\bottommost - \padding}
+        
+        \draw[gray, thick] (\boxLeft, \boxBottom) rectangle (\boxRight, \boxTop);
+    \end{tikzpicture}
+\end{wrapfigure}
+
+另一种似乎更宽松的是“两只耳”三段论。例如：
+\begin{quotation}
+    \noindent \ding{172}有些围棋爱好者是退休干部。\\
+    \ding{173}有些小学生是围棋爱好者。\\
+    \ding{174}所以，有些小学生是退休干部。
+\end{quotation}
+“两只耳”三段论属于主断格和“有有有”型。它讨论的是交叉概念的传递问题。交叉概念并不能传递。用叠圈图表示，就是说一个圈同时与另两个圈相交。这时，另两个圈不一定要相交。
+
+最后一种称为“易拉罐”三段论。它包含多个变种。例如：
+\begin{quotation}
+    \noindent \ding{172}所有蜜蜂都是动物。\\
+    \ding{173}所有河马都是动物。\\
+    \ding{174}所以，所有河马都是蜜蜂。或 \\
+    \ding{174}所以，有些河马是蜜蜂。
+\end{quotation}
+
+\vspace{4pt}
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[scale=0.8]
+        \def\aS{1.0}
+        \def\bS{0.8}
+        \def\cS{0.1}
+        \def\gS{0.3}
+        \def\hS{0.4}
+        % 绘制大圆
+        \fill[yellow!40, opacity=0.7] (0,0) circle (2cm);
+        \draw[thick] (0,0) circle (2cm);
+        % 绘制两个小圆
+        \fill[red!40, opacity=0.7] (-\bS, -\cS) circle (\aS cm);
+        \fill[blue!40, opacity=0.7] (\cS,\bS) circle (\aS cm);
+        \draw[thick] (-\bS,-\cS) circle (\aS cm);
+        \draw[thick] (\cS,\bS) circle (\aS cm);
+        \node at (0.8, -0.8) {中项};
+        \node at (-\bS - \gS, -\hS) {小项};
+        \node at (\gS, \bS + \hS) {大项};
+        % 绘制方框（根据大圆半径加上适当边距）
+        \draw[gray, thick] (-2.5,-2.5) rectangle (2.5,2.5);
+    \end{tikzpicture}
+    \begin{tikzpicture}[scale=0.8]
+        \def\aS{0.8}
+        \def\bS{1}
+        \def\cS{0.2}
+        \def\gS{0.2}
+        \def\hS{0.2}
+        % 绘制大圆
+        \fill[yellow!40, opacity=0.7] (0,0) circle (2cm);
+        \draw[thick] (0,0) circle (2cm);
+        % 绘制两个小圆
+        \fill[red!40, opacity=0.7] (-\bS, -\cS) circle (\aS cm);
+        \fill[blue!40, opacity=0.7] (\cS,\bS) circle (\aS cm);
+        \draw[thick] (-\bS,-\cS) circle (\aS cm);
+        \draw[thick] (\cS,\bS) circle (\aS cm);
+        \node at (0.8, -0.8) {中项};
+        \node at (-\bS - \gS, -\hS) {小项};
+        \node at (\gS, \bS + \hS) {大项};
+        % 绘制方框（根据大圆半径加上适当边距）
+        \draw[gray, thick] (-2.5,-2.5) rectangle (2.5,2.5);
+    \end{tikzpicture}
+    \begin{tikzpicture}[scale=0.8]
+        \def\aS{0.8}
+        \def\bS{0.8}
+        \def\cS{0.2}
+        \def\gS{0.3}
+        \def\hS{0.2}
+        % 绘制大圆
+        \fill[yellow!40, opacity=0.7] (0,0) circle (2cm);
+        \draw[thick] (0,0) circle (2cm);
+        % 绘制两个小圆
+        \fill[blue!40, opacity=0.7] (-\bS+2*\gS, \cS) ellipse (1.7 cm and 1.1cm);
+        \fill[red!40, opacity=0.9] (-\bS, \cS) circle (\aS cm);
+        \draw[thick] (-\bS,\cS) circle (\aS cm);
+        \draw[thick] (-\bS+2*\gS, \cS) ellipse (1.7 cm and 1.1cm);
+        \node at (0.2, -1.3) {中项};
+        \node at (-\bS - \hS, \hS) {小项};
+        \node at (0.6, \hS) {大项};
+        % 绘制方框（根据大圆半径加上适当边距）
+        \draw[gray, thick] (-2.5,-2.5) rectangle (2.5,2.5);
+    \end{tikzpicture}
+\end{figure}
+
+“易拉罐”三段论讨论的是同时从属于一个概念的两个子概念的关系。从集合的角度来说，一个集合的两个子集可能有什么关系？答案是：什么关系都可能。因此，无法推理出某种特定的关系。用叠圈图表示，就是说一个圈子里的两个小圈子之间可能重叠，可能部分重叠，也可能完全不重叠。
+
+\begin{xt}\label{xt:0-0-10}
+    \mbox{} \\
+    \indent 1. 判断以下推理是否是三段论。如果是三段论，属于哪一格哪一型：\\
+    \indent 1.1. 雷锋是人民的儿子；我是人民；所以，雷锋是我的儿子。\\  % 否 “人民的儿子”和“人民”不是同一概念。四概念错误。
+    \indent 1.2. 有些金丝猴生活在山上；所有生活在山上的动物都是陆生动物；所以，有些金丝猴是陆生动物。\\  % 如果把“生活在山上”视为“生活在山上的动物”，那么是主断格“皆有有”型。
+    \indent 1.3. 所有的公麋鹿都有角；所有的母麋鹿都没有角；所以，有角的麋鹿都不是母麋鹿。\\  % 否 “有角的麋鹿”作为中项，不能出现在结论里。
+    \indent 1.4. 海豚可以发出超声波；超声波可以判断胎儿性别；所以，海豚可以判断胎儿性别。\\  % 否 “可以发出超声波的”和“超声波”不是一个概念。四概念错误。
+    \indent 1.5. $1990$年前出生的马耳他人是欧盟公民；$1990$年前出生的欧盟公民可以领取埃提尔奖学金；所以，$1990$年前出生的马耳他人可以领取埃提尔奖学金。\\  % 否
+    \indent 1.6. 雪豹生活在海拔较高的地区；雪豹是肉食动物；所以，雪豹是生活在海拔较高地区的肉食动物。\\  % 否 “雪豹”作为中项，不能出现在结论里。
+    \indent 1.7. 有些杂志是铜版纸印刷品；所有铜版纸印刷品都是20世纪才出现的；所以，所有杂志都是20世纪才出现的。\\  % 是主断格“皆有皆”型
+    \indent 1.8. 所有的人都会死；所有中国人都是人；所以，所有中国人都不会死。\\  % 是主断格“皆皆莫”型
+    \indent 1.9. 有些出租车是红色的；有些花是红色的；所以，所有的花都不是出租车。\\  % 是双断格“有有莫”型
+    \indent 1.10. 有些退休干部不是党员；有些学生不是退休干部；所以，所有的党员不是学生。\\  % 是断主格“但但莫”型
+    \indent 2. 判断以下三段论哪些是有效的，哪些是无效的，并说明理由。\\
+    \indent 2.1. 所有的哺乳动物都用肺呼吸；所有的鲸都是哺乳动物；所以，所有的鲸都用肺呼吸。\\ % 有效，熊猫眼，主断格，皆皆皆型
+    \indent 2.2. 所有的昆虫都有六条腿；有些动物是昆虫；所以，有些动物有六条腿。\\ % 有效，咬包子，主断格，皆有有型
+    \indent 2.3. 所有的鸟都不是植物；所有的斑鸠都是鸟；所以，所有的斑鸠都不是植物。\\ % 有效，单眼镜，双断格，莫皆莫型
+    \indent 2.4. 所有的塑料制品都不是可回收垃圾；有些一次性餐具是塑料制品；所以，有些一次性餐具不是可回收垃圾。\\ % 有效，单眼泪，双断格，莫有但型
+    \indent 2.5. 所有的向日葵都是黄色的；所有的向日葵都是植物；所以，所有的植物都是黄色的。\\ % 无效，甲生疮，双主格，皆皆皆型
+    \indent 2.6. 有些运动员是高中生；有些高中生是篮球爱好者；所以，有些运动员是篮球爱好者。\\ % 无效，两只耳，主断格，有有有型
+    \indent 2.7. 所有的正方形都是四边形；所有的长方形都是四边形；所以，所有的长方形都是正方形。\\ % 无效，易拉罐，双断格，皆皆皆型
+    \indent 2.8. 所有的三角数都是自然数；所有的自然数都是整数；所以，有些整数是三角数。\\ % 有效，断主格，皆皆有型
+    \indent 2.9. 有些鸟不会游泳；所有的企鹅都是鸟；所以，有些企鹅不会游泳。\\ % 无效，中项“鸟”在两个前提中均不周延
+    \indent 2.10. 所有的金属都导电；所有的铜都导电；所以，有些金属不是铜。\\ % 无效，易拉罐，双断格，皆皆但型  
 \end{xt}
 
 \section{用复合判断推理}
@@ -893,6 +1123,426 @@ $$ p\Leftarrow q,\quad \neg p,\quad\mbox{所以}\,\,\, \neg q.$$
     \indent 3. 如果两条直线平行，那么它们不相交。两条直线不平行，所以它们相交。\\
     \indent 4. 只有红色或黄色的球触底，才能得分。黄色的球没有触底，所以不得分。
 \end{xt}
+
+\section{推理与证明}
+
+% 从推理到证明
+推理是人类生产生活中必要的思维活动，是数学和很多学科研究中常见的内容。相较于日常生产生活中的推理，数学中的推理，又有更高的要求。盖因数学是研究一般现象中提炼出的抽象形式和概念的学科。数学处理的概念，比起一般生产生活中的概念，更纯粹更本质，因此也没有模糊含混之空间。数学中的推理活动可以看作把一个个命题用严格明确的道路连通起来，其中每一步都必须明确无误。而与研究自然的学科相比，数学本身并不涉及客观事实。依赖推理和计算，从一些最基本的概念和命题出发，得出一些新命题的真假。这样的思考过程，在数学里称为\textbf{证明}。证明可以看作一系列前后关联的推理和计算活动的总合，它往往连接重要的前提和结论。后者我们常常称为\textbf{定理}。相比一般的命题，定理往往用简洁的语言说明了重要的性质，对我们理解相关的数学概念有很大帮助。
+
+一个完整的证明通常包含：
+\begin{enumerate}
+    \item \textbf{前提}：已知为真的命题，也叫已知条件或前提条件。
+    \item \textbf{结论}：要证明的命题。
+    \item \textbf{证明}：从已知前提出发，通过一系列推理和计算，最终说明定理为真。
+\end{enumerate}
+
+下面用一个简单的例子来说明证明是什么样子的。
+
+\textbf{已知}（前提条件）：$m$和$n$都是奇数\\
+\textbf{求证}（结论）：$m+n$是偶数\\[6pt]
+\textbf{证明}：
+\begin{enumerate}
+    \item 因为$m$是奇数，所以按照奇数的定义，存在整数$a$使得$m=2a+1$；
+    \item 因为$n$是奇数，所以按照奇数的定义，存在整数$b$使得$n=2b+1$；
+    \item 于是，$m+n = (2a+1) + (2b+1) = 2a+2b+2$。 \hfill （代数计算）
+    \item 而$2a+2b+2 = 2(a+b+1),$
+    \item 记$c = a+b+1$。任何整数的和是整数，而$a,b,1$是整数，所以$c$是整数；
+    \item 因此$m+n$是整数$c$的两倍；
+    \item 任何整数只要是某个整数的两倍，就是偶数。$m+n$是整数$c$的两倍，所以$m+n$是偶数 \hfill $\square$
+\end{enumerate}
+
+以上的证明从前提条件“$m$和$n$都是奇数”出发，证明了结论：$m+n$是偶数。将前提和结论合起来，可以表述成：
+\begin{quotation}
+    任两个奇数的和总是偶数。
+\end{quotation}
+我们把这样的命题称为定理。它用简洁的语言揭示了一个关于奇数和偶数的性质。
+
+具体来看证明过程。我们从奇数的定义出发，开始推理。这是很多证明常用的手段。前提中提到的概念的定义是一种判断。这里提到的概念是“奇数”，我们采用了奇数的一种定义：奇数是可以写成整数的两倍加一的数。按照这个定义，我们把$m$和$n$用新的形式表示出来。接下来我们进行代数运算，得到$m+n=2(a+b+1)$的事实。最后，我们又利用了偶数的定义：偶数是可以写成整数的两倍的数，使用“熊猫眼”三段论，得到了最终的结论。
+
+\subsection{三段论的规则}
+前面已经提到过，三段论只是一种推理形式。不是每个三段论都是正确的推理。比如，以下的推理就是错误的。
+\begin{quotation}
+    \noindent 所有鱼都生活在水里。\\    
+    所有的鲸鱼都生活在水里。\\    
+    所以，所有的鲸鱼都是鱼。
+\end{quotation}
+
+正确的三段论推理，必须满足几个规则。
+\begin{enumerate}
+    \item[1.] 前提中讨论的概念如果不周延，它在结论中也不周延。\\
+    这个规则和换位法是一样的。
+    \begin{ex*}
+        以下的三段论是错误的： \\
+        \indent 所有莲花牌棉被都使用新疆长绒棉。\\
+        \indent 所有莲花牌棉被都采用了提花工艺。\\
+        \indent 所以，所有采用了提花工艺的棉被都使用新疆长绒棉。\\
+        \textbf{错误原因}：小项“采用了提花工艺的棉被”在小前提中不周延，但在结论中周延。大项同理。改为“有些采用了提花工艺的棉被使用新疆长绒棉”则正确。
+    \end{ex*}
+    \item[2.] 中项至少周延一次。\\
+    中项是连接小项和大项的“桥梁”。中项在两个前提里都不周延，那么两个前提中涉及的可能是中项不同的部分。
+    这样中项就无法连接小项和大项了。 
+    \begin{ex*}
+        以下的三段论是错误的： \\
+        \indent 所有个位为$7$的数都是整数。\\
+        \indent 有些整数是完全平方数。\\
+        \indent 所以，所有个位为$7$的数是完全平方数。\\
+        \textbf{错误原因}：中项“整数”两次都不周延。“个位为$7$的数”和“完全平方数”涉及的是不同的整数。
+    \end{ex*}    
+    \item[3.] 前提不能都是否定判断。\\
+    否定判断中，主语对应的集合与断语对应的集合的交集为空集。
+    比如，“所有二年级的老师都不住在福明小区”表示“所有二年级的老师”集合和“住在福明小区的老师”集合的交集为空集。
+    如果两个前提都是否定判断，那么中项对应的集合和大项、小项对应的集合都不相交，我们无法判断小项和大项的关系。
+    \begin{ex*}
+        以下的三段论是错误的： \\
+        \indent 有些树叶不是白色的。\\
+        \indent 所有的兔子都不是树叶。\\
+        \indent 所以，所有的兔子都不是白色的。\\
+        \textbf{错误原因}：两个前提都是否定判断。所以我们无法确定“兔子”和“白色”的关系。
+    \end{ex*} 
+    \item[4.] 前提中有否定判断，则结论必须是否定判断。前提都是肯定判断，则结论必须是肯定判断。\\
+    同上一条规则的思路。否定判断表示主语、断语对应的集合的交集为空集，而肯定判断表示它们的交集不是空集。
+    前提如果有否定判断，那么中项和某一项的交集为空，所以无法用来推出另两项相交；如果前提总是肯定判断，
+    那么中项和另两项的交集都不是空集，所以无法用来推出另两项交集为空。
+    \begin{ex*}
+        以下的三段论是错误的： \\
+        \indent 有些树叶是绿色的。\\
+        \indent 所有的兔子都不是树叶。\\
+        \indent 所以，有些绿色的东西是兔子。\\
+        \textbf{错误原因}：前提中有否定判断，而结论为肯定判断。改为“有些绿色的东西不是兔子”则正确。
+    \end{ex*}
+\end{enumerate}
+只要符合以上所有规则，就是正确的三段论。只要不符合任一条规则，就是错误的三段论。
+
+从这些规则，可以导出几个比较简单的判定依据。要注意这几个依据只起“一票否决”的作用，即便三段论符合这些依据，也不一定正确。我们将这些判定依据和它们的证明一起列出：
+\begin{enumerate}
+    \item[1.] 前提中必须有全判断。
+    \begin{proof}
+        根据规则$3$，两个前提不能都是否定判断。如果两个前提都是肯定判断，那么两者的断语都不周延。
+        然而根据规则$2$，中项至少周延一次，所以必然在某个前提的主语周延。
+        如果恰有一个前提是否定判断，则根据规则$4$，结论是否定判断，即大项在结论中周延。
+        因此，根据规则$1$，大项在前提中周延。考虑中项的位置，根据规则$2$，要么中项在主语周延，于是前提中有全判断；
+        要么中项在否定判断里做断语周延。后一种情况下，另一个前提是肯定判断，断语不周延，
+        所以大项不在前提的断语中，而在主语中。这说明主语周延。综上所述，总有一个前提主语周延，即是全判断。
+    \end{proof}
+    \begin{ex*}
+        以下的三段论是错误的： \\
+        \indent 有些学生是戏剧社成员。\\
+        \indent 有些学生是校篮球队成员。\\
+        \indent 所以，有些戏剧社成员是校篮球队成员。\\
+        \textbf{错误原因}：两个前提都是有判断，无法得出任何结论。
+    \end{ex*}
+    \item[2.] 如果某前提是有判断，则结论是有判断。
+    \begin{proof}
+        根据规则$3$，两个前提不能都是否定判断。如果两个前提都是肯定判断，那么两者的断语都不周延。
+        然而根据规则$2$，中项至少周延一次，所以必然在某个前提的主语周延，于是另一个前提主语不周延。
+        这说明大项和小项在前提中都不周延。根据规则$1$，小项在结论中不周延。
+        如果恰有一个前提是否定判断，则根据规则$4$，结论是否定判断，即大项在结论中周延。
+        因此，根据规则$1$，大项在前提中周延。根据上一个准则，前提中必须有全判断，因此两个前提一个是有判断，
+        一个是全判断。于是前提中恰有两个概念周延：有判断的主语和否定判断的断语。这两个概念必然一个是大项，
+        另一个是中项，所以小项总不周延。根据规则$1$，小项在结论中也不周延。综上所述，小项在结论中不周延，
+        即结论是有判断。
+    \end{proof}
+    \begin{ex*}
+        以下的三段论是错误的： \\
+        \indent 有些树叶是绿色的。\\
+        \indent 所有树叶都会腐烂。\\
+        \indent 所以，所有绿色的东西都会腐烂。\\
+        \textbf{错误原因}：小前提是有判断，所以结论应该是有判断。改为“有些绿色的东西会腐烂”则正确。
+    \end{ex*}
+    \item[3.] 大前提是有判断，小前提是否定判断，则无法得出结论。
+    \begin{proof}
+        顺着上一个依据的思路，大前提是有判断，主语不周延；小前提是否定判断，说明大前提是肯定判断，断语不周延。
+        因此大项在前提中不周延。反设能得出结论，根据规则$4$，结论是否定判断，大项在结论中周延。
+        这与规则$1$矛盾！因此假设不成立，无法得出结论。
+    \end{proof}
+    \begin{ex*}
+        以下的三段论是错误的： \\
+        \indent 有些四院职工参与了联合险。\\
+        \indent 所有事故伤者都不是四院职工。\\
+        \indent 所以，所有事故伤者都没有参与联合险。\\
+        \textbf{错误原因}：大前提是有判断，小前提是否定判断，我们无法在“事故伤者”和“参与了联合险”之间建立关系。
+    \end{ex*}
+\end{enumerate}
+\begin{xt}\label{xt:0-1-10}
+    \mbox{} \\
+    \indent 1.判断以下的推理是否成立。如果不成立，违反了哪条规则：\\
+    \indent 1.1. 所有的维纳过程都是马尔可夫过程；所有的维纳过程都是鞅；所以，有些马尔可夫过程是鞅。\\
+    \indent 1.2. 有些香港居民不是中国人；所有香港居民都有权决定香港的命运；所以，有些中国人无权决定香港的命运。\\
+    \indent 1.3. 所有的猫科动物都不是两栖动物；所有的花豹都是猫科动物；所以，所有花豹都不是两栖动物。\\
+    \indent 1.4. 有些有理数是无限循环小数；所有整数都是有理数；所以，有些整数是无限循环小数。\\
+    \indent 1.5. 我国的历史古迹分布于全国各地；龙门石窟是我国的历史古迹；所以，龙门石窟分布于全国各地。\\
+    \indent 1.6. 有些化合物不是有机物；所有的化合物都不是单质；所以，有些有机物不是单质。    
+\end{xt}
+
+\chapter{平面中的形状}
+
+生活中，很多东西形状有相似之处：
+月亮和瓶盖、书本和书柜、电线杆和铅笔……
+从“事物的多少”中，我们总结了数的概念；从“事物的形状”中，我们可以总结出\textbf{形}的概念。
+
+我们生活的世界中有各种各样的事物，有遥远的星空，有脚下的大地，有宏伟的山川，有细小的花草。
+四面八方，上下左右，各种事物之间位置不同。很长一段时期里，人们生活在地面上，认为大地是平的。
+各种各样的事物都坐落在平坦的大地上。平面是人类最早总结出的概念之一。
+古人很早就开始研究平面中的形状，产生了最早的\textbf{公理体系}。
+
+公理体系从几个最基本的假设和定义出发，认为这些假设和定义是不证自明的。依此推导对象的各种性质。
+以下我们也试着用类似的方式，介绍平面上各种形状的性质。为了更好地理解以下的内容，学习时最好准备
+一把刻度尺和足够的白纸。
+
+\section{点、直线、线段、射线}
+\textbf{点}是最基本的形，也是最特殊的形。点没有大小，没有形状，然而点是我们理解形状的基础。
+我们一般用大写字母$A,B,C$等标记点。
+
+点动起来就成了\textbf{线}。线没有宽度，只有长度。各种线中，\textbf{直线}是最基本的形。我们一般用小写字母$l,m,n$等标记直线。
+\begin{po}{\textbf{直线公理}}\label{po:0}
+    过不重合的两点有且仅有一条直线。
+\end{po}
+我们也说\textbf{两点确定一条直线}。两点$A,B$确定的直线称为直线$AB$。
+$A,B$把直线分成三部分。$A,B$与它们之间的部分合起来，叫做\textbf{线段}$AB$或线段$BA$。$A$和$B$叫做线段的\textbf{端点}。
+另外两部分分别叫做线段沿$A$和$B$的延长线。
+
+直线$l$上一点$A$把直线分为两部分，称为点的两侧。点$A$与其中一侧合起来，叫做\textbf{射线}。
+为了方便，我们也说$A$把$l$分成两条射线。$A$叫做射线的\textbf{端点}。
+以$A$为端点，经过$l$上某点$B$的射线，可以叫做射线$AB$。
+
+直线又把平面分为两部分，称为直线的两侧。给定一条直线，一点要么在直线上，要么在它两侧中的一侧。
+
+两条直线要么\textbf{重合}；要么恰好有一个公共点，称为\textbf{相交}，这时公共点称为\textbf{交点}；要么没有公共点，称为\textbf{平行}。
+两条直线$l,m$平行，记为$l \parallel m$。
+\begin{po}{\textbf{平行公理}}\label{po:1}
+    过直线外一点，有且仅有一条与它平行的直线。
+\end{po}
+\begin{po}{\textbf{相交公理}}\label{po:2}
+    两点分处某直线两侧，则它们确定的直线与其相交。
+\end{po}
+以上是一些基本概念和性质。公理体系中，它们分别叫做\textbf{公设}和\textbf{公理}。动手验证一下，这些概念和性质符合我们的直观感受吗？
+
+\begin{sk}\label{sk:0-0-0}
+    动手画一画，以下的说法对吗？\\
+    1. 直线$AB$和直线$BA$是同一条直线。\\
+    2. 射线$AB$和射线$BA$是同一条射线。\\
+    3. 线段沿两端的延长线是射线。\\
+    4. 线段$AB$是射线$AB$的一部分，线段$AB$和射线$AB$都是直线$AB$的一部分。\\
+    数一数：\\
+    1. 两点$A,B$把直线分成三部分，你能说出几条相关的射线？\\
+    2. 平面上三点能确定几条直线？四点呢？\\
+    3. 三条直线可以有几个交点？四条直线呢？\\
+    直线、射线和线段也可以定义成点的集合。\\
+    1. 作为点的集合，直线、直线上的线段和射线有什么关系？\\
+    2. 用集合的说法，怎么描述两条直线之间重合、相交和平行的关系？
+\end{sk}
+
+\section{距离和长度}
+
+生活中，我们经常接触到长度和距离的概念。比如，我们说“长江是中国最长的河流”，“上海和北京相距上千公里”等等。
+什么是长度？什么是距离？
+
+长度、位置和距离是密切联系的。我们用点表达位置，长度就是点运动产生的性质。
+点的运动产生了长度，点的位置变化产生了距离。两点之间最短线的长度就是距离。对于直线和线段来说，长度和距离是相等的。
+\begin{po}{\textbf{距离公理}}\label{po:3}
+    两点之间线段最短。
+\end{po}
+两点确定的线段的长度就是两点的距离。我们用$ |\, \cdot\,|$符号表示长度，比如，线段$AB$的长度记作$|AB|$。
+对线段来说，如果一条线段完全覆盖了另一条线段，
+那么它不比另一条线段短。如果两条线段可以互相覆盖，就说它们等长。我们用“$=$”表示线段等长。
+
+一般来说，位置不同的线段不一定互相覆盖。因此我们需要\textbf{等长公理}：
+\begin{po}{\textbf{等长公理}}\label{po:4}
+    \mbox{}\\
+    \indent \textbf{5.1.} 给定两点$A,B$以及直线$l$，对$l$上任一点$C$，$C$两侧各有一点$D$，使得线段$|AB| = |CD|$。\\
+    \indent \textbf{5.2.} 如果线段$|AB| = |CD|$，$|AB| = |EF|$，那么$|CD| = |EF|$。\\
+    \indent \textbf{5.3.} 线段$AC$上有点$B$，线段$A'C'$上有点$B'$，且线段$|AB| = |A'B'|$，线段$|BC| = |B'C'|$，那么$|AC| = |A'C'|$。
+\end{po}
+第一条公理告诉我们，可以在任意直线的任意位置上复现一条等长的线段。第二条公理告诉我们长度和具体的线段无关，是普遍的性质。
+第三条公理告诉我们长度可以相加。设线段$AC$上有一点$B$，我们说线段$AB$与线段$BC$（长度）之和是线段$AC$（的长度）。
+这样，给定了原点、单位长度和方向，我们就可以画出一条数轴了。
+
+\section{角和角度}
+点和线可以定义角的概念。角也是生活中常见的形状。钟面上的指针、桌椅的棱角、折扇的展开，都是角的形象。
+
+一点发出的两条射线，就构成一个角。两条射线的公共端点叫做角的\textbf{顶点}。其中一条射线叫做角的\textbf{始边}，另一条叫做角的\textbf{终边}。
+
+角有几种记法，取决于我们已知的信息。比如，如果我们知道角的顶点$O$和始边和终边上各一点$A,B$，可以把角记作$\angle AOB$。
+其中$\angle$表示角的意思。如果已知角的顶点$O$，而且相关图形上显然只有一个以$O$为顶点的角，那么可以把角简记作$\angle O$。
+如果不知道角的顶点，但相关图形上为角标示了记号，也可以直接使用这个记号。一般用小写希腊字母$\alpha, \beta, \gamma$或$1,2,3$等数字
+标示角。
+
+角与角之间可以比较大小吗？两个角的顶点、始边和终边都重合，就说两者相等。我们用“$=$”表示角相等。
+对于顶点和始边不重合的角，我们需要\textbf{等角公理}：
+\begin{po}{\textbf{等角公理}}\label{po:5}
+    \mbox{}\\
+    \indent \textbf{6.1.} 给定$\angle AOB$和射线$O'A'$，总有唯一的射线$O'B'$使得$\angle A'O'B' = \angle AOB$。\\
+    \indent \textbf{6.2.} 如果$\angle A = \angle B$，$\angle A = \angle C$，那么$\angle B = \angle C$。\\
+    \indent \textbf{6.3.} 给定$\angle AOB$和$\angle BOC$。如果$\angle A'O'B' = \angle AOB$，$\angle B'O'C' = \angle BOC$，
+    那么$\angle A'O'C' = \angle AOC$。
+\end{po}
+第一条公理告诉我们，可以从任何射线出发，复现一个角。第二条公理告诉我们，角的大小和顶点、射线的位置无关，是普遍的性质。
+第三条公理告诉我们，角度可以相加。我们说$\angle AOB$与$\angle BOC$的和是$\angle AOC$，记作$\angle AOB + \angle BOC = \angle AOC$。
+
+直线上一点把直线分为两条射线，于是形成一个角。这样的角叫做\textbf{平角}。
+所有的直线都是一样的，因此所有的平角都一样大。
+
+始边和终边重合的角叫做\textbf{零角}。直观上看，零角就是一条射线。
+所有的射线都是一样的，因此所有的零角都一样大。
+
+如果$\angle AOB$不是平角，记直线$OA$被$O$分成射线$OA$和$OA'$，则$\angle BOA'$叫做$\angle AOB$的\textbf{补角}。
+
+补角和自己一样大的角叫做\textbf{直角}。按照定义，一个平角等于两个直角。
+如果$\angle AOB$是直角，那么$\angle AOC$和$\angle COB$互为\textbf{补角}。
+
+\begin{wrapfigure}{r}{0.3\textwidth} %this figure will be at the right
+    \vspace{-15pt}
+    \flushright
+    \includegraphics[width=0.24\textwidth]{tu/角度1.png}
+\end{wrapfigure}
+
+如右图，$\angle AOB$和$\angle AOC$谁更大？$\angle AOC$到底指哪个角？
+
+我们约定：\textbf{逆时针方向是正向}。始边逆时针方向旋转到终边形成的角是正的，否则是负的。
+始边逆时针旋转到所在直线另一侧，形成平角；继续逆时针旋转到与自身重合，形成的角叫\textbf{周角}。
+
+一个周角就是射线旋转一周，等于两个平角。相差一个或几个周角的角，形状是一样的。
+
+为了方便，我们可以约定，只讨论负平角到正平角之间的角。如果某个角超过了这个范围，就相应加上或减去一个周角，
+直到从始边到终边旋转不超过一个平角。在某些情况下，也可以约定只讨论零角到周角之间的角。
+
+习惯上，我们把平角内部均匀分为$180$份，每份称为$1$度，也记作$1^\circ$。
+周角是$360$度的角，平角是$180$度的角，直角是$90$度的角。
+于是，每个角对应一个数，称为它的角度。角的大小，可以用角度来衡量。
+
+\begin{wrapfigure}{r}{0.3\textwidth} %this figure will be at the right
+    \vspace{-5pt}     
+    \flushright
+    \includegraphics[width=0.24\textwidth]{tu/角度2.png}
+\end{wrapfigure}
+
+给定直线$l$上点$O$为顶点的平角和对应的直角。直角所在的直线，把平面分为两侧。
+从平角的始边正向出发，终边和始边属于同侧的角，叫做\textbf{锐角}；终边和始边分属两侧的角，叫做\textbf{钝角}。
+
+量角器是日常用来衡量角度的工具。使用量角器，我们可以测量角的大小，也可以画出指定角度的角。
+
+\begin{wrapfigure}{l}{0.4\textwidth} %this figure will be at the left
+    \vspace{-5pt}     
+    \flushleft
+    \includegraphics[width=0.36\textwidth]{tu/角度3.png}
+    \caption*{\texttt{量角器\;\;\;\;\;}}
+\end{wrapfigure}
+
+把平角$180$等分来表示角的大小，这种方法叫做\textbf{角度制}。除此以外，还有\textbf{弧度制}等其他方法表示角的大小。
+
+\begin{sk}\label{sk:0-2-0}
+    \mbox{}\\
+    1. $470^\circ$的角是什么角？$4700^\circ$的角是什么角？画出两个角。谁比较大？\\
+    2. 锐角和钝角的角度可以是多少？它们和直角的大小关系如何？\\
+    3. 角度和长度有什么不同？为什么有这种不同？\\
+    4. 如何把一个角分为两半？\\
+    5. 从公理出发，你会怎么定义“旋转”？
+\end{sk}
+
+\chapter{直线与角的关系}
+上一章我们学习了直线和角的概念。现在我们来看直线和角的关系。
+
+\section{直线交角}
+\begin{wrapfigure}[5]{r}{0.24\textwidth} %this figure will be at the right
+    \vspace{-20pt}
+    \flushright
+    \includegraphics[width=0.21\textwidth]{tu/角度0.png}
+    % \captionsetup{labelformat=empty}
+    % \caption{对顶角}
+\end{wrapfigure}
+
+右图中，两条直线相交于一点，形成四个角。这四个角有什么关系？
+
+我们把处在$\angle 1$和$\angle 3$位置关系的一对角称为\textbf{对顶角}，$\angle 2$和$\angle 4$也是对顶角。
+$\angle 2$既是$\angle 1$的补角，也是$\angle 3$的补角。$\angle 1$和$\angle 3$是平角减去同一个角，所以相等。
+同理，$\angle 2 = \angle 4$。也就是说：\textbf{对顶角相等}。
+
+由于对顶角相等，我们可以定义直线的\textbf{交角}。$\angle AOB$始边所在直线$OA$逆时针旋转到与终边所在直线$OB$首次重合，形成的角称为
+$OA$到$OB$的交角，记为$\arcangle AOB$。每个交角对应一对顶角。线段、射线与直线之间的交角，都定义为它们所在直线的交角。比如，线段与直线的交角，就是线段所在的直线与它的交角。
+
+直线的交角总是正的，而且不超过平角。约定平行、重合的直线交角为平角。$\arcangle BOA$与$\arcangle AOB$互为补角。
+
+一条直线到另一条直线的交角为直角，就说它\textbf{垂直}于另一条直线。这时，另一条直线到它的交角也是直角。
+我们说两者互相\textbf{垂直}。相互垂直的两条直线$l,m$记为$l\perp m$。
+
+
+\section{同位角、内错角、同旁内角}
+如右图，两条平行的直线和同一条直线相交，形成了八个角。这八个角之间有什么关系呢？
+
+\begin{wrapfigure}{r}{0.4\textwidth} %this figure will be at the right
+    \flushright
+    \includegraphics[width=0.36\textwidth]{tu/三线八角.png}
+\end{wrapfigure}
+
+观察$\angle 1$和$\angle 5$，我们说这种位置关系的一对角是\textbf{同位角}。它们的终边属于同一条直线，始边属于两条直线交这条直线的同侧。
+我们可以发现：\textbf{两条线平行时，同位角相等}。除了$\angle 1 = \angle 5$，还有：$\angle 2 = \angle 6$，$\angle 3 = \angle 7$，$\angle 4 = \angle 8$。
+
+再看$\angle 3$和$\angle 5$，我们说这种位置关系的一对角是\textbf{内错角}。它们的始边属于同一条直线，终边属于两条直线交这条直线的异侧。$\angle 1 = \angle 3$，而$\angle 1 = \angle 5$，所以根据等角公理，$\angle 3 = \angle 5$。
+所以，\textbf{直线截两条平行线，得到的内错角相等}。同理，$\angle 4 = \angle 6$。
+
+最后来看$\angle 4$和$\angle 5$，我们说这种位置关系的一对角是\textbf{同侧内角}或\textbf{同旁内角}。一角的始边和另一角的终边属于同一条直线，该角的终边和另一角的始边属于两条直线交这条直线的同侧。
+$\angle 4$是$\angle 1$的补角，
+而$\angle 1 = \angle 5$，所以$\angle 4$与$\angle 5$加起来是平角。所以，\textbf{直线截两条平行线，得到的同旁内角和为平角}。
+
+\begin{sk}\label{sk:1-1-0}
+    \mbox{}\\
+    1. $\angle 2$和$\angle 5$的大小有什么关系？$\angle 1$和$\angle 6$呢？\\
+    2. $\angle 2$和$\angle 8$的大小有什么关系？$\angle 1$和$\angle 8$呢？\\
+    3. 如果两条线不再平行，同位角、内错角和同旁内角还相等吗？\\
+    4. 能不能用直线交角，解释同位角、内错角和同旁内角？
+\end{sk}
+
+同位角、内错角和同旁内角可以用来判断两条直线是否平行。如果两条直线平行，
+那么同位角相等、内错角相等，同旁内角相加是平角。反过来，如果同位角相等、内错角相等，或者同旁内角相加是平角，
+那么对应的两条直线平行。
+% https://commons.wikimedia.org/wiki/File:Diyarbakir_1050645_Droste_Effect.jpg
+\begin{wrapfigure}[6]{r}{0.24\textwidth} %this figure will be at the right
+    \vspace{50pt}
+    \flushright
+    \includegraphics[width=0.2\textwidth]{tu/675px-Diyarbakir_1050645_Droste_Effect.jpg}
+\end{wrapfigure}
+
+\section{相似和比例}
+观察右图，各个拱门之间有什么关系？
+两个图形可以形状一样，只有大小不同。
+这样的关系，称为相似关系。
+
+\begin{wrapfigure}{l}{0.27\textwidth} %this figure will be at the right
+    \vspace{-30pt}
+    \flushleft
+    \includegraphics[width=0.24\textwidth]{tu/比例1.png}
+\end{wrapfigure}
+
+用量角器测量相似图形相应位置的角度，以及相似部分的长度，你有什么发现？
+
+相似的图形，对应部位的角度相等，长度成比例。
+
+观察左图，从一点出发的两条射线和两条平行线相交。用刻度尺测量线段$AB$、$AD$、$AC$、$AE$、$BC$和$DE$的长度。你有什么发现？
+
+\begin{po}{\textbf{放缩公理}}\label{po:6}\\
+    从一点$A$出发的两条射线，每条线上取两点：$B,D$和$C,E$。如果
+    $$ \frac{|AB|}{|AD|} = \frac{|AC|}{|AE|},$$
+    那么，
+    $$ \frac{|AB|}{|AD|} = \frac{|AC|}{|AE|} = \frac{|BC|}{|DE|},$$
+    而且$\angle ABC = \angle ADE$，$\angle ACB = \angle AED$。
+\end{po}
+\begin{wrapfigure}{l}{0.27\textwidth} %this figure will be at the left
+    % \vspace{-10pt}
+    \includegraphics[width=0.24\textwidth]{tu/比例2.png}
+\end{wrapfigure}
+
+放缩公理用“比例相等”表达相似的本质：“形状一样”。从比例相等得到同位角相等。
+同位角$\angle ABC$和$\angle ADE$相等，$\angle ABC$和$\angle ADE$相等。
+换句话说，直线$BC$和直线$DE$平行。
+
+\begin{sk}\label{sk:1-2-0}
+    \mbox{}\\
+    1. 如果一点$A$出发的两条射线$AB$、$AC$和两条平行线分别相交于$B,D$和$C,E$，那么线段$AB$、$AD$、$AC$、$AE$、$BC$和$DE$的长度有什么关系，如何证明？（\textbf{提示}：注意平行线和$A$点的位置关系。）\\
+    2. 如左上图，直线$AB$、$CD$和$EF$平行，直线$AC$和$BD$平行。证明$|EC|$和$|CA|$之比等于$|FD|$和$|DB|$之比。（\textbf{提示}：连接$AF$。）\\
+    3. 给定线段$AB$，如何找出它的中点？（\textbf{提示}：自$A$作另一条射线。）\\
+    4. 给定线段$AB$和正整数$m$，如何找出$AB$上一点$C$，使得$|AB| = m\times |AC|$？\\
+    5. 给定直线$OA$，以线段$OA$长度为单位，$O$到$A$的方向为正方向，构建数轴。能否在数轴上找出长度为有理数$\frac{p}{q}$的线段$OB$？
+\end{sk}
 
 \chapter{全等三角形}
 \section{认识三角形}
@@ -1142,8 +1792,7 @@ $\triangle MAO \backsimeq \triangle MBO$。所以，$\angle AOM = -\angle BOM$�
 
 \section{等腰三角形}
 等腰三角形是有两边相等的三角形。定理\ref{tm:3-0-1}告诉我们，两边相等，对应的角也相等。
-我们把相等的两边称为\textbf{腰}，把第三边称为\textbf{底}或\textbf{底边}，把腰的对角称为\textbf{底角}，
-把底边的对角称为\textbf{顶角}。
+我们把相等的两边称为\textbf{腰}，把第三边称为\textbf{底}或\textbf{底边}，把腰的对角称为\textbf{底角}，把底边的对角称为\textbf{顶角}。
 
 给定等腰三角形$ABC$，其中$\angle A$为顶角。$\angle A$的平分线与底边的交点称为\textbf{中足}。
 记中足为$M$，由于$\angle MAB = \angle CAM$，
@@ -1257,7 +1906,6 @@ $\triangle MOB$、$\triangle MOA$都是等腰三角形。
     \indent 2. 能否用$AB, BC, CA$表达线段$BH$和$CH$的长度？\\
     \indent 3. 能不能用一个简单的等式表示$AB, BC, CA$长度之间的关系？
 \end{sk}
-
 
 \chapter{整数的性质}
 

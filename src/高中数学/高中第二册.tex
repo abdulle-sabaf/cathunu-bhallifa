@@ -170,7 +170,7 @@ $$f_1: (x; y) \mapsto \left(\frac{r^2}{x},\,\, \frac{r\sqrt{x^2 - r^2}}{x}\right
 考虑圆心在原点，而出发点不在$x$轴正半轴上的情况。这时的图像完成了从$C$到原点的平移，还没有旋转，出发点在$P_1$的位置上。
 
 我们需要把$P_1$点旋转到$x$轴正半轴上的$P_2$点。记这个旋转为$T_\theta$，其中$\theta$是旋转角度。
-旋转完成后，我们通过$f_1$映射找到切点，再通过$T$的逆映射$T_\theta^{(-1)}$让$x$轴上的$P_2$点回到$P_1$位置，
+旋转完成后，我们通过$f_1$映射找到切点，再通过$T_\theta$的逆映射$T_\theta^{(-1)}$让$x$轴上的$P_2$点回到$P_1$位置，
 而切点经过$T_\theta^{(-1)}$映射的结果，就是$P_1$与圆的切点。
 $$T_\theta: P_1 \longrightarrow P_2, \quad T_\theta^{(-1)}: P_2 \longrightarrow P_1.$$
 
@@ -264,23 +264,17 @@ $$f_2: (x; y) \mapsto \left(\frac{r^2}{x},\,\, -\frac{r\sqrt{x^2 - r^2}}{x}\righ
     综上，$f$总把直线映射为直线或点。
 \end{proof}
 
-显然，只要$f$把任一个非零向量映射为零向量，它就会把相应方向的直线映射为点。
-因此，直变换$f$总把直线映射为直线，当且仅当它是满射。
-
-进一步还可以发现，
+进一步还可以发现，只要$f$把两个不同的向量$\mathbf{u}, \mathbf{v}$映射到同一个向量，那么$f(\mathbf{u}-\mathbf{v}) = \mathbf{0}$，从而直线$\mathbb{R}(\mathbf{u} - \mathbf{v})$经$f$映射都为$\mathbf{0}$。因此，若直变换$f$总把直线映射为直线，说明它是单射。反之，
 \begin{tm}
-    直变换如果是满射，那么总把数轴变换为数轴。
+    直变换如果是单射，那么总把数轴变换为数轴。
 \end{tm}
 因此，直变换也称为\textbf{轴映射}或\textbf{轴变换}。
 \begin{proof}
-    首先直变换总把原点映射到原点。给定直变换$f$。如果$f$是满射，那么它总将直线映射为直线。
-    设有数轴$l$，它是一条过原点的直线$l: \mathbb{R}\mathbf{a}$，正方向和单位长度由向量$\mathbf{a}$表示。
-    $f$将它映射为直线$\mathbb{R}f(\mathbf{a})$。
+    首先直变换总把原点映射到原点。给定直变换$f$。如果$f$是单射，那么非零向量经$f$映射总不是零向量。设有数轴$l: \mathbb{R}\mathbf{a}$，它是一条过原点的直线，正方向和单位长度由非零向量$\mathbf{a}$表示。$f$将它映射为$\mathbb{R}f(\mathbf{a})$。$f(\mathbf{a})\neq \mathbf{0}$，所以$\mathbb{R}f(\mathbf{a})$是直线。
 
     考虑$l$上任两点$s\mathbf{a}$、$t\mathbf{a}$，它经过$f$映射为
     $$ f(s\mathbf{a}) = sf(\mathbf{a}),\qquad f(t\mathbf{a}) = tf(\mathbf{a}).$$
-    可以看出，数轴上的点经过$f$映射后，到原点距离之比不变。也就是说，数轴上的“刻度”，经过映射，可以作为新数轴的刻度。
-    新数轴的正方向和单位长度由向量$f(\mathbf{a})$表示。
+    可以看出，数轴上的点经过$f$映射后，到原点距离之比不变。也就是说，数轴上的“刻度”，经过映射，可以作为新数轴的刻度。新数轴的正方向和单位长度由$f(\mathbf{a})$表示。
 \end{proof}
 
 哪些点映射是直变换呢？
@@ -757,7 +751,7 @@ $P$在新基底上的坐标为$(0.5, \,\, -3)$。我们可以从上图中直接�
 改造世界有直接帮助。为了更好地理解以下的内容，我们建议你准备一把刻度尺和足够的白纸。
 至于如何在纸面上画出立体形状，可以参考\textbf{附录A}。
 
-\section{点、直线、平面}
+\sectionext{点、直线、平面}
 
 和平面形一样，立体空间中的形也是从现实中种种事物的形状总结提炼而来。平面是人类最早总结出的概念之一。
 我们已经研究过平面中的形状，因此，研究立体空间时，我们把平面作为地位和点、直线相同的基本概念。
@@ -767,10 +761,10 @@ $P$在新基底上的坐标为$(0.5, \,\, -3)$。我们可以从上图中直接�
 
 我们定义面为点的集合，也是线运动的结果。平面是最基本的面，一般用小写希腊字母$\alpha,\beta,\gamma$等表示。
 \begin{po}{\textbf{平面公理}}\label{po:0}
-    过不共轴的三点，有且仅有一个平面。
+    过不共直线的三点，有且仅有一个平面。
 \end{po}
 
-我们也说三角形（或圆）确定一个平面。不共轴的三点$A$、$B$、$C$确定的平面，可以记作平面$ABC$。
+我们也说三角形（或圆）确定一个平面。不共直线的三点$A$、$B$、$C$确定的平面，可以记作平面$ABC$。
 
 如何确定平面是“平”的呢？生活和生产中，我们一般用直线来确定一个面是不是平的。
 比如，木工常常用角尺的直角边放在刨好的木板上。如果直角边总能与板面紧密贴合，就说明木板已刨平了。
@@ -779,34 +773,28 @@ $P$在新基底上的坐标为$(0.5, \,\, -3)$。我们可以从上图中直接�
     过平面上不重合两点的直线，在平面中。
 \end{po}
 平直公理说明，直线要么与平面没有公共点，要么只交于一点，要么全部在平面里。
-直线与平面没有公共点，则称直线与平面平行，也用$\parallel$表记；直线与平面恰有一公共点，
+直线与平面没有公共点，则称\textbf{直线与平面平行}，也用$\parallel$表记；直线与平面恰有一公共点，
 则称直线与平面相交；直线与平面有两个或以上公共点，则称直线在平面中或平面经过直线。
 用集合的语言来说，直线$l$在平面$\gamma$中，就说明$l$是$\gamma$的子集。
-
-% 我们知道，直线把平面分为两部分，称为直线的两侧。空间中，我们把每侧称为半平面。
-% 直线及其一侧的半平面构成一个展面。而每个平面又把空间分为两部分，称为平面的两方。根据实际需要，我们可以称一点在平面的上方或下方、前方或后方、左方或右方，等等。
 
 从平面公理和平直公理，容易得到另两种定义平面的方法：
 \begin{tm}\label{tm:1-0-0}
     过一条直线与该直线外一点，有且仅有一个平面。
 \end{tm}
 \begin{proof}
-    设直线为$l$，$P$为$l$外一点。取$l$上不同的两点，和$P$构成不共轴的三点。这三点确定一个平面。
-    根据平直公理，$l$在该平面中。
+    设直线为$l$，$P$为$l$外一点。取$l$上不同的两点，和$P$构成不共直线的三点。这三点确定一个平面。根据平直公理，$l$在该平面中。
 \end{proof}
 \begin{tm}\label{tm:1-0-1}
     过两条相交的直线，有且仅有一个平面。
 \end{tm}
 \begin{proof}
-    设有直线$l,m$。如果$l,m$相交，设交点为$P$，在$l,m$上各取不同于$P$的一点：$Q,R$，则$P,Q,R$不共轴，
-    于是确定一个平面$PQR$，根据平直公理，$l,m$都在$PQR$中。
+    设有直线$l,m$相交，交点为$P$，在$l,m$上各取不同于$P$的一点：$Q,R$，则$P,Q,R$三点不共直线，于是确定一个平面$PQR$。根据平直公理，$l,m$都在$PQR$中。
 \end{proof}
 
 设直线$l$与平面$\gamma$平行，没有公共点，那么它与$\gamma$中任何直线没有公共点。
 比如，给定$\gamma$中一点$A$，$\gamma$中经过$A$的任何直线，都与$l$没有公共点。
 
-平面中，两直线没有公共点，就说它们相互平行。空间中，两直线除了重合、相交和平行，还有另一种关系，
-我们称之为直线\textbf{异面}。前面的例子中，根据平行公理，过$\gamma$中的点$A$，
+平面中，两直线没有公共点，就说它们相互平行。空间中，两直线除了重合、相交和平行，还有另一种关系，我们称之为直线\textbf{异面}。前面的例子中，根据平行公理，过$\gamma$中的点$A$，
 恰有一条直线与$l$平行，其余与$l$不相交的直线，都称与$l$异面。
 
 哪条直线与$l$平行呢？显然，在空间中，我们需要补充平行公理：
@@ -827,19 +815,16 @@ $P$在新基底上的坐标为$(0.5, \,\, -3)$。我们可以从上图中直接�
     因此$l,m$共面，它们确定唯一平面$\gamma$。
 \end{proof}
 
-再来看两个平面的关系。两个平面相交，交集是什么呢？生活中的经验告诉我们，两个平面相交，交集是直线。
-比如，裁纸刀的刀面是平的，切在纸上，将纸面分成两部分，裁痕是直的。我们把这个性质用公理描述为：
+再来看两个平面的关系。两个平面相交，交集是什么呢？生活中的经验告诉我们，两个平面相交，交集是直线。比如，裁纸刀的刀面是平的，切在纸上，将纸面分成两部分，裁痕是直的。我们把这个性质用公理描述为：
 \begin{po}{\textbf{交面公理}}\label{po:3}
     两个平面如果有交集，则交集至少包含两个不重合的点。
 \end{po}
 交面公理说明，两个平面不可能只交于一点。如果它们有两个（不重合的）公共点，那么根据平直公理，
-两平面的交集包括过这两点的直线。
-而如果两平面的交集中还有不属于这条直线的第三点，那么根据平面公理，这三点确定一个平面，于是两平面重合。
+两平面的交集包括过这两点的直线。而如果两平面的交集中还有不属于这条直线的第三点，那么根据平面公理，这三点确定一个平面，于是两平面重合。
 
-综上所述，从交面公理可以推出：要么两平面没有公共点，要么交集为一条直线$l$，称为两平面相交于直线$l$；
-要么两平面重合。
+综上所述，从交面公理可以推出：要么两平面没有公共点，要么交集为一条直线$l$，称为两平面相交于直线$l$；要么两平面重合。
 
-\begin{wrapfigure}[7]{r}{0.52\textwidth} %this figure will be at the right
+\begin{wrapfigure}[7]{r}{0.52\textwidth}
     \vspace{-30pt}
     \flushright
     \includegraphics[width=0.5\textwidth]{tu/三平行1.png}
@@ -851,22 +836,19 @@ $P$在新基底上的坐标为$(0.5, \,\, -3)$。我们可以从上图中直接�
 \end{tm}
 \begin{proof}
     设$l_1,m$确定的平面为$\gamma_1$，$l_2,m$确定的平面为$\gamma_2$。分两种情况讨论：
-    
 
-    1. $\gamma_1, \gamma_2$重合。那么$l_1,l_2,m$都在此平面上。根据平面直线的结论，$l_1,l_2$平行或重合。
+    \textbf{情况一}：$\gamma_1, \gamma_2$重合。那么$l_1,l_2,m$都在此平面上。根据平面直线的结论，$l_1,l_2$平行或重合。
     
-    2. $\gamma_1, \gamma_2$不重合。于是$\gamma_1\cap \gamma_2 = m$。
-    取$l_1$上一点$P$，$P$与$l_2$确定平面$\beta$。$l_2\notin\gamma_1$，所以$\beta,\gamma_1$不重合。
-    设$\beta\cap\gamma_1 = n$。直觉上，可以想到$n$就是$l_1$，且$n\parallel l_2$，下面来说明这两点。
+    \textbf{情况二}：$\gamma_1, \gamma_2$不重合。于是$\gamma_1\cap \gamma_2 = m$。
+    取$l_1$上一点$P$，$P$与$l_2$确定平面$\beta$。$l_2\notin\gamma_1$，所以$\beta,\gamma_1$不重合。设$\beta\cap\gamma_1 = n$。直觉上，可以想到$n$就是$l_1$，且$n\parallel l_2$，下面来说明这两点。
     
     首先证明$n\parallel l_2$。反设$n$交$l_2$于点$Q$，则$Q\in\gamma_1\cap\gamma_2=m$，
     于是$Q\in m\cap l_2$。这与$m\parallel l_2$矛盾。因此$n\parallel l_2$。
     
-    再证明$n\parallel m$。反设$n$交$m$于点$Q$，则过$Q$有$m\parallel l_2$和$n\parallel l_2$，于是$n=m$。
-    但$P\in n$，因此$P\in m\cap l_1$，这与$m\parallel l_1$矛盾。因此$n\parallel m$。
+    再证明$n\parallel m$。反设$n$交$m$于点$Q$，则过$Q$有$m\parallel l_2$和$n\parallel l_2$，于是$n=m$。但$P\in n$，因此$P\in m\cap l_1$，这与$m\parallel l_1$矛盾。因此$n\parallel m$。
     
-    $n$与$l_1$都平行于$m$，且有公共点$P$，所以$n = l_1$。所以$l_1\parallel l_2$。
-    
+    $n$与$l_1$都平行于$m$，且有公共点$P$，所以$n = l_1$。于是$l_1\parallel l_2$。
+
 \end{proof}
 
 接下来回顾直线与平面的关系。从补充后的平行公理，可以得出直线与平面平行的判定方法：
@@ -929,9 +911,11 @@ $P$在新基底上的坐标为$(0.5, \,\, -3)$。我们可以从上图中直接�
     反设$\alpha,\alpha'$有公共点。由于$P\in\alpha'$在$\alpha$外，两者不重合。
     因此根据交面公理，$\alpha \cap \alpha'$是一条直线，记为$n$。$l,m,n$共面，$l,m$相交，
     因此$l,m$中至少有一条与$n$相交。设$l$与$n$相交，交点为$Q$，则$Q\in n\subset\alpha'$。又因为$l\parallel l'$，$Q\in l$，所以$Q\notin l'$，
-    因而在$\alpha'$中，过$Q$可作$l'$的平行线。但这条线在$\alpha'$中，因此不是$l$。这与平行公理矛盾。
+    因而在$\alpha'$中，过$Q$可作$l'$的平行线。但这条线在$\alpha'$中，因此不是$l$。于是过$Q$有两条直线与$l'$平行，与平行公理矛盾。
         
     因此，$\alpha,\alpha'$无公共点，$\alpha'\parallel\alpha$。
+
+    最后证明唯一性：设过$P$还有平面$\beta \parallel \alpha$。根据$\beta$的定义，$\beta\cap l=\varnothing$，即$l$平行于$\beta$。过$P\in\beta$作平行于$l$的直线，则根据定理\ref{tm:1-0-40}，该直线在$\beta$中。但根据平行公理，该直线就是$l'$。同理可推出$m'$也在$\beta$中。这说明$\beta$就是$\alpha'$。
 \end{proof}
 
 类似的结论还有：
@@ -949,11 +933,11 @@ $\beta$与$\alpha$平行，也就是说$\beta$与$\alpha$无公共点，
 这说明过$l$恰有一平面$\beta$与$\alpha$平行。
 \end{proof}
 
-从证明中，我们还可以提炼出判定平面平行（或重合）的准则：
+从证明中，我们还可以提炼出判定平面平行（重合）的准则：
 
 \begin{tm}\label{tm:1-0-70}
     给定平面$\gamma_1, \gamma_2$。设$l,m$为$\gamma_1$中的相交直线。
-    若$\gamma_2$中有直线$l',m'$分别与$l,m$平行或重合，则平面$\gamma_1, \gamma_2$平行或重合。
+    若$\gamma_2$中有直线$l',m'$分别与$l,m$平行（重合），则平面$\gamma_1, \gamma_2$平行（重合）。
 \end{tm}
 \begin{proof}
     两平面要么相互平行，要么重合，要么相交于一直线。反设$\gamma_1, \gamma_2$相交于直线$n$。
@@ -1016,7 +1000,6 @@ $\beta$与$\alpha$平行，也就是说$\beta$与$\alpha$无公共点，
     \item 平面可能与平面平行、相交、重合。
     \item 直线与直线相交于一点，直线与平面相交于一点，平面与平面相交于一直线。
 \end{enumerate}
-
 
 \begin{sk}
     \mbox{} \\
@@ -1161,7 +1144,7 @@ $\mathbf{a},\mathbf{b}$也称为$\mathbb{R}\mathbf{a}+\mathbb{R}\mathbf{b}$的\t
 
 给定向量$C = \mathbf{c}$，$ \{s\mathbf{a}+t\mathbf{b}+\mathbf{c}\, | \, s,t\in\mathbb{R}\}$是一个过$C$的平面，
 也记为$\mathbb{R}\mathbf{a}+\mathbb{R}\mathbf{b}+\mathbf{c}$。$\mathbb{R}\mathbf{a}+\mathbb{R}\mathbf{b}$称为它的\textbf{直部}。
-而$ \{s\mathbf{a}+t\mathbf{b}+(1 - s - t)\mathbf{c} \, | \, t\in\mathbb{R}\}$就是过$A,B,C$的平面$ABC$。
+而$ \{s\mathbf{a}+t\mathbf{b}+(1 - s - t)\mathbf{c} \, | \, s,t\in\mathbb{R}\}$就是过$A,B,C$的平面$ABC$。
 
 来看几个具体的例子。选定空间的一组基底$\mathbf{e}_x,\mathbf{e}_y,\mathbf{e}_z$，
 我们可以构建坐标系$Oxyz$，其中$x$轴、$y$轴、$z$轴分别是基向量引出的直线$\mathbb{R}\mathbf{e}_x$、
@@ -1172,8 +1155,8 @@ $x$轴、$z$轴构成平面：
 $$ Oxz : \{s\mathbf{e}_x+t\mathbf{e}_z\,|\,s,t\in\mathbb{R}\} = \mathbb{R}\mathbf{e}_x + \mathbb{R}\mathbf{e}_z. $$
 $y$轴、$z$轴构成平面：
 $$ Oyz : \{s\mathbf{e}_y+t\mathbf{e}_z\,|\,s,t\in\mathbb{R}\} = \mathbb{R}\mathbf{e}_y + \mathbb{R}\mathbf{e}_z. $$
-给出发点$A(3,0,0)$、$B(0,2,0)$、$C(0,0,1)$，则经过它们的平面为：
-$$ \{sA+tB+(1 - s - t)C \, | \, t\in\mathbb{R}\} = \{(3s,\,2t,\,1-s-t) \, | \, t\in\mathbb{R}\}. $$
+给定出发点$A(3,0,0)$、$B(0,2,0)$、$C(0,0,1)$，则经过它们的平面为：
+$$ \{sA+tB+(1 - s - t)C \, | \, s,t\in\mathbb{R}\} = \{(3s,\,2t,\,1-s-t) \, | \,s, t\in\mathbb{R}\}. $$
 
 可以验证，这样定义的点、直线、平面符合上一节中的各个公理（见\textbf{附录B}）。
 
@@ -1379,7 +1362,7 @@ $$ \mathbf{w} = w_A A_1 + w_B B_1 + w_n \mathbf{n}. $$
 \begin{tm}\label{tm:1-3-40}
     垂直于同一平面的直线平行或重合。
 \end{tm}
-给定空间中一点$P$和平面$\gamma$，在$\gamma$上任取一点$O$，引出两个直无关的向量$OA,OB$，
+给定空间中一点$P$和平面$\gamma$，在$\gamma$上任取一点$O$，引出两个直无关的向量$\vv{OA},\vv{OB}$，
 于是有单位向量$\mathbf{n}$与它们都垂直，于是$\mathbb{R}\mathbf{n} + P$是过$P$且垂直于$\gamma$的直线。
 另一方面，如果过$P$的直线$\mathbb{R}\mathbf{m} + P$垂直于$\gamma$，
 那么它$\mathbf{m}$垂直于$\vv{OA},\vv{OB}$。于是$\mathbf{n}$与$\mathbf{m}$共轴，
@@ -1610,7 +1593,7 @@ $$ 2(x_1-x_2)x + 2(y_1-y_2)y + 2(z_1-z_2)z = x_1^2+y_1^2+z_1^2 - x_2^2-y_2^2-z_2
 
 显然，过平面中一点，有无数平面与它垂直。比如，过$x$轴和$y$轴所在平面$Oxy: z = 0$中的$(0,0,0)$点，
 可以找到平面$x + y = 0$与它垂直。不仅如此，$x + 2y = 0$、$x + 3.3y = 0$、$2.6x - y = 0$等也都与它垂直。
-但所有与它垂直的平面，都经过直线$\{(t,0,0) \, | \, t\in \mathbb{R}\} = \mathbb{R}\mathbf{e}_z$。
+但所有与它垂直的平面，都经过直线$\{(0,0,t) \, | \, t\in \mathbb{R}\} = \mathbb{R}\mathbf{e}_z$。
 \begin{tm}\label{tm:1-3-90}
     经过平面中一直线，恰有一个平面与该平面垂直。    
 \end{tm}
@@ -1710,7 +1693,7 @@ $$
 \end{array}
 \right.
 $$
-从前$4$个方程可以求出$t_1,t_2,r_1,r_2$唯一的一组解，于是可以得到直线$m$，
+从前四个方程可以求出$t_1,t_2,r_1,r_2$唯一的一组解，于是可以得到直线$m$，
 也就是说，异面直线$l_1,l_2$总有唯一的公垂线。我们称线段$P_1P_2$为$l_1,l_2$的\textbf{公垂线段}。
 
 向量$\vv{P_1P_2}$与$\mathbf{n}$共轴。从后两个方程可以解出$s_1,s_2$，因此线段$P_1P_2$的长度是：
@@ -2077,6 +2060,100 @@ $k = 3$时，解得$m < 6$，所以$m$的值可能为$3$、$4$或$5$。
 斜边$OB$称为\textbf{圆锥的母线}，
 旋转得到的面称为\textbf{圆锥的侧面}，另一直角边$AB$旋转得到的面称为\textbf{圆锥的底面}。
 
+\begin{figure}[h]
+    \vspace{4pt}
+    \centering
+    \begin{tikzpicture}[scale=1]
+    \def\r{1}   % 半径
+    \def\k{0.25}% 椭圆短半轴比例
+    \def\lb{-2.3*\r}%左左缘
+    \def\mb{3*\r}%中左缘
+    \def\rb{6.4*\r}%右左缘
+    \def\width{10*\r}%总宽
+    \def\depth{\r}%纵深
+    \def\h{2}%总高
+    \def\H{1}%台高
+    \pgfmathsetmacro{\rc}{\r * (1 - \H / \h)}%台顶半径
+    
+    % 底面平行四边形（30度角，仅作参考背景）
+    \draw[gray!30] (\lb,-0.5*\depth) -- (\lb+\width,-0.5*\depth) -- (\lb+\width+1.73*\depth, 0.5*\depth) -- (\lb+1.73*\depth, 0.5*\depth) -- cycle;
+    
+    %----左侧圆锥----
+    % 圆锥底面
+    \draw[thick, blue!70!black] 
+        (0,0) ++(180:\r) arc [start angle=180, end angle=360, x radius=\r, y radius=\r*\k];
+    \draw[thick, gray!70] 
+        (0,0) ++(180:\r) arc [start angle=180, end angle=0, x radius=\r, y radius=\r*\k];
+    % 圆锥中轴
+    \draw[gray!50] (0,0) -- (0,\h);
+    % 底部直径
+    \draw[gray!50] (0,0) -- (\r, 0);
+    % 重点符号
+    \node[black] at (-0.2,0) {$A$};
+    \node[black] at (\r+0.2,0) {$B$};
+    \node[black] at (-0.2,\h) {$O$};
+    % 圆锥侧边缘
+    \draw[thick, blue!70!black] (\r, 0) -- (0, \h);
+    \draw[thick, blue!70!black] (-\r, 0) -- (0, \h);
+    
+    %----中间圆柱----
+    % 底部半径
+    \draw[gray!50] (\mb,0) -- (\mb+\r,0);
+    % 顶部半径
+    \draw[gray!50] (\mb,\h) -- (\mb+\r,\h);
+    % 圆柱中轴
+    \draw[gray!50] (\mb,0) -- (\mb,\h);
+    % 重点符号
+    \node[black] at (\mb+\r+0.2,0) {$A$};
+    \node[black] at (\mb+\r+0.2,\h) {$B$};
+    \node[black] at (\mb-0.2,\h) {$O$};
+    \node[black] at (\mb-0.2,0) {$O'$};
+
+    % 下底面后半
+    \draw[thick, gray!70] 
+        (\mb,0) ++(180:\r) arc [start angle=180, end angle=0, x radius=\r, y radius=\r*\k];
+    \draw[thick, blue!70!black] (\mb-\r,0) -- (\mb-\r,\h);
+    \draw[thick, blue!70!black] (\mb+\r,0) -- (\mb+\r,\h);
+    % 上底面后半
+    \draw[thick, blue!70!black] 
+        (\mb,\h) ++(180:\r) arc [start angle=180, end angle=0, x radius=\r, y radius=\r*\k];
+    % 上底面前半
+    \draw[thick, blue!70!black] 
+        (\mb,\h) ++(180:\r) arc [start angle=180, end angle=360, x radius=\r, y radius=\r*\k];
+    % 下底面前半
+    \draw[thick, blue!70!black] 
+        (\mb,0) ++(180:\r) arc [start angle=180, end angle=360, x radius=\r, y radius=\r*\k];
+        
+    %----右侧圆台----
+    % 底部半径
+    \draw[gray!50] (\rb,0) -- (\rb+1.5*\r,0);
+    % 顶部半径
+    \draw[gray!50] (\rb,1.5*\H) -- (\rb+1.5*\rc,1.5*\H);
+    % 圆台中轴
+    \draw[gray!50] (\rb,0) -- (\rb,1.5*\H);
+    % 重点符号
+    \node[black] at (\rb+1.5*\r+0.2,0) {$A$};
+    \node[black] at (\rb+1.5*\rc+0.2,1.5*\H) {$B$};
+    \node[black] at (\rb-0.2,1.5*\H) {$O$};
+    \node[black] at (\rb-0.2,0) {$O'$};
+
+    % 下底面后半
+    \draw[thick, gray!70] 
+        (\rb,0) ++(180:1.5*\r) arc [start angle=180, end angle=0, x radius=1.5*\r, y radius=1.5*\r*\k];
+    \draw[thick, blue!70!black] (\rb-1.5*\r,0) -- (\rb-1.5*\rc,1.5*\H);
+    \draw[thick, blue!70!black] (\rb+1.5*\r,0) -- (\rb+1.5*\rc,1.5*\H);
+    % 上底面后半
+    \draw[thick, blue!70!black] 
+        (\rb,1.5*\H) ++(180:1.5*\rc) arc [start angle=180, end angle=0, x radius=1.5*\rc, y radius=1.5*\rc*\k];
+    % 上底面前半
+    \draw[thick, blue!70!black] 
+        (\rb,1.5*\H) ++(180:1.5*\rc) arc [start angle=180, end angle=360, x radius=1.5*\rc, y radius=1.5*\rc*\k];
+    % 下底面前半
+    \draw[thick, blue!70!black] 
+        (\rb,0) ++(180:1.5*\r) arc [start angle=180, end angle=360, x radius=1.5*\r, y radius=1.5*\r*\k];
+    \end{tikzpicture}
+\end{figure}
+
 给定平面中的矩形$OO'AB$，将它绕着边$OO'$所在直线旋转一周，就得到一个\textbf{圆柱}，
 记为圆柱$OO'AB$。旋转轴$OO'$称为\textbf{圆柱的轴}，它的长度叫做\textbf{圆柱的高}。$AB$称为\textbf{圆柱的母线}，
 它旋转得到的面称为\textbf{圆柱的侧面}，
@@ -2166,11 +2243,52 @@ $$ x^2 + y^2 \leqslant a^2 , \quad 0\leqslant z \leqslant z_0.$$
 圆锥、圆柱和圆台分别是直角三角形、矩形和直角梯形按轴旋转得到的，如果把圆心过旋转轴的圆按轴旋转，
 得到的就是\textbf{球}。球是日常生活中常见的形状。你能说说，日常生活中哪些物品的形状可以用球来概括？
 
+\begin{figure}[h]
+    \vspace{4pt}
+    \centering
+    \begin{tikzpicture}[scale=1.5]
+    \def\r{1}   % 半径
+    \def\k{0.25}% 椭圆短半轴比例
+    \def\lb{-2.3*\r}%左左缘
+    \def\rb{3*\r}%右左缘
+    \def\width{6.6*\r}%总宽
+    \def\depth{0.6*\r}%纵深
+    
+    % 底面平行四边形（30度角，仅作参考背景）
+    \draw[gray!30] (\lb,-0.5*\depth) -- (\lb+\width,-0.5*\depth) -- (\lb+\width+1.73*\depth, 0.5*\depth) -- (\lb+1.73*\depth, 0.5*\depth) -- cycle;
+    
+    %----左侧圆----
+    % % 圆锥中轴
+    % \draw[gray!50, dashed] (0,0) -- (0,2*\r);
+    % % 底部直径
+    % \draw[gray!50, dashed] (0,\r) -- (\r, \r);
+    % 重点符号
+    \node[black] at (-0.2,\r) {$O$};
+    \filldraw[color=black, fill=black!60] (0,\r) circle (0.03 cm);
+    \draw[thick, blue!70!black] (0,\r) circle (\r cm);
+        
+    %----右侧圆台----
+    % 底部半径
+    \draw[gray!50, dashed] (\rb,\r) -- (\rb+\r,\r);
+    % 中轴
+    \draw[gray!50, dashed] (\rb,0) -- (\rb,2*\r);
+    \node[black] at (\rb-0.2,\r) {$O$};
+
+    % 下底面后半
+    \draw[thick, gray!70] 
+        (\rb,\r) ++(180:\r) arc [start angle=180, end angle=0, x radius=\r, y radius=\r*\k];
+    % 下底面前半
+    \draw[blue!70!black] 
+        (\rb,\r) ++(180:\r) arc [start angle=180, end angle=360, x radius=\r, y radius=\r*\k];
+    \draw[thick,blue!70!black] (\rb,\r) circle (\r cm);
+    \filldraw[color=black, fill=black!60] (\rb,\r) circle (0.03 cm);
+    \end{tikzpicture}
+\end{figure}
+
 设圆的半径为$a$，圆心为$O$，圆绕着过$O$的旋转轴$h$旋转一周，得到球$\circledast(O,a)$。
 $O$称为球的\textbf{球心}，$a$称为\textbf{球的半径}。
 
-球还有另一种定义：空间中到一点距离不超过定值$a$的点的集合，就是球$\circledast(O,a)$。这两种定义是等价的，
-我们可以通过分别求出相应的方程来证明。
+球还有另一种定义：空间中到一点距离不超过定值$a$的点的集合，就是球$\circledast(O,a)$。这两种定义是等价的，可以通过分别求出相应的方程来证明。
 
 首先看用旋转定义的球。设$\odot(O,a)$上的点为$A(a\cos{\theta}, 0, a\sin{\theta})$，
 则它绕$\mathbf{h} = (0,0,1)$引出的直线一周得到的点$P$满足
@@ -2186,7 +2304,7 @@ $$
 $$ p_x^2 + p_y^2 + p_z^2 = a^2.$$
 也就是说，球是以下方程的解集：
 $$ x^2 + y^2 + z^2 \leqslant a^2.$$
-另一方面，空间中的点$P$到原点（$\odot(O,a)$的圆心）的距离不超过$a$，就是说$\|\vv{OP}\| \leqslant a$​，
+另一方面，空间中的点$P$到原点（$\odot(O,a)$的圆心）的距离不超过$a$，就是说$\left|\vv{OP}\right| \leqslant a$​，
 因此这样定义的球，也是方程
 $$ x^2 + y^2 + z^2 \leqslant a^2$$
 的解集。这说明两种定义是等价的。
@@ -2214,14 +2332,107 @@ $z_0=\pm a$时，方程分别只有$(a,0,0)$和$(-a,0,0)$一个解，
 
 $|z_0|>a$时，平面与球无交点，称为\textbf{相离}。
 
+\begin{figure}[h]
+    \vspace{4pt}
+    \centering
+    \begin{tikzpicture}[scale=1.2]
+    \def\r{1}   % 半径
+    \def\k{0.21}% 椭圆短半轴比例
+    \def\lb{-2.3*\r}%左左缘
+    \def\mb{3*\r}%右左缘
+    \def\rb{6*\r}%右左缘
+    \def\width{9.2*\r}%总宽
+    \def\depth{0.8*\r}%纵深
+    
+    % 底面平行四边形（30度角，仅作参考背景）
+    \draw[gray!30] (\lb,-0.5*\depth) -- (\lb+\width,-0.5*\depth) -- (\lb+\width+1.73*\depth, 0.5*\depth) -- (\lb+1.73*\depth, 0.5*\depth) -- cycle;
+    
+    %----左侧球----
+    % 底部半径
+    \draw[gray!50, dashed] (0,\r) -- (0+\r,\r);
+    % 中轴
+    \draw[gray!50, dashed] (0,0) -- (0,2*\r);
+    \node[black] at (0-0.2,\r) {$O$};
+
+    % 下底面后半
+    \draw[thick, gray!70] 
+        (0,\r) ++(180:\r) arc [start angle=180, end angle=0, x radius=\r, y radius=\r*\k];
+    % 下底面前半
+    \draw[blue!70!black] 
+        (0,\r) ++(180:\r) arc [start angle=180, end angle=360, x radius=\r, y radius=\r*\k];
+    \draw[thick,blue!70!black] (0,\r) circle (\r cm);
+    \filldraw[color=black, fill=black!60] (0,\r) circle (0.03 cm);
+    \filldraw[color=black, fill=black!60] (0,2*\r) circle (0.03 cm);
+    \draw[gray!30] (-\r-0.5*\depth,-0.5*\depth+2*\r) -- (-\r-0.5*\depth+2*\r,-0.5*\depth+2*\r) -- (-\r-0.5*\depth+2*\r+1.73*\depth, 0.5*\depth+2*\r) -- (-\r-0.5*\depth+1.73*\depth, 0.5*\depth+2*\r) -- cycle;
+
+    %----中间球----
+    \draw[gray!30] (\mb-1.23*\r-0.866*\depth,-0.5*\depth+1.5*\r) -- (\mb-1.23*\r-0.866*\depth+2.6*\r,-0.5*\depth+1.5*\r) -- (\mb-1.23*\r-0.866*\depth+2.6*\r+1.73*\depth, 0.5*\depth+1.5*\r) -- (\mb-1.23*\r-0.866*\depth+1.73*\depth, 0.5*\depth+1.5*\r) -- cycle;
+    % 截面填充
+    \fill[fill=blue!50, opacity=0.3] (\mb,1.5*\r) ellipse (0.866*\r cm and 0.866*\r*\k cm);
+    % 底部半径
+    \draw[gray!50, dashed] (\mb,\r) -- (\mb+\r,\r);
+    % 中轴
+    \draw[gray!50, dashed] (\mb,0) -- (\mb,2*\r);
+    \node[black] at (\mb-0.2,\r) {$O$};
+
+    % 下底面后半
+    \draw[thick, gray!70] 
+        (\mb,\r) ++(180:\r) arc [start angle=180, end angle=0, x radius=\r, y radius=\r*\k];
+   % 截面后半
+    \draw[gray!70] 
+        (\mb,1.5*\r) ++(180:0.866*\r) arc [start angle=180, end angle=0, x radius=0.866*\r, y radius=0.866*\r*\k];
+    % 截面前半
+    \draw[blue!70] 
+        (\mb,1.5*\r) ++(180:0.866*\r) arc [start angle=180, end angle=360, x radius=0.866*\r, y radius=0.866*\r*\k];
+    % 下底面前半
+    \draw[blue!70!black] 
+        (\mb,\r) ++(180:\r) arc [start angle=180, end angle=360, x radius=\r, y radius=\r*\k];
+    \draw[thick,blue!70!black] (\mb,\r) circle (\r cm);
+    \filldraw[color=blue!50!black, fill=black!60] (\mb,1.5*\r) circle (0.03 cm);
+    \filldraw[color=black, fill=black!60] (\mb,\r) circle (0.03 cm);
+        
+    %----右侧球----
+    % 截面填充
+    \fill[fill=blue!50, opacity=0.3] (\rb,\r) ellipse (\r cm and \r*\k cm);
+    % 底部半径
+    \draw[gray!50, dashed] (\rb,\r) -- (\rb+\r,\r);
+    % 中轴
+    \draw[gray!70, dashed] (\rb,0) -- (\rb,2*\r);
+    \node[black] at (\rb-0.2,\r) {$O$};
+
+    % 下底面后半
+    \draw[thick, gray!70] 
+        (\rb,\r) ++(180:\r) arc [start angle=180, end angle=0, x radius=\r, y radius=\r*\k];
+    % 下底面前半
+    \draw[blue!70!black] 
+        (\rb,\r) ++(180:\r) arc [start angle=180, end angle=360, x radius=\r, y radius=\r*\k];
+    \draw[thick,blue!70!black] (\rb,\r) circle (\r cm);
+    \filldraw[color=black, fill=black!60] (\rb,\r) circle (0.03 cm);
+
+    \draw[gray!30] (\rb-1.2*\r-0.866*\depth,-0.5*\depth+1*\r) -- (\rb-1.2*\r-0.866*\depth+2.6*\r,-0.5*\depth+1*\r) -- (\rb-1.2*\r-0.866*\depth+2.6*\r+1.73*\depth, 0.5*\depth+1*\r) -- (\rb-1.2*\r-0.866*\depth+1.73*\depth, 0.5*\depth+1*\r) -- cycle;
+    \end{tikzpicture}
+    \captionsetup{justification=centering}
+    \caption*{\texttt{左：平面与球相切~中：平面与球相交~右：截面为大圆}}
+\end{figure}
+
 球的切面垂直于球心和切点的连线，因此切线也垂直于球心和切点的连线。反之，设$A$是球$O$面上一点，
 经过$A$且垂直于$OA$的直线和平面就是球的切线和切面。
+
+\begin{figure}[h]
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.7\textwidth]{tu/草稿_地球经纬1.png}
+    \captionsetup{justification=centering}
+    \caption*{\texttt{使用经纬线在地球表面定位}}
+\end{figure}
 
 我们知道，地球大致可以看成一个球。很多与地球有关的研究中，我们假设地球是一个球，球心称为地心。
 为了方便讨论，我们假设地球自转轴经过地心。与地球球面相交于两点，分别是南北两极点。
 过两极的平面截地球得到的大圆，称为经线。垂直于自转轴的平面截地球得到的圆，称为纬线。
-其中过地心的平面截得的大圆称为赤道。这样，用经线和纬线的交点，可以定位球面上的点。一般的球面上，
-我们也可以沿用这些术语。
+其中过地心的平面截得的大圆称为赤道。这样，用经线和纬线的交点，可以定位地球表面上的点。一般的球面上，我们也可以沿用这些术语。
+
+
+
 
 \chapter{空间形的体积}
 
@@ -2294,6 +2505,15 @@ $$ V(\mathbf{e}_z, \mathbf{e}_x, \mathbf{e}_y) = V(\mathbf{e}_y, \mathbf{e}_z, \
 
 为什么有些有向体积是$1$，有些是$-1$呢？如何确定正负的意义呢？这叫做空间的定向。我们定义平面中的角度时，用顺时针和逆时针来区分旋转的方向，把逆时针方向对应到正的角度，把顺时针方向定义到负的角度。这个约定影响到了平面图形的有向面积。在讨论空间的形体时，我们也给空间约定一个“方向”：有序向量组$(\mathbf{e}_x, \mathbf{e}_y, \mathbf{e}_z)$作为基底，如果能把右手放在原点的位置，使大拇指，食指和中指互成直角，大拇指指向$\mathbf{e}_x$的方向，食指指向$\mathbf{e}_y$的方向，中指指向$\mathbf{e}_z$的方向，这样的坐标系称为\textbf{右手坐标系}。如果能用左手做同样的事，则称为\textbf{左手坐标系}。我们约定，当我们说$V(\mathbf{e}_x, \mathbf{e}_y, \mathbf{e}_z) = 1$时，指的是右手坐标系的基底。要注意的是，这个约定只是习惯上的选择。把约定改为左手坐标系，并不妨碍数学上的讨论，只要在讨论中保持一致即可。
 
+% 三棱柱体积
+\begin{figure}[h]
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.8\textwidth]{tu/左右手坐标系1.png}
+    \captionsetup{justification=centering}
+    \caption*{\texttt{左手坐标系和右手坐标系}}
+\end{figure}
+
 一般来说，设$\mathbf{a} = a_x\mathbf{e}_x + a_y\mathbf{e}_y + a_z\mathbf{e}_z$、
 $\mathbf{b} = b_x\mathbf{e}_x + b_y\mathbf{e}_y + b_z\mathbf{e}_z$、
 $\mathbf{c} = c_x\mathbf{e}_x + c_y\mathbf{e}_y + c_z\mathbf{e}_z$，则根据第二个性质，
@@ -2332,6 +2552,199 @@ $\mathbf{c} = c_x\mathbf{e}_x + c_y\mathbf{e}_y + c_z\mathbf{e}_z$，则根据�
 \begin{po}{\textbf{等积原理}}\label{po:6}
     给定空间中两个形状$X,Y$和两个平行平面$\gamma_1,\gamma_2$，如果位于$\gamma_1,\gamma_2$之间且平行于$\gamma_1,\gamma_2$的任何平面$\gamma$截$X,Y$得到的截面面积都相等，那么$X,Y$在$\gamma_1,\gamma_2$之间的部分体积相等。
 \end{po}
+
+\begin{figure}[h]
+    \vspace{4pt}
+    \centering 
+    \begin{tikzpicture}[scale=1.5]
+        % 基础参数
+        \def\H{1.5}        % 棱柱高度
+        \def\h{0.6*\H}     % 截面高度
+        \def\k{0.25}       % 深度缩放因子（30°斜投影）
+        \def\dx{0.30}      % 侧棱水平偏移
+        \def\dy{0}      % 侧棱垂直偏移
+        \def\depth{0.5*\H}
+        \def\width{3*\H}
+        \def\llb{\lb-1*\H}
+        
+        % 五边形参数（左侧斜棱柱）
+        \def\Rpent{0.53}   % 外接圆半径
+        \pgfmathsetmacro{\aone}{18}   \pgfmathsetmacro{\atwo}{82}
+        \pgfmathsetmacro{\athree}{162} \pgfmathsetmacro{\afour}{234}
+        \pgfmathsetmacro{\afive}{296}
+        
+        % 三角形参数（右侧直棱柱）
+        \def\Rtri{0.67}    % 外接圆半径
+        \pgfmathsetmacro{\bone}{76}   \pgfmathsetmacro{\btwo}{210}
+        \pgfmathsetmacro{\bthree}{330}
+        
+        % 布局偏移
+        \def\lb{-1.0}      % 左棱柱中心x坐标
+        \def\rb{1.5}       % 右棱柱中心x坐标
+
+        % 底面平行四边形（30度角，仅作参考背景）
+        \draw[gray!30] (\llb,-0.5*\depth) -- (\llb+\width,-0.5*\depth) -- (\llb+\width+1.73*\depth, 0.5*\depth) -- (\llb+1.73*\depth, 0.5*\depth) -- cycle;
+        \draw[gray!30] (\llb,-0.5*\depth+\h) -- (\llb+\width,-0.5*\depth+\h) -- (\llb+\width+1.73*\depth, 0.5*\depth+\h) -- (\llb+1.73*\depth, 0.5*\depth+\h) -- cycle;
+        \draw[gray!30] (\llb,-0.5*\depth+\H) -- (\llb+\width,-0.5*\depth+\H) -- (\llb+\width+1.73*\depth, 0.5*\depth+\H) -- (\llb+1.73*\depth, 0.5*\depth+\H) -- cycle;
+        
+        % ========== 左侧：斜五棱柱 ==========
+        % 下底面（z=0）- 后半部分（灰色）
+        \draw[gray!70, thick]
+            ({\lb + \Rpent*cos(\aone)}, {\Rpent*sin(\aone)*\k}) --
+            ({\lb + \Rpent*cos(\atwo)}, {\Rpent*sin(\atwo)*\k}) --
+            ({\lb + \Rpent*cos(\athree)}, {\Rpent*sin(\athree)*\k});
+        % 下底面 - 前半部分（主色）
+        \draw[blue!70!black, thick]
+            ({\lb + \Rpent*cos(\athree)}, {\Rpent*sin(\athree)*\k}) --
+            ({\lb + \Rpent*cos(\afour)}, {\Rpent*sin(\afour)*\k}) --
+            ({\lb + \Rpent*cos(\afive)}, {\Rpent*sin(\afive)*\k}) --
+            ({\lb + \Rpent*cos(\aone)}, {\Rpent*sin(\aone)*\k});
+        
+        % 侧棱 - 后半部分（灰色）
+        \draw[gray!70, thick]
+            ({\lb + \Rpent*cos(\atwo)}, {\Rpent*sin(\atwo)*\k}) -- 
+            ({\lb + \dx + \Rpent*cos(\atwo)}, {\H + \dy + \Rpent*sin(\atwo)*\k});
+        % 侧棱 - 前半部分（主色）
+        \draw[blue!70!black, thick]
+            ({\lb + \Rpent*cos(\aone)}, {\Rpent*sin(\aone)*\k}) -- 
+            ({\lb + \dx + \Rpent*cos(\aone)}, {\H + \dy + \Rpent*sin(\aone)*\k})
+            ({\lb + \Rpent*cos(\athree)}, {\Rpent*sin(\athree)*\k}) -- 
+            ({\lb + \dx + \Rpent*cos(\athree)}, {\H + \dy + \Rpent*sin(\athree)*\k})
+            ({\lb + \Rpent*cos(\afour)}, {\Rpent*sin(\afour)*\k}) -- 
+            ({\lb + \dx + \Rpent*cos(\afour)}, {\H + \dy + \Rpent*sin(\afour)*\k})
+            ({\lb + \Rpent*cos(\afive)}, {\Rpent*sin(\afive)*\k}) -- 
+            ({\lb + \dx + \Rpent*cos(\afive)}, {\H + \dy + \Rpent*sin(\afive)*\k});
+        
+        % 上底面（z=H）- 后半部分（灰色）
+        \draw[blue!70!black, thick]
+            ({\lb + \dx + \Rpent*cos(\aone)}, {\H + \dy + \Rpent*sin(\aone)*\k}) --
+            ({\lb + \dx + \Rpent*cos(\atwo)}, {\H + \dy + \Rpent*sin(\atwo)*\k}) --
+            ({\lb + \dx + \Rpent*cos(\athree)}, {\H + \dy + \Rpent*sin(\athree)*\k});
+        % 上底面 - 前半部分（主色）
+        \draw[blue!70!black, thick]
+            ({\lb + \dx + \Rpent*cos(\athree)}, {\H + \dy + \Rpent*sin(\athree)*\k}) --
+            ({\lb + \dx + \Rpent*cos(\afour)}, {\H + \dy + \Rpent*sin(\afour)*\k}) --
+            ({\lb + \dx + \Rpent*cos(\afive)}, {\H + \dy + \Rpent*sin(\afive)*\k}) --
+            ({\lb + \dx + \Rpent*cos(\aone)}, {\H + \dy + \Rpent*sin(\aone)*\k});
+        
+        % 截面边界 - 后半灰，前半主色
+        \draw[gray!50]
+            ({\lb + \dx*\h/\H + \Rpent*cos(\aone)}, {\h + \dy*\h/\H + \Rpent*sin(\aone)*\k}) --
+            ({\lb + \dx*\h/\H + \Rpent*cos(\atwo)}, {\h + \dy*\h/\H + \Rpent*sin(\atwo)*\k}) --
+            ({\lb + \dx*\h/\H + \Rpent*cos(\athree)}, {\h + \dy*\h/\H + \Rpent*sin(\athree)*\k});
+        \draw[blue!70!black, thick]
+            ({\lb + \dx*\h/\H + \Rpent*cos(\athree)}, {\h + \dy*\h/\H + \Rpent*sin(\athree)*\k}) --
+            ({\lb + \dx*\h/\H + \Rpent*cos(\afour)}, {\h + \dy*\h/\H + \Rpent*sin(\afour)*\k}) --
+            ({\lb + \dx*\h/\H + \Rpent*cos(\afive)}, {\h + \dy*\h/\H + \Rpent*sin(\afive)*\k}) --
+            ({\lb + \dx*\h/\H + \Rpent*cos(\aone)}, {\h + \dy*\h/\H + \Rpent*sin(\aone)*\k});
+        % 截面（z=h）- 半透明填充
+        \fill[blue!30, opacity=0.75]
+            ({\lb + \dx*\h/\H + \Rpent*cos(\aone)}, {\h + \dy*\h/\H + \Rpent*sin(\aone)*\k}) --
+            ({\lb + \dx*\h/\H + \Rpent*cos(\atwo)}, {\h + \dy*\h/\H + \Rpent*sin(\atwo)*\k}) --
+            ({\lb + \dx*\h/\H + \Rpent*cos(\athree)}, {\h + \dy*\h/\H + \Rpent*sin(\athree)*\k}) --
+            ({\lb + \dx*\h/\H + \Rpent*cos(\afour)}, {\h + \dy*\h/\H + \Rpent*sin(\afour)*\k}) --
+            ({\lb + \dx*\h/\H + \Rpent*cos(\afive)}, {\h + \dy*\h/\H + \Rpent*sin(\afive)*\k}) -- cycle;
+        
+        % ========== 右侧：正三棱柱 ==========
+        % 下底面（z=0）- 后半部分（灰色）
+        \draw[gray!70, thick]
+            ({\rb + \Rtri*cos(\bthree)}, {\Rtri*sin(\bthree)*\k}) --
+            ({\rb + \Rtri*cos(\bone)}, {\Rtri*sin(\bone)*\k}) --
+            ({\rb + \Rtri*cos(\btwo)}, {\Rtri*sin(\btwo)*\k});
+        % 下底面 - 前半部分（主色）
+        \draw[blue!70!black, thick]
+            ({\rb + \Rtri*cos(\btwo)}, {\Rtri*sin(\btwo)*\k}) --
+            ({\rb + \Rtri*cos(\bthree)}, {\Rtri*sin(\bthree)*\k}) ;
+        
+        % 侧棱（直棱柱）
+        \draw[gray!70, thick]
+            ({\rb + \Rtri*cos(\bone)}, {\Rtri*sin(\bone)*\k}) -- 
+            ({\rb + \Rtri*cos(\bone)}, {\H + \Rtri*sin(\bone)*\k});
+        \draw[blue!70!black, thick]
+            ({\rb + \Rtri*cos(\btwo)}, {\Rtri*sin(\btwo)*\k}) -- 
+            ({\rb + \Rtri*cos(\btwo)}, {\H + \Rtri*sin(\btwo)*\k})
+            ({\rb + \Rtri*cos(\bthree)}, {\Rtri*sin(\bthree)*\k}) -- 
+            ({\rb + \Rtri*cos(\bthree)}, {\H + \Rtri*sin(\bthree)*\k});
+        
+        % 上底面（z=H）- 后半部分（灰色）
+        \draw[blue!70!black, thick]
+            ({\rb + \Rtri*cos(\bone)}, {\H + \Rtri*sin(\bone)*\k}) --
+            ({\rb + \Rtri*cos(\btwo)}, {\H + \Rtri*sin(\btwo)*\k});
+        % 上底面 - 前半部分（主色）
+        \draw[blue!70!black, thick]
+            ({\rb + \Rtri*cos(\btwo)}, {\H + \Rtri*sin(\btwo)*\k}) --
+            ({\rb + \Rtri*cos(\bthree)}, {\H + \Rtri*sin(\bthree)*\k}) --
+            ({\rb + \Rtri*cos(\bone)}, {\H + \Rtri*sin(\bone)*\k});
+        
+        % 截面边界 - 后半灰，前半主色
+        \draw[gray!50]
+            ({\rb + \Rtri*cos(\bthree)}, {\h + \Rtri*sin(\bthree)*\k}) --
+            ({\rb + \Rtri*cos(\bone)}, {\h + \Rtri*sin(\bone)*\k}) --
+            ({\rb + \Rtri*cos(\btwo)}, {\h + \Rtri*sin(\btwo)*\k});
+        \draw[blue!70!black, thick]
+            ({\rb + \Rtri*cos(\btwo)}, {\h + \Rtri*sin(\btwo)*\k}) --
+            ({\rb + \Rtri*cos(\bthree)}, {\h + \Rtri*sin(\bthree)*\k});
+        % 截面（z=h）- 半透明填充
+        \fill[blue!30, opacity=0.75]
+            ({\rb + \Rtri*cos(\bone)}, {\h + \Rtri*sin(\bone)*\k}) --
+            ({\rb + \Rtri*cos(\btwo)}, {\h + \Rtri*sin(\btwo)*\k}) --
+            ({\rb + \Rtri*cos(\bthree)}, {\h + \Rtri*sin(\bthree)*\k}) -- cycle;
+        
+        % 高度标注
+        \draw[red!70,thick] 
+            ({\lb + \Rpent*cos(\aone)+0.45}, {\Rpent*sin(\aone)*\k}) --
+            ({\lb + \Rpent*cos(\aone)+0.55}, {\Rpent*sin(\aone)*\k})
+            ({\lb + \Rpent*cos(\aone)+0.45}, {\Rpent*sin(\aone)*\k + \H}) --
+            ({\lb + \Rpent*cos(\aone)+0.55}, {\Rpent*sin(\aone)*\k + \H});
+        \draw[red!70,thick] 
+            ({\lb + \Rpent*cos(\aone)+0.5}, {\Rpent*sin(\aone)*\k}) -- 
+            ({\lb + \Rpent*cos(\aone)+0.5}, {\Rpent*sin(\aone)*\k + 0.34*\H})
+            ({\lb + \Rpent*cos(\aone)+0.5}, {\Rpent*sin(\aone)*\k + 0.67*\H}) -- 
+            ({\lb + \Rpent*cos(\aone)+0.5}, {\Rpent*sin(\aone)*\k + \H});
+        \node[gray] at ({\lb + \Rpent*cos(\aone)+0.5}, {\Rpent*sin(\aone)*\k + 0.5 * \H}) {$H$};
+        \draw[red!70,thick] 
+            ({\lb + \Rpent*cos(\aone)+0.26}, {\Rpent*sin(\aone)*\k }) --
+            ({\lb + \Rpent*cos(\aone)+0.34}, {\Rpent*sin(\aone)*\k })
+            ({\lb + \Rpent*cos(\aone)+0.26}, {\Rpent*sin(\aone)*\k + \h}) --
+            ({\lb + \Rpent*cos(\aone)+0.34}, {\Rpent*sin(\aone)*\k + \h});
+        \draw[red!70,thick] 
+            ({\lb + \Rpent*cos(\aone)+0.3}, {\Rpent*sin(\aone)*\k}) -- 
+            ({\lb + \Rpent*cos(\aone)+0.3}, {\Rpent*sin(\aone)*\k + 0.3*\h})
+            ({\lb + \Rpent*cos(\aone)+0.3}, {\Rpent*sin(\aone)*\k + 0.7*\h}) -- 
+            ({\lb + \Rpent*cos(\aone)+0.3}, {\Rpent*sin(\aone)*\k + \h});
+        \node[gray] at ({\lb + \Rpent*cos(\aone)+0.3}, {\Rpent*sin(\aone)*\k + 0.5 * \h}) {$h$};
+        \draw[red!70,thick] 
+            ({\rb + \Rtri*cos(\btwo)-0.3}, {\Rtri*sin(\btwo)*\k}) --
+            ({\rb + \Rtri*cos(\btwo)-0.4}, {\Rtri*sin(\btwo)*\k})
+            ({\rb + \Rtri*cos(\btwo)-0.3}, {\Rtri*sin(\btwo)*\k + \H}) --
+            ({\rb + \Rtri*cos(\btwo)-0.4}, {\Rtri*sin(\btwo)*\k + \H});
+        \draw[red!70,thick] 
+            ({\rb + \Rtri*cos(\btwo)-0.34}, {\Rtri*sin(\btwo)*\k}) -- 
+            ({\rb + \Rtri*cos(\btwo)-0.34}, {\Rtri*sin(\btwo)*\k + 0.34*\H})
+            ({\rb + \Rtri*cos(\btwo)-0.34}, {\Rtri*sin(\btwo)*\k + 0.67*\H}) -- 
+            ({\rb + \Rtri*cos(\btwo)-0.34}, {\Rtri*sin(\btwo)*\k + \H});
+        \node[gray] at ({\rb + \Rtri*cos(\btwo)-0.34}, {\Rtri*sin(\btwo)*\k + 0.5 * \H}) {$H$};
+        \draw[red!70,thick] 
+            ({\rb + \Rtri*cos(\btwo)-0.08}, {\Rtri*sin(\btwo)*\k}) --
+            ({\rb + \Rtri*cos(\btwo)-0.16}, {\Rtri*sin(\btwo)*\k})
+            ({\rb + \Rtri*cos(\btwo)-0.08}, {\Rtri*sin(\btwo)*\k + \h}) --
+            ({\rb + \Rtri*cos(\btwo)-0.16}, {\Rtri*sin(\btwo)*\k + \h});
+        \draw[red!70,thick] 
+            ({\rb + \Rtri*cos(\btwo)-0.12}, {\Rtri*sin(\btwo)*\k}) -- 
+            ({\rb + \Rtri*cos(\btwo)-0.12}, {\Rtri*sin(\btwo)*\k + 0.3*\h})
+            ({\rb + \Rtri*cos(\btwo)-0.12}, {\Rtri*sin(\btwo)*\k + 0.7*\h}) -- 
+            ({\rb + \Rtri*cos(\btwo)-0.12}, {\Rtri*sin(\btwo)*\k + \h});
+        \node[gray] at ({\rb + \Rtri*cos(\btwo)-0.12}, {\Rtri*sin(\btwo)*\k + 0.5 * \h}) {$h$};
+        \node[black] at ({\lb + \Rpent*cos(\atwo)-0.25}, {\Rpent*sin(\atwo)*\k + 0.06+ \H}) {$X$};
+        \node[black] at ({\rb + \Rtri*cos(\bone)-0.43}, {\Rtri*sin(\bone)*\k +0.02+ \H}) {$Y$};
+        \node[black] at ({\rb + \Rtri*cos(\bone)+1}, {\Rtri*sin(\bone)*\k +0.08+ \H}) {$\gamma_1$};
+        \node[black] at ({\rb + \Rtri*cos(\bone)+1}, {\Rtri*sin(\bone)*\k +0.08}) {$\gamma_2$};
+        \node[black] at ({\rb + \Rtri*cos(\bone)+1}, {\Rtri*sin(\bone)*\k +0.08+ \h}) {$\gamma$};
+    \end{tikzpicture}
+    \captionsetup{justification=centering}
+    \caption*{\texttt{任意高度} $h$ \texttt{面积相等，则体积相等}}
+\end{figure}
+
 
 例如：左侧多面体$X$和右侧多面体$Y$分别被平行于平面$\gamma_1,\gamma_2$的平面所截，
 前者的截面是五边形，后者的截面是三角形。
@@ -2539,6 +2952,92 @@ $$ x^2 + y^2 = r^2, \quad 0\leqslant z \leqslant r $$
 $$ x^2 + y^2 = z^2, \quad 0\leqslant z \leqslant r $$
 平面$z = z_0$截该圆锥得到的截面面积为$\pi z_0^2$。
 
+\begin{figure}[h]
+    \vspace{4pt}
+    \centering
+    \begin{tikzpicture}[scale=1.5]
+    \def\r{1}   % 球半径
+    \def\k{0.25}% 椭圆短半轴比例
+    \def\lb{-2*\r}
+    \def\rb{3*\r}
+    \def\width{6*\r}%
+    \def\depth{0.7*\r}%
+    \def\c{0.6}
+    \def\h{\c*\r}
+    \pgfmathsetmacro{\rc}{sqrt(1-\c*\c)*\r}
+    
+    % 底面平行四边形（30度角，仅作参考背景）
+    \draw[gray!30] (\lb,-0.5*\depth) -- (\lb+\width,-0.5*\depth) -- (\lb+\width+1.73*\depth, 0.5*\depth) -- (\lb+1.73*\depth, 0.5*\depth) -- cycle;
+    \draw[gray!30] (\lb,-0.5*\depth+\h) -- (\lb+\width,-0.5*\depth+\h) -- (\lb+\width+1.73*\depth, 0.5*\depth+\h) -- (\lb+1.73*\depth, 0.5*\depth+\h) -- cycle;
+    
+    % 椭圆下半部分（底面交线）
+    \draw[thick, blue!70!black] 
+        (0,0) ++(180:\r) arc [start angle=180, end angle=360, x radius=\r, y radius=\r*\k];
+    \draw[thick, gray!70] 
+        (0,0) ++(180:\r) arc [start angle=180, end angle=0, x radius=\r, y radius=\r*\k];
+    
+    %----上半球----
+    % 半球高
+    \draw[gray!70, dashed] (0,0) -- (0,\r);
+    % 底部直径
+    \draw[gray!70] (-\r,0) -- (\r,0);
+    % 截面填充
+    \fill[fill=blue!50, opacity=0.5] (0,\h) ellipse (\rc cm and \rc*\k cm);
+    % 勾股关系
+    \draw[red!70, dashed] (0,0) -- (0,\h) -- (\rc,\h) -- cycle;
+    
+    % 底面后半
+    \draw[gray!70] 
+        (0,\h) ++(180:\rc) arc [start angle=180, end angle=0, x radius=\rc, y radius=\rc*\k];
+    % 底面前半
+    \draw[blue!70!black] 
+        (0,\h) ++(180:\rc) arc [start angle=180, end angle=360, x radius=\rc, y radius=\rc*\k];
+    % 上半圆（球面轮廓）
+    \draw[thick, blue!70!black] 
+        (0,0) ++(180:\r) arc [start angle=180, end angle=0, radius=\r];
+
+    %----右侧圆柱-倒圆锥----
+    % 截面填充
+    \fill[fill=blue!50, opacity=0.5] (\rb,\h) ellipse (\r cm and \r*\k cm);
+
+    \fill[fill=white] (\rb,\h) ellipse (\h cm and \h*\k cm);
+    % 倒圆锥侧边
+    \draw[gray!70] (\rb-\r, \r) -- (\rb,0);
+    \draw[gray!70] (\rb+\r, \r) -- (\rb,0);
+    % 底部直径
+    \draw[gray!70] (\rb-\r,0) -- (\rb+\r,0);
+    % 比例关系
+    \draw[red!70, dashed] (\rb,\h) -- (\rb+\h,\h);
+    % \draw[red!70, dashed] (\rb,0) -- (\rb+\h,\h);
+    \draw[red!70, dashed] (\rb,0) -- (\rb,\r) -- (\rb+\r,\r);
+
+    % 下底面后半
+    \draw[thick, gray!70] 
+        (\rb,0) ++(180:\r) arc [start angle=180, end angle=0, x radius=\r, y radius=\r*\k];
+    \draw[thick, blue!70!black] (\rb-\r,0) -- (\rb-\r,\r);
+    \draw[thick, blue!70!black] (\rb+\r,0) -- (\rb+\r,\r);
+    % 上底面后半
+    \draw[thick, blue!70!black] 
+        (\rb,\r) ++(180:\r) arc [start angle=180, end angle=0, x radius=\r, y radius=\r*\k];
+    % 截面外环后半
+    \draw[gray!70] 
+        (\rb,\h) ++(180:\r) arc [start angle=180, end angle=0, x radius=\r, y radius=\r*\k];
+    % 截面内环
+    \draw[gray!70] 
+        (\rb,\h) ++(180:\h) arc [start angle=180, end angle=-180, x radius=\h, y radius=\h*\k];
+    % 截面外环前半
+    \draw[blue!70!black] 
+        (\rb,\h) ++(180:\r) arc [start angle=180, end angle=360, x radius=\r, y radius=\r*\k];
+    % 上底面前半
+    \draw[thick, blue!70!black] 
+        (\rb,\r) ++(180:\r) arc [start angle=180, end angle=360, x radius=\r, y radius=\r*\k];
+    % 下底面前半
+    \draw[thick, blue!70!black] 
+        (\rb,0) ++(180:\r) arc [start angle=180, end angle=360, x radius=\r, y radius=\r*\k];
+    \end{tikzpicture}
+\end{figure}
+
+\vspace{4pt}
 因此，考虑圆柱中挖去圆锥得到的形状，根据等积原理，它的体积等于半个球（$z>0$部分）的体积。
 于是，
 \begin{align*}
@@ -2548,7 +3047,7 @@ $$ x^2 + y^2 = z^2, \quad 0\leqslant z \leqslant r $$
 \end{align*}
 即：
 \begin{tm}\label{tm:3-3-30}
-    半径为$r$的球，体积为$\frac{4}{3}\pi r^3$。
+    半径为$r$的球，体积为$\displaystyle\frac{4}{3}\pi r^3$。
 \end{tm}
 
 \begin{sk}
@@ -2583,7 +3082,7 @@ $$ x^2 + y^2 = z^2, \quad 0\leqslant z \leqslant r $$
     \item $\forall \,\,\mathbf{u}, \,\,\mathbf{v}$，$f(\mathbf{u} + \mathbf{v}) = f(\mathbf{u}) + f(\mathbf{v})$
     \item $\forall \,\,k, \,\, \mathbf{u}$，$f(k\cdot \mathbf{u}) = k \cdot f(\mathbf{u})$
 \end{enumerate}
-不难验证，空间中的直变换也把原点映射到原点，把直线映射到直线或点，并把数轴映射为数轴，因此也叫\textbf{轴变换}。直变换和平移操作的复合同样称为\textbf{维直变换}。
+不难验证，空间中的直变换也把原点映射到原点，把直线映射到直线或点，并把数轴映射为数轴。直变换和平移操作的复合同样称为\textbf{维直变换}。
 
 立体空间中有哪些直变换呢？
 
@@ -2693,10 +3192,10 @@ $$ \begin{bmatrix}
 \end{align*}
 在剪映射$f$作用下，基向量$\mathbf{e}_1$保持不变，$\mathbf{e}_2$沿$\mathbf{e}_1$方向移动$a$个单位，而$\mathbf{e}_3$沿$\mathbf{e}_1, \mathbf{e}_2$方向分别移动$b,c$个单位。
 
-\section{空间的基变换}
+\section{空间的基变换}%TODO
 空间中的直变换也包括基变换。基变换把空间的一组基底转为另一组基底。
 
-\section{特征值和特征向量}
+\section{特征值和特征向量}%TODO
 
 % 观察平面和空间的变换，我们发现，有一类向量能帮助我们理解
 
@@ -2824,44 +3323,52 @@ $z$轴（竖轴）按$y$轴长度标上刻度。朝反方向延伸可以画出�
 下面验证：根据向量定义的点、直线、平面符合平面公理、平直公理、交面公理和补充的平行公理。
 
 \section{平面公理}
-首先来看平面公理。任取不共轴三点$A,B,C$，则$A-C,B-C$直无关，
-因此$ \{sA+tB+(1 - s - t)C \, | \,s, t\in\mathbb{R}\}$是$A,B,C$确定的平面。
+首先来看平面公理。
+\begin{po}{\textbf{平面公理}}
+    过不共直线的三点，有且仅有一个平面。
+\end{po}
+任取不共直线的三点$A,B,C$，则$A-C,B-C$直无关，因此$ \{sA+tB+(1 - s - t)C \, | \,s, t\in\mathbb{R}\}$就是$A,B,C$确定的平面。
 
 \section{平直公理}
 再来看平直公理。
-如果点$P,Q$在平面$ \{sA+tB+(1 - s - t)C \, | \, s,t\in\mathbb{R}\}$中，那么存在$s_1, t_1, s_2, t_2$使得
+\begin{po}{\textbf{平直公理}}
+    过平面上不重合两点的直线，在平面中。
+\end{po}
+如果点$P,Q$在平面$ \{sA+tB+C \, | \, s,t\in\mathbb{R}\}$中，那么存在$s_1, t_1, s_2, t_2$使得
 \begin{align*}
-P &= s_1A + t_1B + (1 - s_1 - t_1)C  \\
-Q &= s_2A + t_2B + (1 - s_2 - t_2)C  
+P &= s_1A + t_1B + C  \\
+Q &= s_2A + t_2B + C  
 \end{align*}
 直线$PQ$是集合$\{uP+(1-u)Q \, | \, u\in \mathbb{R}\}$，其中任一点$U = uP+(1-u)Q$可以用$A,B,C$表示为
 \begin{align*}
 U &= uP+(1-u)Q  \\
-&= (us_1 + (1-u)s_2)A + (ut_1 + (1-u)t_2)B + (u(1 - s_1 - t_1) + (1-u)(1 - s_2 - t_2))C   \\
-&= (us_1 + (1-u)s_2)A + (ut_1 + (1-u)t_2)B + (1 - (us_1 + (1-u)s_2) - (ut_1 + (1-u)t_2))C 
+&= (us_1 + (1-u)s_2)A + (ut_1 + (1-u)t_2)B + (u + (1-u))C   \\
+&= (us_1 + (1-u)s_2)A + (ut_1 + (1-u)t_2)B + C 
 \end{align*}
-因此$U$在平面$ABC$中。这说明向量表示的空间符合平直公理。
+因此$U$在平面$ABC$中。
 
 \section{交面公理}
 接下来验证交面公理。
-如果两平面$\gamma_1, \gamma_2$交于点$C$，记$\gamma_1 = \mathbb{R}A_1+\mathbb{R}B_1+C$，$\gamma_2 = \mathbb{R}A_2+\mathbb{R}B_2+C$。
-其中$(A_1,B_1)$直无关，$(A_2,B_2)$直无关。两平面公共点可以表示为让以下等式成立的$s_1,t_1,s_2,t_2$：
+\begin{po}{\textbf{交面公理}}
+    两个平面如果有交集，则交集至少包含两个不重合的点。
+\end{po}
+如果两平面$\gamma_1, \gamma_2$交于点$C$，记$\gamma_1 = \mathbb{R}A_1+\mathbb{R}B_1+C$，$\gamma_2 = \mathbb{R}A_2+\mathbb{R}B_2+C$。其中$(A_1,B_1)$直无关，$(A_2,B_2)$直无关。两平面公共点可以表示为让以下等式成立的$s_1,t_1,s_2,t_2$：
 $$ s_1A_1+t_1B_1+C = s_2A_2+t_2B_2+C. $$
 以上等式可以转为：
 $$ s_1A_1+t_1B_1 - s_2A_2 - t_2B_2 = \mathbf{0}. $$
-根据空间的根本性质，四个向量总是直相关。所以存在不全为零的四个实数$s_1,t_1,s_2,t_2$使上式成立。
-由于$(A_1,B_1)$直无关，$(A_2,B_2)$直无关，所以$s_1A_1+t_1B_1$和$s_2A_2 + t_2B_2$为零向量时，
-$s_1,t_1,s_2,t_2$必然全为零。然而$s_1,t_1,s_2,t_2$不全为零，所以$s_1A_1+t_1B_1$和$s_2A_2 + t_2B_2$不为零向量。
-于是这时$s_1A_1+t_1B_1+C = s_2A_2+t_2B_2+C\neq C$是两平面另一个公共点。这说明向量表示的空间符合交面公理。
+根据空间的根本性质，四个向量总是直相关。所以存在不全为零的四个实数$s_1,t_1,s_2,t_2$使上式成立。由于$(A_1,B_1)$直无关，$(A_2,B_2)$直无关，如果$s_1A_1+t_1B_1$和$s_2A_2 + t_2B_2$都是零向量，$s_1,t_1,s_2,t_2$必然全为零。然而$s_1,t_1,s_2,t_2$不全为零，所以$s_1A_1+t_1B_1 =s_2A_2 + t_2B_2$不是零向量。于是$s_1A_1+t_1B_1+C = s_2A_2+t_2B_2+C\neq C$是两平面另一个公共点。这说明向量表示的空间符合交面公理。
 
 \section{平行公理}
+\begin{po}{\textbf{平行公理}}\label{po:2}
+    过直线外一点，有且仅有一条与它平行的直线。它在直线与点确定的平面上。
+\end{po}
 我们主要验证平行线共面的性质。
 平面中，两条直线平行，当且仅当它们的直部是同一条过原点的直线。我们用这个方法来判定空间中直线的平行关系。设有两直线$l_1\parallel l_2$，那么它们是同一条过原点的直线平移而成：
 \begin{align*}
 l_1: & \,\,\, \mathbb{R}\mathbf{a} + \mathbf{b}_1  \\
 l_2: & \,\,\, \mathbb{R}\mathbf{a} + \mathbf{b}_2
 \end{align*}
-所以$l_1,l_2$都在平面：$\gamma = \mathbb{R}\mathbf{a} + \mathbb{R}(\mathbf{b}_1 - \mathbf{b}_2) + \mathbf{b}_2$中。
+注意到$\mathbf{b}_1 - \mathbf{b}_2 \notin \mathbb{R}\mathbf{a}$，否则两直线重合。于是$\mathbf{a}$和$\mathbf{b}_1 - \mathbf{b}_2$不共轴。所以$l_1,l_2$都在平面：$\gamma = \mathbb{R}\mathbf{a} + \mathbb{R}(\mathbf{b}_1 - \mathbf{b}_2) + \mathbf{b}_2$中。
 对任意$t\in\mathbb{R}$，$l_1$中的点$t\mathbf{a} + \mathbf{b}_1 = t\mathbf{a} + 1\cdot(\mathbf{b}_1 - \mathbf{b}_2) + \mathbf{b}_2 \in \gamma$；
 $l_2$中的点$t\mathbf{a} + \mathbf{b}_2 = t\mathbf{a} + 0\cdot(\mathbf{b}_1 - \mathbf{b}_2) + \mathbf{b}_2 \in \gamma$。
 这说明，两条平行直线总在同一平面内，即向量表示的空间符合补充后的平行公理。

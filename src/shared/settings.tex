@@ -10,6 +10,7 @@
 \usepackage{float}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{mathrsfs}
 \usepackage{mathtools}
 \usepackage{polynom}
 \usepackage{xfrac}
@@ -19,6 +20,7 @@
 \usepackage[version=4]{mhchem}
 \usepackage{tikz-cd}
 \usepackage{enumitem}
+\usepackage{ulem}
 \usepackage{verbatim}
 \usepackage[makeroom]{cancel}
 \usepackage[toc,page]{appendix}
@@ -87,18 +89,20 @@
 \renewcommand{\parallel}{\mathrel{/\mskip-4mu/}}  % 平行符号
 \renewcommand{\proofname}{\indent\bf 证明}  % 自定义证明标题
 \renewcommand{\qedsymbol}{\hfill$\square$}  % 自定义证毕符号
+\renewcommand{\Pr}[1]{\mathbb{P}\left(#1\right)}
 \newcommand{\e}{\mathrm{e}}  % 自然底数
 \newcommand{\dash}{\,–}  % 短折号
 \newcommand{\hin}[2]{[\![#1,#2]\!]}  % 整数罗列集合 \hin{1}{n}：从1到n的整数
 \newcommand{\tong}[1]{\overset{#1}{\equiv\joinrel\equiv}}  % 同余等号
 \newcommand{\di}[1]{\,\mathrm{d}#1}  % 微元d
-\newcommand{\diff}{\,\mathfrak{D}}  % 微元d
+\newcommand{\diff}{\,\mathscr{D}}  % 微元d
 \newcommand{\qu}[2]{\displaystyle\left(#1;#2\right)}  % 开区间
+\newcommand{\kon}[2]{\overset{\circ}{U}\left(#1,\,#2\right)}  % 去心邻域
 % 局部展开 developpements limites
 \newcommand{\oveq}[1]{\overset{#1}{=}}   % equal over
 \newcommand{\olim}[1]{\mathit{o}\left(#1\right)}  % petit o
 \newcommand{\Olim}[1]{\mathcal{O}\left(#1\right)}  % grand O
-\newcommand{\Tlim}[1]{\mathcal{\Theta}\left(#1\right)}  % grand theta
+\newcommand{\Tlim}[1]{\tau\left(#1\right)}  % grand theta
 \newcommand{\eqlim}[1]{\overset{#1}{\sim}}  % equivalence
 \newcommand{\vect}[1]{\left\langle #1 \right\rangle}  % 生成空间 generated space
 
@@ -108,6 +112,10 @@
     \underset{#1}{\operatorname{lian}\,}
 }
 \newcommand{\nji}[2]{\displaystyle\left( #1 \,|\, #2 \right)}  % 内积
+\newcommand{\supp}[1]{\underset{#1}{\text{\texttt{上}}}}  % 上确界
+\newcommand{\inff}[1]{\underset{#1}{\text{\texttt{下}}}}  % 下确界
+\newcommand{\maxx}[1]{\underset{#1}{\text{\texttt{大}}}}  % 最大值
+\newcommand{\minn}[1]{\underset{#1}{\text{\texttt{小}}}}  % 最小值
 \newcommand{\dangle}{  % 角符号
     \mathord{
         \text{  %
@@ -132,6 +140,7 @@
         }
     }
 }
+\newcommand{\inv}[1]{#1^{(-1)}}  % 映射的逆映射
 \newcommand{\rectbx}{  % 长方形符号
     \mathord{
         \text{%
@@ -182,8 +191,16 @@
 \newcommand{\fanshe}[1]{\text{反}_{#1}}
 \newcommand{\touying}[1]{\text{投}_{#1}}
 \newcommand{\xuan}[1]{\text{旋}_{#1}}
-
-\renewcommand{\Pr}[1]{\mathbb{P}\left(#1\right)}
+% 定义选学章节命令：目录和标题同步加星号
+\newcommand{\chapterext}[1]{%
+  \chapter[#1\textsuperscript{*}]{#1\textsuperscript{*}}%
+}
+\newcommand{\sectionext}[1]{%
+  \section[#1\textsuperscript{*}]{#1\textsuperscript{*}}%
+}
+\newcommand{\subsectionext}[1]{%
+  \subsection[#1\textsuperscript{*}]{#1\textsuperscript{*}}%
+}
 
 % 定义、定理、证明等块环境
 \theoremstyle{definition}
@@ -215,6 +232,7 @@
 \setlist{label=\textbullet}
 % 列举环境行间距
 \setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
+\setenumerate[2]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
 \setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
 \setdescription{itemsep=0pt,partopsep=0pt,parsep=0pt,topsep=0pt}
 % 章节间距

@@ -9,6 +9,7 @@
               "-synctex=1",
               "-interaction=nonstopmode",
               "-file-line-error",
+              "-shell-escape",
               "--output-directory=%OUTDIR%",
               "-verbose",
               "%DOC%"

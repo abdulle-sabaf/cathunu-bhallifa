@@ -51,13 +51,14 @@
     $\displaystyle\bigcap_{i\in I} A_i$ & 对$I$中所有$i$，集合$A_i$的交集 \\
     $\displaystyle\bigcup_{i\in I} A_i$ & 对$I$中所有$i$，集合$A_i$的并集 \\
     $\displaystyle\sum_{i\in I} x_i$ & 对$I$中所有$i$，数$x_i$的和 \\
+    $\displaystyle\prod_{i\in I} x_i$ & 对$I$中所有$i$，数$x_i$的乘积 \\
     & \\
     $\neg p$ & 命题$p$的否定 \\
     $p \wedge q$ & $p$并且$q$ \\
     $p \vee q$ & $p$或者$q$ \\
-    $p \rightarrow q$ & 若$p$则$q$ \\
-    $p \leftarrow q$ & 只有$p$才$q$ \\
-    $p \leftrightarrow q$ & $p$当且仅当$q$ \\
+    $p \Rightarrow q$ & 若$p$则$q$ \\
+    $p \Leftarrow q$ & 只有$p$才$q$ \\
+    $p \Leftrightarrow q$ & $p$当且仅当$q$ \\
     $p \oplus q$ & 要么$p$要么$q$ \\
     & \\
     $|AB|$ & 线段$AB$的长度 \\
@@ -80,7 +81,7 @@
     $\hin{1}{n}$ & 从$1$到$n$（的整数）\\
     $\sqrt[3]{5}$ & $5$的$3$次方根 \\
     $\mathbb{R}^*$ & 非零实数集 \\
-    $\mathbb{R}^2$ & 平面坐标系 \\
+    $\mathbb{R}^2$ & 带坐标系的平面 \\
     $\infty$ & 无穷大 \\
     $f\circ g$ & 函数$f$复合$g$ \\
     $\displaystyle\sum_{i=1}^n x_i$ & 数$x_1, x_2, \cdots, x_n$的和 \\
@@ -104,13 +105,20 @@
     $\mathbb{P}(A)$ & 事件$A$的概率 \\
     $\mathbb{E}(f)$ & 随机变量$f$的期望 \\
     $\mathrm{Var}(f)$ & 随机变量$f$的变差 \\
-    $P_n$ & $n$排列数 \\
-    $P_n^k$ & $n$选$k$排列数 \\
-    $C_n^k$ & $n$选$k$组合数 \\
+    $\pilo{n}$ & $n$排列数 \\
+    $\pilo{n}[k]$ & $n$选$k$排列数 \\
+    $\bino{n}{k}$ & $n$选$k$组合数 \\
     $n!$ & $n$的阶乘 \\
     & \\
     $\displaystyle\{a_n\}_{n\in\mathbb{Z}^+}$ & 无穷数列 \\
-    $\lian{n\to \infty} a_n = x$ & 数列$\{a_n\}$趋于极限$x$ \\
+    $\{a_n\} \rightarrow x$ & 数列$\{a_n\}_{n\in\mathbb{Z}^+}$趋于极限$x$ \\
+    $\lian{n\to \infty} a_n = x$ & 数列$\{a_n\}_{n\in\mathbb{Z}^+}$趋于极限$x$ \\
+    $\lian{x\to a} f(x) = b$ & 函数$f$在$a$处有极限$b$ \\
+    $\displaystyle\lim_{x\to a} f(x) = b$ & 函数$f$在$a$附近有极限$b$ \\
+    $\lian{x\to a^-} f(x) = b$ & 函数$f$在$a$处有左极限$b$ \\
+    $\lian{x\to a^+} f(x) = b$ & 函数$f$在$a$处有右极限$b$ \\
+    $\displaystyle\lim_{x\to a^-} f(x) = b$ & 函数$f$在$a$左旁有极限$b$ \\
+    $\displaystyle\lim_{x\to a^+} f(x) = b$ & 函数$f$在$a$右旁有极限$b$ \\
     $\arcsin{x}$ & $x$的反正弦 \\
     $\arccos{x}$ & $x$的反余弦 \\
     $\arctan{x}$ & $x$的反正切 \\
@@ -119,16 +127,18 @@
     $\log_a{x}$ & $x$的$a$底对数 \\
     $\lg{x}$ & $x$的常用对数 \\
     $\ln{x}$ & $x$的自然对数 \\
-    $f^{(-1)}$ & $f$的逆映射 \\
-    $e$ & 自然对数的底数 \\
+    $\inv{f}$ & $f$的逆映射 \\
+    $\e$ & 自然对数的底数\footnote{读作“一”。} \\
     $\pi$ & 圆周率\footnote{读作“拍”。} \\
     $|A|$ & 集合$A$的势 \\
-    $\underset{x\in S}{\text{上}} f(x)$ & $f$在$S$上的上确界\\
-    $\underset{x\in S}{\text{下}} f(x)$ & $f$在$S$上的下确界\\
-    $\underset{x\in S}{\text{大}} f(x)$ & $f$在$S$上的最大值\\
-    $\underset{x\in S}{\text{小}} f(x)$ & $f$在$S$上的最小值\\
-    $\text{大}(x, y)$ & $x$和$y$的较大者 \\
-    $\text{小}(x, y)$ & $x$和$y$的较小者 \\
+    $\supp{} (S)$ & 集合$S$的上确界\\
+    $\inff{} (S)$ & 集合$S$的下确界\\
+    $\supp{x\in S} f(x)$ & $f$在$S$上的上确界\\
+    $\inff{x\in S} f(x)$ & $f$在$S$上的下确界\\
+    $\maxx{x\in S} f(x)$ & $f$在$S$上的最大值\\
+    $\minn{x\in S} f(x)$ & $f$在$S$上的最小值\\
+    $\text{\texttt{大}}(x, y)$ & $x$和$y$的较大者 \\
+    $\text{\texttt{小}}(x, y)$ & $x$和$y$的较小者 \\
     $\partial f(x)$ & 函数$f$在$x$处的微变率 \\
     $\partial f$ & 函数$f$的微变函数 \\
     $\partial^n f(x)$ & 函数$f$在$x$处的$n$次微变 \\
@@ -152,7 +162,7 @@
     $\mathcal{A}_I(\mathbb{R})$ & $I$上实函数集合 \\
     $\mathcal{L}_I(\mathbb{R})$ & $I$上连续实函数集合 \\
     $\mathcal{W}^k_I(\mathbb{R})$ & $I$上$k$次可微实函数集合 \\
-    $\mathcal{C}^2_I(\mathbb{R})$ & $I$上$k$次连续可微实函数集合 \\
+    $\mathcal{C}^k_I(\mathbb{R})$ & $I$上$k$次连续可微实函数集合 \\
     $\mathbb{K}(a)$ & 数域$\mathbb{K}$关于$a$的扩张 \\
     $\mathbb{K}[x]$ & $\mathbb{K}$系数多项式 \\
     $\mathbb{K}_n[x]$ & 次数不超过$n$的$\mathbb{K}$系数多项式 \\
