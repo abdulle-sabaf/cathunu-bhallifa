@@ -60,12 +60,86 @@
 % \end{align*}
 % 因此$P$在$H$中。这就说明$F$的图像是$H$的图像按原点逆时针旋转$45^\circ$的结果。
 
-
-
 \begin{ex}\label{ex:0-0-0}
     设从圆外一点$P(x_P, \,\,y_P)$出发，到以$C(x_C,\,\,y_C)$为圆心，$r$为半径的圆的切线为$l_1$、$l_2$。
     求$l_1$、$l_2$的方程。
 \end{ex}
+
+\begin{figure}[htbp] 
+    % \vspace{-10pt}
+    \centering
+    \begin{tikzpicture}[scale=0.7]
+    % ==================== 左图：特殊情况 ====================
+    \begin{scope}[shift={(0,0)}] % 左图原点 
+        \def\xmin{-3.5};
+        \def\xmax{3.4};
+        \def\ymin{-0.3};
+        \def\ymax{6.8};
+        % 圆心和点
+        \coordinate (C2) at (-1,3);
+        \coordinate (P2) at (2,6);
+        \draw[blue, thick] (C2) circle (2);
+        % 坐标轴
+        \draw[-Stealth, thick] (\xmin,0) -- (\xmax,0) node[right] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        
+        % 可选标出切点（示意）
+        \coordinate (T1) at (-1.58, 4.91);
+        \coordinate (T2) at (0.91, 2.42);
+        % 切线（用向量近似方向示意）\draw (C2) -- ($(C2)!-0.5!(P2)$);
+        \draw[gray!80!black, thick] (P2) -- ($(P2)!-0.3!(T1)$);
+        \draw[gray!80!black, thick] (T1) -- ($(T1)!-0.55!(P2)$);
+        \draw[gray!80!black, thick] (P2) -- ($(P2)!-0.15!(T2)$);
+        \draw[gray!80!black, thick] (T2) -- ($(T2)!-0.75!(P2)$);
+        \draw[gray!80!black, thick] (P2) -- (T1) node[midway, above left] {$l_1$};
+        \draw[gray!80!black, thick] (P2) -- (T2) node[midway, below right] {$l_2$};
+        \draw[blue, dashed] (C2) -- (T1) node[midway, right] {$r$};
+        \fill[blue!70!black] (T1) circle (3pt); % node[above left] {$Q_1$}
+        \fill[blue!70!black] (T2) circle (3pt); % node[below right] {$Q_2$}
+        \fill[blue!70!black] (C2) circle (3pt) node[below left] {$C$};
+        \fill[black] (P2) circle (3pt) node[below right] {$P$};
+    \end{scope}
+
+    % \pgfmathsetmacro{\angle}{atan2(3,4)}
+    % ==================== 右图：一般情况 ====================
+    \begin{scope}[shift={(8,3)}] % 向右平移 %逆时针旋转旋转, rotate=\angle
+        \def\R{2};
+        \def\xmin{-2.3};
+        \def\xmax{6.5};
+        \def\ymin{-3.5};
+        \def\ymax{3.8};
+        % 圆心和点
+        \coordinate (C2) at (0,0);
+        \coordinate (P2) at (5,0);
+        \draw[blue, thick] (C2) circle (2);
+        % 坐标轴
+        % \draw (-2.3,0) -- (-0.9,0);
+        \draw[-Stealth, thick] (\xmin,0) -- (\xmax,0) node[right] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        
+        % 可选标出切点（示意）
+        \coordinate (T3) at (0.8, 1.83);
+        \coordinate (T4) at (0.8, -1.83);
+        % 切线（用向量近似方向示意）\draw (C2) -- ($(C2)!-0.5!(P2)$);
+        \draw[gray!80!black, thick] (P2) -- ($(P2)!-0.35!(T3)$);
+        \draw[gray!80!black, thick] (T3) -- ($(T3)!-0.75!(P2)$);
+        \draw[gray!80!black, thick] (P2) -- ($(P2)!-0.35!(T4)$);
+        \draw[gray!80!black, thick] (T4) -- ($(T4)!-0.75!(P2)$);
+        \draw[blue, dashed] (C2) -- (T3) node[midway, right] {$r$};
+        \draw[gray!80!black, thick] (P2) -- (T3) node[midway, above] {$l_1$};
+        \draw[gray!80!black, thick] (P2) -- (T4) node[midway, below] {$l_2$};
+        \fill[blue!70!black] (T3) circle (3pt) node[above] {$Q_1$};
+        \fill[blue!70!black] (T4) circle (3pt); % node[below right] {$Q_2$}
+        \fill[blue!70!black] (C2) circle (3pt) node[below left] {$O$};
+        \fill[black] (P2) circle (3pt) node[above] {$P$};
+        
+    \end{scope}
+
+    \end{tikzpicture}
+    \captionsetup{justification=centering}
+    \caption*{\texttt{左：一般情况~~ 
+                      右：圆心在原点，出发点在$x$轴正半轴上}}
+\end{figure}
 
 先考虑简单的情况。如果圆心在原点，出发点在$x$轴正半轴上（$y_P = 0$，$x_P>0$），设$l_1$、$l_2$的方程分别为：
 \begin{align*}
@@ -156,13 +230,193 @@ $$
     \item 用从原点到$C$的平移映射，把出发点从$P_1$移到$P$，同时移动切线。最终得到切线的方程。
 \end{enumerate}
 
-\begin{figure}[h]
-    \vspace{4pt}
+\begin{figure}[htbp] 
+    % \vspace{-10pt}
     \centering
-    \includegraphics[width=0.9\textwidth]{tu/求切线变换1.png}
+    \begin{tikzpicture}[scale=0.55]
+    % ==================== 左图 ====================
+    \begin{scope}[shift={(0,0)}] % 左图原点
+        \def\R{2}; % 圆半径
+        \def\xmin{-4.2};
+        \def\xmax{6.8};
+        \def\ymin{-2.3};
+        \def\ymax{5.8};
+        % =========== 一般情形 ============
+        % 圆心和点
+        \coordinate (C1) at (-3,2);
+        \coordinate (P1) at (1,5);
+        \coordinate (C2) at (0,0);
+        \coordinate (P2) at (5,0);
+        \coordinate (P3) at (4,3);
+        \draw[blue, thick] (C1) circle (\R);
+        % 切点
+        \coordinate (T1) at (-3.46, 3.95);
+        \coordinate (T2) at (-1.26, 1.01);
+        % 坐标轴
+        \draw[-Stealth, thick] (\xmin,0) -- (\xmax,0) node[below] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        \foreach \k in {-2,-1,1,2,...,5} {
+            \draw[help lines,gray!60] (\xmin,\k) -- (\xmax,\k) ;
+        }
+        \foreach \k in {-4,-3,-2,-1,1,2,...,6} {
+            \draw[help lines,gray!60] (\k,\ymin) -- (\k,\ymax) ;
+        }
+        % 标出平移箭头
+        \draw[-Stealth, green!80!blue, thick] (P1) -- (P3);
+        \draw[-Stealth, green!80!blue, thick] (C1) -- (C2);
+        % 切线
+        \draw[SkyBlue, dashed] (P1) -- ($(P1)!-0.7!(T1)$);
+        \draw[SkyBlue, dashed] (T1) -- ($(T1)!-0.2!(P1)$);
+        \draw[SkyBlue, dashed] (P1) -- ($(P1)!-0.2!(T2)$);
+        \draw[SkyBlue, dashed] (T2) -- ($(T2)!-0.82!(P1)$);
+        \draw[SkyBlue, dashed] (P1) -- (T1); % node[midway, above] {$l_1$};
+        \draw[SkyBlue, dashed] (P1) -- (T2); % node[midway, right] {$l_2$};
+        % \draw[blue, dashed] (C1) -- (T1) node[midway, right] {$r$};
+        % 标出切点
+        \fill[blue!70!black] (T1) circle (3pt); % node[above left] {$Q_1$}
+        \fill[blue!70!black] (T2) circle (3pt); % node[below right] {$Q_2$}
+        % 标出圆心和出发点P
+        \fill[blue!70!black] (C1) circle (3pt) node[below left] {$C$};
+        \fill[black] (P1) circle (3pt) node[below] {$P$};
+        
+        % ========= 特殊情形 =========
+        % 圆心和点
+        % \draw[blue, thick] (C2) circle (2);
+        \draw[blue, thick] 
+        (36.87:\R) arc[start angle=36.87, end angle=360, radius=\R];
+        \fill[red!30!orange, opacity=0.25] 
+        (0,0) -- (0:\R) arc[start angle=0, end angle=36.87, radius=\R] -- 
+        cycle;
+        
+        % 标出旋转箭头
+        \draw[red!30!orange, -Stealth, thick] 
+        (36.87:5) arc[start angle=36.87, end angle=0, radius=5];
+        \draw[red!30!orange, -Stealth, thick] 
+        (36.87:\R) arc[start angle=36.87, end angle=0, radius=\R];
+        % 切点
+        \coordinate (T3) at (0.8, 1.83);
+        \coordinate (T4) at (0.8, -1.83);
+        \coordinate (T5) at (-0.46, 1.95);
+        \coordinate (T6) at (1.74, -0.99);
+        % 标出切线
+        \draw[CadetBlue, thick] (P2) -- ($(P2)!-0.35!(T3)$);
+        \draw[CadetBlue, thick] (T3) -- ($(T3)!-0.5!(P2)$);
+        \draw[CadetBlue, thick] (P2) -- ($(P2)!-0.35!(T4)$);
+        \draw[CadetBlue, thick] (T4) -- ($(T4)!-0.25!(P2)$);
+        \draw[CadetBlue, thick] (P2) -- (T3) node[midway, above, Blue] {$l_1$}; %
+        \draw[CadetBlue, thick] (P2) -- (T4) node[midway, below, Blue] {$l_2$}; %
+        % 标出切线
+        \draw[teal, dashed] (P3) -- ($(P3)!-0.55!(T5)$);
+        \draw[teal, dashed] (T5) -- ($(T5)!-0.5!(P3)$);
+        \draw[teal, dashed] (P3) -- ($(P3)!-0.7!(T6)$);
+        \draw[teal, dashed] (T6) -- ($(T6)!-0.32!(P3)$);
+        \draw[teal, dashed] (P3) -- (T5);
+        \draw[teal, dashed] (P3) -- (T6);
+        % 标出切点
+        \fill[blue!70!black] (T3) circle (3pt); % node[above] {$Q_1$}
+        \fill[blue!70!black] (T4) circle (3pt); %  node[below right] {$Q_2$}
+        \fill[blue!70!black] (T5) circle (3pt); % node[above] {$Q_1$}
+        \fill[blue!70!black] (T6) circle (3pt); %  node[below right] {$Q_2$}
+        % 标出圆心和出发点P
+        \fill[blue!70!black] (C2) circle (3pt) node[below left] {$O$};
+        \fill[black] (P2) circle (3pt) node[below] {$P_2$};
+        \fill[black] (P3) circle (3pt) node[right] {$P_1$};
+    \end{scope}
+
+    % \pgfmathsetmacro{\angle}{atan2(3,4)}
+    % ==================== 右图 ====================    
+    \begin{scope}[shift={(12,0)}] % 左图原点
+        \def\R{2}; % 圆半径
+        \def\xmin{-4.2};
+        \def\xmax{6.5};
+        \def\ymin{-2.3};
+        \def\ymax{5.8};
+        % =========== 一般情形 ============
+        % 圆心和点
+        \coordinate (C1) at (-3,2);
+        \coordinate (P1) at (1,5);
+        \coordinate (C2) at (0,0);
+        \coordinate (P2) at (5,0);
+        \coordinate (P3) at (4,3);
+        \draw[blue, thick] (C1) circle (\R);
+        % 切点
+        \coordinate (T1) at (-3.46, 3.95);
+        \coordinate (T2) at (-1.26, 1.01);
+        % 坐标轴
+        \draw[-Stealth, thick] (\xmin,0) -- (\xmax,0) node[below] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        \foreach \k in {-2,-1,1,2,...,5} {
+            \draw[help lines,gray!60] (\xmin,\k) -- (\xmax,\k) ;
+        }
+        \foreach \k in {-4,-3,-2,-1,1,2,...,6} {
+            \draw[help lines,gray!60] (\k,\ymin) -- (\k,\ymax) ;
+        }
+        % 标出平移箭头
+        \draw[-Stealth, green!80!blue, thick] (P3) -- (P1);
+        \draw[-Stealth, green!80!blue, thick] (C2) -- (C1);
+        % 切线
+        \draw[CadetBlue, thick] (P1) -- ($(P1)!-0.7!(T1)$);
+        \draw[CadetBlue, thick] (T1) -- ($(T1)!-0.2!(P1)$);
+        \draw[CadetBlue, thick] (P1) -- ($(P1)!-0.2!(T2)$);
+        \draw[CadetBlue, thick] (T2) -- ($(T2)!-0.82!(P1)$);
+        \draw[CadetBlue, thick] (P1) -- (T1) node[midway, above, Blue] {$l_1$};
+        \draw[CadetBlue, thick] (P1) -- (T2) node[midway, right, Blue] {$l_2$};
+        % \draw[blue, dashed] (C1) -- (T1) node[midway, right] {$r$};
+        % 标出切点
+        \fill[blue!70!black] (T1) circle (3pt); % node[above left] {$Q_1$}
+        \fill[blue!70!black] (T2) circle (3pt); % node[below right] {$Q_2$}
+        % 标出圆心和出发点P
+        \fill[blue!70!black] (C1) circle (3pt) node[below left] {$C$};
+        \fill[black] (P1) circle (3pt) node[below] {$P$};
+        
+        % ========= 特殊情形 =========
+        % 圆心和点
+        % \draw[blue, thick] (C2) circle (2);
+        \draw[blue, thick] 
+        (36.87:\R) arc[start angle=36.87, end angle=360, radius=\R];
+        \fill[red!30!orange, opacity=0.25] 
+        (0,0) -- (0:\R) arc[start angle=0, end angle=36.87, radius=\R] -- 
+        cycle;
+        
+        % 标出旋转箭头
+        \draw[red!30!orange, -Stealth, thick] 
+        (0:5) arc[start angle=0, end angle=36.87, radius=5];
+        \draw[red!30!orange, -Stealth, thick] 
+        (0:\R) arc[start angle=0, end angle=36.87, radius=\R];
+        % 切点
+        \coordinate (T3) at (0.8, 1.83);
+        \coordinate (T4) at (0.8, -1.83);
+        \coordinate (T5) at (-0.46, 1.95);
+        \coordinate (T6) at (1.74, -0.99);
+        % 标出切线
+        \draw[SkyBlue, dashed] (P2) -- ($(P2)!-0.35!(T3)$);
+        \draw[SkyBlue, dashed] (T3) -- ($(T3)!-0.5!(P2)$);
+        \draw[SkyBlue, dashed] (P2) -- ($(P2)!-0.35!(T4)$);
+        \draw[SkyBlue, dashed] (T4) -- ($(T4)!-0.25!(P2)$);
+        \draw[SkyBlue, dashed] (P2) -- (T3); % node[midway, above] {$l_1$};
+        \draw[SkyBlue, dashed] (P2) -- (T4); % node[midway, below] {$l_2$};
+        % 标出切线
+        \draw[teal, dashed] (P3) -- ($(P3)!-0.55!(T5)$);
+        \draw[teal, dashed] (T5) -- ($(T5)!-0.5!(P3)$);
+        \draw[teal, dashed] (P3) -- ($(P3)!-0.7!(T6)$);
+        \draw[teal, dashed] (T6) -- ($(T6)!-0.32!(P3)$);
+        \draw[teal, dashed] (P3) -- (T5);
+        \draw[teal, dashed] (P3) -- (T6);
+        % 标出切点
+        \fill[blue!70!black] (T3) circle (3pt); % node[above] {$Q_1$}
+        \fill[blue!70!black] (T4) circle (3pt); %  node[below right] {$Q_2$}
+        \fill[blue!70!black] (T5) circle (3pt); % node[above] {$Q_1$}
+        \fill[blue!70!black] (T6) circle (3pt); %  node[below right] {$Q_2$}
+        % 标出圆心和出发点P
+        \fill[blue!70!black] (C2) circle (3pt) node[below left] {$O$};
+        \fill[black] (P2) circle (3pt) node[below] {$P_2$};
+        \fill[black] (P3) circle (3pt) node[right] {$P_1$};
+    \end{scope}
+
+    \end{tikzpicture}
     \captionsetup{justification=centering}
-    \caption*{\texttt{左：先\textcolor{LimeGreen}{平移}再\textcolor{YellowOrange}{旋转}，把圆心移到原点，$P$移到$x$轴上\\ 
-                      右：先\textcolor{YellowOrange}{旋转}再\textcolor{LimeGreen}{平移}，把$P$点和圆移回，切线随之移动}}
+    \caption*{\texttt{左：先\textcolor{green!80!blue}{平移}再\textcolor{red!30!orange}{旋转}，把圆心移到原点，$P$移到$x$轴上\\ 
+                      右：先\textcolor{red!30!orange}{旋转}再\textcolor{green!80!blue}{平移}，把$P$点和圆移回，切线随之移动}}
 \end{figure}
 
 我们已经知道，如果出发点在$x$轴正半轴上，那么求出一个切点的操作，可以用以下的映射表示：
@@ -553,13 +807,57 @@ $$
 把基向量$\mathbf{e}_y$映射到自身。给定标准单位正方形，$J_t$把它变为同底等高的平行四边形。
 
 % 错切变换：正方形变为同底等高的平行四边形
-\begin{figure}[h]
-    \vspace{4pt}
+% \begin{figure}[h]
+%     \vspace{4pt}
+%     \centering
+%     \includegraphics[width=0.6\textwidth]{tu/剪变换1.png}
+%     \captionsetup{justification=centering}
+%     \caption*{\texttt{剪变换}$J_t$\texttt{把\textcolor[RGB]{162,69,22}{标准单位正方形}变换为\textcolor[RGB]{218,183,74}{平行四边形}}}
+
+% \end{figure}
+
+\begin{figure}[htbp] 
+    % \vspace{-10pt}
     \centering
-    \includegraphics[width=0.6\textwidth]{tu/剪变换1.png}
+    \begin{tikzpicture}[scale=1.2]
+    \begin{scope}[shift={(0,0)}]
+        \def\xmin{-3.9};
+        \def\xmax{3.9};
+        \def\ymin{-1.2};
+        \def\ymax{3.5};
+
+        % 坐标轴
+        \draw[gray!90, dashed] (\xmin,2) -- (\xmax,2);
+        \foreach \k in {-1,1,3} {
+            \draw[gray!30, dashed] (\xmin,\k) -- (\xmax,\k) ;
+        }
+        \foreach \k in {-2,2} {
+            \draw[gray!90, dashed] (\k,\ymin) -- (\k,\ymax) ;
+        }
+        \foreach \k in {-3,-1,1,3} {
+            \draw[gray!30, dashed] (\k,\ymin) -- (\k,\ymax) ;
+        }
+        \draw[-Stealth, thick] (\xmin,0) -- (\xmax,0) node[below] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        \fill[color={rgb,255:red,162;green,69;blue,22}, opacity=0.2] (0,0) rectangle (2,2);
+        \draw[very thick, color={rgb,255:red,162;green,69;blue,22}] (0,0) rectangle (2,2);
+        \fill[color={rgb,255:red,218;green,183;blue,74}, opacity=0.2] (0,0) -- (2,0) -- (3.2,2) -- (1.2,2) -- cycle;
+        \draw[very thick, color={rgb,255:red,218;green,183;blue,74}] (0,0) -- (1.2,2) (2,0) -- (3.2,2) -- (2,2);
+        \draw[very thick, color={rgb,255:red,190;green,128;blue,48}] (2,2) -- (1.2,2);
+        \draw[-Stealth,very thick, color={rgb,255:red,190;green,128;blue,48}] (0,0) -- (2,0);
+        \draw[-Stealth,very thick, color={rgb,255:red,162;green,69;blue,22}] (0,0) -- (0,2);
+        \draw[-Stealth,very thick, color={rgb,255:red,218;green,183;blue,74}] (0,0) -- (1.2,2);
+        \node[red!60!black] at (0.2, 1.1) {$\mbox{\footnotesize $\mathbf{e}_y$}$};
+        \node[brown!70!black] at (1.2, 0.7) {$\mbox{\footnotesize $\mathbf{e}_y + 0.6\mathbf{e}_x$}$};
+        \node[black] at (-3.3,2.75) {$t = 0.6$};
+        \node[black] at (-3.03,2.2) {$J_t(\mathbf{e}_x) = \mathbf{e}_x$};
+        \node[black] at (-2.44,1.6) {$J_t(\mathbf{e}_y) = \mathbf{e}_y + 0.6 \mathbf{e}_x$};
+
+    \end{scope}
+
+    \end{tikzpicture}
     \captionsetup{justification=centering}
     \caption*{\texttt{剪变换}$J_t$\texttt{把\textcolor[RGB]{162,69,22}{标准单位正方形}变换为\textcolor[RGB]{218,183,74}{平行四边形}}}
-
 \end{figure}
 
 现实的工程问题中常常会遇到这个变换。
@@ -602,6 +900,85 @@ $$
 
 从这个角度来看，之前的讨论可以看作是对平面的坐标系进行变换。
 我们把坐标系转移到圆心处，让$x$轴正方向对准出发点，在这个坐标系下求出切点，再转回原来的坐标系。
+
+\begin{figure}[htbp] 
+    \vspace{-10pt}
+    \centering
+    \begin{tikzpicture}[scale=0.7]
+    % ==================== 左图：特殊情况 ====================
+    \begin{scope}[shift={(0,0)}] % 左图原点
+        % 坐标轴
+        \draw[-Stealth,thick] (-5.3,0) -- (2.2,0) node[right] {$x$};
+        \draw[-Stealth,thick] (0,-1.2) -- (0,6.2) node[above] {$y$};
+        \foreach \k in {-1,1,2,...,6} {
+            \draw[help lines,gray!60] (-5.3,\k) -- (2.2,\k) ;
+        }
+        \foreach \k in {-5,...,-1,1,2} {
+            \draw[help lines,gray!60] (\k,-1.2) -- (\k,6.2) ;
+        }
+        
+        % 圆和圆心
+        \coordinate (C1) at (-3,2);
+        \coordinate (P1) at (1,5);
+        \draw[blue, thick] (C1) circle (2);
+        % 可选标出切点（示意）
+        \coordinate (T1) at (-3.46, 3.95);
+        \coordinate (T2) at (-1.26, 1.01);
+        
+        % 切线
+        \draw[black, thick] (P1) -- ($(P1)!-0.3!(T1)$);
+        \draw[black, thick] (T1) -- ($(T1)!-0.4!(P1)$);
+        \draw[black, thick] (P1) -- ($(P1)!-0.3!(T2)$);
+        \draw[black, thick] (T2) -- ($(T2)!-0.54!(P1)$);
+        \draw[black, thick] (P1) -- (T1) node[midway, above] {$l_1$};
+        \draw[black, thick] (P1) -- (T2) node[midway, right] {$l_2$};
+        \fill[blue!70!black] (T1) circle (3pt); % node[above left] {$Q_1$};
+        \fill[blue!70!black] (T2) circle (3pt); % node[below right] {$Q_2$};
+        \fill[blue!70!black] (C1) circle (3pt);
+        \node[blue!70!black] at ($(C1) - (0.23,0.4)$) {$C$};
+        \fill[black] (P1) circle (3pt) node[below right] {$P$};
+    \end{scope}
+
+    \pgfmathsetmacro{\angle}{atan2(3,4)}
+    % ==================== 右图：一般情况 ====================
+    \begin{scope}[shift={(7,2)}, rotate=\angle] % 右图整体向右平移
+        % 圆心和点
+        \coordinate (C2) at (0,0);
+        \coordinate (P2) at (5,0);
+        \draw[blue, thick] (C2) circle (2);
+        % 坐标轴
+        % \draw[thick] (-2.3,0) -- (-0.9,0);
+        \draw[-Stealth,thick] (-2.3,0) -- (5.9,0) node[right] {$x$};
+        \draw[-Stealth,thick] (0,-2.3) -- (0,4.2) node[above left] {$y$};
+        \foreach \k in {-2,-1,1,2,...,4} {
+            \draw[help lines,gray!60] (-2.3,\k) -- (5.4,\k) ;
+        }
+        \foreach \k in {-2,-1,1,2,...,5} {
+            \draw[help lines,gray!60] (\k,-2.3) -- (\k,4.2) ;
+        }
+        
+        % 可选标出切点（示意）
+        \coordinate (T3) at (0.8, 1.83);
+        \coordinate (T4) at (0.8, -1.83);
+        % 切线（用向量近似方向示意）\draw (C2) -- ($(C2)!-0.5!(P2)$);
+        \draw[black, thick] (P2) -- ($(P2)!-0.25!(T3)$);
+        \draw[black, thick] (T3) -- ($(T3)!-0.7!(P2)$);
+        \draw[black, thick] (P2) -- ($(P2)!-0.3!(T4)$);
+        \draw[black, thick] (T4) -- ($(T4)!-0.3!(P2)$);
+        \draw[black, thick] (P2) -- (T3) node[midway, above] {$l_1$};
+        \draw[black, thick] (P2) -- (T4) node[midway, right] {$l_2$};
+        \fill[blue!70!black] (T3) circle (3pt); % node[above left] {$Q_1$};
+        \fill[blue!70!black] (T4) circle (3pt); % node[below right] {$Q_2$};
+        \fill[blue!70!black] (C2) circle (3pt);
+        \node[blue!70!black] at ($(C2)-(0.4,0.3)$) {$C$};
+        \fill[black] (P2) circle (3pt) node[below right] {$P$};
+        
+    \end{scope}
+
+    \end{tikzpicture}
+    \captionsetup{justification=centering}
+    \caption*{\texttt{左：原本坐标系~~右：变换坐标系简化问题}}
+\end{figure}
 
 让我们用向量的语言来具体说明。仍然从圆心平移到原点后的情况出发，设出发点在这个坐标系里的坐标是$(x_P,\,\,y_P)$。
 坐标系对应一组基底向量：$\mathbf{e}_x, \mathbf{e}_y$。出发点可以表示为：
@@ -677,11 +1054,71 @@ $$ s\mathbf{e}_1 + t\mathbf{e}_2 = x\mathbf{e}_1' + y\mathbf{e}_2'.$$
         \end{dcases}
 \end{alignat*}
 
-\begin{figure}[h]
-    \vspace{4pt}
+\begin{figure}[htbp] 
+    % \vspace{-10pt}
     \centering
-    \includegraphics[width=0.9\textwidth]{tu/基变换1.png}
+    \begin{tikzpicture}[scale=0.8]
+    % ==================== 原坐标轴 ====================
+    \begin{scope}[shift={(0,0)}]
+        \def\R{2}; % 圆半径
+        \def\xmin{-5.2};
+        \def\xmax{7.2};
+        \def\ymin{-4.6};
+        \def\ymax{4.6};
+
+        \foreach \x in {-5,...,7} {
+            \draw[help lines, brown!20!lightgray] (\x,\ymin) -- (\x,\ymax);
+        }
+        \foreach \y in {-4,...,4} {
+            \draw[help lines, brown!20!lightgray] (\xmin,\y) -- (\xmax,\y);
+        }
+        % 坐标轴（带箭头）
+        \draw[-Stealth, thick] (\xmin,0) -- (\xmax,0) node[right] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        
+        % 刻度与数字
+        \foreach \x in {-5,-4,...,-1,1,2,...,7} {
+            \draw (\x,0.1) -- (\x,-0.1); 
+            \node[black] at (\x, -0.35) {$\mbox{\scriptsize $\x$}$};
+        }
+        \foreach \y in {1,2,3,4} {
+            \draw (0.1,\y) -- (-0.1,\y);
+            \draw (0.1,-\y) -- (-0.1,-\y);
+            \node[black] at (-0.3, \y) {$\mbox{\scriptsize $\y$}$};
+            \node[black] at (-0.45, -\y) {$\mbox{\scriptsize $-\y$}$};
+        }
+        \node[black] at (-0.3, -0.35) {$\mbox{\scriptsize $0$}$};
+        
+        % ========== 新基底网格==========
+        \begin{scope}
+            % 关键：裁剪路径必须严格匹配坐标系范围
+            \clip (\xmin,\ymin) rectangle (\xmax,\ymax);
+            
+            % 扩大网格生成范围（确保覆盖裁剪区域）
+            \foreach \b in {-8,-7,...,8} { % 平行于 e1 的线 (固定 b)
+            \draw[cyan!20!lightgray, thin] 
+                ({2*(-4) - \b}, {-4 + \b}) -- ({2*4 - \b}, {4 + \b});
+            }
+            \foreach \a in {-6,-5,...,6} { % 平行于 e2 的线 (固定 a)
+            \draw[cyan!20!lightgray, thin] 
+                ({2*\a - (-5)}, {\a + (-5)}) -- ({2*\a - 5}, {\a + 5});
+            }
+        \end{scope}
+        
+        % ========== 新基底向量 ==========
+        \draw[-Stealth, very thick, brown!70!black, opacity=0.7] (0,0) -- (1,0);
+        \node[brown!70!black] at (1.15, 0.22) {$\mathbf{e}_1$};
+        \draw[-Stealth, very thick, brown!70!black, opacity=0.7] (0,0) -- (0,1);
+        \node[brown!70!black] at (0.35, 0.9) {$\mathbf{e}_2$};
+        \fill[red!70!black] (4, -2.5) circle (3pt) node[above left] {$P$};
+        \draw[-Stealth, very thick, blue!70!black] (0,0) -- (2,1) node[right] {$\mathbf{e}_1'$};
+        \draw[-Stealth, very thick, blue!70!black] (0,0) -- (-1,1) node[left] {$\mathbf{e}_2'$};
+
+    \end{scope}
+
+    \end{tikzpicture}
     \captionsetup{justification=centering}
+    \caption*{\texttt{$P$点在原坐标系的坐标是$(4, -2.5)$，即从原点往右$4$格，往下$2.5$格，\\在新坐标系中是$(0.5, -3)$，即从原点沿$\mathbf{e}_1'$移动$0.5$格，沿$-\mathbf{e}_2'$移$3$格}}
 \end{figure}
 
 来看一个具体的例子。设基变换$h$在原基底上的矩阵为
@@ -1298,10 +1735,79 @@ $$ A\cdot B = A\cdot (B + uA) = 0$$
 空间的根本性质告诉我们，给定两个直无关的向量$A,B$，总有向量$C$使得$A,B,C$为空间的基底。
 我们尝试用消影法将它正交归一，得到空间的正交归一基$A_1,B_1,\mathbf{n}$，然后证明$\mathbf{n}$与$A,B$垂直。
 
-\begin{figure}[h] 
-    % \vspace{-4pt}
+\begin{figure}[htbp] 
+    % \vspace{-10pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{tu/消影法1.png}
+    \begin{tikzpicture}[scale=0.6]
+    \begin{scope}[shift={(0,0)}] % 左图原点
+        \def\xx{2};
+        \def\xy{3};
+        \def\yy{3};
+        \def\cu{-0.078};
+        \def\xmin{-1.2};
+        \def\xmax{3.8};
+        \def\ymin{-1.6};
+        \def\ymax{4.6};
+        % 坐标轴（带箭头）
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[right] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        
+        \draw[-Latex, ultra thick, red!70!black] (0,0) -- (\yy,0);
+        \node[red!70!black] at (\yy+0.15, 0.25) {$A$};
+        \draw[thick, gray, dashed] (\xx,0) -- (\xx,\xy);
+        \draw[-Latex, ultra thick, ForestGreen] (0,0) -- (\xx,\xy);
+        \node[ForestGreen!50!black] at (\xx+0.35, \xy-0.2) {$B$};
+        \node[ForestGreen!50!black] at (-0.35, \xy-0.2) {$B'$};
+        \draw[ultra thick, ForestGreen!40!white] (0,\cu) -- (\xx,\cu);
+        \draw[-Latex, ultra thick, ForestGreen!40!white, opacity=0.8] (0,0) -- (0,\xy);
+        \fill[black] (0,0) circle (3pt);
+        \draw[-Latex, thick, red!70!black] (\xx,\xy) -- (0,\xy);
+        \node[red!70!black] at (0.5*\xx, \xy+0.5) {$-\frac{A\cdot B}{A\cdot A} A$};
+    \end{scope}
+    \begin{scope}[shift={(12,0)}]
+        \def\xx{-3};
+        \def\xy{2.5};
+        \def\yx{2};
+        \def\yy{1.5};
+        \def\zz{1};
+        \def\cu{-0.078};
+        \def\xbeg{1.2};
+        \def\xmin{-2.2};
+        \def\xmax{3.8};
+        \def\ymin{-2.6};
+        \def\ymax{5.2};
+        % 坐标轴（带箭头）
+        \draw[gray!30] (-5,-2.5) -- (1.2,-2.6) -- (4.5,1.5) -- (-1.4, 1.5) -- cycle;
+        \fill[lightgray!30, opacity=0.3] (-5,-2.5) -- (1.2,-2.6) -- (4.5,1.5) -- (-1.4, 1.5) -- cycle;
+        \draw[ultra thick, ForestGreen!40!white, opacity=0.6] (0,0.05+\cu) -- (\xx+\yx,+\cu);
+        \draw[-Stealth, thick] (\xbeg, \xbeg) -- (\ymin,\ymin) node[right] {$x$};
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[right] {$y$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$z$};
+        
+        \draw[ultra thick, ForestGreen!40!white] (0,0) -- (\xx,-\yx);
+        \draw[-Latex, ultra thick, Cerulean!80!Blue] (0,0) -- (\yy,0);
+        \draw[ultra thick, ForestGreen!40!white, opacity=0.6] (0,+\cu) -- (-\yx,-\yx+\cu);
+        \draw[-Latex, ultra thick, red!70!black] (0,0) -- (-\zz,-\zz);
+        \node[red!70!black] at (-\zz+0.3, -\zz-0.25) {$A_1$};
+        \node[Cerulean!60!Blue] at (\yy+0.15, -0.4) {$B_1$};
+        \draw[-Latex, ultra thick, ForestGreen] (0,0) -- (\xx,\xy);
+        \draw[thick, gray, dashed] (-\yx, -\yx) -- (\xx,-\yx);
+        \draw[thick, gray, dashed] (\xx+\yx, 0) -- (\xx,-\yx);
+        \draw[thick, gray, dashed] (\xx, \xy) -- (\xx,-\yx);
+        \draw[thick, gray, dashed] (\xx+\yx, 0) -- (\xx+\yx,\xy+\yx);
+        \node[ForestGreen!50!black] at (\xx-0.35, \xy) {$C$};
+        \node[ForestGreen!50!black] at (0.5, \xy+\yx) {$C_1$};
+        \draw[-Latex, ultra thick, ForestGreen!40!white, opacity=0.8] (0,0) -- (0,\xy+\yx);
+        \draw[-Latex, ultra thick, ForestGreen!50!black] (0,0) -- (0,\yy);
+        \node[ForestGreen!50!black] at (0.42, \yy-0.2) {$\mathbf{n}$};
+        \fill[black] (0,0) circle (3pt);
+        \fill[ForestGreen] (\xx,-\yx) circle (3pt);
+        \draw[-Latex, thick, red!70!black] (\xx,\xy) -- (\xx+\yx,\xy+\yx);
+        \draw[-Latex, thick, Cerulean!80!Blue] (\xx+\yx,\xy+\yx) -- (0,\xy+\yx);
+        \node[red!70!black] at (\xx-1.2, \xy+0.5*\yx) {$-(A_1\cdot C) A_1$};
+        \node[Cerulean!60!Blue] at (\xx+\yx-1.2, \xy+\yx+0.4) {$-(B_1\cdot C) B_1$};
+    \end{scope}
+    \end{tikzpicture}
     \caption*{\texttt{平面和立体空间中的消影法}}
 \end{figure}
 
@@ -3359,7 +3865,7 @@ $$ s_1A_1+t_1B_1 - s_2A_2 - t_2B_2 = \mathbf{0}. $$
 根据空间的根本性质，四个向量总是直相关。所以存在不全为零的四个实数$s_1,t_1,s_2,t_2$使上式成立。由于$(A_1,B_1)$直无关，$(A_2,B_2)$直无关，如果$s_1A_1+t_1B_1$和$s_2A_2 + t_2B_2$都是零向量，$s_1,t_1,s_2,t_2$必然全为零。然而$s_1,t_1,s_2,t_2$不全为零，所以$s_1A_1+t_1B_1 =s_2A_2 + t_2B_2$不是零向量。于是$s_1A_1+t_1B_1+C = s_2A_2+t_2B_2+C\neq C$是两平面另一个公共点。这说明向量表示的空间符合交面公理。
 
 \section{平行公理}
-\begin{po}{\textbf{平行公理}}\label{po:2}
+\begin{po}{\textbf{平行公理}}
     过直线外一点，有且仅有一条与它平行的直线。它在直线与点确定的平面上。
 \end{po}
 我们主要验证平行线共面的性质。
