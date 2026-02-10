@@ -628,7 +628,58 @@ $f_1$和$f_2$分别是一次和二次函数。
 \begin{figure}[h]
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{tu/整幂函数1.png}
+    % \includegraphics[width=0.8\textwidth]{tu/整幂函数1.png}
+    \begin{tikzpicture}[scale=0.6]
+    \begin{scope}[shift={(0,0)}]
+        \def\xmin{-6.6};
+        \def\xmax{9.6};
+        \def\ymin{-4.4};
+        \def\ymax{8.6};
+        % 坐标轴（带箭头）
+        \foreach \k in {-4,-3,-2,-1,1,2,...,8} {
+            \draw[help lines,gray!60] (\xmin,\k) -- (\xmax,\k) ;
+        }
+        \foreach \k in {-6,-5,...,-1,1,2,...,9} {
+            \draw[help lines,gray!60] (\k,\ymin) -- (\k,\ymax);
+        }
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[above] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        \foreach \k in {1,2,...,8} { 
+            \node at (-0.3,\k) {$\mbox{\tiny $\k$}$};
+            \node at (\k,-0.3) {$\mbox{\tiny $\k$}$};
+        }
+        \node at (9,-0.3) {$\mbox{\tiny $9$}$};
+        \foreach \k in {-4,-3,-2,-1} {  % ,
+            \node at (-0.45,\k) {$\mbox{\tiny $\k$}$};
+        }
+        % 作图
+        \draw[red, thick, domain=\ymin:\ymax, samples=200]
+        plot (\x,{\x});
+        \draw[OliveGreen, thick, domain=-2.898:2.898, samples=200]
+        plot (\x,{\x*\x});
+        \draw[blue, thick, domain=-1.64:2.03, samples=200]
+        plot (\x,{\x*\x*\x});
+        \draw[SpringGreen, thick, domain=-1.701:1.701, samples=200]
+        plot (\x,{\x*\x*\x*\x});
+        \draw[Purple, thick, domain=-1.345:1.53, samples=200]
+        plot (\x,{\x*\x*\x*\x*\x});
+        \draw[Dandelion, thick, domain=-1.4256:1.4257, samples=200]
+        plot (\x,{\x*\x*\x*\x*\x*\x});
+        \draw[very thick, fill=white] (5,3.2) rectangle (8.8,4.6);
+        \node at (6.9, 3.9) {$\mbox{\small $f_n:\,x\mapsto x^n$}$};
+        \draw[very thick, fill=white] (4,-4) rectangle (8.4,2);
+        \draw[red,ultra thick] (4.5,1.5) -- (5.4,1.5);
+        \draw[OliveGreen,ultra thick] (4.5,0.5) -- (5.4,0.5);
+        \draw[blue,ultra thick] (4.5,-0.5) -- (5.4,-0.5);
+        \draw[SpringGreen,ultra thick] (4.5,-1.5) -- (5.4,-1.5);
+        \draw[Purple,ultra thick] (4.5,-2.5) -- (5.4,-2.5);
+        \draw[Dandelion,ultra thick] (4.5,-3.5) -- (5.4,-3.5);
+        \foreach \k in {1,2,...,6} { 
+            \node at (6.6,2.5-\k) {$\mbox{\footnotesize $n=\k$}$};
+            \node at (-\k-0.15,-0.3) {$\mbox{\tiny $-\k$}$};
+        }
+    \end{scope}
+    \end{tikzpicture}
     \caption*{\texttt{整幂函数}$x\mapsto x^n$\texttt{的图像}}
 \end{figure}
 
@@ -729,7 +780,82 @@ $$ f_{-n} : \;\,\, x \mapsto \frac{1}{x^n}$$
 \begin{figure}[h]
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{tu/整幂函数2.png}
+    % \includegraphics[width=0.8\textwidth]{tu/整幂函数2.png}
+      \begin{tikzpicture}[scale=2]
+    \begin{scope}[shift={(0,0)}]
+        \def\xmin{-2.5};
+        \def\xmax{3};
+        \def\ymin{-2};
+        \def\ymax{2.5};
+        \def\ca{0.15};
+        \def\cf{0.06};
+        % 坐标轴（带箭头）
+        \foreach \k in {-1.5,-1,-0.5,0.5,1,...,2} { % ymin -> ymax
+            \draw[help lines,gray!60] (\xmin,\k) -- (\xmax,\k) ;
+        }
+        \foreach \k in {-2,-1.5,-1,-0.5,0.5,1,...,2.5} { % xmin -> xmax
+            \draw[help lines,gray!60] (\k,\ymin) -- (\k,\ymax);
+        }
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[above] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        \foreach \k in {0.5,1,...,2} { 
+            \node at (-\ca,\k) {$\mbox{\scriptsize $\k$}$};
+            \node at (\k,-\ca) {$\mbox{\scriptsize $\k$}$};
+            \node at (-\k-\cf,-\ca) {$\mbox{\scriptsize $-\k$}$};
+        }
+        \node at (2.5,-\ca) {$\mbox{\scriptsize $2.5$}$};
+        \foreach \k in {-1.5,-1,-0.5} {  % ,
+            \node at (-\ca-\cf,\k) {$\mbox{\scriptsize $\k$}$};
+        }
+        % 作图
+        \draw[red, thick, domain=\xmin:-0.5, samples=200]
+        plot (\x,{1/\x});
+        \draw[red, thick, domain=0.4:\xmax, samples=200]
+        plot (\x,{1/\x});
+        \draw[OliveGreen, thick, domain=\xmin:-0.633, samples=200]
+        plot (\x,{1/(\x*\x)});
+        \draw[OliveGreen, thick, domain=0.633:\xmax, samples=200]
+        plot (\x,{1/(\x*\x)});
+        \draw[blue, thick, domain=\xmin:-0.794, samples=200]
+        plot (\x,{1/(\x*\x*\x)});
+        \draw[blue, thick, domain=0.737:\xmax, samples=200]
+        plot (\x,{1/(\x*\x*\x)});
+        \draw[SpringGreen, thick, domain=\xmin:-0.796, samples=200]
+        plot (\x,{1/(\x*\x*\x*\x)});
+        \draw[SpringGreen, thick, domain=0.796:\xmax, samples=200]
+        plot (\x,{1/(\x*\x*\x*\x)});
+        \draw[Purple, thick, domain=\xmin:-0.871, samples=200]
+        plot (\x,{1/(\x*\x*\x*\x*\x)});
+        \draw[Purple, thick, domain=0.833:\xmax, samples=200]
+        plot (\x,{1/(\x*\x*\x*\x*\x)});
+        \draw[Dandelion, thick, domain=\xmin:-0.859, samples=200]
+        plot (\x,{1/(\x*\x*\x*\x*\x*\x)});
+        \draw[Dandelion, thick, domain=0.859:\xmax, samples=200]
+        plot (\x,{1/(\x*\x*\x*\x*\x*\x)});
+        \draw[very thick, fill=white] (1.2,1.8) rectangle (2.8,2.4);
+        \node at (1.95, 2.1) {$\mbox{ $\displaystyle f_{-n}:\,x\mapsto \frac{1}{x^n}$}$};
+        \def\xpd{0.13};
+        \def\xlb{0.4};
+        \def\xmw{1.1};
+        \def\ylb{-1.95};
+        \def\ypd{0.23};
+        \def\ymw{0.4};
+        \def\bar{0.23};
+        \draw[very thick, fill=white] (\xlb,\ylb) rectangle (\xlb+2*\xmw,\ylb+2*\ymw+2*\ypd);
+        \draw[blue,ultra thick] (\xlb+\xpd,\ylb+\ypd) -- (\xlb+\xpd+\bar,\ylb+\ypd);
+        \draw[OliveGreen,ultra thick] (\xlb+\xpd,\ylb+\ypd+\ymw) -- (\xlb+\xpd+\bar,\ylb+\ypd+\ymw);
+        \draw[red,ultra thick] (\xlb+\xpd,\ylb+\ypd+2*\ymw) -- (\xlb+\xpd+\bar,\ylb+\ypd+2*\ymw);
+        \draw[Dandelion,ultra thick] (\xlb+\xpd+\xmw,\ylb+\ypd) -- (\xlb+\xpd+\bar+\xmw,\ylb+\ypd);
+        \draw[Purple,ultra thick] (\xlb+\xpd+\xmw,\ylb+\ypd+\ymw) -- (\xlb+\xpd+\bar+\xmw,\ylb+\ypd+\ymw);
+        \draw[SpringGreen,ultra thick] (\xlb+\xpd+\xmw,\ylb+\ypd+2*\ymw) -- (\xlb+\xpd+\bar+\xmw,\ylb+\ypd+2*\ymw);
+        \foreach \k in {1,2,3} { 
+            \node at (0.5*\xmw+\xlb+\xpd,\ylb+\ypd+3*\ymw-\k*\ymw) {$\mbox{\footnotesize $n=\k$}$};
+        }
+        \foreach \k in {4,5,6} { 
+            \node at (1.5*\xmw+\xlb+\xpd,\ylb+\ypd+6*\ymw-\k*\ymw) {$\mbox{\footnotesize $n=\k$}$};
+        }
+    \end{scope}
+  \end{tikzpicture}
     \caption*{\texttt{整幂函数}$x\mapsto x^{-n}$\texttt{的图像}}
 \end{figure}
 
@@ -839,8 +965,7 @@ $$ x\mapsto \frac{\sqrt{ax + b}}{\sqrt{cx + d}}.$$
 \begin{figure}[h]
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.96
-    \textwidth]{tu/无理函数1.png}
+    \includegraphics[width=0.96\textwidth]{tu/无理函数1.png}
     \caption*{\texttt{一些无理函数的图像}}
 \end{figure}
 
@@ -897,7 +1022,118 @@ $$ x\mapsto \frac{\sqrt{ax + b}}{\sqrt{cx + d}}.$$
 \begin{figure}[h] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.96\textwidth]{tu/三角函数1.png}
+    % \includegraphics[width=0.96\textwidth]{tu/三角函数1.png}
+    \begin{tikzpicture}[scale=1]
+    \begin{axis}[
+        axis lines = middle,
+        unit vector ratio*=1 1 1,
+        xlabel = $x$, ylabel = $y$,
+        xmin = -2*pi-1.5, xmax = 3*pi+3,
+        ymin = -4.3, ymax = 5.3,
+        samples = 300, 
+        height=12cm,
+        xtick = {-2*pi, -pi, 0, pi, 2*pi, 3*pi},
+        xticklabels = {$-2\pi$,$-\pi$, $0$, $\pi$,  $2\pi$,$3\pi$},
+        ytick = {-4,-3,...,5},
+        yticklabels = {-4,-3,...,5},
+        grid = both,
+        grid style = {dashed, gray!30},
+        legend style = {at={(0.96,0.98)}, anchor=north east, cells={anchor=west}},
+        tick label style = {font=\scriptsize}
+    ]
+    \addplot [
+        OliveGreen, thick, smooth,
+        domain = -2*pi-1.5:3*pi+3
+    ] {sin(deg(x))};
+    \addlegendentry{$\mbox{\footnotesize $\,\,\sin (x)$}$}
+
+    \addplot [
+        red, thick, smooth,
+        domain = -2*pi-1.5:3*pi+3
+    ] {cos(deg(x))};
+    \addlegendentry{$\mbox{\footnotesize $\,\,\cos (x)$}$}
+
+    \addplot [
+        Tan, thick, smooth,
+        domain = -pi/2+0.1:pi/2-0.1
+    ] {tan(deg(x))};
+    \addlegendentry{$\mbox{\footnotesize $\,\,\tan (x)$}$}
+
+    \addplot [
+        blue!70, thick, smooth,
+        domain = 0.1:pi-0.1
+    ] {tan(90-deg(x))};
+    \addlegendentry{$\mbox{\footnotesize $\,\,\cot (x)$}$}
+
+    \addplot [
+        Tan, thick, smooth,
+        domain = -1*pi-pi/2+0.1:-1*pi+pi/2-0.1
+    ] {tan(deg(x))};
+
+    \addplot [
+        Tan, thick, smooth,
+        domain = -2*pi-pi/2+0.1:-2*pi+pi/2-0.1
+    ] {tan(deg(x))};
+
+    \addplot [
+        Tan, thick, smooth,
+        domain = 1*pi-pi/2+0.1:1*pi+pi/2-0.1
+    ] {tan(deg(x))};
+
+    \addplot [
+        Tan, thick, smooth,
+        domain = 2*pi-pi/2+0.1:2*pi+pi/2-0.1
+    ] {tan(deg(x))};
+
+    \addplot [
+        Tan, thick, smooth,
+        domain = 3*pi-pi/2+0.1:3*pi+pi/2-0.1
+    ] {tan(deg(x))};
+
+    \addplot [
+        Tan, thick, smooth,
+        domain = 4*pi-pi/2+0.1:3*pi+3
+    ] {tan(deg(x))};
+
+    \addplot [
+        blue!70, thick, smooth,
+        domain = -2*pi-1.5:-2*pi-0.1
+    ] {tan(90-deg(x))};
+
+    \addplot [
+        blue!70, thick, smooth,
+        domain = -2*pi+0.1:-2*pi+pi-0.1
+    ] {tan(90-deg(x))};
+
+    \addplot [
+        blue!70, thick, smooth,
+        domain = -1*pi+0.1:-1*pi+pi-0.1
+    ] {tan(90-deg(x))};
+
+    \addplot [
+        blue!70, thick, smooth,
+        domain = 1*pi+0.1:1*pi+pi-0.1
+    ] {tan(90-deg(x))};
+
+    \addplot [
+        blue!70, thick, smooth,
+        domain = 2*pi+0.1:2*pi+pi-0.1
+    ] {tan(90-deg(x))};
+
+    \addplot [
+        blue!70, thick, smooth,
+        domain = 3*pi+0.1:3*pi+pi-0.1
+    ] {tan(90-deg(x))};
+
+    \addplot [
+      domain=0:360,
+      samples=200,
+      very thick
+    ]
+    ({cos(x)}, {sin(x)});
+
+    \end{axis}
+    \end{tikzpicture}
 \end{figure}
 
 这里我们使用\textbf{弧度制}代替角度制。也就是说，不用角度，而用弧度，
@@ -947,9 +1183,43 @@ $$
 \end{align*}
 
 \begin{wrapfigure}[8]{r}{0.52\textwidth} %this figure will be at the right
-    \vspace{-35pt}
+    \vspace{-25pt}
     \flushright
-    \includegraphics[width=0.5\textwidth]{tu/三角函数2.png}
+    % \includegraphics[width=0.5\textwidth]{tu/三角函数2.png}
+    \begin{tikzpicture}[scale=1.8]
+    \begin{scope}[shift={(0,0)}]
+        \def\xmin{-0};
+        \def\xmax{3.4};
+        \def\ymin{-0};
+        \def\ymax{1.8};
+        \def\dpi{1.5708}
+        \foreach \k in {1,2} {
+            \draw[help lines,gray!60] (\k*\dpi,\ymin) -- (\k*\dpi,\ymax) ;
+        }
+        \draw[help lines,gray!60] (\xmin,1) -- (\xmax,1) ;
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[above] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        % 作图
+        \coordinate (O) at (0,0);
+        \coordinate (A) at (\dpi,1);
+        \draw[Blue, ultra thick, domain=0:2*\dpi, samples=200]
+        plot (\x,{sin(deg(\x))});
+        \draw[red!50!orange,ultra thick,opacity=0.7] (O) -- (0.8,0.8);
+        \draw[red!50!orange,ultra thick,opacity=0.7] (O) -- (-0.2,-0.2);
+        \draw[red!50!orange,ultra thick,opacity=0.7] (A) -- (\dpi-0.8,1);
+        \draw[red!50!orange,ultra thick,opacity=0.7] (A) -- (\dpi+0.8,1);
+        \draw[gray, dotted] (1,0) -- (1,1.8);
+        \draw[Tan,very thick,dashed] (0.8,0.8) -- (1.8,1.8);
+        \node[Tan!50!black] at (2.1, 1.7) {$\mbox{\footnotesize $y = x$}$};
+        \node at (0, -0.2) {$\mbox{\footnotesize $0$}$};
+        \node at (1, -0.2) {$\mbox{\footnotesize $1$}$};
+        \node at (-0.14, 1) {$\mbox{\footnotesize $1$}$};
+         \node at (\dpi, -0.2) {$\mbox{\footnotesize $\frac{\pi}{2}$}$};
+        \node at (2*\dpi, -0.2) {$\mbox{\footnotesize $\pi$}$};
+        \fill[Goldenrod] (A) circle (1.2pt);
+        \draw[black] (A) circle (1.2pt);
+    \end{scope}
+    \end{tikzpicture}
     \caption*{\texttt{正弦函数在}$[\,0;\pi\,]$\texttt{上的图像}}
 \end{wrapfigure}
 
@@ -967,79 +1237,69 @@ $x$的正弦值增大得比$y=x$慢，到了$x=\frac{\pi}{2}$时不再继续增�
 然后在$[\,-\frac{\pi}{2};\frac{\pi}{2}\,]$上严格单调递增，又在$[\,\frac{\pi}{2};\pi\,]$上严格单调递减。
 用变化表可以概括为：
 
-% \begin{figure}[h] %this figure will be at the right
-%     % \vspace{-4pt}
-%     \centering
-%     \includegraphics[width=0.63\textwidth]{tu/三角函数变化表1.png}
-% \end{figure}
 \begin{figure}[htbp]
-  \centering
-\begin{tikzpicture}[scale=0.8]
-    % 定义表格尺寸
-    \def\wyou{9}    % 单元格宽度
-    \def\htop{1}   % 单元格高度
-    \def\hbot{2.2}   % 单元格高度
-    \def\wzuo{1.8}   % 单元格高度
-    \def\wgap{0.8}   % 单元格高度
-    \def\yup{0.4}   % 单元格高度
-    \def\ydn{1.8}   % 单元格高度
-    \def\pad{0.2}
-    \draw[black, thick] (0, 0) -- (\wzuo + \wyou, 0);
-    \draw[black, thick] (0, \htop) -- (\wzuo + \wyou, \htop);
-    \draw[black, thick] (0, -\hbot) -- (\wzuo + \wyou, -\hbot);
-    \draw[black, thick] (\wzuo, \htop) -- (\wzuo, -\hbot);
-    \node[black] at (0.5*\wzuo, 0.5*\htop) {$x$};
-    \node[black] at (0.5*\wzuo, -0.5*\hbot) {$\sin{(x)}$};
-    \node[black] at (\wzuo+\wgap, 0.5*\htop) {$-\pi$};
-    \node[black] at (\wzuo+\wgap+0.3*\wyou - 0.3*\wgap, 0.5*\htop) {$-\frac{\pi}{2}$};
-    \node[black] at (\wzuo+\wgap+0.6*\wyou-0.6*\wgap, 0.5*\htop) {$\frac{\pi}{2}$};
-    \node[black] at (\wzuo+\wgap+0.9*\wyou-0.9*\wgap, 0.5*\htop) {$\pi$};
-    \node[black] at (\wzuo+\wgap, -\yup) {$0$};
-    \node[black] at (\wzuo+\wgap+0.3*\wyou - 0.3*\wgap, -\ydn) {$-1$};
-    \node[black] at (\wzuo+\wgap+0.6*\wyou-0.6*\wgap, -\yup) {$1$};
-    \node[black] at (\wzuo+\wgap+0.9*\wyou-0.9*\wgap, -\ydn) {$0$};
-    \draw[-Stealth,thick] (\wzuo+\wgap+\pad,-\yup) -- (\wzuo+\wgap+0.3*\wyou - 0.3*\wgap-2*\pad, -\ydn+\pad);
-    \draw[-Stealth,thick] (\wzuo+\wgap+0.3*\wyou - 0.3*\wgap + 2*\pad, -\ydn+\pad) -- (\wzuo+\wgap+0.6*\wyou - 0.6*\wgap-\pad, -\yup);
-    \draw[-Stealth,thick] (\wzuo+\wgap+0.6*\wyou - 0.6*\wgap+\pad, -\yup) -- (\wzuo+\wgap+0.9*\wyou - 0.9*\wgap-\pad, -\ydn);
-\end{tikzpicture}
+    \centering
+    \begin{tikzpicture}[scale=0.8]
+        % 定义表格尺寸
+        \def\wyou{9}    % 单元格宽度
+        \def\htop{1}   % 单元格高度
+        \def\hbot{2.2}   % 单元格高度
+        \def\wzuo{1.8}   % 单元格高度
+        \def\wgap{0.8}   % 单元格高度
+        \def\yup{0.4}   % 单元格高度
+        \def\ydn{1.8}   % 单元格高度
+        \def\pad{0.2}
+        \draw[black, thick] (0, 0) -- (\wzuo + \wyou, 0);
+        \draw[black, thick] (0, \htop) -- (\wzuo + \wyou, \htop);
+        \draw[black, thick] (0, -\hbot) -- (\wzuo + \wyou, -\hbot);
+        \draw[black, thick] (\wzuo, \htop) -- (\wzuo, -\hbot);
+        \node[black] at (0.5*\wzuo, 0.5*\htop) {$x$};
+        \node[black] at (0.5*\wzuo, -0.5*\hbot) {$\sin{(x)}$};
+        \node[black] at (\wzuo+\wgap, 0.5*\htop) {$-\pi$};
+        \node[black] at (\wzuo+\wgap+0.3*\wyou - 0.3*\wgap, 0.5*\htop) {$-\frac{\pi}{2}$};
+        \node[black] at (\wzuo+\wgap+0.6*\wyou-0.6*\wgap, 0.5*\htop) {$\frac{\pi}{2}$};
+        \node[black] at (\wzuo+\wgap+0.9*\wyou-0.9*\wgap, 0.5*\htop) {$\pi$};
+        \node[black] at (\wzuo+\wgap, -\yup) {$0$};
+        \node[black] at (\wzuo+\wgap+0.3*\wyou - 0.3*\wgap, -\ydn) {$-1$};
+        \node[black] at (\wzuo+\wgap+0.6*\wyou-0.6*\wgap, -\yup) {$1$};
+        \node[black] at (\wzuo+\wgap+0.9*\wyou-0.9*\wgap, -\ydn) {$0$};
+        \draw[-Stealth,thick] (\wzuo+\wgap+\pad,-\yup) -- (\wzuo+\wgap+0.3*\wyou - 0.3*\wgap-2*\pad, -\ydn+\pad);
+        \draw[-Stealth,thick] (\wzuo+\wgap+0.3*\wyou - 0.3*\wgap + 2*\pad, -\ydn+\pad) -- (\wzuo+\wgap+0.6*\wyou - 0.6*\wgap-\pad, -\yup);
+        \draw[-Stealth,thick] (\wzuo+\wgap+0.6*\wyou - 0.6*\wgap+\pad, -\yup) -- (\wzuo+\wgap+0.9*\wyou - 0.9*\wgap-\pad, -\ydn);
+    \end{tikzpicture}
 \end{figure}
 
 余弦函数的增减规律和正弦函数几乎一样。发生在正弦函数$x=x_0$处的事情，
 在余弦函数$x=x_0-\frac{\pi}{2}$处发生。因此，在周期区间$[\,-\pi; \pi\,]$上，
 余弦函数的增减规律可以用以下变化表概括：
 
-% \begin{figure}[h] %this figure will be at the right
-%     % \vspace{-4pt}
-%     \centering
-%     \includegraphics[width=0.48\textwidth]{tu/三角函数变化表2.png}
-% \end{figure}
 \begin{figure}[htbp]
-  \centering
-\begin{tikzpicture}[scale=0.8]
-    % 定义表格尺寸
-    \def\wyou{9}    % 单元格宽度
-    \def\htop{1}   % 单元格高度
-    \def\hbot{2.2}   % 单元格高度
-    \def\wzuo{1.8}   % 单元格高度
-    \def\wgap{0.8}   % 单元格高度
-    \def\yup{0.4}   % 单元格高度
-    \def\ydn{1.8}   % 单元格高度
-    \def\pad{0.2}
-    \draw[black, thick] (0, 0) -- (\wzuo + \wyou, 0);
-    \draw[black, thick] (0, \htop) -- (\wzuo + \wyou, \htop);
-    \draw[black, thick] (0, -\hbot) -- (\wzuo + \wyou, -\hbot);
-    \draw[black, thick] (\wzuo, \htop) -- (\wzuo, -\hbot);
-    \node[black] at (0.5*\wzuo, 0.5*\htop) {$x$};
-    \node[black] at (0.5*\wzuo, -0.5*\hbot) {$\cos{(x)}$};
-    \node[black] at (\wzuo+\wgap, 0.5*\htop) {$-\pi$};
-    \node[black] at (\wzuo+\wgap+0.45*\wyou - 0.45*\wgap, 0.5*\htop) {$0$};
-    \node[black] at (\wzuo+\wgap+0.9*\wyou-0.9*\wgap, 0.5*\htop) {$\pi$};
-    \node[black] at (\wzuo+\wgap, -\ydn) {$-1$};
-    \node[black] at (\wzuo+\wgap+0.45*\wyou-0.45*\wgap, -\yup) {$1$};
-    \node[black] at (\wzuo+\wgap+0.9*\wyou-0.9*\wgap, -\ydn) {$-1$};
-    \draw[-Stealth,thick] (\wzuo+\wgap + 2*\pad, -\ydn+\pad) -- (\wzuo+\wgap+0.45*\wyou - 0.45*\wgap-\pad, -\yup);
-    \draw[-Stealth,thick] (\wzuo+\wgap+0.45*\wyou - 0.45*\wgap+\pad, -\yup) -- (\wzuo+\wgap+0.9*\wyou - 0.9*\wgap-2*\pad, -\ydn);
-\end{tikzpicture}
+    \centering
+    \begin{tikzpicture}[scale=0.8]
+        % 定义表格尺寸
+        \def\wyou{9}    % 单元格宽度
+        \def\htop{1}   % 单元格高度
+        \def\hbot{2.2}   % 单元格高度
+        \def\wzuo{1.8}   % 单元格高度
+        \def\wgap{0.8}   % 单元格高度
+        \def\yup{0.4}   % 单元格高度
+        \def\ydn{1.8}   % 单元格高度
+        \def\pad{0.2}
+        \draw[black, thick] (0, 0) -- (\wzuo + \wyou, 0);
+        \draw[black, thick] (0, \htop) -- (\wzuo + \wyou, \htop);
+        \draw[black, thick] (0, -\hbot) -- (\wzuo + \wyou, -\hbot);
+        \draw[black, thick] (\wzuo, \htop) -- (\wzuo, -\hbot);
+        \node[black] at (0.5*\wzuo, 0.5*\htop) {$x$};
+        \node[black] at (0.5*\wzuo, -0.5*\hbot) {$\cos{(x)}$};
+        \node[black] at (\wzuo+\wgap, 0.5*\htop) {$-\pi$};
+        \node[black] at (\wzuo+\wgap+0.45*\wyou - 0.45*\wgap, 0.5*\htop) {$0$};
+        \node[black] at (\wzuo+\wgap+0.9*\wyou-0.9*\wgap, 0.5*\htop) {$\pi$};
+        \node[black] at (\wzuo+\wgap, -\ydn) {$-1$};
+        \node[black] at (\wzuo+\wgap+0.45*\wyou-0.45*\wgap, -\yup) {$1$};
+        \node[black] at (\wzuo+\wgap+0.9*\wyou-0.9*\wgap, -\ydn) {$-1$};
+        \draw[-Stealth,thick] (\wzuo+\wgap + 2*\pad, -\ydn+\pad) -- (\wzuo+\wgap+0.45*\wyou - 0.45*\wgap-\pad, -\yup);
+        \draw[-Stealth,thick] (\wzuo+\wgap+0.45*\wyou - 0.45*\wgap+\pad, -\yup) -- (\wzuo+\wgap+0.9*\wyou - 0.9*\wgap-2*\pad, -\ydn);
+    \end{tikzpicture}
 \end{figure}
 
 正切函数在单个周期内严格单调递增，但在整个定义域中并不是单调函数。
@@ -1079,7 +1339,46 @@ $g\circ f$的定义域是$[\,0; +\infty)$。
 \begin{figure}[h] %this figure will be at the right
     % \vspace{4pt}
     \centering
-    \includegraphics[width=0.64\textwidth]{tu/反函数1.png}
+    % \includegraphics[width=0.64\textwidth]{tu/反函数1.png}
+    \begin{tikzpicture}[scale=1.2]
+    \begin{scope}[shift={(0,0)}]
+        \def\xmin{-2.5};
+        \def\xmax{4};
+        \def\ymin{-1.9};
+        \def\ymax{3.2};
+        \def\ca{0.2};
+        \def\cf{0.08};
+        % 坐标轴（带箭头）
+        \foreach \k in {-1.5,-1,-0.5,0.5,1,...,3} { % ymin -> ymax
+            \draw[help lines,gray!60] (\xmin,\k) -- (\xmax,\k) ;
+        }
+        \foreach \k in {-2,-1.5,-1,-0.5,0.5,1,...,3.5} { % xmin -> xmax
+            \draw[help lines,gray!60] (\k,\ymin) -- (\k,\ymax);
+        }
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[above] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        \foreach \k in {0.5,1,...,3} { 
+            \node at (-\ca,\k) {$\mbox{\tiny $\k$}$};
+            \node at (\k,-\ca) {$\mbox{\tiny $\k$}$};
+        }
+        \node at (3.5,-\ca) {$\mbox{\tiny $3.5$}$};
+        \foreach \k in {-1.5,-1,-0.5} {  % ,
+            \node at (\k-\cf,-\ca) {$\mbox{\tiny $\k$}$};
+            \node at (-\ca-\cf,\k) {$\mbox{\tiny $\k$}$};
+        }
+        \node at (-2-\cf,-\ca) {$\mbox{\tiny $-2$}$};
+        % 作图
+        \draw[blue, thick, domain=-1.78:1.78, samples=200]
+        plot (\x,{\x*\x});
+        \draw[OliveGreen, thick, domain=0:4, samples=200]
+        plot (\x,{sqrt(\x)});
+        \draw[very thick, fill=white] (1.2,-1.8) rectangle (3.4,-0.4);
+        \draw[blue,ultra thick] (1.45, -0.8) -- (1.85, -0.8);
+        \draw[OliveGreen,ultra thick] (1.45, -1.4) -- (1.85, -1.4);
+        \node at (2.55, -0.8) {$\mbox{\small $\displaystyle y = x^2$}$};
+        \node at (2.55, -1.4) {$\mbox{\small $\displaystyle y = \sqrt{x}$}$};
+    \end{scope}
+  \end{tikzpicture}
     \caption*{\texttt{函数}$x\mapsto x^2$\texttt{与}$x\mapsto \sqrt{x}$}
 \end{figure}
 
@@ -1117,7 +1416,47 @@ $f(g(x)) = \left(\sqrt{x + 1}\right)^2 - 1 = x$。于是$f$和$g$互为反函数
 \begin{figure}[h] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.64\textwidth]{tu/反函数2.png}
+    % \includegraphics[width=0.64\textwidth]{tu/反函数2.png}
+    \begin{tikzpicture}[scale=1.2]
+    \begin{scope}[shift={(0,0)}]
+        \def\xmin{-2.5};
+        \def\xmax{4};
+        \def\ymin{-1.9};
+        \def\ymax{3.2};
+        \def\ca{0.2};
+        \def\cf{0.08};
+        % 坐标轴（带箭头）
+        \foreach \k in {-1.5,-1,-0.5,0.5,1,...,3} { % ymin -> ymax
+            \draw[help lines,gray!60] (\xmin,\k) -- (\xmax,\k) ;
+        }
+        \foreach \k in {-2,-1.5,-1,-0.5,0.5,1,...,3.5} { % xmin -> xmax
+            \draw[help lines,gray!60] (\k,\ymin) -- (\k,\ymax);
+        }
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[above] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        \foreach \k in {0.5,1,...,3} { 
+            \node at (-\ca,\k) {$\mbox{\tiny $\k$}$};
+            \node at (\k,-\ca) {$\mbox{\tiny $\k$}$};
+        }
+        \node at (3.5,-\ca) {$\mbox{\tiny $3.5$}$};
+        \foreach \k in {-1.5,-1,-0.5} {  % ,
+            \node at (\k-\cf,-\ca) {$\mbox{\tiny $\k$}$};
+            \node at (-\ca-\cf,\k) {$\mbox{\tiny $\k$}$};
+        }
+        \node at (-2-\cf,-\ca) {$\mbox{\tiny $-2$}$};
+        % 作图
+        \draw[blue, thick, domain=-2.05:2.05, samples=200]
+        plot (\x,{\x*\x - 1});
+        \draw[OliveGreen, thick, domain=-1:4, samples=200]
+        plot (\x,{sqrt(\x+1)});
+        \draw[dashed, gray, thick] (-1.9, -1.9) -- (3.2, 3.2);
+        \draw[very thick, fill=white] (1.2,-1.8) rectangle (3.8,-0.4);
+        \draw[blue,ultra thick] (1.45, -0.8) -- (1.85, -0.8);
+        \draw[OliveGreen,ultra thick] (1.45, -1.4) -- (1.85, -1.4);
+        \node at (2.8, -0.8) {$\mbox{\small $\displaystyle y = x^2-1$}$};
+        \node at (2.8, -1.4) {$\mbox{\small $\displaystyle y = \sqrt{x+1}$}$};
+    \end{scope}
+    \end{tikzpicture}
     \caption*{\texttt{函数}$x\mapsto x^2 - 1$\texttt{与}$x\mapsto \sqrt{x + 1}$}
 \end{figure}
 
@@ -1223,7 +1562,70 @@ $f(g(x)) = \left(\sqrt{x + 1}\right)^2 - 1 = x$。于是$f$和$g$互为反函数
 \begin{figure}[h] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{tu/反正弦函数1.png}
+    % \includegraphics[width=0.8\textwidth]{tu/反正弦函数1.png}
+    \begin{tikzpicture}[scale=0.9]
+    \begin{axis}[
+        axis lines = middle,
+        xlabel = $x$, ylabel = $y$,
+        xmin = -3*pi/4-0.1, xmax = 3*pi/4+0.5,
+        ymin = -2*pi/3, ymax = 2*pi/3,
+        samples = 250, % 增加采样点以保证 arcsin 端点平滑
+        width=11cm, height=10cm,
+        % x 轴刻度：严格按 π/4 单位设置
+        xtick = {-3*pi/4, -pi/2, -pi/4, 0, pi/4, pi/2, 3*pi/4},
+        xticklabels = {$-\frac{3\pi}{4}$, $-\frac{\pi}{2}$, $-\frac{\pi}{4}$, $0$,
+                      $\frac{\pi}{4}$, $\frac{\pi}{2}$, $\frac{3\pi}{4}$},
+        % y 轴刻度：严格按 π/4 单位设置（自动截断至可视范围）
+        ytick = {-pi/2, -pi/4, 0, pi/4, pi/2},
+        yticklabels = {$-\frac{\pi}{2}$, $-\frac{\pi}{4}$, $0$,
+                      $\frac{\pi}{4}$, $\frac{\pi}{2}$},
+        grid = both,
+        grid style = {dashed, OrangeRed!60},
+        legend style = {at={(0.98,0.2)}, anchor=north east, cells={anchor=west}},
+        tick label style = {font=\small,color=BrickRed}
+    ]
+
+    % 正弦函数：仅绘制 [-π/2, π/2] 区间（弧度输入需转换为度数）
+    \addplot [
+        blue, very thick, smooth,
+        domain = -pi/2:pi/2
+    ] {sin(deg(x))};
+    \addlegendentry{$y = \underline{\sin} (x)$}
+
+    % 反正弦函数：定义域 [-1,1]，输出需从度数转为弧度
+    \addplot [
+        red, very thick, smooth,
+        domain = -1:1
+    ] {asin(x)/deg(1)};
+    \addlegendentry{$y = \arcsin (x)$}
+    
+    % 可选：添加对称轴 y=x 以直观展示反函数关系（灰色虚线）
+    
+
+    \addplot [
+        blue, very thick, smooth, dashed,
+        domain = -3*pi/4-0.1:-pi/2
+    ] {sin(deg(x))};
+    
+    \addplot [
+        blue, very thick, smooth, dashed,
+        domain = pi/2:3*pi/4+0.5
+    ] {sin(deg(x))};
+
+    \pgfplotsinvokeforeach{1,2}{
+      \draw[Cyan!60,dashed] (axis cs:#1, -2*pi/3) -- (axis cs:#1, 2*pi/3);
+      \draw[Cyan!60,dashed] (axis cs:-#1, -2*pi/3) -- (axis cs:-#1, 2*pi/3);
+      \draw[Cyan!60,dashed] (axis cs:-3*pi/4-0.1,#1) -- (axis cs:3*pi/4+0.5, #1);
+      \draw[Cyan!60,dashed] (axis cs:-3*pi/4-0.1,-#1) -- (axis cs:3*pi/4+0.5, -#1);
+      \node[RoyalBlue,above,font=\footnotesize] at (axis cs:#1,-0.05) {$#1$};
+      \node[RoyalBlue,above,font=\footnotesize] at (axis cs:-#1-0.05,-0.05) {$-#1$};
+      \node[RoyalBlue,left,font=\footnotesize] at (axis cs:-0.02,#1) {$#1$};
+      \node[RoyalBlue,left,font=\footnotesize] at (axis cs:-0.06,-#1) {$-#1$};
+    }
+    \addplot [Fuchsia!60, dashed, thick, domain=-2*pi/3:2*pi/3] {x};
+
+    \end{axis}
+    \end{tikzpicture}
     \caption*{\texttt{反正弦函数}$x\mapsto \arcsin(x)$}
 \end{figure}
 
@@ -1261,7 +1663,65 @@ $$ \arccos : [\,-1; 1\,] \rightarrow [\,0;\pi\,] . $$
 \begin{figure}[h] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{tu/反余弦函数1.png}
+    % \includegraphics[width=0.8\textwidth]{tu/反余弦函数1.png}
+    \begin{tikzpicture}[scale=0.9]
+    \begin{axis}[
+        axis lines = middle,
+        xlabel = $x$, ylabel = $y$,
+        xmin = -pi/2-0.1, xmax = pi+0.5,
+        ymin = -pi/2, ymax = pi+0.3,
+        samples = 250, % 增加采样点以保证 arcsin 端点平滑
+        width=11cm, height=10cm,
+        % x 轴刻度：严格按 π/4 单位设置
+        xtick = {-pi/2, -pi/4, 0, pi/4, pi/2, 3*pi/4, pi},
+        xticklabels = {$-\frac{\pi}{2}$, $-\frac{\pi}{4}$, $0$,
+                      $\frac{\pi}{4}$, $\frac{\pi}{2}$, $\frac{3\pi}{4}$, $\pi$},
+        % y 轴刻度：严格按 π/4 单位设置（自动截断至可视范围）
+        ytick = {-pi/4, 0, pi/4, pi/2, 3*pi/4, pi},
+        yticklabels = {$-\frac{\pi}{4}$, $0$,
+                      $\frac{\pi}{4}$, $\frac{\pi}{2}$,$\frac{3\pi}{4}$, $\pi$},
+        grid = both,
+        grid style = {dashed, OrangeRed!60},
+        legend style = {at={(0.85,0.96)}, anchor=north east, cells={anchor=west}},
+        tick label style = {font=\small,color=BrickRed}
+    ]
+
+    \addplot [
+        blue, very thick, smooth,
+        domain = 0:pi
+    ] {cos(deg(x))};
+    \addlegendentry{$y = \underline{\cos} (x)$}
+
+    \addplot [
+        red, very thick, smooth,
+        domain = -1:1
+    ] {acos(x)/deg(1)};
+    \addlegendentry{$y = \arccos (x)$}
+
+    \addplot [
+        blue, very thick, smooth, dashed,
+        domain = -pi/2-0.1:0
+    ] {cos(deg(x))};
+    
+    \addplot [
+        blue, very thick, smooth, dashed,
+        domain = pi:pi+0.5
+    ] {cos(deg(x))};
+    % 可选：添加对称轴 y=x 以直观展示反函数关系（灰色虚线）
+    
+    \pgfplotsinvokeforeach{-1,1,2,3}{
+      \draw[Cyan!60,dashed] (axis cs:#1, -pi/2) -- (axis cs:#1, pi+0.3);
+      \draw[Cyan!60,dashed] (axis cs:-pi/2-0.1,#1) -- (axis cs:pi+0.5, #1);
+      \node[RoyalBlue,left,font=\footnotesize] at (axis cs:-0.02,#1) {$#1$};
+    }
+    \pgfplotsinvokeforeach{1,2,3}{
+      \node[RoyalBlue,below,font=\footnotesize] at (axis cs:#1,-0.05) {$#1$};
+    }
+    \node[RoyalBlue,below,font=\footnotesize] at (-1.075,-0.05) {$-1$};
+    \addplot [Fuchsia!60, dashed, thick, domain=-2*pi/3:pi+0.3] {x};
+
+    \end{axis}
+    \end{tikzpicture}
     \caption*{\texttt{反余弦函数}$x\mapsto \arccos(x)$}
 \end{figure}
 
@@ -1286,7 +1746,68 @@ $$ \arctan : \mathbb{R} \rightarrow (-\frac{\pi}{2}, \,\, \frac{\pi}{2}) . $$
 \begin{figure}[h] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{tu/反正切函数1.png}
+    % \includegraphics[width=0.8\textwidth]{tu/反正切函数1.png}
+    \begin{tikzpicture}[scale=0.9]
+    \begin{axis}[
+        axis lines = middle,
+        xlabel = $x$, ylabel = $y$,
+        xmin = -5*pi/2-0.5, xmax = 5*pi/2+1,
+        ymin = -2*pi-0.3, ymax = 2*pi+0.3,
+        samples = 300, % 增加采样点以保证 arcsin 端点平滑
+        width=12.5cm, height=9.56cm,
+        % x 轴刻度：严格按 π/4 单位设置
+        xtick = {-5*pi/2, -2*pi, -3*pi/2, -pi, -pi/2, 0, pi/2, pi, 3*pi/2, 2*pi, 5*pi/2},
+        xticklabels = {$-\frac{5\pi}{2}$,$-2\pi$, $-\frac{3\pi}{2}$,$-\pi$, $-\frac{\pi}{2}$, $0$, $\frac{\pi}{2}$,$\pi$, $\frac{3\pi}{2}$, $2\pi$, $\frac{5\pi}{2}$},
+        % y 轴刻度：严格按 π/4 单位设置（自动截断至可视范围）
+        ytick = {-2*pi, -3*pi/2, -pi, -pi/2, 0, pi/2, pi, 3*pi/2, 2*pi},
+        yticklabels = {$-2\pi$, $-\frac{3\pi}{2}$,$-\pi$, $-\frac{\pi}{2}$, $0$, $\frac{\pi}{2}$,$\pi$, $\frac{3\pi}{2}$, $2\pi$},
+        grid = both,
+        grid style = {dashed, gray!30},
+        legend style = {at={(0.85,0.16)}, anchor=north east, cells={anchor=west}},
+        tick label style = {font=\small,color=BrickRed}
+    ]
+
+    \addplot [
+        blue, very thick, smooth,
+        domain = -pi/2+0.1:pi/2-0.1
+    ] {tan(deg(x))};
+    \addlegendentry{$y = \underline{\tan} (x)$}
+
+    \addplot [
+        red, very thick, smooth,
+        domain = -5*pi/2-0.5:5*pi/2+0.5
+    ] {atan(x)/deg(1)};
+    \addlegendentry{$y = \arctan (x)$}
+    
+    \addplot [
+        blue, smooth, dashed,
+        domain = 2*pi-pi/2+0.1:2*pi+pi/2-0.1
+    ] {tan(deg(x))};
+    \addplot [
+        blue, smooth, dashed,
+        domain = 1*pi-pi/2+0.1:1*pi+pi/2-0.1
+    ] {tan(deg(x))};
+    \addplot [
+        blue, smooth, dashed,
+        domain = -1*pi-pi/2+0.1:-1*pi+pi/2-0.1
+    ] {tan(deg(x))};
+    \addplot [
+        blue, smooth, dashed,
+        domain = -2*pi-pi/2+0.1:-2*pi+pi/2-0.1
+    ] {tan(deg(x))};
+    \addplot [
+        blue, smooth, dashed,
+        domain = -5*pi/2-0.5:-5*pi/2-0.1
+    ] {tan(deg(x))};
+    \addplot [
+        blue, smooth, dashed,
+        domain = 5*pi/2+0.1:5*pi/2+1
+    ] {tan(deg(x))};
+
+    \addplot [Fuchsia!60, dashed, thick, domain=-2*pi-0.3:2*pi+0.3] {x};
+
+    \end{axis}
+    \end{tikzpicture}
     \caption*{\texttt{反正切函数}$x\mapsto \arctan(x)$}
 \end{figure}
 
@@ -1312,7 +1833,64 @@ $$ \arccot : \mathbb{R} \rightarrow (0, \,\, \pi) . $$
 \begin{figure}[h] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{tu/反余切函数1.png}
+    % \includegraphics[width=0.8\textwidth]{tu/反余切函数1.png}
+    \begin{tikzpicture}[scale=0.9]
+    \begin{axis}[
+        axis lines = middle,
+        xlabel = $x$, ylabel = $y$,
+        xmin = -2*pi-0.5, xmax = 3*pi+1,
+        ymin = -2*pi-0.3, ymax = 2*pi+0.3,
+        samples = 300, % 增加采样点以保证 arcsin 端点平滑
+        width=12.5cm, height=9.56cm,
+        % x 轴刻度：严格按 π/4 单位设置
+        xtick = {-2*pi, -3*pi/2, -pi, -pi/2, 0, pi/2, pi, 3*pi/2, 2*pi, 5*pi/2, 3*pi},
+        xticklabels = {$-2\pi$, $-\frac{3\pi}{2}$,$-\pi$, $-\frac{\pi}{2}$, $0$, $\frac{\pi}{2}$,$\pi$, $\frac{3\pi}{2}$, $2\pi$, $\frac{5\pi}{2}$,$3\pi$},
+        % y 轴刻度：严格按 π/4 单位设置（自动截断至可视范围）
+        ytick = {-2*pi, -3*pi/2, -pi, -pi/2, 0, pi/2, pi, 3*pi/2, 2*pi},
+        yticklabels = {$-2\pi$, $-\frac{3\pi}{2}$,$-\pi$, $-\frac{\pi}{2}$, $0$, $\frac{\pi}{2}$,$\pi$, $\frac{3\pi}{2}$, $2\pi$},
+        grid = both,
+        grid style = {dashed, gray!30},
+        legend style = {at={(0.92,0.16)}, anchor=north east, cells={anchor=west}},
+        tick label style = {font=\small,color=BrickRed}
+    ]
+
+    \addplot [
+        blue, very thick, smooth,
+        domain = 0.1:pi-0.1
+    ] {tan(90-deg(x))};
+    \addlegendentry{$y = \underline{\cot} (x)$}
+
+    \addplot [
+        red, very thick, smooth,
+        domain = -2*pi-0.5:3*pi+0.7
+    ] {-atan(x)/deg(1)+pi/2};
+    \addlegendentry{$y = \arccot (x)$}
+    
+    \addplot [
+        blue, smooth, dashed,
+        domain = 2*pi+0.1:2*pi+pi-0.1
+    ] {tan(90-deg(x))};
+    \addplot [
+        blue, smooth, dashed,
+        domain = 1*pi+0.1:1*pi+pi-0.1
+    ] {tan(90-deg(x))};
+    \addplot [
+        blue, smooth, dashed,
+        domain = -1*pi+0.1:-1*pi+pi-0.1
+    ] {tan(90-deg(x))};
+    \addplot [
+        blue, smooth, dashed,
+        domain = -2*pi+0.1:-2*pi+pi-0.1
+    ] {tan(90-deg(x))};
+    \addplot [
+        blue, smooth, dashed,
+        domain = 3*pi+0.1:3*pi+1
+    ] {tan(90-deg(x))};
+
+    \addplot [Fuchsia!60, dashed, thick, domain=-2*pi-0.3:2*pi+0.4] {x};
+
+    \end{axis}
+    \end{tikzpicture}
     \caption*{\texttt{反余切函数}$x\mapsto \arccot(x)$}
 \end{figure}
 
@@ -1381,14 +1959,62 @@ $$\lian{n\to\infty}\, a_n = x \quad \mbox{或} \quad \{a_n\} \rightarrow x. $$
 \end{df}
 
 \begin{figure}[h] %this figure will be at the right
-    \vspace{-14pt}
-    \centering
-    \includegraphics[width=0.54\textwidth]{tu/数列极限1.png}
+    \vspace{-4pt}
+    % \centering
+    % \includegraphics[width=0.54\textwidth]{tu/数列极限1.png}
+    \begin{tikzpicture}[scale=0.5]
+    \begin{scope}[shift={(0,0)}]
+        \def\xmin{0};
+        \def\xmax{20.5};
+        \def\ymin{0};
+        \def\ymax{6};
+        \def\x{4};
+        \def\r{0.15};
+        % 坐标轴（带箭头）
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[above] {$n$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$a_n$};
+
+        % 刻度与数字
+        \foreach \x in {5,10,15,20,30,40} {
+            \draw (0.5*\x,0.1) -- (0.5*\x,-0.1); 
+            \node[black] at (0.5*\x, -0.35) {$\mbox{\scriptsize $\x$}$};
+        }
+
+        % 作图          
+        % 散点数据
+        \def\points{
+          (0.5,5.42),(1.0,2.04),(1.5,4.81),(2.0,4.83),(2.5,0.98),
+          (3.0,3.96),(3.5,4.11),(4.0,3.49),(4.5,3.98),(5.0,4.15),
+          (5.5,3.88),(6.0,3.13),(6.5,4.21),(7.0,3.99),(7.5,4.08),
+          (8.0,4.24),(8.5,3.90),(9.0,3.95),(9.5,3.97),(10.0,3.81),
+          (10.5,3.95),(11.0,4.01),(11.5,3.97),(12.0,4.04),(12.5,4.08),
+          (13.0,4.03),(13.5,4.05),(14.0,4.05),(14.5,3.98),(15.0,3.98),
+          (15.5,3.98),(16.0,3.94),(16.5,3.96),(17.0,3.99),(17.5,3.98),
+          (18.0,4.01),(18.5,4.04),(19.0,4.03),(19.5,4.04),(20.0,4.04),
+        }
+
+        \fill[CadetBlue!40,opacity=0.3] (10.7,\x-3*\r) rectangle (20.5,\x+3*\r);
+        
+        % 绘制散点
+        \foreach \p in \points {
+          \fill[BrickRed, draw=black] \p circle (2pt);
+        }
+        \draw[red,dotted] (0,\x) -- (\xmax,\x);
+        \draw[Blue,dashed] (0,\x-\r) -- (\xmax,\x-\r);
+        \draw[Blue,dashed] (0,\x+\r) -- (\xmax,\x+\r);
+        \node[red] at (-1.5, \x) {$\mbox{\footnotesize $x$}$};
+        \node[Blue] at (-1.5, \x+1) {$\mbox{\footnotesize $x+r$}$};
+        \node[Blue] at (-1.5, \x-1) {$\mbox{\footnotesize $x-r$}$};
+        \draw[-Stealth,red] (-1.1, \x) -- (-0.1, \x);
+        \draw[-Stealth,Blue] (-0.8, \x+0.75) -- (-0.1, \x+\r+0.04);
+        \draw[-Stealth,Blue] (-0.8, \x-0.75) -- (-0.1, \x-\r-0.04);
+    \end{scope}
+    \end{tikzpicture}
     \caption*{\texttt{从某一项开始，数列的值总落在区间}$[\,x-r;x+r\,]$\texttt{中}}
 \end{figure}
 
 \begin{et}
-数列$\{a_n\}$的通项是$a_n = \frac{1}{n^2}$，它是否有极限？如果有极限，极限是多少？    
+数列$\{a_n\}$的通项是$\displaystyle a_n = \frac{1}{n^2}$，它是否有极限？如果有极限，极限是多少？    
 \end{et}
 \begin{so}
     $\{a_n\}$每项都是正数。
@@ -1448,9 +2074,44 @@ $$\forall x, \;\,\, \exists n, \;\,\,\mbox{使得}\;\,\,\forall \,\, m \geqslant
 直观来看，随着$n$增大，从某一项开始，$a_n$会落到数轴任何给定点$x$的左边。
 
 \begin{wrapfigure}[9]{r}{0.33\textwidth} %this figure will be at the right
-    \vspace{-48pt}
+    \vspace{-32pt}
     \flushright
-    \includegraphics[width=0.32\textwidth]{tu/数列无穷大1.png}
+    % \includegraphics[width=0.32\textwidth]{tu/数列无穷大1.png}
+    \begin{tikzpicture}[scale=0.6]
+    \begin{scope}[shift={(0,0)}]
+        \def\xmin{0};
+        \def\xmax{5.4};
+        \def\ymin{-6};
+        \def\ymax{6};
+        \def\x{4};
+        \def\r{0.15};
+        % 坐标轴（带箭头）
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[above] {$n$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$a_n$};
+
+        % 作图          
+        % 散点数据
+        \def\points{
+          (0.33,0.29),(0.67,0.49),(1.00,0.91),(1.33,1.57),(1.67,1.21),
+          (2.00,1.80),(2.33,2.65),(2.67,2.56),(3.00,3.06),(3.33,3.80),
+          (3.67,3.91),(4.00,4.35),(4.33,4.50),(4.67,4.97),(5.00,5.63)
+        }
+
+        % 绘制散点
+        \foreach \p in \points {
+          \fill[BrickRed, draw=black] \p circle (2pt);
+        }
+
+        \def\npoints{
+          (0.33,-0.58),(0.67,-0.82),(1.00,-1.01),(1.33,-1.56),(1.67,-1.15),
+          (2.00,-1.79),(2.33,-2.03),(2.67,-2.76),(3.00,-2.73),(3.33,-3.49),
+          (3.67,-4.12),(4.00,-3.77),(4.33,-3.89),(4.67,-4.90),(5.00,-5.52)
+        }
+        \foreach \p in \npoints {
+          \fill[CadetBlue, draw=black] \p circle (2pt);
+        }
+    \end{scope}
+    \end{tikzpicture}
     \caption*{\texttt{趋于无穷大的数列}}
 \end{wrapfigure}
 
@@ -1828,7 +2489,81 @@ $$ |a_{n+1} - \sqrt{2}| = \frac{|a_n - \sqrt{2}|}{2|a_n|} \cdot |a_n - \sqrt{2}|
 \begin{figure}[h]
     \vspace{-4pt}
     \centering
-    \includegraphics[width=0.84\textwidth]{tu/上确界1.png}
+    % \includegraphics[width=0.84\textwidth]{tu/上确界1.png}
+    \begin{tikzpicture}[scale=0.58]
+    \begin{scope}[shift={(0,0)}]
+        \def\xmin{0};
+        \def\xmax{20.4};
+        \def\ymin{-0.5};
+        \def\ymax{6.8};
+        \def\x{4};
+        \def\r{0.15};
+        % 坐标轴（带箭头）
+        \draw[-Stealth] (\xmin, \ymin) -- (\xmax+0.6,\ymin);
+        \draw[-Stealth] (0,\ymin) -- (0,\ymax);
+        % \node at (-0.6, \ymax) {$\mbox{\footnotesize $a_n$}$};
+        \node at (\xmax+1, \ymin) {$\mbox{\footnotesize $n$}$};
+        % 作图          
+        % 散点数据
+        \def\points{
+          (0.20,0.0),(0.40,0.63),(0.60,1.08),(0.80,1.40),(1.00,1.65),
+          (1.20,1.86),(1.40,2.03),(1.60,2.19),(1.80,2.32),(2.00,2.44),
+          (2.20,2.54),(2.40,2.64),(2.60,2.73),(2.80,2.81),(3.00,2.89),
+          (3.20,2.96),(3.40,3.03),(3.60,3.09),(3.80,3.15),(4.00,3.21),
+          (4.20,3.26),(4.40,3.31),(4.60,3.36),(4.80,3.41),(5.00,3.45),
+          (5.20,3.50),(5.40,3.54),(5.60,3.58),(5.80,3.62),(6.00,3.65),
+          (6.20,3.69),(6.40,3.72),(6.60,3.76),(6.80,3.79),(7.00,3.82),
+          (7.20,3.85),(7.40,3.88),(7.60,3.91),(7.80,3.94),(8.00,3.97),
+          (8.20,4.00),(8.40,4.02),(8.60,4.05),(8.80,4.07),(9.00,4.10),
+          (9.20,4.12),(9.40,4.14),(9.60,4.17),(9.80,4.19),(10.00,4.21),
+          (10.20,4.23),(10.40,4.26),(10.60,4.28),(10.80,4.30),(11.00,4.32),
+          (11.20,4.34),(11.40,4.36),(11.60,4.37),(11.80,4.39),(12.00,4.41),
+          (12.20,4.43),(12.40,4.45),(12.60,4.46),(12.80,4.48),(13.00,4.50),
+          (13.20,4.52),(13.40,4.53),(13.60,4.55),(13.80,4.56),(14.00,4.58),
+          (14.20,4.59),(14.40,4.61),(14.60,4.62),(14.80,4.64),(15.00,4.65),
+          (15.20,4.67),(15.40,4.68),(15.60,4.70),(15.80,4.71),(16.00,4.72),
+          (16.20,4.74),(16.40,4.75),(16.60,4.76),(16.80,4.78),(17.00,4.79)
+        }
+
+        \def\afterpoints{
+          (17.40,4.82),(17.60,4.83),(17.80,4.84),(18.00,4.85),
+          (18.20,4.86),(18.40,4.88),(18.60,4.89),(18.80,4.90),(19.00,4.91),
+          (19.20,4.92),(19.40,4.93),(19.60,4.95),(19.80,4.96),(20.00,4.97)
+        }
+
+        % 刻度与数字
+        \foreach \x in {2,4,6} {
+            \draw (-0.1,\x) -- (0.1,\x); 
+            \node[black] at (-0.35,\x) {$\mbox{\scriptsize $\x$}$};
+        }
+        
+        % 刻度与数字
+        \foreach \x in {20,40,...,100} {
+            \draw (0.2*\x,\ymin+0.1) -- (0.2*\x,\ymin-0.1); 
+            \node[black] at (0.2*\x, \ymin-0.35) {$\mbox{\tiny $\x$}$};
+        }
+        \draw[Magenta,very thick] (0,0) -- (\xmax,0);
+        \foreach \k in {1,2,...,11,14,15} {
+          \draw[dotted,thick, gray!50] (0,0.4*\k) -- (\xmax,0.4*\k);
+        }
+        \draw[CadetBlue,very thick] (0,6.4) -- (\xmax,6.4);
+        \draw[RoyalPurple,dashed,very thick] (0,6.4) -- (\xmax,6.4);
+        \draw[dashed, Red, thick] (0,4.8) -- (\xmax,4.8);
+        \draw[dashed, OliveGreen!50!green, thick] (0,5.2) -- (\xmax,5.2);
+        % 绘制散点
+        \foreach \p in \points {
+          \fill[white, draw=blue] \p circle (2pt);
+        }
+        \foreach \p in \afterpoints {
+          \fill[Goldenrod, draw=Sepia] \p circle (2pt);
+        }
+        \fill[Red, draw=BrickRed] (17.20,4.80) circle (2.1pt); 
+        \node[RoyalPurple] at (\xmax+0.6, 6.4) {$\mbox{\footnotesize $M$}$};
+        \node[Magenta] at (-0.5, 0) {$\mbox{\footnotesize $a_1$}$};
+        \node[Red] at (-0.5, 4.8) {$\mbox{\footnotesize $y_{i}$}$};
+        \node[OliveGreen] at (\xmax+0.9, 5.2) {$\mbox{\footnotesize $y_{i+1}$}$};
+    \end{scope}
+    \end{tikzpicture}
 \end{figure}
 
 如果如果单调递增数列$\{a_n\}$有上界，即有某个有理数$M$，
@@ -1838,8 +2573,8 @@ $$ |a_{n+1} - \sqrt{2}| = \frac{|a_n - \sqrt{2}|}{2|a_n|} \cdot |a_n - \sqrt{2}|
 从$a_1$出发，一步步“往$M$走”。每步的步长是$r_k$。一开始的时候，我们处于$a_1$的位置，$a_1$不是数列的上界，最终到达$M$，$M$是数列的上界。
 因此，总有一步，从不是数列的上界走到数列的上界。
 
-如果在第$i$步，$a_1 + i r_k$不是上界，而在第$i+1$步，$a_1 + (i+1) r_k$是上界。也就是说，有某一项$a_{N(k)}$大于等于$a_1 + i r_k$，
-却小于$a_1 + (i+1) r_k$。由于数列单调递增，自$a_{N(k)}$开始的每一项都在$a_1 + i r_k$与$a_1 + (i+1) r_k$之间。这说明任两项的距离都小于$r_k$。
+记$y_i=a_1 + i r_k$是“往$M$走”第$i$步达到的值。如果对某个$i$，$y_i$不是上界，而在第$i+1$步，$y_{i+1}=a_1 + (i+1) r_k$是上界。也就是说，有某一项$a_{N(k)}$大于等于$y_i$，
+却小于$y_{i+1}$。由于数列单调递增，自$a_{N(k)}$开始的每一项都在$y_i$与$y_{i+1}$之间。这说明任两项的距离都小于$r_k$。
 
 因此，对任何正数$r$，我们只要令$k$为大于$\frac{M - a_1}{r}$的正整数，就有
 $r_k = \frac{M - a_1}{k} < r$。于是$\forall m,n\geqslant N(k)$，$|a_m - a_n|$总小于$r$。这说明$\{a_n\}$是自敛数列，因此有极限。
@@ -2294,7 +3029,31 @@ $n$次抛掷的终态有$n+1$个，其分布列为：
 \begin{figure}[h]
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.96\textwidth]{tu/二项分布直方图.png}
+    % \includegraphics[width=0.96\textwidth]{tu/二项分布直方图.png}
+    \begin{tikzpicture}[scale=1]
+    \begin{axis}[
+        ybar interval,
+        width=14cm, height=7.5cm,
+        ymin=0, ymax=0.2,  
+        xtick={0,1,...,21},
+        xticklabels={0,1,...,20},
+        ytick={0, 0.025, 0.05, 0.075, 0.1, 0.125, 0.15, 0.175, 0.2}, 
+        yticklabels={0, 0.025, 0.05, 0.075, 0.1, 0.125, 0.15, 0.175, 0.2}, 
+        grid=both,
+        grid style={dashed, gray!30},     
+        tick label style={font=\small}
+    ]
+    % 直方图
+    \addplot [fill=Cerulean!50, draw=CadetBlue, thick] coordinates {
+        (0,  0.000) (1,  0.000) (2,  0.003) (3,  0.012) (4,  0.035)
+        (5,  0.075) (6,  0.124) (7,  0.166) (8,  0.180) (9,  0.160)
+        (10, 0.117) (11, 0.071) (12, 0.035) (13, 0.015) (14, 0.005)
+        (15, 0.001) (16, 0.000) (17, 0.000) (18, 0.000) (19, 0.000)
+        (20, 0.000) (21, 0.000)
+    };
+
+    \end{axis}
+    \end{tikzpicture}
     \caption*{\texttt{二项分布的直方图（}$n=20,\;\,\, p=0.4$\texttt{）}}
 \end{figure}
 
@@ -2741,7 +3500,73 @@ $$ \forall x\in\mathbb{R}, \quad x\mapsto a^x.$$
 \begin{figure}[h]
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.96\textwidth]{tu/指数函数1.png}
+    % \includegraphics[width=0.96\textwidth]{tu/指数函数1.png}
+    \begin{tikzpicture}[scale=0.9]
+    \begin{scope}[shift={(0,0)}]
+        \def\xmin{-5.2};
+        \def\xmax{8.2};
+        \def\ymin{-1.6};
+        \def\ymax{6.4};
+        % 坐标轴（带箭头）
+        \foreach \k in {-1,1,2,...,6} {
+            \draw[help lines,gray!60] (\xmin,\k) -- (\xmax,\k) ;
+        }
+        \foreach \k in {-5,-4,...,-1,1,2,...,8} {
+            \draw[help lines,gray!60] (\k,\ymin) -- (\k,\ymax);
+        }
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[above] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        \foreach \k in {1,2,...,8} { 
+            \node at (\k,-0.3) {$\mbox{\scriptsize $\k$}$};
+        }
+        \foreach \k in {1,2,...,6} { 
+            \node at (-0.3,\k) {$\mbox{\scriptsize $\k$}$};
+        }
+        \node at (-0.3,-0.3) {$\mbox{\scriptsize $0$}$};
+        \node at (-0.4,-1) {$\mbox{\scriptsize $-1$}$};
+        \foreach \k in {-5,-4,-3,-2,-1} {  % ,
+            \node at (\k-0.15,-0.3) {$\mbox{\scriptsize $\k$}$};
+        }
+        % 作图
+        \draw[CadetBlue, very thick] (\xmin, 1) -- (\xmax, 1);
+        \draw[RoyalPurple, very thick, domain=\xmin:2.69, samples=200]
+        plot (\x,{exp(\x*ln(2))});
+        \draw[OliveGreen, very thick, domain=\xmin:1.16, samples=200]
+        plot (\x,{exp(\x*ln(5))});
+        \draw[red!80!black, very thick, domain=\xmin:7.1, samples=200]
+        plot (\x,{exp(\x*ln(1.3))});  
+        \draw[Goldenrod!70!orange, very thick, domain=\xmin:\xmax, samples=200]
+        plot (\x,{exp(\x*ln(0.7))});
+        \draw[Thistle, very thick, domain=-2.68:\xmax, samples=200]
+        plot (\x,{exp(\x*ln(0.5))});
+        \draw[Cerulean, very thick, domain=-1.34:\xmax, samples=200]
+        plot (\x,{exp(\x*ln(0.25))});
+        
+        \def\ba{0.5};
+        \def\lb{6};
+        \def\la{1.12};
+        \def\ypd{0.35};
+        \def\ygp{0.45};
+        \def\sip{0.02};
+        \draw[very thick, fill=white] (3.8,5.25) rectangle (5.8,6.15);
+        \node at (4.8, 5.7) {$\mbox{$y =  a^x$}$};
+        \draw[very thick, fill=white] (\lb-0.1,\la) rectangle (8.2,\la+2*\ypd+6*\ygp);
+        \draw[Cerulean,ultra thick] (\lb,\la+\ypd) -- (\lb+\ba,\la+\ypd);
+        \draw[Thistle,ultra thick] (\lb,\la+\ypd+1*\ygp) -- (\lb+\ba,\la+\ypd+1*\ygp);
+        \draw[Goldenrod!70!orange,ultra thick] (\lb,\la+\ypd+2*\ygp) -- (\lb+\ba,\la+\ypd+2*\ygp);
+        \draw[CadetBlue,ultra thick] (\lb,\la+\ypd+3*\ygp) -- (\lb+\ba,\la+\ypd+3*\ygp);
+        \draw[red!80!black,ultra thick] (\lb,\la+\ypd+4*\ygp) -- (\lb+\ba,\la+\ypd+4*\ygp);
+        \draw[RoyalPurple,ultra thick] (\lb,\la+\ypd+5*\ygp) -- (\lb+\ba,\la+\ypd+5*\ygp);
+        \draw[OliveGreen,ultra thick] (\lb,\la+\ypd+6*\ygp) -- (\lb+\ba,\la+\ypd+6*\ygp);
+        \node at (7.35,\la+\ypd+\sip) {$\mbox{\footnotesize $a=0.25$}$};
+        \node at (7.25,\la+\ypd+1*\ygp+\sip) {$\mbox{\footnotesize $a=0.5$}$};
+        \node at (7.25,\la+\ypd+2*\ygp+\sip) {$\mbox{\footnotesize $a=0.7$}$};
+        \node at (7.11,\la+\ypd+3*\ygp+\sip) {$\mbox{\footnotesize $a=1$}$};
+        \node at (7.25,\la+\ypd+4*\ygp+\sip) {$\mbox{\footnotesize $a=1.3$}$};
+        \node at (7.11,\la+\ypd+5*\ygp+\sip) {$\mbox{\footnotesize $a=2$}$};
+        \node at (7.11,\la+\ypd+6*\ygp+\sip) {$\mbox{\footnotesize $a=5$}$};
+    \end{scope}
+    \end{tikzpicture}
     \caption*{\texttt{指数函数}$y = a^x$\texttt{的图像}}
 \end{figure}
 
@@ -2784,7 +3609,73 @@ $$ a^v = u \quad\mbox{当且仅当} \quad v = \log_a(u). $$
 \begin{figure}[h]
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{tu/对数函数1.png}
+    % \includegraphics[width=0.8\textwidth]{tu/对数函数1.png}
+    \begin{tikzpicture}[scale=0.6]
+    \begin{scope}[shift={(0,0)}]
+        \def\xmin{-4.2};
+        \def\xmax{11.5};
+        \def\ymin{-6};
+        \def\ymax{7};
+        % 坐标轴（带箭头）
+        \foreach \k in {-6,-5,...,-1,1,2,...,6} {
+            \draw[help lines,gray!60] (\xmin,\k) -- (\xmax,\k) ;
+        }
+        \foreach \k in {-4,-3,...,-1,1,2,...,11} {
+            \draw[help lines,gray!60] (\k,\ymin) -- (\k,\ymax);
+        }
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[above] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        \foreach \k in {1,2,...,11} { 
+            \node at (\k,-0.3) {$\mbox{\scriptsize $\k$}$};
+        }
+        \foreach \k in {1,2,...,5} { 
+            \node at (-0.3,\k) {$\mbox{\scriptsize $\k$}$};
+            \node at (-0.45,-\k) {$\mbox{\scriptsize $-\k$}$};
+            \ifnum\k<5
+              \node at (-\k-0.15,-0.3) {$\mbox{\scriptsize $-\k$}$};
+            \fi
+        }
+        \node at (-0.3,-0.3) {$\mbox{\scriptsize $0$}$};
+        \node at (-0.3,6) {$\mbox{\scriptsize $6$}$};
+
+        % 作图
+        \draw[RoyalPurple, very thick, domain=0.0155:\xmax, samples=200]
+        plot (\x,{ln(\x)/ln(2)});
+        \draw[OliveGreen, very thick, domain=0.00006:\xmax, samples=200]
+        plot (\x,{ln(\x)/ln(5)});
+        \draw[red!80!black, very thick, domain=0.208:6.4, samples=200]
+        plot (\x,{ln(\x)/ln(1.3)});
+        \draw[Goldenrod!70!orange, very thick, domain=0.085:8.5, samples=200]
+        plot (\x,{ln(\x)/ln(0.7)});
+        \draw[Thistle, very thick, domain=0.01:\xmax, samples=200]
+        plot (\x,{ln(\x)/ln(0.5)});
+        \draw[Cerulean, very thick, domain=0.0001:\xmax, samples=200]
+        plot (\x,{ln(\x)/ln(0.25)});
+        
+        \def\ba{0.6};
+        \def\lb{-3.9};
+        \def\la{1};
+        \def\ypd{0.55};
+        \def\ygp{0.86};
+        \def\sip{0.02};
+        \def\bu{0.9};
+        \draw[very thick, fill=white] (7,5) rectangle (10.8,6.6);
+        \node at (8.9, 5.8) {$\mbox{\small $y = \log_a{(x)}$}$};
+        \draw[very thick, fill=white] (\lb-0.3,\la) rectangle (-0.7,\la+2*\ypd+5*\ygp);
+        \draw[Cerulean,ultra thick] (\lb,\la+\ypd) -- (\lb+\ba,\la+\ypd);
+        \draw[Thistle,ultra thick] (\lb,\la+\ypd+1*\ygp) -- (\lb+\ba,\la+\ypd+1*\ygp);
+        \draw[Goldenrod!70!orange,ultra thick] (\lb,\la+\ypd+2*\ygp) -- (\lb+\ba,\la+\ypd+2*\ygp);
+        \draw[red!80!black,ultra thick] (\lb,\la+\ypd+3*\ygp) -- (\lb+\ba,\la+\ypd+3*\ygp);
+        \draw[RoyalPurple,ultra thick] (\lb,\la+\ypd+4*\ygp) -- (\lb+\ba,\la+\ypd+4*\ygp);
+        \draw[OliveGreen,ultra thick] (\lb,\la+\ypd+5*\ygp) -- (\lb+\ba,\la+\ypd+5*\ygp);
+        \node at (\lb+\ba+\bu+0.2+0.13,\la+\ypd+\sip) {$\mbox{\footnotesize $a=0.25$}$};
+        \node at (\lb+\ba+\bu+0.2,\la+\ypd+1*\ygp+\sip) {$\mbox{\footnotesize $a=0.5$}$};
+        \node at (\lb+\ba+\bu+0.2,\la+\ypd+2*\ygp+\sip) {$\mbox{\footnotesize $a=0.7$}$};
+        \node at (\lb+\ba+\bu+0.2,\la+\ypd+3*\ygp+\sip) {$\mbox{\footnotesize $a=1.3$}$};
+        \node at (\lb+\ba+\bu,\la+\ypd+4*\ygp+\sip) {$\mbox{\footnotesize $a=2$}$};
+        \node at (\lb+\ba+\bu,\la+\ypd+5*\ygp+\sip) {$\mbox{\footnotesize $a=5$}$};
+    \end{scope}
+    \end{tikzpicture}
     \caption*{\texttt{对数函数}$y = \log_a(x)$\texttt{的图像}}
 \end{figure}
 

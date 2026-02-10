@@ -149,10 +149,61 @@ $\mathbb{N}^2$的势与$\mathbb{N}$的势关系如何呢？
 对于和相等的点，则按照横坐标，从小数到大。
 也就是按照图中箭头的方法来数数。这样的数法，可以不重复不遗漏地数遍$\mathbb{N}^2$所有的点。
 
-\begin{figure}[h] %this figure will be at the right
-    \vspace{4pt}
+\begin{figure}[htbp] 
+    % \vspace{-10pt}
     \centering
-    \includegraphics[width=0.4\textwidth]{tu/无穷1.png}
+    \begin{tikzpicture}[scale=0.6]
+    \begin{scope}[shift={(0,0)}]
+        \def\xmin{-1.2};
+        \def\xmax{7};
+        \def\ymin{-0.4};
+        \def\ymax{6.5};
+        % 坐标轴（带箭头）
+        \foreach \k in {1,2,...,6} {
+            \draw[help lines,gray!30] (\xmin,\k) -- (\xmax,\k) ;
+        }
+        \foreach \k in {-1,1,2,...,6} {
+            \draw[help lines,gray!30] (\k,\ymin) -- (\k,\ymax) ;
+        }
+        \draw[-Stealth, thick, gray] (6, 0) -- (\xmax,0);
+        \draw[thick, gray!40] (\xmin, 0) -- (\xmax-0.3,0);
+        \node at (7.5,0) {$\mbox{\footnotesize $x$}$};
+        \draw[-Stealth, thick, gray] (0,6) -- (0,\ymax);
+        \draw[thick, gray!40] (0,\ymin) -- (0,\ymax-0.3);
+        \node at (0.5, 6.3) {$\mbox{\footnotesize $y$}$};
+        
+        % 刻度与数字
+        \foreach \x in {-1,1,2,...,6} {
+            \draw (\x,0.1) -- (\x,-0.1); 
+            \node[black] at (\x, -0.35) {$\mbox{\tiny $\x$}$};
+        }
+        \foreach \y in {1,2,...,6} {
+            \draw (0.1,\y) -- (-0.1,\y);
+            \node[black] at (-0.3, \y) {$\mbox{\tiny $\y$}$};
+        }
+        \node[black] at (-0.3, -0.35) {$\mbox{\tiny $0$}$};
+        % 作图
+        \foreach \i in {0,1,...,6} {
+            \foreach \j in {0,1,...,6} {
+                \ifnum\numexpr\i+\j<7
+                    \draw[black] (\i,\j) circle (2pt);
+                    \fill[Blue!70] (\i,\j) circle (2pt);
+                    \ifnum\j>0
+                        \draw[-Stealth] (\i, \j) -- (\i+1,\j-1);
+                    \else
+                        \ifnum\i=0
+                            \draw[-Stealth] (0,0) -- (0,1);
+                        \else
+                            \ifnum\i<6
+                                \draw[-Stealth] (\i, \j) -- (0,\i+1);
+                            \fi
+                        \fi
+                    \fi
+                \fi
+                }
+            }
+    \end{scope}
+    \end{tikzpicture}
     \caption*{\texttt{按照箭头方向，可以不重复不遗漏数遍}$\mathbb{N}^2$\texttt{中所有的点}}
 \end{figure}
 
@@ -431,11 +482,59 @@ $$ v(t_0) = \lian{t\to t_0} \frac{p(t) - p(t_0)}{t - t_0}.$$
 比如，运动物体在某时刻的瞬时速度，就是它的位移函数在该时刻的微变率。
 $$ v(t_0) = \partial p(t_0).$$
 
-\begin{figure}[h]
-    \vspace{4pt}
-    \centering
-    \includegraphics[width=0.7\textwidth]{tu/导数1.png}
-\end{figure}
+% \begin{figure}[h]
+%     \vspace{4pt}
+%     \centering
+%     \includegraphics[width=0.7\textwidth]{tu/导数1.png}
+% \end{figure}
+\begin{tikzpicture}
+\begin{axis}[
+    width=13cm,
+    height=6cm,
+    axis lines=middle,
+    xmin=-2.2,
+    xmax=15.5,
+    ymin=-1.2,
+    ymax=6.1,
+    samples=400,
+    xlabel={$x$},
+    ylabel={$y$},
+    xticklabel style={font=\scriptsize},
+    yticklabel style={font=\scriptsize},
+    xtick distance=1,
+    ytick distance=1,
+    grid=both,
+    major grid style={gray!60},
+    minor grid style={gray!25,dashed},
+    minor tick num=1,
+]
+\coordinate (A) at (2,1);
+\coordinate (B) at (4,3);
+\addplot[thick, blue, domain=0.825:6.8]{
+  -0.511+0.921*x+0.2*(x-5)*(x-2)+0.04*cos(3*(x-1.6)*(x-5))+0.4*sin(70*(x-3.6))-0.02*(x-0.1)*(x-4)*(x-2)
+};
+\addplot[teal,thick,domain=0.2:6.9]{
+  x-1
+};
+\addplot[red,domain=-0.7:9.6]{
+  (x-2)*0.25 + 1
+};
+\draw[black] (A) circle (2pt);
+\fill[blue!70] (A) circle (2pt);
+\draw[black] (B) circle (2pt); 
+\fill[blue!70] (B) circle (2pt);
+\draw[dotted, thick] (A) -- (4,1) -- (B);
+\fill[blue!70] (4,1) circle (1.2pt);
+\node[blue!80!black] at (1.7,1.6) {$\mbox{\footnotesize $p(t_0)$}$};
+\node[blue!80!black] at (3,3.6) {$\mbox{\footnotesize $p(t_0 + \mathrm{d}t)$}$};
+\node[blue!80!black] at (7.2,5) {$\mbox{\footnotesize $p(t)$}$};
+\node[red!90!black] at (8.5,1.8) {$\mbox{\footnotesize $p(t_0)+v(t_0)(t-t_0)$}$};
+\node[teal!90!black] at (9.5,5.7) {$\mbox{\footnotesize $p(t_0)+\bar{v}(t_0)(t-t_0)$}$};
+\node[black] at (3,0.6) {$\mbox{\footnotesize $\mathrm{d}t$}$};
+\node[black] at (4.4,2) {$\mbox{\footnotesize $\mathrm{d}p$}$};
+
+\end{axis}
+\end{tikzpicture}
 
 如何理解瞬时速度呢？上图是物体做直线运动时，位移关于时间的函数的图像。横坐标表示时间$t$，
 纵坐标表示物体的位移$p$。我们希望了解物体在$t_0$时刻“附近”的运动情况。
@@ -934,9 +1033,60 @@ $$ \partial \log_{\mathrm{e}} (a) = \frac{1}{a}.$$
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\textwidth]{tu/微变零值定理1.png}    
+    \begin{tikzpicture}
+    \begin{axis}[
+        width=12cm,
+        height=6cm,
+        axis lines=middle,
+        xmin=-2.2,
+        xmax=14.5,
+        ymin=-1.1,
+        ymax=6.1,
+        samples=400,
+        xlabel={$x$},
+        ylabel={$y$},
+        xticklabel style={font=\scriptsize},
+        yticklabel style={font=\scriptsize},
+        xtick distance=1,
+        ytick distance=1,
+        grid=both,
+        major grid style={gray!60},
+        minor grid style={gray!25,dashed},
+        minor tick num=1,
+    ]
+    \def\bb{1.5};
+    \def\c{5.98};
+    \def\y{2.0565};
+    \coordinate (A) at (2,\y);
+    \coordinate (B) at (8,\y);
+    \coordinate (C) at (\c,5);
+    \addplot[thick, teal, domain=-0.4:9.8]{
+    2+1.2*sin(180*(x+1.4)/3.14159)+0.3*(x-2)*(6-x)-(1.2*x*(1+2*x))/(x+1)/(x-13)
+    };
+    \addplot[blue,thick,dashed,domain=-2:14.4]{
+    2.0565
+    };
+    \draw[black] (A) circle (2pt);
+    \fill[blue!70] (A) circle (2pt);
+    \node[blue!70!black] at (2,2.45) {$\mbox{\footnotesize $A$}$};
+    \draw[black] (B) circle (2pt);
+    \fill[blue!70] (B) circle (2pt);
+    \node[blue!70!black] at (8.2,2.45) {$\mbox{\footnotesize $B$}$};
+    \draw[-Stealth] (C) -- (\c-\bb,5);
+    \draw[-Stealth] (C) -- (\c+\bb,5);
+    \draw[black] (C) circle (2pt);
+    \fill[red] (C) circle (2pt);
+    \node[red!80!black] at (6,5.45) {$\mbox{\footnotesize $C$}$};
+
+    \end{axis}
+    \end{tikzpicture}
     \caption*{\texttt{函数满足}$f(a) = f(b)$\texttt{，于是会在某处附近变得水平。}}
 \end{figure}
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.6\textwidth]{tu/微变零值定理1.png}    
+%     \caption*{\texttt{函数满足}$f(a) = f(b)$\texttt{，于是会在某处附近变得水平。}}
+% \end{figure}
 
 那么，函数曲线怎样的情况下会变得水平呢？一种情况就是“掉头”，即函数从左到右逼近这一点时，
 函数值不断变大，但过了这一点，就不断变小了。或者反过来，从左到右逼近这一点时，不断变小，
@@ -985,9 +1135,61 @@ $$ \partial \log_{\mathrm{e}} (a) = \frac{1}{a}.$$
 我们可以把这个整体的变化趋势用变率表示：$k = \frac{f(b) - f(a)}{b - a}$。
 而中值定理告诉我们，区间中有一点，函数在其附近的变化趋势和整体趋势一样。
 
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.6\textwidth]{tu/微变中值定理1.png}    
+%     \caption*{\texttt{可以把}$f(a) \neq f(b)$\texttt{视为考虑了整体变化的趋势。}}
+% \end{figure}
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\textwidth]{tu/微变中值定理1.png}    
+    \begin{tikzpicture}
+    \begin{axis}[
+        width=10cm,
+        height=6cm,
+        axis lines=middle,
+        xmin=-2.2,
+        xmax=14.5,
+        ymin=-1.1,
+        ymax=8.1,
+        samples=400,
+        xlabel={$x$},
+        ylabel={$y$},
+        xticklabel style={font=\scriptsize},
+        yticklabel style={font=\scriptsize},
+        xtick distance=1,
+        ytick distance=1,
+        grid=both,
+        major grid style={gray!60},
+        minor grid style={gray!25,dashed},
+        minor tick num=1,
+    ]
+    \def\bb{1.5};
+    \def\c{5.98};
+    \def\k{0.5};
+    \def\y{2.0565};
+    \coordinate (A) at (2,\y);
+    \coordinate (B) at (8,\y+3);
+    \coordinate (C) at (\c,7);
+    \addplot[thick, teal, domain=-0.4:9.8]{
+    2+1.2*sin(180*(x+1.4)/3.14159)+0.3*(x-2)*(6-x)-(1.2*x*(1+2*x))/(x+1)/(x-13)+\k*(x-2)
+    };
+    \addplot[blue,thick,dashed,domain=-2.2:14]{
+    2.0565+0.5*(x-2)
+    };
+    \draw[black] (A) circle (2pt);
+    \fill[blue!70] (A) circle (2pt);
+    \node[blue!70!black] at (1.6,2.45) {$\mbox{\footnotesize $A$}$};
+    \draw[black] (B) circle (2pt);
+    \fill[blue!70] (B) circle (2pt);
+    \node[blue!70!black] at (8.2,5.65) {$\mbox{\footnotesize $B$}$};
+    \draw[-Stealth] (C) -- (\c-\bb,7-\k*\bb);
+    \draw[-Stealth] (C) -- (\c+\bb,7+\k*\bb);
+    \draw[black] (C) circle (2pt);
+    \fill[red] (C) circle (2pt);
+    \node[red!80!black] at (6,7.5) {$\mbox{\footnotesize $C$}$};
+
+    \end{axis}
+    \end{tikzpicture}
     \caption*{\texttt{可以把}$f(a) \neq f(b)$\texttt{视为考虑了整体变化的趋势。}}
 \end{figure}
 
@@ -1650,7 +1852,61 @@ $x\mapsto \sqrt{x}$和$x\mapsto x^2$在$[\,0;1\,]$上都是增函数，从$0$增
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{tu/凹凸函数1.png}
+    % \includegraphics[width=0.8\textwidth]{tu/凹凸函数1.png}
+    \begin{tikzpicture}
+        \begin{scope}[shift={(0,0)}]
+        \begin{axis}[
+            width=5cm,
+            height=5cm,
+            axis lines=middle,
+            xmin=-0.15,
+            xmax=1.25,
+            ymin=-0.15,
+            ymax=1.25,
+            samples=400,
+            xlabel={$x$},
+            ylabel={$y$},
+            xticklabel style={font=\tiny},
+            yticklabel style={font=\tiny},
+            xtick distance=0.2,
+            ytick distance=0.2,
+            grid=both,
+            major grid style={gray!60},
+            minor grid style={gray!25,dashed},
+            minor tick num=1,
+        ]
+        \addplot[thick, teal, domain= 0:1]{
+        x*x
+        };
+        \end{axis}
+        \end{scope}
+        \begin{scope}[shift={(4,0)}]
+        \begin{axis}[
+            width=5cm,
+            height=5cm,
+            axis lines=middle,
+            xmin=-0.15,
+            xmax=1.25,
+            ymin=-0.15,
+            ymax=1.25,
+            samples=400,
+            xlabel={$x$},
+            ylabel={$y$},
+            xticklabel style={font=\tiny},
+            yticklabel style={font=\tiny},
+            xtick distance=0.2,
+            ytick distance=0.2,
+            grid=both,
+            major grid style={gray!60},
+            minor grid style={gray!25,dashed},
+            minor tick num=1,
+        ]
+        \addplot[thick, teal, domain= 0:1]{
+        sqrt(x)
+        };
+        \end{axis}
+        \end{scope}
+    \end{tikzpicture}
     \caption*{$x\mapsto x^2$\texttt{（左）严格下凸，}$x\mapsto \sqrt{x}$\texttt{（右）严格上凸。}}
 \end{figure}
 
@@ -1660,9 +1916,72 @@ $$ \frac{f(z) - f(x)}{z - x} \leqslant \frac{f(z) - f(y)}{y - z}. $$
 或者说，从$x$到$z$的变率，小于等于从$z$到$y$的变率。换句话说，\textbf{函数下凸，就是变率不断变大}。
 反之，\textbf{函数上凸，就是变率不断变小}。
 
+\vspace{4pt}
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{tu/凸函数变率1.png}
+    % \includegraphics[width=0.8\textwidth]{tu/凸函数变率1.png}
+    \begin{tikzpicture}
+    \begin{scope}[shift={(0,0)}]
+    \begin{axis}[
+        width=14cm,
+        height=6cm,
+        axis lines=middle,
+        xmin=-1.2,
+        xmax=18.4,
+        ymin=-2.2,
+        ymax=5.6,
+        samples=400,
+        xlabel={},
+        ylabel={},
+        xticklabel style={font=\scriptsize},
+        yticklabel style={font=\scriptsize},
+        xtick distance=1,
+        ytick distance=1,
+        grid=both,
+        major grid style={gray!60},
+        minor grid style={gray!25,dashed},
+        minor tick num=1,
+        ]
+        \addplot[thick, teal, domain= -0.7:12.1]{
+        0.01*x*(x+6)*(x-8) + 4 - 0.6*x
+        };
+        \coordinate (A) at (2,1.84);
+        \coordinate (B) at (7,-1.11);
+        \coordinate (C) at (11,3.01);
+
+        \draw[brown,thick] (A) -- (C);
+        \draw[blue!70!black,thick] (A) -- (B);
+        \draw[red!70!black,thick] (B) -- (C);
+        \draw[very thick, dotted] (2, -1.5) -- (2, 5);
+        \draw[very thick, dotted] (7, -1.5) -- (7, 5);
+        \draw[very thick, dotted] (11,-1.5) -- (11,5);
+
+        \draw[black] (A) circle (2pt);
+        \fill[blue!70] (A) circle (2pt);
+        \node[blue!70!black] at (2,-2) {$\mbox{\footnotesize $x$}$};
+        \draw[black] (B) circle (2pt);
+        \fill[blue!70] (B) circle (2pt);
+        \node[blue!70!black] at (7,-2) {$\mbox{\footnotesize $z$}$};
+        \draw[black] (7,2.49) circle (2pt);
+        \fill[brown!70] (7,2.49) circle (2pt);
+        \draw[black] (C) circle (2pt);
+        \fill[blue!70] (C) circle (2pt);
+        \node[blue!80!black] at (11,-2) {$\mbox{\footnotesize $y$}$};
+        \node[teal!80!black] at (1.2,3.4) {$\mbox{\footnotesize $f$}$};
+        \draw[very thick, fill=white] (12.2,-1.75) rectangle (18.1,5.3);
+        \draw[black] (12.65,4.7) circle (2pt);
+        \fill[brown!70] (12.65,4.7) circle (2pt);
+        \node at (15.5,4.7) {$\mbox{\footnotesize $cf(x)+(1-c)f(y)$}$};
+        \node at (14.6,3.7) {$\mbox{\footnotesize $z = cx+(1-c)y$}$};
+        \draw[brown,ultra thick] (12.5, 2.4) -- (12.9, 2.4);
+        \draw[blue!70!black,ultra thick] (12.5, 0.8) -- (12.9, 0.8);
+        \draw[red!70!black,ultra thick] (12.5, -0.8) -- (12.9, -0.8);
+        \node at (15,2.4) {$\mbox{\footnotesize $\displaystyle\frac{f(y) - f(x)}{y - x}$}$};
+        \node at (15,0.8) {$\mbox{\footnotesize $\displaystyle\frac{f(z) - f(x)}{z - x}$}$};
+        \node at (15,-0.8) {$\mbox{\footnotesize $\displaystyle\frac{f(y) - f(z)}{y - z}$}$};
+    \end{axis}
+    \end{scope}
+    \end{tikzpicture}
 \end{figure}
 
 直观来看，设函数在$[\,a; b\,]$上有定义。
@@ -1753,7 +2072,59 @@ $$ \frac{f(z) - f(x)}{z - x} \leqslant \frac{f(z) - f(y)}{y - z}. $$
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{tu/研究函数2.png}
+    % \includegraphics[width=0.8\textwidth]{tu/研究函数2.png}
+    \begin{tikzpicture}
+    \begin{scope}[shift={(0,0)}]
+    \begin{axis}[
+        width=12cm,
+        height=6cm,
+        axis lines=middle,
+        xmin=-1.1,
+        xmax=4.4,
+        ymin=-0.04,
+        ymax=0.21,
+        samples=400,
+        xlabel={},
+        ylabel={},
+        xticklabel style={font=\scriptsize},
+        yticklabel style={font=\scriptsize},
+        xtick distance=1,
+        ytick distance=0.1,
+        grid=both,
+        major grid style={gray!60},
+        minor grid style={gray!25,dashed},
+        minor tick num=1,
+        ]
+        \addplot[thick, blue, domain= -0.7:12.1]{
+        x*x*exp(-2*x)
+        };
+        \def\da{-0.0794};
+        \def\db{0.2306};
+        \def\bb{0.8};
+        \coordinate (A) at (1,0.13534);
+        \coordinate (B) at (1.7071,0.09588);
+        \coordinate (C) at (0.2929,0.04775);
+
+        \draw[-Stealth] (A) -- (1-\bb,0.13534);
+        \draw[-Stealth] (A) -- (1+\bb,0.13534);
+        \draw[-Stealth] (B) -- (1.7071-0.6,0.09588-\da*0.6);
+        \draw[-Stealth] (B) -- (1.7071+0.75,0.09588+\da*0.75);
+        \draw[-Stealth] (C) -- (0.2929-0.38,0.04775-\db*0.38);
+        \draw[-Stealth] (C) -- (0.2929+0.35,0.04775+\db*0.35);
+        \draw[black] (0,0) circle (1.7pt);
+        \fill[red] (0,0) circle (1.7pt);
+        \draw[black] (A) circle (1.7pt);
+        \fill[ForestGreen!30!green] (A) circle (1.7pt);
+        \draw[black] (B) circle (1.7pt);
+        \fill[brown!30!yellow] (B) circle (1.7pt);
+        \draw[black] (C) circle (1.7pt);
+        \fill[brown!30!yellow] (C) circle (1.7pt);
+        
+        \draw[very thick, fill=white] (2.6,0.16) rectangle (4.2,0.2);
+        \node at (3.4,0.18) {$\mbox{\footnotesize $f: \,x\,\mapsto \,x^2 \e^{-2x}$}$};
+    \end{axis}
+    \end{scope}
+    \end{tikzpicture}
 \end{figure}
 
 % \newpage  % 为了适应 研究函数2.png 的位置
@@ -1832,16 +2203,118 @@ $$ \frac{f(z) - f(x)}{z - x} \leqslant \frac{f(z) - f(y)}{y - z}. $$
 这个值和零点的确切值差距不会超过$0.02$的一半，也就是$0.01$。
 
 从$1 < a < 2$出发，是否有更好的方法找到近似解呢？我们来看$f$的图像。
-如果把零点$a$到$2$的函数图像近似考虑成直线，作$f$在$x=2$处的切线：
-$$ y = \partial f(2)\cdot (x - 2) + f(2) $$
+记$x_0 = 2$为初始点。如果把零点$a$到$x_0$的函数图像近似考虑成直线，作$f$在$x=x_0$处的切线：
+$$ y = \partial f(x_0)\cdot (x - x_0) + f(x_0) $$
 切线与$x$轴的交点
-$$ x_1 = 2 - \frac{f(2)}{\partial f(2)} $$
-就是零点。
+$$ x_1 = x_0 - \frac{f(x_0)}{\partial f(x_0)} $$
+就是零点。计算可得：$x_1 = 1.5$。
 
 \begin{figure}[h]
-    \vspace{4pt}
+    \vspace{8pt}
     \centering
-    \includegraphics[width=\textwidth]{tu/切线法1.png}
+    % \includegraphics[width=\textwidth]{tu/切线法1.png}
+    \begin{tikzpicture}
+    \begin{scope}[shift={(0,0)}]
+    \begin{axis}[
+        width=14.4cm,
+        height=8cm,
+        axis lines=middle,
+        xmin=1.17,
+        xmax=2.12,
+        ymin=-0.4,
+        ymax=7.2,
+        samples=400,
+        xlabel={},
+        ylabel={},
+        xticklabel style={font=\scriptsize},
+        yticklabel style={font=\scriptsize},
+        xtick distance=0.1,
+        ytick distance=2,
+        grid=both,
+        major grid style={gray!60},
+        minor grid style={gray!25,dashed},
+        minor tick num=1,
+        ]
+        \addplot[ultra thick, red!60!orange, domain=1.17:2.12]{
+            x*x*x - 2
+        };
+        \draw[black] (\r,0) circle (1.2pt);
+        \fill[red] (\r,0) circle (1.2pt);
+        \addplot[thick, Blue, domain=1.17:2.12]{
+            12*(x - 2) + 6
+        };
+        \draw[Blue, very thick] (1.46,-0.48) -- (1.9, 4.8);
+        \draw[ProcessBlue!50!blue, thick] (1.18,-0.785) -- (1.4, 0.7);
+        \draw[ProcessBlue!50!blue] (1.4,0.7) -- (1.59, 1.9825);
+        \draw[ProcessBlue!50!blue, thick] (2.12,5.56) -- (1.59, 1.9825);  % 6.75*(x - 1.5) + 1.375
+        \draw[SkyBlue] (1.18,-0.408) -- (1.4, 0.701);
+        \draw[SkyBlue, thick] (2.12,4.3307) -- (1.4, 0.701);  % 5.04115*(x - 1.2963) + 0.178276
+        \def\r{1.259921};
+        \draw[thick, red, dashed] (\r, -0.4 ) -- (\r, 6.7);
+        \node[red!90!black] at (\r, 7) {$a$};  % 标记实根
+        % 说明各条直线
+        \draw[very thick, fill=white] (1.78,0.3) rectangle (2.11,3);
+        \draw[Blue,ultra thick] (1.79, 2.5) -- (1.81, 2.5);
+        \draw[ProcessBlue!50!blue,ultra thick] (1.79, 1.65) -- (1.81, 1.65);
+        \draw[SkyBlue,ultra thick] (1.79, 0.8) -- (1.81, 0.8);
+        \node at (1.96,2.5) {$\mbox{\scriptsize $y = \partial f(x_0)(x - x_0) + f(x_0)$}$};
+        \node at (1.96,1.65) {$\mbox{\scriptsize $y = \partial f(x_1)(x - x_1) + f(x_1)$}$};
+        \node at (1.96,0.8) {$\mbox{\scriptsize $y = \partial f(x_2)(x - x_2) + f(x_2)$}$};
+        % 说明曲线和点
+        \draw[very thick, fill=white] (1.3,3.18) rectangle (1.71,7.18);
+        \draw[red!50!orange,ultra thick] (1.32, 6.8) -- (1.36, 6.8);
+        \draw[red!50!orange,ultra thick] (1.32, 6.75) -- (1.36, 6.75);
+        \node at (1.46, 6.8) {$\mbox{\small $f(x) = x^3 - 2$}$};
+        \draw (1.315, 3.8) -- (1.67, 3.8);  % 说明零线
+        \draw[thick,red!90!black,dashed] (1.327, 3.7) -- (1.327, 5.6);  % 说明零点
+        \draw[black] (1.327, 3.8) circle (2pt);
+        \fill[red!90!black] (1.327, 3.8) circle (2pt);
+        \node[red!90!black] at (1.327,5.8) {$\mbox{\small $a$}$};
+        \draw[-Stealth,very thick, SkyBlue] (1.45,4.6) -- (1.35,3.8);
+        \draw[-Stealth,very thick, ProcessBlue!50!blue] (1.55,5.2) -- (1.45,3.8);
+        \draw[-Stealth,very thick, Blue] (1.65,6.2) -- (1.55,3.8);
+        \draw[-Stealth,dotted,thick] (1.65, 3.8) -- (1.65, 6.12);
+        \draw[black] (1.65, 3.8) circle (2pt);  % 说明点x_0 = 2
+        \fill[Blue] (1.65, 3.8) circle (2pt);
+        \draw[black] (1.65, 6.2) circle (2pt);  % 说明点x_0 = 2
+        \fill[Blue] (1.65, 6.2) circle (2pt);
+        \draw[-Stealth,dotted,thick] (1.55, 3.8) -- (1.55, 5.12);
+        \draw[black] (1.55, 3.8) circle (2pt);  % 说明点x_1
+        \fill[ProcessBlue!50!blue] (1.55, 3.8) circle (2pt);
+        \draw[black] (1.55, 5.2) circle (2pt);  % 说明点x_1
+        \fill[ProcessBlue!50!blue] (1.55, 5.2) circle (2pt);
+        \draw[-Stealth,dotted,thick] (1.45, 3.8) -- (1.45, 4.56);
+        \draw[black] (1.45, 3.8) circle (2pt);  % 说明点x_2
+        \fill[SkyBlue] (1.45, 3.8) circle (2pt);
+        \draw[black] (1.45, 4.6) circle (2pt);  % 说明点x_2
+        \fill[SkyBlue] (1.45, 4.6) circle (2pt);
+        \draw[black] (1.35, 3.8) circle (2pt);  % 说明点x_3
+        \fill[SkyBlue!50] (1.35, 3.8) circle (2pt);
+        \node at (1.65, 3.5) {$\mbox{\footnotesize $x_0$}$};
+        \node at (1.55, 3.5) {$\mbox{\footnotesize $x_1$}$};
+        \node at (1.45, 3.5) {$\mbox{\footnotesize $x_2$}$};
+        \node at (1.35, 3.5) {$\mbox{\footnotesize $x_3$}$};
+        \node[Blue!80!black] at (1.64, 6.6) {$\mbox{\footnotesize $(x_0,f(x_0))$}$};
+        \node[ProcessBlue!30!blue] at (1.53, 5.6) {$\mbox{\footnotesize $(x_1,f(x_1))$}$};
+        \node[ProcessBlue] at (1.41, 5) {$\mbox{\footnotesize $(x_2,f(x_2))$}$};
+        % 实际位点
+        \draw[black] (2,0) circle (2.4pt);
+        \fill[Blue] (2,0) circle (2.4pt);
+        \draw[black] (2,6) circle (2.4pt);
+        \fill[Blue] (2,6) circle (2.4pt);
+        \draw[black] (1.5,0) circle (2pt);
+        \fill[Blue!50] (1.5,0) circle (2pt);
+        \draw[black] (1.5,1.375) circle (2pt);
+        \fill[Blue!50] (1.5,1.375) circle (2pt);
+        \draw[black] (1.2963,0) circle (1.6pt);
+        \fill[ProcessBlue] (1.2963,0) circle (1.6pt);
+        \draw[black] (1.2963,0.1782) circle (1.6pt);
+        \fill[ProcessBlue] (1.2963,0.1782) circle (1.6pt);
+        \draw[black] (1.26093,0) circle (1.4pt);
+        \fill[SkyBlue!50] (1.26093,0) circle (1.4pt);
+    \end{axis}
+    \end{scope}
+    \end{tikzpicture}
 \end{figure}
 
 实际上，由于$f$的图像并不是直线，因此交点$x_1$和零点有一定的误差。
@@ -1850,13 +2323,13 @@ $$ x_1 = 2 - \frac{f(2)}{\partial f(2)} $$
 再次作$f$在$x=x_1$处的切线：
 $$ y = \partial f(x_1)\cdot (x - x_1) + f(x_1) $$
 它与$x$轴的交点
-$$ x_2 = x_1 - \frac{f(x_1)}{\partial f(x_1)} $$
+$$ x_2 = x_1 - \frac{f(x_1)}{\partial f(x_1)} \approx 1.2963 $$
 就更接近零点。
 而我们如果继续从$x_2$出发，重复以上的做法，就能找到更接近零点的交点。
 
 这种寻找零点近似解的方法称为\textbf{切线法}。
 
-从$x=2$出发，可以找出交点$x_1 = 1.5$，$x_2 \approx 1.2963$，$x_3 \approx 1.2609$，$x_4 \approx 1.2599$，等等。
+从$x_0=2$出发，可以找出交点$x_1 = 1.5$，$x_2 \approx 1.2963$，$x_3 \approx 1.2609$，$x_4 \approx 1.2599$，等等。
 
 如何估计这些点和零点之间的误差呢？我们考虑第$n$次切线交点$x_n$和第$n+1$次切线的交点$x_{n+1}$。按定义：
 $$ 0 = f(x_n) + \partial f(x_n)\cdot (x_{n+1} - x_n). $$
@@ -3127,10 +3600,89 @@ $$ I(t) - I(0) = m(v(t) - v(0)).$$
 那么可以发现，$F$在一段时间$[\,t_1; t_2\,]$内的“总和”就是$F \cdot (t_2 - t_1)$。
 从图像来看，函数图像是水平的线段，$F(t)$的“和”就是函数图像与$x$轴之间的矩形的面积。
 
-\begin{figure}[h] %this figure will be at the right
+\begin{figure}[h]
     \vspace{4pt}
     \centering
-    \includegraphics[width=\textwidth]{tu/积分定义1.png}
+    % \includegraphics[width=\textwidth]{tu/积分定义1.png}
+    \begin{tikzpicture}[scale=0.5]
+    \begin{scope}[shift={(0,0)}]
+        \def\xmin{-0.2};
+        \def\xmax{7};
+        \def\ymin{-0.4};
+        \def\ymax{6.5};
+        % 坐标轴（带箭头）
+        \foreach \k in {2,4,6} {
+            \draw[help lines,gray!60] (\xmin,\k) -- (\xmax,\k) ;
+        }
+        \foreach \k in {2,4,6} {
+            \draw[help lines,gray!60] (\k,\ymin) -- (\k,\ymax) ;
+        }
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[above] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        % 作图
+        \fill[Green!60!brown, opacity=0.2] (0,0) rectangle (6.4,6);
+        \draw[Green!60!brown, very thick] (0,6) -- (6.4,6);
+        \draw[Green!60!brown, dotted] (6.4,0) -- (6.4,6);
+    \end{scope}
+    \begin{scope}[shift={(9,0)}]
+        \def\xmin{-0.2};
+        \def\xmax{7};
+        \def\ymin{-0.4};
+        \def\ymax{6.5};
+        % 坐标轴（带箭头）
+        \foreach \k in {2,4,6} {
+            \draw[help lines,gray!60] (\xmin,\k) -- (\xmax,\k) ;
+        }
+        \foreach \k in {2,4,6} {
+            \draw[help lines,gray!60] (\k,\ymin) -- (\k,\ymax) ;
+        }
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[above] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        % 作图
+        \def\xa{2};
+        \def\xb{4.3};
+        \def\xc{5.5};
+        \def\ya{4};
+        \def\yb{3.1};
+        \def\yc{6.4};
+        \fill[Green!60!brown, opacity=0.2] (0,0) rectangle (\xa,\ya);
+        \fill[Green!60!brown, opacity=0.2] (\xa,0) rectangle (\xb,\yb);
+        \fill[Green!60!brown, opacity=0.2] (\xb,0) rectangle (\xc,\yc);
+        \fill[Green!60!brown, opacity=0.2] (\xc,0) rectangle (6.4,6);
+        \draw[Green!60!brown, very thick] (0,\ya) -- (\xa,\ya);
+        \draw[Green!60!brown, very thick] (\xa,\yb) -- (\xb,\yb);
+        \draw[Green!60!brown, very thick] (\xb,\yc) -- (\xc,\yc);
+        \draw[Green!60!brown, very thick] (\xc,6) -- (6.4,6);
+        \draw[Green!60!brown, dotted] (\xa,0) -- (\xa,\ya);
+        \draw[Green!60!brown, dotted] (\xb,0) -- (\xb,\yc);
+        \draw[Green!60!brown, dotted] (\xc,0) -- (\xc,\yc);
+        \draw[Green!60!brown, dotted] (6.4,0) -- (6.4,6);
+    \end{scope}
+    \begin{scope}[shift={(18,0)}]
+        \def\xmin{-0.2};
+        \def\xmax{7};
+        \def\ymin{-0.4};
+        \def\ymax{6.5};
+        % 坐标轴（带箭头）
+        \foreach \k in {2,4,6} {
+            \draw[help lines,gray!60] (\xmin,\k) -- (\xmax,\k) ;
+        }
+        \foreach \k in {2,4,6} {
+            \draw[help lines,gray!60] (\k,\ymin) -- (\k,\ymax) ;
+        }
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[above] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        % 作图
+        \fill[Green!60!brown, opacity=0.2, domain=0:6.4, samples=200]
+        (0,0)
+        -- plot (\x,{3.3-0.2*\x-0.12*(\x+1)*(\x-10)+0.5*sin(deg(2*\x-3))})
+        -- (6.4,0)
+        -- cycle;
+        \draw[Green!60!brown, very thick, domain=0:6.4, samples=200]
+        plot (\x,{3.3-0.2*\x-0.12*(\x+1)*(\x-10)+0.5*sin(deg(2*\x-3))});
+        \draw[Green!60!brown, dotted] (6.4,0) -- (6.4,5.03);
+    \end{scope}
+    \end{tikzpicture}
     \caption*{\texttt{函数图像与$x$轴之间的面积}}
 \end{figure}
 
@@ -3470,7 +4022,105 @@ $$ \int_a^x \left( g(f(t)) \partial f (t) \right) = \int_{f(a)}^{f(x)} g.$$
 \begin{figure}[h] %this figure will be at the right
     \vspace{4pt}
     \centering
-    \includegraphics[width=\textwidth]{tu/积分中值定理1.png}
+    % \includegraphics[width=\textwidth]{tu/积分中值定理1.png}
+    \begin{tikzpicture}[scale=0.434]
+    \begin{scope}[shift={(0,0)}]
+        \def\xmin{-0.2};
+        \def\xmax{7};
+        \def\ymin{-0.4};
+        \def\ymax{6.5};
+        % 坐标轴（带箭头）
+        \foreach \k in {2,4,6} {
+            \draw[help lines,gray!60] (\xmin,\k) -- (\xmax,\k) ;
+        }
+        \foreach \k in {2,4,6} {
+            \draw[help lines,gray!60] (\k,\ymin) -- (\k,\ymax) ;
+        }
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[above] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        % 作图
+        \fill[ProcessBlue, opacity=0.1] (0,0) rectangle (6.4,2.85);
+        \draw[ForestGreen!60!brown, very thick, domain=0:6.4, samples=200]
+        plot (\x,{3.3+0.4*\x+0.8*sin(deg(1.2*\x-3))});
+        \draw[dashed] (0,5.76) -- (6.4,5.76);
+        \draw[ProcessBlue, dotted] (6.4,0) -- (6.4,2.85);
+        \draw[ProcessBlue] (0,2.85) -- (6.4,2.85);
+        \draw[-Stealth, thick,Blue] (3.4, 3.1) -- (3.4, 4.5);
+    \end{scope}
+    \begin{scope}[shift={(8,0)}]
+        \def\xmin{-0.2};
+        \def\xmax{7};
+        \def\ymin{-0.4};
+        \def\ymax{6.5};
+        % 坐标轴（带箭头）
+        \foreach \k in {2,4,6} {
+            \draw[help lines,gray!60] (\xmin,\k) -- (\xmax,\k) ;
+        }
+        \foreach \k in {2,4,6} {
+            \draw[help lines,gray!60] (\k,\ymin) -- (\k,\ymax) ;
+        }
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[above] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        % 作图
+        \fill[ProcessBlue, opacity=0.1] (0,0) rectangle (6.4,5.76);
+        \draw[ForestGreen!60!brown, very thick, domain=0:6.4, samples=200]
+        plot (\x,{3.3+0.4*\x+0.8*sin(deg(1.2*\x-3))});
+        \draw[dashed] (0,2.85) -- (6.4,2.85);
+        \draw[ProcessBlue] (0,5.76) -- (6.4,5.76);
+        \draw[ProcessBlue, dotted] (6.4,0) -- (6.4,5.76);
+    \end{scope}
+    \begin{scope}[shift={(16,0)}]
+        \def\xmin{-0.2};
+        \def\xmax{7};
+        \def\ymin{-0.4};
+        \def\ymax{6.5};
+        % 坐标轴（带箭头）
+        \foreach \k in {2,4,6} {
+            \draw[help lines,gray!60] (\xmin,\k) -- (\xmax,\k) ;
+        }
+        \foreach \k in {2,4,6} {
+            \draw[help lines,gray!60] (\k,\ymin) -- (\k,\ymax) ;
+        }
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[above] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        % 作图
+        \fill[ProcessBlue, opacity=0.1, domain=0:6.4, samples=200]
+        (0,0)
+        -- plot (\x,{3.3+0.4*\x+0.8*sin(deg(1.2*\x-3))})
+        -- (6.4,0)
+        -- cycle;
+        \draw[ForestGreen!60!brown, very thick, domain=0:6.4, samples=200]
+        plot (\x,{3.3+0.4*\x+0.8*sin(deg(1.2*\x-3))});
+        \draw[ProcessBlue, dotted] (6.4,0) -- (6.4,5.5);
+        \draw[Blue!70!ProcessBlue, dashed, thick] (0,4.381) -- (6.4,4.381);
+    \end{scope}
+    \begin{scope}[shift={(24,0)}]
+        \def\xmin{-0.2};
+        \def\xmax{7};
+        \def\ymin{-0.4};
+        \def\ymax{6.5};
+        % 坐标轴（带箭头）
+        \foreach \k in {2,4,6} {
+            \draw[help lines,gray!60] (\xmin,\k) -- (\xmax,\k) ;
+        }
+        \foreach \k in {2,4,6} {
+            \draw[help lines,gray!60] (\k,\ymin) -- (\k,\ymax) ;
+        }
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[above] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        % 作图
+        \draw[ForestGreen!60!brown, very thick, domain=0:6.4, samples=200]
+        plot (\x,{3.3+0.4*\x+0.8*sin(deg(1.2*\x-3))});
+        \fill[ProcessBlue, opacity=0.1] (0,0) rectangle (6.4,4.381);
+        \draw[blue!60!ProcessBlue, dotted] (6.4,0) -- (6.4,4.381);
+        \draw[Blue!70!ProcessBlue, dashed, thick] (0,4.381) -- (6.4,4.381);
+        \draw[dotted] (2.591,0) -- (2.591,6.5);
+        \draw[black] (2.591,4.381) circle (3pt);
+        \fill[Blue] (2.591,4.381) circle (3pt);
+        \draw[black] (2.591,0) circle (3pt);
+        \fill[Blue] (2.591,0) circle (3pt) node[below] {$c$};
+    \end{scope}
+    \end{tikzpicture}
     \caption*{\texttt{如左图，水位从曲线最低的位置开始上涨，当水位下的面积等于曲线下的面积时，水位线与曲线的交点就是}$c$\texttt{的位置。}}
 \end{figure}
 
@@ -4264,12 +4914,12 @@ $P_n$的各项互不相干扰，而加起来，就模拟了$f$在$a$处的各次
 如果函数可以分成几段，每段都是常函数，我们可以把它的积合定义为若干个矩形的面积之和。
 从这个方法出发，对一般的函数，我们也希望用一系列的矩形来近似表示“函数曲线到$x$轴的面积”。
 
-\begin{figure}[h] %this figure will be at the right
-    \vspace{4pt}
-    \centering
-    \includegraphics[width=0.4\textwidth]{tu/积分定义4.png}
-    \caption*{\texttt{用矩形近似表示函数曲线到$x$轴的面积}}
-\end{figure}
+% \begin{figure}[h] %this figure will be at the right
+%     \vspace{4pt}
+%     \centering
+%     \includegraphics[width=0.4\textwidth]{tu/积分定义4.png}
+%     \caption*{\texttt{用矩形近似表示函数曲线到$x$轴的面积}}
+% \end{figure}
 
 \begin{df}{\textbf{区间的分割}}
     \mbox{} \\
@@ -4292,12 +4942,19 @@ $P_n$的各项互不相干扰，而加起来，就模拟了$f$在$a$处的各次
 
 \end{df}
 
+\begin{wrapfigure}[11]{r}{0.42\textwidth}
+    \vspace{-10pt}
+    \centering
+    \includegraphics[width=0.4\textwidth]{tu/积分定义4.png}
+    \caption*{\texttt{用矩形近似表示函数曲线到$x$轴的面积}}
+\end{wrapfigure}
+
 给定区间$I$上的函数$f$，如果可以找到区间$I$的某个分割，使得$f$在分割的每个子区间上都是常函数，就说$f$是\textbf{分段常函数}，也叫\textbf{阶梯函数}。
 显然，阶梯函数背后总有一个分割。如果我们把这个分割的子区间继续拆分，$f$仍然是阶梯函数。
 
-不难发现，阶梯函数的积合，我们可以直接定义为相关矩形的面积之和。具体来说，$f$关于分割$(x_0, x_1, \cdots, x_n)$的积合就是：
+不难发现，阶梯函数的积合可以直接定义为相关矩形的面积之和。具体来说，$f$关于分割$(x_0, x_1, \cdots, x_n)$的积合就是：
 $$ \sum_{i=1}^n (x_i - x_{i-1}) f(c_i) $$
-其中$c_i$可以是任意取样，因为$f$在子区间上是常函数。
+其中$c_i$可以任意取样，因为$f$在子区间上是常函数。
 
 对一般的函数来说，我们可以用阶梯函数来逼近它。对闭区间上连续函数$f$的任何分割，我们考虑两个阶梯函数，
 一个在分割的各个子区间上取$f$的最大值，另一个在分割的各个子区间上取$f$的最小值。这两个阶梯函数都可以定义积合，
@@ -4305,10 +4962,87 @@ $$ \sum_{i=1}^n (x_i - x_{i-1}) f(c_i) $$
 
 如果我们把分割的子区间继续拆分，这两个积合会怎么变化呢？
 
-\begin{wrapfigure}[8]{l}{0.52\textwidth} 
-    \vspace{-32pt}
+\begin{wrapfigure}[8]{l}{0.55\textwidth} 
+    \vspace{-27pt}
     \flushleft
-    \includegraphics[width=0.5\textwidth]{tu/积分定义2.png}
+    % \includegraphics[width=0.5\textwidth]{tu/积分定义2.png}
+    \begin{tikzpicture}[scale=0.5]
+    \begin{scope}[shift={(0,0)}]
+        \def\xmin{-0};
+        \def\xmax{6.8};
+        \def\ymin{-0};
+        \def\ymax{5.7};
+        % 坐标轴（带箭头）
+        % \foreach \k in {1,2,...,6} {
+        %     \draw[help lines,gray!60] (\xmin,\k) -- (\xmax,\k) ;
+        % }
+        % \foreach \k in {1,2,...,6} {
+        %     \draw[help lines,gray!60] (\k,\ymin) -- (\k,\ymax) ;
+        % }
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[above] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        % 作图
+        \def\c{2.5}
+        \fill[SkyBlue, opacity=0.1] (0,0.662) rectangle (\c,2.88);
+        \fill[LimeGreen, opacity=0.1] (\c,1.213) rectangle (6.4,5.07);
+        \draw[Tan!70!brown, very thick, domain=0:6.4, samples=200]
+        plot (\x,{sin(1.2*deg(\x-2.5))+0.7*sin(4*deg(\x-1.5))+0.1*\x-6+0.6*exp(0.9*(-\x+2))-0.25*(\x+2)*(\x-10)});
+        \draw[dotted] (0,0.662) -- (6.4,0.662);
+        \draw[dotted] (0,5.07) -- (6.4,5.07);
+        \draw[black] (1.09,0.662) circle (2.4pt);
+        \fill[red] (1.09,0.662) circle (2.4pt);
+        \draw[black] (3.517,5.07) circle (2.4pt);
+        \fill[blue] (3.517,5.07) circle (2.4pt);
+
+        % 分割区域
+        \draw[dotted] (\c,0) -- (\c,5.07);
+        \draw[dotted] (0,2.88) -- (\c,2.88);
+        \draw[dotted] (\c,1.213) -- (6.4,1.213);
+        \draw[black] (5.963,1.213) circle (2.4pt);
+        \fill[red] (5.963,1.213) circle (2.4pt);
+        \draw[black] (2.042, 2.88) circle (2.4pt);
+        \fill[blue] (2.042, 2.88) circle (2.4pt);
+        \draw[black] (\c,2.54) circle (2.4pt);
+        \fill[yellow] (\c,2.54) circle (2.4pt);
+
+        % 5.963 1.213  2.042, 2.88
+
+    \end{scope}
+    \begin{scope}[shift={(7.5,0)}]
+        \def\xmin{-0};
+        \def\xmax{6.8};
+        \def\ymin{-0};
+        \def\ymax{5.7};
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[above] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        % 作图
+        \def\c{4}
+        \fill[SkyBlue, opacity=0.1] (0,0.662) rectangle (\c,5.07);
+        \fill[LimeGreen, opacity=0.1] (\c,1.213) rectangle (6.4,4.192);
+        \draw[Tan!70!brown, very thick, domain=0:6.4, samples=200]
+        plot (\x,{sin(1.2*deg(\x-2.5))+0.7*sin(4*deg(\x-1.5))+0.1*\x-6+0.6*exp(0.9*(-\x+2))-0.25*(\x+2)*(\x-10)});
+        \draw[dotted] (0,0.662) -- (6.4,0.662);
+        \draw[dotted] (0,5.07) -- (6.4,5.07);
+        \draw[black] (1.09,0.662) circle (2.4pt);
+        \fill[red] (1.09,0.662) circle (2.4pt);
+        \draw[black] (3.517,5.07) circle (2.4pt);
+        \fill[blue] (3.517,5.07) circle (2.4pt);
+
+        % 分割区域
+        \draw[dotted] (\c,0) -- (\c,5.07);
+        \draw[dotted] (\c,4.192) -- (6.4,4.192);
+        \draw[dotted] (\c,1.213) -- (6.4,1.213);
+        \draw[black] (5.963,1.213) circle (2.4pt);
+        \fill[red] (5.963,1.213) circle (2.4pt);
+        \draw[black] (4.889, 4.192) circle (2.4pt);
+        \fill[blue] (4.889, 4.192) circle (2.4pt);
+        \draw[black] (\c,4.092) circle (2.4pt);
+        \fill[yellow] (\c,4.092) circle (2.4pt);
+
+        % 5.963 1.213  2.042, 2.88
+
+    \end{scope}
+    \end{tikzpicture}
     \caption*{\texttt{把区间拆成左右两份，最大值不超过原来的最大值（${\color{blue} \bullet}$），最小值不小于原来的最小值（${\color{red} \bullet}$）。}}
 \end{wrapfigure}
 
@@ -4317,14 +5051,13 @@ $$ \sum_{i=1}^n (x_i - x_{i-1}) f(c_i) $$
 因此，拆分后，$f$关于新分割的上限和不增加，下限和不减少。
 
 \begin{wrapfigure}[8]{r}{0.32\textwidth} %this figure will be at the right
-    \vspace{-35pt}
+    \vspace{-18pt}
     \flushright
     \includegraphics[width=0.3\textwidth]{tu/积分定义6.png}
-    \caption*{\texttt{各种分割的取样和，随着分割越来越细，趋于同一个数。}}
+    \caption*{\texttt{各种分割的取样和，细化后趋于同一个值。}}
 \end{wrapfigure}
 
-直觉上，对于一般的函数，分割得越细，
-上限和会越来越小，下限和会越来越大；上限和与下限和之间的差距会不断变小。
+直觉上，函数分割得越细，上限和会越来越小，下限和会越来越大；上限和与下限和之间的差距会不断变小。
 如果对于任何分割，只要分割越来越细，上下限和之间的差距就越来越小，而且最后都趋于同一个数，
 那么这个数就可以看作函数曲线到$x$轴的面积，也就是函数在区间上的积合。
 
@@ -4332,7 +5065,7 @@ $$ \sum_{i=1}^n (x_i - x_{i-1}) f(c_i) $$
 
 为此，我们先说明几个关于上下限和的结论。
 
-把分割的子区间继续拆分，称为\textbf{细化}。给定一个分割，将它的子区间拆分，就是在分割点序列相应的位置插入
+把分割的子区间继续拆分，称为\textbf{细化}。将一个分割的子区间拆分，就是在分割点序列相应的位置插入
 新的数。比如把$[\,x_i; x_{i+1}\,]$拆分为两个区间$[\,x_i; y\,]$和$[\,y; x_{i+1}\,]$，就是在$(x_0, x_1, \cdots, x_n)$的$x_i$和$x_{i+1}$之间插入$y$。
 
 因此，两个分割，如果其中一个的分割点集合是另一个的子集，就说后者是前者的\textbf{细化分割}。
@@ -4459,7 +5192,6 @@ $S^{\text{上}}$的下确界等于$S^{\text{下}}$的上确界。这就是我们
     $$ \int_a^b f = (b - a)\cdot f(c).$$
 \end{proof}
 
-
 \begin{tm}{\textbf{积合余项的微变展开定理}}
     如果函数$f$在包含实数$a$的区间$I$中$n+1$次可微，且$n+1$次微变函数连续，那么对$I$中另一点$x$有：
     \begin{align*}
@@ -4501,7 +5233,7 @@ $S^{\text{上}}$的下确界等于$S^{\text{下}}$的上确界。这就是我们
         &= f(a) + (x - a) \partial f(a) + \int_a^b (x - t) \cdot \partial^2 f(t) \mathrm{d}t \\
         &= f(a) + (x - a) \partial f(a) + \frac{(x - a)^2}{2} \partial^2 f(a) + \int_a^b \frac{(x - t)^2}{2} \cdot \partial^3 f(t) \mathrm{d}t\\
         & \qquad \qquad \qquad \qquad\qquad \qquad \vdots \\
-        &= f(a) + \sum_{i=1}^n \frac{\partial^i f(a)}{i!} (x - a)^i + \int_a^x \frac{(x - t)^{n}}{n!} \partial^{n+1} f(t)\mathrm{d}t. \\
+        &= f(a) + \sum_{i=1}^n \frac{\partial^i f(a)}{i!} (x - a)^i + \int_a^x \frac{(x - t)^{n}}{n!} \partial^{n+1} f(t)\mathrm{d}t. 
     \end{align*}    
 \end{proof}
 
@@ -4532,7 +5264,7 @@ $S^{\text{上}}$的下确界等于$S^{\text{下}}$的上确界。这就是我们
     由于$ \mathbf{v}_j$可以表示为$\mathbf{v}_1, \mathbf{v}_2 , \cdots , \mathbf{v}_{j-1}$的直组合，设某个向量是$\mathbf{v}_1, \mathbf{v}_2 , \cdots , \mathbf{v}_m$的直组合：
     $$ \mathbf{u} = b_1\mathbf{v}_1+b_2\mathbf{v}_2+\cdots+b_m\mathbf{v}_m$$
     把右侧表达式中的$\mathbf{v}_j$替换为$\mathbf{v}_1, \mathbf{v}_2 , \cdots , \mathbf{v}_{j-1}$的直组合，就得到了不含$\mathbf{v}_j$的直组合表达式。\\
-    所以，去除$\mathbf{v}_j$，整组向量的生成空间不变\footnote{其实我们只证明了一个方向的归属关系，不过另一个方向比较显然，留给读者思考。}。\\
+    所以，去除$\mathbf{v}_j$，整组向量的生成空间不变\footnote{其实我们只证明了一个方向的归属关系，不过另一个方向比较显然，留给读者思考。}。
 \end{proof}
 
 \begin{tm}\label{tm:d-1-30}
@@ -4612,7 +5344,6 @@ $S^{\text{上}}$的下确界等于$S^{\text{下}}$的上确界。这就是我们
     每次操作后，$\mathcal{F}_{\mathbf{v}}$中元素数量减少$1$。
     所以，有限次操作之后，$\mathcal{F}_{\mathbf{v}}$变为直无关的生成族。
     这时我们就得到了空间的基底。
-
 \end{proof}
 
 从上面的定理可以推出：
@@ -4647,7 +5378,6 @@ $S^{\text{上}}$的下确界等于$S^{\text{下}}$的上确界。这就是我们
     每次操作，$\mathcal{F}_{\mathbf{v}}$中增加一个元素。所以，要么在有限次操作后，$\langle\mathcal{F}_{\mathbf{v}}\rangle = \mathbb{V}$，
     我们得到$\mathbb{V}$的直无关的生成集（也就是基底）；
     要么$\mathcal{F}_{\mathbf{v}}$中元素个数超过$n$，而这和定理\ref{tm:d-1-30}矛盾。
-
 \end{proof}
 
 我们甚至有更具体的结论：
@@ -4678,7 +5408,6 @@ $S^{\text{上}}$的下确界等于$S^{\text{下}}$的上确界。这就是我们
     $$ a_1 = a_2 = \cdots = a_m = -a_{m+1} = \cdots = -a_n = 0.$$
     所以$\mathbf{u} = \mathbf{0}$。
     因此，$ \mathbb{U} \cap \mathbb{W} = \{\mathbf{0}\}$.
-
 \end{proof}
 
 关于子空间交集与和空间维数的定理：
@@ -4709,8 +5438,7 @@ $S^{\text{上}}$的下确界等于$S^{\text{下}}$的上确界。这就是我们
 
     其次，证明$\mathcal{B}_T\cup\mathcal{B}_{U'}\cup\mathcal{B}_{W'}$直无关。
 
-    假设零向量可以分解为$\mathcal{B}_T\cup\mathcal{B}_{U'}\cup\mathcal{B}_{W'}$的直组合，
-    则说明零向量可以表示为：
+    假设零向量可以分解为$\mathcal{B}_T\cup\mathcal{B}_{U'}\cup\mathcal{B}_{W'}$的直组合，即零向量可以写为：
     $$ \mathbf{0} = \mathbf{t} + \mathbf{u} + \mathbf{w}. \,\,\,\mathbf{t}\in\mathbb{T},\,\,\mathbf{u}\in\mathbb{U}',\,\,\mathbf{w}\in\mathbb{W}'.$$
     所以$\mathbf{u} = -\mathbf{t} - \mathbf{w} \in \mathbb{W}$.
     也就是说，$\mathbf{u}\in \mathbb{U}'\cap\mathbb{W}$。
@@ -4727,7 +5455,6 @@ $S^{\text{上}}$的下确界等于$S^{\text{下}}$的上确界。这就是我们
     每个分量系数都是0. 
     这就证明$\mathcal{B}_T\cup\mathcal{B}_{U'}\cup\mathcal{B}_{W'}$直无关，
     从而是$\mathbb{U} + \mathbb{W}$的一组基。
-
 \end{proof}
 
 从这个定理可以看出子空间和集合的相似之处。
