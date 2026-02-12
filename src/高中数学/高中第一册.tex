@@ -1585,6 +1585,17 @@ $f(g(x)) = \left(\sqrt{x + 1}\right)^2 - 1 = x$。于是$f$和$g$互为反函数
         tick label style = {font=\small,color=BrickRed}
     ]
 
+    \pgfplotsinvokeforeach{1,2}{
+      \draw[Cyan!60,dashed] (axis cs:#1, -2*pi/3) -- (axis cs:#1, 2*pi/3);
+      \draw[Cyan!60,dashed] (axis cs:-#1, -2*pi/3) -- (axis cs:-#1, 2*pi/3);
+      \draw[Cyan!60,dashed] (axis cs:-3*pi/4-0.1,#1) -- (axis cs:3*pi/4+0.5, #1);
+      \draw[Cyan!60,dashed] (axis cs:-3*pi/4-0.1,-#1) -- (axis cs:3*pi/4+0.5, -#1);
+      \node[RoyalBlue,above,font=\footnotesize] at (axis cs:#1,-0.05) {$#1$};
+      \node[RoyalBlue,above,font=\footnotesize] at (axis cs:-#1-0.05,-0.05) {$-#1$};
+      \node[RoyalBlue,left,font=\footnotesize] at (axis cs:-0.02,#1) {$#1$};
+      \node[RoyalBlue,left,font=\footnotesize] at (axis cs:-0.06,-#1) {$-#1$};
+    }
+
     % 正弦函数：仅绘制 [-π/2, π/2] 区间（弧度输入需转换为度数）
     \addplot [
         blue, very thick, smooth,
@@ -1598,9 +1609,6 @@ $f(g(x)) = \left(\sqrt{x + 1}\right)^2 - 1 = x$。于是$f$和$g$互为反函数
         domain = -1:1
     ] {asin(x)/deg(1)};
     \addlegendentry{$y = \arcsin (x)$}
-    
-    % 可选：添加对称轴 y=x 以直观展示反函数关系（灰色虚线）
-    
 
     \addplot [
         blue, very thick, smooth, dashed,
@@ -1611,17 +1619,6 @@ $f(g(x)) = \left(\sqrt{x + 1}\right)^2 - 1 = x$。于是$f$和$g$互为反函数
         blue, very thick, smooth, dashed,
         domain = pi/2:3*pi/4+0.5
     ] {sin(deg(x))};
-
-    \pgfplotsinvokeforeach{1,2}{
-      \draw[Cyan!60,dashed] (axis cs:#1, -2*pi/3) -- (axis cs:#1, 2*pi/3);
-      \draw[Cyan!60,dashed] (axis cs:-#1, -2*pi/3) -- (axis cs:-#1, 2*pi/3);
-      \draw[Cyan!60,dashed] (axis cs:-3*pi/4-0.1,#1) -- (axis cs:3*pi/4+0.5, #1);
-      \draw[Cyan!60,dashed] (axis cs:-3*pi/4-0.1,-#1) -- (axis cs:3*pi/4+0.5, -#1);
-      \node[RoyalBlue,above,font=\footnotesize] at (axis cs:#1,-0.05) {$#1$};
-      \node[RoyalBlue,above,font=\footnotesize] at (axis cs:-#1-0.05,-0.05) {$-#1$};
-      \node[RoyalBlue,left,font=\footnotesize] at (axis cs:-0.02,#1) {$#1$};
-      \node[RoyalBlue,left,font=\footnotesize] at (axis cs:-0.06,-#1) {$-#1$};
-    }
     \addplot [Fuchsia!60, dashed, thick, domain=-2*pi/3:2*pi/3] {x};
 
     \end{axis}
@@ -1686,6 +1683,16 @@ $$ \arccos : [\,-1; 1\,] \rightarrow [\,0;\pi\,] . $$
         tick label style = {font=\small,color=BrickRed}
     ]
 
+    \pgfplotsinvokeforeach{-1,1,2,3}{
+      \draw[Cyan!60,dashed] (axis cs:#1, -pi/2) -- (axis cs:#1, pi+0.3);
+      \draw[Cyan!60,dashed] (axis cs:-pi/2-0.1,#1) -- (axis cs:pi+0.5, #1);
+      \node[RoyalBlue,left,font=\footnotesize] at (axis cs:-0.02,#1) {$#1$};
+    }
+    \pgfplotsinvokeforeach{1,2,3}{
+      \node[RoyalBlue,below,font=\footnotesize] at (axis cs:#1,-0.05) {$#1$};
+    }
+    \node[RoyalBlue,below,font=\footnotesize] at (-1.075,-0.05) {$-1$};
+
     \addplot [
         blue, very thick, smooth,
         domain = 0:pi
@@ -1708,16 +1715,6 @@ $$ \arccos : [\,-1; 1\,] \rightarrow [\,0;\pi\,] . $$
         domain = pi:pi+0.5
     ] {cos(deg(x))};
     % 可选：添加对称轴 y=x 以直观展示反函数关系（灰色虚线）
-    
-    \pgfplotsinvokeforeach{-1,1,2,3}{
-      \draw[Cyan!60,dashed] (axis cs:#1, -pi/2) -- (axis cs:#1, pi+0.3);
-      \draw[Cyan!60,dashed] (axis cs:-pi/2-0.1,#1) -- (axis cs:pi+0.5, #1);
-      \node[RoyalBlue,left,font=\footnotesize] at (axis cs:-0.02,#1) {$#1$};
-    }
-    \pgfplotsinvokeforeach{1,2,3}{
-      \node[RoyalBlue,below,font=\footnotesize] at (axis cs:#1,-0.05) {$#1$};
-    }
-    \node[RoyalBlue,below,font=\footnotesize] at (-1.075,-0.05) {$-1$};
     \addplot [Fuchsia!60, dashed, thick, domain=-2*pi/3:pi+0.3] {x};
 
     \end{axis}
@@ -2493,16 +2490,16 @@ $$ |a_{n+1} - \sqrt{2}| = \frac{|a_n - \sqrt{2}|}{2|a_n|} \cdot |a_n - \sqrt{2}|
     \begin{tikzpicture}[scale=0.58]
     \begin{scope}[shift={(0,0)}]
         \def\xmin{0};
-        \def\xmax{20.4};
+        \def\xmax{20.5};
         \def\ymin{-0.5};
         \def\ymax{6.8};
         \def\x{4};
         \def\r{0.15};
+        \def\M{6.4}
         % 坐标轴（带箭头）
-        \draw[-Stealth] (\xmin, \ymin) -- (\xmax+0.6,\ymin);
+        \draw[-Stealth] (\xmin, \ymin) -- (\xmax+0.5,\ymin);
         \draw[-Stealth] (0,\ymin) -- (0,\ymax);
-        % \node at (-0.6, \ymax) {$\mbox{\footnotesize $a_n$}$};
-        \node at (\xmax+1, \ymin) {$\mbox{\footnotesize $n$}$};
+        \node at (\xmax+0.8, \ymin) {$\mbox{\footnotesize $n$}$};
         % 作图          
         % 散点数据
         \def\points{
@@ -2526,19 +2523,13 @@ $$ |a_{n+1} - \sqrt{2}| = \frac{|a_n - \sqrt{2}|}{2|a_n|} \cdot |a_n - \sqrt{2}|
         }
 
         \def\afterpoints{
-          (17.40,4.82),(17.60,4.83),(17.80,4.84),(18.00,4.85),
-          (18.20,4.86),(18.40,4.88),(18.60,4.89),(18.80,4.90),(19.00,4.91),
-          (19.20,4.92),(19.40,4.93),(19.60,4.95),(19.80,4.96),(20.00,4.97)
-        }
-
-        % 刻度与数字
-        \foreach \x in {2,4,6} {
-            \draw (-0.1,\x) -- (0.1,\x); 
-            \node[black] at (-0.35,\x) {$\mbox{\scriptsize $\x$}$};
+          (17.40,4.82),(17.60,4.83),(17.80,4.84),(18.00,4.85),(18.20,4.86),
+          (18.40,4.88),(18.60,4.89),(18.80,4.90),(19.00,4.91),(19.20,4.92),
+          (19.40,4.93),(19.60,4.95),(19.80,4.958),(20.00,4.964),(20.20,4.97)
         }
         
         % 刻度与数字
-        \foreach \x in {20,40,...,100} {
+        \foreach \x in {5,10,20,40,...,100} {
             \draw (0.2*\x,\ymin+0.1) -- (0.2*\x,\ymin-0.1); 
             \node[black] at (0.2*\x, \ymin-0.35) {$\mbox{\tiny $\x$}$};
         }
@@ -2546,22 +2537,23 @@ $$ |a_{n+1} - \sqrt{2}| = \frac{|a_n - \sqrt{2}|}{2|a_n|} \cdot |a_n - \sqrt{2}|
         \foreach \k in {1,2,...,11,14,15} {
           \draw[dotted,thick, gray!50] (0,0.4*\k) -- (\xmax,0.4*\k);
         }
-        \draw[CadetBlue,very thick] (0,6.4) -- (\xmax,6.4);
-        \draw[RoyalPurple,dashed,very thick] (0,6.4) -- (\xmax,6.4);
+        \draw[OliveGreen!70!black,very thick] (0,\M) -- (\xmax,\M);
         \draw[dashed, Red, thick] (0,4.8) -- (\xmax,4.8);
-        \draw[dashed, OliveGreen!50!green, thick] (0,5.2) -- (\xmax,5.2);
+        \draw[dashed, ForestGreen, thick] (0,5.2) -- (\xmax,5.2);
         % 绘制散点
         \foreach \p in \points {
           \fill[white, draw=blue] \p circle (2pt);
         }
         \foreach \p in \afterpoints {
-          \fill[Goldenrod, draw=Sepia] \p circle (2pt);
+          \fill[Goldenrod, draw=BrickRed] \p circle (2pt);
         }
         \fill[Red, draw=BrickRed] (17.20,4.80) circle (2.1pt); 
-        \node[RoyalPurple] at (\xmax+0.6, 6.4) {$\mbox{\footnotesize $M$}$};
+        \node[OliveGreen!70!black] at (-0.5, \M) {$\mbox{\footnotesize $M$}$};
+        \node[OliveGreen!70!black] at (\xmax+0.6, \M) {$\mbox{\footnotesize $y_k$}$};
         \node[Magenta] at (-0.5, 0) {$\mbox{\footnotesize $a_1$}$};
+        \node[Magenta] at (\xmax+0.6, 0) {$\mbox{\footnotesize $y_0$}$};
         \node[Red] at (-0.5, 4.8) {$\mbox{\footnotesize $y_{i}$}$};
-        \node[OliveGreen] at (\xmax+0.9, 5.2) {$\mbox{\footnotesize $y_{i+1}$}$};
+        \node[ForestGreen!70!black] at (\xmax+0.89, 5.2) {$\mbox{\footnotesize $y_{i+1}$}$};
     \end{scope}
     \end{tikzpicture}
 \end{figure}
@@ -2573,13 +2565,13 @@ $$ |a_{n+1} - \sqrt{2}| = \frac{|a_n - \sqrt{2}|}{2|a_n|} \cdot |a_n - \sqrt{2}|
 从$a_1$出发，一步步“往$M$走”。每步的步长是$r_k$。一开始的时候，我们处于$a_1$的位置，$a_1$不是数列的上界，最终到达$M$，$M$是数列的上界。
 因此，总有一步，从不是数列的上界走到数列的上界。
 
-记$y_i=a_1 + i r_k$是“往$M$走”第$i$步达到的值。如果对某个$i$，$y_i$不是上界，而在第$i+1$步，$y_{i+1}=a_1 + (i+1) r_k$是上界。也就是说，有某一项$a_{N(k)}$大于等于$y_i$，
-却小于$y_{i+1}$。由于数列单调递增，自$a_{N(k)}$开始的每一项都在$y_i$与$y_{i+1}$之间。这说明任两项的距离都小于$r_k$。
+记$y_i=a_1 + i r_k$是“往$M$走”第$i$步达到的值，$y_0=a_1$，$y_k=M$。我们的结论就可以写成：总有某个$i$，$y_i$不是上界，而在下一步，$y_{i+1}=a_1 + (i+1) r_k$是上界。这说明数列中有$a_{N(k)}$大于等于$y_i$，
+却小于$y_{i+1}$。由于数列单调递增，$\forall n\geqslant N(k)$，就总有$y_i\leqslant a_n\leqslant y_{i+1}$。换句话说，取$\forall m,n\geqslant N(k)$，则$y_i\leqslant a_m\leqslant y_{i+1}$，$y_i\leqslant a_n\leqslant y_{i+1}$。既然如此，$a_n$与$a_m$的距离自然不大于$y_{i}$与$y_{i+1}$的距离。也就是说，自$a_{N(k)}$开始，数列任两项之间的距离都小于等于$y_i$与$y_{i+1}$的距离，也就是$r_k$。
 
 因此，对任何正数$r$，我们只要令$k$为大于$\frac{M - a_1}{r}$的正整数，就有
 $r_k = \frac{M - a_1}{k} < r$。于是$\forall m,n\geqslant N(k)$，$|a_m - a_n|$总小于$r$。这说明$\{a_n\}$是自敛数列，因此有极限。
 
-综上所述，单调递增数列要么趋于正无穷大，要么有极限。类似可以证明：单调递减数列要么趋于负无穷大，要么有极限。
+综上所述，单调递增数列要么趋于正无穷大，要么有极限。类似可以证明：单调递减数列要么趋于负无穷大，要么有极限。合起来说就是：
 \begin{tm}\textbf{单调收敛定理}\label{tm:2-2-0}\\
     有上界（下界）的单调递增（递减）数列必然有极限。
 \end{tm}
@@ -2648,8 +2640,86 @@ $C_\gamma$是否总是有界集呢？这似乎是个显然的事实，其实不�
 \begin{figure}[h]
     \vspace{4pt}
     \centering
-    \includegraphics[width=0.5\textwidth]{tu/割圆术1.png}
-    \includegraphics[width=0.4\textwidth]{tu/割圆术2.png}
+    % \includegraphics[width=0.5\textwidth]{tu/割圆术1.png}
+    % \includegraphics[width=0.4\textwidth]{tu/割圆术2.png}
+    \begin{tikzpicture}[scale=0.76]
+    \begin{scope}[shift={(0,0)}]
+
+        % 作图
+        \def\R{4};
+        \def\rt{90};
+        \def\ang{45};
+        \def\y{0.4142};
+        \def\z{0.1989};
+        \def\c{0.06};
+        \def\cs{0.04};
+        \coordinate (O) at (0,0);
+        \coordinate (A1) at (0:\R);
+        \coordinate (A2) at (\ang:\R);
+        \coordinate (B1) at ($(0:\R) + (90:\y*\R)$);
+        \coordinate (B2) at ($(0:\R) - (90:\y*\R)$);
+        \coordinate (C1) at (0.5*\ang:\R);
+        \coordinate (H) at ($(A1)!0.5!(A2)$);
+        \coordinate (D1) at ($(A1)+(90:\z*\R)$);
+        \coordinate (D2) at ($(A2)-(90+\ang:\z*\R)$);
+        \draw[thick] (O) -- (A1) (O) -- (A2);
+        \draw[fill=Thistle!70,opacity=0.7] (H) -- ($(H)+(-90+0.5*\ang:\c*\R)$) -- ($(H)+(-90+0.5*\ang:\c*\R)+(-180+0.5*\ang:\c*\R)$) -- ($(H)+(-180+0.5*\ang:\c*\R)$) -- cycle;
+        \draw[color=Green,fill=LimeGreen!60!yellow,opacity=0.5] (A1) rectangle ($(A1) + (-\c*\R,\c*\R)$);
+        \draw[color=Green,fill=LimeGreen!60!yellow,opacity=0.5] (A2) -- ($(A2)+(-90+\ang:\c*\R)$) -- ($(A2)+(-90+\ang:\c*\R)+(-180+\ang:\c*\R)$) -- ($(A2)+(-180+\ang:\c*\R)$) -- cycle;
+        \draw[fill=orange!50,opacity=0.7] (C1) -- ($(C1)+(-90+0.5*\ang:\cs*\R)$) -- ($(C1)+(-90+0.5*\ang:\cs*\R)+(-180+0.5*\ang:\cs*\R)$) -- ($(C1)+(-180+0.5*\ang:\cs*\R)$) -- cycle;
+        \draw[thick,blue] (A1) -- (A2);
+        \draw[dashed,thick,ForestGreen] (O) -- (B2);
+        \draw[thick,ForestGreen] (O) -- (B1);
+        \draw[dashed,thick,orange!80] (O) -- (D1) (O) -- (D2);
+        \draw[thick,LimeGreen!60!yellow] (B2) -- (B1) -- (A2);
+        \foreach \k in {1,2,3,4}{
+            \draw[thick,color=blue] (\k*\rt:\R) -- (\k*\rt+\ang:\R) (\k*\rt:\R) -- (\k*\rt-\ang:\R);
+            \draw[very thick,color=LimeGreen!60!yellow] ($(\k*\rt:\R) + (\k*\rt-\rt:\y*\R)$) -- ($(\k*\rt:\R) + (\k*\rt+\rt:\y*\R)$);
+            \draw[thick,color=LimeGreen!60!yellow] ($(\k*\rt-\ang:\R) + (\k*\rt-3*\ang:\y*\R)$) -- ($(\k*\rt-\ang:\R) + (\k*\rt+\ang:\y*\R)$);
+        }
+        \draw[thick] (O) circle (\R);
+        \draw[thick,Red] (D1) -- (D2) (A1) -- (D1) (A2) -- (D2);
+        \draw[fill=gray,thick] (O) circle (2pt);
+        \foreach \k in {1,2,3,4}{
+            \draw[fill=ProcessBlue] (\ang+\k*\rt:\R) circle (2pt);
+            \draw[fill=ProcessBlue] (\k*\rt:\R) circle (2pt);
+            \draw[fill=Green] ($(\k*\rt:\R) + (\k*\rt+\rt:\y*\R)$) circle (2pt);
+            \draw[fill=Green] ($(\k*\rt:\R) + (\k*\rt-\rt:\y*\R)$) circle (2pt);
+        }
+        \draw[fill=Purple] (H) circle (2pt);
+        \draw[fill=yellow] (C1) circle (1.5pt);
+        \draw[fill=Maroon] (D1) circle (1.5pt);
+        \draw[fill=Maroon] (D2) circle (1.5pt);
+        \node at ($(O)+(-\c*\R,\c*\R)$) {$O$};
+        \node[blue] at ($(A1)+(\c*\R+\cs*\R,-\c*\R)$) {$A_1$};
+        \node[blue] at ($(A2)+(\c*\R+\cs*\R,+\c*\R)$) {$A_2$};
+        \node[OliveGreen] at ($(B2)+(\c*\R+\cs*\R,-\cs*\R)$) {$B_n$};
+        \node[OliveGreen] at ($(B1)+(\c*\R+\cs*\R,+\cs*\R)$) {$B_1$};
+        \node[RoyalPurple] at ($(H)+(-\c*\R-\cs*\R,+\cs*\R)$) {$\mbox{\footnotesize $H_1$}$};
+    \end{scope}
+    \begin{scope}[shift={(9,0)}]
+        % 作图
+        \def\R{4};
+        \def\ang{90};
+        \def\y{0.4142};
+        \coordinate (O) at (0,0);
+        \draw[OliveGreen,thick] (-\R,-\R) rectangle (\R,\R);
+        \foreach \k in {1,2,3,4}{
+            \draw[very thick,color=blue,fill=Cerulean!60,opacity=0.3] (\k*\ang:\R) -- (0.5*\ang+\k*\ang:\R) -- (\k*\ang+\ang:\R) -- cycle;
+            \draw[very thick,color=LimeGreen!60!yellow] ($(\k*\ang:\R) + (\k*\ang-\ang:\y*\R)$) -- ($(\k*\ang:\R) + (\k*\ang+\ang:\y*\R)$);
+            \draw[very thick,color=LimeGreen!60!yellow] ($(\k*\ang-0.5*\ang:\R) + (\k*\ang-1.5*\ang:\y*\R)$) -- ($(\k*\ang-0.5*\ang:\R) + (\k*\ang+0.5*\ang:\y*\R)$);
+        }
+        \draw[thick] (O) circle (\R);
+        \foreach \k in {1,2,3,4}{
+            \draw[fill=OliveGreen] (0.5*\ang+\k*\ang:1.4142*\R) circle (2pt);
+            \draw[fill=blue] (\k*\ang:\R) circle (2pt);
+            \draw[fill=ProcessBlue] (0.5*\ang+\k*\ang:\R) circle (2pt);
+            \draw[fill=LimeGreen!60!yellow] ($(\k*\ang:\R) + (\k*\ang+\ang:\y*\R)$) circle (2pt);
+            \draw[fill=LimeGreen!60!yellow] ($(\k*\ang:\R) + (\k*\ang-\ang:\y*\R)$) circle (2pt);
+        }
+        \draw[very thick,color=Blue,fill=blue!50!Turquoise!60,opacity=0.3] (0:\R) -- (\ang:\R) -- (2*\ang:\R) -- (3*\ang:\R) -- cycle;
+    \end{scope}
+    \end{tikzpicture}
     \captionsetup{justification=centering}
     \caption*{\texttt{圆内外接正多边形逼近单位圆。边数倍增时，\\内接正多边形周长和面积增加，外接正多边形周长和面积减少。}}
 \end{figure}
@@ -2658,7 +2728,7 @@ $C_\gamma$是否总是有界集呢？这似乎是个显然的事实，其实不�
 
 考虑$n=2^m$。观察圆内接正$2^m$边形和正$2^{m+1}$边形，可以发现，当$m$不断增大时，折线的长度不断增加。同样地，观察圆外接$2^m$边形和正$2^{m+1}$边形可以发现，$m$不断增大时，折线的长度不断减少。换句话说，我们有两个数列：
 $$ \forall \, m > 2, \quad a_m = 2^m\sin{\left(\frac{\alpha}{2^m}\right)}, \quad b_m = 2^{m}\tan{\left(\frac{\alpha}{2^m}\right)}. $$
-其中$\{a_m\}_{m\in\mathbb{Z}^+}$单调严格递增，$\{b_m\}_{m\in\mathbb{Z}^+}$单调严格递减\footnote{$m\leqslant 2$时$a_m,b_m$并没有定义，但我们可以将其补成单调数列，比如规定$a_1=0,a_2=4,b_1=10,b_2=9$。}。并满足：
+其中$\{a_m\}_{m\in\mathbb{Z}^+}$单调严格递增，$\{b_m\}_{m\in\mathbb{Z}^+}$单调严格递减\footnote{$m\leqslant 2$时$a_m,b_m$并没有定义，但我们可以将其补成单调数列，比如规定$a_1=0,a_2=4,b_1=10,b_2=9$。这不妨碍我们讨论它们的大体行为。}。并满足：
 $$ \forall \, m, \quad a_m < a_{m+1} < b_{m+1} < b_m.$$
 这说明两个数列都是有界数列。比如我们可以说$a_n$总小于$b_3 = 8$。而它们的通项之差为：
 \begin{align*}

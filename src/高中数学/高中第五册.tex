@@ -3,6 +3,8 @@
 % 导入设定
 \input{../shared/settings}
 
+\definecolor{converge_blue}{RGB}{20,76,237}
+\definecolor{converge_Blue}{RGB}{55,148,251}
 % 封面
 \title{\zihao{0} \bfseries 第五册}
 \author{\zihao{2} \texttt{大青花鱼}}
@@ -1710,10 +1712,52 @@ $$ \lian{n\to \infty} \int_{a}^x f_n = \int_{a}^x \lian{n\to \infty} f_n. $$
     矛盾！这说明函数列在$\left[0;\frac{\pi}{2}\right]$上不一致收敛。
 \end{so}
 
-\begin{figure}[h] %this figure will be at the right
+\begin{figure}[h] 
     % \vspace{-4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{tu/一致收敛1.png}
+    % \includegraphics[width=0.8\textwidth]{tu/一致收敛1.png}
+    \begin{tikzpicture}[scale=1]
+    \begin{axis}[
+        width=12cm, height=6cm,
+        xlabel={$x$}, ylabel={$y$},
+        xmin=-0.1, xmax=2,
+        ymin=-0.6,ymax=9.8,        % [0, π/2] ≈ [0, 1.57]
+        samples=200,          % 足够采样点（n 大时需更多）
+        axis lines=middle,
+        xtick = {pi/8, pi/4, 3*pi/8, pi/2},
+        xticklabels = {},
+        ytick = {2,4,6,8},
+        yticklabels = {2,4,6,8},
+        grid=both,
+        legend style = {at={(0.96,0.98)}, anchor=north east, cells={anchor=west}},
+        grid style={gray!20},
+        label style={font=\small},
+        tick label style = {font=\footnotesize}
+    ]
+    \addplot[
+                thick,
+                domain=0:pi/2,
+                color=converge_Blue!20, 
+                smooth
+            ] {sin(deg(x)) * (cos(deg(x)))};
+    \foreach \n in {10,20,...,200} { 
+        \pgfmathsetmacro{\x}{(\n - 10)/190}
+        \pgfmathsetmacro{\y}{20 + 80*(\n - 10)/190}
+        \pgfmathtruncatemacro{\xint}{100-100*\x}
+        \pgfmathtruncatemacro{\yint}{\y}
+        % 用 \edef 展开 \xint 为字面量
+        \edef\temp{
+            \noexpand\addplot[
+                thick,
+                domain=0:pi/2,
+                color=converge_Blue!\xint!converge_blue!\yint, 
+                smooth
+            ] {\n * sin(deg(x)) * (cos(deg(x)))^\n};
+        }
+        \temp
+    }
+    \end{axis}
+    \end{tikzpicture}
     \caption*{$n$\texttt{越大（颜色越深），}$f_n$\texttt{曲线高点越往左移}}
 \end{figure}
 

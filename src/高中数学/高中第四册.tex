@@ -2,6 +2,24 @@
 
 % 导入设定
 \input{../shared/settings}
+\usepgfplotslibrary{fillbetween}
+
+% Figure: 广义可积函数
+\definecolor{color_pOne_line}{RGB}{108, 41, 51}
+\definecolor{color_pOne_fill}{RGB}{201, 221, 34}
+\definecolor{color_pTwo_line}{RGB}{175, 39, 43}
+\definecolor{color_pTwo_fill}{RGB}{255, 241, 67}
+\definecolor{color_pThree_line}{RGB}{200, 60, 35}
+\definecolor{color_pThree_fill}{RGB}{255, 137, 54}
+\definecolor{color_pFour_line}{RGB}{255, 78, 32}
+\definecolor{color_pFour_fill}{RGB}{255, 33, 33}
+
+\definecolor{color_aOne_line}{RGB}{10, 163, 68}
+\definecolor{color_aOne_fill}{RGB}{80, 252, 160}
+\definecolor{color_aTwo_line}{RGB}{76, 141, 174}
+\definecolor{color_aTwo_fill}{RGB}{123, 207, 166}
+\definecolor{color_aThree_line}{RGB}{75, 92, 196}
+\definecolor{color_aThree_fill}{RGB}{68, 206, 246}
 
 % 封面
 \title{\zihao{0} \bfseries 第四册}
@@ -27,10 +45,113 @@
 \end{ex}
 
 \begin{figure}[h] %this figure will be at the right
-    \vspace{4pt}
+    % \vspace{4pt}
     \centering
-    \includegraphics[width=0.9\textwidth]{tu/广义积分1.png}
-    \caption*{\texttt{函数}$x\mapsto\frac{1}{x}$（左）、$x\mapsto\frac{1}{x^2}$（右）}
+    % \includegraphics[width=0.9\textwidth]{tu/广义积分1.png}
+    \begin{tikzpicture}[scale=0.5]
+    \begin{scope}[x=5cm,y=0.5cm,shift={(0,0)}]
+        \def\xmin{-1.05};
+        \def\xmax{1.2};
+        \def\ymin{-9.6};
+        \def\ymax{9.6};
+        % 坐标轴（带箭头）
+        \def\xm{0.2};
+        \def\ym{2};
+        \foreach \k in {-5,-4,...,-1,1,2,...,5} {  % 平行x轴网格
+            \draw[help lines,gray!60] (\xm*\k,\ymin) -- (\xm*\k,\ymax) ;
+        }
+        \foreach \k in {-4,-3,...,-1,1,2,...,4} {  % 平行y轴网格
+            \draw[help lines,gray!60] (\xmin,\ym*\k) -- (\xmax,\ym*\k);
+        }
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[above] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[left] {$y$};
+        
+        \def\ca{0.5};
+        \def\cb{0.2};
+        \def\cc{0.12};
+        \foreach \x in {0.2,0.4,0.6,0.8,1} {  % x轴正向
+            \draw (\x,\ym*\cc) -- (\x,-\ym*\cc); 
+            \node[black] at (\x, -\ym*\ca) {$\mbox{\tiny $\x$}$};
+        }
+        \foreach \x in {0.2,0.4,0.6,0.8,1} {  % x轴负向
+            \draw (-\x,\ym*\cc) -- (-\x,-\ym*\cc); 
+            \node[black] at (-\x-\xm*\cb, -\ym*\ca) {$\mbox{\tiny $-\x$}$};
+        }
+        \foreach \y in {2,4,6,8} {  % 轴正向
+            \draw (\xm*\cc,\y) -- (-\xm*\cc,\y);
+            \node[black] at (-\xm*\ca, \y) {$\mbox{\tiny $\y$}$};
+        }
+        \foreach \y in {2,4,6,8} {
+            \draw (\xm*\cc,-\y) -- (-\xm*\cc,-\y);
+            \node[black] at (-\xm*\ca-\xm*\cb, -\y) {$\mbox{\tiny $-\y$}$};
+        }
+        % 作图
+        \def\a{0.1042};
+        \def\b{1};
+        \fill[BrickRed, opacity=0.2, domain=\a:\b, samples=200]
+        (\a,0)
+        -- plot (\x,{1/\x})
+        -- (\b,0)
+        -- cycle;
+        \fill[BrickRed, opacity=0.2] (0,0) rectangle (\a,1/\a);
+        \draw[BrickRed, very thick, domain=\a:\b, samples=200]
+        plot (\x,{1/\x});
+        \draw[BrickRed, very thick, domain=-\a:-\b, samples=200]
+        plot (\x,{1/\x});
+        \draw[very thick, fill=white] (0.32,-8) rectangle (1,-4.2);
+        \node at (0.66,-6.1) {$\mbox{\footnotesize $\displaystyle x\mapsto \frac{1}{x}$}$};
+    \end{scope}
+    \begin{scope}[x=1cm,y=4cm,shift={(10,-0.25)}]
+        \def\xmin{-2.3};
+        \def\xmax{8.3};
+        \def\ymin{-0.8};
+        \def\ymax{1.4};
+        % 坐标轴（带箭头）
+        \def\xm{1};
+        \def\ym{0.25};
+        \foreach \k in {-2,-1,1,2,...,8} {  % 平行x轴网格
+            \draw[help lines,gray!60] (\xm*\k,\ymin) -- (\xm*\k,\ymax) ;
+        }
+        \foreach \k in {-3,-2,-1,1,2,...,5} {  % 平行y轴网格
+            \draw[help lines,gray!60] (\xmin,\ym*\k) -- (\xmax,\ym*\k);
+        }
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[above] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        
+        \def\ca{0.5};
+        \def\cb{0.2};
+        \def\cc{0.12};
+        \foreach \x in {1,2,...,8} {  % x轴正向
+            \draw (\x,\ym*\cc) -- (\x,-\ym*\cc); 
+            \node[black] at (\x, -\ym*\ca) {$\mbox{\tiny $\x$}$};
+        }
+        \foreach \x in {1,2} {  % x轴负向
+            \draw (-\x,\ym*\cc) -- (-\x,-\ym*\cc); 
+            \node[black] at (-\x-\xm*\cb, -\ym*\ca) {$\mbox{\tiny $-\x$}$};
+        }
+        \foreach \y in {0.5,1} {  % y轴正向
+            \draw (\xm*\cc,\y) -- (-\xm*\cc,\y);
+            \node[black] at (-\xm*\ca, \y) {$\mbox{\tiny $\y$}$};
+        }
+        \foreach \y in {0.5} {
+            \draw (\xm*\cc,-\y) -- (-\xm*\cc,-\y);
+            \node[black] at (-\xm*\ca-\xm*\cb, -\y) {$\mbox{\tiny $-\y$}$};
+        }
+        % 作图
+        \def\a{1};
+        \def\b{8.1};
+        \fill[BrickRed, opacity=0.2, domain=\a:\b, samples=200]
+        (\a,0)
+        -- plot (\x,{1/(\x*\x)})
+        -- (\b,0)
+        -- cycle;
+        \draw[BrickRed, thick, domain=\a:\b, samples=200]
+        plot (\x,{1/(\x*\x)});
+        \draw[very thick, fill=white] (4.9,0.8) rectangle (8.1,1.3);
+        \node at (6.5,1.05) {$\mbox{\footnotesize $\displaystyle x\mapsto \frac{1}{x^2}$}$};
+    \end{scope}
+    \end{tikzpicture}
+    % \caption*{\texttt{左}$x\mapsto\frac{1}{x}$（左）、$x\mapsto\frac{1}{x^2}$（右）}
 \end{figure}
 
 第一个例子看起来不值得讨论，因为$x\mapsto\frac{1}{x}$甚至不总在$[0;1]$上有定义：$x=0$时，函数无定义。
@@ -179,10 +300,145 @@ $a>1$时，随着$t$趋于无穷，$t^{1-a}$趋于$0$，因此函数在$[1;+\inf
 \end{align*}
 随着$t$趋于无穷，$a^t$趋于$0$，因此函数在$[0,\infty)$上可积，积合为$-\frac{1}{\ln{a}}$。
 
-\begin{figure}[h] %this figure will be at the right
+\begin{figure}[h] %figure a2
     \vspace{4pt}
     \centering
-    \includegraphics[width=\textwidth]{tu/广义积分2.png}
+    % \includegraphics[width=\textwidth]{tu/广义积分2.png}
+    \begin{tikzpicture}
+    % ========== 参数定义 ==========
+    \def\pOne{0.5}   % p 值：最上层
+    \def\pTwo{1}     % p 值
+    \def\pThree{1.5} % p 值
+    \def\pFour{2}    % p 值：最下层
+
+    \def\aOne{0.6667}   % a 值：最上层
+    \def\aTwo{0.5}   % a 值
+    \def\aThree{0.3} % a 值：最下层
+    \def\opa{0.2}
+    \def\mw{5.824};
+    \def\mh{4.2};
+    % ========== 左图：x^{-p} 积分区域 ==========
+    \begin{axis}[
+        name=left plot,
+        width=\mw cm, height=\mh cm,
+        scale only axis,
+        xmin=0, xmax=10.4,
+        ymin=-0.1, ymax=1.4,
+        xtick={0,1,...,10},
+        ytick={0,0.2,0.4,0.6,0.8,1.0,1.2,1.4},
+        axis lines=middle,
+        enlargelimits=false,
+        clip=false,
+        grid=both,
+        grid style={gray!20},
+        xlabel={$x$}, ylabel={$y$},
+        label style={font=\small},
+        tick label style={font=\scriptsize}
+    ]
+
+    % 定义x轴路径
+    \path[name path=xaxis] (axis cs:0,0) -- (axis cs:10.4,0);
+
+    % 绘制曲线
+    \addplot[
+        name path=pOne, 
+        draw=color_pOne_line, samples=200, domain=1:10.4
+    ] {x^(-\pOne)};  % p = \pOne
+
+    \addplot[
+        name path=pTwo, 
+        draw=color_pTwo_line, samples=200, domain=1:10.4
+    ] {x^(-\pTwo)};   % p = \pTwo
+
+    \addplot[
+        name path=pThree, 
+        draw=color_pThree_line, samples=200, domain=1:10.4
+    ] {x^(-\pThree)}; % p = \pThree
+
+    \addplot[
+        name path=pFour, 
+        draw=color_pFour_line, samples=200, domain=1:10.4
+    ] {x^(-\pFour)};  % p = \pFour
+
+    % 填充分层
+    \addplot[color_pFour_fill, opacity=\opa] fill between[of=pFour and xaxis, soft clip={domain=1:10.4}];
+    \addplot[color_pThree_fill, opacity=\opa] fill between[of=pThree and pFour, soft clip={domain=1:10.4}];
+    \addplot[color_pTwo_fill, opacity=\opa] fill between[of=pTwo and pThree, soft clip={domain=1:10.4}];
+    \addplot[color_pOne_fill, opacity=\opa] fill between[of=pOne and pTwo, soft clip={domain=1:10.4}];
+
+    % 重绘曲线
+    \addplot[color_pOne_line, samples=200, domain=1:10.4] {x^(-\pOne)};
+    \addplot[color_pTwo_line,  samples=200, domain=1:10.4] {x^(-\pTwo)};
+    \addplot[color_pThree_line,   samples=200, domain=1:10.4] {x^(-\pThree)};
+    \addplot[color_pFour_line,    samples=200, domain=1:10.4] {x^(-\pFour)};
+
+    % 标注
+    \draw[very thick, fill=white] (7.6,0.7) rectangle (10.2,1.41);
+    \node[color_pOne_line, above right] at (axis cs:7.8,1.2) {$\mbox{\scriptsize $p=\pOne$}$};
+    \node[color_pTwo_line,  above right] at (axis cs:7.8,1.04) {$\mbox{\scriptsize $p=\pTwo$}$};
+    \node[color_pThree_line,   above right] at (axis cs:7.8,0.88) {$\mbox{\scriptsize $p=\pThree$}$};
+    \node[color_pFour_line,    above right] at (axis cs:7.8,0.72) {$\mbox{\scriptsize $p=\pFour$}$};
+
+    \end{axis}
+
+    % ========== 右图：a^x 积分区域 ==========
+    \begin{axis}[
+        width=\mw cm, height=\mh cm,
+        scale only axis,
+        xmin=0, xmax=10.4,
+        ymin=-0.1, ymax=1.4,
+        xtick={0,1,...,10},
+        ytick={0,0.2,0.4,0.6,0.8,1.0,1.2,1.4},
+        axis lines=middle,
+        enlargelimits=false,
+        clip=false,
+        grid=both,
+        grid style={gray!20},
+        xlabel={$x$}, ylabel={$y$},
+        label style={font=\small},
+        tick label style={font=\scriptsize},
+        at={($(left plot.east)+(0.8cm,0)$)},
+        anchor=west
+    ]
+
+    % 定义x轴路径
+    \path[name path=xaxis] (axis cs:0,0) -- (axis cs:10.4,0);
+
+    % 绘制曲线（使用 \def 定义的参数）
+    \addplot[
+        name path=aOne, 
+        draw=color_aOne_line, samples=200, domain=0:10.4
+    ] {\aOne^x};   % a = \aOne
+
+    \addplot[
+        name path=aTwo, 
+        draw=color_aTwo_line, samples=200, domain=0:10.4
+    ] {\aTwo^x};   % a = \aTwo
+
+    \addplot[
+        name path=aThree, 
+        draw=color_aThree_line, samples=200, domain=0:10.4
+    ] {\aThree^x}; % a = \aThree
+
+    % 填充分层
+    \addplot[color_aThree_fill, opacity=\opa] fill between[of=aThree and xaxis, soft clip={domain=0:10.4}];
+    \addplot[color_aTwo_fill, opacity=\opa] fill between[of=aTwo and aThree, soft clip={domain=0:10.4}];
+    \addplot[color_aOne_fill, opacity=\opa] fill between[of=aOne and aTwo, soft clip={domain=0:10.4}];
+
+    % 重绘曲线
+    \addplot[color_aOne_line,   samples=200, domain=0:10.4] {\aOne^x};
+    \addplot[color_aTwo_line,  samples=200, domain=0:10.4] {\aTwo^x};
+    \addplot[color_aThree_line, samples=200, domain=0:10.4] {\aThree^x};
+
+    % 标注
+    \draw[very thick, fill=white] (7.6,0.72) rectangle (10.2,1.41);
+    \node[color_aOne_line,   above right] at (axis cs:7.8,1.08) {$\mbox{\scriptsize $\displaystyle a=\frac{2}{3}$}$};
+    \node[color_aTwo_line,  above right] at (axis cs:7.8,0.91) {$\mbox{\scriptsize $a=\aTwo$}$};
+    \node[color_aThree_line, above right] at (axis cs:7.8,0.75) {$\mbox{\scriptsize $a=\aThree$}$};
+
+    \end{axis}
+
+    \end{tikzpicture}
     \caption*{\texttt{左图：幂函数在}$[1;+\infty)$\texttt{上的面积；右图：指数函数在}$[0;+\infty)$\texttt{上的面积}}
 \end{figure}
 
@@ -715,22 +971,61 @@ $$
     恰能相互看见。问圆城半径几何？ % 240
 \end{ex}
 
-\begin{wrapfigure}[8]{r}{0.36\textwidth} %this figure will be at the right
-    \vspace{-30pt}
-    \flushright
-    \includegraphics[width=0.35\textwidth]{tu/整式方程1.png}
-\end{wrapfigure}
-
 这个问题是一个实际的测量问题。我们把它转为数学问题。
 
-如图，根据题目条件，可以将城墙看作圆形。记圆心为$O$，以$O$为原点，东西、南北向各作坐标轴，得到直角坐标系$xOy$。
+如右图，根据题目条件，可以将城墙看作圆形。记圆心为$O$，以$O$为原点，东西、南北向各作坐标轴，得到直角坐标系$xOy$。
 城门就是坐标轴与圆形的交点。
 
-设圆的半径为$r$，则北门、西门的坐标分别是$(0, \,\, r)$、$(-r, \,\, 0)$。
-而按题目描述，甲乙恰能相望时，分别位于点$A:(0, \,\, r+160)$、$B:(-r-60, \,\, 0)$。
+\begin{wrapfigure}[10]{r}{0.4\textwidth} %this figure will be at the right
+    \vspace{-30pt}
+    \flushright
+    % \includegraphics[width=0.35\textwidth]{tu/整式方程1.png}
+    \begin{tikzpicture}[scale=0.4]
+    \begin{scope}[shift={(0,0)}]
+        \def\xmin{-6.4};
+        \def\xmax{6.4};
+        \def\ymin{-5.4};
+        \def\ymax{9};
+        % 坐标轴（带箭头）
+        \def\xm{1};
+        \def\ym{1};
+        \draw[-Stealth] (\xmin, 0) -- (\xmax,0) node[above] {$x$};
+        \draw[-Stealth] (0,\ymin) -- (0,\ymax) node[right] {$y$};
 
-连接$AB$，则$AB$与圆相切。设切点为$P$。$\triangle AOB$、$\triangle AOP$是直角三角形，
-且
+        % 作图
+        \def\R{4.8};
+        \coordinate (O) at (0,0);
+        \coordinate (A) at (0,8);
+        \coordinate (B) at (-6,0);
+        \coordinate (P) at (-3.84,2.88);
+        \coordinate (C) at (0,\R);
+        \coordinate (D) at (-\R,0);
+        \draw[blue,thick] (O) circle (\R);
+        \draw[orange,thick] (A) -- (B);
+        \draw[gray!60!black,thick,dashed] (O) -- (P) node[midway, above] {$r$};
+        \draw[red,thick] (A) -- (C) node[midway, right, black] {$160$};
+        \draw[red,thick] (B) -- (D) node[midway, below, black] {$60$};
+        \draw[fill=OliveGreen] (O) circle (3pt) node[above right] {$O$};
+        \draw[fill=OliveGreen] (A) circle (3pt) node[above left] {$A$};
+        \draw[fill=OliveGreen] (B) circle (3pt) node[above] {$B$};
+        \draw[fill=OliveGreen] (C) circle (3pt);
+        \draw[fill=OliveGreen] (D) circle (3pt);
+        \draw[fill=OliveGreen] (P) circle (3pt) node[above left] {$P$};
+        \coordinate (N) at (5,7);
+        \def\r{1.2};
+        \def\ang{30};
+        \def\a{0.5}
+        \draw[very thick,gray!50!black] ($(N) + (0,\r/3)$) circle (\r/2);
+        \draw[fill=black] (N) -- ($(N) + (-\ang:\a*\r)$) -- ($(N) + (90:\r)$) --cycle;
+        \draw[fill=white] (N) -- ($(N) + (\ang-180:\a*\r)$) --  ($(N) + (91:\r)$) --  ($(N) + (90:\r)$) -- cycle;
+        \node at ($(N) + (0,\r+0.5)$) {\texttt{北}};
+    \end{scope}
+    \end{tikzpicture}
+\end{wrapfigure}
+
+设圆的半径为$r$，则北门、西门的坐标分别是$(0, \,\, r)$、$(-r, \,\, 0)$。
+设甲乙恰能相望时，分别位于点$A:(0, \,\, r+160)$、$B:(-r-60, \,\, 0)$。
+则按题目描述，$AB$与圆相切，设切点为$P$。$\triangle AOB$、$\triangle AOP$是直角三角形，且
 $$ \triangle APO \simeq \triangle AOB.$$
 于是有
 $$ \frac{|AO|}{|PO|} = \frac{|AB|}{|OB|}.$$
@@ -2120,7 +2415,51 @@ $$\mathbb{C} = \mathbb{R}(\imath) = \left\{\left. x + y\imath \, \right| \, x, y
 \begin{figure}[h] 
     % \vspace{-4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{tu/复平面1.png}
+    % \includegraphics[width=0.8\textwidth]{tu/复平面1.png}
+    \begin{tikzpicture}[scale=0.8]
+    \begin{scope}[shift={(0,0)}]
+        \def\xmin{-5.5};
+        \def\xmax{5.5};
+        \def\ymin{-4.5};
+        \def\ymax{5.5};
+        % 坐标轴（带箭头）
+        \def\xm{1};
+        \def\ym{1};
+        \foreach \k in {-5,-4,...,-1,1,2,...,5} {  % 平行x轴网格
+            \draw[help lines,gray!30] (\xm*\k,\ymin) -- (\xm*\k,\ymax) ;
+        }
+        \foreach \k in {-4,-3,...,-1,1,2,...,5} {  % 平行y轴网格
+            \draw[help lines,gray!30] (\xmin,\ym*\k) -- (\xmax,\ym*\k);
+        }
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[above] {$1$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$\imath$};
+        
+        \def\ca{0.3};
+        \def\cb{0.12};
+        \def\cc{0.1};
+        \foreach \x in {1,2,...,5} {  % x轴正向
+            \draw (\x,\ym*\cc) -- (\x,-\ym*\cc); 
+            \node[black] at (\x, -\ym*\ca) {$\mbox{\scriptsize $\x$}$};
+        }
+        \foreach \x in {1,2,...,5} {  % x轴负向
+            \draw (-\x,\ym*\cc) -- (-\x,-\ym*\cc); 
+            \node[black] at (-\x-\xm*\cb, -\ym*\ca) {$\mbox{\scriptsize $-\x$}$};
+        }
+        \foreach \y in {1,2,...,5} {  % y轴正向
+            \draw (\xm*\cc,\y) -- (-\xm*\cc,\y);
+            \node[black] at (-\xm*\ca, \y) {$\mbox{\scriptsize $\y\imath$}$};
+        }
+        \foreach \y in {1,2,...,4} {  % y轴负向
+            \draw (\xm*\cc,-\y) -- (-\xm*\cc,-\y);
+            \node[black] at (-\xm*\ca-\xm*\cb, -\y) {$\mbox{\scriptsize $-\y\imath$}$};
+        }
+        % 作图
+        \draw[-Stealth, thick, Blue!80] (0,0) -- (3,2) node[above]{$\mbox{\footnotesize $3+2\imath$}$};
+        \draw[-Stealth, thick, Blue!80] (0,0) -- (-2,5) node[above]{$\mbox{\footnotesize $-2+5\imath$}$};
+        \draw[-Stealth, thick, Blue!80] (0,0) -- (-2.6,-1.2) node[below left]{$\mbox{\footnotesize $-2.6-1.2\imath$}$};
+        \draw[-Stealth, thick, Blue!80] (0,0) -- (2,-1.7) node[below]{$\mbox{\footnotesize $2-1.7\imath$}$};
+    \end{scope}
+    \end{tikzpicture}
     \caption*{\texttt{复平面}}
 \end{figure}
 
@@ -2171,26 +2510,26 @@ $$ (x_1 + y_1\imath) \cdot (x_2 + y_2\imath) = (x_1x_2 - y_1y_2) + (x_1y_2 + x_2
 \vspace{-4pt}
 \begin{figure}[htp]
     \centering
-\begin{tikzpicture}[>=stealth]
-\draw[->](-3,0)--(3.2,0)node[below right]{$x$};
-\draw[->](0,-2.5)--(0,3)node[right]{$y$};
-\draw(0,0)node[below left]{$O$} circle(2);
-\coordinate (Z1) at (30:2);
-\coordinate (Z2) at (75:2);
-\coordinate (Z3) at (45:2);
-\coordinate (Z4) at (105:2);
-\draw[->, thick,blue](0,0)--(Z1)node[right,blue]{$z_1$};
-\draw[->, thick,blue](0,0)--(Z2)node[above right,blue]{$z_2$};
-\draw[->, thick,red](0,0)--(Z3)node[above right,red]{$\displaystyle\frac{z_2}{z_1}$};
-\draw[->, thick,red](0,0)--(Z4)node[above left,red]{$z_1 \cdot z_2$};
-\foreach \x in {1,2,3,4}
-{
-    \draw[fill](Z\x) circle(2pt);
-}
-\draw[->,semithick,cyan] (0:0.8) arc[radius=0.8, start angle=0, end angle=30];
-\draw[->,semithick,cyan] (75:0.8) arc[radius=0.8, start angle=75, end angle=105];
-\draw[->,semithick,cyan] (75:0.8) arc[radius=0.8, start angle=75, end angle=45];
-\end{tikzpicture}
+    \begin{tikzpicture}[>=stealth]
+    \draw[->](-3,0)--(3.2,0)node[below right]{$x$};
+    \draw[->](0,-2.5)--(0,3)node[right]{$y$};
+    \draw(0,0)node[below left]{$O$} circle(2);
+    \coordinate (Z1) at (30:2);
+    \coordinate (Z2) at (75:2);
+    \coordinate (Z3) at (45:2);
+    \coordinate (Z4) at (105:2);
+    \draw[->, thick,blue](0,0)--(Z1)node[right,blue]{$z_1$};
+    \draw[->, thick,blue](0,0)--(Z2)node[above right,blue]{$z_2$};
+    \draw[->, thick,red](0,0)--(Z3)node[above right,red]{$\displaystyle\frac{z_2}{z_1}$};
+    \draw[->, thick,red](0,0)--(Z4)node[above left,red]{$z_1 \cdot z_2$};
+    \foreach \x in {1,2,3,4}
+    {
+        \draw[fill](Z\x) circle(2pt);
+    }
+    \draw[->,semithick,cyan] (0:0.8) arc[radius=0.8, start angle=0, end angle=30];
+    \draw[->,semithick,cyan] (75:0.8) arc[radius=0.8, start angle=75, end angle=105];
+    \draw[->,semithick,cyan] (75:0.8) arc[radius=0.8, start angle=75, end angle=45];
+    \end{tikzpicture}
     \caption*{\texttt{单位圆上的复数乘除法是旋转}}
 \end{figure}
 
@@ -2390,25 +2729,25 @@ $$ x^n = 1.$$
 \vspace{-4pt}
 \begin{figure}[htp]
     \centering
-\begin{tikzpicture}[>=stealth]
-\draw[->](-2.5,0)--(2.7,0)node[below right]{$x$};
-\draw[->](0,-2)--(0,2.7)node[right]{$y$};
-\draw(0,0)node[below left]{$O$} circle(1.5);
-\coordinate (Z1) at (0:1.5);
-\coordinate (Z2) at (36*2:1.5);
-\coordinate (Z3) at (36*4:1.5);
-\coordinate (Z4) at (36*6:1.5);
-\coordinate (Z5) at (36*8:1.5);
-\draw[->, thick,blue](0,0)--(Z1)node[above right,blue]{$z_5=1$};
-\draw[->, thick,blue](0,0)--(Z2)node[above,blue]{$z_1$};
-\draw[->, thick,blue](0,0)--(Z3)node[above left,blue]{$z_2$};
-\draw[->, thick,blue](0,0)--(Z4)node[below left,blue]{$z_3$};
-\draw[->, thick,blue](0,0)--(Z5)node[below right,blue]{$z_4$};
-\foreach \x in {1,2,3,4,5}
-{
-    \draw[fill](Z\x) circle(1.5pt);
-}
-\end{tikzpicture}
+    \begin{tikzpicture}[>=stealth]
+    \draw[->](-2.5,0)--(2.7,0)node[below right]{$x$};
+    \draw[->](0,-2)--(0,2.7)node[right]{$y$};
+    \draw(0,0)node[below left]{$O$} circle(1.5);
+    \coordinate (Z1) at (0:1.5);
+    \coordinate (Z2) at (36*2:1.5);
+    \coordinate (Z3) at (36*4:1.5);
+    \coordinate (Z4) at (36*6:1.5);
+    \coordinate (Z5) at (36*8:1.5);
+    \draw[->, thick,blue](0,0)--(Z1)node[above right,blue]{$z_5=1$};
+    \draw[->, thick,blue](0,0)--(Z2)node[above,blue]{$z_1$};
+    \draw[->, thick,blue](0,0)--(Z3)node[above left,blue]{$z_2$};
+    \draw[->, thick,blue](0,0)--(Z4)node[below left,blue]{$z_3$};
+    \draw[->, thick,blue](0,0)--(Z5)node[below right,blue]{$z_4$};
+    \foreach \x in {1,2,3,4,5}
+    {
+        \draw[fill](Z\x) circle(1.5pt);
+    }
+    \end{tikzpicture}
     \caption*{$n$\texttt{次单位根“等角分布”在单位圆上（}$n=5$\texttt{）}}
 \end{figure}
 
@@ -2446,35 +2785,35 @@ $n\geqslant 3$时，我们可以说$n$次单位根是单位圆的内接正$n$边
 \begin{figure}[h]
     \vspace{-8pt}
     \centering
-\begin{tikzpicture}[>=stealth]
-    \draw[->](-2.5,0)--(2.7,0)node[below]{$x$};
-    \draw[->](0,-2)--(0,2.5)node[right]{$y$};
-    \draw(0,0)node[below left]{$O$} circle(1.5);
-\foreach \x in {0,1,2,...,4}
-{
-    \draw[fill,blue](\x*72:1.5) circle(1.5pt);
-}
-\node at (1.4,-0.05)[above right,blue]{$z_{5} = \omega_{5}^{5} = 1$};
-\node at (78:1.5)[above right,blue]{$z_1 = \omega_{5}$};
-\node at (150:1.5)[above left,blue]{$z_2 = \omega_{5}^{2}$};
-\node at (200:1.2)[below left,blue]{$\begin{array}{r}
-    z_3 = \omega_{5}^{3} \\[-4pt] = \overline{z_2}\phantom{\,}
-\end{array}$};
-\node at (-78:1.4)[below right,blue]{$z_{4} = \omega_{5}^{4} = \overline{z_1}$};
-\end{tikzpicture}
-\begin{tikzpicture}[>=stealth]
-    \draw[->](-2.5,0)--(2.7,0)node[below]{$x$};
-    \draw[->](0,-2)--(0,2.5)node[right]{$y$};
-    \draw(0,0)node[below left]{$O$} circle(1.5);
-\foreach \x in {0,1,2,...,11}
-{
-    \draw[fill,blue](\x*30:1.5) circle(1.5pt);
-}
-\node at (1.4,-0.05)[above right,blue]{$z_{12} = \omega_{12}^{12} = 1$};
-\node at (30:1.35)[above right,blue]{$z_1 = \omega_{12}$};
-\node at (65:1.4)[above right,blue]{$z_2 = \omega_{12}^{2}$};
-\node at (-25:1.4)[below right,blue]{$z_{11} = \omega_{12}^{11} = \overline{z_1}$};
-\end{tikzpicture}
+    \begin{tikzpicture}[>=stealth]
+        \draw[->](-2.5,0)--(2.7,0)node[below]{$x$};
+        \draw[->](0,-2)--(0,2.5)node[right]{$y$};
+        \draw(0,0)node[below left]{$O$} circle(1.5);
+    \foreach \x in {0,1,2,...,4}
+    {
+        \draw[fill,blue](\x*72:1.5) circle(1.5pt);
+    }
+    \node at (1.4,-0.05)[above right,blue]{$z_{5} = \omega_{5}^{5} = 1$};
+    \node at (78:1.5)[above right,blue]{$z_1 = \omega_{5}$};
+    \node at (150:1.5)[above left,blue]{$z_2 = \omega_{5}^{2}$};
+    \node at (200:1.2)[below left,blue]{$\begin{array}{r}
+        z_3 = \omega_{5}^{3} \\[-4pt] = \overline{z_2}\phantom{\,}
+    \end{array}$};
+    \node at (-78:1.4)[below right,blue]{$z_{4} = \omega_{5}^{4} = \overline{z_1}$};
+    \end{tikzpicture}
+    \begin{tikzpicture}[>=stealth]
+        \draw[->](-2.5,0)--(2.7,0)node[below]{$x$};
+        \draw[->](0,-2)--(0,2.5)node[right]{$y$};
+        \draw(0,0)node[below left]{$O$} circle(1.5);
+    \foreach \x in {0,1,2,...,11}
+    {
+        \draw[fill,blue](\x*30:1.5) circle(1.5pt);
+    }
+    \node at (1.4,-0.05)[above right,blue]{$z_{12} = \omega_{12}^{12} = 1$};
+    \node at (30:1.35)[above right,blue]{$z_1 = \omega_{12}$};
+    \node at (65:1.4)[above right,blue]{$z_2 = \omega_{12}^{2}$};
+    \node at (-25:1.4)[below right,blue]{$z_{11} = \omega_{12}^{11} = \overline{z_1}$};
+    \end{tikzpicture}
 \caption*{$5$\texttt{次单位根（左）和}$12$\texttt{次单位根（右）在复平面上的分布}}
 \end{figure}
 
@@ -2581,14 +2920,49 @@ $$ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0.$$
 我们知道，如果$B = 0$，而$A = C$不为零，那么定义的曲线是圆。
 再来看几个典型的例子。
 
-首先假设$B = 0$。
-
 % 椭圆例图
 \begin{wrapfigure}[5]{r}{0.32\textwidth} %this figure will be at the right
-    \vspace{-30pt}
+    \vspace{-20pt}
     \flushright
-    \includegraphics[width=0.3\textwidth]{tu/椭圆1.png}
+    % \includegraphics[width=0.3\textwidth]{tu/椭圆1.png}
+    \begin{tikzpicture}[scale=0.5]
+    \begin{scope}[shift={(0,0)}]  % x=5cm,y=0.5cm,
+        \def\xmin{-5};
+        \def\xmax{5};
+        \def\ymin{-3.3};
+        \def\ymax{4};
+        % 坐标轴（带箭头）
+        \def\xm{1};
+        \def\ym{1};
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[above] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        
+        \def\ca{0.5};
+        \def\cb{0.2};
+        \def\cc{0.12};
+        \foreach \x in {1,2,3,4} {  % x轴正向
+            \draw (\x,\ym*\cc) -- (\x,-\ym*\cc); 
+            \node[black] at (\x, -\ym*\ca) {$\mbox{\tiny $\x$}$};
+        }
+        \foreach \x in {1,2,...,4} {  % x轴负向
+            \draw (-\x,\ym*\cc) -- (-\x,-\ym*\cc); 
+            \node[black] at (-\x-\xm*\cb, -\ym*\ca) {$\mbox{\tiny $-\x$}$};
+        }
+        \foreach \y in {1,2,3} {  % y轴正向
+            \draw (\xm*\cc,\y) -- (-\xm*\cc,\y);
+            \node[black] at (-\xm*\ca, \y) {$\mbox{\tiny $\y$}$};
+        }
+        \foreach \y in {1,2,3} {  % y轴负向
+            \draw (\xm*\cc,-\y) -- (-\xm*\cc,-\y);
+            \node[black] at (-\xm*\ca-\xm*\cb, -\y) {$\mbox{\tiny $-\y$}$};
+        }
+        % 作图
+        \draw[Blue, very thick] (0,0) ellipse (3 cm and 2 cm);
+    \end{scope}
+    \end{tikzpicture}
 \end{wrapfigure}
+
+首先假设$B = 0$。
 
 如果$AC > 0$，可以画出曲线如图。这样的曲线称为椭圆。典型的椭圆方程可以写为：
 $$ \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1 $$
@@ -2599,26 +2973,107 @@ $$ \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1 $$
 $$ -a \leqslant x \leqslant a, \quad -b \leqslant y \leqslant b$$
 这说明椭圆曲线是有界的。
 
+如果$B = 0$，$AC < 0$，可以画出曲线如图。这样的曲线称为双曲线。典型的双曲线方程可以写为：
+
 % 双曲线例图（渐近线）
-\begin{wrapfigure}[5]{r}{0.32\textwidth} %this figure will be at the right
-    \vspace{-12pt}
-    \flushright
-    \includegraphics[width=0.3\textwidth]{tu/双曲线1.png}
+\begin{wrapfigure}[5]{r}{0.4\textwidth} %this figure will be at the right
+    \vspace{-8pt}
+    % \flushright
+    % \includegraphics[width=0.3\textwidth]{tu/双曲线1.png}
+
+    \begin{tikzpicture}[scale=0.5]
+    \begin{scope}[shift={(0,0)}]  % x=5cm,y=0.5cm,
+        \def\xmin{-5};
+        \def\xmax{5};
+        \def\ymin{-3.3};
+        \def\ymax{4};
+        % 坐标轴（带箭头）
+        \def\xm{1};
+        \def\ym{1};
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[above] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        
+        \def\ca{0.5};
+        \def\cb{0.2};
+        \def\cc{0.12};
+        \foreach \x in {1,2,3,4} {  % x轴正向
+            \draw (\x,\ym*\cc) -- (\x,-\ym*\cc); 
+            \node[black] at (\x, -\ym*\ca) {$\mbox{\tiny $\x$}$};
+        }
+        \foreach \x in {1,2,...,4} {  % x轴负向
+            \draw (-\x,\ym*\cc) -- (-\x,-\ym*\cc); 
+            \node[black] at (-\x-\xm*\cb, -\ym*\ca) {$\mbox{\tiny $-\x$}$};
+        }
+        \foreach \y in {1,2,3} {  % y轴正向
+            \draw (\xm*\cc,\y) -- (-\xm*\cc,\y);
+            \node[black] at (-\xm*\ca, \y) {$\mbox{\tiny $\y$}$};
+        }
+        \foreach \y in {1,2,3} {  % y轴负向
+            \draw (\xm*\cc,-\y) -- (-\xm*\cc,-\y);
+            \node[black] at (-\xm*\ca-\xm*\cb, -\y) {$\mbox{\tiny $-\y$}$};
+        }
+        % 作图
+        % \draw[Blue, thick] (0,0) ellipse (3 cm and 2 cm);
+        \draw[Red,thick,dashed] (-4.95,-3.3) -- (5,3.333);
+        \draw[Red,thick,dashed] (-4.95,3.3) -- (5,-3.333);
+        \draw[domain=-72.5:72.5,very thick,OliveGreen] plot({1.5*sec(\x)},{tan(\x)});
+        \draw[domain=107.5:252.5,very thick,OliveGreen] plot({1.5*sec(\x)},{tan(\x)});
+    \end{scope}
+    \end{tikzpicture}
 \end{wrapfigure}
 
-如果$B = 0$，$AC < 0$，可以画出曲线如图。这样的曲线称为双曲线。典型的双曲线方程可以写为：
 $$ \frac{x^2}{a^2} - \frac{y^2}{b^2} = 1 \quad \mbox{（如右图）}$$
 或
 $$ - \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1  \quad \mbox{（如左下图）} \qquad  \qquad  \qquad  \qquad \;\: \quad \phantom{123}$$
 其中$a,b>0$。
 
-\begin{wrapfigure}[5]{l}{0.32\textwidth} 
-    \vspace{-28pt}
+\begin{wrapfigure}[5]{l}{0.39\textwidth} 
+    \vspace{-24pt}
     \flushright
-    \includegraphics[width=0.3\textwidth]{tu/双曲线2.png}
+    % \includegraphics[width=0.3\textwidth]{tu/双曲线2.png}
+
+    \begin{tikzpicture}[scale=0.5]
+    \begin{scope}[shift={(0,0)}]  % x=5cm,y=0.5cm,
+        \def\xmin{-5};
+        \def\xmax{5};
+        \def\ymin{-3.3};
+        \def\ymax{4};
+        % 坐标轴（带箭头）
+        \def\xm{1};
+        \def\ym{1};
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[above] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        
+        \def\ca{0.5};
+        \def\cb{0.2};
+        \def\cc{0.12};
+        \foreach \x in {1,2,3,4} {  % x轴正向
+            \draw (\x,\ym*\cc) -- (\x,-\ym*\cc); 
+            \node[black] at (\x, -\ym*\ca) {$\mbox{\tiny $\x$}$};
+        }
+        \foreach \x in {1,2,...,4} {  % x轴负向
+            \draw (-\x,\ym*\cc) -- (-\x,-\ym*\cc); 
+            \node[black] at (-\x-\xm*\cb, -\ym*\ca) {$\mbox{\tiny $-\x$}$};
+        }
+        \foreach \y in {1,2,3} {  % y轴正向
+            \draw (\xm*\cc,\y) -- (-\xm*\cc,\y);
+            \node[black] at (-\xm*\ca, \y) {$\mbox{\tiny $\y$}$};
+        }
+        \foreach \y in {1,2,3} {  % y轴负向
+            \draw (\xm*\cc,-\y) -- (-\xm*\cc,-\y);
+            \node[black] at (-\xm*\ca-\xm*\cb, -\y) {$\mbox{\tiny $-\y$}$};
+        }
+        % 作图
+        % \draw[Blue, thick] (0,0) ellipse (3 cm and 2 cm);
+        \draw[Red,thick,dashed] (-4.95,-3.3) -- (5,3.333);
+        \draw[Red,thick,dashed] (-4.95,3.3) -- (5,-3.333);
+        \draw[domain=-72.5:72.5,very thick,OliveGreen] plot({1.5*tan(\x)},{sec(\x)});
+        \draw[domain=107.5:252.5,very thick,OliveGreen] plot({1.5*tan(\x)},{sec(\x)});
+    \end{scope}
+    \end{tikzpicture}
 \end{wrapfigure}
 
-可以看到，双曲线由两个不相连的分支构成，一般按位置称为上下支或左右支。曲线不是闭合的，而是无界的，
+双曲线由两个不相连的分支构成，一般按位置称为上下支或左右支。曲线不是闭合的，而是无界的，
 关于$x$轴和$y$轴对称。
 随着$x$趋于无穷，$y$也趋于无穷，反之亦然。而由于
 $$ \phantom{123455}\qquad \qquad \qquad \qquad y^2 = \frac{b^2x^2}{a^2} \pm 1, $$
@@ -2636,23 +3091,90 @@ $$ \phantom{123455}\qquad \qquad \qquad \qquad y^2 = \frac{b^2x^2}{a^2} \pm 1, $
 $$ y = \pm \frac{b}{a}x. $$
 我们把这两条过原点的直线（上图中的红色虚线）称为双曲线的\textbf{渐近线}。
 
+如果$AC = 0$，可以画出曲线如右图。这样的曲线称为抛物线。典型的抛物线方程可以写为：
+
 % 抛物线例图
-\begin{wrapfigure}[5]{r}{0.32\textwidth} %this figure will be at the right
-    % \vspace{-30pt}
-    \flushright
-    \includegraphics[width=0.3\textwidth]{tu/抛物线1.png}
+\begin{wrapfigure}[5]{r}{0.45\textwidth} %this figure will be at the right
+    \vspace{-20pt}
+    % \flushright
+    % \includegraphics[width=0.3\textwidth]{tu/抛物线1.png}
+    \begin{tikzpicture}[scale=0.5]
+    \begin{scope}[shift={(0,0)}]
+        \def\xmin{0};
+        \def\xmax{10};
+        \def\ymin{-4};
+        \def\ymax{4};
+        % 坐标轴（带箭头）
+        \def\xm{1};
+        \def\ym{1};
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[above] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        
+        \def\ca{0.5};
+        \def\cb{0.2};
+        \def\cc{0.12};
+        \foreach \x in {1,2,...,9} {  % x轴正向
+            \draw (\x,\ym*\cc) -- (\x,-\ym*\cc); 
+            \node[black] at (\x, -\ym*\ca) {$\mbox{\tiny $\x$}$};
+        }
+        \foreach \y in {1,2,3} {  % y轴正向
+            \draw (\xm*\cc,\y) -- (-\xm*\cc,\y);
+            \node[black] at (-\xm*\ca, \y) {$\mbox{\tiny $\y$}$};
+        }
+        \foreach \y in {1,2,3} {  % y轴负向
+            \draw (\xm*\cc,-\y) -- (-\xm*\cc,-\y);
+            \node[black] at (-\xm*\ca-\xm*\cb, -\y) {$\mbox{\tiny $-\y$}$};
+        }
+        % 作图
+        \draw[domain=-3.16:3.16,very thick,BrickRed] plot({\x*\x},{\x});
+    \end{scope}
+    \end{tikzpicture}
 \end{wrapfigure}
 
-如果$AC = 0$，可以画出曲线如右图。这样的曲线称为抛物线。典型的抛物线方程可以写为：
 $$ y^2 = 2px  \quad \mbox{（如右图）} $$
 或
 $$ x^2 = 2py  \quad \mbox{（如左下图）} \qquad  \qquad  \qquad  \qquad\;\;\; \phantom{123}$$
 其中$p \neq 0$是描述抛物线的参数。
 
-\begin{wrapfigure}[5]{l}{0.32\textwidth} %this figure will be at the right
-    \vspace{-30pt}
-    \flushright
-    \includegraphics[width=0.3\textwidth]{tu/抛物线2.png}
+\begin{wrapfigure}[9]{l}{0.33\textwidth} %this figure will be at the right
+    \vspace{-8pt}
+    \flushleft
+    % \includegraphics[width=0.3\textwidth]{tu/抛物线2.png}
+    \begin{tikzpicture}[scale=0.5]
+    \begin{scope}[shift={(0,0)}]
+        \def\xmin{-3.5};
+        \def\xmax{3.5};
+        \def\ymin{0};
+        \def\ymax{10};
+        % 坐标轴（带箭头）
+        \def\xm{1};
+        \def\ym{1};
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[above] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        
+        \def\ca{0.5};
+        \def\cb{0.2};
+        \def\cc{0.12};
+        \foreach \x in {1,2,3} {  % x轴正向
+            \draw (\x,\ym*\cc) -- (\x,-\ym*\cc); 
+            \node[black] at (\x, -\ym*\ca) {$\mbox{\tiny $\x$}$};
+        }
+        \foreach \x in {1,2,3} {  % x轴负向
+            \draw (-\x,\ym*\cc) -- (-\x,-\ym*\cc); 
+            \node[black] at (-\x-\xm*\cb, -\ym*\ca) {$\mbox{\tiny $-\x$}$};
+        }
+        \foreach \y in {1,2,...,9} {  % y轴正向
+            \draw (\xm*\cc,\y) -- (-\xm*\cc,\y);
+            \node[black] at (-\xm*\ca, \y) {$\mbox{\tiny $\y$}$};
+        }
+        % \foreach \y in {1,2,3} {  % y轴负向
+        %     \draw (\xm*\cc,-\y) -- (-\xm*\cc,-\y);
+        %     \node[black] at (-\xm*\ca-\xm*\cb, -\y) {$\mbox{\tiny $-\y$}$};
+        % }
+        % 作图
+        \draw[domain=-3.16:3.16,very thick,BrickRed] plot({\x},{\x*\x});
+    \end{scope}
+    \end{tikzpicture}
 \end{wrapfigure}
 
 抛物线就是二次函数的曲线。按开口方向，抛物线可分为上下左右四类。它不是闭合曲线，也不是有界曲线，
@@ -2824,7 +3346,62 @@ $2a$。
 \begin{figure}[h] 
     % \vspace{-4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{tu/椭圆第一定义.png}
+    % \includegraphics[width=0.8\textwidth]{tu/椭圆第一定义.png}
+    \begin{tikzpicture}[scale=0.67]
+    \begin{scope}[shift={(0,0)}]  % x=5cm,y=0.5cm,
+        \def\xmin{-9.3};
+        \def\xmax{6.7};
+        \def\ymin{-2.5};
+        \def\ymax{5.9};
+        % 坐标轴（带箭头）
+        \def\xm{1};
+        \def\ym{1};
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[above] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        
+        \def\ca{0.3};
+        \def\cb{0.12};
+        \def\cc{0.1};
+        \foreach \x in {1,2,...,6} {  % x轴正向
+            \draw (\x,\ym*\cc) -- (\x,-\ym*\cc); 
+            \node[black] at (\x, -\ym*\ca) {$\mbox{\tiny $\x$}$};
+        }
+        \foreach \x in {1,2,...,9} {  % x轴负向
+            \draw (-\x,\ym*\cc) -- (-\x,-\ym*\cc); 
+            \node[black] at (-\x-\xm*\cb, -\ym*\ca) {$\mbox{\tiny $-\x$}$};
+        }
+        \foreach \y in {1,2,...,5} {  % y轴正向
+            \draw (\xm*\cc,\y) -- (-\xm*\cc,\y);
+            \node[black] at (-\xm*\ca, \y) {$\mbox{\tiny $\y$}$};
+        }
+        \foreach \y in {1,2} {  % y轴负向
+            \draw (\xm*\cc,-\y) -- (-\xm*\cc,-\y);
+            \node[black] at (-\xm*\ca-\xm*\cb, -\y) {$\mbox{\tiny $-\y$}$};
+        }
+        % 作图
+        \def\a{3};
+        \def\c{2};
+        \def\v{22.5};
+        \coordinate (F1) at (-\c, 0);
+        \coordinate (F2) at (\c, 0);
+        \coordinate (A) at (2.58,1.14);
+        \coordinate (B) at (1.11,2.08);
+        \draw[BrickRed, thick] (0,0) ellipse (3 cm and 2.2361 cm);
+        \draw[dashed,thick,orange] (F1) ++(-\v:2*\a) arc [start angle=-\v, end angle=180+\v, radius=2*\a];
+        \draw[Blue,dotted,thick] (B) circle (2.26);
+        \draw[Turquoise,dotted,thick] (A) circle (1.28);
+        \draw[Turquoise,thick] (F1) -- (A) (F2) -- (A);
+        \draw[Turquoise,thick,dashed] (A) -- (3.82,1.46);
+        \draw[blue,thick] (F1) -- (B) (F2) -- (B);
+        \draw[blue,thick,dashed] (B) -- (2.99,3.33);
+        \draw[fill=Red] (F1) circle (3pt);
+        \draw[fill=Red] (F2) circle (3pt);
+        \draw[fill=OliveGreen] (A) circle (3pt);
+        \draw[fill=Blue] (B) circle (3pt);
+        \draw[fill=OliveGreen] (3.82,1.46) circle (3pt);
+        \draw[fill=Blue] (2.99,3.33) circle (3pt);
+    \end{scope}
+    \end{tikzpicture}
     \caption*{\texttt{到两点距离之和为定值的点的轨迹}}
 \end{figure}
 
@@ -2869,7 +3446,67 @@ $\left|a + \frac{cx}{a}\right| = a + \frac{cx}{a}$，于是距离之差为$2a$�
 \begin{figure}[h] 
     % \vspace{-4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{tu/双曲线第一定义.png}
+    % \includegraphics[width=0.8\textwidth]{tu/双曲线第一定义.png}
+    \begin{tikzpicture}[scale=0.6]
+    \begin{scope}[shift={(0,0)}]
+        \def\xmin{-9.7};
+        \def\xmax{9.7};
+        \def\ymin{-4};
+        \def\ymax{6.2};
+        % 坐标轴（带箭头）
+        \def\xm{1};
+        \def\ym{1};
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[above] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        
+        \def\ca{0.3};
+        \def\cb{0.12};
+        \def\cc{0.1};
+        \foreach \x in {1,2,...,9} {  % x轴正向
+            \draw (\x,\ym*\cc) -- (\x,-\ym*\cc); 
+            \node[black] at (\x, -\ym*\ca) {$\mbox{\tiny $\x$}$};
+        }
+        \foreach \x in {1,2,...,9} {  % x轴负向
+            \draw (-\x,\ym*\cc) -- (-\x,-\ym*\cc); 
+            \node[black] at (-\x-\xm*\cb, -\ym*\ca) {$\mbox{\tiny $-\x$}$};
+        }
+        \foreach \y in {1,2,...,5} {  % y轴正向
+            \draw (\xm*\cc,\y) -- (-\xm*\cc,\y);
+            \node[black] at (-\xm*\ca, \y) {$\mbox{\tiny $\y$}$};
+        }
+        \foreach \y in {1,2,3,4} {  % y轴负向
+            \draw (\xm*\cc,-\y) -- (-\xm*\cc,-\y);
+            \node[black] at (-\xm*\ca-\xm*\cb, -\y) {$\mbox{\tiny $-\y$}$};
+        }
+        % 作图
+        \def\a{3};
+        \def\b{2.6458};
+        \def\c{4};
+        \def\va{41.5};
+        \def\vb{44};
+        \def\vc{30.5};
+        \coordinate (F1) at (-\c, 0);
+        \coordinate (F2) at (\c, 0);
+        \coordinate (A) at (4.24,-2.64);
+        \coordinate (B) at (5.07,3.6);
+        \draw[domain=-56.4:67.3,very thick,BrickRed] plot({\a*sec(\x)},{\b*tan(\x)});
+        \draw[domain=123.6:247.3,very thick,BrickRed] plot({\a*sec(\x)},{\b*tan(\x)});
+        \draw[dashed,thick,orange] (-4,0) ++ (-\va:2*\a) arc [start angle=-\va, end angle=160, radius=2*\a];
+        \draw[dashed,thick,orange] (-4,0) ++ (200:2*\a) arc [start angle=200, end angle=180+\va, radius=2*\a];
+        \draw[Blue,dotted,thick] (B) ++ (90+\vb:3.76) arc [start angle=90+\vb, end angle=450-\vb, radius=3.76];
+        \draw[Turquoise,dotted,thick] (A) ++ (-\vc:2.65) arc [start angle=-\vc, end angle=180+\vc, radius=2.65];
+        \draw[Turquoise,thick] (F1) -- (A) (F2) -- (A);
+        \draw[Turquoise,thick,dashed] (A) -- (1.71,-1.83);
+        \draw[blue,thick] (F1) -- (B) (F2) -- (B);
+        \draw[blue,thick,dashed] (B) -- (1.58,2.22);
+        \draw[fill=Red] (F1) circle (3pt);
+        \draw[fill=Red] (F2) circle (3pt);
+        \draw[fill=OliveGreen] (A) circle (3pt);
+        \draw[fill=Blue] (B) circle (3pt);
+        \draw[fill=OliveGreen] (1.71,-1.83) circle (3pt);
+        \draw[fill=Blue] (1.58,2.22) circle (3pt);
+    \end{scope}
+    \end{tikzpicture}
     \caption*{\texttt{到两点距离之差为定值的点的轨迹}}
 \end{figure}
 
@@ -2892,7 +3529,62 @@ $F_2$称为抛物线的\textbf{焦点}。$x + c = 0$称为抛物线的\textbf{�
 \begin{figure}[h] 
     % \vspace{-4pt}
     \centering
-    \includegraphics[width=0.8\textwidth]{tu/抛物线第一定义.png}
+    % \includegraphics[width=0.8\textwidth]{tu/抛物线第一定义.png}
+    \begin{tikzpicture}[scale=0.4]
+    \begin{scope}[shift={(0,0)}]
+        \def\xmin{-4};
+        \def\xmax{23.3};
+        \def\ymin{-6};
+        \def\ymax{9};
+        % 坐标轴（带箭头）
+        \def\xm{1};
+        \def\ym{1};
+        \draw[-Stealth, thick] (\xmin, 0) -- (\xmax,0) node[above] {$x$};
+        \draw[-Stealth, thick] (0,\ymin) -- (0,\ymax) node[right] {$y$};
+        
+        \def\ca{0.5};
+        \def\cb{0.2};
+        \def\cc{0.12};
+        \foreach \x in {2,4,...,22} {  % x轴正向
+            \draw (\x,\ym*\cc) -- (\x,-\ym*\cc); 
+            \node[black] at (\x, -\ym*\ca) {$\mbox{\tiny $\x$}$};
+        }
+        \foreach \x in {2,4} {  % x轴负向
+            \draw (-\x,\ym*\cc) -- (-\x,-\ym*\cc); 
+            \node[black] at (-\x-\xm*\cb, -\ym*\ca) {$\mbox{\tiny $-\x$}$};
+        }
+        \foreach \y in {2,4,...,8} {  % y轴正向
+            \draw (\xm*\cc,\y) -- (-\xm*\cc,\y);
+            \node[black] at (-\xm*\ca, \y) {$\mbox{\tiny $\y$}$};
+        }
+        \foreach \y in {2,4} {  % y轴负向
+            \draw (\xm*\cc,-\y) -- (-\xm*\cc,-\y);
+            \node[black] at (-\xm*\ca-\xm*\cb, -\y) {$\mbox{\tiny $-\y$}$};
+        }
+        % 作图
+        \def\a{2};
+        \def\c{1};
+        \def\r{0.4};
+        \coordinate (F1) at (\c, 0);
+        \coordinate (A) at (1.33,-2.31);
+        \coordinate (B) at (3.44,3.71);
+        \draw[domain=-3:4.5,very thick,BrickRed] plot({\x*\x},{\a*\x});
+        \draw[fill=Blue!30,opacity=0.6] (-1, 3.71) rectangle (-1+\r,3.71-\r);
+        \draw[fill=OliveGreen!30,opacity=0.6] (-1, -2.31) rectangle (-1+\r,-2.31-\r);
+        \draw[orange!40!brown, very thick] (-1, \ymin) -- (-1, \ymax);
+        \draw[Blue,dotted,thick] (B) circle (4.44);
+        \draw[Turquoise,dotted,thick] (A) circle (2.33);
+        \draw[Turquoise,thick] (F1) -- (A);
+        \draw[Turquoise,thick,dashed] (A) -- (-1, -2.31);
+        \draw[blue,thick] (F1) -- (B);
+        \draw[blue,thick,dashed] (B) -- (-1, 3.71);
+        \draw[fill=Red] (F1) circle (4.5pt);
+        \draw[fill=OliveGreen] (A) circle (4.5pt);
+        \draw[fill=Blue] (B) circle (4.5pt);
+        \draw[fill=OliveGreen] (-1, -2.31) circle (4.5pt);
+        \draw[fill=Blue] (-1, 3.71) circle (4.5pt);
+    \end{scope}
+    \end{tikzpicture}
     \caption*{\texttt{到定点与定直线距离相等的点的轨迹}}
 \end{figure}
 
@@ -3048,11 +3740,12 @@ $$ F(x, \,\, y) = 0. $$
 如果对于某些$x$的值，$F(x, \,\,y) = 0$有唯一解，就是说约束条件$F$将其对应到唯一的$y$。
 这时，我们可以认为$y$是关于$x$的函数。这样的函数，称为由$F$确定的\textbf{隐函数}。
 
-\begin{wrapfigure}[10]{r}{0.52\textwidth} %this figure will be at the right
+\begin{wrapfigure}[10]{r}{0.35\textwidth} %this figure will be at the right
     \vspace{-30pt}
     \flushright
-    \includegraphics[width=0.5\textwidth]{tu/复杂平面曲线.png}
-    \caption*{\texttt{取曲线的一部分，看作函数的曲线}}
+    \includegraphics[width=0.3\textwidth]{tu/复杂闭曲线.pdf}
+    \captionsetup{justification=centering}
+    \caption*{\texttt{取曲线的一部分，\\看作函数的曲线}}
 \end{wrapfigure}
 
 之所以称为隐函数，是因为我们并不能自动获得隐函数的表达式。

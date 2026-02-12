@@ -1264,7 +1264,21 @@ $P$在新基底上的坐标为$(0.5, \,\, -3)$。我们可以从上图中直接�
 \begin{wrapfigure}[7]{r}{0.52\textwidth}
     \vspace{-30pt}
     \flushright
-    \includegraphics[width=0.5\textwidth]{tu/三平行1.png}
+    % \includegraphics[width=0.5\textwidth]{tu/三平行1.png}
+    \begin{tikzpicture}[scale=0.8]
+      % 插入缩放后的图像
+      \node[anchor=south west, inner sep=0] (img) {
+        \includegraphics[width=7cm, keepaspectratio]{../高中数学/tu/三平行2.pdf}
+      };
+      \node[OliveGreen!60!black] at (5.85,7.67) {$\beta$};
+      \node[BrickRed] at (7.8,7.4) {$n$};
+      \node[blue] at (5.7,5.45) {$P$};
+      \node[OliveGreen!60!black] at (5.7,4.4) {$\gamma_1$};
+      \node[OliveGreen!60!black] at (5.7,2.4) {$\gamma_2$};
+      \node[BrickRed] at (0.5,1.5) {$m$};
+      \node[BrickRed] at (2.7,1.5) {$l_1$};
+      \node[BrickRed] at (3.6,0.3) {$l_2$};
+    \end{tikzpicture}
 \end{wrapfigure}
 
 有了交面公理，我们可以证明空间中平行直线的递推性质。由于证明繁琐，有些地方把它当作公理引入。
@@ -1955,9 +1969,37 @@ $l$中的点在平面中投影的集合，就构成$l$在平面中的投影。
 \end{so}
 
 \begin{wrapfigure}[6]{r}{0.42\textwidth} %this figure will be at the right
-    \vspace{-45pt}
+    \vspace{-36pt}
     \flushright
-    \includegraphics[width=0.4\textwidth]{tu/垂线例10.png}
+    % \includegraphics[width=0.4\textwidth]{tu/垂线例10.png}
+    \begin{tikzpicture}[scale=0.6]
+    \begin{scope}[shift={(0,0)}]  % x=5cm,y=0.5cm,
+    \def\dx{6};
+    \def\dd{3}
+    \def\lx{2};
+    \def\ly{0.8};
+    \def\ab{3.4};
+    \def\h{1.6};
+    \def\H{6};
+    \def\ca{0.4};
+    \draw (0,0) -- (\dx,0) -- (\dx+\dd,\dd) -- (\dd,\dd) -- cycle; 
+    \draw (\lx,\ly) -- (\lx+\ab,\ly) -- (\lx+\ab+\h,\ly+\h) -- (\lx+\h,\ly+\h) -- cycle;
+    \draw (\lx,\ly) -- (\lx,\ly+\H) -- (\lx+\ab+\h,\ly+\h);
+    \draw[dotted,thick,red] (\lx,\ly) -- (\lx+\ab+\h,\ly+\h);
+    \draw[ProcessBlue!70!blue] (\lx+\ab,\ly) -- (\lx+\h,\ly+\h);
+    \draw[fill=Blue] (\lx,\ly) circle (2pt);
+    \draw[fill=Blue] (\lx+\ab,\ly) circle (2pt);
+    \draw[fill=Blue] (\lx+\ab+\h,\ly+\h) circle (2pt);
+    \draw[fill=Blue] (\lx+\h,\ly+\h) circle (2pt);
+    \draw[fill=Blue] (\lx,\ly+\H) circle (2pt);
+    \node at (\lx-\ca, \ly-\ca) {$\mbox{\small $A$}$};
+    \node at (\lx+\ab+\ca, \ly-\ca) {$\mbox{\small $B$}$};
+    \node at (\lx+\ab+\h+\ca,\ly+\h+0.1) {$\mbox{\small $C$}$};
+    \node at (\lx+\h-\ca,\ly+\h+0.1) {$\mbox{\small $D$}$};
+    \node at (\lx-\ca,\ly+\H) {$\mbox{\small $M$}$};
+    
+    \end{scope}
+    \end{tikzpicture}
     \caption*{\texttt{例题}\ref{et:1-3-10}}
 \end{wrapfigure}
 
