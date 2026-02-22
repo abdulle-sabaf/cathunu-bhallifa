@@ -891,6 +891,289 @@ $$
                 其中$t$是实数。那么，$f$是怎样的映射？
 \end{xt}
 
+\section{复合变换与逆变换}
+作为映射，直变换也可以进行复合。举例来说，两个旋转映射的效果分别是逆时针旋转$\alpha$和$\beta$，那么合共的效果就是逆时针旋转$\alpha+\beta$。又比如，以$x$轴为对称轴的反射映射，和以$y$轴为对称轴的反射映射结合起来，合共的效果是将任意向量变为相反向量的映射。一般来说，如何了解两个直变换$f,g$复合的效果呢？
+
+考虑$f,g$在基底$B = (\mathbf{e}_1,\mathbf{e}_2)$上的矩阵，它们按列存放了基向量经映射后的坐标。比如，设$f$的矩阵为： 
+$$
+    \bmat{f}[B] = 
+    \begin{bmatrix}
+        a_{11} & a_{12} \\ a_{21} & a_{22}
+    \end{bmatrix}
+$$
+那么列向量
+$$
+    \mathbf{f}_1 = \begin{bmatrix}
+        a_{11} \\ a_{21} 
+    \end{bmatrix},\quad
+    \mathbf{f}_2 = \begin{bmatrix}
+        a_{12} \\ a_{22}
+    \end{bmatrix}
+$$
+就分别是$f(\mathbf{e}_1),f(\mathbf{e}_2)$在$B$中的坐标。同理，记$g$的矩阵为
+$$
+    \bmat{g}[B] = 
+    \begin{bmatrix}
+        b_{11} & b_{12} \\ b_{21} & b_{22}
+    \end{bmatrix}
+$$
+那么列向量
+$$
+    \mathbf{g}_1 = \begin{bmatrix}
+        b_{11} \\ b_{21} 
+    \end{bmatrix},\quad
+    \mathbf{g}_2 = \begin{bmatrix}
+        b_{12} \\ b_{22}
+    \end{bmatrix}
+$$
+就分别是$g(\mathbf{e}_1),g(\mathbf{e}_2)$在$B$中的坐标。现在我们想知道复合映射$g\circ f$的矩阵表示，就要知道$g(f(\mathbf{e}_1)),g(f(\mathbf{e}_2))$在$B$中的坐标。根据直变换的基本性质有：
+\begin{align*}
+    g(f(\mathbf{e}_1)) &= g(\mathbf{f}_1) = g(a_{11}\mathbf{e}_1 + a_{21}\mathbf{e}_2)\\
+    &= a_{11}g(\mathbf{e}_1) + a_{21}g(\mathbf{e}_2) = a_{11} \mathbf{g}_1 + a_{21}\mathbf{g}_2 \\
+    &= a_{11}(b_{11}\mathbf{e}_1 + b_{21}\mathbf{e}_2) + a_{21}(b_{12}\mathbf{e}_1 + b_{22}\mathbf{e}_2) \\
+    &= (a_{11}b_{11} + a_{21}b_{12})\mathbf{e}_1 + (a_{11}b_{21} + a_{21}b_{22})\mathbf{e}_2
+\end{align*}
+同理可算得：
+$$
+g(f(\mathbf{e}_2)) = (a_{12}b_{11} + a_{22}b_{12})\mathbf{e}_1 + (a_{12}b_{21} + a_{22}b_{22})\mathbf{e}_2.
+$$
+于是，$g\circ f$的矩阵表示是：
+$$
+    \bmat{g\circ f}[B] = 
+    \begin{bmatrix}
+        a_{11}b_{11} + a_{21}b_{12} & a_{12}b_{11} + a_{22}b_{12} \\ a_{11}b_{21} + a_{21}b_{22} & a_{12}b_{21} + a_{22}b_{22}
+    \end{bmatrix}.
+$$
+这个表达式看起来很复杂。我们可以用下面的方法来记忆：
+\begin{figure}[htbp] 
+    \vspace{-10pt}
+    \centering
+    \begin{tikzpicture}[scale=1]
+    \begin{scope}[shift={(0,0)}]
+        \def\hf{2.5};
+        \def\sf{2};
+        \def\hb{-0.8};
+        \def\sb{1.1};
+        \def\rb{7.5};
+        \def\rc{5};
+        \def\ub{-1.5};
+        \def\uc{0.75};
+        \def\ho{0.6};
+        \fill[Apricot, opacity=0.35] (\hf+\hb,\sf-0.6) rectangle (\hf-0.1,\sf);
+        \fill[Apricot, opacity=0.2] (\hf+\hb,\sf) rectangle (\hf-0.1,\sf+0.6);
+        \fill[Red, opacity=0.5] (\hf+0.1,\sf-0.6) rectangle (\hf-\hb,\sf);
+        \fill[Red, opacity=0.34] (\hf+0.1,\sf) rectangle (\hf-\hb,\sf+0.6);
+        \fill[SkyBlue, opacity=0.15] (\hb,0.1) rectangle (0, 0.7);
+        \fill[SkyBlue, opacity=0.3] (0,0.1) rectangle (-\hb, 0.7);
+        \fill[converge_Blue, opacity=0.45] (\hb,-0.63) rectangle (0, -0.03);
+        \fill[converge_Blue, opacity=0.6] (0,-0.63) rectangle (-\hb, -0.03);
+        %填充乘积        
+        \fill[SkyBlue, opacity=0.3] (\hf+\hb,0.1) rectangle (\hf-0.45, 0.7);
+        \fill[Apricot, opacity=0.3] (\hf-0.45,0.1) rectangle (\hf-0.1, 0.7);
+        \fill[converge_Blue, opacity=0.5] (\hf+\hb,-0.63) rectangle (\hf-0.45, -0.03);
+        \fill[Apricot, opacity=0.3] (\hf-0.45,-0.63) rectangle (\hf-0.1, -0.03);
+        \fill[SkyBlue, opacity=0.3] (\hf+0.1,0.1) rectangle (\hf+0.45, 0.7);
+        \fill[Red, opacity=0.4] (\hf+0.45,0.1) rectangle (\hf-\hb, 0.7);
+        \fill[converge_Blue, opacity=0.5] (\hf+0.1,-0.63) rectangle (\hf+0.45,-0.03);
+        \fill[Red, opacity=0.4] (\hf+0.45,-0.63) rectangle (\hf-\hb, -0.03);
+        %填充介绍
+        \node at (\rc+0.25, 0.35) {$=$};
+        \node at (\rc+0.25, 0.35-\uc) {$=$};
+        \node at (\rc+0.25, 0.35-2*\uc) {$=$};
+        \node at (\rc+0.25, 0.35-3*\uc) {$=$};
+
+        \fill[SkyBlue, opacity=0.3] (\rc+\hb,0.1) rectangle (\rc-0.45, 0.7);
+        \fill[Apricot, opacity=0.3] (\rc-0.45,0.1) rectangle (\rc-0.1, 0.7);
+        \fill[SkyBlue, opacity=0.15] (\rb-1.85,0.1) rectangle (\rb-1.85+\ho, 0.7);
+        \fill[Apricot, opacity=0.2] (\rb-0.8,0.1) rectangle (\rb-0.8+\ho, 0.7);
+        \fill[SkyBlue, opacity=0.3] (\rb+0.2,0.1) rectangle (\rb+0.2+\ho, 0.7);
+        \fill[Apricot, opacity=0.35] (\rb+1.23,0.1) rectangle (\rb+1.23+\ho, 0.7);
+
+        \fill[converge_Blue, opacity=0.5] (\rc+\hb,0.1-\uc) rectangle (\rc-0.45, 0.7-\uc);
+        \fill[Apricot, opacity=0.3] (\rc-0.45,0.1-\uc) rectangle (\rc-0.1, 0.7-\uc);
+        \fill[converge_Blue, opacity=0.45] (\rb-1.85,0.1-\uc) rectangle (\rb-1.85+\ho, 0.7-\uc);
+        \fill[Apricot, opacity=0.2] (\rb-0.8,0.1-\uc) rectangle (\rb-0.8+\ho, 0.7-\uc);
+        \fill[converge_Blue, opacity=0.6] (\rb+0.2,0.1-\uc) rectangle (\rb+0.2+\ho, 0.7-\uc);
+        \fill[Apricot, opacity=0.35] (\rb+1.23,0.1-\uc) rectangle (\rb+1.23+\ho, 0.7-\uc);
+
+        \fill[SkyBlue, opacity=0.3] (\rc+\hb,0.1-2*\uc) rectangle (\rc-0.45, 0.7-2*\uc);
+        \fill[Red, opacity=0.4] (\rc-0.45,0.1-2*\uc) rectangle (\rc-0.1, 0.7-2*\uc);
+        \fill[SkyBlue, opacity=0.15] (\rb-1.85,0.1-2*\uc) rectangle (\rb-1.85+\ho, 0.7-2*\uc);
+        \fill[Red, opacity=0.34] (\rb-0.8,0.1-2*\uc) rectangle (\rb-0.8+\ho, 0.7-2*\uc);
+        \fill[SkyBlue, opacity=0.3] (\rb+0.2,0.1-2*\uc) rectangle (\rb+0.2+\ho, 0.7-2*\uc);
+        \fill[Red, opacity=0.5] (\rb+1.23,0.1-2*\uc) rectangle (\rb+1.23+\ho, 0.7-2*\uc);
+
+        \fill[converge_Blue, opacity=0.5] (\rc+\hb,0.1-3*\uc) rectangle (\rc-0.45, 0.7-3*\uc);
+        \fill[Red, opacity=0.4] (\rc-0.45,0.1-3*\uc) rectangle (\rc-0.1, 0.7-3*\uc);
+        \fill[converge_Blue, opacity=0.45] (\rb-1.85,0.1-3*\uc) rectangle (\rb-1.85+\ho, 0.7-3*\uc);
+        \fill[Red, opacity=0.34] (\rb-0.8,0.1-3*\uc) rectangle (\rb-0.8+\ho, 0.7-3*\uc);
+        \fill[converge_Blue, opacity=0.6] (\rb+0.2,0.1-3*\uc) rectangle (\rb+0.2+\ho, 0.7-3*\uc);
+        \fill[Red, opacity=0.5] (\rb+1.23,0.1-3*\uc) rectangle (\rb+1.23+\ho, 0.7-3*\uc);
+        \node[NavyBlue] at (\hb-0.5,0.6) {$g$};
+        \node[NavyBlue] at (\hb-0.5,\sf+0.5) {$g$};
+        \node at (\hb-0.2,\sf+0.55) {$\circ$};
+        \node[BrickRed] at (\hb+0.1,\sf+0.55) {$f$};
+        \node[BrickRed] at (\hf-\hb+0.5,\sf+0.55) {$f$};
+        \node at (\hf,\sf) {$\begin{bmatrix}\phantom{0}a_{11} & a_{12}\phantom{0} \\ \phantom{\underset{2}{0}}a_{21} & a_{22}\phantom{0}\end{bmatrix}$};
+        \node at (0,0) {$\begin{bmatrix}\phantom{\underset{2}{0}}b_{11} & b_{12}\phantom{0} \\ \phantom{\underset{2}{0}}b_{21} & b_{22}\phantom{0}\end{bmatrix}$};
+        \node at (\hf,0) {$\begin{bmatrix}\phantom{0b_{11}} & \phantom{0b_{12}} \\ \phantom{\underset{2}{0}b_{21}} & \phantom{0b_{22}}\end{bmatrix}$};
+        % 公式
+        \node at (\rb,-1.1) {$b_{11}\times a_{12} + b_{12}\times a_{22}$};
+        \node at (\rb,-1.85) {$b_{21}\times a_{12} + b_{22}\times a_{21}$};
+        \node at (\rb,0.4) {$b_{11}\times a_{11} + b_{12}\times a_{21}$};
+        \node at (\rb,-0.35) {$b_{21}\times a_{11} + b_{22}\times a_{21}$};
+    \end{scope}
+    \end{tikzpicture}
+    \captionsetup{justification=centering}
+    \caption*{\texttt{$\bmat{{\color{NavyBlue}g}\circ {\color{BrickRed}f}}[B]$的系数由$\bmat{{\color{BrickRed}f}}[B]$的列系数与$\bmat{{\color{NavyBlue}g}}[B]$的行系数对应相乘后加总得到}}
+\end{figure}
+
+为了好说话，我们把复合变换$g\circ f$里$g$的矩阵称为\textbf{左矩阵}，把$f$的矩阵称为\textbf{右矩阵}，把$g\circ f$的矩阵称为\textbf{结果矩阵}。我们把左矩阵放在结果矩阵左边，右矩阵放在结果矩阵上边，各自行列对齐（如上图）。结果矩阵中第$i$行第$j$列的系数，来自左矩阵第$i$行和右矩阵第$j$列。具体来说，是左矩阵第$i$行系数从左到右逐个和右矩阵第$j$行系数从上到下相乘，然后加总的结果。计算形式和向量的经典内积（点积）是一样的。也可以说，结果矩阵第$i$行第$j$列的系数，是左矩阵第$i$行向量和右矩阵第$j$列向量的点积。
+
+\begin{et}
+    设$f$和$g$为平面的直变换，在基底$B$中的矩阵分别为：
+    $$
+        \bmat{f}[B] = 
+        \begin{bmatrix}
+            2 & 0 \\ -4 & 1
+        \end{bmatrix},\qquad
+        \bmat{g}[B] = 
+        \begin{bmatrix}
+            3 & -1 \\ 1 & 0
+        \end{bmatrix}
+    $$
+    求$g\circ f$和$f\circ g$在$B$中的矩阵。
+\end{et}
+
+\begin{so}
+    首先计算$g\circ f$。记$g\circ f$的矩阵为：    
+    $$
+        \bmat{g\circ f}[B] = 
+        \begin{bmatrix}
+            c_{11} & c_{12} \\ c_{21} & c_{22}
+        \end{bmatrix}
+    $$
+    则：
+    \begin{align*}
+        c_{11} &= 2 \times 3 + (-4)\times (-1) = 10 \\
+        c_{12} &= 0 \times 3 + 1 \times (-1) = -1  \\
+        c_{21} &= 2 \times 1 + (-4)\times 0 = 2  \\
+        c_{22} &= 0 \times 1 + 1 \times 0 = 0  
+    \end{align*}
+    也就是说，$g\circ f$的矩阵为
+    $$
+        \bmat{g\circ f}[B] = 
+        \begin{bmatrix}
+            10 & -1 \\ 2 & 0
+        \end{bmatrix}.
+    $$
+    同理，记$f\circ g$的矩阵为：    
+    $$
+        \bmat{f\circ g}[B] = 
+        \begin{bmatrix}
+            c_{11} & c_{12} \\ c_{21} & c_{22}
+        \end{bmatrix}
+    $$
+    则：
+    \begin{align*}
+        c_{11} &= 2 \times 3 + 0 \times 1 = 6 \\
+        c_{12} &= 2 \times (-1) + 0 \times 0 = -2  \\
+        c_{21} &= -4 \times 3 + 1 \times 1 = -11  \\
+        c_{22} &= -4 \times (-1) + 1 \times 0 = 4  
+    \end{align*}
+    也就是说，$f\circ g$的矩阵为
+    $$
+        \bmat{f\circ g}[B] = 
+        \begin{bmatrix}
+            6 & -2 \\ -11 & 4
+        \end{bmatrix}.
+    $$
+\end{so}
+
+可以看到，交换复合顺序，得到的复合变换不一定相等。
+
+复合变换的矩阵也叫做\textbf{复合矩阵}或\textbf{乘积矩阵}，我们也将其记为：
+$$ \bmat{g}[B] \bullet \bmat{f}[B] = \bmat{g\circ f}[B].$$
+称为对应\textbf{矩阵的乘积}。不至于混淆时，也可以省略$\bullet$记号。
+
+如果把复合变换的矩阵看作矩阵之间的运算，那么其运算律和直变换作用于向量的方式是一致的。因为按照定义，复合矩阵$g\circ f$实质上就是用$g$作用于两个基向量经$f$作用后的像。换句话说，就是把$g(f(\mathbf{e}_1)),g(f(\mathbf{e}_2))$这两个列向量左右并排而已。也就是说，平面上的直变换作用于向量，也可以看作是$2\times 2$的矩阵与$2\times 1$的列向量（作为矩阵）的乘积。
+
+如果$g\circ f$是恒等变换$\mathds{1}$，就说$g$是$f$的\textbf{左逆变换}，$f$是$g$的\textbf{右逆变换}。事实上，对平面里给定的直变换$f$，如果它有左（右）逆变换，则必然也有右（左）逆变换，且两者相等。
+
+\begin{proof}
+    这里只证明“有左逆变换就有右逆变换”。设$l$是$f$的左逆变换，于是$l\circ f = \mathds{1}$。因此，如果$f(\mathbf{u}) = \mathbf{0}$，那么$\mathbf{u} = l(f(\mathbf{u})) = l(\mathbf{0}) = \mathbf{0}$。这说明$f$是单射。
+    
+    任取平面基底$(\mathbf{e}_1,\mathbf{e}_2)$，如果$f(\mathbf{e}_1),f(\mathbf{e}_2)$共轴，即有系数$s,t$使得$sf(\mathbf{e}_1)+tf(\mathbf{e}_2)=\mathbf{0}$，则$\mathbf{0} = f(s\mathbf{e}_1+t\mathbf{e}_2)$，这说明$s\mathbf{e}_1+t\mathbf{e}_2 = \mathbf{0}$，矛盾！因此$f(\mathbf{e}_1),f(\mathbf{e}_2)$不共轴，构成平面的基底。而这又说明$\mathbf{e}_1,\mathbf{e}_2$作为平面的向量，能表示为$f(\mathbf{e}_1),f(\mathbf{e}_2)$的直组合：
+    \begin{align*}
+        \mathbf{e}_1 & = a_1f(\mathbf{e}_1) + a_2f(\mathbf{e}_2) = f(a_1\mathbf{e}_1+a_2\mathbf{e}_2)\\ 
+        \mathbf{e}_2 & = b_1f(\mathbf{e}_1) + b_2f(\mathbf{e}_2) = f(b_1\mathbf{e}_1+b_2\mathbf{e}_2)
+    \end{align*}
+    既然如此，记$h$为把$\mathbf{e}_1$映射到$a_1\mathbf{e}_1+a_2\mathbf{e}_2$、把$\mathbf{e}_2$映射到$b_1\mathbf{e}_1+b_2\mathbf{e}_2$的直变换，就有$f\circ h = \mathds{1}$。我们找到了$f$的右逆变换。
+
+    考虑复合变换$l\circ f\circ h$。$\forall \mathbf{u}$，$l(\mathbf{u}) = l(f(h(\mathbf{u}))) = h(\mathbf{u})$，所以$l = h$。左逆变换等于右逆变换。
+\end{proof}
+
+我们把具有左（右）逆变换的直变换统称为\textbf{可逆变换}。可逆的直变换总有左逆变换和右逆变换，且两者相等，也是直变换，称为它的\textbf{逆变换}。
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 为什么说复合变换的矩阵是矩阵的乘积？“$\bullet$”作为运算，符合乘法运算的性质吗？怎样定义矩阵的和，可以让矩阵的乘法与加法满足分配律？\\
+    \indent 2. 直变换一定有逆变换吗？什么条件下，直变换有逆变换？\\
+    \indent 3. 给定平面的基底，考虑这样的映射：它把平面直变换映射到其矩阵的两个列向量的面积。这个映射和矩阵的乘积之间有什么关系？
+\end{sk}
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 证明：若直变换有右逆变换，则必有左逆变换，且左右逆变换相等。\\
+    \indent 2. 以下是直变换$f,g$在某基底中的矩阵，计算复合变换$f\circ g$和$g\circ f$的矩阵。
+    \begin{align*}
+        1). \;\;\bmat{f}[B] &= 
+        \begin{bmatrix}
+            1 & 2 \\ -3 & 0
+        \end{bmatrix},\qquad
+        \bmat{g}[B] = 
+        \begin{bmatrix}
+            0 & -2 \\ 1 & 1
+        \end{bmatrix} \\
+        2). \;\;\bmat{f}[B] &= 
+        \begin{bmatrix}
+            7 & -4 \\ 2 & -1
+        \end{bmatrix},\qquad
+        \bmat{g}[B] = 
+        \begin{bmatrix}
+            3 & 1 \\ 5 & 2
+        \end{bmatrix} \\
+        3). \;\;\bmat{f}[B] &= 
+        \begin{bmatrix}
+            2.5 & -1 \\ 6 & -2
+        \end{bmatrix},\quad\,
+        \bmat{g}[B] = 
+        \begin{bmatrix}
+            1.8 & -3 \\ 2 & -5
+        \end{bmatrix}
+    \end{align*}
+    3. 计算以下直变换的逆矩阵。
+    \begin{align*}
+        1). \;\;\bmat{f}[B] &= 
+        \begin{bmatrix}
+            1 & 2 \\ 3 & 4
+        \end{bmatrix},\qquad
+        3).\;\;\bmat{f}[B] = 
+        \begin{bmatrix}
+            0 & -1 \\ 1 & 1
+        \end{bmatrix} \\
+        2). \;\;\bmat{f}[B] &= 
+        \begin{bmatrix}
+            2 & -1 \\ 1 & 0
+        \end{bmatrix},\quad\,
+        4).\;\;\bmat{f}[B] = 
+        \begin{bmatrix}
+            3 & 1 \\ 5 & 2
+        \end{bmatrix} 
+    \end{align*}
+
+\end{xt}
+
 \section{基底变换}
 
 让我们再换一个角度看一开始的求切线问题。变换是相对的。我们把图形变换位置，相对的是平面的坐标系。
@@ -1021,8 +1304,7 @@ $$ \alpha = -\theta.$$
 除了旋转映射，可以验证，以原点为中心的位似映射和以过原点直线为轴的轴对称映射也满足这些性质。
 实际上，我们可以把这一类映射归结为基底的变换。
 
-一般来说，把平面的一组基底变为另一组基底的直变换，叫做\textbf{基底变换}，简称\textbf{基变换}或\textbf{基变更}。
-直观上看，基变换就是把两条数轴变换成另外两条数轴。
+一般来说，把平面的一组基底变为另一组基底的直变换，叫做\textbf{基底变换}，简称\textbf{基变换}或\textbf{基变更}。直观上看，基变换就是把两条数轴变换成另外两条数轴。
 
 怎样用基变换描述坐标的变换呢？
 
@@ -1040,7 +1322,7 @@ $$
 设某个点$P$在原基底$B$上的坐标为$(s,\,\, t)$，那么$P$点在新基底的坐标是多少呢？
 
 设$P$在新基底的坐标为$(x,\,\, y)$，那么：
-$$ s\mathbf{e}_1 + t\mathbf{e}_2 = x\mathbf{e}_1' + y\mathbf{e}_2'.$$
+$$ s\mathbf{e}_1 + t\mathbf{e}_2 = P = x\mathbf{e}_1' + y\mathbf{e}_2'.$$
 将$\mathbf{e}_1'$、$\mathbf{e}_2'$用$\mathbf{e}_1$、$\mathbf{e}_2$的直组合表示，就得到：
 \begin{align*}
     s\mathbf{e}_1 + t\mathbf{e}_2 &= x(a_{11}\mathbf{e}_1 + a_{21}\mathbf{e}_2) + y(a_{12}\mathbf{e}_1 + a_{22}\mathbf{e}_2)  \\
@@ -1143,6 +1425,92 @@ $$
         \end{dcases}
 \end{alignat*}
 $P$在新基底上的坐标为$(0.5, \,\, -3)$。我们可以从上图中直接观察到这个结论。
+
+要注意的是，我们也可以按变换作用于向量的方式，把以上的方程组写为：
+$$ x\begin{bmatrix}
+    a_{11}\\ a_{21} 
+\end{bmatrix} + y \begin{bmatrix}
+    a_{12}\\ a_{22}
+\end{bmatrix} = \begin{bmatrix}
+    s \\ t
+\end{bmatrix},
+$$
+换句话说，方程组表达的计算关系和直变换作用于向量是一样的，我们可以将方程组写为：
+\begin{equation*}
+\bmat{h}[B] \begin{bmatrix}
+    x\\y
+\end{bmatrix}=\begin{bmatrix}
+    s\\t
+\end{bmatrix}\tag{1}
+\end{equation*}
+但这个等式并不表示$h$将坐标为$(x,\,\,y)$的向量变为$(s,\,\,t)$，因为这里$(x,\,\,y)$和$(s,\,\,t)$是同一个向量在不同基底下的坐标。不过，形式上的雷同，让我们可以借助基变换的性质来继续研究它。基变换必然是双射，因此有逆映射。作为直变换，它的逆映射也是直变换，也就是把$B'$变回$B$的基变换。如何具体求出它的逆变换呢？考虑特殊的情况：$(s,\,\,t)$为$(1,0)$或$(0,1)$。设分别解方程组求得$(x_1,\,\,y_1)$、$(x_2,\,\,y_2)$使得
+$$
+\bmat{h}[B]\bullet \begin{bmatrix}
+    x_1\\y_1
+\end{bmatrix}=\begin{bmatrix}
+    1\\0
+\end{bmatrix},\qquad
+\bmat{h}[B]\bullet \begin{bmatrix}
+    x_2\\y_2
+\end{bmatrix}=\begin{bmatrix}
+    0\\1
+\end{bmatrix}
+$$
+将两个列向量左右并起来，就得到：
+$$
+\bmat{h}[B]\bullet \begin{bmatrix}
+    x_1&x_2\\y_1&y_2
+\end{bmatrix}=\begin{bmatrix}
+    \phantom{0}1&0\phantom{0}\\\phantom{0}0&1\phantom{0}
+\end{bmatrix},
+$$
+而右边就是恒等变换的矩阵。这说明列向量$(x_1,\,\,y_1)$、$(x_2,\,\,y_2)$左右并列，就得到$h$的右逆变换$g$在$B$中的矩阵。而$h$的左逆和右逆相等，所以也有：
+$$
+\begin{bmatrix}
+    x_1&x_2\\y_1&y_2
+\end{bmatrix}\bullet\bmat{h}[B]=\bmat{h}[B]\bullet \begin{bmatrix}
+    x_1&x_2\\y_1&y_2
+\end{bmatrix}=\begin{bmatrix}
+    \phantom{0}1&0\phantom{0}\\\phantom{0}0&1\phantom{0}
+\end{bmatrix},
+$$
+因此，我们姑且将等式$(1)$看作$h$作用于某个向量$(x,\,\,y)$的结果，在两边复合$g$，得到：
+$$
+\begin{bmatrix}
+    x_1&x_2\\y_1&y_2
+\end{bmatrix}\bullet\begin{bmatrix}
+    s\\t
+\end{bmatrix} = \begin{bmatrix}
+    x_1&x_2\\y_1&y_2
+\end{bmatrix}\bullet\bmat{h}[B]\bullet \begin{bmatrix}
+    x\\y
+\end{bmatrix} = \begin{bmatrix}
+    \phantom{0}1&0\phantom{0}\\\phantom{0}0&1\phantom{0}
+\end{bmatrix}\bullet \begin{bmatrix}
+    x\\y
+\end{bmatrix} = \begin{bmatrix}
+    x\\y
+\end{bmatrix}.
+$$
+换句话说，从计算的角度看，解方程组求出$x,y$，和在$(1)$中乘以逆矩阵，效果是一样的。我们把$(1)$称为方程组对应的\textbf{向量方程}。任何直变换，只要是双射，就有逆变换。于是，我们得到一种求解二元一次方程组的新视角：
+
+\begin{center}
+    \fbox{
+        \shortstack[l]{
+            1. 写出方程组对应的向量方程$A\bullet\mathbf{x}=\mathbf{b}$。其中$A$是$2\times 2$矩阵，\\
+            ~~~~$\mathbf{x}=(x_1,\,\,x_2)$是未知数向量。\\
+            2. 检查矩阵$A$对应的直变换是否是双射（列向量是否共轴）。\\
+            3. 求出其逆变换的矩阵$A'$。\\
+            4. 计算$A'\bullet \mathbf{b}$，则$\mathbf{x} = A'\bullet \mathbf{b}$为方程组的解。
+        }
+    }
+\end{center}
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 把基底$(\mathbf{e}_1, \mathbf{e}_2)$变成$(\mathbf{e}_2, \mathbf{e}_1)$是基变换吗？它改变了什么？它的矩阵是怎样的？\\
+    \indent 2. 基变换$h$把基底$B$变为$B'$，那么它的逆变换有什么效果？
+\end{sk}
 
 \begin{xt}
     \mbox{} \\
@@ -3488,7 +3856,7 @@ $$
 
 圆心为原点、半径为$r$的球的方程可以写为：
 $$ x^2 + y^2 + z^2 = r^2.$$
-用离圆心$z_0$的平面$z = z_0$截球，得到半径为$\sqrt{r^2 - z_0^2}$的圆盘，
+用离圆心$z_0$的平面$z = z_0$截球，代入方程得到$x^2+y^2=r^2-z_0^2$。这是半径为$\sqrt{r^2 - z_0^2}$的圆盘，
 面积为$\pi(r^2 - z_0^2)$。
 
 考虑下底在$Oxy$平面、上底在$z=r$平面，半径为$r$、高为$r$的圆柱：
@@ -3589,7 +3957,7 @@ $$ x^2 + y^2 = z^2, \quad 0\leqslant z \leqslant r $$
 于是，
 \begin{align*}
     \text{球的体积} &= 2\cdot\left(\text{圆柱的体积} - \text{圆锥的体积}\right)  \\
-    &= 2\left(\pi r^2\cdot r - \frac{1}{3}\pi r^2\cdot r \right) \\
+    &= 2\cdot\left(\pi r^2\cdot r - \frac{1}{3}\pi r^2\cdot r \right)  = 2\cdot \frac{2}{3}\pi r^3 \\
     &= \frac{4}{3}\pi r^3 
 \end{align*}
 即：
@@ -3739,18 +4107,361 @@ $$ \begin{bmatrix}
 \end{align*}
 在剪映射$f$作用下，基向量$\mathbf{e}_1$保持不变，$\mathbf{e}_2$沿$\mathbf{e}_1$方向移动$a$个单位，而$\mathbf{e}_3$沿$\mathbf{e}_1, \mathbf{e}_2$方向分别移动$b,c$个单位。
 
-\section{空间的基变换}%TODO
-空间中的直变换也包括基变换。基变换把空间的一组基底转为另一组基底。
+\section{空间的基变换}
+空间中的直变换也包括基变换。基变换把空间的一组基底转为另一组基底。给定空间中的基底$B$，设$B$由三个基向量构成：$(\mathbf{e}_1,\mathbf{e}_2,\mathbf{e}_3)$。空间中的点总能以唯一的方式表示为它们的直组合。
+$$\forall \mathbf{u} \in \mathbb{V}, \quad \mathbf{u} = u_1\mathbf{e}_1 + u_2\mathbf{e}_2 + u_3\mathbf{e}_3.  $$
+设有另一组基向量$B' = (\mathbf{e}_1',\mathbf{e}_2',\mathbf{e}_3')$，这些基向量都能唯一表示为$\mathbf{e}_1,\mathbf{e}_2,\mathbf{e}_3$的直组合：
+\begin{align*}
+    \mathbf{e}_1' &= a_{11}\mathbf{e}_1 + a_{21}\mathbf{e}_2 + a_{31}\mathbf{e}_3, \\
+    \mathbf{e}_2' &= a_{12}\mathbf{e}_1 + a_{22}\mathbf{e}_2 + a_{32}\mathbf{e}_3, \\
+    \mathbf{e}_3' &= a_{13}\mathbf{e}_1 + a_{23}\mathbf{e}_2 + a_{33}\mathbf{e}_3, \\
+\end{align*}
+考虑把$(\mathbf{e}_1,\mathbf{e}_2,\mathbf{e}_3)$映射到$(\mathbf{e}_1',\mathbf{e}_2',\mathbf{e}_3')$的直变换$h$，$h$在基底$B$上的矩阵是：
+$$
+\bmat{h}[B] = 
+\begin{bmatrix}
+    a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33}
+\end{bmatrix}
+$$
+$h$把原基底变换为新基底，所以它能把新基底的信息还原成原基底的信息。比如，新基底中坐标是$(1,0,0)$的点，就是$\mathbf{e}_1'$，它在原基底中的坐标是$(a_{11},a_{21},a_{31})$。反之，要知道原基底的信息在新基底变成什么样子，就要靠它的逆映射，也就是把新基底变换为原基底的直变换。我们将它记为$g$：
+\begin{align*}
+    \mathbf{e}_1 &= b_{11}\mathbf{e}_1' + b_{21}\mathbf{e}_2' + b_{31}\mathbf{e}_3', \\
+    \mathbf{e}_2 &= b_{12}\mathbf{e}_1' + b_{22}\mathbf{e}_2' + b_{32}\mathbf{e}_3', \\
+    \mathbf{e}_3 &= b_{13}\mathbf{e}_1' + b_{23}\mathbf{e}_2' + b_{33}\mathbf{e}_3', \\
+\end{align*}
+原基底中坐标是$(1,0,0)$的点，就是$\mathbf{e}_1$，$g$告诉我们它在新基底中的坐标是$(b_{11},b_{21},b_{31})$。
 
-\section{特征值和特征向量}%TODO
+$g$在基底$B'$上的矩阵是：
+$$
+\bmat{g}[B'] = 
+\begin{bmatrix}
+    b_{11} & b_{12} & b_{13} \\ b_{21} & b_{22} & b_{23} \\ b_{31} & b_{32} & b_{33}
+\end{bmatrix}
+$$
 
-% 观察平面和空间的变换，我们发现，有一类向量能帮助我们理解
+设某个点$X$在原基底$B$上的坐标为$(x_1,\,\, x_2, \,\,x_3)$，在新基底的坐标是$(y_1,\,\,y_2,\,\,y_3)$，那么：
+\begin{align*}
+    x_1\mathbf{e}_1 + x_2\mathbf{e}_2 + x_3\mathbf{e}_3 = X = y_1\mathbf{e}_1' + y_2\mathbf{e}_2' + y_3\mathbf{e}_3'.
+\end{align*}
+如果我们把新基底向量用原基底向量的直组合表示，就得到：
+\begin{align*}
+    &x_1\mathbf{e}_1 + x_2\mathbf{e}_2 + x_3\mathbf{e}_3 \\ 
+    =\;& y_1(a_{11}\mathbf{e}_1 + a_{21}\mathbf{e}_2 + a_{31}\mathbf{e}_3) + y_2(a_{12}\mathbf{e}_1 + a_{22}\mathbf{e}_2 + a_{32}\mathbf{e}_3) + y_3(a_{13}\mathbf{e}_1 + a_{23}\mathbf{e}_2 + a_{33}\mathbf{e}_3)  \\ 
+    =\;& (a_{11}y_1 + a_{12}y_2 + a_{13}y_3)\mathbf{e}_1 + (a_{21}y_1 + a_{22}y_2 + a_{23}y_3)\mathbf{e}_2 +  + (a_{31}y_1 + a_{32}y_2 + a_{33}y_3)\mathbf{e}_3. 
+\end{align*}
+也就是说，$y_1,y_2,y_3$是以下三元一次方程组的解：
+\begin{alignat*}{1}
+    &   \begin{dcases}
+            a_{11}y_1 + a_{12}y_2 + a_{13}y_3 = x_1 \\
+            a_{21}y_1 + a_{22}y_2 + a_{23}y_3 = x_2 \\
+            a_{31}y_1 + a_{32}y_2 + a_{33}y_3 = x_3
+        \end{dcases}
+\end{alignat*}
+反之，如果把原基底向量用新基底向量的直组合表示，同理可得$x_1,x_2,x_3$是以下三元一次方程组的解：
+\begin{alignat*}{1}
+    &   \begin{dcases}
+            b_{11}x_1 + b_{12}x_2 + b_{13}x_3 = y_1 \\
+            b_{21}x_1 + b_{22}x_2 + b_{23}x_3 = y_2 \\
+            b_{31}x_1 + b_{32}x_2 + b_{33}x_3 = y_3
+        \end{dcases}
+\end{alignat*}
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%% %
-%                            %
-%          APPENDIX          %
-%                            %
-% %%%%%%%%%%%%%%%%%%%%%%%%%% %
+所以，如果已知一点在某基底$B$的坐标，想要获取它在另一个基底$B'$的坐标，则要么用$B'$到$B$的变换$g$的矩阵系数计算，要么用$B$到$B'$的变换$h$的矩阵系数列出方程求解。
+
+\begin{et}
+    \mbox{} \\
+    已知点$C$在直角坐标系中的坐标是$(1,-2,-1)$，求$C$在向量$(1,0,4)$、$(0.5,-1,1.5)$、$(-2,1,-5)$构成的新基底中的坐标。
+\end{et}
+
+\begin{so}
+    我们不知道原基底$B$在新基底中的表示，无法直接获取新基底到原基底的变换的矩阵系数，所以要用原基底到新基底的变换的矩阵系数来列方程求解。具体来说，依照前面的推导，$C$在新基底中的坐标$y_1,y_2,y_3$是以下三元一次方程组的解：
+\begin{empheq}[left=\empheqlbrace]{align}
+    1\cdot y_1 + 0.5\cdot y_2 - 2\cdot y_3 &= 1 \tag{$1$} \\
+    0\cdot y_1 - \phantom{.5}1\cdot y_2 + 1\cdot y_3 &= -2 \tag{$2$} \\
+    4\cdot y_1 + 1.5\cdot y_2 - 5\cdot y_3 &= -1 \tag{$3$}
+\end{empheq}
+要注意的是点$C$和基向量的系数在方程中的位置都是纵向的。解这个方程组。将方程$(1)$的两边各乘以$4$，从$(3)$中减去它，就消去了$y_1$，得到：
+\begin{empheq}[left=\empheqlbrace]{align}
+    1\cdot y_1 + 0.5\cdot y_2 - 2\cdot y_3 &= 1 \tag{$1$} \\
+    - 1\cdot y_2 + 1\cdot y_3 &= -2 \tag{$2$} \\
+    - 0.5\cdot y_2 + 3\cdot y_3 &= -5 \tag{$3'$}
+\end{empheq}
+再将方程$(3')$的两边各乘$2$，从$(2)$中减去它，就消去了$y_2$，得到：
+\begin{empheq}[left=\empheqlbrace]{align}
+    1\cdot y_1 + 0.5\cdot y_2 - 2\cdot y_3 &= 1 \tag{$1$} \\
+     -5\cdot y_3 &= 8 \tag{$2'$} \\
+    - 0.5\cdot y_2 + 3\cdot y_3 &= -5 \tag{$3'$}
+\end{empheq}
+从$(2')$可知$y_3 = -1.6$，代入$(3')$可得$y_2=0.4$，最后将$y_2,y_3$的值代入$(1)$可得$y_1=-2.4$。于是$C$在新基底的坐标是$(-2.4,0.4,-1.6)$。
+\end{so}
+
+还可以注意到，以上的方程组可以写为：
+$$ 
+y_1\begin{bmatrix}
+    a_{11}\\ a_{21} \\ a_{31}
+\end{bmatrix} + y_2 \begin{bmatrix}
+    a_{12}\\ a_{22} \\ a_{32}
+\end{bmatrix} + y_3 \begin{bmatrix}
+    a_{12}\\ a_{22} \\ a_{33} 
+\end{bmatrix} = \begin{bmatrix}
+    x_1 \\ x_2 \\ x_3 
+\end{bmatrix},\,\, x_1\begin{bmatrix}
+    b_{11}\\ b_{21} \\ b_{31}
+\end{bmatrix} + x_2 \begin{bmatrix}
+    b_{12}\\ b_{22} \\ b_{32}
+\end{bmatrix} + x_3 \begin{bmatrix}
+    b_{12}\\ b_{22} \\ b_{33} 
+\end{bmatrix} = \begin{bmatrix}
+    y_1 \\ y_2 \\ y_3 
+\end{bmatrix}
+$$
+这和用矩阵方式记录直变换作用于向量的形式是一样的。为了更好地表示基变换，我们把从$B$到$B'$的变换$h$在$B$中的矩阵记为$\mathcal{H}_B^{B'}$，把从$B'$到$B$的变换$g$在$B'$中的矩阵记为$\mathcal{H}_{B'}^B$。给定向量$\mathbf{v}$，记$\mathbf{v}$在$B$中的坐标为$[\mathbf{v}]_B = (x_1,x_2,x_3)$，在$B'$中的坐标为$[\mathbf{v}]_{B'} = (y_1,y_2,y_3)$。那么用矩阵的方式记录，就是：
+\begin{align*}
+    \mathcal{H}_B^{B'}~[\mathbf{v}]_{B'} &= [\mathbf{v}]_B \\
+    \mathcal{H}_{B'}^B~[\mathbf{v}]_{B} &= [\mathbf{v}]_{B'} 
+\end{align*}
+和平面的情形一样，这里的矩阵表示方式并不说明我们将$h$或$g$作用在$\mathbf{v}$上。可以看到方程两端是同一个向量$\mathbf{v}$在不同基底中的表示。矩阵$\mathcal{H}_B^{B'}$记录了用$B$中的向量“组合”$B'$的方法，而$[\mathbf{v}]_{B'}$记录了用$B'$中的向量“组合”$\mathbf{v}$的方法，因此，将其中的$B'$向量再替换为$B$中向量的组合，就变成了用$B$中的向量“组合”$\mathbf{v}$的方法。我们将$\mathcal{H}_B^{B'}$和$\mathcal{H}_{B'}^B$分别称为$B$到$B'$、$B'$到$B$的\textbf{过渡矩阵}。过渡矩阵可以帮助我们计算不同基底下向量的坐标变换。
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 我们已知的空间变换里，哪些变换可以作为基变换？哪些不可以？为什么？\\
+    \indent 2. $\mathcal{H}_B^{B'}$和$\mathcal{H}_{B'}^B$的系数有什么关系？\\
+    \indent 3. 从$B'$到$B$的变换$g$在基底$B$上是否有矩阵表示？\\
+    \indent 4. 若从基底 $B$ 到 $B'$ 的过渡矩阵为 $P$，从 $B'$ 到 $B''$ 的过渡矩阵为 $Q$，那么从 $B$ 到 $B''$ 的过渡矩阵是什么？这个关系与复合变换有何异同？
+\end{sk}
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 设空间有两组基底 $B=(\mathbf{e}_1,\mathbf{e}_2,\mathbf{e}_3)$ 和 $B'=(\mathbf{e}_1',\mathbf{e}_2',\mathbf{e}_3')$，已知从 $B$ 到 $B'$ 的基变换在$B$中矩阵为：
+    $$
+    P = \begin{bmatrix}
+    2 & 0 & 1 \\
+    -1 & 3 & 0 \\
+    1 & 2 & -2
+    \end{bmatrix}.
+    $$
+    \indent 1.1. 用矩阵表示 $B'$ 到 $B$ 的基变换。\\
+    \indent 1.2. 已知向量 $\mathbf{v}$ 在 $B$ 中的坐标为 $(1,-2,3)$，求它在 $B'$ 中的坐标。\\
+    \indent 1.3. 已知向量 $\mathbf{w}$ 在 $B'$ 中的坐标为 $(4,0,-1)$，求它在 $B$ 中的坐标。\\
+    \indent 2. 空间直角坐标系 $Oxyz$ 的基底是 $B=(\mathbf{i},\mathbf{j},\mathbf{k})$，基底 $B'$ 由以下向量构成：
+    \[
+    \mathbf{e}_1' = \mathbf{i} + \mathbf{j},\quad \mathbf{e}_2' = \mathbf{j} + \mathbf{k},\quad \mathbf{e}_3' = \mathbf{i} + \mathbf{k}.
+    \]
+    \indent 2.1. 写出从 $B$ 到 $B'$ 的过渡矩阵$\mathcal{H}_B^{B'}$。\\
+    \indent 2.2. 求其逆变换的过渡矩阵$\mathcal{H}_{B'}^B$。\\
+    \indent 2.3. 一点在 $B$ 中的坐标为 $(1,2,3)$，求它在 $B'$ 中的坐标。\\
+    \indent 2.4. 一点在 $B'$ 中的坐标为 $(-1,0,2)$，求它在 $B$ 中的坐标。\\
+    \indent 2.5. 设 $f$ 是空间中的直变换，在基底 $B$ 下的矩阵为
+    \[
+    A = \begin{bmatrix}
+    \phantom{0}1 & 0 & 0\phantom{0} \\
+    \phantom{0}0 & 2 & 0\phantom{0} \\
+    \phantom{0}0 & 0 & 3\phantom{0}
+    \end{bmatrix}.
+    \]
+    \indent ~~~~~~求$f$ 在 $B'$ 下的矩阵 $A'$，并验证 $A' = \mathcal{H}_{B'}^B A \mathcal{H}_B^{B'}$。
+\end{xt}
+
+\sectionext{特征值和特征向量}%TODO
+
+考虑以下两个直变换$f_1$和$f_2$。在相同的基底$B$中，它们的矩阵分别是：
+$$
+\bmat{f_1}[B] = 
+\begin{bmatrix}
+    -4 & 6  \\ -3 & 5
+\end{bmatrix},
+\qquad
+\bmat{f_2}[B] = 
+\begin{bmatrix}
+    2 & 0  \\ 0 & -1
+\end{bmatrix}
+$$
+显然，直观上我们更容易理解$f_2$对向量的作用。它把基向量$\mathbf{e}_1$变为$2\mathbf{e}_1$，把$\mathbf{e}_2$变为$-\mathbf{e}_2$。直观来说，就是把基向量按比例“拉长”、“反转”了，和正比例函数的作用相似。相比$f_2$，$f_1$对向量有什么作用，就不那么容易看出来了。是旋转、反射、投影，还是皆有之？
+
+如果有某个向量$\mathbf{u}$和某个系数$c$，使得$f_1(\mathbf{u}) = c\mathbf{u}$，就能增长我们对$f_1$的认识。当然，我们不考虑$\mathbf{u}$为零向量的平凡情况。设$\mathbf{u}$在基底$B$中的坐标是$(x_1,x_2)$，代入方程可得：
+$$
+\begin{bmatrix}
+    -4 & 6  \\ -3 & 5
+\end{bmatrix}
+\begin{bmatrix}
+    x_1 \\ x_2
+\end{bmatrix}
+=
+\begin{bmatrix}
+    c\cdot x_1 \\ c\cdot x_2
+\end{bmatrix}
+$$
+具体来说，可以写出方程组：
+\begin{empheq}[left=\empheqlbrace]{align}
+    -4 x_1 + 6x_2 &= cx_1 \tag{$1$} \\
+    -3 x_1 + 5x_2 &= cx_2 \tag{$2$}
+\end{empheq}
+由方程$(1)$可得$\displaystyle x_2 = \frac{c+4}{6}x_1$，由方程$(2)$可得$\displaystyle x_1 = \frac{5 - c}{3}x_2$，于是：
+$$
+x_1 = \frac{5 - c}{3}x_2 = \frac{5 - c}{3}\cdot\frac{c+4}{6}x_1.
+$$
+要么$x_2 = 0$，要么$\displaystyle\frac{5 - c}{3}\cdot\frac{c+4}{6} = 1$。
+
+如果$x_2 = 0$，那么$x_1 = 0$，$\mathbf{u}$为零向量。否则，解方程
+$$
+\frac{5 - c}{3}\cdot\frac{c+4}{6} = 1,
+$$
+解得$c = 2$或$c = -1$。分别代入之前的方程，得到$x_1 = x_2$或$x_1 = 2x_2$。也就是说，如果我们取向量$\mathbf{u}_1 = \mathbf{e}_1+\mathbf{e}_2$和$\mathbf{u}_2 = 2\mathbf{e}_1+\mathbf{e}_2$，会发现$f_1$将$\mathbf{u}_1$变为$2\mathbf{u}_1$、将$\mathbf{u}_2$变为$-\mathbf{u}_2$。这样，我们就能像$f_2$一样，对$f_1$有直观的了解。
+
+我们把向量$\mathbf{u}_1,\mathbf{u}_2$称为$f_1$的\textbf{特征向量}，把$3$和$5$称为对应的\textbf{特征值}。特征向量和特征值是相互依赖的概念。一般来说，给定直变换$f$，如果非零向量$\mathbf{v}$使得存在系数$c$，$f(\mathbf{v}) = c\mathbf{v}$，就说$\mathbf{v}$是$f$的特征向量，$c$是它对应的特征值；或者说$c$是$f$的特征值，$\mathbf{v}$是它对应的特征向量。对于$f_2$来说，$\mathbf{e}_1$和$\mathbf{e_2}$就是它的特征向量，对应的特征值分别是$3$和$5$。
+
+对给定的直变换$f$和向量$\mathbf{v}$，$f(\mathbf{v})$是固定的。所以对给定的特征向量，对应的特征值只有一个。但反之则不然。比如说，当$f(\mathbf{v}) = \mathbf{v}$时，$\mathbf{v}$是特征值$1$对应的特征向量；但根据直变换的定义，$f(2\mathbf{v}) = 2\mathbf{v}$，所以$2\mathbf{v}$也是特征值$1$对应的特征向量。不难看出，只要非零向量$\mathbf{v}$是特征值$c$对应的特征向量，那么直线$\mathbb{R}\mathbf{v}$里除了原点以外都是$c$对应的特征向量。甚至，当$f$是恒等变换时，整个平面的非零向量都是特征值$1$的特征向量。
+
+考虑直变换$f$的特征值$c$，将它对应的特征向量集合记为$\mathcal{U}_c$。$\mathcal{U}_c$有什么特征呢？如果我们将零向量加入$\mathcal{U}_c$，会发现，根据直变换的基本性质有：
+\begin{align*}
+\forall\,\mathbf{u}_1,\mathbf{u}_2\in\,\mathcal{U}_c,\,\,\,\forall \,s, t\in\,\mathbb{R},\qquad\qquad\\
+ f(s\mathbf{u}_1+t\mathbf{u}_2) = sf(\mathbf{u}_1)+tf(\mathbf{u}_2) &= sc\mathbf{u}_1 + tc\mathbf{u}_2 = c\cdot(s\mathbf{u}_1+t\mathbf{u}_2).
+\end{align*}
+这说明，$s\mathbf{u}_1+t\mathbf{u}_2$只要非零，也是$c$对应的特征向量。因此，$\mathcal{U}_c\cup\{\mathbf{0}\}$要么是直线，要么是整个平面。换句话说，要么$\mathcal{U}_c$是平面中所有非零向量的集合，要么是某条直线挖去原点：$\mathbb{R}\mathbf{v}\backslash \{\mathbf{0}\}$。
+
+我们再从另一个角度来讨论特征值和特征向量。我们对$f_2$的性质一目了然，对$f_1$则需要找到特征向量，是因为我们在基底$B$中研究这两个变换。如果我们在$\mathbf{u}_1,\mathbf{u}_2$构成的基底$B'$上研究，那么$f_1$的矩阵就是
+$$
+\bmat{f_1}[B'] = 
+\begin{bmatrix}
+    2 & 0  \\ 0 & -1
+\end{bmatrix}
+$$
+而$f_2$的矩阵就不是这样了。这说明基底对于研究直变换的性质很有帮助。基底选得好，直变换的矩阵形式就简单明了。一般来说，我们希望为要研究的变换选一个好基底，让它的矩阵是对角矩阵或容易理解的矩阵。如果直变换在某个基底下是对角矩阵，就说这个直变换可以\textbf{对角化}，相应的基底叫做\textbf{对角基}，找出对角基的过程也称为\textbf{对角化}。
+
+具体到$f_1$的例子。我们已经找到了新的基向量$\mathbf{u}_1,\mathbf{u}_2$。在它们组成的基底$B'$中，$f_1$可以用对角矩阵表示。具体来说，向量$\mathbf{v}$在$B$中的坐标是$[\mathbf{v}]_B$，它经$f_1$变换的过程可以记为：
+$$ 
+\bmat{f_1}[B] [\mathbf{v}]_B = [f(\mathbf{v})]_B.
+$$
+以上也可以用$B'$中的坐标表示：
+\begin{align*}
+    \bmat{f_1}[B'] \bullet[\mathbf{v}]_{B'} &= [f(\mathbf{v})]_{B'} \\
+    &= \mathcal{H}_{B'}^B\bullet [f(\mathbf{v})]_{B}  = \mathcal{H}_{B'}^B \bullet\bmat{f_1}[B] \bullet[\mathbf{v}]_B\\
+    &= \mathcal{H}_{B'}^B \bullet \bmat{f_1}[B] \bullet\mathcal{H}_B^{B'}\bullet [\mathbf{v}]_{B'}.
+\end{align*}
+以上关系对任何向量$\mathbf{v}$成立，于是我们得到这样的关系：
+$$
+\bmat{f_1}[B'] = \mathcal{H}_{B'}^B\bullet\bmat{f_1}[B]\bullet\mathcal{H}_B^{B'}.
+$$
+要注意的是这个等式右侧的矩阵乘法和复合变换的矩阵乘法虽然在运算方式上一样，但并不表示三个线性变换的复合。因为$\bmat{f_1}[B]$和$\mathcal{H}_B^{B'}$是基底$B$上的矩阵，而$\mathcal{H}_{B'}^B$不是。这个等式告诉我们，同一个直变换在不同基底下的矩阵是不一样的，而基变换的矩阵就是转换的关键。
+
+从上可知，判断直变换能否对角化，如何对角化，关键是寻找可以作为基底的特征向量。如果直变换能对角化，那么对应的基底就必然是特征向量构成的。如何判断特征向量能否组成基底呢？首先数量必须足够。对于平面来说，至少要找到$2$个直无关的特征向量，对立体空间来说，至少要找到$3$个。如何判断特征向量直无关呢？我们有以下的充分条件：
+\begin{tm}{\textbf{特征值不同的特征向量直无关}}
+    设$f$为直变换，整数$k>1$，$c_1<c_2<\cdots<c_k$是$f$的特征值，$\mathbf{v}_1,\mathbf{v}_2,\cdots,\mathbf{v}_k$是对应的特征向量。则$\mathbf{v}_1,\mathbf{v}_2,\cdots,\mathbf{v}_k$直无关。
+\end{tm}
+
+\begin{proof}
+    对$k$使用归纳法证明。
+    首先观察$k=2$的情形。反设$c_1<c_2$对应的特征向量$\mathbf{v}_1,\mathbf{v}_2$直相关，即有不全为零的系数$a,b$使得$a\mathbf{v}_1+b\mathbf{v}_2=\mathbf{0}$。不妨设其中$b\neq 0$。将$f$作用在等式两端，得到：
+    $$ \mathbf{0} = f(\mathbf{0}) = f(a\mathbf{v}_1+b\mathbf{v}_2) = af(\mathbf{v}_1)+bf(\mathbf{v}_2) = ac_1\mathbf{v}_1+bc_2\mathbf{v}_2.$$
+    于是：
+    \begin{align*}
+        \mathbf{0} &= \mathbf{0} - \mathbf{0} \\
+        &= ac_1\mathbf{v}_1+bc_2\mathbf{v}_2 - c_1\cdot(a\mathbf{v}_1+b\mathbf{v}_2) = ac_1\mathbf{v}_1+bc_2\mathbf{v}_2-ac_1\mathbf{v}_1-bc_1\mathbf{v}_2 \\
+        &= b(c_2 - c_1)\mathbf{v}_2.
+    \end{align*}
+    而$b(c_2 - c_1)\neq 0$，所以$\mathbf{v}_2 = 0$，矛盾！
+
+    假设对某个$k>1$命题成立。考虑$k+1$的情况，我们要证明，特征值$c_1<c_2<\cdots<c_k<c_{k+1}$对应的特征向量$\mathbf{v}_1,\mathbf{v}_2,\cdots,\mathbf{v}_{k+1}$直无关。同样反设它们直相关，即有不全为零的系数$a_1,a_2,\cdots,a_{k+1}$使得直组合$a_1\mathbf{v}_1+a_2\mathbf{v}_2+\cdots+a_{k+1}\mathbf{v}_{k+1}=\mathbf{0}$。
+    
+    首先排除一种情况：$a_1=a_2=\cdots=a_{k}=0$。因为这时有$a_{k+1}\mathbf{v}_{k+1}=\mathbf{0}$，但$\mathbf{v}_{k+1}$不是零向量，于是$a_{k+1}=0$，矛盾。
+    
+    将$f$作用于直组合，得到：
+    $$ \mathbf{0} = f(\mathbf{0}) = f\left(\sum_{i=1}^{k+1} a_i \mathbf{v}_i\right) = \sum_{i=1}^{k+1} a_i f(\mathbf{v}_i) = \sum_{i=1}^{k+1} a_ic_i\mathbf{v}_i.$$
+    于是：
+    \begin{align*}
+        \mathbf{0} &= \mathbf{0} - \mathbf{0} \\
+        &= \sum_{i=1}^{k+1} a_ic_i\mathbf{v}_i - c_1\cdot\left( \sum_{i=1}^{k+1} a_i\mathbf{v} _i\right) = \sum_{i=1}^{k+1} a_i(c_i - c_1)\mathbf{v}_i \\
+        &= \sum_{i=2}^{k+1} a_i(c_i - c_1)\mathbf{v}_i.
+    \end{align*}
+    而由归纳假设，我们知道$\mathbf{v}_2,\cdots,\mathbf{v}_{k+1}$直无关。因此，上面直组合的系数$a_2(c_2-c_1),\cdots,a_{k+1}(c_{k+1}-c_1)$等全是零。这说明$a_2=\cdots=a_k=a_{k+1}=0$，即：
+    $$\mathbf{0} = a_1\mathbf{v}_1+a_2\mathbf{v}_2+\cdots+a_{k+1}\mathbf{v}_{k+1} = a_1\mathbf{v}_1.$$
+    但按假设系数$a_1,a_2,\cdots,a_{k+1}$不能全为零，$\mathbf{v}_1$也不是零向量。矛盾！
+
+    于是$k+1$时命题也成立。根据归纳法，对所有$k>1$，命题都成立。
+\end{proof}
+
+特征值不同的特征向量直无关，因此，根据平面的根本性质，平面上的直变换至多有$2$个特征值。同理，立体空间中的直变换至多有$3$个特征值。如果平面的直变换$f$有两个特征值，那么对应的特征向量必然构成基底，于是可以对角化。如果没有特征值，自然也没有特征向量构成对角基。最后是恰有一个特征值的情况。设$f$有特征值$c$，向量$\mathbf{v}$使得$f(\mathbf{v}) = c\mathbf{v}$。如果有与$\mathbf{v}$不共轴的向量$\mathbf{w}$使得$f(\mathbf{w}) = c\mathbf{w}$，那么在对角基$(\mathbf{v},\mathbf{w})$下，$f$的矩阵是：
+$$
+\bmat{f}[(\mathbf{v},\mathbf{w})] = \begin{bmatrix}
+    \phantom{0}c&0\phantom{0}\\\phantom{0}0&c\phantom{0}
+\end{bmatrix}.
+$$
+这是一个放缩变换，将任何向量映射为它的$c$倍。因此在任何基底下，它的矩阵都是一样的。而如果这样的$\mathbf{w}$不存在，凑不成对角基，$f$就无法对角化了。
+
+以上是平面中的情况，对于立体空间中的直变换，情况则复杂得多，我们将会在专门的平直空间理论中学习。简单的情形是：如果空间中的直变换有三个互不相同的特征值，那么它可以对角化。如果只有两个特征值或更少，且每个特征值对应的特征向量集合都只构成直线，就无法对角化了。
+
+\begin{sk}
+    \mbox{} \\
+    \indent 1. 平面上的剪变换是否有特征值？是否有两个线性无关的特征向量？它能否对角化？\\
+    \indent 2. 空间中的剪变换是否有特征值？能否对角化？
+\end{sk}
+
+\begin{xt}
+    \mbox{} \\
+    \indent 1. 设平面直变换 $f$ 在基底 $B=(\mathbf{e}_1,\mathbf{e}_2)$ 下的矩阵为
+    \[
+    A = \begin{bmatrix}
+    4 & 2 \\
+    1 & 3
+    \end{bmatrix}.
+    \]
+    \indent 1.1. 求 $f$ 的特征值和对应的特征向量。\\
+    \indent 1.2. 说明 $f$ 可以对角化。\\
+    \indent 1.3. 写出 $f$ 的对角基、对应的对角矩阵和过渡矩阵。\\
+    \indent 2. 在空间直角坐标系 $Oxyz$ 中，考虑直变换 $f$，它将任意向量 $\mathbf{v}=(x,y,z)$ 映射为
+    \[
+    f(\mathbf{v}) = (-2y + z,\; x + 3y -z,\; -x - 2y + 2z).
+    \]
+    \indent 2.1. 写出 $f$ 在标准基底下的矩阵 $A$。\\
+    \indent 2.2. 设$A$有特征值$a$和特征向量$\mathbf{u} = (1,u_2,u_3)$，列出$a,u_2,u_3$满足的方程组。通过消元法消去$u_2,u_3$，得到只关于$a$的方程。\\
+    \indent 2.3. 求出所有可能的特征值$a$，检验相应的$\mathbf{u}$是否是特征向量。\\
+    \indent 2.4. 将每个特征值$a$代入$a,u_2,u_3$满足的方程组，找出$3$个直无关的特征向量。\\
+    \indent 2.5. $f$是否可以对角化？如果可以，给出相应的对角基、对角矩阵和过渡矩阵。如果不能，说明原因。\\
+    \indent 3. 我们希望研究形如：
+    \[
+    Z_{a,b} = \begin{bmatrix}
+    a & -b \\   
+    b & a
+    \end{bmatrix}.
+    \]
+    的矩阵的性质，其中$a,b\in\mathbb{R}$是不全为零的系数。
+    考虑平面上的直变换 $R$，它在标准基底 $B=(\mathbf{e}_x,\mathbf{e}_y)$下的矩阵为$Z_{a,b}$。\\
+    \indent 3.1. 计算$R(\mathbf{e}_x),R(\mathbf{e}_y)$，求它们的长度与内积。\\
+    \indent 3.2. 作为平面向量，$R(\mathbf{e}_x),R(\mathbf{e}_y)$的夹角是多少？$R(\mathbf{e}_x),R(\mathbf{e}_y)$与$\mathbf{e}_x,\mathbf{e}_y$的夹角分别是多少？\\
+    \indent 3.3. 证明：$R$可以表示为以原点为中心的旋转变换和位似变换的复合。并给出旋转变换的旋转角$\theta$和位似变换的相似比$k$。\\
+    \indent 4. 考虑平面上的直变换 $R$，它在标准基底 $B=(\mathbf{e}_x,\mathbf{e}_y)$ 下的矩阵为
+    \[
+    \bmat{R}[B] = \begin{bmatrix}
+    1 & -1 \\
+    2 & 1
+    \end{bmatrix}.
+    \]
+    \indent 4.1. 计算$R(\mathbf{e}_x),R(\mathbf{e}_y)$，直观描述$R$对基向量的作用。\\
+    \indent 4.2. 设$a$是$R$的特征值，记对应的特征向量坐标为$(x,y)$，证明$x=y=0$。这说明什么？\\
+    \indent 4.3. 我们希望找到基底$B'=(\mathbf{u},\mathbf{v})$，使得$R$在$B'$中形如：
+    \[
+    \bmat{R}[B'] = \begin{bmatrix}
+    a & -b \\   
+    b & a
+    \end{bmatrix}.
+    \]
+    其中$a,b\in\mathbb{R}$是待定系数。如果这样的$B'$存在，设$\mathbf{u},\mathbf{v}$在标准基底中坐标为$(u_1,\,\,u_2)$、$(v_1,\,\,v_2)$。证明：$a,b,u_1,u_2,v_1,v_2$满足以下方程组：
+    \begin{empheq}[left=\empheqlbrace]{align}
+        u_1 - u_2 &= a u_1 + b v_1 \tag{$1$} \\
+        2 u_1 + u_2 &= a u_2 + b v_2 \tag{$2$} \\
+        v_1 - v_2 &= -b u_1 + a v_1 \tag{$3$} \\
+        2 v_1 + v_2 &= -b u_2 + a v_2 \tag{$4$} 
+    \end{empheq}
+    \indent 4.4. 根据方程$(1),(2)$，推出关系式：
+    $$ b(u_1 v_2 - u_2 v_1) = 2u_1^2 + u_2^2.$$
+    并说明为何$u_1 v_2 - u_2 v_1\neq 0$。\\
+    \indent 4.5. 证明，存在$M\geqslant 0$，使得$2u_1^2 + u_2^2 = 2v_1^2 + v_2^2 = M$.\\
+    \indent 4.6. 通过在方程组中消去$b$，得到用$u_1,v_1,u_2,v_2$表示$a$的两种方法\footnote{提示：由于$M$有两种表示方法，第4问中$b$也有两种表示方法，分别将其代入合适的方程。}。\\  % 分别代入$(1)$和$(3)$
+    \indent 4.7. 如果$u_1=0$，证明从原方程组可推出$(a-1)bv_1=bv_2=0$，并由此推出$a,b$的值。\\
+    \indent 4.8. 如果$u_1v_1\neq 0$，通过比较第7问中得到的$a$的两种表示方法，证明：$2u_1v_1 + u_2v_2 = 0.$。由此推出$a$的值。\\
+    \indent 4.9. 证明$b^2=2$，并由此给出$\mathbf{u},\mathbf{v}$坐标应该满足的性质。\\
+    \indent 4.10. 据此给出长度为$1$的基向量$\mathbf{u},\mathbf{v}$，使得$R$在$B'$中形状如第3问中所设。如何理解这个基底对$R$的意义？
+\end{xt}
 
 \begin{appendix}
 

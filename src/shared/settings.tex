@@ -10,6 +10,7 @@
 \usepackage{float}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{dsfont}
 \usepackage{mathrsfs}
 \usepackage{mathtools}
 \usepackage{polynom}
@@ -33,6 +34,7 @@
 \usepackage{xparse} % For defining commands with optional arguments
 \usepackage{tikz-3dplot}
 \usepackage{pgfplots}
+\usepackage{empheq}
 
 % 修改脚注的编号为加圈样式，并且各页单独编号
 \DefineFNsymbols{circled}{{\ding{192}}{\ding{193}}{\ding{194}}
@@ -56,6 +58,8 @@
 \definecolor{gl}{RGB}{246, 252, 240}
 \definecolor{gd}{RGB}{236, 244, 230}
 \definecolor{bg}{RGB}{242, 244, 228}
+\definecolor{converge_blue}{RGB}{20,76,237}
+\definecolor{converge_Blue}{RGB}{55,148,251}
 % \definecolor{grid3}{RGB}{200, 200, 200} % 自定义颜色 (RGB 值)
 % \tdplotsetmaincoords{60}{105} % 设置观察角度 (θ, φ)
 
@@ -116,46 +120,52 @@
 \newcommand{\inff}[1]{\underset{#1}{\text{\texttt{下}}}}  % 下确界
 \newcommand{\maxx}[1]{\underset{#1}{\text{\texttt{大}}}}  % 最大值
 \newcommand{\minn}[1]{\underset{#1}{\text{\texttt{小}}}}  % 最小值
-\newcommand{\dangle}{  % 角符号
+\newcommand{\dangle}{  % 平面角符号
     \mathord{
-        \text{  %
-            \tikz[baseline] \draw (0.8em,0ex) -- (0.3em, 0ex) -- (.6em, 1.5ex) -- (.8em, 1.5ex) -- (.5em, 0ex) -- cycle;
-        }
+        \tikz[baseline=(current bounding box.south), 
+          trim left=0pt, trim right=1.6em] \draw (0.8em,0ex) -- (0.3em, 0ex) -- (.6em, 1.5ex) -- (.8em, 1.5ex) -- (.5em, 0ex) -- cycle;
     }
 }
-\newcommand{\xangle}{  % 角符号
+\newcommand{\xangle}{  % 平面角符号
     \mathord{
-        \text{%
-        \tikz[baseline] \draw (0.8em,1.5ex) -- (0.3em, 0ex) -- (.64em, 0ex) -- (.8em, .36ex) -- (.42em, .36ex) -- cycle;
-        }
+        \tikz[baseline=(current bounding box.south), 
+          trim left=0pt, trim right=1.6em] \draw (0.8em,1.5ex) -- (0.3em, 0ex) -- (.64em, 0ex) -- (.8em, .36ex) -- (.42em, .36ex) -- cycle;
     }
 }
 \newcommand{\bu}{  % 补集符号
-    \mathbin{
-        \text{
-            \tikz[baseline=-0.6ex]{
-                \node[draw, fill=black, minimum size=0.8ex, inner sep=0pt, rectangle] (bu) {};
-                \node[draw=none, fill=white, minimum size=0.6ex, inner sep=0pt, circle] at (bu.center) {};
-            }
-        }
-    }
+  \mathord{%
+    \tikz[baseline=-0.1ex, trim left=0pt, trim right=0.8ex] {%
+      \fill (0,0) rectangle (0.8ex,0.8ex);
+      \fill[white] (0.4ex,0.4ex) circle (0.3ex);
+    }%
+  }%
 }
 \newcommand{\inv}[1]{#1^{(-1)}}  % 映射的逆映射
 \newcommand{\rectbx}{  % 长方形符号
     \mathord{
-        \text{%
-            \tikz[baseline] \draw (0,.1ex) -- (.4em,.1ex) -- (.4em,1.5ex) -- (0em,1.5ex) -- cycle;
-        }
+        \tikz[baseline=(current bounding box.south), 
+          trim left=0pt, trim right=0.7em] \draw (0,.1ex) -- (.5em,.1ex) -- (.5em,0.8em) -- (0em,0.8em) -- cycle;
     }
 }
 \newcommand{\tr}{  % 矩阵转置符号 A^{\tr} 
     \mathord{
-        \begin{tikzpicture}[baseline=-0.2em, line width=0.3pt]
+        \begin{tikzpicture}[baseline=-0.2em, line width=0.5pt]
         \draw (-0.15em, 0.15em) -- (0.06em, -0.06em);
         \draw (45:0.15em) arc[start angle=45, end angle=225, radius=0.15em];
     \end{tikzpicture}
     }
 }
+% \newcommand{\ball}{
+%     \mathord{%
+%         \tikz[baseline=0.2em, trim left=0pt, trim right=0.9em] {%
+%             \draw (0.45em,0.45em) circle (0.45em);
+%             \draw (0em,0.45em) arc [start angle=180, end angle=360, x radius=0.45em, y radius=0.15em];
+%             \draw (0.45em,0.9em) arc [start angle=90, end angle=270, x radius=0.15em, y radius=0.45em];
+%             \draw[dash pattern={on 1.4pt off 1.2pt}] (0em,0.45em) arc [start angle=180, end angle=0, x radius=0.45em, y radius=0.15em];
+%             \draw[dash pattern={on 1.4pt off 1.2pt}] (0.45em,0.9em) arc [start angle=90, end angle=-90, x radius=0.15em, y radius=0.45em];
+%         }%
+%     }%
+% }
 \newcommand{\arcangle}{\mathord{\mathpalette\doarcangle\relax}}  % 带弧的角度符号 - 交角
 \newcommand{\doarcangle}[2]{  % 
     \hbox{%
@@ -168,9 +178,8 @@
 }
 \newcommand{\parasbx}{  % 平行四边形符号
     \mathord{
-        \text{%
-            \tikz[baseline] \draw (0,.1ex) -- (.8em,.1ex) -- (1em,1.6ex) -- (.2em,1.6ex) -- cycle;
-        }
+        \tikz[baseline=(current bounding box.south), 
+          trim left=0pt, trim right=1em] \draw (0,.1ex) -- (.8em,.1ex) -- (1em,1.6ex) -- (.2em,1.6ex) -- cycle;
     }
 }
 \newcommand{\widearc}[1]{  % 可伸缩圆弧符号

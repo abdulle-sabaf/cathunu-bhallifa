@@ -275,19 +275,10 @@ TSWLatexianTemp*
 # Makeindex log files
 *.lpz
 
-src/初中数学/极坐标例1南北极地图.jpg
-src/初中数学/四面体1.png
-src/初中数学/旋转变换例1.png
-src/初中数学/圆柱1.png
-src/初中数学/圆锥2.png
-src/初中数学/圆锥例1.jpg
-src/高中数学/草稿*.tex
-src/高中数学/tu/Separation_axioms.png
-src/高中数学/pics/**
-
+# 特定路径和文件
 code/
 .vscode/
 悟数学/*.rar
-build/
+src/高中数学/pics/**
 **/草稿*
 **/*test*

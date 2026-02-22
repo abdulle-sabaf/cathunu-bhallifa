@@ -1913,7 +1913,35 @@ $$ a^{n-1} \tong{n} 1 .$$
 \begin{figure}[H] %this figure will be at the right
     \vspace{8pt}
     \centering
-    \includegraphics[width=0.3\textwidth]{tu/演员关系图1.png}
+    % \includegraphics[width=0.3\textwidth]{tu/演员关系图1.png}
+
+    \begin{tikzpicture}[scale=1]
+    \begin{scope}[shift={(0,0)}]
+        \def\R{0.6};
+        \def\c{0.87};
+        \coordinate (O) at (0,0);
+        \coordinate (A) at (-2*\c,2*\c);
+        \coordinate (B) at (2*\c,2*\c);
+        \coordinate (C) at (0,-2.6*\c);
+        \coordinate (D) at (-3*\c,-2.6*\c);
+        \draw[color=BurntOrange,fill=Apricot] (O) circle (\R cm) node[black] {$\mbox{\footnotesize\textbf{吴孟达}}$};
+        \draw[color=BurntOrange,fill=Apricot] (A) circle (\R cm) node[black] {$\mbox{\footnotesize\textbf{朱咪咪}}$};
+        \draw[color=BurntOrange,fill=Apricot] (B) circle (\R cm) node[black] {$\mbox{\footnotesize\textbf{徐锦江}}$};
+        \draw[color=BurntOrange,fill=Apricot] (C) circle (\R cm) node[black] {$\mbox{\footnotesize\textbf{吴京}}$};
+        \draw[color=BurntOrange,fill=Apricot] (D) circle (\R cm) node[black] {$\mbox{\footnotesize\textbf{古天乐}}$};
+        \draw[Stealth-Stealth] (-0.5*\c,0.5*\c) -- ($(A)+(0.5*\c,-0.5*\c)$);
+        \node at (-1.9*\c, 0.9*\c) {$\mbox{\scriptsize 《百变星君》}$};
+        \draw[Stealth-Stealth] (0.5*\c,0.5*\c) -- ($(B)+(-0.5*\c,-0.5*\c)$); 
+        \node at (1.9*\c, 0.9*\c) {$\mbox{\scriptsize 《鹿鼎记》}$};
+        \draw[Stealth-Stealth] (0,-\R) -- ($(C)+(0,\R)$) node[midway,right] {$\mbox{\scriptsize 《流浪地球》}$};
+        \draw[Stealth-Stealth] ($(C)-(\R,0)$) -- ($(D)+(\R,0)$) node[midway,above] {$\mbox{\scriptsize \,《蜀山传》}$};
+        \draw[Stealth-Stealth] ($(B)-(\R,0)$) -- ($(A)+(\R,0)$) node[midway,above] {$\mbox{\scriptsize \,《唐伯虎点秋香》}$};
+        \draw[Stealth-Stealth] ($(A)+(-\R,0)$) -- ($(A)+(-2*\R,0)$) node[left] {$\cdots$};
+        \draw[Stealth-Stealth] ($(B)+(\R,0)$) -- ($(B)+(2*\R,0)$) node[right] {$\cdots$};
+        \draw[Stealth-Stealth] ($(C)+(\R,0)$) -- ($(C)+(2*\R,0)$) node[right] {$\cdots$};
+        \draw[Stealth-Stealth] ($(D)+(-0.8*\R,0.6*\R)$) -- ($(D)+(-1.2*\c,0.9*\c)$) node[above left] {$\ddots$};
+    \end{scope}
+    \end{tikzpicture}
 \end{figure}
 
 从图中我们能够看出不同演员之间的合作关系。我们也可以把共演关系用数表的方式呈现。曾经共演的演员，
