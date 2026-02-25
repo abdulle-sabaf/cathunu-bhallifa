@@ -1,5 +1,6 @@
 \documentclass[12pt,UTF8]{ctexbook}
-
+\usepackage{multirow}
+\usepackage{booktabs}
 % 导入设定
 \input{../shared/settings}
 
@@ -715,6 +716,195 @@ $$ 3ab + ac - a^2- bc -2b^2 = (a - b)(-a + 2b + c).$$
 \indent 待定系数法建立在对因式分解结果的合理猜测上。如果猜测出现错误，
 \indent 后面对比各项时就会发现矛盾。
 
+\chapter{估算和科学计算}
+
+我们已经学习过整数和有理数的加减乘除运算。给定了确切的数值，我们能对它进行计算，得到准确的结果。不过，在生产和生活中，尤其是科学研究中，很多时候我们并不知道确切的数值，同时，我们只想快速地知道大致的计算结果，而不需要获得准确的计算结果。这时，我们需要掌握一些节省时间和精力的估算方法。
+
+\begin{ex}
+    小李在野外探险时遇到一棵树，他想知道树大概有多高。由于手边没有测量工具，小李无法直接测量树有多高。他使用“拇指法”来估计树的高度。他从树下直走$100$步后，转身伸出大拇指瞄准树，并朝着树前后走动，记录步数。当走到离树$120$步时，大拇指正好覆盖小李眼中的树。于是小李这样来估计树高：他大步走时的步长和自己的臂长大致相等。树离自己$120$步时，大拇指正好覆盖自己眼中的树，因此，树高是大拇指长度的$120$倍。小李估计自己的大拇指长度约为$4$厘米，所以树高约$4.8$米。
+\end{ex}
+
+\begin{figure}[h]
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.9\textwidth]{tu/tree_measure1.png}
+    \caption*{\texttt{用“拇指法”估计树的高度}}
+\end{figure}
+
+以上的例子里，小李对一棵树的高度做估计。他构思了一种估算方法，从自身出发，估计自己的步长、臂长和大拇指长度，再用这些数来算出树高。这种方法不会得到树的准确高度，但能够让小李对树的高度有大致的认识，在生活和生产、研究中都能带来很大的方便。
+
+\begin{ex}
+    小王到市场采购企业生产所需的零件。他的预算是$40$万元人民币。他分别向甲、乙、丙三家供应商询价，得知$A,B,C$三种零件的价格分别是：
+    \begin{table}[htbp]
+        \centering
+        \label{tab:报价表}
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            \textbf{供应商} & \textbf{A 零件} & \textbf{B 零件} & \textbf{C 零件} \\
+            \hline
+            \textbf{甲} & $2.95$ 元 & $16.5$ 元 & $43.5$ 元 \\
+            \hline
+            \textbf{乙} & $2.8$ 元 & $19.5$ 元 & $40.5$ 元 \\
+            \hline
+            \textbf{丙} & $2.9$ 元 & $17.5$ 元 & $42.5$ 元 \\
+            \hline
+        \end{tabular}
+    \end{table}
+
+    按照对业务的理解，小王估计三种零件的采购比例大致是$6$比$2$比$1$，也就是每个$C$零件大约要配$2$个$B$零件和$6$个$A$零件。以这样的比例，小王估算甲、乙、丙三家供应商对每套零件报价大约是：
+    $$ 3\times 6 + 20 \times 2 + 40\times 1 = 98 \;\mbox{（元），} $$
+    按每套$100$元估计，小王判断：以当前报价和自己的预算，至少可以买$4000$套零件。
+\end{ex}
+
+以上的例子里，小王并没有准确计算三家供应商关于一套零件的准确报价，而是大致取整后计算。然后用总预算除以一套零件的单价，得到了大约能买到的零件数量。这种做法能让小王在多变的市场里更好地抓住机会，达成交易。
+
+\section{概数和误差}
+
+前面的例子里，我们可以看到，为了方便快速计算，我们常常会放弃使用确切的数值，而使用大小差不多但容易算的数。这样的做法叫\textbf{取概数}。确切的数则称为\textbf{确数}。
+
+概数一般取整数乃至十的倍数、一百的倍数等等。特别是做乘除法时，我们希望概数里非零的数字越少越好。比如，和$52 \times 68$相比，$50\times 70$更容易算。和$312.6 \times 7810$相比，$300 \times 8000$更容易算。概数通常用四舍五入法取得。如果时间紧急，直接用进一法或去尾法也可以。
+
+使用概数来估算，结果往往就和准确计算的结果不一样了，会产生误差。快速估计误差，也是必要的。这让我们能够权衡为了快速计算，付出了什么代价。
+
+估计误差，有两个关键：方向和大小。如果能确认和正确的结果相比，估算的结果是大了还是小了，那么对正确的结果就有更清晰的把握。前面买零件的例子里，小王要向供应商下单购买零件，所以他希望估计的结果比正确结果更小。比如说，如果小王通过估计误差知道一套零件报价不超过$100$元，那么他就能估计出$4000$套零件比正确的结果小，实际用$40$万元预算能买的零件套数应该比$4000$更大。这样他可以放心地向供应商下单购买$4000$套零件。如果估计出来能买的零件套数可能小于$4000$，那么小王还需要调整估计。根据方向，我们通常把估计分为\textbf{保守估计}和\textbf{激进估计}。比如在买零件的例子里，如果$4000$套零件比正确的结果小，就说$4000$套是保守的估计。反之则说$4000$套是激进的估计。
+
+误差的大小也很重要。如果误差很小，误差的方向也许就不重要了。如果误差比较大，那么往往需要重新估计。衡量误差大小有两种方法：\textbf{绝对误差}和\textbf{相对误差}。绝对误差指估算结果和正确结果的差值；相对误差指差值与准确结果的比值，通常表示为百分比的形式。具体来说，绝对误差的计算方式为：
+$$ \text{绝对误差} = \left|\text{估算结果} - \text{准确结果}\right|. $$
+相对误差的计算方式为：
+$$ \text{相对误差} = \left|\frac{\text{估算结果}}{\text{准确结果}} - 1\right| \times 100\% = \frac{\text{绝对误差}}{|\text{准确结果}|} \times 100\%. $$
+比如，使用四舍五入法，用$50\times 70$估算$53 \times 68$，绝对误差为：
+$$  \left|50\times 70 - 53 \times 68\right| = |3500 - 3604| = 104. $$
+相对误差为：
+$$ \frac{104}{3604} \times 100\% \approx 2.89\%. $$
+
+不过，以上方法只适用于知道准确结果后的复盘统计。估算的时候，我们是不知道准确结果的，能够做到的是根据估算的结果反过来估计误差。
+
+比如，用$50\times 70$估算$53 \times 68$，我们假设我们不知道确数，只知道$50$和$70$。我们假设$50$和$70$是四舍五入的结果，那么原本的确数可能落在$50\pm 5$、$70\pm 5$的范围内。于是准确结果最小可能是
+$$ (50 - 5) \times (70 - 5) = 2925 = 3500 - 575.$$
+最大可能是
+$$ (50 + 5) \times (70 + 5) = 4125 = 3500 + 625.$$
+于是绝对误差的范围是$[- 575; 625]$，相对误差范围是$[-16.4\%;17.9\%]$。这个结果展示的是我们不去计算确数而使用四舍五入法估算可能造成的代价。
+
+要注意的是，这种误差是以估算结果为基准计算而来的，和前面定义的误差有所不同。我们把这种误差称为\textbf{后验误差}，把之前以准确结果为基准的误差称为\textbf{先验误差}。对后验误差的估计本身就有误差。比如，$53 \times 68$的结果是$3604$，先验相对误差是$2.89\%$，并没有达到$16.4\%$。后验误差更大，表现了为了方便计算舍弃准确性的代价。
+
+一种更粗略的估计是：假设$50$和$70$是四舍五入的结果，那么概数和确数误差为$5$。$5$是$50$的$\frac{1}{10}$，是$70$的$\frac{1}{14}$，因此乘积的相对误差是：
+$$ \frac{1}{10} + \frac{1}{14} \approx 17\%. $$
+可以看到，这样估计的结果和$[-16.4\%;17.9\%]$相差不多。它的原理很简单。设概数为$x,y$，误差相对概数的比例是$a,b$，则当$a,b$接近于$0$时：
+$$ (x \pm ax) \cdot (y \pm by) = xy (1 + a)(1 + b) \approx xy(1 \pm (a + b)).$$
+因此后验相对误差为：
+$$ \left|\frac{(x \pm ax) \cdot (y \pm by)}{xy} - 1\right| \times 100\% \approx 1  \left| 1 \pm (a + b) - 1\right| \times 100\%  = a + b. $$
+上面的例子里，$x = 50$，$y = 70$，$a = \frac{1}{10}$，$b = \frac{1}{14}$。如果是多个数相乘，那么结果的误差是每个乘数误差的和。
+
+越是粗略估计的误差，其本身的误差也越大。因此，判断误差的方向十分有用。比如，用$50\times 70$估算$49 \times 68$。我们判断估计结果必然大于准确结果，因此可以把后验相对误差范围从$[-16.4\%;17.9\%]$缩减到$[-16.4\%;0]$。
+
+\begin{et}
+    已知圆柱体的体积公式为高度乘以底面积。某工程中，一个圆柱体的高度为 $h=10\pm 0.05$ 厘米，底面半径为 $r=5\pm 0.02$ 厘米。请估算圆柱体的体积。估算结果与准确结果的可能误差有多大？
+\end{et}
+
+\begin{so}
+    根据圆柱体体积公式，其体积$V$可以表示为：
+    $$ V = \pi r^2 h. $$
+    其中$\pi$是圆周率，按$\pi = 3.14$计算。将条件中的概数代入公式计算得到：
+    $$ V\approx 3.14 \times 5^2 \times 10 = 785 \;\mbox{（立方厘米）}$$
+    根据条件给的误差估计，最大可能体积为：
+    $$ V_{\text{大}} = 3.14 \times (5 +0.02)^2 \times (10+0.05) \approx 795.25 \;\mbox{（立方厘米）}. $$
+    最小可能体积为：
+    $$ V_{\text{小}} = 3.14 \times (5 -0.02)^2 \times (10-0.05) \approx 774.84 \;\mbox{（立方厘米）}. $$
+    后验相对误差范围是$[-1.3\%;1.3\%]$。
+
+    用更粗略的方法估计。$0.02$占$5$的$0.4\%$，$0.05$占$10$的$0.5\%$，所以后验相对误差范围是：
+    $$ 0.4\% + 0.4\% +0.5\% = 1.3\%. $$
+    与直接计算的结果几乎一致。
+\end{so}
+
+\section{指数和对数}
+% 从估算出发
+另一种估算的需求来自大数的乘除法。随着科学不断进步，科学研究工作者往往需要把很大的数相乘。比如天文学里，很多恒星距离我们很远，远到光也要走很多年。为此天文学家规定了“光年”，作为测量天体之间距离的单位。我们来计算光走一年的距离：已知光在真空中每秒走$2\dlim{9979}\dlim{2458}$米，一年有$365.25$天，一天有$24$小时，一小时有$3600$秒。于是光在真空中一年可以走的距离$L$是：
+$$ L = 2\dlim{9979}\dlim{2458} \times 3600 \times 24 \times 365.25 = 9460\dlim{7304}\dlim{7258}\dlim{0800} \; \mbox{（米），}$$
+换算成公里：
+$$ L = 9\dlim{4607}\dlim{3047}\dlim{2580}.8 \; \mbox{公里} $$
+
+已知我们在地球上看天上恒星的亮度$F$和恒星发光的功率$P$、恒星到地球的距离$d$有关：
+$$ F =  \frac{P}{4\pi d^2}. $$
+而恒星的发光功率又可以用以下公式估计：
+$$ P = 4\pi \sigma R^2 T^4. $$
+其中$R$是恒星半径，$T$是恒星的有效温度，$\sigma$是常数系数，大小是$0.0567$瓦每平方公里每开尔文$4$次方。
+已知恒星在地表观测的亮度$F$、有效温度$T$、到地球的距离$d$，就可以计算恒星的半径：
+\begin{align*}
+    F &= \frac{P}{4\pi d^2}=  \frac{4\pi \sigma R^2 T^4}{4\pi d^2} = \frac{\sigma R^2 T^4}{d^2} \\
+    R &= \sqrt{\frac{Fd^2}{\sigma T^4}} = \frac{d}{T^2}\sqrt{\frac{F}{\sigma}}.
+\end{align*}
+
+织女星距离地球$25$光年，地球上观测推算出织女星的亮度是每平方公里$0.03$瓦，根据光谱类型推测其有效温度是$9300$开尔文，那么可以计算织女星的半径：
+\begin{align*}
+    R &= \frac{d}{T^2}\sqrt{\frac{F}{\sigma}} = \frac{25\times 9\dlim{4607}\dlim{3047}\dlim{2580}.8}{9300^2} \times \sqrt{\frac{0.03}{0.0567}} \\
+    &= \frac{236\dlim{5182}\dlim{6181}\dlim{4520}}{8649\dlim{0000}} \times \sqrt{\frac{0.03}{0.0567}} \\
+    &\approx 273\dlim{4631}.3 \times 0.7273\dlim{9297}\\
+    &\approx 198\dlim{9151}.6 \; \mbox{（公里）}
+\end{align*}
+实际研究中，我们并不需要掌握织女星半径的精确数值。比如，我们只想要知道织女星的半径大约是$200$万公里，这样的话，是否需要上面那么多的计算呢？我们设想，可以对$9\dlim{4607}\dlim{3047}\dlim{2580}.8$这样的大数取概数，比如认为它大致等于$10\dlim{0000}\dlim{0000}\dlim{0000}$，$9300$大致等于$1\dlim{0000}$，那么以上计算可以大致写成：
+\begin{align*}
+    R &= \frac{d}{T^2}\sqrt{\frac{F}{\sigma}} \approx \frac{25 \times 10^{13}}{\left(10^4\right)^2} \times \sqrt{\frac{0.03}{0.0567}} \\
+    &= 25\times 10^{13-4\times 2} \times \sqrt{\frac{0.03}{0.0567}} \\
+    &\approx 25 \times 0.73 \times 10^{5}\\
+    &\approx 18.3 \times 10^5 = 183\dlim{0000} \; \mbox{（公里）}
+\end{align*}
+可以看到，我们把所有的大数都写成$10$的乘方的形式。这样，大数的乘除法就变成了乘方上的指数的加减法。这样就省去了繁琐的大数乘除法。计算结果为$183\dlim{0000}$公里，和原本的结果相差不远，也是$200$万公里左右。
+
+不过，不是每个数都像上面的例子里一样接近$10$的某个乘方。天文学家为了方便，就直接把所有的大数都写成$A\times 10^{n}$的形式，其中$n$是整数，$A$是介于$1$到$10$之间的数。这样，我们就把大数的乘除法完全转变成了$1$到$10$之间的数的乘除法，以及$10$的乘方上的指数的加减法。比如，要计算$38\dlim{7922}\times 4195\dlim{2000}$，可以这样估算：
+\begin{align*}
+    38\dlim{7922} \times 4195\dlim{2000} &\approx 3.88 \times 10^5 \times 4.20 \times 10^7 \\
+    &= (3.88 \times 4.2) \times 10^{5+7}\\
+    &\approx 16.3 \times 10^{12} = 16\dlim{3000}\dlim{0000}\dlim{0000}
+\end{align*}
+它和准确值$16\dlim{2741}\dlim{0374}\dlim{4000}$相比，相对误差不到$1\%$。我们把$A\times 10^{n}$的写法称为\textbf{科学记法}，把$n$称为数的\textbf{量级}，把$A$称为\textbf{尾数}。比如$25$的科学记法是$2.5\times 10^1$，其中$1$是量级，$2.5$是尾数。
+
+天文学家把这个方法继续推广。计算大数的乘除法时，就把它写成$10$的乘方，把乘除法完全变成指数的加减法。不过，这就要求我们把尾数也转化成$10$的某次方。比如，上面的计算里，我们要把$25$直接写成：
+$$ 25 \approx 10^{a}.$$
+
+\begin{figure}[h]
+    \vspace{4pt}
+    \centering
+    \includegraphics[width=0.7\textwidth]{tu/logarithm_table2.png}
+    \caption*{\texttt{一份对数表，可以看到$25$对应$1.3979$}}
+\end{figure}
+
+那么$a$是多少呢？首先我们把$25$写成$2.5\times 10$。只要找出$2.5$对应的数$b$，就有$a = b+1$。$2.5$对应什么数呢？天文学家为此编了一张表，以$0.001$为单位，把$1$到$10$之间的数对应的数都列了出来，叫做\textbf{对数表}。查对数表\footnote{关于对数表及其使用方法，参见附录A：常用对数表。}可知，$2.5$对应的数$b = 0.3979$。因此$25$对应的数为$1.3979$。我们把$1.3979$称为$25$的\textbf{对数}，把$25$称为$1.3979$的\textbf{真数}。
+$$ 25 \approx 10^{1.3979}.$$
+
+用这个方法，我们可以把所有的数都转换成$10$的乘方，把所有乘除法都换成加减法。比如计算织女星半径：
+\begin{align*}
+    R &= \frac{d}{T^2}\sqrt{\frac{F}{\sigma}} = \frac{25\times 9\dlim{4607}\dlim{3047}\dlim{2580}.8}{9300^2} \times \sqrt{\frac{0.03}{0.0567}} \\
+    &\approx \frac{10^{1.3979}\times 10^{12.9759}}{10^{3.9685\times 2}} \times \sqrt{\frac{10^{-1.5229}}{10^{-1.2464}}} \\
+    &\approx 10^{1.3979 + 12.9759 - 3.9685\times 2 + \frac{(-1.5229) - (-1.2464)}{2}}\\
+    &= 10^{6.2985} \approx 1.988\times 10^6 = 198\dlim{8000} \; \mbox{（公里）}
+\end{align*}
+
+最后一步我们把$10^{6.2985}$写成$10^{0.2985}\times 10^{6}$，然后反查表找到$0.2985$对应的真数为$1.988$。于是$10^{6.2985}$转换为$1.988\times 10^6$。如果我们只想知道织女星的半径大概有多大，甚至可以看着$6.2985$说：大概比$10$的$6$次方公里大一些，也就是数百万公里。可以看到，通过查对数的方式，我们可以方便地计算大数的乘除法，估计结果的大小。这种估算方法叫做\textbf{对数法}。
+
+我们可以把用对数法估算大数乘除法归纳为：
+\begin{center}
+    \fbox{
+        \shortstack[l]{
+            1. 将所有数转为科学记法。\\
+            2. 查表将所有尾数转为其对数。\\
+            3. 把尾数的对数和量级相加，作为指数。\\
+            4. 把原式的乘法改为加法，除法改为减法，\\
+            \phantom{4. }乘方改为乘法，开方改为除法。计算指数。\\
+            5. 把计算结果的整数部分作为量级$n$。\\
+            6. 反查表找出结果的小数部分对应的真数$A$。\\
+            \phantom{4. }$A\times 10^n$就是估算结果。
+        }
+    }
+\end{center}
+
+\clearpage
+
+\begin{sk}
+    \mbox{}\\
+    \indent 1. 天文学家为什么用$10$的乘方来表示真数？能不能用别的数代替$10$？\\
+    \indent 2. 每个真数都有自己的对数吗？为什么？
+\end{sk}
 
 \chapter{二次方根和二次根式}
 分式开平方得到的代数式，叫做\textbf{二次根式}。二次根式可以看成用代数式代替二次方根$\sqrt{q}$中的数量$q$得到的结果。
@@ -1430,6 +1620,134 @@ $$ x_1 = -4, \quad x_2 = 2$$
     \indent 2. $2x^2 + 8x + 9 \geqslant 7x + 10$ \\
     \indent 3. $\frac{2}{x} < 6x- 7$ 
 \end{xt}
+
+\begin{appendix}
+
+\chapter{常用对数表}
+
+常用对数表是用来指明$a = 10^b$中$a$和$b$的关系的。$10$称为常用对数表的底数。$a$和$b$分别称为真数和对数。
+
+常用对数表以$0.001$的间隔，给出了查询从$1.001$到$9.999$一共$9999$个真数的对数的方法。每个真数有四位数字，我们把个位数字和小数点后第一位数字合称为\textbf{首数}。比如$2.718$的首数是“$2.7$”。在表中找到$2.7$对应的行。行中有$19$列。左侧的$10$列是小数点后第二位数字对应的\textbf{基数}，右侧的$9$列是根据小数点后第三位数字“$8$”的\textbf{比例调整数}。基数与比例调整数之和就是对数的小数部分。如果真数小数点后第三位是$0$，则不需要调整，基数就是对数的小数部分。
+
+举例来说，想要查询$2.718$的对数，就在表中找到“$2.7$”对应的行。在左侧$10$列中找到数字“$1$”对应的列（左起第$2$列）。这一列的数值是“$4330$”。然后在右侧$9$列中找到数字“$8$”对应的列（右起第$2$列），这一列的数值是“$13$”。于是$2.718$的对数的小数部分是两者的和：$4330 + 13 = 4343$。也就是说，$2.718$的对数是$0.4343$。如果查询的是$2.71$的对数，那么无需调整，对数就是$0.4330$。
+
+反之，已知$0$到$1$之间的对数，可以借助对数表反查真数。在对数表的左侧$10$列（基数部分）从上到下，从左往右逐个寻找比对数的小数点后四位数字小的最大基数。要注意的是，每一行基数从左到右越来越大，每一行最右边的数小于下一行最左边的数，可以按此规律查找。找到符合条件的基数后，要么完全吻合，于是真数就是对应的首数后添上对应列的列号。如果不完全吻合，那么从基数开始，分别加上该行右侧$9$列的比例调整数，看哪个与对数最接近。这时，对数的真数就是对应的首数后添上对应列的列号，再添上调整数的列号。
+
+举例来说，要查找$0.5136$对应的真数，就在表格左侧$10$列基数里找比$5136$小的最大基数。结果是“$3.2$”行的第$7$列：$5132$。于是真数介于$3.26$和$3.27$之间。再给$5132$分别加上“$3.2$”行右侧的比例调整数：$5133$、$5135$、$5136$、$5137$，……发现第$3$列恰好是我们要找的$5136$。因此$0.5136$对应的真数是$3.263$。如果要查找的是$0.5132$，它对应的真数就是$3.26$，无需再查看比例调整数。
+
+\vspace{8pt}
+
+\setlength{\tabcolsep}{2pt} % 调整列间距
+\begin{longtable}{|c| c c c c c | c c c c c| c c c c c c c c c|}
+\caption*{\textbf{常用对数表}} \\
+\toprule
+\multirow{2}{*}{首数} & \multirow{2}{*}{0} & \multirow{2}{*}{1} & \multirow{2}{*}{2} & \multirow{2}{*}{3} & \multirow{2}{*}{4} & \multirow{2}{*}{5} & \multirow{2}{*}{6} & \multirow{2}{*}{7} & \multirow{2}{*}{8} & \multirow{2}{*}{9} & \multicolumn{9}{c}{\phantom{啊w}比例调整数\phantom{啊w}} \\
+\cline{12-20}
+ &  &  &  &  &  &  &  &  &  &  & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+\midrule
+\endfirsthead
+
+\toprule
+\multirow{2}{*}{首数} & \multirow{2}{*}{0} & \multirow{2}{*}{1} & \multirow{2}{*}{2} & \multirow{2}{*}{3} & \multirow{2}{*}{4} & \multirow{2}{*}{5} & \multirow{2}{*}{6} & \multirow{2}{*}{7} & \multirow{2}{*}{8} & \multirow{2}{*}{9} & \multicolumn{9}{c}{\phantom{啊w}比例调整数\phantom{啊w}} \\
+\cline{12-20}
+ &  &  &  &  &  &  &  &  &  &  & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+\midrule
+\endhead
+\scriptsize 1.0 & \scriptsize 0000 & \scriptsize 0043 & \scriptsize 0086 & \scriptsize 0128 & \scriptsize 0170 & \scriptsize 0212 & \scriptsize 0253 & \scriptsize 0294 & \scriptsize 0334 & \scriptsize 0374 & \scriptsize 04 & \scriptsize 08 & \scriptsize 12 & \scriptsize 17 & \scriptsize 21 & \scriptsize 25 & \scriptsize 29 & \scriptsize 33 & \scriptsize 37 \\
+\scriptsize 1.1 & \scriptsize 0414 & \scriptsize 0453 & \scriptsize 0492 & \scriptsize 0531 & \scriptsize 0569 & \scriptsize 0607 & \scriptsize 0645 & \scriptsize 0682 & \scriptsize 0719 & \scriptsize 0755 & \scriptsize 04 & \scriptsize 08 & \scriptsize 11 & \scriptsize 15 & \scriptsize 19 & \scriptsize 23 & \scriptsize 26 & \scriptsize 30 & \scriptsize 34 \\
+\scriptsize 1.2 & \scriptsize 0792 & \scriptsize 0828 & \scriptsize 0864 & \scriptsize 0899 & \scriptsize 0934 & \scriptsize 0969 & \scriptsize 1004 & \scriptsize 1038 & \scriptsize 1072 & \scriptsize 1106 & \scriptsize 03 & \scriptsize 07 & \scriptsize 10 & \scriptsize 14 & \scriptsize 17 & \scriptsize 21 & \scriptsize 24 & \scriptsize 28 & \scriptsize 31 \\
+\scriptsize 1.3 & \scriptsize 1139 & \scriptsize 1173 & \scriptsize 1206 & \scriptsize 1239 & \scriptsize 1271 & \scriptsize 1303 & \scriptsize 1335 & \scriptsize 1367 & \scriptsize 1399 & \scriptsize 1430 & \scriptsize 03 & \scriptsize 06 & \scriptsize 10 & \scriptsize 13 & \scriptsize 16 & \scriptsize 19 & \scriptsize 23 & \scriptsize 26 & \scriptsize 29 \\
+\scriptsize 1.4 & \scriptsize 1461 & \scriptsize 1492 & \scriptsize 1523 & \scriptsize 1553 & \scriptsize 1584 & \scriptsize 1614 & \scriptsize 1644 & \scriptsize 1673 & \scriptsize 1703 & \scriptsize 1732 & \scriptsize 03 & \scriptsize 06 & \scriptsize 09 & \scriptsize 12 & \scriptsize 15 & \scriptsize 18 & \scriptsize 21 & \scriptsize 24 & \scriptsize 27 \\
+\scriptsize 1.5 & \scriptsize 1761 & \scriptsize 1790 & \scriptsize 1818 & \scriptsize 1847 & \scriptsize 1875 & \scriptsize 1903 & \scriptsize 1931 & \scriptsize 1959 & \scriptsize 1987 & \scriptsize 2014 & \scriptsize 03 & \scriptsize 06 & \scriptsize 08 & \scriptsize 11 & \scriptsize 14 & \scriptsize 17 & \scriptsize 20 & \scriptsize 22 & \scriptsize 25 \\
+\scriptsize 1.6 & \scriptsize 2041 & \scriptsize 2068 & \scriptsize 2095 & \scriptsize 2122 & \scriptsize 2148 & \scriptsize 2175 & \scriptsize 2201 & \scriptsize 2227 & \scriptsize 2253 & \scriptsize 2279 & \scriptsize 03 & \scriptsize 05 & \scriptsize 08 & \scriptsize 11 & \scriptsize 13 & \scriptsize 16 & \scriptsize 18 & \scriptsize 21 & \scriptsize 24 \\
+\scriptsize 1.7 & \scriptsize 2304 & \scriptsize 2330 & \scriptsize 2355 & \scriptsize 2380 & \scriptsize 2405 & \scriptsize 2430 & \scriptsize 2455 & \scriptsize 2480 & \scriptsize 2504 & \scriptsize 2529 & \scriptsize 02 & \scriptsize 05 & \scriptsize 07 & \scriptsize 10 & \scriptsize 12 & \scriptsize 15 & \scriptsize 17 & \scriptsize 20 & \scriptsize 22 \\
+\scriptsize 1.8 & \scriptsize 2553 & \scriptsize 2577 & \scriptsize 2601 & \scriptsize 2625 & \scriptsize 2648 & \scriptsize 2672 & \scriptsize 2695 & \scriptsize 2718 & \scriptsize 2742 & \scriptsize 2765 & \scriptsize 02 & \scriptsize 05 & \scriptsize 07 & \scriptsize 09 & \scriptsize 12 & \scriptsize 14 & \scriptsize 16 & \scriptsize 19 & \scriptsize 21 \\
+\scriptsize 1.9 & \scriptsize 2788 & \scriptsize 2810 & \scriptsize 2833 & \scriptsize 2856 & \scriptsize 2878 & \scriptsize 2900 & \scriptsize 2923 & \scriptsize 2945 & \scriptsize 2967 & \scriptsize 2989 & \scriptsize 02 & \scriptsize 04 & \scriptsize 07 & \scriptsize 09 & \scriptsize 11 & \scriptsize 13 & \scriptsize 16 & \scriptsize 18 & \scriptsize 20 \\
+\scriptsize 2.0 & \scriptsize 3010 & \scriptsize 3032 & \scriptsize 3054 & \scriptsize 3075 & \scriptsize 3096 & \scriptsize 3118 & \scriptsize 3139 & \scriptsize 3160 & \scriptsize 3181 & \scriptsize 3201 & \scriptsize 02 & \scriptsize 04 & \scriptsize 06 & \scriptsize 08 & \scriptsize 11 & \scriptsize 13 & \scriptsize 15 & \scriptsize 17 & \scriptsize 19 \\
+\scriptsize 2.1 & \scriptsize 3222 & \scriptsize 3243 & \scriptsize 3263 & \scriptsize 3284 & \scriptsize 3304 & \scriptsize 3324 & \scriptsize 3345 & \scriptsize 3365 & \scriptsize 3385 & \scriptsize 3404 & \scriptsize 02 & \scriptsize 04 & \scriptsize 06 & \scriptsize 08 & \scriptsize 10 & \scriptsize 12 & \scriptsize 14 & \scriptsize 16 & \scriptsize 18 \\
+\scriptsize 2.2 & \scriptsize 3424 & \scriptsize 3444 & \scriptsize 3464 & \scriptsize 3483 & \scriptsize 3502 & \scriptsize 3522 & \scriptsize 3541 & \scriptsize 3560 & \scriptsize 3579 & \scriptsize 3598 & \scriptsize 02 & \scriptsize 04 & \scriptsize 06 & \scriptsize 08 & \scriptsize 10 & \scriptsize 12 & \scriptsize 14 & \scriptsize 15 & \scriptsize 17 \\
+\scriptsize 2.3 & \scriptsize 3617 & \scriptsize 3636 & \scriptsize 3655 & \scriptsize 3674 & \scriptsize 3692 & \scriptsize 3711 & \scriptsize 3729 & \scriptsize 3747 & \scriptsize 3766 & \scriptsize 3784 & \scriptsize 02 & \scriptsize 04 & \scriptsize 06 & \scriptsize 07 & \scriptsize 09 & \scriptsize 11 & \scriptsize 13 & \scriptsize 15 & \scriptsize 17 \\
+\scriptsize 2.4 & \scriptsize 3802 & \scriptsize 3820 & \scriptsize 3838 & \scriptsize 3856 & \scriptsize 3874 & \scriptsize 3892 & \scriptsize 3909 & \scriptsize 3927 & \scriptsize 3945 & \scriptsize 3962 & \scriptsize 02 & \scriptsize 04 & \scriptsize 05 & \scriptsize 07 & \scriptsize 09 & \scriptsize 11 & \scriptsize 12 & \scriptsize 14 & \scriptsize 16 \\
+\scriptsize 2.5 & \scriptsize 3979 & \scriptsize 3997 & \scriptsize 4014 & \scriptsize 4031 & \scriptsize 4048 & \scriptsize 4065 & \scriptsize 4082 & \scriptsize 4099 & \scriptsize 4116 & \scriptsize 4133 & \scriptsize 02 & \scriptsize 03 & \scriptsize 05 & \scriptsize 07 & \scriptsize 09 & \scriptsize 10 & \scriptsize 12 & \scriptsize 14 & \scriptsize 15 \\
+\scriptsize 2.6 & \scriptsize 4150 & \scriptsize 4166 & \scriptsize 4183 & \scriptsize 4200 & \scriptsize 4216 & \scriptsize 4232 & \scriptsize 4249 & \scriptsize 4265 & \scriptsize 4281 & \scriptsize 4298 & \scriptsize 02 & \scriptsize 03 & \scriptsize 05 & \scriptsize 07 & \scriptsize 08 & \scriptsize 10 & \scriptsize 11 & \scriptsize 13 & \scriptsize 15 \\
+\scriptsize 2.7 & \scriptsize 4314 & \scriptsize 4330 & \scriptsize 4346 & \scriptsize 4362 & \scriptsize 4378 & \scriptsize 4393 & \scriptsize 4409 & \scriptsize 4425 & \scriptsize 4440 & \scriptsize 4456 & \scriptsize 02 & \scriptsize 03 & \scriptsize 05 & \scriptsize 06 & \scriptsize 08 & \scriptsize 09 & \scriptsize 11 & \scriptsize 13 & \scriptsize 14 \\
+\scriptsize 2.8 & \scriptsize 4472 & \scriptsize 4487 & \scriptsize 4502 & \scriptsize 4518 & \scriptsize 4533 & \scriptsize 4548 & \scriptsize 4564 & \scriptsize 4579 & \scriptsize 4594 & \scriptsize 4609 & \scriptsize 02 & \scriptsize 03 & \scriptsize 05 & \scriptsize 06 & \scriptsize 08 & \scriptsize 09 & \scriptsize 11 & \scriptsize 12 & \scriptsize 14 \\
+\scriptsize 2.9 & \scriptsize 4624 & \scriptsize 4639 & \scriptsize 4654 & \scriptsize 4669 & \scriptsize 4683 & \scriptsize 4698 & \scriptsize 4713 & \scriptsize 4728 & \scriptsize 4742 & \scriptsize 4757 & \scriptsize 01 & \scriptsize 03 & \scriptsize 04 & \scriptsize 06 & \scriptsize 07 & \scriptsize 09 & \scriptsize 10 & \scriptsize 12 & \scriptsize 13 \\
+\scriptsize 3.0 & \scriptsize 4771 & \scriptsize 4786 & \scriptsize 4800 & \scriptsize 4814 & \scriptsize 4829 & \scriptsize 4843 & \scriptsize 4857 & \scriptsize 4871 & \scriptsize 4886 & \scriptsize 4900 & \scriptsize 01 & \scriptsize 03 & \scriptsize 04 & \scriptsize 06 & \scriptsize 07 & \scriptsize 09 & \scriptsize 10 & \scriptsize 11 & \scriptsize 13 \\
+\scriptsize 3.1 & \scriptsize 4914 & \scriptsize 4928 & \scriptsize 4942 & \scriptsize 4955 & \scriptsize 4969 & \scriptsize 4983 & \scriptsize 4997 & \scriptsize 5011 & \scriptsize 5024 & \scriptsize 5038 & \scriptsize 01 & \scriptsize 03 & \scriptsize 04 & \scriptsize 06 & \scriptsize 07 & \scriptsize 08 & \scriptsize 10 & \scriptsize 11 & \scriptsize 12 \\
+\scriptsize 3.2 & \scriptsize 5051 & \scriptsize 5065 & \scriptsize 5079 & \scriptsize 5092 & \scriptsize 5105 & \scriptsize 5119 & \scriptsize 5132 & \scriptsize 5145 & \scriptsize 5159 & \scriptsize 5172 & \scriptsize 01 & \scriptsize 03 & \scriptsize 04 & \scriptsize 05 & \scriptsize 07 & \scriptsize 08 & \scriptsize 09 & \scriptsize 11 & \scriptsize 12 \\
+\scriptsize 3.3 & \scriptsize 5185 & \scriptsize 5198 & \scriptsize 5211 & \scriptsize 5224 & \scriptsize 5237 & \scriptsize 5250 & \scriptsize 5263 & \scriptsize 5276 & \scriptsize 5289 & \scriptsize 5302 & \scriptsize 01 & \scriptsize 03 & \scriptsize 04 & \scriptsize 05 & \scriptsize 06 & \scriptsize 08 & \scriptsize 09 & \scriptsize 10 & \scriptsize 12 \\
+\scriptsize 3.4 & \scriptsize 5315 & \scriptsize 5328 & \scriptsize 5340 & \scriptsize 5353 & \scriptsize 5366 & \scriptsize 5378 & \scriptsize 5391 & \scriptsize 5403 & \scriptsize 5416 & \scriptsize 5428 & \scriptsize 01 & \scriptsize 03 & \scriptsize 04 & \scriptsize 05 & \scriptsize 06 & \scriptsize 08 & \scriptsize 09 & \scriptsize 10 & \scriptsize 11 \\
+\scriptsize 3.5 & \scriptsize 5441 & \scriptsize 5453 & \scriptsize 5465 & \scriptsize 5478 & \scriptsize 5490 & \scriptsize 5502 & \scriptsize 5514 & \scriptsize 5527 & \scriptsize 5539 & \scriptsize 5551 & \scriptsize 01 & \scriptsize 02 & \scriptsize 04 & \scriptsize 05 & \scriptsize 06 & \scriptsize 07 & \scriptsize 09 & \scriptsize 10 & \scriptsize 11 \\
+\scriptsize 3.6 & \scriptsize 5563 & \scriptsize 5575 & \scriptsize 5587 & \scriptsize 5599 & \scriptsize 5611 & \scriptsize 5623 & \scriptsize 5635 & \scriptsize 5647 & \scriptsize 5658 & \scriptsize 5670 & \scriptsize 01 & \scriptsize 02 & \scriptsize 04 & \scriptsize 05 & \scriptsize 06 & \scriptsize 07 & \scriptsize 08 & \scriptsize 10 & \scriptsize 11 \\
+\scriptsize 3.7 & \scriptsize 5682 & \scriptsize 5694 & \scriptsize 5705 & \scriptsize 5717 & \scriptsize 5729 & \scriptsize 5740 & \scriptsize 5752 & \scriptsize 5763 & \scriptsize 5775 & \scriptsize 5786 & \scriptsize 01 & \scriptsize 02 & \scriptsize 03 & \scriptsize 05 & \scriptsize 06 & \scriptsize 07 & \scriptsize 08 & \scriptsize 09 & \scriptsize 10 \\
+\scriptsize 3.8 & \scriptsize 5798 & \scriptsize 5809 & \scriptsize 5821 & \scriptsize 5832 & \scriptsize 5843 & \scriptsize 5855 & \scriptsize 5866 & \scriptsize 5877 & \scriptsize 5888 & \scriptsize 5899 & \scriptsize 01 & \scriptsize 02 & \scriptsize 03 & \scriptsize 05 & \scriptsize 06 & \scriptsize 07 & \scriptsize 08 & \scriptsize 09 & \scriptsize 10 \\
+\scriptsize 3.9 & \scriptsize 5911 & \scriptsize 5922 & \scriptsize 5933 & \scriptsize 5944 & \scriptsize 5955 & \scriptsize 5966 & \scriptsize 5977 & \scriptsize 5988 & \scriptsize 5999 & \scriptsize 6010 & \scriptsize 01 & \scriptsize 02 & \scriptsize 03 & \scriptsize 04 & \scriptsize 06 & \scriptsize 07 & \scriptsize 08 & \scriptsize 09 & \scriptsize 10 \\
+\scriptsize 4.0 & \scriptsize 6021 & \scriptsize 6031 & \scriptsize 6042 & \scriptsize 6053 & \scriptsize 6064 & \scriptsize 6075 & \scriptsize 6085 & \scriptsize 6096 & \scriptsize 6107 & \scriptsize 6117 & \scriptsize 01 & \scriptsize 02 & \scriptsize 03 & \scriptsize 04 & \scriptsize 05 & \scriptsize 06 & \scriptsize 08 & \scriptsize 09 & \scriptsize 10 \\
+\scriptsize 4.1 & \scriptsize 6128 & \scriptsize 6138 & \scriptsize 6149 & \scriptsize 6160 & \scriptsize 6170 & \scriptsize 6180 & \scriptsize 6191 & \scriptsize 6201 & \scriptsize 6212 & \scriptsize 6222 & \scriptsize 01 & \scriptsize 02 & \scriptsize 03 & \scriptsize 04 & \scriptsize 05 & \scriptsize 06 & \scriptsize 07 & \scriptsize 08 & \scriptsize 09 \\
+\scriptsize 4.2 & \scriptsize 6232 & \scriptsize 6243 & \scriptsize 6253 & \scriptsize 6263 & \scriptsize 6274 & \scriptsize 6284 & \scriptsize 6294 & \scriptsize 6304 & \scriptsize 6314 & \scriptsize 6325 & \scriptsize 01 & \scriptsize 02 & \scriptsize 03 & \scriptsize 04 & \scriptsize 05 & \scriptsize 06 & \scriptsize 07 & \scriptsize 08 & \scriptsize 09 \\
+\scriptsize 4.3 & \scriptsize 6335 & \scriptsize 6345 & \scriptsize 6355 & \scriptsize 6365 & \scriptsize 6375 & \scriptsize 6385 & \scriptsize 6395 & \scriptsize 6405 & \scriptsize 6415 & \scriptsize 6425 & \scriptsize 01 & \scriptsize 02 & \scriptsize 03 & \scriptsize 04 & \scriptsize 05 & \scriptsize 06 & \scriptsize 07 & \scriptsize 08 & \scriptsize 09 \\
+\scriptsize 4.4 & \scriptsize 6435 & \scriptsize 6444 & \scriptsize 6454 & \scriptsize 6464 & \scriptsize 6474 & \scriptsize 6484 & \scriptsize 6493 & \scriptsize 6503 & \scriptsize 6513 & \scriptsize 6522 & \scriptsize 01 & \scriptsize 02 & \scriptsize 03 & \scriptsize 04 & \scriptsize 05 & \scriptsize 06 & \scriptsize 07 & \scriptsize 08 & \scriptsize 09 \\
+\scriptsize 4.5 & \scriptsize 6532 & \scriptsize 6542 & \scriptsize 6551 & \scriptsize 6561 & \scriptsize 6571 & \scriptsize 6580 & \scriptsize 6590 & \scriptsize 6599 & \scriptsize 6609 & \scriptsize 6618 & \scriptsize 01 & \scriptsize 02 & \scriptsize 03 & \scriptsize 04 & \scriptsize 05 & \scriptsize 06 & \scriptsize 07 & \scriptsize 08 & \scriptsize 09 \\
+\scriptsize 4.6 & \scriptsize 6628 & \scriptsize 6637 & \scriptsize 6646 & \scriptsize 6656 & \scriptsize 6665 & \scriptsize 6675 & \scriptsize 6684 & \scriptsize 6693 & \scriptsize 6702 & \scriptsize 6712 & \scriptsize 01 & \scriptsize 02 & \scriptsize 03 & \scriptsize 04 & \scriptsize 05 & \scriptsize 06 & \scriptsize 07 & \scriptsize 07 & \scriptsize 08 \\
+\scriptsize 4.7 & \scriptsize 6721 & \scriptsize 6730 & \scriptsize 6739 & \scriptsize 6749 & \scriptsize 6758 & \scriptsize 6767 & \scriptsize 6776 & \scriptsize 6785 & \scriptsize 6794 & \scriptsize 6803 & \scriptsize 01 & \scriptsize 02 & \scriptsize 03 & \scriptsize 04 & \scriptsize 05 & \scriptsize 05 & \scriptsize 06 & \scriptsize 07 & \scriptsize 08 \\
+\scriptsize 4.8 & \scriptsize 6812 & \scriptsize 6821 & \scriptsize 6830 & \scriptsize 6839 & \scriptsize 6848 & \scriptsize 6857 & \scriptsize 6866 & \scriptsize 6875 & \scriptsize 6884 & \scriptsize 6893 & \scriptsize 01 & \scriptsize 02 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 & \scriptsize 05 & \scriptsize 06 & \scriptsize 07 & \scriptsize 08 \\
+\scriptsize 4.9 & \scriptsize 6902 & \scriptsize 6911 & \scriptsize 6920 & \scriptsize 6928 & \scriptsize 6937 & \scriptsize 6946 & \scriptsize 6955 & \scriptsize 6964 & \scriptsize 6972 & \scriptsize 6981 & \scriptsize 01 & \scriptsize 02 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 & \scriptsize 05 & \scriptsize 06 & \scriptsize 07 & \scriptsize 08 \\
+\scriptsize 5.0 & \scriptsize 6990 & \scriptsize 6998 & \scriptsize 7007 & \scriptsize 7016 & \scriptsize 7024 & \scriptsize 7033 & \scriptsize 7042 & \scriptsize 7050 & \scriptsize 7059 & \scriptsize 7067 & \scriptsize 01 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 05 & \scriptsize 06 & \scriptsize 07 & \scriptsize 08 \\
+\scriptsize 5.1 & \scriptsize 7076 & \scriptsize 7084 & \scriptsize 7093 & \scriptsize 7101 & \scriptsize 7110 & \scriptsize 7118 & \scriptsize 7126 & \scriptsize 7135 & \scriptsize 7143 & \scriptsize 7152 & \scriptsize 01 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 05 & \scriptsize 06 & \scriptsize 07 & \scriptsize 08 \\
+\scriptsize 5.2 & \scriptsize 7160 & \scriptsize 7168 & \scriptsize 7177 & \scriptsize 7185 & \scriptsize 7193 & \scriptsize 7202 & \scriptsize 7210 & \scriptsize 7218 & \scriptsize 7226 & \scriptsize 7235 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 04 & \scriptsize 05 & \scriptsize 06 & \scriptsize 07 & \scriptsize 07 \\
+\scriptsize 5.3 & \scriptsize 7243 & \scriptsize 7251 & \scriptsize 7259 & \scriptsize 7267 & \scriptsize 7275 & \scriptsize 7284 & \scriptsize 7292 & \scriptsize 7300 & \scriptsize 7308 & \scriptsize 7316 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 04 & \scriptsize 05 & \scriptsize 06 & \scriptsize 06 & \scriptsize 07 \\
+\scriptsize 5.4 & \scriptsize 7324 & \scriptsize 7332 & \scriptsize 7340 & \scriptsize 7348 & \scriptsize 7356 & \scriptsize 7364 & \scriptsize 7372 & \scriptsize 7380 & \scriptsize 7388 & \scriptsize 7396 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 04 & \scriptsize 05 & \scriptsize 06 & \scriptsize 06 & \scriptsize 07 \\
+\scriptsize 5.5 & \scriptsize 7404 & \scriptsize 7412 & \scriptsize 7419 & \scriptsize 7427 & \scriptsize 7435 & \scriptsize 7443 & \scriptsize 7451 & \scriptsize 7459 & \scriptsize 7466 & \scriptsize 7474 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 04 & \scriptsize 05 & \scriptsize 05 & \scriptsize 06 & \scriptsize 07 \\
+\scriptsize 5.6 & \scriptsize 7482 & \scriptsize 7490 & \scriptsize 7497 & \scriptsize 7505 & \scriptsize 7513 & \scriptsize 7520 & \scriptsize 7528 & \scriptsize 7536 & \scriptsize 7543 & \scriptsize 7551 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 04 & \scriptsize 05 & \scriptsize 05 & \scriptsize 06 & \scriptsize 07 \\
+\scriptsize 5.7 & \scriptsize 7559 & \scriptsize 7566 & \scriptsize 7574 & \scriptsize 7582 & \scriptsize 7589 & \scriptsize 7597 & \scriptsize 7604 & \scriptsize 7612 & \scriptsize 7619 & \scriptsize 7627 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 04 & \scriptsize 05 & \scriptsize 05 & \scriptsize 06 & \scriptsize 07 \\
+\scriptsize 5.8 & \scriptsize 7634 & \scriptsize 7642 & \scriptsize 7649 & \scriptsize 7657 & \scriptsize 7664 & \scriptsize 7672 & \scriptsize 7679 & \scriptsize 7686 & \scriptsize 7694 & \scriptsize 7701 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 & \scriptsize 05 & \scriptsize 06 & \scriptsize 07 \\
+\scriptsize 5.9 & \scriptsize 7709 & \scriptsize 7716 & \scriptsize 7723 & \scriptsize 7731 & \scriptsize 7738 & \scriptsize 7745 & \scriptsize 7752 & \scriptsize 7760 & \scriptsize 7767 & \scriptsize 7774 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 & \scriptsize 05 & \scriptsize 06 & \scriptsize 07 \\
+\scriptsize 6.0 & \scriptsize 7782 & \scriptsize 7789 & \scriptsize 7796 & \scriptsize 7803 & \scriptsize 7810 & \scriptsize 7818 & \scriptsize 7825 & \scriptsize 7832 & \scriptsize 7839 & \scriptsize 7846 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 & \scriptsize 05 & \scriptsize 06 & \scriptsize 06 \\
+\scriptsize 6.1 & \scriptsize 7853 & \scriptsize 7860 & \scriptsize 7868 & \scriptsize 7875 & \scriptsize 7882 & \scriptsize 7889 & \scriptsize 7896 & \scriptsize 7903 & \scriptsize 7910 & \scriptsize 7917 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 & \scriptsize 05 & \scriptsize 06 & \scriptsize 06 \\
+\scriptsize 6.2 & \scriptsize 7924 & \scriptsize 7931 & \scriptsize 7938 & \scriptsize 7945 & \scriptsize 7952 & \scriptsize 7959 & \scriptsize 7966 & \scriptsize 7973 & \scriptsize 7980 & \scriptsize 7987 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 05 & \scriptsize 06 & \scriptsize 06 \\
+\scriptsize 6.3 & \scriptsize 7993 & \scriptsize 8000 & \scriptsize 8007 & \scriptsize 8014 & \scriptsize 8021 & \scriptsize 8028 & \scriptsize 8035 & \scriptsize 8041 & \scriptsize 8048 & \scriptsize 8055 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 05 & \scriptsize 05 & \scriptsize 06 \\
+\scriptsize 6.4 & \scriptsize 8062 & \scriptsize 8069 & \scriptsize 8075 & \scriptsize 8082 & \scriptsize 8089 & \scriptsize 8096 & \scriptsize 8102 & \scriptsize 8109 & \scriptsize 8116 & \scriptsize 8122 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 05 & \scriptsize 05 & \scriptsize 06 \\
+\scriptsize 6.5 & \scriptsize 8129 & \scriptsize 8136 & \scriptsize 8142 & \scriptsize 8149 & \scriptsize 8156 & \scriptsize 8162 & \scriptsize 8169 & \scriptsize 8176 & \scriptsize 8182 & \scriptsize 8189 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 05 & \scriptsize 05 & \scriptsize 06 \\
+\scriptsize 6.6 & \scriptsize 8195 & \scriptsize 8202 & \scriptsize 8209 & \scriptsize 8215 & \scriptsize 8222 & \scriptsize 8228 & \scriptsize 8235 & \scriptsize 8241 & \scriptsize 8248 & \scriptsize 8254 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 05 & \scriptsize 05 & \scriptsize 06 \\
+\scriptsize 6.7 & \scriptsize 8261 & \scriptsize 8267 & \scriptsize 8274 & \scriptsize 8280 & \scriptsize 8287 & \scriptsize 8293 & \scriptsize 8299 & \scriptsize 8306 & \scriptsize 8312 & \scriptsize 8319 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 05 & \scriptsize 05 & \scriptsize 06 \\
+\scriptsize 6.8 & \scriptsize 8325 & \scriptsize 8331 & \scriptsize 8338 & \scriptsize 8344 & \scriptsize 8351 & \scriptsize 8357 & \scriptsize 8363 & \scriptsize 8370 & \scriptsize 8376 & \scriptsize 8382 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 & \scriptsize 05 & \scriptsize 06 \\
+\scriptsize 6.9 & \scriptsize 8388 & \scriptsize 8395 & \scriptsize 8401 & \scriptsize 8407 & \scriptsize 8414 & \scriptsize 8420 & \scriptsize 8426 & \scriptsize 8432 & \scriptsize 8439 & \scriptsize 8445 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 & \scriptsize 05 & \scriptsize 06 \\
+\scriptsize 7.0 & \scriptsize 8451 & \scriptsize 8457 & \scriptsize 8463 & \scriptsize 8470 & \scriptsize 8476 & \scriptsize 8482 & \scriptsize 8488 & \scriptsize 8494 & \scriptsize 8500 & \scriptsize 8506 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 & \scriptsize 05 & \scriptsize 06 \\
+\scriptsize 7.1 & \scriptsize 8513 & \scriptsize 8519 & \scriptsize 8525 & \scriptsize 8531 & \scriptsize 8537 & \scriptsize 8543 & \scriptsize 8549 & \scriptsize 8555 & \scriptsize 8561 & \scriptsize 8567 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 & \scriptsize 05 & \scriptsize 05 \\
+\scriptsize 7.2 & \scriptsize 8573 & \scriptsize 8579 & \scriptsize 8585 & \scriptsize 8591 & \scriptsize 8597 & \scriptsize 8603 & \scriptsize 8609 & \scriptsize 8615 & \scriptsize 8621 & \scriptsize 8627 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 & \scriptsize 05 & \scriptsize 05 \\
+\scriptsize 7.3 & \scriptsize 8633 & \scriptsize 8639 & \scriptsize 8645 & \scriptsize 8651 & \scriptsize 8657 & \scriptsize 8663 & \scriptsize 8669 & \scriptsize 8675 & \scriptsize 8681 & \scriptsize 8686 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 & \scriptsize 05 & \scriptsize 05 \\
+\scriptsize 7.4 & \scriptsize 8692 & \scriptsize 8698 & \scriptsize 8704 & \scriptsize 8710 & \scriptsize 8716 & \scriptsize 8722 & \scriptsize 8727 & \scriptsize 8733 & \scriptsize 8739 & \scriptsize 8745 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 05 & \scriptsize 05 \\
+\scriptsize 7.5 & \scriptsize 8751 & \scriptsize 8756 & \scriptsize 8762 & \scriptsize 8768 & \scriptsize 8774 & \scriptsize 8779 & \scriptsize 8785 & \scriptsize 8791 & \scriptsize 8797 & \scriptsize 8802 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 05 & \scriptsize 05 \\
+\scriptsize 7.6 & \scriptsize 8808 & \scriptsize 8814 & \scriptsize 8820 & \scriptsize 8825 & \scriptsize 8831 & \scriptsize 8837 & \scriptsize 8842 & \scriptsize 8848 & \scriptsize 8854 & \scriptsize 8859 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 05 & \scriptsize 05 \\
+\scriptsize 7.7 & \scriptsize 8865 & \scriptsize 8871 & \scriptsize 8876 & \scriptsize 8882 & \scriptsize 8887 & \scriptsize 8893 & \scriptsize 8899 & \scriptsize 8904 & \scriptsize 8910 & \scriptsize 8915 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 & \scriptsize 05 \\
+\scriptsize 7.8 & \scriptsize 8921 & \scriptsize 8927 & \scriptsize 8932 & \scriptsize 8938 & \scriptsize 8943 & \scriptsize 8949 & \scriptsize 8954 & \scriptsize 8960 & \scriptsize 8965 & \scriptsize 8971 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 & \scriptsize 05 \\
+\scriptsize 7.9 & \scriptsize 8976 & \scriptsize 8982 & \scriptsize 8987 & \scriptsize 8993 & \scriptsize 8998 & \scriptsize 9004 & \scriptsize 9009 & \scriptsize 9015 & \scriptsize 9020 & \scriptsize 9025 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 & \scriptsize 05 \\
+\scriptsize 8.0 & \scriptsize 9031 & \scriptsize 9036 & \scriptsize 9042 & \scriptsize 9047 & \scriptsize 9053 & \scriptsize 9058 & \scriptsize 9063 & \scriptsize 9069 & \scriptsize 9074 & \scriptsize 9079 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 & \scriptsize 05 \\
+\scriptsize 8.1 & \scriptsize 9085 & \scriptsize 9090 & \scriptsize 9096 & \scriptsize 9101 & \scriptsize 9106 & \scriptsize 9112 & \scriptsize 9117 & \scriptsize 9122 & \scriptsize 9128 & \scriptsize 9133 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 & \scriptsize 05 \\
+\scriptsize 8.2 & \scriptsize 9138 & \scriptsize 9143 & \scriptsize 9149 & \scriptsize 9154 & \scriptsize 9159 & \scriptsize 9165 & \scriptsize 9170 & \scriptsize 9175 & \scriptsize 9180 & \scriptsize 9186 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 & \scriptsize 05 \\
+\scriptsize 8.3 & \scriptsize 9191 & \scriptsize 9196 & \scriptsize 9201 & \scriptsize 9206 & \scriptsize 9212 & \scriptsize 9217 & \scriptsize 9222 & \scriptsize 9227 & \scriptsize 9232 & \scriptsize 9238 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 & \scriptsize 05 \\
+\scriptsize 8.4 & \scriptsize 9243 & \scriptsize 9248 & \scriptsize 9253 & \scriptsize 9258 & \scriptsize 9263 & \scriptsize 9269 & \scriptsize 9274 & \scriptsize 9279 & \scriptsize 9284 & \scriptsize 9289 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 & \scriptsize 05 \\
+\scriptsize 8.5 & \scriptsize 9294 & \scriptsize 9299 & \scriptsize 9304 & \scriptsize 9309 & \scriptsize 9315 & \scriptsize 9320 & \scriptsize 9325 & \scriptsize 9330 & \scriptsize 9335 & \scriptsize 9340 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 & \scriptsize 05 \\
+\scriptsize 8.6 & \scriptsize 9345 & \scriptsize 9350 & \scriptsize 9355 & \scriptsize 9360 & \scriptsize 9365 & \scriptsize 9370 & \scriptsize 9375 & \scriptsize 9380 & \scriptsize 9385 & \scriptsize 9390 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 & \scriptsize 05 \\
+\scriptsize 8.7 & \scriptsize 9395 & \scriptsize 9400 & \scriptsize 9405 & \scriptsize 9410 & \scriptsize 9415 & \scriptsize 9420 & \scriptsize 9425 & \scriptsize 9430 & \scriptsize 9435 & \scriptsize 9440 & \scriptsize 00 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 \\
+\scriptsize 8.8 & \scriptsize 9445 & \scriptsize 9450 & \scriptsize 9455 & \scriptsize 9460 & \scriptsize 9465 & \scriptsize 9469 & \scriptsize 9474 & \scriptsize 9479 & \scriptsize 9484 & \scriptsize 9489 & \scriptsize 00 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 \\
+\scriptsize 8.9 & \scriptsize 9494 & \scriptsize 9499 & \scriptsize 9504 & \scriptsize 9509 & \scriptsize 9513 & \scriptsize 9518 & \scriptsize 9523 & \scriptsize 9528 & \scriptsize 9533 & \scriptsize 9538 & \scriptsize 00 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 \\
+\scriptsize 9.0 & \scriptsize 9542 & \scriptsize 9547 & \scriptsize 9552 & \scriptsize 9557 & \scriptsize 9562 & \scriptsize 9566 & \scriptsize 9571 & \scriptsize 9576 & \scriptsize 9581 & \scriptsize 9586 & \scriptsize 00 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 \\
+\scriptsize 9.1 & \scriptsize 9590 & \scriptsize 9595 & \scriptsize 9600 & \scriptsize 9605 & \scriptsize 9609 & \scriptsize 9614 & \scriptsize 9619 & \scriptsize 9624 & \scriptsize 9628 & \scriptsize 9633 & \scriptsize 00 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 \\
+\scriptsize 9.2 & \scriptsize 9638 & \scriptsize 9643 & \scriptsize 9647 & \scriptsize 9652 & \scriptsize 9657 & \scriptsize 9661 & \scriptsize 9666 & \scriptsize 9671 & \scriptsize 9675 & \scriptsize 9680 & \scriptsize 00 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 \\
+\scriptsize 9.3 & \scriptsize 9685 & \scriptsize 9689 & \scriptsize 9694 & \scriptsize 9699 & \scriptsize 9703 & \scriptsize 9708 & \scriptsize 9713 & \scriptsize 9717 & \scriptsize 9722 & \scriptsize 9727 & \scriptsize 00 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 \\
+\scriptsize 9.4 & \scriptsize 9731 & \scriptsize 9736 & \scriptsize 9741 & \scriptsize 9745 & \scriptsize 9750 & \scriptsize 9754 & \scriptsize 9759 & \scriptsize 9763 & \scriptsize 9768 & \scriptsize 9773 & \scriptsize 00 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 \\
+\scriptsize 9.5 & \scriptsize 9777 & \scriptsize 9782 & \scriptsize 9786 & \scriptsize 9791 & \scriptsize 9795 & \scriptsize 9800 & \scriptsize 9805 & \scriptsize 9809 & \scriptsize 9814 & \scriptsize 9818 & \scriptsize 00 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 \\
+\scriptsize 9.6 & \scriptsize 9823 & \scriptsize 9827 & \scriptsize 9832 & \scriptsize 9836 & \scriptsize 9841 & \scriptsize 9845 & \scriptsize 9850 & \scriptsize 9854 & \scriptsize 9859 & \scriptsize 9863 & \scriptsize 00 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 \\
+\scriptsize 9.7 & \scriptsize 9868 & \scriptsize 9872 & \scriptsize 9877 & \scriptsize 9881 & \scriptsize 9886 & \scriptsize 9890 & \scriptsize 9894 & \scriptsize 9899 & \scriptsize 9903 & \scriptsize 9908 & \scriptsize 00 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 \\
+\scriptsize 9.8 & \scriptsize 9912 & \scriptsize 9917 & \scriptsize 9921 & \scriptsize 9926 & \scriptsize 9930 & \scriptsize 9934 & \scriptsize 9939 & \scriptsize 9943 & \scriptsize 9948 & \scriptsize 9952 & \scriptsize 00 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 & \scriptsize 04 \\
+\scriptsize 9.9 & \scriptsize 9956 & \scriptsize 9961 & \scriptsize 9965 & \scriptsize 9969 & \scriptsize 9974 & \scriptsize 9978 & \scriptsize 9983 & \scriptsize 9987 & \scriptsize 9991 & \scriptsize 9996 & \scriptsize 00 & \scriptsize 01 & \scriptsize 01 & \scriptsize 02 & \scriptsize 02 & \scriptsize 03 & \scriptsize 03 & \scriptsize 03 & \scriptsize 04 \\
+\hline
+\end{longtable}
+
+
+\end{appendix}
 
 
 

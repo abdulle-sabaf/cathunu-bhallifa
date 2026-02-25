@@ -81,14 +81,29 @@
 \makeatother
 
 % % 定义字体
-\setCJKmainfont[BoldFont=STZhongsong]{STSong}  % 普通字体、粗体
-\setCJKmonofont{simkai.ttf} % \texttt
-\setCJKsansfont{simfang.ttf} % \textsf
+\setCJKmainfont[
+  BoldFont=STZhongsong,
+  ItalicFont=STSong,
+  BoldItalicFont=STZhongsong,
+  SlantedFont=STSong,
+  BoldSlantedFont=STZhongsong]{STSong}  % 普通字体、粗体
+\setCJKmonofont[
+  BoldFont = simkai.ttf,
+  ItalicFont = simkai.ttf,
+  BoldItalicFont = simkai.ttf,
+  SlantedFont = simkai.ttf,
+  BoldSlantedFont = simkai.ttf]{simkai.ttf} % \texttt
+\setCJKsansfont[
+  BoldFont = simfang.ttf,
+  ItalicFont = simfang.ttf,
+  BoldItalicFont = simfang.ttf,
+  SlantedFont = simfang.ttf,
+  BoldSlantedFont = simfang.ttf]{simfang.ttf} % \textsf
 
 % 自制命令
 \pgfplotsset{compat=1.18}
 \usetikzlibrary{calc,topaths,positioning,arrows.meta}
-\usepgfplotslibrary{colormaps}  % <-- this line!
+\usepgfplotslibrary{colormaps}
 \renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}  % 章节使用阿拉伯数字
 \renewcommand{\parallel}{\mathrel{/\mskip-4mu/}}  % 平行符号
 \renewcommand{\proofname}{\indent\bf 证明}  % 自定义证明标题

@@ -11,7 +11,7 @@
               "-file-line-error",
               "-shell-escape",
               "--output-directory=%OUTDIR%",
-              "-verbose",
+              "--verbose",
               "%DOC%"
             ]
           },
@@ -24,7 +24,7 @@
               "-file-line-error",
               "-pdf",
               "-outdir=%OUTDIR%",
-              "-verbose",
+              "--verbose",
               "%DOC%"
             ]
           },         

@@ -149,7 +149,7 @@
 我们知道两切线分别切圆于第一和第四象限。不妨设$l_1$与圆的切点在第一象限，记为$Q_1(x_1,\,\,y_1)$。
 $OQ_1\perp l_1$，因此，$\vv{OQ_1}$和$\vv{OP}$的内积是$r^2$。即：
 $$ x_1\cdot x_P + y_1\cdot 0 = r^2.$$
-解得$x_1 = \frac{r^2}{x_P}$，从而$y_1 = \sqrt{r^2 - x_1^2} = \frac{r}{x_P}\sqrt{x_P^2 - r^2}$。
+解得$x_1 = \frac{r^2}{x_P}$，从而$\displaystyle y_1 = \sqrt{r^2 - x_1^2} = \frac{r}{x_P}\sqrt{x_P^2 - r^2}$。
 代入直线方程，解得
 $$k_1 = -\frac{r}{\sqrt{x_P^2 - r^2}}.$$
 类似可解得：
@@ -181,13 +181,13 @@ $$x_{1,2} = \frac{2r^2x_P \pm \sqrt{\Delta} }{2(x_P^2+y_P^2)} =  \frac{r(rx_P \p
 其中$s = \sqrt{s_P}$。代入第一个方程，就可以分别解出$y_1$和$y_2$：
 $$
     \left\{ \begin{array}{rrc}
-        x_1 = \frac{r(rx_P + sy_P) }{x_P^2+y_P^2} \\
-        y_1 = \frac{r(sx_P - ry_P)}{x_P^2+y_P^2}
+        x_1 =\displaystyle \frac{r(rx_P + sy_P) }{x_P^2+y_P^2} \\
+        y_1 =\displaystyle  \frac{r(sx_P - ry_P)}{x_P^2+y_P^2}
     \end{array}\right., 
     \quad
     \left\{ \begin{array}{rrc}
-        x_2 = \frac{r(rx_P - sy_P) }{x_P^2+y_P^2} \\
-        y_2 = \frac{r(sx_P + ry_P)}{x_P^2+y_P^2}
+        x_2 =\displaystyle  \frac{r(rx_P - sy_P) }{x_P^2+y_P^2} \\
+        y_2 =\displaystyle  \frac{r(sx_P + ry_P)}{x_P^2+y_P^2}
     \end{array}\right..
 $$
 然后可以分别求出$l_1$、$l_2$的方程。
@@ -420,7 +420,7 @@ $$
 \end{figure}
 
 我们已经知道，如果出发点在$x$轴正半轴上，那么求出一个切点的操作，可以用以下的映射表示：
-$$f_1: (x; y) \mapsto \left(\frac{r^2}{x},\,\, \frac{r\sqrt{x^2 - r^2}}{x}\right).$$
+$$f_1: (x,\,\, y) \mapsto \left(\frac{r^2}{x},\,\, \frac{r\sqrt{x^2 - r^2}}{x}\right).$$
 考虑圆心在原点，而出发点不在$x$轴正半轴上的情况。这时的图像完成了从$C$到原点的平移，还没有旋转，出发点在$P_1$的位置上。
 
 我们需要把$P_1$点旋转到$x$轴正半轴上的$P_2$点。记这个旋转为$T_\theta$，其中$\theta$是旋转角度。
@@ -433,11 +433,11 @@ $$T_\theta: (x,\,\, y) \mapsto (x\cos{\theta} - y\sin{\theta},\,\,y\cos{\theta} 
 它的逆映射是以原点为中心，按$-\theta$角旋转的映射：
 $$T_{-\theta}: (x,\,\, y) \mapsto (x\cos{\theta} + y\sin{\theta},\,\,y\cos{\theta} - x\sin{\theta}).$$
 也就是说，$T_\theta^{(-1)}$就是$T_{-\theta}$。
-于是，$P_1$对应的切点可以表示为：$T_{-\theta}\circ f\circ T_\theta(P_1)$，即$P_1$依次经过$T_\theta$、$f_1$、$T_{-\theta}$映射的结果。
+于是，$P_1$对应的切点可以表示为：$T_{-\theta}\circ f_1\circ T_\theta(P_1)$，即$P_1$依次经过$T_\theta$、$f_1$、$T_{-\theta}$映射的结果。
 
 记$P_1$的坐标为$(x_P,\,\,y_P)$，则切点坐标为：
 \begin{align*}
-    T_{-\theta}\circ f_1\circ T_\theta(P_1) &= T_{-\theta}\circ f_1(x_P\cos{\theta} - y_P\sin{\theta})  \\
+    T_{-\theta}\circ f_1\circ T_\theta(P_1) &= T_{-\theta}\circ f_1(x_P\cos{\theta} - y_P\sin{\theta},\,\,y_P\cos{\theta} + x_P\sin{\theta})  \\
     &= T_{-\theta}\left(\frac{r^2}{x_P\cos{\theta} - y_P\sin{\theta}},\,\, \frac{rs}{x_P\cos{\theta} - y_P\sin{\theta}}\right)  \\
     &= \left(\frac{r^2\cos{\theta} + rs\sin{\theta}}{x_P\cos{\theta} - y_P\sin{\theta}},\,\, \frac{-r^2\sin{\theta} + rs\cos{\theta}}{x_P\cos{\theta} - y_P\sin{\theta}}\right) 
 \end{align*}
@@ -453,7 +453,7 @@ $$ y_P \cos{\theta} + x_P\sin{\theta} = 0. $$
         \sin{\theta} = \frac{-y_P}{\sqrt{x_P^2 + y_P^2}} 
     \end{dcases}
 \end{alignat*}
-于是$x_P\cos{\theta} - y_P\sin{\theta} = \sqrt{x_P^2 + y_P^2}$。这说明$s^2$就是点到圆的势。
+于是$x_P\cos{\theta} - y_P\sin{\theta} = \sqrt{x_P^2 + y_P^2}$。这说明$s^2$就是点$P$到圆的势。
 代入切点的表达式，就得到切点坐标为：
 \begin{alignat*}{1}
     &   \begin{dcases}
@@ -462,7 +462,7 @@ $$ y_P \cos{\theta} + x_P\sin{\theta} = 0. $$
 \end{dcases}
 \end{alignat*}
 用另一个切点对应的映射：
-$$f_2: (x; y) \mapsto \left(\frac{r^2}{x},\,\, -\frac{r\sqrt{x^2 - r^2}}{x}\right),$$
+$$f_2: (x,\,\, y) \mapsto \left(\frac{r^2}{x},\,\, -\frac{r\sqrt{x^2 - r^2}}{x}\right),$$
 可以算出另一个切点的坐标：
 \begin{alignat*}{1}
     &   \begin{dcases}
@@ -504,8 +504,7 @@ $$f_2: (x; y) \mapsto \left(\frac{r^2}{x},\,\, -\frac{r\sqrt{x^2 - r^2}}{x}\righ
 \end{tm}
 \begin{proof}
     设有直变换$f$，直线$l: \mathbb{R}\mathbf{a} + \mathbf{b}$。
-    给定直线中任一点$t\mathbf{a} + \mathbf{b}$，它经过映射$f$变为：$f(t\mathbf{a} + \mathbf{b})$。
-    按照$f$的性质：
+    给定直线中任一点$t\mathbf{a} + \mathbf{b}$，按照$f$的性质：
     $$ f(t\mathbf{a} + \mathbf{b}) = tf(\mathbf{a}) + f(\mathbf{b}).$$
     因此总在集合$\{tf(\mathbf{a}) + f(\mathbf{b})\,|\, t\in\mathbb{R}\}$中。
     我们把这个集合记作$\mathbb{R}f(\mathbf{a}) + f(\mathbf{b})$。
@@ -522,7 +521,6 @@ $$f_2: (x; y) \mapsto \left(\frac{r^2}{x},\,\, -\frac{r\sqrt{x^2 - r^2}}{x}\righ
 \begin{tm}
     直变换如果是单射，那么总把数轴变换为数轴。
 \end{tm}
-因此，直变换也称为\textbf{轴映射}或\textbf{轴变换}。
 \begin{proof}
     首先直变换总把原点映射到原点。给定直变换$f$。如果$f$是单射，那么非零向量经$f$映射总不是零向量。设有数轴$l: \mathbb{R}\mathbf{a}$，它是一条过原点的直线，正方向和单位长度由非零向量$\mathbf{a}$表示。$f$将它映射为$\mathbb{R}f(\mathbf{a})$。$f(\mathbf{a})\neq \mathbf{0}$，所以$\mathbb{R}f(\mathbf{a})$是直线。
 
@@ -530,6 +528,8 @@ $$f_2: (x; y) \mapsto \left(\frac{r^2}{x},\,\, -\frac{r\sqrt{x^2 - r^2}}{x}\righ
     $$ f(s\mathbf{a}) = sf(\mathbf{a}),\qquad f(t\mathbf{a}) = tf(\mathbf{a}).$$
     可以看出，数轴上的点经过$f$映射后，到原点距离之比不变。也就是说，数轴上的“刻度”，经过映射，可以作为新数轴的刻度。新数轴的正方向和单位长度由$f(\mathbf{a})$表示。
 \end{proof}
+
+因此，直变换也称为\textbf{轴映射}或\textbf{轴变换}。
 
 哪些点映射是直变换呢？
 
@@ -3999,6 +3999,8 @@ $$ x^2 + y^2 = z^2, \quad 0\leqslant z \leqslant r $$
 \end{enumerate}
 不难验证，空间中的直变换也把原点映射到原点，把直线映射到直线或点，并把数轴映射为数轴。直变换和平移操作的复合同样称为\textbf{维直变换}。
 
+\section{各种直变换}
+
 立体空间中有哪些直变换呢？
 
 首先是把所有向量映射到零向量的\textbf{零映射}，和把所有向量映射到自身的\textbf{恒等映射}。
@@ -4020,22 +4022,21 @@ $$ f(\mathbf{u}) =  k\mathbf{u} = \begin{bmatrix}
 因此，和平面的情形类似，我们用以下矩阵来表示$f$：
 $$
 \bmat{f}[B] = \begin{bmatrix}
-    k & 0 & 0 \\ 0 & k & 0 \\ 0 & 0 & k
+    \phantom{0}k & \phantom{0}0\phantom{0} & 0\phantom{0} \\ \phantom{0}0 & \phantom{0}k\phantom{0} & 0\phantom{0} \\ \phantom{0}0 & \phantom{0}0\phantom{0} & k\phantom{0}
 \end{bmatrix}
 $$
 并将$\mathbf{u}$经过$f$映射的过程记为：
 $$
 f(\mathbf{u}) = \begin{bmatrix}
-    k & 0 & 0 \\ 0 & k & 0 \\ 0 & 0 & k
-\end{bmatrix} \cdot \begin{bmatrix}
+    \phantom{0}k & \phantom{0}0\phantom{0} & 0\phantom{0} \\ \phantom{0}0 & \phantom{0}k\phantom{0} & 0\phantom{0} \\ \phantom{0}0 & \phantom{0}0\phantom{0} & k\phantom{0}
+\end{bmatrix} \bullet \begin{bmatrix}
     u_1 \\ u_2 \\ u_3
 \end{bmatrix} = \begin{bmatrix}
     ku_1 \\ ku_2 \\ ku_3
 \end{bmatrix}
 $$
 
-\section{各种直变换}
-立体空间的位似映射也是直变换。类似地，立体空间也有投影映射、反射映射和旋转映射。空间中的变换，比平面中的变换更复杂。
+除了位似映射，立体空间也有投影映射、反射映射和旋转映射。空间中的变换，比平面中的变换更复杂。
 
 \subsection{投影映射}
 平面中的投影变换把向量投影到它在某个轴上的“影子”。立体空间中的投影变换则有两种。一种仍然把向量投影到某个轴上；另一种则投影到某个过原点的平面上。
@@ -4053,9 +4054,9 @@ $\touying{B, \mathbf{e}_1}$与平面中的投影映射类似；而$\touying{B, \
 
 在基底$B$中，我们可以用以下矩阵表示投影映射：
 $$ \bmat{\touying{B, \mathbf{e}_1}}[B] = \begin{bmatrix}
-    1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0
+    \phantom{0}1 & \phantom{0}0\phantom{0} & 0\phantom{0} \\ \phantom{0}0 & \phantom{0}0\phantom{0} & 0\phantom{0} \\ \phantom{0}0 & \phantom{0}0\phantom{0} & 0\phantom{0}
 \end{bmatrix}, \quad  \bmat{\touying{B, \gamma}}[B] = \begin{bmatrix}
-    0 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1
+    \phantom{0}0 & \phantom{0}0\phantom{0} & 0\phantom{0} \\ \phantom{0}0 & \phantom{0}1\phantom{0} & 0\phantom{0} \\ \phantom{0}0 & \phantom{0}0\phantom{0} & 1\phantom{0}
 \end{bmatrix} $$
 
 \subsection{反射映射}
@@ -4072,9 +4073,9 @@ $$ \fanshe{B, \gamma} : \,\,\, \mathbf{u} \mapsto -u_1 \mathbf{e}_1 + u_2 \mathb
 
 在基底$B$中，我们可以用以下矩阵表示反射映射：
 $$ \bmat{\fanshe{B, \mathbf{e}_1}}[B] = \begin{bmatrix}
-    1 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & -1
+    \phantom{0}1 & 0 & 0 \\ \phantom{0}0 & -1 & 0 \\ \phantom{0}0 & 0 & -1
 \end{bmatrix}, \quad  \bmat{\fanshe{B, \gamma}}[B] = \begin{bmatrix}
-    -1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1
+    -1 & \phantom{0}0\phantom{0} & 0\phantom{0} \\ 0 & \phantom{0}1\phantom{0} & 0\phantom{0} \\ 0 & \phantom{0}0\phantom{0} & 1\phantom{0}
 \end{bmatrix} $$
 
 \subsection{旋转映射}
@@ -4087,7 +4088,7 @@ $$ \bmat{\fanshe{B, \mathbf{e}_1}}[B] = \begin{bmatrix}
 \end{align*}
 用矩阵表示：
 $$ \bmat{\xuan{B, \alpha}}[B] = \begin{bmatrix}
-    1 & 0 & 0 \\ 0 & \cos{\alpha} & -\sin{\alpha} \\ 0 & \sin{\alpha} & \cos{\alpha}
+    \phantom{0}1 & 0 & 0 \\ \phantom{0}0 & \cos{\alpha} & -\sin{\alpha} \\ \phantom{0}0 & \sin{\alpha} & \cos{\alpha}
 \end{bmatrix}. $$
 对一般向量$\mathbf{u}$来说，设$\mathbf{u}$在基底$B = (\mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3)$中表示为：
 $$ \mathbf{u} = u_1\mathbf{e}_1 + u_2\mathbf{e}_2 + u_3\mathbf{e}_3. $$
@@ -4097,7 +4098,7 @@ $$ \xuan{B, \alpha}(\mathbf{u}) = u_1\mathbf{e}_1 + (u_2\cos{\alpha} - u_3\sin{\
 \subsection{剪映射}
 立体空间中的剪映射$f$可以用以下矩阵表示：
 $$ \begin{bmatrix}
-    1 & a & b \\ 0 & 1 & c \\ 0 & 0 & 1
+    \phantom{0}1 & \phantom{0}a\phantom{0} & b\phantom{0} \\ \phantom{0}0 & \phantom{0}1\phantom{0} & c\phantom{0} \\ \phantom{0}0 & \phantom{0}0\phantom{0} & 1\phantom{0}
 \end{bmatrix}. $$
 这个矩阵说明了剪映射如何是改变基向量的。
 \begin{align*}
@@ -4254,9 +4255,9 @@ $$
     \indent 2.5. 设 $f$ 是空间中的直变换，在基底 $B$ 下的矩阵为
     \[
     A = \begin{bmatrix}
-    \phantom{0}1 & 0 & 0\phantom{0} \\
-    \phantom{0}0 & 2 & 0\phantom{0} \\
-    \phantom{0}0 & 0 & 3\phantom{0}
+    \phantom{0}1 & \phantom{0}0\phantom{0} & 0\phantom{0} \\
+    \phantom{0}0 & \phantom{0}2\phantom{0} & 0\phantom{0} \\
+    \phantom{0}0 & \phantom{0}0\phantom{0} & 3\phantom{0}
     \end{bmatrix}.
     \]
     \indent ~~~~~~求$f$ 在 $B'$ 下的矩阵 $A'$，并验证 $A' = \mathcal{H}_{B'}^B A \mathcal{H}_B^{B'}$。
@@ -4276,7 +4277,7 @@ $$
     2 & 0  \\ 0 & -1
 \end{bmatrix}
 $$
-显然，直观上我们更容易理解$f_2$对向量的作用。它把基向量$\mathbf{e}_1$变为$2\mathbf{e}_1$，把$\mathbf{e}_2$变为$-\mathbf{e}_2$。直观来说，就是把基向量按比例“拉长”、“反转”了，和正比例函数的作用相似。相比$f_2$，$f_1$对向量有什么作用，就不那么容易看出来了。是旋转、反射、投影，还是皆有之？
+显然，直观上我们更容易理解$f_2$对向量的作用。它把基向量$\mathbf{e}_1$变为$2\mathbf{e}_1$，把$\mathbf{e}_2$变为$-\mathbf{e}_2$。直观来说，就是把基向量按比例“拉长”、“反转”了，和正比例函数、位似变换的作用相似。相比$f_2$，$f_1$对向量有什么作用，就不那么容易看出来了。是旋转、反射、投影，还是皆有之？
 
 如果有某个向量$\mathbf{u}$和某个系数$c$，使得$f_1(\mathbf{u}) = c\mathbf{u}$，就能增长我们对$f_1$的认识。当然，我们不考虑$\mathbf{u}$为零向量的平凡情况。设$\mathbf{u}$在基底$B$中的坐标是$(x_1,x_2)$，代入方程可得：
 $$
