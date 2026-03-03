@@ -853,7 +853,7 @@ $$ \frac{|v_1|^3}{v_1^2 + v_2^2} = \frac{1}{2} \neq 1 = v_1. $$
     就说$f$在$\mathbf{a}$处\textbf{一阶光滑}，记作$C^1$。在开集$U\subseteq\mathbf{R}^m$的每一点都连续可微的函数称为在$U$中一阶光滑，所有这样的函数的集合记为$C^1(U, \mathbb{R})$。
 \end{df}
 我们可以证明（见附录）：
-\begin{tm}{\textbf{可微的充分条件}}
+\begin{tm}{\textbf{可微的充分条件}}\\
 如果多元函数$f$在点$\mathbf{a}$一阶光滑，那么$f$在$\mathbf{a}$处可微。
 \end{tm}
 一元函数的情形中，一阶光滑也称为连续可微，两者自然等价。而多元函数的情形中，这不是显然的。
@@ -1298,23 +1298,164 @@ $$ \gamma_{(1,2)} = \left\{ \mathbf{u} + s\mathbf{e}_1 + t\mathbf{e}_2 \; | \; s
 \end{proof}
 
 \begin{et}
-设$z = f(x,y)$由方程$x^2 + y^2 + z^2 = 1$隐式定义，计算梯度$\nabla z(x,y)$。
+考虑两条与$z$轴平行的无限长直导线，分别通过点$(-d,0)$和$(d,0)$，其中$d=0.1\,\mathrm{m}$。第一条导线带正电，线电荷密度为$+a$；第二条导线带负电，线电荷密度为$-a$。
+
+在$Oxy$平面中，这两条导线产生的电势分布为：
+$$ V(x,y) = \frac{a}{4\pi\epsilon_0} \ln\left(\frac{(x-d)^2+y^2}{(x+d)^2+y^2}\right) $$
+其中$\epsilon_0 = 8.854\times10^{-12}\,\mathrm{F/m}$是真空介电常数。
+
+\indent 1. 计算电势函数$V$在点$P(0,d)$处的梯度$\nabla V(0,d)$。\\
+\indent 2. 设导线的线电荷密度为$a=3\times10^{-5}\,\mathrm{C/m}$，若将一个电荷量为$q=2\times10^{-6}\,\mathrm{C}$的带电小球置于点$P$，计算它受到的电场力。
 \end{et}
+
+\begin{figure}[h]
+\centering 
+\begin{tikzpicture}[scale=0.72]  
+    \begin{scope}[shift={(0,0)}]
+    \def\d{2} % 导线半间距 d
+    \def\xmax{7.5}
+    \def\ymax{4}
+
+    % 坐标轴
+    \draw[-Stealth, thick] (-\xmax-0.5, 0) -- (\xmax+0.5, 0) node[right] {$x$};
+    \draw[-Stealth, thick] (0, -\ymax-0.5) -- (0, \ymax+0.5) node[above] {$y$};
+    \node at (-0.3,-0.3) {$O$};
+
+    % ========== 绘制等势线 (Equipotential Circles) ==========
+    % 使用阿波罗尼斯圆公式：k 取不同值
+    \foreach \k in {0.05,0.1,0.1667, 0.25, 0.333,0.4167,2.4,3, 4, 6, 10, 20} {
+        \pgfmathsetmacro{\xc}{\d * (1 + \k) / (1 - \k)}
+        \pgfmathsetmacro{\radius}{\d * 2 * sqrt(\k) / abs(1 - \k)}
+        \draw[orange!80!black, thin, opacity=0.6] (\xc, 0) circle (\radius);
+    }
+    \draw[orange!80!black, thin, opacity=0.6, domain=-52.70:52.70, samples=200] plot ({-6.00+5.66*cos(\x)},{5.66*sin(\x)});
+    \draw[orange!80!black, thin, opacity=0.6, domain=-52.70:52.70, samples=200] plot ({6.00-5.66*cos(\x)},{5.66*sin(\x)});
+    \draw[orange!80!black, thin, opacity=0.6, domain=-35.52:35.52, samples=200] plot ({-8.00+7.75*cos(\x)},{7.75*sin(\x)});
+    \draw[orange!80!black, thin, opacity=0.6, domain=-35.52:35.52, samples=200] plot ({8.00-7.75*cos(\x)},{7.75*sin(\x)});
+    \draw[orange!80!black, thin, opacity=0.6, domain=-14.57:14.57, samples=200] plot ({-18.00+17.89*cos(\x)},{17.89*sin(\x)});
+    \draw[orange!80!black, thin, opacity=0.6, domain=-14.57:14.57, samples=200] plot ({18.00-17.89*cos(\x)},{17.89*sin(\x)});
+
+    % ========== 绘制电场线 (Electric Field Arcs) ==========
+    % 电场线是经过 (-d,0) 和 (d,0) 的圆弧
+    \foreach \yc in {-1.5, -1, -0.5, 0, 0.5, 1, 1.5} {
+        \pgfmathsetmacro{\radius}{sqrt(\d*\d + \yc*\yc)}
+        \draw[CadetBlue] (0, {\yc}) circle (\radius);
+    }
+    \draw[CadetBlue] (-\d,0) arc [start angle=225.00, delta angle=197.11, radius=2.828];
+    \draw[CadetBlue] (-\d,0) arc [start angle=225.00, delta angle=-107.11, radius=2.828];
+    \draw[CadetBlue] (-\d,0) arc [start angle=135.00, delta angle=-197.11, radius=2.828];
+    \draw[CadetBlue] (-\d,0) arc [start angle=135.00, delta angle=107.11, radius=2.828];
+    \draw[CadetBlue] (-\d,0) arc [start angle=236.31, delta angle=148.27, radius=3.606];
+    \draw[CadetBlue] (-\d,0) arc [start angle=236.31, delta angle=-80.89, radius=3.606];
+    \draw[CadetBlue] (-\d,0) arc [start angle=123.69, delta angle=-148.27, radius=3.606];
+    \draw[CadetBlue] (-\d,0) arc [start angle=123.69, delta angle=80.89, radius=3.606];
+    \draw[CadetBlue] (-\d,0) arc [start angle=243.43, delta angle=122.98, radius=4.472];
+    \draw[CadetBlue] (-\d,0) arc [start angle=243.43, delta angle=-69.85, radius=4.472];
+    \draw[CadetBlue] (-\d,0) arc [start angle=116.57, delta angle=-122.98, radius=4.472];
+    \draw[CadetBlue] (-\d,0) arc [start angle=116.57, delta angle=69.85, radius=4.472];
+    \draw[CadetBlue] (-\d,0) arc [start angle=251.56, delta angle=94.72, radius=6.325];
+    \draw[CadetBlue] (-\d,0) arc [start angle=251.56, delta angle=-57.85, radius=6.325];
+    \draw[CadetBlue] (-\d,0) arc [start angle=108.44, delta angle=-94.72, radius=6.325];
+    \draw[CadetBlue] (-\d,0) arc [start angle=108.44, delta angle=57.85, radius=6.325];
+    \draw[CadetBlue] (-\d,0) arc [start angle=258.69, delta angle=62.98, radius=10.198];
+    \draw[CadetBlue] (-\d,0) arc [start angle=258.69, delta angle=-40.36, radius=10.198];
+    \draw[CadetBlue] (-\d,0) arc [start angle=101.31, delta angle=-62.98, radius=10.198];
+    \draw[CadetBlue] (-\d,0) arc [start angle=101.31, delta angle=40.36, radius=10.198];
+    \draw[CadetBlue] (-\d,0) arc [start angle=264.29, delta angle=29.17, radius=20.100];
+    \draw[CadetBlue] (-\d,0) arc [start angle=264.29, delta angle=-17.74, radius=20.100];
+    \draw[CadetBlue] (-\d,0) arc [start angle=95.71, delta angle=-29.17, radius=20.100];
+    \draw[CadetBlue] (-\d,0) arc [start angle=95.71, delta angle=17.74, radius=20.100];
+    % ========== 标注电荷位置 ==========
+    \fill[red] (-\d, 0) circle (3pt); % node[below left, black] {$+a$};
+    \draw[white,thick] (-\d-0.1,0) -- (-\d+0.1,0) (-\d,-0.1) -- (-\d,+0.1);
+    \fill[blue] (\d, 0) circle (3pt); % node[below right, black] {$-a$};
+    \draw[white,thick] (\d-0.1,0) -- (\d+0.1,0);
+
+    % ========== 梯度与电场力分析 (以点 (0, d) 为例) ==========
+    \coordinate (P) at (0, \d);
+    % 梯度向量 \nabla V (指向电势增加的方向，即指向正电荷)
+    \draw[-Stealth, very thick, ForestGreen] (P) -- (-1.2, \d); 
+    % 电场力 F (假设带正电荷 q)
+    \draw[-Stealth, very thick, Purple] (P) -- (2.0, \d) ;
+    \fill[black] (P) circle (2pt); 
+    \node at (-0.3,\d+0.3) {$P$};
+
+    \def\lx{6};
+    \def\xpd{0.2};
+    \def\lbar{0.3};
+    \def\rc{0.9};
+    \def\lb{1};
+    \def\g{0.8};
+    \def\pad{0.5}
+    \draw[thick,fill=white] (\lx,\lb) rectangle (\lx+3*\xpd+\lbar+2*\rc,\lb+2*\pad+3*\g);
+    \draw[thick, Purple] (\lx+\xpd,\lb+\pad) -- (\lx+\xpd+\lbar,\lb+\pad);
+    \draw[thick, ForestGreen] (\lx+\xpd, \lb+\pad+1*\g) -- (\lx+\xpd+\lbar,\lb+\pad+1*\g);
+    \draw[thick, CadetBlue] (\lx+\xpd, \lb+\pad+2*\g) -- (\lx+\xpd+\lbar,\lb+\pad+2*\g);
+    \draw[thick, orange!80!black] (\lx+\xpd,\lb+\pad+3*\g) -- (\lx+\xpd+\lbar,\lb+\pad+3*\g);
+    \node at (\lx+\xpd+\lbar+\rc,\lb+\pad) {$\mbox{\footnotesize \texttt{电场力}}$};
+    \node at (\lx+\xpd+\lbar+\rc+0.2,\lb+\pad+1*\g) {$\mbox{\footnotesize \texttt{电势梯度}}$};
+    \node at (\lx+\xpd+\lbar+\rc,\lb+\pad+2*\g) {$\mbox{\footnotesize \texttt{电场线}}$};
+    \node at (\lx+\xpd+\lbar+\rc,\lb+\pad+3*\g) {$\mbox{\footnotesize \texttt{等势线}}$};
+    
+    \end{scope}
+\end{tikzpicture}
+\caption*{\texttt{平行带电导线系统电势图}}
+\end{figure}
+
 \begin{so}
-将方程视为隐函数$F(x,y,z) = x^2 + y^2 + z^2 - 1 = 0$。对$x$和$y$求偏微变：
+首先计算电势函数$V(x,y)$关于$x$的偏微变（将$y$视为常数）：
 \begin{align*}
-\partial_1 F + \partial_3 F \cdot \partial_1 z &= 0 \\
-\partial_2 F + \partial_3 F \cdot \partial_2 z &= 0
+\partial_1 V(x,y) &= \frac{a}{4\pi\epsilon_0} \left( \partial_x \ln{\left( (x-d)^2+y^2\right)} - \partial_x \ln{\left( (x+d)^2+y^2\right)} \right) \\
+&= \frac{a}{4\pi\epsilon_0} \left( \frac{2(x-d)}{(x-d)^2+y^2} - \frac{2(x+d)}{(x+d)^2+y^2} \right) \\
+&= \frac{a}{2\pi\epsilon_0} \left( \frac{x-d}{(x-d)^2+y^2} - \frac{x+d}{(x+d)^2+y^2} \right)
 \end{align*}
-代入$\partial_1 F = 2x$, $\partial_2 F = 2y$, $\partial_3 F = 2z$，得：
+
+类似地，计算$V$关于$y$的偏微变（将$x$视为常数）：
 \begin{align*}
-2x + 2z \cdot \partial_1 z &= 0 \quad \Rightarrow \quad \partial_1 z = -\frac{x}{z} \\
-2y + 2z \cdot \partial_2 z &= 0 \quad \Rightarrow \quad \partial_2 z = -\frac{y}{z}
+\partial_2 V(x,y) &= \frac{a}{4\pi\epsilon_0} \left( \partial_y \ln{\left( (x-d)^2+y^2\right)} - \partial_y \ln{\left( (x+d)^2+y^2\right)} \right) \\
+&= \frac{a}{4\pi\epsilon_0} \left( \frac{2y}{(x-d)^2+y^2} - \frac{2y}{(x+d)^2+y^2} \right) \\
+&= \frac{a y}{2\pi\epsilon_0} \left( \frac{1}{(x-d)^2+y^2} - \frac{1}{(x+d)^2+y^2} \right)
 \end{align*}
-因此，
-$$ \nabla z(x,y) = \left(-\frac{x}{z}, -\frac{y}{z}\right) = -\frac{1}{z}(x,y). $$
-从直观上看，这个结果表示球面$x^2 + y^2 + z^2 = 1$上任一点$(x,y,z)$处，函数$z = f(x,y)$的梯度指向原点在$Oxy$平面上的投影，这与球面的直观性质一致。
+
+电势函数在$(x,y)$处的梯度为：
+$$ \nabla V(x,y) = \left(\partial_1 V(x,y), \partial_2 V(x, y)\right).$$
+将$x=0$，$y=d$代入表达式中，得到：
+\begin{align*}
+\partial_1 V(0,d) &= \frac{a}{2\pi\epsilon_0} \left( \frac{-d}{d^2+d^2} - \frac{d}{d^2+d^2} \right) = -\frac{a}{2\pi\epsilon_0 d} \\
+\partial_2 V(0,d) &=\frac{a y}{2\pi\epsilon_0} \left( \frac{1}{d^2+d^2} - \frac{1}{d^2+d^2} \right) = 0
+\end{align*}
+因此，电势函数在$P$处的梯度为：
+$$ \nabla V(0,d) = \left( -\frac{a}{2\pi\epsilon_0 d}, 0 \right).$$
+它指向$x$轴负方向。
+
+在静电学中，电场力$\mathbf{F}$与电势梯度满足以下关系：
+$$ \mathbf{F} = q\mathbf{E} = -q\nabla V $$
+其中$\mathbf{E}$是电场强度。代入数值，得到：
+\begin{align*}
+\mathbf{F} &= -q\nabla V(0,d) = \left( \frac{qa}{2\pi\epsilon_0 d}, 0 \right) =\left( \frac{2\times10^{-6}\,\mathrm{C} \times 3\times10^{-5}\mathrm{C/m} }{2\pi\times 8.854\times10^{-12}\,\mathrm{F/m}\times 0.1\mathrm{m}}, 0 \right)\\
+&= 10.79\,\mathrm{N}
+\end{align*}
+答：带电小球在电场中受到$10.79\,\mathrm{N}$的电场力，方向为$x$轴正方向。
 \end{so}
+
+% \begin{et}
+% 设关于$x,y$的二元函数$z$由方程$x^2 + y^2 + z^2 = 1$隐式定义，计算梯度$\nabla z(x,y)$。
+% \end{et}
+% \begin{so}
+% 将$z$与$x,y$的关系记为$f: (x,y)\mapsto z$。我们不知道其表达式，只知道它满足方程$x^2 + y^2 + z^2 = 1$。考虑三元函数$F:\, (x,y,z) \mapsto x^2 + y^2 + z^2 - 1$。则$\forall x,y\in[-1;1]$，$F(x,y,f(x,y)) = 0$。这说明映射：$H: \,(x,y)\mapsto F(x,y,f(x,y))$是常函数。对映射$H$求偏微变：
+% \begin{align*}
+% 0 &= \partial_1 H(x,y) = \partial_1 F(x,y,f(x,y)) + \partial_3 F(x,y,f(x,y)) \cdot \partial_1 f(x,y) \\
+% 0 &= \partial_2 H(x,y) = \partial_2 F(x,y,f(x,y)) + \partial_3 F(x,y,f(x,y)) \cdot \partial_2 f(x,y)
+% \end{align*}
+% 由$F$的表达式，可算出$\partial_1 F(x,y,z) = 2x$, $\partial_2 F(x,y,z) = 2y$, $\partial_3 F(x,y,z) = 2z$。于是$z = f(x,y)\neq 0$时，可得：
+% \begin{align*}
+%     2x + 2f(x,y) \cdot \partial_1 f(x,y) &= 0 \quad \Rightarrow \quad \partial_1 z = -\frac{x}{z} \\
+%     2y + 2f(x,y) \cdot \partial_2 f(x,y) &= 0 \quad \Rightarrow \quad \partial_2 z = -\frac{y}{z}
+% \end{align*}
+% 因此，
+% $$ \nabla z(x,y) = \left(-\frac{x}{z}, -\frac{y}{z}\right) = -\frac{1}{z}(x,y). $$
+% 从直观上看，这个结果表示$z\neq 0$时，球面$x^2 + y^2 + z^2 = 1$在平面上一点$(x,y)$处的高度$z$的梯度方向是该点在$Oxy$平面上的投影到原点的方向。换句话说，$z>0$时，点$(x,y,z)$向球的北极点走，$z$增长最快；$z<0$时，点$(x,y,z)$向球的南极点走，$z$降低最快。这与球面的直观性质一致。
+% \end{so}
 
 需要注意的是，梯度向量的存在依赖于函数在该点的可微性。我们已知函数在某点的偏微变存在，并不代表函数在该点可微。如果函数在点$\mathbf{a}$处不可微，那么即使能构造出形式上的梯度向量，它也不能正确描述函数在该点附近的变化。例如，考虑函数：
 $$ f(x,y) = \begin{cases}
@@ -1396,22 +1537,618 @@ $$ t\mapsto f(\mathbf{a} + t(\mathbf{b} - \mathbf{a})). $$
 \section{二元函数的高次微变}
 % TODO 介绍二元函数的高次微变（高阶导数），讨论其存在性和运算法则。
 % TODO 重点：二次微变（二阶导数）能否交换。
+对于一元实函数，我们使用微变率来刻画它的局部行为。如果要更进一步地描绘函数的局部变化，我们会用整式来近似表示。为此，我们介绍了高次微变率的概念。对于二元函数，我们同样定义它的高次偏微变率。
+\begin{df}{\textbf{多次偏微变}}
+    \mbox{} \\
+    设二元函数$f$在开集$U$中一点$\mathbf{a}$处可微。如果它的偏微变函数$\partial_1 f$在$\mathbf{a}$处有首元偏微变，就说$f$在$\mathbf{a}$处有\textbf{二次偏微变}$\partial_{11} f(\mathbf{a})$。类似地可以定义其它的二次偏微变率。即：
+    \begin{enumerate}
+        \item $\partial_{11} f(\mathbf{a}) = \partial_1 \left(\partial_1 f\right)(\mathbf{a})$；
+        \item $\partial_{12} f(\mathbf{a}) = \partial_1 \left(\partial_2 f\right)(\mathbf{a})$；
+        \item $\partial_{21} f(\mathbf{a}) = \partial_2 \left(\partial_1 f\right)(\mathbf{a})$；
+        \item $\partial_{22} f(\mathbf{a}) = \partial_2 \left(\partial_2 f\right)(\mathbf{a})$；
+    \end{enumerate}
+    同理可以定义更高次的偏微变。为了好说话，我们引进多重下标组的概念，用有序元组来记录每次偏微变操作对应的下标。于是，有序元组$s=(i_1,\cdots,i_k)$就记录了从$f$开始依次对第$i_1,i_2,\cdots,i_k$个变量求偏微变的函数：
+    $$ \partial_s f(\mathbf{a}) = \overbrace{\partial_{i_k} (\cdots (\partial_{i_2} (\partial_{i_1}}^{m\text{次}} f ) \cdots ))(\mathbf{a}).$$
+    要注意的是，多重下标组记录的求偏微变次序与前面直接用下标记录的顺序相反。
+    比如，令$s=(1,2)$，那么$\partial_s f(\mathbf{a})$就记录了$\partial_{21} f(\mathbf{a})$。
+
+    设$s=(i_1,\cdots,i_k)$是$k$元下标组。如果多元函数$f$按$s$的偏导数函数在$\mathbf{a}$附近存在，且在$\mathbf{a}$处关于第$j$个变量有偏微变率，那么$f$按下标组$s'$的偏微变率存在。其中$s'=(i_1,\cdots,i_k,j)$是$k+1$元下标组。这个偏微变率称为$f$的（按$s'$的）$\boldsymbol{k+1}$\textbf{次偏微变}。
+
+    类似可以定义各阶光滑：$0$阶光滑就是函数连续的别称。如果$f$按任何$k$元组的偏微变函数都在$\mathbf{a}$附近连续，就说$f$在$\mathbf{a}$附近$\boldsymbol{k}$\textbf{阶光滑}。
+
+    如果对任意正整数$k$，$f$在$\mathbf{a}$附近$k$阶光滑，就说$f$在$\mathbf{a}$附近\textbf{光滑}。
+\end{df}
+
+随着$k$变大，$k$次偏微变率的种类急速增大。我们自然会问：求偏微变的顺序是否会影响最终的结果？比如，$\partial_{12} f(\mathbf{a})$是否等于$\partial_{21} f(\mathbf{a})$？可以证明：
+\begin{tm}{\textbf{混合偏微变交换定理}}\\
+    如果二元函数$f$的偏微变函数$\partial_{12} f$和$\partial_{21} f$都在$\mathbf{a}$处连续，那么：
+    $$ \partial_{12} f(\mathbf{a}) = \partial_{21} f(\mathbf{a}).$$
+\end{tm}
+这个结论说明，对于二阶光滑函数$f$，求二次偏微变的顺序不影响结果。
+
+% TODO 二次偏微变例题：求给定函数的二次偏微变
+
+高次偏微变如何刻画多元函数在一点的局部变化呢？回顾一元实函数的情况。对$n$次光滑的函数，我们有微变展开定理：
+\begin{align*}
+    f(x) &\approx f(a) + \sum_{k=1}^n \frac{\partial^k f (a)}{k!}(x - a)^k .
+\end{align*}
+多元函数也有类似的结论，但可以想象，比一元函数复杂得多。我们这里只讨论二次光滑的二元函数的情况。设$\mathbf{h} = (h_1,h_2)$是微小的改变量，在$\mathbf{a}$附近二次光滑的函数$f$有：
+\begin{align*}
+    f(\mathbf{a} + \mathbf{h}) = & f(\mathbf{a}) + \nji{\nabla f(\mathbf{a})}{\mathbf{h}} \\
+    &+ \frac{1}{2} \left(\partial_{11} f(\mathbf{a})h_1^2 + \partial_{21} f(\mathbf{a})h_2h_1 + \partial_{12} f(\mathbf{a})h_1h_2 + \partial_{22} f(\mathbf{a})h_2^2\right) + \olim{\|\mathbf{h}\|^2}.
+\end{align*}
+$\nji{\nabla f(\mathbf{a})}{\mathbf{h}}$是我们已经知道的，梯度带来的改变量。之后的四项是关于$(h_1,h_2)$的齐次对称二次式。可以看到，$\nji{\nabla f(\mathbf{a})}{\mathbf{h}} = \Olim{\|\mathbf{h}\|}$，而后四项之和可以看作$\Olim{\|\mathbf{h}\|^2}$。或者说，后者是比$\nji{\nabla f(\mathbf{a})}{\mathbf{h}}$高一阶的$2$阶无穷小。如果我们用下列矩阵$\mathrm{H}$记录二次偏微变：
+$$
+ \mathrm{H}f(\mathbf{a}) = \begin{bmatrix} \partial_{11} f(\mathbf{a}) & \partial_{12} f(\mathbf{a}) \\ \partial_{21} f(\mathbf{a}) & \partial_{22} f(\mathbf{a}) \end{bmatrix} , 
+$$
+那么按照矩阵的乘法，我们可以把后四项写成：
+\begin{align*}
+    &\partial_{11} f(\mathbf{a})h_1^2 + \partial_{21} f(\mathbf{a})h_2h_1 + \partial_{12} f(\mathbf{a})h_1h_2 + \partial_{22} f(\mathbf{a})h_2^2 \\
+    =\,& \begin{bmatrix}
+h_1 & h_2
+\end{bmatrix}\begin{bmatrix} \partial_{11} f(\mathbf{a}) & \partial_{12} f(\mathbf{a}) \\ \partial_{21} f(\mathbf{a}) & \partial_{22} f(\mathbf{a}) \end{bmatrix} \begin{bmatrix}
+h_1\\h_2
+\end{bmatrix}\\
+=\,&\mathbf{h}^{\tr} \mathrm{H} \mathbf{h}.
+\end{align*}
+于是上面的近似展开式可以记为：
+\begin{align*}
+    f(\mathbf{a} + \mathbf{h}) \approx f(\mathbf{a}) + \nji{\nabla f(\mathbf{a})}{\mathbf{h}} + \mathbf{h}^{\tr} \mathrm{H} \mathbf{h} + \olim{\|\mathbf{h}\|^2}.
+\end{align*}
+
+这个结论说明，如果二元函数在一点处二次光滑，那么在附近的变化大致可以用二元二次整式函数表示。直观上来说，它代表一个二次曲面。
 
 \section{曲面的极值}
-% TODO 介绍曲面极值的定义、二次可微曲面的极值判定条件（Hesse矩阵）。
-% TODO 以例题的方式介绍二次可微二元函数极值问题的应用（圆外切三角形面积极值、最小二乘法等）
 
-\chapter{离散随机变量}
+什么是二次曲面呢？我们学习过二次曲线。一般的二次曲线可以写为：
+$$ Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0.$$
+如果一个曲面用$z = z_0$截得的部分是以上形式的二次曲线，那么曲面是以下二元函数的图像：
+$$ f: \, (x, y) \mapsto z = Ax^2 + Bxy + Cy^2 + Dx + Ey + F. $$
+我们把$f$称为\textbf{二元二次函数}，它和二次函数$f:x\mapsto Ax^2 +Bx + C$形式类似。二次函数的图像叫做抛物线。二次曲面也和抛物线有关系。因为如果固定$x$或$y$的值，$f(x,y)$就变成二次函数，图像是抛物线（或退化为直线）。这说明用平行于$xOz$或$yOz$的平面截二次曲面，得到的曲线是抛物线（或直线）。实际上，任意垂直于$xOy$的平面$y = kx$截二次曲面，都得到一个抛物线（或直线）。这些抛物线的开口要么竖直向上，要么竖直向下。换句话说，随着到原点的距离增加，二次曲面的值总趋于无穷（除了退化为水平直线的情况）。
 
-\section{随机变量的性质}
+再来看我们关心的情况。将二次光滑函数$f$在$\mathbf{a}=(a_1,a_2)$附近展开，近似得到一个过$(a_1,a_2,f(\mathbf{a}))$的二次曲面。因此，我们可以将整个曲面往下平移$f(\mathbf{a})$，或者说，不妨设$f(\mathbf{a}) = 0.$ 这时的二次曲面可以写为
+\begin{align*}
+    z &= \partial_1 f(\mathbf{a}) x + \partial_2 f(\mathbf{a}) y + \frac{1}{2} \bigg(\partial_{11} f(\mathbf{a})x^2 + (\partial_{21} f(\mathbf{a}) + \partial_{12} f(\mathbf{a}))xy + \partial_{22} f(\mathbf{a})y^2\bigg) \\
+    &= \partial_1 f(\mathbf{a}) x + \partial_2 f(\mathbf{a}) y + \frac{1}{2} \partial_{11} f(\mathbf{a})x^2 + \partial_{12} f(\mathbf{a})xy + \frac{1}{2}\partial_{22} f(\mathbf{a})y^2.
+\end{align*}
+这是因为对于二次光滑的函数，混合偏微变可交换：
+$$ \partial_{12} f(\mathbf{a}) = \partial_{21} f(\mathbf{a}).$$
 
-\section{正态分布}
+这样的二次曲面有什么特征呢？首先，如果二元二次函数的一次项不全为零，即梯度不为零，那么在原点附近，二次项$\frac{1}{2} \partial_{11} f(\mathbf{a})x^2 + \partial_{12} f(\mathbf{a})xy + \frac{1}{2}\partial_{22} f(\mathbf{a})y^2$必定是它的高阶无穷小。因此，当$(x,y)$趋于原点时，二次曲面近似于切平面。离原点越近，二次项对函数变化的贡献就越无足轻重，影响越不足道。我们知道随着梯度方向，$f$以最快的速度增加或减少。因此，从局部来看，$f(\mathbf{a})$处必然不取得极大值或极小值。
 
-\section{大数定律}
+特殊的情况是$\partial_1 f(\mathbf{a}) = \partial_2 f(\mathbf{a}) = 0$。这时二次曲面变为：
+\begin{align*}
+    z = \frac{1}{2} \partial_{11} f(\mathbf{a})x^2 + \partial_{12} f(\mathbf{a})xy + \frac{1}{2}\partial_{22} f(\mathbf{a})y^2.
+\end{align*}
+为了方便，我们记：
+$$ A = \partial_{11} f(\mathbf{a}),\qquad , B = \partial_{12} f(\mathbf{a}), \qquad C = \partial_{22} f(\mathbf{a}). $$
+则原式变为：
+\begin{align*}
+    z = \frac{Ax^2 + 2Bxy+Cy^2}{2}.
+\end{align*}
+用$y = kx$代入得到：
 
-\section{中心极限定理}
+\begin{align*}
+    z = \frac{A + 2Bk+Ck^2}{2}\cdot x^2.
+\end{align*}
+这是一个以$x=0,y=0$为对称轴的简单抛物线，它的开口取决于二次项$x^2$的系数，也就是关于$k$的抛物线$A + 2Bk+Ck^2$的正负。
 
-\begin{appendices}
+研究二次函数：
+$$ g: \, k \mapsto A + 2Bk+Ck^2.$$
+如果$C = 0$，那么$g$退化为直线。这时，如果$B\neq 0$，那么$g$的值可正可负，如果$B=0$，那么$g(k)$总等于$A$，它的正负和$A$的正负一致。查看$z$的性质可知这时$z = \frac{Ax^2}{2}$。如果$A\neq 0$，那么$z$要么总大于等于$0$（$A>0$），要么总小于等于$0$（$A<0$）。对于原本的函数$f$来说，在$\mathbf{a}$附近：
+$$ f(a_1+x,a_2+y) = \frac{Ax^2 + 2Bxy+Cy^2}{2} + \olim{x^2+y^2} = \frac{Ax^2}{2} + \olim{x^2+y^2}. $$
+$(x,y)$接近原点时，$\olim{x^2+y^2}$在$\frac{Ax^2}{2}$面前可以忽略。因此，$A>0$时，在足够接近$\mathbf{a}$的地方，$f$总大于$0$；$A<0$时则总小于$0$。如果$A=0$，那么$f$的正负将取决于$\olim{x^2+y^2}$。
+
+如果$C\neq 0$，$g$的判别式是：
+$$ \Delta = 4B^2 - 4AC.$$
+如果$\Delta < 0$，那么$g$的正负永远不变，和$C$一致。注意到这时$AC>B^2\geqslant 0$，即$A,C$同号。考察$z$可知：
+\begin{align*}
+    z = \frac{Ax^2 + 2Bxy+Cy^2}{2} = \frac{C}{2}\left(y + \frac{B}{C}x\right)^2 - \frac{\Delta x_1^2}{2C}.
+\end{align*}
+即在$\mathbf{a}$附近：
+$$ f(a_1+x,a_2+y) = z + \olim{x^2+y^2} = \frac{C}{2}\left(y + \frac{B}{C}x\right)^2 - \frac{\Delta x_1^2}{2C} + \olim{x^2+y^2}. $$
+如果$A,C>0$，那么
+$$ f(a_1+x,a_2+y) \geqslant - \frac{\Delta x_1^2}{2C} + \olim{x^2+y^2}. $$
+$(x,y)$接近原点时，$\olim{x^2+y^2}$在$\frac{Ax^2}{2}$面前可以忽略。因此，在足够接近$\mathbf{a}$的地方，$f$总大于$0$。同理，如果$A,C<0$，那么在足够接近$\mathbf{a}$的地方，$f$总小于$0$。
+
+如果$\Delta > 0$，那么$g$的值可正可负。如果$\Delta=0$，
+$$ f(a_1+x,a_2+y) = \frac{C}{2}\left(y + \frac{B}{C}x\right)^2 + \olim{x^2+y^2}. $$
+于是$y + \frac{B}{C}x \neq 0$时，$g$的正负和$C$一致，但$y + \frac{B}{C}x = 0$时，$f$的正负将取决于$\olim{x^2+y^2}$。
+
+综上所述，我们大致得到了$f$在$\mathbf{a}$处梯度为$\mathbf{0}$时函数的局部变化规律。我们把梯度为$\mathbf{0}$的点称为临界点。临界点处，如果$AC > B^2$（$\Delta < 0$），或$A=B=0$而$C\neq 0$，或$A\neq 0,B=C=0$，则在足够接近$\mathbf{a}$的地方，$f$不变号。换句话说，$\mathbf{a}$处$f(\mathbf{a}) = 0$就是局部的极小值或极大值。$A,C$中的非零者大于$0$时，$f$在$\mathbf{a}$处取得局部极小值；反之，$A,C$中的非零者大于$0$时，$f$在$\mathbf{a}$处取得局部极大值。
+
+其余情况下，要么$f$局部展开的二次项随着方向变化可正可负，要么二次项为$0$，需要靠更高阶的无穷小项决定。这时无法判定$f$在$\mathbf{a}$处是否有局部极值。需要注意是$AC<B^2$（$\Delta > 0$）的情况，这时，只要$AC\neq 0$，我们可以得到：
+$$ f(a_1+x,a_2+y) = \frac{C}{2}\left(y - k_1x\right)(y - k_2x) + \olim{x^2+y^2}. $$
+其中$k_1<k_2$是二次整式$A + Bk + Ck^2$的两个根。我们可以看到，在两个平面区域：
+$$ Q_1 = \{k_1x<y<k_2x\,|\,x,y\in\mathbb{R}\}, \quad Q_2 = \{k_1x>y\,\text{或}\,y>k_2x\,|\,x,y\in\mathbb{R}\} $$
+中，$f$的正负截然相反。比如$C>0$时，用$y=kx$截曲面$z = \frac{C}{2}\left(y - k_1x\right)(y - k_2x)$，$k_1<k<k_2$时得到开口向下的抛物线，$k<k_1$或$k>k_2$时得到开口向上的抛物线。因此$f$在$\mathbf{a}$处必然无极值。这时我们称$\mathbf{a}$为$f$的\textbf{鞍点}，因为二次曲面$z$的形状类似马鞍。
+
+\chapter{向量函数的微变}
+% TODO 介绍一般向量函数的微变，将R^m->R拓展为R^m->R^n，但仅限于二维和三维的情况
+
+\section{多元变换的微变}
+% TODO 介绍多元向量函数的偏导数与可微性质定义，雅可比矩阵。
+
+\section{复合函数的微变法则}
+
+在实际问题中，我们遇到的函数往往不是孤立存在的，而是通过变量之间的依赖关系复合而成的。例如，一个气球在风中飘动，其位置 $(x, y)$ 随时间 $t$ 变化，而该位置的气温 $z$ 又是位置 $(x, y)$ 的函数。这时，气温 $z$ 最终是时间 $t$ 的函数。我们如何计算气温随时间的变化率？这就需要研究复合函数的微变法则，即\textbf{链式法则}。
+
+根据复合的层次和变量的类型，链式法则可以分为几种情况。本节首先讨论最基础也最直观的一种情形：多元函数与实变向量函数的复合，即\textbf{沿路径的变化}。
+
+\subsection{沿路径的变化}
+
+考虑一个二元函数 $f: \mathbb{R}^2 \to \mathbb{R}$，它将平面上的点映射为实数。我们可以将其图像视为空间中的曲面。再考虑一个实变向量函数 $\mathbf{r}: \mathbb{R} \to \mathbb{R}^2$，它将时间 $t$ 映射为平面上的点 $\mathbf{r}(t) = (x(t), y(t))$。这描述了平面上的一条运动路径。
+
+将两者复合，得到函数：
+\begin{align*}
+    F: \,\mathbb{R} &\to\, \mathbb{R}\\
+    t\, &\mapsto f(\mathbf{r}(t)) = f(x(t), y(t)).
+\end{align*}
+$F(t)$ 表示运动物体在时刻 $t$ 所在位置的函数值（例如高度或温度）。我们希望计算 $F$ 关于 $t$ 的微变率 $\partial F(t)$。
+
+% \begin{figure}[h]
+% \centering
+% \begin{tikzpicture}[scale=0.8]
+% % 坐标轴
+% \draw[->] (-3,0) -- (3,0) node[right] {$x$};
+% \draw[->] (0,-3) -- (0,3) node[above] {$y$};
+% % 路径
+% \draw[thick, blue, domain=-2:2, samples=100] plot ({\x}, {0.5*\x*\x - 1});
+% \draw[blue] (2,1) node[right] {路径 $\mathbf{r}(t)$};
+% % 点
+% \fill[red] (1, -0.5) circle (2pt) node[below right] {$\mathbf{r}(t)$};
+% \draw[->, red, thick] (1, -0.5) -- (1.5, 0.5) node[above] {$\mathbf{v}(t)$};
+% % 映射示意
+% \draw[->, dashed] (4, 0) -- (6, 0);
+% \node at (5, 0.5) {$f$};
+% \draw (7, -1) rectangle (9, 1);
+% \node at (8, 0) {$z$};
+% \draw[->] (8, 1.2) -- (8, 2) node[above] {$F(t)$};
+% \end{tikzpicture}
+% \caption*{路径上的变化率}
+% \end{figure}
+
+从几何直观上看，$\partial F(t)$ 描述了当点沿路径 $\mathbf{r}(t)$ 运动时，曲面高度变化的快慢。这个变化率应该由两部分决定：
+\begin{enumerate}
+\item 路径在该点的运动速度，即向量 $\partial\mathbf{r}(t) = \left(\partial x(t), \partial y(t)\right)$；
+\item 曲面在该点沿运动方向的变化率： $\partial_{\partial\mathbf{r}(t)} f$。
+\end{enumerate}
+根据第二节中梯度与方向微变的关系，我们知道方向微变等于梯度与该方向的变化量的内积。因此，我们猜测：
+$$ \partial F(t) = \nabla f(\mathbf{r}(t)) \cdot \partial\mathbf{r}(t). $$
+下面我们将严格证明这一结论。
+
+\begin{tm}{\textbf{沿路径的链式法则}}
+设二元函数 $f: \mathbb{R}^2 \to \mathbb{R}$ 在点 $\mathbf{a}$ 处可微，向量函数 $\mathbf{r}: \mathbb{R} \to \mathbb{R}^2$ 在 $t_0$ 处可微，且 $\mathbf{r}(t_0) = \mathbf{a}$。
+则复合函数 $F(t) = f(\mathbf{r}(t))$ 在 $t_0$ 处可微，且其微变率为：
+$$ \partial F(t_0) = \partial_1 f(\mathbf{a}) \partial x(t_0) + \partial_2 f(\mathbf{a}) \partial y(t_0). $$
+用梯度记号可写为：
+$$ \partial F(t_0) = \nji{\nabla f(\mathbf{a})}{\partial \mathbf{r}(t_0)}. $$
+\end{tm}
+\begin{proof}
+记 $\mathbf{h} = \mathbf{r}(t_0 + \Delta t) - \mathbf{r}(t_0)$。由于 $\mathbf{r}$ 在 $t_0$ 处可微，当 $\Delta t \to 0$ 时，$\mathbf{h} \to \mathbf{0}$，且
+$$ \mathbf{h} = \partial \mathbf{r}(t_0) \Delta t + \olim{\Delta t}. $$
+由于 $f$ 在 $\mathbf{a}$ 处可微，根据微直观的定义，有：
+$$ f(\mathbf{a} + \mathbf{h}) - f(\mathbf{a}) = \diff f(\mathbf{a})(\mathbf{h}) + \olim{\|\mathbf{h}\|}. $$
+其中 $\diff f(\mathbf{a})$ 是 $f$ 在 $\mathbf{a}$ 处的微变换，它是一个平直变换。根据梯度的定义，$\diff f(\mathbf{a})(\mathbf{h}) = \nji{\nabla f(\mathbf{a})}{\mathbf{h}}$。
+将 $\mathbf{h}$ 的表达式代入：
+\begin{align*}
+F(t_0 + \Delta t) - F(t_0) &= \nji{\nabla f(\mathbf{a})}{\partial \mathbf{r}(t_0) \Delta t + \olim{\Delta t}} + \olim{\|\partial \mathbf{r}(t_0) \Delta t + \olim{\Delta t}\|} \\
+&= \nji{\nabla f(\mathbf{a})}{\partial \mathbf{r}(t_0)}\cdot \Delta t +  \nji{\nabla f(\mathbf{a})}{ \olim{\Delta t}} + \olim{\Delta t}.
+\end{align*}
+注意到 $\nabla f(\mathbf{a})$ 是常向量，$\olim{\Delta t}$ 是$\Delta t$ 的高阶无穷小，它们的内积仍是 $\olim{\Delta t}$。同理，$\|\mathbf{h}\|$ 与 $|\Delta t|$ 同阶，故 $\olim{\|\mathbf{h}\|} = \olim{\Delta t}$。
+于是：
+$$ F(t_0 + \Delta t) - F(t_0) = \nji{\nabla f(\mathbf{a})}{\partial \mathbf{r}(t_0)}\cdot \Delta t + \olim{\Delta t}. $$
+根据一元函数微变率的定义，$F$ 在 $t_0$ 处可微，且
+$$ \partial F(t_0) = \nabla f(\mathbf{a}) \cdot \partial \mathbf{r}(t_0). $$
+或者写为：
+$$ \partial F(t_0) = \partial_1 f(\mathbf{a}) \partial x(t_0) + \partial_2 f(\mathbf{a}) \partial y(t_0). $$
+\end{proof}
+
+这个公式揭示了复合函数微变率的结构：总的变化率等于各个\textbf{中间变量}的变化率与其对应的偏微变率的乘积之和。在这里，$x$ 和 $y$ 被称为中间变量，它们既作为 $f$ 的自变量，又作为 $t$ 的应变量。
+
+% 为了清晰地表示变量之间的依赖关系，我们引入\textbf{树图}。对于 $z = f(x, y)$ 且 $x = x(t), y = y(t)$ 的情形，树图如下所示：
+
+% \begin{figure}[h]
+% \centering
+% \begin{tikzpicture}[level distance=1.5cm,
+%   level 1/.style={sibling distance=3cm},
+%   level 2/.style={sibling distance=1.5cm}]
+%   \node {$z$}
+%     child {node {$x$}
+%       child {node {$t$} edge from parent node[left] {$\partial x(t)$}}
+%       edge from parent node[left] {$\partial_1 f$}
+%     }
+%     child {node {$y$}
+%       child {node {$t$} edge from parent node[right] {$\partial y(t)$}}
+%       edge from parent node[right] {$\partial_2 f$}
+%     };
+% \end{tikzpicture}
+% \caption*{链式法则的树图表示}
+% \end{figure}
+
+% 树图的规则很简单：从最终变量 $z$ 出发，沿着树枝走到初始变量 $t$，将路径上的所有微变率相乘，然后将所有不同路径的结果相加。
+% \begin{itemize}
+% \item 路径 1：$z \to x \to t$，贡献为 $\partial_1 f \cdot \partial x(t)$。
+% \item 路径 2：$z \to y \to t$，贡献为 $\partial_2 f \cdot \partial y(t)$。
+% \item 总和：$\partial z(t) = \partial_1 f \partial x(t) + \partial_2 f \partial y(t)$。
+% \end{itemize}
+% 树图法不仅适用于二元函数，也适用于任意多元函数与单参数路径的复合，甚至更复杂的复合结构。它提供了一种机械但可靠的方法来记忆和推导链式法则。
+
+\begin{et}
+设曲面方程为 $z = x^2 + y^2$，一点在 $xy$ 平面上的运动路径为 $x = \cos t, y = \sin t$。求该点沿曲面运动时，高度 $z$ 关于时间 $t$ 的变化率。
+\end{et}
+\begin{so}
+这里 $f(x, y) = x^2 + y^2$，路径 $\mathbf{r}(t) = (\cos t, \sin t)$。
+首先计算 $f$ 的偏微变：
+$$ \partial_1 f = 2x, \quad \partial_2 f = 2y. $$
+计算路径的微变率：
+$$ \partial x(t) = -\sin t, \quad \partial y(t) = \cos t. $$
+根据链式法则：
+\begin{align*}
+\partial z(t) &= \partial_1 f \partial x(t) + \partial_2 f \partial y(t) \\
+&= (2x)(-\sin t) + (2y)(\cos t).
+\end{align*}
+将 $x, y$ 替换为 $t$ 的函数：
+\begin{align*}
+\partial z(t) &= 2(\cos t)(-\sin t) + 2(\sin t)(\cos t) \\
+&= -2\sin t \cos t + 2\sin t \cos t \\
+&= 0.
+\end{align*}
+结果为 0。这在几何上是显然的：路径 $x^2 + y^2 = \cos^2 t + \sin^2 t = 1$ 是 $xy$ 平面上的单位圆，而曲面 $z = x^2 + y^2$在单位圆上恒等于 1。因此高度不随时间变化，变化率为 0。
+\end{so}
+
+链式法则的梯度形式 $\partial F(t) = \nabla f \cdot \partial\mathbf{r}(t)$ 具有深刻的几何意义。$\nabla f$ 是曲面在水平面上的梯度向量，指向高度增长最快的方向；$\partial\mathbf{r}(t)$ 是路径的切向量，指向运动方向。
+\begin{itemize}
+\item 当运动方向与梯度方向一致时（$\partial\mathbf{r}(t) \parallel \nabla f$），高度增长最快。
+\item 当运动方向与梯度方向垂直时（$\partial\mathbf{r}(t) \perp \nabla f$），高度瞬时变化率为 0。这对应于沿等高线运动。
+\item 当运动方向与梯度方向相反时，高度下降最快。
+\end{itemize}
+
+\begin{et}
+设气温分布函数为 $T(x, y) = e^{-(x^2 + y^2)}$。一只虫子从点 $(1, 0)$ 出发，沿直线向点 $(0, 1)$ 匀速运动，速度大小为 $v$。求虫子出发时刻感受到的气温变化率。
+\end{et}
+\begin{so}
+首先计算梯度 $\nabla T$：
+$$ \partial_1 T = -2x e^{-(x^2 + y^2)}, \quad \partial_2 T = -2y e^{-(x^2 + y^2)}. $$
+在出发点 $(1, 0)$ 处：
+$$ \nabla T(1, 0) = (-2e^{-1}, 0) = \left(-\frac{2}{e}, 0\right). $$
+接下来确定速度向量 $\mathbf{v}$。运动方向是从 $(1, 0)$ 到 $(0, 1)$，方向向量为 $(0-1, 1-0) = (-1, 1)$。
+单位化方向向量：$\mathbf{u} = \frac{1}{\sqrt{2}}(-1, 1)$。
+因为速度大小为 $v$，所以速度向量为：
+$$ \partial \mathbf{r}(0) = v \mathbf{u} = \left(-\frac{v}{\sqrt{2}}, \frac{v}{\sqrt{2}}\right). $$
+根据链式法则，气温变化率为：
+\begin{align*}
+\frac{dT}{dt} &= \nabla T(1, 0) \cdot \partial \mathbf{r}(0) \\
+&= \left(-\frac{2}{e}, 0\right) \cdot \left(-\frac{v}{\sqrt{2}}, \frac{v}{\sqrt{2}}\right) \\
+&= \left(-\frac{2}{e}\right)\left(-\frac{v}{\sqrt{2}}\right) + 0 \cdot \frac{v}{\sqrt{2}} \\
+&= \frac{2v}{e\sqrt{2}} = \frac{\sqrt{2}v}{e}.
+\end{align*}
+结果为正，说明虫子出发时感受到的气温在升高。
+\end{so}
+
+沿路径的链式法则是多元微积分中最常用的工具之一。它不仅简化了复合函数微变率的计算，更重要的是，它提供了一种将多元问题转化为一元问题处理的思路。通过引入中间变量和路径参数，我们可以利用熟悉的一元微积分工具来研究复杂的多维变化。在下一节中，我们将把这一法则推广到更多中间变量的情形。
+
+\subsection{坐标系的变换}
+
+在研究多元函数时，选择合适的坐标系往往能简化问题。例如，描述圆形区域上的函数分布时，直角坐标系 $(x, y)$ 可能不如极坐标系 $(r, \theta)$ 方便。这时，我们需要将函数从一种坐标系变换到另一种坐标系。这种变换本质上是变量的代换，即复合函数的另一种形式。
+
+设二元函数 $f: \mathbb{R}^2 \to \mathbb{R}$ 描述了某个物理量（如温度、高度）在平面上的分布。我们通常用直角坐标 $(x_1, x_2)$ 来表示位置。现在，我们引入新的变量 $(u_1, u_2)$ 来表示同一个位置，即存在映射 $\mathbf{g}: \mathbb{R}^2 \to \mathbb{R}^2$：
+$$ (u_1, u_2) \mapsto (x_1, x_2) = (x_1(u_1, u_2), x_2(u_1, u_2)). $$
+这称为\textbf{坐标变换}。例如，极坐标变换为 $x_1 = u_1 \cos{u_2}, x_2 = u_1 \sin{u_2}$（这里 $u_1$ 对应半径 $r$，$u_2$ 对应角度 $\theta$）。
+
+经过坐标变换后，原来的函数 $f(x_1, x_2)$ 变成了关于新变量 $(u_1, u_2)$ 的复合函数 $F$：
+\begin{align*}
+    F: \,\mathbb{R}^2 &\to\, \mathbb{R}\\
+    (u_1, u_2) \, &\mapsto f(x_1(u_1, u_2), x_2(u_1, u_2)).
+\end{align*}
+我们希望计算 $F$ 关于新变量 $u_1, u_2$ 的偏微变。这里，$x_1$ 和 $x_2$ 是中间变量，它们既是 $f$ 的自变量，又是 $u, v$ 的应变量。
+
+为了更清晰地展示变量与映射的关系，我们将$f$的两个变量记为$x_1,x_2$，把$F$的两个变量记为$u_1,u_2$。
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[level distance=1.8cm,
+    level 1/.style={sibling distance=3.5cm},
+    level 2/.style={sibling distance=1.8cm},
+    tree vertex/.style={draw, fill=ForestGreen!20, rounded corners, inner sep=4pt},
+    every child node/.style={tree vertex},
+    every edge from parent node/.style={draw=none, fill=none, inner sep=2pt}
+    ]
+    \node[draw, fill=ForestGreen!20, rounded corners, inner sep=4pt] {$z = F(u_1, u_2)$}
+        child {node {$x_1$}
+            child {node {$u_1$} edge from parent node[left] {$\partial_1 x$}}
+            child {node {$u_2$} edge from parent node[right] {$\partial_2 x$}}
+            edge from parent node[left] {$\partial_1 f$}
+        }
+        child {node {$x_2$}
+            child {node {$u_1$} edge from parent node[left] {$\partial_1 y$}}
+            child {node {$u_2$} edge from parent node[right] {$\partial_2 y$}}
+            edge from parent node[right] {$\partial_2 f$}
+        };
+\end{tikzpicture}
+\caption*{\texttt{坐标变换的树图}}
+\end{figure}
+
+为了理清变量之间的依赖关系，我们同样可以使用\textbf{树图}。如上图所示，从最终函数值 $z$ 出发，经过中间变量 $x_1, x_2$，最终到达自变量 $u_1, u_2$。
+\begin{itemize}
+\item 若要计算 $\partial_1 F$，我们寻找所有从 $z$ 到 $u_1$ 的路径。
+\item 路径 1：$z \to x_1 \to u_1$，贡献为 $\partial_1 f \cdot \partial_1 x$。
+\item 路径 2：$z \to x_2 \to u_1$，贡献为 $\partial_2 f \cdot \partial_1 y$。
+\item 将所有路径的贡献相加，即得 $\partial_1 F$。
+\end{itemize}
+这一规则同样适用于 $\partial_2 F$。下面我们将严格证明这一结论。
+
+\begin{tm}{\textbf{坐标变换的链式法则}}
+设二元函数 $f: \mathbb{R}^2 \to \mathbb{R}$ 在点 $\mathbf{x}^* = (x_1^*, x_2^*)$ 处可微，坐标变换映射 $\mathbf{g}: \mathbb{R}^2 \to \mathbb{R}^2$ 在点 $\mathbf{u}^* = (u_1^*, u_2^*)$ 处可微，且 $\mathbf{g}(\mathbf{u}^*) = \mathbf{x}^*$。
+记复合函数 $F = f \circ \mathbf{g}$，即 $F(u_1, u_2) = f(x_1(u_1, u_2), x_2(u_1, u_2))$。则 $F$ 在 $\mathbf{u}^*$ 处可微，且其偏微变为：
+\begin{align*}
+\partial_1 F(\mathbf{u}^*) &= \partial_1 f(\mathbf{x}^*) \cdot \partial_1 x(\mathbf{u}^*) + \partial_2 f(\mathbf{x}^*) \cdot \partial_1 y(\mathbf{u}^*), \\
+\partial_2 F(\mathbf{u}^*) &= \partial_1 f(\mathbf{x}^*) \cdot \partial_2 x(\mathbf{u}^*) + \partial_2 f(\mathbf{x}^*) \cdot \partial_2 y(\mathbf{u}^*).
+\end{align*}
+\end{tm}
+\begin{proof}
+由于 $f$ 在 $\mathbf{x}^*$ 处可微，根据微直观的定义，当自变量变化量 $\Delta \mathbf{x} = (\Delta x_1, \Delta x_2)$ 趋于 $\mathbf{0}$ 时，函数值的变化量 $\Delta f$ 满足：
+$$ \Delta f = \partial_1 f(\mathbf{x}^*) \Delta x_1 + \partial_2 f(\mathbf{x}^*) \Delta x_2 + \olim{\|\Delta \mathbf{x}\|}. $$
+由于 $\mathbf{g}$ 在 $\mathbf{u}^*$ 处可微，当自变量变化量 $\Delta \mathbf{u}^* = (\Delta u_1, \Delta u_2)$ 趋于 $\mathbf{0}$ 时，中间变量的变化量 $\Delta \mathbf{x}$ 满足：
+\begin{align*}
+\Delta x_1 &= \partial_1 x(\mathbf{u}^*) \Delta u_1 + \partial_2 x(\mathbf{u}^*) \Delta u_2 + \olim{\|\Delta \mathbf{u}^*\|}, \\
+\Delta x_2 &= \partial_1 y(\mathbf{u}^*) \Delta u_1 + \partial_2 y(\mathbf{u}^*) \Delta u_2 + \olim{\|\Delta \mathbf{u}^*\|}.
+\end{align*}
+这意味着 $\|\Delta \mathbf{x}\| = \Olim{\|\Delta \mathbf{u}^*\|}$。将 $\Delta x_1, \Delta x_2$ 的表达式代入 $\Delta f$ 的式子中：
+\begin{align*}
+\Delta F &= \partial_1 f(\mathbf{x}^*) \left( \partial_1 x(\mathbf{u}^*) \Delta u_1 + \partial_2 x(\mathbf{u}^*) \Delta u_2 + \olim{\|\Delta \mathbf{u}^*\|} \right) \\
+&\quad + \partial_2 f(\mathbf{x}^*) \left( \partial_1 y(\mathbf{u}^*) \Delta u_1 + \partial_2 y(\mathbf{u}^*) \Delta u_2 + \olim{\|\Delta \mathbf{u}^*\|} \right) + \olim{\|\Delta \mathbf{x}\|} \\
+&= \left( \partial_1 f(\mathbf{x}^*) \cdot \partial_1 x(\mathbf{u}^*) + \partial_2 f(\mathbf{x}^*) \cdot \partial_1 y(\mathbf{u}^*) \right) \Delta u_1 \\
+&\quad + \left( \partial_1 f(\mathbf{x}^*) \cdot \partial_2 x(\mathbf{u}^*) + \partial_2 f(\mathbf{x}^*) \cdot \partial_2 y(\mathbf{u}^*) \right) \Delta u_2 + \olim{\|\Delta \mathbf{u}^*\|}.
+\end{align*}
+可以看到$\Delta F$ 是 $\Delta u_1, \Delta u_2$ 的直组合与高阶无穷小的和。因此$F$可微，其系数即为偏微变，即：
+\begin{align*}
+    \partial_1 F(\mathbf{u}^*) &= \partial_1 f(\mathbf{x}^*) \cdot \partial_1 x(\mathbf{u}^*) + \partial_2 f(\mathbf{x}^*) \cdot \partial_1 y(\mathbf{u}^*), \\
+    \partial_2 F(\mathbf{u}^*) &= \partial_1 f(\mathbf{x}^*) \cdot \partial_2 x(\mathbf{u}^*) + \partial_2 f(\mathbf{x}^*) \cdot \partial_2 y(\mathbf{u}^*).
+\end{align*}
+\end{proof}
+
+这个公式表明，新坐标系下的偏微变是旧坐标系下偏微变的直组合。组合的系数正是坐标变换本身的偏微变。这是由于直映射的复合仍然是直映射。这种良好性质是我们选择直映射近似函数的原因。
+
+\begin{et}
+考虑函数 $f(x, y) = x^2 + y^2$。利用极坐标变换 $x = r \cos \theta, y = r \sin \theta$，将 $f$ 变换为关于 $(r, \theta)$ 的函数 $F(r, \theta)$，并计算 $\partial_r F$ 和 $\partial_\theta F$。
+\end{et}
+\begin{so}
+这里中间变量为 $x, y$，新变量为 $r, \theta$。
+首先计算 $f$ 关于 $x, y$ 的偏微变：
+$$ \partial_1 f(x, y) = 2x, \quad \partial_2 f(x, y) = 2y. $$
+接着计算坐标变换关于 $r, \theta$ 的偏微变：
+\begin{align*}
+\partial_r x(r,\theta) &= \cos \theta, & \partial_\theta x &= -r \sin \theta, \\
+\partial_r y(r,\theta) &= \sin \theta, & \partial_\theta y &= r \cos \theta.
+\end{align*}
+根据链式法则：
+\begin{align*}
+\partial_r F(r,\theta) &= \partial_1 f(x, y) \cdot \partial_r x(r,\theta) + \partial_2 f(x, y) \cdot \partial_r y(r,\theta) \\
+&= (2x)(\cos \theta) + (2y)(\sin \theta) \\
+&= 2(r \cos \theta)\cos \theta + 2(r \sin \theta)\sin \theta = 2r (\cos^2 \theta + \sin^2 \theta) \\
+&= 2r.
+\end{align*}
+同理计算 $\partial_\theta F$：
+\begin{align*}
+\partial_\theta F(r,\theta) &= \partial_1 f(x, y) \cdot \partial_\theta x(r,\theta) + \partial_2 f(x, y) \cdot \partial_\theta y(r,\theta) \\
+&= (2x)(-r \sin \theta) + (2y)(r \cos \theta) \\
+&= 2(r \cos \theta)(-r \sin \theta) + 2(r \sin \theta)(r \cos \theta) \\
+&= 0.
+\end{align*}
+结果为 $\partial_r F(r,\theta) = 2r, \partial_\theta F(r,\theta) = 0$。
+这与直接代入后的结果一致：$F(r, \theta) = (r \cos \theta)^2 + (r \sin \theta)^2 = r^2$。显然 $\partial_r (r^2) = 2r$，$\partial_\theta (r^2) = 0$。
+这个例子展示了链式法则的正确性。即使我们不知道复合后的简化形式，也可以通过链式法则计算出新坐标系下的变化率。
+\end{so}
+
+\begin{et}
+设 $z = f(x, y)$ 是可微函数，且满足方程 $\partial_{11} f + \partial_{22} f = 0$。若引入新变量 $u = x + y, v = x - y$，试将方程变换为关于 $u, v$ 的形式。
+\end{et}
+\begin{so}
+这是一个二阶偏微变方程的变换问题，需要多次使用链式法则。
+设$z = f(x,y) = F(u,v)$，其中：
+$$ F\;:\, (u,v) \mapsto f(x(u,v),y(u,v)). $$
+首先计算一阶偏微变：
+\begin{align*}
+    \partial_1 F(u,v) &= \partial_1 f(x,y)\cdot \partial_1 x(u,v) + \partial_2 f(x,y)\cdot \partial_1 y(u,v) =  \partial_1 f(x,y) \cdot 1 +  \partial_2 f(x,y) \cdot 1 \\
+    &=  \partial_1 f(x,y) +  \partial_2 f(x,y)
+\end{align*}
+同理可得$\partial_1 F(u,v) = \partial_1 f(x,y) - \partial_2 f(x,y)$。要注意的是，$\partial_1 f(x,y)$是关于$u,v$的函数，实际上指的是：
+$$ (u,v) \mapsto (\partial_1 f)(x(u,v),y(u,v)). $$
+很多情况下，我们也将这个结果简记为：
+\begin{align*}
+\partial_x z = \partial_u z + \partial_v z, \quad \partial_y z = \partial_u z - \partial_v z.
+\end{align*}
+接下来计算二阶偏微变。
+\begin{align*}
+\partial_{11} F(u, v) &= \partial_1(\partial_1 F(u,v)) = \partial_1\Big(\partial_1 f(x(u,v),y(u,v)) +  \partial_2 f(x(u,v),y(u,v))\Big) \\
+&= \partial_{11} f(x,y)\cdot  \partial_1 x(u,v) + \partial_{21} f(x,y)\cdot  \partial_1 y(u,v) \\
+&\phantom{=+}+
+ \partial_{12} f(x,y)\cdot  \partial_1 x(u,v) + \partial_{22} f(x,y)\cdot  \partial_1 y(u,v) \\
+&=  \partial_{11} f(x,y) + \partial_{21} f(x,y) + \partial_{12} f(x,y) + \partial_{22} f(x,y)
+\end{align*}
+同理可得 $\partial_{11} F(u, v) = \partial_{11} f(x,y) - \partial_{21} f(x,y) - \partial_{12} f(x,y) + \partial_{22} f(x,y)$。以上结果也简记为：
+\begin{align*}
+\partial_{xx} z &= \partial_{uu} z + \partial_{uv} z + \partial_{vu} z + \partial_{vv} z, \\
+\partial_{yy} z &= \partial_{uu} z - \partial_{uv} z - \partial_{vu} z + \partial_{vv} z.
+\end{align*}
+将两者相加，得到：
+\begin{align*}
+    \partial_{11} F(u, v) + \partial_{22} F(u, v) &= 2(\partial_{11} f(x,y) + \partial_{22} f(x,y)), \,\,\,\mbox{或}\\
+     \partial_{xx} z + \partial_{yy} z &= 2(\partial_{uu} z + \partial_{vv} z).
+\end{align*}
+于是原方程经坐标变换变为：
+$$ \partial_{11} f(x,y) + \partial_{22} f(x,y) = 0. \quad \mbox{或}\quad \partial_{uu} z + \partial_{vv} z = 0.$$
+这说明方程在坐标变换下形式保持不变。
+\end{so}
+
+坐标变换的链式法则不仅适用于二元函数，也适用于任意多元函数。其核心思想是一致的：总的变化率等于通过各个中间变量传递的“链条”上的变化率乘积之和。
+
+在处理物理问题时，坐标系的选择往往对应着对称性。例如，球对称的问题适合用球坐标系，轴对称的问题适合用柱坐标系。链式法则使我们能够在不同的坐标系之间自由切换，从而选择最适合解决问题的视角。
+
+\section{微变形式的不变性}
+
+在第一节中，我们定义了二元函数 $f: \mathbb{R}^2 \to \mathbb{R}$ 在点 $\mathbf{a}$ 处的全微变。如果 $f$ 在 $\mathbf{a}$ 处可微，那么存在一个平直变换 $\diff f(\mathbf{a})$，使得函数值的变化量可以用该变换近似表示。在直角坐标系 $(x, y)$ 下，这个平直变换作用在增量向量 $\mathbf{h} = (h_1, h_2)$ 上的结果为：
+$$ \diff f(\mathbf{a})(\mathbf{h}) = \partial_1 f(\mathbf{a}) h_1 + \partial_2 f(\mathbf{a}) h_2. $$
+为了书写方便，我们引入符号 $\mathrm{d}x, \mathrm{d}y$ 来分别表示自变量 $x, y$ 的增量 $h_1, h_2$。于是，全微变可以写成如下形式：
+$$ \mathrm{d}f = \partial_1 f \cdot \mathrm{d}x + \partial_2 f \cdot \mathrm{d}y. $$
+这个式子被称为函数 $f$ 的\textbf{微变形式}。
+
+在第二节讨论坐标系变换时，我们引入了中间变量。设 $x, y$ 不再是独立的自变量，而是另外两个变量 $u, v$ 的函数：
+$$ x = x(u, v), \quad y = y(u, v). $$
+这时，$f$ 最终成为了关于 $u, v$ 的复合函数 $F(u, v) = f(x(u, v), y(u, v))$。我们自然会问：此时 $f$ 的全微变形式会发生改变吗？也就是说，$\mathrm{d}f$ 是否仍然可以写成 $\partial_1 f \cdot \mathrm{d}x + \partial_2 f \cdot \mathrm{d}y$ 的样子，哪怕 $x, y$ 本身也是变量？
+
+答案是肯定的。这就是微变理论中一个非常重要且优美的性质：**微变形式的不变性**。
+
+\begin{tm}{\textbf{微变形式的不变性}}
+设二元函数 $f: \mathbb{R}^2 \to \mathbb{R}$ 在点 $(x, y)$ 处可微，而 $x, y$ 又是变量 $u, v$ 的可微函数：
+$$ x: \mathbb{R}^2 \to \mathbb{R}, \quad (u, v) \mapsto x(u, v), $$
+$$ y: \mathbb{R}^2 \to \mathbb{R}, \quad (u, v) \mapsto y(u, v). $$
+则复合函数 $F(u, v) = f(x(u, v), y(u, v))$ 的全微变 $\mathrm{d}F$ 具有如下形式：
+$$ \mathrm{d}F = \partial_1 f \cdot \mathrm{d}x + \partial_2 f \cdot \mathrm{d}y. $$
+其中 $\mathrm{d}x, \mathrm{d}y$ 分别是函数 $x(u, v), y(u, v)$ 关于变量 $u, v$ 的全微变：
+$$ \mathrm{d}x = \partial_1 x \cdot \mathrm{d}u + \partial_2 x \cdot \mathrm{d}v, $$
+$$ \mathrm{d}y = \partial_1 y \cdot \mathrm{d}u + \partial_2 y \cdot \mathrm{d}v. $$
+无论 $x, y$ 是独立自变量还是中间变量，全微变的形式 $\mathrm{d}f = \partial_1 f \cdot \mathrm{d}x + \partial_2 f \cdot \mathrm{d}y$ 保持不变。
+\end{tm}
+\begin{proof}
+根据第二节中的链式法则（坐标变换情形），复合函数 $F$ 关于 $u, v$ 的偏微变为：
+\begin{align*}
+\partial_u F &= \partial_1 f \cdot \partial_1 x + \partial_2 f \cdot \partial_1 y, \\
+\partial_v F &= \partial_1 f \cdot \partial_2 x + \partial_2 f \cdot \partial_2 y.
+\end{align*}
+根据全微变的定义，$F$ 关于 $u, v$ 的全微变 $\mathrm{d}F$ 应为：
+$$ \mathrm{d}F = \partial_u F \cdot \mathrm{d}u + \partial_v F \cdot \mathrm{d}v. $$
+将链式法则的结果代入上式：
+\begin{align*}
+\mathrm{d}F &= (\partial_1 f \cdot \partial_1 x + \partial_2 f \cdot \partial_1 y) \mathrm{d}u + (\partial_1 f \cdot \partial_2 x + \partial_2 f \cdot \partial_2 y) \mathrm{d}v \\
+&= \partial_1 f \cdot (\partial_1 x \cdot \mathrm{d}u + \partial_2 x \cdot \mathrm{d}v) + \partial_2 f \cdot (\partial_1 y \cdot \mathrm{d}u + \partial_2 y \cdot \mathrm{d}v).
+\end{align*}
+观察括号内的部分，它们正是 $x$ 和 $y$ 关于 $u, v$ 的全微变 $\mathrm{d}x$ 和 $\mathrm{d}y$。因此：
+$$ \mathrm{d}F = \partial_1 f \cdot \mathrm{d}x + \partial_2 f \cdot \mathrm{d}y. $$
+这与 $x, y$ 作为独立自变量时的全微变形式完全一致。证毕。
+\end{proof}
+
+这个定理的证明过程实际上展示了代数结构的兼容性。我们可以用\textbf{树图}来直观理解这一过程。在树图中，$\mathrm{d}f$ 位于顶端，$\mathrm{d}x, \mathrm{d}y$ 位于中间层，$\mathrm{d}u, \mathrm{d}v$ 位于底层。
+\begin{itemize}
+\item 从 $f$ 到 $x, y$ 的分支贡献了系数 $\partial_1 f, \partial_2 f$。
+\item 从 $x, y$ 到 $u, v$ 的分支贡献了系数 $\partial_1 x, \partial_2 x$ 等。
+\item 微变形式的不变性意味着，无论我们是否展开中间层，顶层相对于中间层的表达形式是固定的。
+\end{itemize}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[level distance=1.5cm,
+  level 1/.style={sibling distance=3cm},
+  level 2/.style={sibling distance=1.5cm}]
+  \node {$f$}
+    child {node {$x$}
+      child {node {$u$} edge from parent node[left] {$\partial_1 x$}}
+      child {node {$v$} edge from parent node[left] {$\partial_2 x$}}
+      edge from parent node[left] {$\partial_1 f$}
+    }
+    child {node {$y$}
+      child {node {$u$} edge from parent node[right] {$\partial_1 y$}}
+      child {node {$v$} edge from parent node[right] {$\partial_2 y$}}
+      edge from parent node[right] {$\partial_2 f$}
+    };
+  \draw[dashed, blue, thick] (-2, -0.5) -- (2, -0.5);
+  \node[blue] at (2.5, -0.5) {不变性边界};
+\end{tikzpicture}
+\caption*{微变形式不变性的树图示意}
+\end{figure}
+如上图所示，虚线上方展示了 $\mathrm{d}f$ 与 $\mathrm{d}x, \mathrm{d}y$ 的关系，虚线下方展示了 $\mathrm{d}x, \mathrm{d}y$ 与 $\mathrm{d}u, \mathrm{d}v$ 的关系。微变形式的不变性保证了我们可以在虚线处“切断”，只关注上半部分的形式，而不必关心下半部分的具体结构。
+
+\begin{et}
+设 $z = x^2 + y^2$，其中 $x = u \cos v, y = u \sin v$。利用微变形式的不变性计算 $\mathrm{d}z$，并由此求出 $\partial_u z$ 和 $\partial_v z$。
+\end{et}
+\begin{so}
+首先，无论 $x, y$ 是否依赖其他变量，$z$ 关于 $x, y$ 的全微变形式为：
+$$ \mathrm{d}z = \partial_x z \cdot \mathrm{d}x + \partial_y z \cdot \mathrm{d}y. $$
+计算偏微变：
+$$ \partial_x z = 2x, \quad \partial_y z = 2y. $$
+所以：
+$$ \mathrm{d}z = 2x \cdot \mathrm{d}x + 2y \cdot \mathrm{d}y. $$
+接下来，计算中间变量 $x, y$ 的全微变。由于 $x = u \cos v, y = u \sin v$，有：
+\begin{align*}
+\mathrm{d}x &= \partial_1 x \cdot \mathrm{d}u + \partial_2 x \cdot \mathrm{d}v = \cos v \cdot \mathrm{d}u - u \sin v \cdot \mathrm{d}v, \\
+\mathrm{d}y &= \partial_1 y \cdot \mathrm{d}u + \partial_2 y \cdot \mathrm{d}v = \sin v \cdot \mathrm{d}u + u \cos v \cdot \mathrm{d}v.
+\end{align*}
+将 $\mathrm{d}x, \mathrm{d}y$ 代入 $\mathrm{d}z$ 的表达式：
+\begin{align*}
+\mathrm{d}z &= 2x (\cos v \cdot \mathrm{d}u - u \sin v \cdot \mathrm{d}v) + 2y (\sin v \cdot \mathrm{d}u + u \cos v \cdot \mathrm{d}v) \\
+&= (2x \cos v + 2y \sin v) \mathrm{d}u + (-2x u \sin v + 2y u \cos v) \mathrm{d}v.
+\end{align*}
+最后，将 $x, y$ 换回 $u, v$ 的表达式：
+\begin{align*}
+2x \cos v + 2y \sin v &= 2(u \cos v) \cos v + 2(u \sin v) \sin v = 2u (\cos^2 v + \sin^2 v) = 2u, \\
+-2x u \sin v + 2y u \cos v &= -2(u \cos v) u \sin v + 2(u \sin v) u \cos v = 0.
+\end{align*}
+因此：
+$$ \mathrm{d}z = 2u \cdot \mathrm{d}u + 0 \cdot \mathrm{d}v = 2u \cdot \mathrm{d}u. $$
+根据全微变的定义，$\mathrm{d}z = \partial_u z \cdot \mathrm{d}u + \partial_v z \cdot \mathrm{d}v$。对比系数可得：
+$$ \partial_u z = 2u, \quad \partial_v z = 0. $$
+这与直接将 $x, y$ 代入 $z = u^2$ 后求导的结果一致。
+\end{so}
+
+微变形式的不变性不仅简化了计算，更具有深刻的几何意义。全微变 $\mathrm{d}f$ 本质上描述了函数图像（曲面）在一点处的切平面性质。切平面是一个几何对象，它的存在和性质不依赖于我们如何在底面上建立坐标系。
+当我们改变坐标系（即改变中间变量 $u, v$）时，我们只是换了另一种方式来描述底面上的同一个点。切平面本身并没有改变，因此描述切平面斜率信息的微变形式也不应改变。
+$\mathrm{d}x, \mathrm{d}y$ 可以看作底面上切向量的分量。无论我们用什么坐标系来度量这个切向量，它与梯度向量的内积（即函数值的变化量）应当是固定的。微变形式的不变性正是这一几何事实在代数上的反映。
+
+\begin{et}
+设方程 $x^2 + y^2 + z^2 = 1$ 确定了隐函数 $z = z(x, y)$。利用微变形式的不变性求 $\mathrm{d}z$。
+\end{et}
+\begin{so}
+令 $F(x, y, z) = x^2 + y^2 + z^2 - 1 = 0$。由于 $F$ 恒为常数 0，其全微变 $\mathrm{d}F$ 必为 0。
+根据微变形式的不变性，无论 $x, y, z$ 之间是否存在依赖关系，$F$ 的全微变形式均为：
+$$ \mathrm{d}F = \partial_x F \cdot \mathrm{d}x + \partial_y F \cdot \mathrm{d}y + \partial_z F \cdot \mathrm{d}z = 0. $$
+计算偏微变：
+$$ \partial_x F = 2x, \quad \partial_y F = 2y, \quad \partial_z F = 2z. $$
+代入得：
+$$ 2x \cdot \mathrm{d}x + 2y \cdot \mathrm{d}y + 2z \cdot \mathrm{d}z = 0. $$
+假设 $z \neq 0$，我们可以解出 $\mathrm{d}z$：
+$$ \mathrm{d}z = -\frac{2x \cdot \mathrm{d}x + 2y \cdot \mathrm{d}y}{2z} = -\frac{x}{z} \mathrm{d}x - \frac{y}{z} \mathrm{d}y. $$
+由此可直接读出 $z$ 关于 $x, y$ 的偏微变：
+$$ \partial_x z = -\frac{x}{z}, \quad \partial_y z = -\frac{y}{z}. $$
+这种方法避免了显式求解 $z = \pm\sqrt{1-x^2-y^2}$ 后再求导的繁琐过程，体现了微变形式不变性在处理隐函数问题时的优越性。
+\end{so}
+
+微变形式的不变性是链式法则的一种高级表现形式。它将复杂的变量依赖关系封装在 $\mathrm{d}x, \mathrm{d}y$ 内部，使得我们在处理外层函数 $f$ 时，可以暂时忽略内层结构。这种“分层处理”的思想是数学建模和科学计算中的核心策略。在后续的学习中，我们将看到这一性质如何推广到更多变量以及更复杂的几何结构中。
+
+\chapter{平直空间中的积合}
+% TODO 介绍二维平面与三维立体空间中的积分：面积分和体积分以及转化为累次积分
+
+\section{区域与分划}
+% TODO 讨论平面以及立体空间中的区域如何作为积分的支撑，建立有界连通区域、凸区域的概念，建立适合使用黎曼积分的平面区域定义以及分划方法。
+
+\section{累次积合}
+% TODO 讨论如何将面积分和体积分转化为二重积分和三重积分
+
+\section{积合的变量代换}
+% TODO 讨论坐标变换，雅可比矩阵以及极坐标、柱坐标、球坐标下的积分变换方法
+
+\section{积合的应用}
+% TODO 计算平面图形面积、空间立体体积、曲面面积。以质心、转动惯量、引力势、带电体电荷量等为例子。
+
+\chapter{向量场与边界积合}
+% TODO 讨论曲线和曲面上的积分，以及斯托克斯公式为代表的微积分定理
+
+\section{曲线上的累积}
+% TODO 第一型和第二型曲线积分
+
+\section{平面的微积互反律}
+% TODO 格林公式：区域上的二重积合 = 边界上的曲线积合
+% 直观：区域内部各个“小漩涡”的“旋转总和” = 边界上的“环流”
+
+\section{曲面上的积合}
+% TODO 曲面基础：参数化、法向量、曲面的定向。
+% 第一型和第二型曲面积分
+
+\section{空间中的微积互反律}
+% TODO 高斯公式：空间区域三重积合（散度） = 边界曲面通量 
+% 斯托克斯公式：曲面二重积合（旋度） = 边界曲线环流。
+
+\begin{appendix}
 
 \chapter{向量函数的变化}
 
@@ -1500,12 +2237,74 @@ $$ L(h_1,h_2) = h_1\partial_1 f(1,2) + h_2\partial_2 f(1,2) = 8h_1 + 5h_2. $$
 $$ f(1+h_1,2+h_2) \approx f(1,2) + 8h_1 + 5h_2 = 6 + 8h_1 + 5h_2. $$
 \end{so}
 
+\begin{tm}{\textbf{混合偏微变交换定理}}
+设二元函数$f$在点$\mathbf{a}=(a_1, a_2)$的某个邻域内有定义。如果$f$的二次偏微变函数$\partial_{12} f$和$\partial_{21} f$都在$\mathbf{a}$处连续，那么：
+$$ \partial_{12} f(\mathbf{a}) = \partial_{21} f(\mathbf{a}). $$
+\end{tm}
+\begin{proof}
+我们要证明先对第 2 个变量求偏微变、再对第 1 个变量求偏微变的结果，与相反次序的结果相等。
+根据偏微变的定义，$\partial_{12} f(\mathbf{a}) = \partial_1 (\partial_2 f)(\mathbf{a})$，而$\partial_{21} f(\mathbf{a}) = \partial_2 (\partial_1 f)(\mathbf{a})$。
+为了比较这两个量，我们构造一个包含函数$f$在$\mathbf{a}$附近四个点取值的“差分式”。
+设$h, k$是足够小的非零实数，使得点$(a_1+h, a_2+k)$仍在$f$的定义域内。定义数量$\Delta(h, k)$如下：
+$$ \Delta(h, k) = f(a_1+h, a_2+k) - f(a_1+h, a_2) - f(a_1, a_2+k) + f(a_1, a_2). $$
+这个式子可以看作是先对第一个变量变化$h$，再对第二个变量变化$k$所产生的总变化量的某种“混合差”。
+我们可以用两种不同的顺序对这个式子应用中值定理。
+
+\textbf{第一种顺序：先对$x$应用中值定理，再对$y$应用。}
+构造辅助函数$g(x)$：
+$$ g(x) = f(x, a_2+k) - f(x, a_2). $$
+那么$\Delta(h, k)$可以写为：
+$$ \Delta(h, k) = g(a_1+h) - g(a_1). $$
+由于$f$在邻域内可微（因为二次偏微变存在意味着一次偏微变存在），$g(x)$在$[a_1, a_1+h]$上连续，在$(a_1, a_1+h)$内可微。根据一元函数的中值定理，存在$\theta_1 \in (0, 1)$，使得：
+$$ \Delta(h, k) = g'(a_1 + \theta_1 h) \cdot h. $$
+计算$g'(x)$：
+$$ g'(x) = \partial_1 f(x, a_2+k) - \partial_1 f(x, a_2). $$
+代入得：
+$$ \Delta(h, k) = \left[ \partial_1 f(a_1 + \theta_1 h, a_2+k) - \partial_1 f(a_1 + \theta_1 h, a_2) \right] \cdot h. $$
+现在，我们将方括号内的部分看作关于第二个变量$y$的函数。构造辅助函数$\phi(y)$：
+$$ \phi(y) = \partial_1 f(a_1 + \theta_1 h, y). $$
+则方括号内的部分为$\phi(a_2+k) - \phi(a_2)$。由于$\partial_{21} f$存在，$\phi(y)$在$[a_2, a_2+k]$上可微。再次应用中值定理，存在$\theta_2 \in (0, 1)$，使得：
+$$ \phi(a_2+k) - \phi(a_2) = \phi'(a_2 + \theta_2 k) \cdot k = \partial_2 \partial_1 f(a_1 + \theta_1 h, a_2 + \theta_2 k) \cdot k. $$
+即：
+$$ \Delta(h, k) = \partial_{21} f(a_1 + \theta_1 h, a_2 + \theta_2 k) \cdot h k. $$
+
+\textbf{第二种顺序：先对$y$应用中值定理，再对$x$应用。}
+类似地，我们可以重新组合$\Delta(h, k)$：
+$$ \Delta(h, k) = \left[ f(a_1+h, a_2+k) - f(a_1, a_2+k) \right] - \left[ f(a_1+h, a_2) - f(a_1, a_2) \right]. $$
+构造辅助函数$\psi(y) = f(a_1+h, y) - f(a_1, y)$，先对$y$应用中值定理，再对$x$应用中值定理。
+经过完全类似的推导，存在$\eta_1, \eta_2 \in (0, 1)$，使得：
+$$ \Delta(h, k) = \partial_{12} f(a_1 + \eta_1 h, a_2 + \eta_2 k) \cdot h k. $$
+
+\textbf{取极限得出结论。}
+综合以上两种结果，当$h, k \neq 0$时，我们有：
+$$ \partial_{21} f(a_1 + \theta_1 h, a_2 + \theta_2 k) \cdot h k = \partial_{12} f(a_1 + \eta_1 h, a_2 + \eta_2 k) \cdot h k. $$
+消去非零因子$h k$，得：
+$$ \partial_{21} f(a_1 + \theta_1 h, a_2 + \theta_2 k) = \partial_{12} f(a_1 + \eta_1 h, a_2 + \eta_2 k). $$
+现在令$h \to 0, k \to 0$。由于$\theta_1, \theta_2, \eta_1, \eta_2 \in (0, 1)$，中间点$(a_1 + \theta_1 h, a_2 + \theta_2 k)$和$(a_1 + \eta_1 h, a_2 + \eta_2 k)$都趋于$\mathbf{a}=(a_1, a_2)$。
+根据题设条件，$\partial_{21} f$和$\partial_{12} f$都在$\mathbf{a}$处连续，因此：
+\begin{align*}
+\lian{(h,k)\to (0,0)} \partial_{21} f(a_1 + \theta_1 h, a_2 + \theta_2 k) &= \partial_{21} f(\mathbf{a}), \\
+\lian{(h,k)\to (0,0)} \partial_{12} f(a_1 + \eta_1 h, a_2 + \eta_2 k) &= \partial_{12} f(\mathbf{a}).
+\end{align*}
+因此，$\partial_{21} f(\mathbf{a}) = \partial_{12} f(\mathbf{a})$。证毕。
+\end{proof}
+
+\begin{sk}{思考：为什么需要连续性？}
+定理的条件中要求二次偏微变函数\textbf{连续}，这个条件能否减弱？
+事实上，可以证明只要其中一个混合偏微变（例如$\partial_{21} f$）在$\mathbf{a}$处存在，且另一个混合偏微变（$\partial_{12} f$）在$\mathbf{a}$的邻域内存在且在$\mathbf{a}$处连续，结论依然成立。
+但是，如果两个混合偏微变在$\mathbf{a}$处都存在但都不连续，结论可能不成立。
+例如函数：
+$$ f(x, y) = \begin{cases} \dfrac{xy(x^2-y^2)}{x^2+y^2} & (x, y) \neq (0, 0) \\ 0 & (x, y) = (0, 0) \end{cases} $$
+可以计算得出，在原点处$\partial_{12} f(0, 0) = -1$，而$\partial_{21} f(0, 0) = 1$。两者不相等。
+这说明，偏微变运算的顺序并不是无条件可交换的。连续性保证了局部变化的“稳定性”，消除了这种顺序依赖带来的差异。
+\end{sk}
+
 \begin{tm}{\textbf{复合向量函数的微变}}
     % TODO 介绍两个向量函数的复合函数的方向微变、偏微变和微直观如何计算。
 \end{tm}
 
 
-\end{appendices}
+\end{appendix}
 
 
 \end{document}

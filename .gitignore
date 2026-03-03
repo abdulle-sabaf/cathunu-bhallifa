@@ -278,6 +278,7 @@ TSWLatexianTemp*
 # 特定路径和文件
 code/
 .vscode/
+.continue/
 悟数学/*.rar
 src/高中数学/pics/**
 **/草稿*
