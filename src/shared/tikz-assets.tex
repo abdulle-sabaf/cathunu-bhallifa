@@ -1,0 +1,164 @@
+% 定义绘制带颜色顶点的三角形 pic (可复用组件)
+% 参数 1: 上顶点颜色, 参数 2: 左下顶点颜色, 参数 3: 右下顶点颜色
+\tikzset{
+    pics/tri/.style n args={3}{
+        code={
+            % 三角形顶点坐标
+            \coordinate (-T) at (0, 0.8);
+            \coordinate (-BL) at (-0.7, -0.4);
+            \coordinate (-BR) at (0.7, -0.4);
+            % 中心坐标
+            \coordinate (-C) at (0,0);             
+            % 绘制三角形边框
+            \draw[thick] (-T) -- (-BL) -- (-BR) -- cycle;
+            
+            % 绘制顶点大圆点 (仅填充颜色，无文字)
+            \fill[#1] (-T) circle (4pt);
+            \fill[#2] (-BL) circle (4pt);
+            \fill[#3] (-BR) circle (4pt);
+        }
+    },
+    pics/recta/.style n args={4}{
+        code={
+            % 长方形顶点坐标
+            \coordinate (-TL) at (-0.6, 0.85);
+            \coordinate (-TR) at (0.6, 0.85);
+            \coordinate (-BL) at (-0.6, -0.85);
+            \coordinate (-BR) at (0.6, -0.85);           
+            % 绘制边框
+            \draw[thick] (-TL) -- (-BL) -- (-BR) -- (-TR) -- cycle;
+            
+            % 绘制顶点大圆点 (仅填充颜色，无文字)
+            \fill[#1] (-TL) circle (4pt);
+            \fill[#2] (-BL) circle (4pt);
+            \fill[#3] (-BR) circle (4pt);
+            \fill[#4] (-TR) circle (4pt);
+        }
+    },
+    pics/hex/.style n args={3}{
+        code={
+            \def\R{#1}          
+            \def\a{#2}
+            \draw[Red] (0,0) circle (1.5pt);
+            \draw[line width=#3 pt] (\a:\R) -- (\a+60:\R) -- (\a+120:\R) -- (\a+180:\R) -- (\a+240:\R) -- (\a+300:\R) -- cycle;
+        }
+    },
+    pics/fang/.style n args={5}{
+        code={
+            \def\R{#5}
+            % 长方形顶点坐标
+            \coordinate (-TL) at (-0.5*\R, 0.5*\R);
+            \coordinate (-TR) at (0.5*\R, 0.5*\R);
+            \coordinate (-BL) at (-0.5*\R, -0.5*\R);
+            \coordinate (-BR) at (0.5*\R, -0.5*\R);           
+            % 绘制边框
+            \draw[thick] (-TL) -- (-BL) -- (-BR) -- (-TR) -- cycle;
+            
+            % 绘制顶点大圆点 (仅填充颜色，无文字)
+            \fill[#1] (-TL) circle (4*\R pt);
+            \fill[#2] (-BL) circle (4*\R pt);
+            \fill[#3] (-BR) circle (4*\R pt);
+            \fill[#4] (-TR) circle (4*\R pt);
+        }
+    },
+    pics/ben/.style n args={2}{
+        code={
+            \def\R{#1}
+            \def\a{#2}
+            \def\mu{0.8}
+            % 顶点坐标
+            \coordinate (T) at (\a:\R);      
+            \coordinate (TL) at (\a+60:\R);   
+            \coordinate (BL) at (\a+120:\R);      
+            \coordinate (TR) at (\a-60:\R);   
+            \coordinate (BR) at (\a-120:\R);  
+            \coordinate (B) at (\a+180:\R);                  
+            % 绘制边框
+            \draw[thick] (T) -- (TL) -- (BL) -- (B) -- (BR) -- (TR) -- cycle;
+            \draw[thick] (\a:\mu*\R) -- (\a+60:\mu*\R);
+            \draw[thick] (\a+120:\mu*\R) -- (\a+180:\mu*\R);
+            \draw[thick] (\a-120:\mu*\R) -- (\a-60:\mu*\R);
+            % \draw[densely dotted] circle (0.6*\R);
+            % \foreach \i in {0,...,5}{
+            %     \draw (\a+60*\i:\R) -- (\a+60*\i:1.25*\R);
+            % }
+        }
+    },
+    pics/cube/.style n args={9}{
+        code={
+            \def\R{#9}
+            \def\ax{0.27}
+            \def\ay{-0.35}
+            % 顶点坐标
+            %标准面（过中心）
+            \coordinate (TL) at (-0.5*\R, 0.5*\R);
+            \coordinate (TR) at (0.5*\R, 0.5*\R);
+            \coordinate (BL) at (-0.5*\R, -0.5*\R);
+            \coordinate (BR) at (0.5*\R, -0.5*\R); 
+            \coordinate (P) at (0.5*\R*\ax,0.5*\R*\ay);       
+            % 前面（更靠近观察者）       
+            \coordinate (TLQ) at ($(TL) + (P)$);
+            \coordinate (TRQ) at ($(TR) + (P)$);
+            \coordinate (BLQ) at ($(BL) + (P)$);
+            \coordinate (BRQ) at ($(BR) + (P)$);
+            % 后面（更远离观察者）    
+            \coordinate (TLH) at ($(TL) - (P)$);
+            \coordinate (TRH) at ($(TR) - (P)$);
+            \coordinate (BLH) at ($(BL) - (P)$);
+            \coordinate (BRH) at ($(BR) - (P)$);
+            % 绘制边框
+            \draw[thick] (BLH) -- (TLH) -- (TRH);
+            \draw[thick] (TLQ) -- (BLQ) -- (BRQ) -- (TRQ) -- cycle;
+            \draw[thick] (TLQ) -- (TLH) (TRQ) -- (TRH) (BLQ) -- (BLH);
+            \draw[densely dotted] (BRQ) -- (BRH) (BRH) -- (TRH) (BLH) -- (BRH);
+            
+            % 绘制顶点大圆点 (仅填充颜色，无文字)
+            \fill[#5] (TLH) circle (4*\R pt);
+            \fill[#6] (BLH) circle (4*\R pt);
+            \fill[#7] (BRH) circle (4*\R pt);
+            \fill[#8] (TRH) circle (4*\R pt);
+            \fill[#1] (TLQ) circle (4*\R pt);
+            \fill[#2] (BLQ) circle (4*\R pt);
+            \fill[#3] (BRQ) circle (4*\R pt);
+            \fill[#4] (TRQ) circle (4*\R pt);
+        }
+    },
+        pics/tetra/.style n args={9}{
+        code={
+            \def\na{#1}
+            \def\nb{#2}
+            \def\nc{#3}
+            \def\nd{#4}
+            \def\R{#5}
+        % 四个顶点的颜色参数
+
+        % 几何结构
+        \coordinate (V1) at (0.0982*\R,0.4818*\R);
+        \coordinate (V2) at (-0.4844*\R,-0.2125*\R);
+        \coordinate (V3) at (0.4844*\R,-0.1580*\R);
+        \coordinate (V4) at (0.2127*\R,-0.4818*\R);
+
+        % 六条棱
+        \draw[gray!50, densely dashed, line width=0.6pt] (V2)--(V3);
+        \draw[line width=0.8pt] (V1)--(V2);
+        \draw[line width=0.8pt] (V1)--(V3);
+        \draw[line width=0.8pt] (V1)--(V4);
+        \draw[line width=0.8pt] (V2)--(V4);
+        \draw[line width=0.8pt] (V3)--(V4);
+
+        % 四个顶点
+        \fill[#6] (V1) circle (2pt);
+        \fill[#7] (V2) circle (2pt);
+        \fill[#8] (V3) circle (2pt);
+        \fill[#9] (V4) circle (2pt);
+
+        % 固定编号
+        \node[above] at (V1) {$\na$};
+        \node[left] at (V2) {$\nb$};
+        \node[right] at (V3) {$\nc$};
+        \node[below] at (V4) {$\nd$};
+        }
+    }
+}
+
+\newsavebox{\groupgraphaloft}

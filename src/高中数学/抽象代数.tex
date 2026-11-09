@@ -711,32 +711,32 @@ $S$的交心集不一定包括$S$，因为$S$中元素未必与其他元素都�
 \end{align*}
 观得$x\in G$的轨迹$G(x)$即为其轨道，因此将$G$分划为多个同轨类。也就是说，如果$G$是有限群，那么其势为所有轨道长度之和。
 $$
-    |G| = \sum_{x\in \mathcal{O}(G)} |\mathcal{O}_x|.
+    |G| = \sum_{x\in \mathcal{O}_G(X)} |\mathcal{O}_x|.
 $$
-其中$\mathcal{O}(G)$是从每个同轨类中抽一个代表元得到的集合，也可以看作同轨类的集合。
+其中$\mathcal{O}_G(X)$是从每个同轨类中抽一个代表元得到的集合，也可以看作同轨类的集合。
 
 继续讨论其中长度为$1$的轨道。轨道长度是$1$，说明对应的群元素$x$往复后总是自己：
 $$\forall \; g\in G, \quad gxg^{-1} = x.$$
 这说明$x$就是心元。因此，我们可以按长度将轨道分为两类：轨道长度为$1$的为一类，轨道长度大于$1$的为另一类。而按照我们讨论的结果，前一类群元素的个数就是心群的势：
 \begin{align*}
-    |G| &= \sum_{x\in \mathcal{O}(G)\atop |\mathcal{O}_x| = 1} |\mathcal{O}_x| + \sum_{x\in \mathcal{O}(G)\atop |\mathcal{O}_x| > 1} |\mathcal{O}_x| \\
-    &= \big|\{x \in \mathcal{O}(G) \, \mid \, |\mathcal{O}_x| = 1\}\big| + \sum_{x\in \mathcal{O}(G)\atop |\mathcal{O}_x| > 1} |\mathcal{O}_x| =  \big|\{x \in G \, \mid \, |\mathcal{O}_x| = 1\}\big| + \sum_{x\in \mathcal{O}(G)\atop |\mathcal{O}_x| > 1} |\mathcal{O}_x| \\
-    &= |G^{\text{心}}| + \sum_{x\in \mathcal{O}(G)\atop |\mathcal{O}_x| > 1} |\mathcal{O}_x|.
+    |G| &= \sum_{x\in \mathcal{O}_G(X)\atop |\mathcal{O}_x| = 1} |\mathcal{O}_x| + \sum_{x\in \mathcal{O}_G(X)\atop |\mathcal{O}_x| > 1} |\mathcal{O}_x| \\
+    &= \big|\{x \in \mathcal{O}_G(X) \, \mid \, |\mathcal{O}_x| = 1\}\big| + \sum_{x\in \mathcal{O}_G(X)\atop |\mathcal{O}_x| > 1} |\mathcal{O}_x| =  \big|\{x \in G \, \mid \, |\mathcal{O}_x| = 1\}\big| + \sum_{x\in \mathcal{O}_G(X)\atop |\mathcal{O}_x| > 1} |\mathcal{O}_x| \\
+    &= |G^{\text{心}}| + \sum_{x\in \mathcal{O}_G(X)\atop |\mathcal{O}_x| > 1} |\mathcal{O}_x|.
 \end{align*}
 另一方面，有限群里，某个元素所属的轨道长度乘以其交心群的势得到群势。因此：
 $$
-    |G| = |G^{\text{心}}| + \sum_{x\in \mathcal{O}(G)\atop |\mathcal{O}_x| > 1} \frac{|G|}{|C_G(x)|}.
+    |G| = |G^{\text{心}}| + \sum_{x\in \mathcal{O}_G(X)\atop |\mathcal{O}_x| > 1} \frac{|G|}{|C_G(x)|}.
 $$
 我们把以上等式称为轨类长公式，它给出了同轨类长度和群势的关系。
 
 \begin{et}
     如果$|G| = p^n$，其中$p$是素数，$n$是正整数。那么按照轨类长公式得到：
 $$
-    p^n = |G| = |G^{\text{心}}| + \sum_{x\in \mathcal{O}(G)\atop |\mathcal{O}_x| > 1} \frac{|G|}{|C_G(x)|}.
+    p^n = |G| = |G^{\text{心}}| + \sum_{x\in \mathcal{O}_G(X)\atop |\mathcal{O}_x| > 1} \frac{|G|}{|C_G(x)|}.
 $$
 而根据群势定理，$C_G(x)$作为子群，其势为$|G|$的因数，因此总是$p$的乘方，于是$x$的轨道长度作为$|G|$除以$|C_G(x)|$的商还是$p$的乘方，要么是$1$，要么是$p$的乘方。而轨道长度等于$1$的元素被归入了心群，于是剩余轨道长度都是$p$的乘方，也就是$p$的倍数。因此，
 $$
-  |G^{\text{心}}| \tong{p} p^n - \sum_{x\in \mathcal{O}(G)\atop |\mathcal{O}_x| > 1} \frac{|G|}{|C_G(x)|} \tong{p} 0.
+  |G^{\text{心}}| \tong{p} p^n - \sum_{x\in \mathcal{O}_G(X)\atop |\mathcal{O}_x| > 1} \frac{|G|}{|C_G(x)|} \tong{p} 0.
 $$
 也就是说，$G$的中心群势为$p$的倍数。
 \end{et}

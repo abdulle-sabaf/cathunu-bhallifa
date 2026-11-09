@@ -1,6 +1,6 @@
 % File settings - applied to all
 % 导入第三方库
-% \usepackage[fontset=none]{ctex}
+\usepackage[fontset=none]{ctex}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{thmtools, thm-restate}
 \usepackage[most]{tcolorbox}
@@ -172,6 +172,16 @@
         \draw (-0.15em, 0.15em) -- (0.06em, -0.06em);
         \draw (45:0.15em) arc[start angle=45, end angle=225, radius=0.15em];
     \end{tikzpicture}
+    }
+}
+\renewcommand{\gcd}{     % 最大公约数
+    \mathord{
+        \tikz[baseline=0pt, trim left=-0.2em, trim right=0.6em] \draw (.25em,.5em) -- (0em,0em) -- (.5em,0em) -- cycle (0.25em,.5em) -- (.25em,0em);
+    }
+}
+\newcommand{\lcm}{       % 最小公倍数
+    \mathord{
+        \tikz[baseline=0pt, trim left=-0.2em, trim right=0.6em] \draw (.25em,0em) -- (0em,.5em) -- (.5em,.5em) -- cycle (.25em,0em) -- (.25em,.5em);
     }
 }
 % \newcommand{\ball}{
