@@ -4,8 +4,7 @@
 \input{../shared/settings_test2}
 \input{../shared/settings-alg}
 \input{../shared/tikz-assets}
-\usepackage{xpinyin}
-\geometry{top=2.5cm, bottom=2.5cm, left=3cm, right=2.5cm, 
+\geometry{a4paper,top=3.33cm, bottom=3.43cm, left=2.5cm, right=2.5cm, 
             headheight=15pt, includehead}
 
 \setCJKfamilyfont{hattei}{SimHei} % 定义字体
@@ -467,7 +466,7 @@ $$ \left\{\overline{0},\,\overline{1},\,\overline{2},\,\overline{3},\,\overline{
 
 \clearpage
 
-\section{练习}
+\section{习题}
 
 以下习题是帮助你理解刚刚讨论的概念的思想实验。在数学及类似的科学工作中，习题通常需要一些思考，会让你花费一些时间。本书并不会要求你反复琢磨每一段文字，大可以快速浏览内容，欣赏大略的思想。不过对于较为抽象的概念，只有经过一番思考，才能真正深入地理解其机理。因此，在习题上花费一些时间很正常，不要气馁。
 
@@ -1104,7 +1103,7 @@ $$ \left\{\overline{0},\,\overline{1},\,\overline{2},\,\overline{3},\,\overline{
 \end{figure}
 
 \vspace{12pt}
-首先引入第一个变换：把长方形水平翻转。它把长方形的左边和右边互换。我们称这个变换为$p$。于是我们得到了两个状态：初始状态$B_1$，以及$s$变换后的状态$B_2$。
+首先引入第一个变换：把长方形水平翻转。它把长方形的左边和右边互换。我们称这个变换为$p$。于是我们得到了两个状态：初始状态$B_1$，以及$p$变换后的状态$B_2$。
 
 \vspace{12pt}
 \begin{figure}[htbp]
@@ -1307,7 +1306,7 @@ $$ \left\{\overline{0},\,\overline{1},\,\overline{2},\,\overline{3},\,\overline{
 
 以身体向前作为初始状态，这些动作把身体状态顺次变成向前、向右、向后、向左。因此，一共有$4$个状态，和长方形的对称变换构成的群一样。
 
-但是，我们发现，这两个群的结构不相同。长方形的变换群里，所有变换重复$2$次之后都回到原状态。即便是$B_1$到$B_4$的变换，再重复一次也回到$B_1$。但是我们知道，向右转$4$次后，才会回到原来的站位。所以，长方体的对称变换里，没有和“向右转”一样的变换。
+但是，我们发现，这两个群的结构不相同。长方形的变换群里，所有变换重复$2$次之后都回到原状态。即便是$B_1$到$B_4$的变换，再重复一次也回到$B_1$。但是我们知道，向右转$4$次后，才会回到原来的站位。所以，长方形的对称变换里，没有和“向右转”一样的变换。
 
 另一方面，我们可以考虑这样的例子：墙上有甲乙两个开关，分别控制一盏电灯。每个开关都有两个状态：开和关。因此两个开关一共有四种状态。它们可以通过拨动甲开关和拨动乙开关来达到。我们可以据此画出对应的群的生成路径图。
 
@@ -1411,7 +1410,7 @@ $$ \left\{\overline{0},\,\overline{1},\,\overline{2},\,\overline{3},\,\overline{
 
 所以，这两个群尽管表面上不同，说的是不同的事情，但论及变换的结构，并没有不同。它们反应了两个不同事物的共同本质。我们还可以把两个开关换成两枚硬币，结果也是一样的。
 
-变换的路径图为我们揭示了一种抽象的规律。数学上，我们说这是一种结构上的等同关系。长方体的对称变换构成的群，和两个开关的变换构成的群\textbf{同构}。我们认为，这两个群是一样的结构。讨论这个群就等于讨论那个群，讨论那个群就等于讨论这个群，没有任何区别。这个抽象的群，我们称它为\textbf{矩群}，记作$\mathsf{J}_4$。
+变换的路径图为我们揭示了一种抽象的规律。数学上，我们说这是一种结构上的等同关系。长方形的对称变换构成的群，和两个开关的变换构成的群\textbf{同构}。我们认为，这两个群是一样的结构。讨论这个群就等于讨论那个群，讨论那个群就等于讨论这个群，没有任何区别。这个抽象的群，我们称它为\textbf{矩群}，记作$\mathsf{J}_4$。
 
 我们只想讨论群。所以，我们可以忽略各个例子里与群无关的东西。比如说，每个状态具体是什么，究竟是两个开关、两枚硬币还是一个长方形，其实不重要。我们就说它是一个节点，用一个圆点代替。而变换就是从一个节点指向另一个节点的箭头。变换的具体意义也不重要，重要的是变换之间的关系。即两个变换组合起来是哪个变换。于是我们可以为矩群画出以下的图：
 
@@ -1586,7 +1585,7 @@ $$ p\rightarrow q\rightarrow p = q, \qquad q\rightarrow p \rightarrow q = p. $$
 \end{itemize}
 
 \clearpage
-\section{练习}
+\section{习题}
 
 \begin{problemlist}
     \item 为以下的群列出变换能实现的所有状态，然后给出生成这些状态的方法。
@@ -1629,8 +1628,8 @@ $$ p\rightarrow q\rightarrow p = q, \qquad q\rightarrow p \rightarrow q = p. $$
             \def\r{1}
             \def\dx{2.8}
             \def\dy{1.25}
-            \def\ax{0.27}
-            \def\ay{-0.35}
+            \def\ax{0.37}
+            \def\ay{-0.2}
             \def\va{BrickRed}
             \def\vb{ForestGreen}
             \def\vc{MidnightBlue}
@@ -1641,8 +1640,13 @@ $$ p\rightarrow q\rightarrow p = q, \qquad q\rightarrow p \rightarrow q = p. $$
             \def\cd{LimeGreen}
             \def\rr{0.6}
             \begin{scope}
-            \draw[thick, densely dashed, Blue!70!gray] (-1.3*\dx*\r*\ax,-1.3*\dx*\r*\ay) -- (0,0);
-            \draw[thick, densely dashed, Blue!70!gray] (0.6*\dx*\r,0) -- (1.8*\dx*\r,0);
+            \draw[thick, densely dashed, Blue!70!gray] (-1.3*\dx*\r*\ax,-1.3*\dx*\r*\ay) -- (-{0.5*(1+\ax)*\r},-{0.5*(1+\ax)*\r*\ay/\ax});
+            \draw[dotted] (-{0.5*(1+\ax)*\r},-{0.5*(1+\ax)*\r*\ay/\ax}) -- (0.5*\r*\ax,0.5*\r*\ay);
+            \draw[thick, densely dashed, Blue!70!gray] (0.6*\dx*\r,0) -- (-0.5*\r+1.2*\dx*\r,0);
+            \draw[dotted] (-0.5*\r+1.2*\dx*\r,0) -- ({0.5*\r*(1+\ax)+1.2*\dx*\r},0);
+            \draw[thick, densely dashed, Blue!70!gray] ({0.5*\r*(1+\ax)+1.2*\dx*\r},0) -- (1.8*\dx*\r,0);
+            \fill[Blue!70!gray] (-0.5*\r+1.2*\dx*\r,0) circle (0.7pt);
+            \fill[gray] (0.5*\r+1.2*\dx*\r,0) circle (0.75pt);
             % No.1 (1 2 3 4 5 6 7 8)
             \pic at (0*\dx*\r,0*\dy*\r) {cube={\va}{\vb}{\vc}{\vd}{\ca}{\cb}{\cc}{\cd}{\r}};
             % No.1 (1 2 3 4 5 6 7 8)
@@ -1652,7 +1656,9 @@ $$ p\rightarrow q\rightarrow p = q, \qquad q\rightarrow p \rightarrow q = p. $$
             \pic at (2.4*\dx*\r,0*\dy*\r) {cube={\ca}{\va}{\vd}{\cd}{\cb}{\vb}{\vc}{\cc}{\r}};
             % No.11 (4 1 2 3 8 5 6 7) 朝左翻滚90度
             \pic at (-1.2*\dx*\r,0*\dy*\r) {cube={\vd}{\va}{\vb}{\vc}{\cd}{\ca}{\cb}{\cc}{\r}};
-            \draw[thick, densely dashed, Blue!70!gray] (0,0) -- (1.3*\dx*\r*\ax,1.3*\dx*\r*\ay);
+            \draw[thick, densely dashed, Blue!70!gray] (0.5*\r*\ax,0.5*\r*\ay) -- (1.3*\dx*\r*\ax,1.3*\dx*\r*\ay);
+            \fill[gray] (-0.5*\r*\ax,-0.5*\r*\ay) circle (0.7pt);
+            \fill[Blue!70!gray] (0.5*\r*\ax,0.5*\r*\ay) circle (0.75pt);
             \draw[very thick, RoyalBlue] (-0.22*\dx*\r+0.06,0.35*\r + \rr) arc [start angle=83, end angle=180, radius=\rr];
             \draw[-Latex,RoyalBlue,thick](-0.22*\dx*\r-\rr,0.35*\r-0.02) -- (-0.22*\dx*\r-\rr,0.35*\r-0.12);
             \end{scope}
@@ -1673,8 +1679,8 @@ $$ p\rightarrow q\rightarrow p = q, \qquad q\rightarrow p \rightarrow q = p. $$
     \begin{problemlist}
         \item 这两个变换，能否生成“往右转动$90^\circ$，左右面不变”？如何做到？
         \item 这两个变换，能否生成“往左转动$90^\circ$，上下面不变”？如何做到？
-        \item 考虑正方体对角顶点的连线，称为体心对角线。正方体有几条体心对角线？
-        \item 我们按照体心对角线与正方体朝上一面的交点（也是该面的四个顶点）来给相关体心对角线命名，分别称为左前、左后、右前、右后体心线。描述以左前体心线为轴的旋转变换如何确保正方体位置形状不变。这样的变换有几个？
+        \item 考虑正方体对角顶点的连线，称为顶心对角线。正方体有几条顶心对角线？
+        \item 我们按照顶心对角线与正方体朝上一面的交点（也是该面的四个顶点）来给相关顶心对角线命名，分别称为左前、左后、右前、右后顶心线。描述以左前顶心线为轴的旋转变换如何确保正方体位置形状不变。这样的变换有几个？
         \item 用$\tau$和$\sigma$能否生成上面提到的变换？如何做到？
         \item 考虑正方体一条棱和与它相对的棱。两条棱的连线过正方体中心。这样的连线称为对棱中线。正方体有几条对棱中线？
         \item 我们按照对棱中线与正方体朝上一面的交点（也是该面四条边的中点）来给相关对棱中线命名，分别称为前、后、左、右对棱线。描述以左对棱线为轴的旋转变换如何确保正方体位置形状不变。这样的变换有几个？
@@ -1746,23 +1752,23 @@ $$ e \;=\; p\rightarrow p \;=\; q\rightarrow q \;=\; p\rightarrow q\rightarrow p
         \arrayrulecolor{gray!50}
         \hline
         \arrayrulecolor{black}
-        $s_1$   & $s_1$ & $s_3$ & $s_2$ & $e$   & $r_1$ & $r_2$ \\
+        $s_1$   & $s_1$ & $s_3$ & $s_2$ & $e$   & $r_2$ & $r_1$ \\
         \arrayrulecolor{gray!50}
         \hline
         \arrayrulecolor{black}
-        $s_2$   & $s_2$ & $s_1$ & $s_3$ & $r_2$ & $e$   & $r_1$ \\
+        $s_2$   & $s_2$ & $s_1$ & $s_3$ & $r_1$ & $e$   & $r_2$ \\
         \arrayrulecolor{gray!50}
         \hline
         \arrayrulecolor{black}
-        $s_3$   & $s_3$ & $s_2$ & $s_1$ & $r_1$ & $r_2$ & $e$   \\
+        $s_3$   & $s_3$ & $s_2$ & $s_1$ & $r_2$ & $r_1$ & $e$   \\
         \hline
     \end{tabular}
 \end{table}
 
 \vspace{12pt}
-这个乘法表里列出了群$\mathsf{D}_3$里任意两个变换复合成另一个变换的规则。其中左起第一列和上数第一行是行头和列头，标记了作为“乘数”的元素，里面罗列了群的所有元素。而表格中则记录了元素相乘的结果。要找到两个变换复合的结果，只需要在行头中找到前一个变换，然后在行头中找到后一个变换，则它们分别所在的行和列相交处的内容，就是它们复合的结果。
+这个乘法表里列出了群$\mathsf{D}_3$里任意两个变换复合成另一个变换的规则。其中左起第一列和上数第一行是行头和列头，标记了作为“乘数”的元素，里面罗列了群的所有元素。而表格中则记录了元素相乘的结果。要找到两个变换复合的结果，只需要在行头中找到前一个变换，然后在列头中找到后一个变换，则它们分别所在的行和列相交处的内容，就是它们复合的结果。
 
-比如，如果我们想查询先$s_3$后$r_1$复合的结果：$r_1\rightarrow s_3$，就到左边行头里找到$r_1$：它在第$2$行；然后在上边列头里找到$s_3$：它在最后一列。于是，$r_1$和$s_3$复合的效果，就是第$2$行最后一列的内容：$s_1$：
+比如，如果我们想查询先$r_1$后$s_3$复合的结果：$r_1\rightarrow s_3$，就到左边行头里找到$r_1$：它在第$2$行；然后在上边列头里找到$s_3$：它在最后一列。于是，$r_1$和$s_3$复合的效果，就是第$2$行最后一列的内容：$s_1$：
 $$ s_1 = r_1\rightarrow s_3.$$
 反之，要填写这个表，也只需要按这个规则，把任两个变换复合的结果填进去即可。
 
@@ -1919,7 +1925,7 @@ $$ y = y\ast e = y\ast (a\ast x) = (y\ast a)\ast x = e\ast x = x. $$
 
 \clearpage
 
-\section{练习}
+\section{习题}
 
 \subsection*{群运算和乘法表}
 \begin{problemlist}
@@ -2671,7 +2677,7 @@ $$ y = y\ast e = y\ast (a\ast x) = (y\ast a)\ast x = e\ast x = x. $$
         \item 所有素数有理数关于有理数的乘法。素数有理数指能写成两个素数商的数。
         \item 模$n$的简化同余系关于同余类的乘法。简化同余系指与$n$互素的同余类的集合。
         \item 由$2$和$3$不断相乘、相除、取相反数得到的所有数的集合：$\{\pm 2^n3^m\,|\,n,m\in\mathbb{Z}\}$，关于有理数的乘法。
-        \item 分母为完全平方数的非零有理数的集合，关于有理数的乘法。
+        \item 分母为完全平方数的非零既约分数的集合，关于有理数的乘法。
     \end{problemlist}
     \item 验证以下的集合是否关于提到的运算构成群。
     \begin{problemlist}
@@ -2679,7 +2685,7 @@ $$ y = y\ast e = y\ast (a\ast x) = (y\ast a)\ast x = e\ast x = x. $$
         \item 实系数一元整式的集合$\mathbb{R}[X]$关于整式的加法。
         \item 整系数一元整式的集合$\mathbb{Z}[X]$关于整式的乘法。
         \item 实系数一元整式的集合$\mathbb{R}[X]$关于整式的乘法。
-        \item 实系数一元有理式的集合$\mathbb{R}(X)$关于整式的乘法。其中$\mathbb{R}(X)$是所有能表示为一元整式除以非零一元整式形式的式子的集合：
+        \item 实系数非零一元有理式的集合$\mathbb{R}(X)$关于整式的乘法。其中$\mathbb{R}(X)$是所有能表示为非零一元整式的商的式子的集合：
         \[ \mathbb{R}(X) = \left\{\frac{P(X)}{Q(X)}\,\bigg|\,P,Q\in\mathbb{R}[X],Q\neq0\right\}
         \]
         \item 偶系数一元整式的集合$\mathbb{B}[X]$关于整式的加法。其中$\mathbb{B}=\{2n\,\mid\,n\in\mathbb{Z}\}$。
@@ -3843,7 +3849,7 @@ $$ S = \{(x,y) \,\mid\, x\in \mathsf{C}_m,y\in \mathsf{C}_n\}. $$
 \begin{align*}
     (x_1, y_1) + (x_2, y_2) = (x_1+x_2, y_1+y_2)
 \end{align*}
-其中$x_1,x_2$是第一份$\mathsf{C}_n$样本中的元素，而$y_1,y_2$是第二份$\mathsf{C}_n$样本中的元素。
+其中$x_1,x_2$是第一份$\mathsf{C}_m$样本中的元素，而$y_1,y_2$是第二份$\mathsf{C}_n$样本中的元素。
 可以验证，$S$配备了这个运算，就满足了群的要求，成了一个群。而且，由于$\mathsf{C}_n$本身是交换群，所以$x_1+x_2=x_2+x_1$、$y_1+y_2=y_2+y_1$。于是
 \begin{align*}
     (x_1, y_1) + (x_2, y_2) = (x_1+x_2, y_1+y_2) = (x_2+x_1,y_2+y_1) = (x_2, y_2) + (x_1, y_1).
@@ -3913,7 +3919,7 @@ $$
 
 $\mathsf{C}_2\times \mathsf{C}_2$有$4$个元素，分别写为$(e_1,e_2)$、$(e_1,a_2)$、$(a_1,e_2)$、$(a_1,a_2)$。其中$\{e_1,a_1\}$是第一个$\mathsf{C}_2$，$\{e_2,a_2\}$是第二个$\mathsf{C}_2$。实际上，由于两个群独立变化，我们不需要如此严格区分。不致于混淆的时候，我们可以直接把这$4$个元素记为：$(e,e)$、$(e,a)$、$(a,e)$、$(a,a)$。
 
-再来考虑$\mathsf{C}_3\times \mathsf{C}_2$。我们可以类似地写出它的元素：$(e,e)$、$(e,b)$、$(a,e)$、$(a,b)$、$(a^2,e)$、$(a^2,b)$。注意这里我们使用乘法来表示$\mathsf{C}_2$和$\mathsf{C}_2$的群运算。它和我们见过的$\mathsf{D}_2$一样，有$6$个元素。但结构并不相同。从$(a,b)$出发，不断重复，可以得到：
+再来考虑$\mathsf{C}_3\times \mathsf{C}_2$。我们可以类似地写出它的元素：$(e,e)$、$(e,b)$、$(a,e)$、$(a,b)$、$(a^2,e)$、$(a^2,b)$。注意这里我们使用乘法来表示$\mathsf{C}_3$和$\mathsf{C}_2$的群运算。它和我们见过的$\mathsf{D}_3$一样，有$6$个元素。但结构并不相同。从$(a,b)$出发，不断重复，可以得到：
 \[
 \begin{array}{rr}
     (a,b)^1 =\; {\color{BrickRed}(a,\,b)}, &(a,b)^2 = (a^2,b^2) = {\color{BrickRed}(a^2,e)}, \\ (a,b)^3 = (a,b)(a^2,e) = (a^3,be) =\; {\color{BrickRed}(e\,,b)}, &
@@ -4040,7 +4046,7 @@ $\mathsf{C}_4\times \mathsf{C}_2$有$8$个元素：$(e,e)$、$(e,b)$、$(a,e)$�
     \label{fig:C4C4OrbitDiagram}
 \end{figure}
 
-反过来，是否任何交换群都可以通过交换群的架积得到呢？正式的群论教材会给出一般的结论。本书不做涉及。
+反过来，是否任何交换群都可以通过循环群的架积得到呢？正式的群论教材会给出一般的结论。本书不做涉及。
 
 \section{映轮群}
 
@@ -5355,7 +5361,7 @@ $$ \forall\;i=1,2,\cdots,n-1,\qquad \left(r^i\right)^{-1} \;=\; r^{n-i} \;=\; sr
 
 这是一个$10\times 10$的表格。能看出整张表被上下左右分为四块，像个“田”字。每块内部有自己的规律。上半区和下半区仿佛结构一致；左半区和右半区仿佛对称。这当然是因为我们把旋转$e,r,r^2,r^3,r^4$和翻转$s,rs,r^2s,r^3s,r^4s$两类按顺序分别排列了。
 
-乘法表的左上块显然就是循环群$\mathsf{C}_5$，也就是生成路径图里的上轮。右下块的元素和左上块一模一样，都只有$e,r,r^2,r^3,r^4$。左下和右上块的元素则都只有$s,rs,r^s,r^3s,r^4s$。把前者记为集合$E$，后者记为集合$S$，我们可以得到这样的规律：$E$中元素和$S$中元素复合，得到$S$中元素。$E$中元素自相复合，或$S$中元素自相复合，则得到$E$中元素。如果我们单纯考虑一枚硬币的翻转状态，也会得到同样的规律。也就是说，$\mathsf{D}_5$ 的乘法表，在大体上的行为，和二元循环群$\mathsf{C}_2$的$2\times 2$的乘法表一致。这个现象背后是群的一种关键的性质，在后面的章节将重点讨论。
+乘法表的左上块显然就是循环群$\mathsf{C}_5$，也就是生成路径图里的上轮。右下块的元素和左上块一模一样，都只有$e,r,r^2,r^3,r^4$。左下和右上块的元素则都只有$s,rs,r^2s,r^3s,r^4s$。把前者记为集合$E$，后者记为集合$S$，我们可以得到这样的规律：$E$中元素和$S$中元素复合，得到$S$中元素。$E$中元素自相复合，或$S$中元素自相复合，则得到$E$中元素。如果我们单纯考虑一枚硬币的翻转状态，也会得到同样的规律。也就是说，$\mathsf{D}_5$ 的乘法表，在大体上的行为，和二元循环群$\mathsf{C}_2$的$2\times 2$的乘法表一致。这个现象背后是群的一种关键的性质，在后面的章节将重点讨论。
 
 \vspace{12pt}
 % 视觉控制参数
@@ -6064,7 +6070,7 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
 
 分别研究后两类置换。恰好交换两个位置的置换，称为\textbf{对换}，即把一对物品交换。对换两次就是恒等变换。所有位置都变了的两个置换，一个把$1$变为$2$、把$2$变为$3$、把$3$变为$1$；一个把$1$变为$3$、把$3$变为$2$、把$2$变为$1$。这样把一组对象轮转移位的置换称为\textbf{轮换}。如果有$k$个对象被移位，就称为$k$\textbf{元轮换}，说轮换的长度是$k$。这两个轮换各自重复两次会变成对方。如果重复三次，那么都变为恒等变换。这个结构非常眼熟。我们猜想：$\mathsf{S}_3$就是映轮群$\mathsf{D}_3$。
 \begin{tm}\label{tm:4-20}
-    三元全置换群同构于三元映轮群：$\mathsf{S}_3\cong \mathsf{D}_3$。
+    三元全置换群同构于正三角形的映轮群：$\mathsf{S}_3\cong \mathsf{D}_3$。
 \end{tm}
 
 事实上确实如此。把正三角形的三个顶点视为固定位置，三个颜色编号为$1,2,3$，那么，$\mathsf{D}_3$里的各种变换就是$1,2,3$的置换。
@@ -6562,10 +6568,87 @@ $$T_i(i^{-1}\cdot j) = i\cdot(i^{-1}\cdot j) = (i\cdot i^{-1})\cdot j \; = \; e\
 
 当$n>3$时，全置换群的元素个数增长得非常快。$\mathsf{S}_4$有$24$个元素，$\mathsf{S}_5$有$120$个元素，$\mathsf{S}_6$则有$720$个元素了。这么多元素的群，十分复杂，只靠逐个元素去分析，已经不现实。我们可以勉强分析一下$\mathsf{S}_4$。$\mathsf{S}_4$的元素个数和第一章里提到的正方体的旋转群一样多。实际上，这两个群是同构的。
 
-为了看清这一点，我们可以考虑正方体的体对角线，即穿过正方体中心的对角线。体对角线有四条，把正方体的顶点分成四对。如果转动正方体保持位置形状不变，那么体对角线仍然是体对角线。所以，正方体的旋转变换实际上是四条体对角线的重排。把四条体对角线编号，那么正方体的任何旋转都对应一个$4$元置换。我们把这个对应关系记为映射$\phi$。
+\vspace{12pt}
+\begin{figure}[htbp]
+    \centering        
+    \begin{tikzpicture}
+        \def\r{1.25}
+        \def\dx{2.8}
+        \def\dy{1.25}
+        \def\ax{0.37}
+        \def\ay{-0.2}
+        \def\va{BrickRed}
+        \def\vb{ForestGreen}
+        \def\vc{MidnightBlue}
+        \def\vd{YellowOrange}
+        \def\ca{SkyBlue}
+        \def\cb{Yellow}
+        \def\cc{Lavender}
+        \def\cd{LimeGreen}
+        \def\rr{0.6}
+        \begin{scope}
+        \def\ga{1}
+        \coordinate (TL) at (-0.5*\r, 0.5*\r);
+        \coordinate (BR) at (0.5*\r, -0.5*\r); 
+        \coordinate (P) at (0.5*\r*\ax,0.5*\r*\ay);
+        \coordinate (TLQ) at ($(TL) + (P)$);
+        \coordinate (BRH) at ($(BR) - (P)$);
+        \draw[dotted] (TLQ) -- ($(TLQ)!{1+0.25}!(BRH)$);
+        \draw[thick, Blue!70!gray] ($(TLQ)!{1+0.25}!(BRH)$) -- ($(TLQ)!{1+\ga}!(BRH)$);
+        % No.1 (1 2 3 4 5 6 7 8)
+        \pic at (0*\dx*\r,0*\dy*\r) {cube={\va}{\vb}{\vc}{\vd}{\ca}{\cb}{\cc}{\cd}{\r}};
+        \draw[thick, Blue!70!gray] (TLQ) -- ($(BRH)!{1+\ga}!(TLQ)$);
+        \end{scope}
+        \begin{scope}[shift={(1*\dx*\r,0*\dy*\r)}]
+        \def\ga{0.5}
+        \coordinate (TR) at (0.5*\r, 0.5*\r);
+        \coordinate (BL) at (-0.5*\r, -0.5*\r);
+        \coordinate (P) at (0.5*\r*\ax,0.5*\r*\ay);
+        \coordinate (TRQ) at ($(TR) + (P)$);
+        \coordinate (BLH) at ($(BL) - (P)$);
+        \draw[thick, Blue!70!gray] (BLH) -- ($(TRQ)!{1+\ga}!(BLH)$);
+        \draw[dotted] (TRQ) -- (BLH);
+        % No.14 (5 6 2 1 8 7 3 4)
+        \pic at (0,0) {cube={\va}{\vb}{\vc}{\vd}{\ca}{\cb}{\cc}{\cd}{\r}};
+        \draw[thick, Blue!70!gray] ($(TRQ)!{-\ga}!(BLH)$) -- (TRQ);
+        \end{scope}
+        \begin{scope}[shift={(2*\dx*\r,0*\dy*\r)}]
+        \def\ga{0.3}
+        \coordinate (TL) at (-0.5*\r, 0.5*\r);
+        \coordinate (BR) at (0.5*\r, -0.5*\r); 
+        \coordinate (P) at (0.5*\r*\ax,0.5*\r*\ay);
+        \coordinate (TLH) at ($(TL) - (P)$);
+        \coordinate (BRQ) at ($(BR) + (P)$);
+        \draw[thick, Blue!70!gray] (TLH) -- ($(BRQ)!{1+\ga}!(TLH)$);
+        \draw[dotted] (BRQ) -- (TLH);
+        % No.3 (1 5 6 2 4 8 7 3)
+        \pic at (0,0) {cube={\va}{\vb}{\vc}{\vd}{\ca}{\cb}{\cc}{\cd}{\r}};
+        \draw[thick, Blue!70!gray] ($(BRQ)!{-\ga}!(TLH)$) -- (BRQ);
+        \end{scope}
+        \begin{scope}[shift={(3*\dx*\r,0*\dy*\r)}]
+        \def\ga{0.6}
+        \coordinate (TR) at (0.5*\r, 0.5*\r);
+        \coordinate (BL) at (-0.5*\r, -0.5*\r);
+        \coordinate (P) at (0.5*\r*\ax,0.5*\r*\ay);
+        \coordinate (TRH) at ($(TR) - (P)$);
+        \coordinate (BLQ) at ($(BL) + (P)$);
+        \draw[thick, Blue!70!gray] (TRH) -- ($(BLQ)!{1+\ga}!(TRH)$);
+        \draw[dotted] (BLQ) -- (TRH);
+        % No.6 (2 1 5 6 3 4 8 7)
+        \pic at (0,0) {cube={\va}{\vb}{\vc}{\vd}{\ca}{\cb}{\cc}{\cd}{\r}};
+        \draw[thick, Blue!70!gray] ($(BLQ)!{-\ga}!(TRH)$) -- (BLQ);
+        \end{scope}
+    \end{tikzpicture}
+    \caption{\texttt{正方体的四条顶心对角线}}
+    \label{fig:cube-body-diagonals-1}
+\end{figure}
 
-可以证明，映射$\phi$是双射。实际上，如果两个旋转对应同一个$4$元置换，就是说它们变换四个体对角线的结果相同，于是$8$个顶点作为体对角线的端点，也完全相同。这就说明两个旋转完全一致。这说明对应关系是单射。而由于两者元素个数相同，单射就是双射。此外，$\phi$传递群运算：旋转作为映射的复合，自然对应着体对角线变换的复合，因此对应$4$元置换的复合。因此，$\phi$是群的同构。正方体的旋转群，就是$\mathsf{S}_4$。
+为了看清这一点，我们可以考虑正方体的顶心对角线，即穿过正方体中心和一对顶点的对角线。顶心对角线有四条，把正方体的$8$个顶点分成四对。如果转动正方体保持位置形状不变，那么顶心对角线仍然是顶心对角线。所以，正方体的旋转变换实际上是四条顶心对角线的重排。把四条顶心对角线编号，那么正方体的任何旋转都对应一个$4$元置换。我们把这个对应关系记为映射$\phi$。
 
+可以证明，映射$\phi$是双射。实际上，如果两个旋转对应同一个$4$元置换，就是说它们变换四个顶心对角线的结果相同，于是$8$个顶点作为顶心对角线的端点，也完全相同。这就说明两个旋转完全一致。这说明对应关系是单射。但两个群元素个数相同，所以单射就是双射。此外，$\phi$传递群运算：旋转作为映射的复合，自然对应着顶心对角线变换的复合，因此对应$4$元置换的复合。因此，$\phi$是群的同构。正方体的旋转群，就是$\mathsf{S}_4$。
+\begin{tm}
+    四元全置换群同构于正方体的旋转群：$\mathsf{S}_4\cong\mathsf{T}_6$。
+\end{tm}
 
 \clearpage
 
@@ -6580,13 +6663,13 @@ $$T_i(i^{-1}\cdot j) = i\cdot(i^{-1}\cdot j) = (i\cdot i^{-1})\cdot j \; = \; e\
     \item \textbf{置换群}：集合到自身的双射构成的群，群运算为映射的复合。
     \item \textbf{对换}和\textbf{轮换}：恰好交换两个位置的置换称为对换。对换两次就是恒等变换。把一组对象每个都移到下一位，最后一个放到第一位，这样完全移位的置换称为轮换。
     \item \textbf{置换群定理}：所有群都同构于某个由置换构成的群。
-    \item \textbf{三元全置换群同构于三元映轮群}。
+    \item \textbf{三元全置换群同构于正三角形的映轮群}。
     \item \textbf{正方体的旋转群同构于四元全置换群}。
 \end{itemize}
 
 \clearpage
 
-\section{练习}
+\section{习题}
 
 \subsection*{循环群与交换群}
 \begin{problemlist}
@@ -9399,7 +9482,7 @@ $$ H = \langle a^i\rangle = \{a^i, a^{2i}, \cdots, a^n=e\}. $$
 
 \clearpage
 
-\section{练习}
+\section{习题}
 
 \begin{problemlist}
     \item 以下关于子群的说法，哪些是正确的？
@@ -11807,7 +11890,7 @@ $$ H = \langle a^i\rangle = \{a^i, a^{2i}, \cdots, a^n=e\}. $$
         \end{tabular}
 
     \end{tabular}
-    \caption{\texttt{$\mathsf{D}_3$乘法表，左上为子群$\{e,r,r^2\}$，右下为其往集$\{s,rs,r^2s\}$}}
+    \caption{\texttt{$\mathsf{D}_3$乘法表，行头、列头里，子群$\{e,r,r^2\}$与其往集$\{s,rs,r^2s\}$分开排列}}
     \label{fig:D3_quotient_C2_with_headers}
 \end{figure}
 
@@ -11930,7 +12013,7 @@ $$ (ah_1)\cdot (bh_2) = a(h_1b)h_2 = abhh_2 \in \, (a\cdot b)H. $$
 下面来证明它：
 \begin{proof}
     $\forall \; a,b\in G$，计算$(aH)\cdot(bH)$的具体元素：
-    \[\forall \; h_1,h_2\in H,\quad (ah_1)\cdot (ah_2) = ah_1bh_2.\]
+    \[\forall \; h_1,h_2\in H,\quad (ah_1)\cdot (bh_2) = ah_1bh_2.\]
     由于$bH = Hb$，有$h\in H$使得$h_1b=bh$，因此
     $$ (ah_1)\cdot (bh_2) = a(h_1b)h_2 = abhh_2 \in \, (a\cdot b)H. $$
     这说明$(aH)\cdot(bH) \subseteq (a\cdot b)H$。
@@ -12292,7 +12375,7 @@ $$ \quotient{\mathbb{Z}}{a\mathbb{Z}} = \{m + a\mathbb{Z}\,\mid\,m\in\mathbb{Z}\
 \[\forall\;a,b\in G_1,\quad \phi(a)\bullet \phi(b) \; = \; e_2\bullet e_2 \; = \; e_2 = \phi(a \cdot b).\]
 无论$G_2$有多少元素，平凡的群同态都成立。
 
-不过，我们总可以把群同态变为满同态。我们知道群同态的像总是子群，所以只要把到达集从整个群缩减为这个子群，群同态自然就是满同态了。因此，如果群同态$\phi:\;G_1\rightarrow G_2$是单同态，通过缩小到达集，我们总能构造出一个群同构。这个同构代表着我们在一个群$G_2$里找到了同构于$G_1$的子群$\phi(G_1)$。$\phi(G_1)$可能有别的方面的性质，但作为群，和$G_1$是一模一样的。因此，我们可以说：$G_2$中\textbf{嵌入}了$G_1$，或者说同态$\phi$把$G_1$\textbf{嵌入}了$G_2$，把$\phi$称为相关的\textbf{嵌同态}。比如比如图\ref{fig:group-homomorphism-2}中的$\theta$就是把$\mathsf{C}_3$嵌入$\mathsf{C}_6$的嵌同态。通过$\theta$，$\mathsf{C}_6$中嵌入了$\mathsf{C}_3$，因此，在这个意义上，可以说$\mathsf{C}_3$是$\mathsf{C}_6$的子群。
+不过，我们总可以把群同态变为满同态。我们知道群同态的像总是子群，所以只要把到达集从整个群缩减为这个子群，群同态自然就是满同态了。因此，如果群同态$\phi:\;G_1\rightarrow G_2$是单同态，通过缩小到达集，我们总能构造出一个群同构。这个同构代表着我们在一个群$G_2$里找到了同构于$G_1$的子群$\phi(G_1)$。$\phi(G_1)$可能有别的方面的性质，但作为群，和$G_1$是一模一样的。因此，我们可以说：$G_2$中\textbf{嵌入}了$G_1$，或者说同态$\phi$把$G_1$\textbf{嵌入}了$G_2$，把$\phi$称为相关的\textbf{嵌同态}。比如图\ref{fig:group-homomorphism-2}中的$\theta$就是把$\mathsf{C}_3$嵌入$\mathsf{C}_6$的嵌同态。通过$\theta$，$\mathsf{C}_6$中嵌入了$\mathsf{C}_3$，因此，在这个意义上，可以说$\mathsf{C}_3$是$\mathsf{C}_6$的子群。
 
 \section{群同态基本定理}
 是否任何群都可以嵌到另一个群里呢？比如，我们能否把$\mathsf{D}_3$嵌到$\mathsf{C}_3$或$\mathsf{J}_4$里？看起来不太可能。这是因为，$\mathsf{D}_3$有6个元素，太大了。放不到只有$3$个元素的$\mathsf{C}_3$和只有$4$个元素的$\mathsf{J}_4$。能不能变通一下呢？
@@ -12548,7 +12631,7 @@ $\psi$是单同态，因此，如果只考虑$\psi$的像，它就是同构。$\
 
 \clearpage
 
-\section{练习}
+\section{习题}
 
 \begin{problemlist}
     \item 以下的群和群元素是什么意思？解释你看到的表达式。
@@ -12764,7 +12847,7 @@ $\psi$是单同态，因此，如果只考虑$\psi$的像，它就是同构。$\
 举例来说，可以验证，上面提到的以$\mathsf{D}_3$的变换施于$X_6$的元素的方法，就满足这两个条件。
 
 \begin{df}
-    设$G$为群，$X$为非空集合，若有映射$\gamma:\; G\times X\;\longrightarrow \; X$满足上述两个条件，就称群$G$以$\gamma$显相于$X$，或以$\gamma$观群$G$于$X$，$G$在$X$上有\textbf{群观}，或称$G$在$X$上\textbf{显相}。我们称$X$为观$G$的\textbf{相集}。$\gamma$称为$G$在$X$上的\textbf{显相映射}，也称为\textbf{现相映射}、\textbf{显映射}或\textbf{现映射}，或称在$X$上\textbf{观群}$G$\textbf{之法}。$\gamma(a,x)$称为$a$\textbf{以}$\gamma$\textbf{施于}$x$\textbf{的相}或\textbf{结果}。
+    设$G$为群，$X$为非空集合，若有映射$\gamma:\; G\times X\;\longrightarrow \; X$满足上述两个条件，就称群$G$以$\gamma$显相于$X$，或以$\gamma$观群$G$于$X$，$G$在$X$上有\textbf{群观}，或称$G$在$X$上\textbf{显相}。我们称$X$为观$G$的\textbf{相集}。$\gamma$称为$G$在$X$上的\textbf{显相映射}，或称在$X$上\textbf{观群}$G$\textbf{之法}。$\gamma(a,x)$称为$a$\textbf{以}$\gamma$\textbf{施于}$x$\textbf{的相}或\textbf{结果}。
 \end{df}
 在正式的定义里，$X$可以是任意集合，与$G$不必有任何联系。$G$中元素也不必是$X$上的对称变换，变换效果仅仅受前面提到的两个规则约束。
 以下两个例子说明了这两个规则如何约束群显相的方式。首先我们可以验证前述$\mathsf{D}_3$操纵$X_6$的元素的方法满足规则。比如逆时针旋转$120$度的$r$和以竖直中轴翻转的$s$，分别把$X_6$中元素进行以下变换：
@@ -12782,7 +12865,7 @@ $\psi$是单同态，因此，如果只考虑$\psi$的像，它就是同构。$\
     (sr)(x_1)=x_5,\;(sr)(x_2)=x_4,\;(sr)(x_3)=x_3,\\
     (sr)(x_4)=x_2,\;(sr)(x_5)=x_1,\;(sr)(x_6)=x_6.
 \end{align*}
-对比可知：$sr$施于$X_6$，与$r$、$s$先后施于$X_6$效果完全相同。其他情况也可以一一验证。当然，这个效果是由我们对$\mathsf{D}_3$施于$X_6$的定义确定的。它说明我们定义的显相映射是合乎规则的。
+对比可知：$sr$施于$X_6$，与$r$、$s$先后施于$X_6$效果完全相同。其他情况也可以一一验证。当然，这个效果是由我们观$\mathsf{D}_3$于$X_6$之法确定的。它说明我们定义的显相映射是合乎规则的。
 
 下面给出一个不符合规则的显相映射的例子。设$\{e,a\}$是二元群，显相于三元集合$X_3=\{x_1,x_2,x_3\}$，我们规定显相映射$\gamma$为：
 \begin{align*}
@@ -12794,7 +12877,7 @@ $\psi$是单同态，因此，如果只考虑$\psi$的像，它就是同构。$\
 \]
 这说明$\gamma$无法遵循规则，不能当让$\{e,a\}$在$X_3$上显相的映射。
 
-问题的根源在于：群元素$a$在群内有$a^2=e$的性质，$\gamma$却试图让它施于$x_1$三次后才回到$x_1$。这与$a$的性质矛盾。这个反例揭示了一个重要的事实：群的结构决定了显相的可能形态。群中元素满足什么代数关系，它施于集合元素时就必须表现出相应的变换行为。群观不是任意的，它是群结构在外部集合上显出的相。
+问题的根源在于：群元素$a$在群内有$a^2=e$的性质，$\gamma$却试图让它施于$x_1$三次后才回到$x_1$。这与$a$的性质矛盾。这个反例揭示了一个重要的事实：群的结构决定了显相的可能形态。群中元素满足什么代数关系，它施于集合元素时就必须表现出相应的变换行为。群观不是任意的，它是群结构在外部集合上显出的相。观群不得法，就无法讨论群相。
 
 从以上两个规则，还能推出显相映射$\gamma$的以下基本性质：
 \begin{pp}\label{pp:7-10}
@@ -12910,7 +12993,57 @@ e(x_1) = x_1,\quad r(x_1) = x_2,\quad r^2(x_1) = x_3,\quad s(x_1) = x_1,\quad rs
 
 $X_6$被分成了两块：$\{x_1, x_3, x_5\}$和$\{x_2, x_4, x_6\}$。群作用不能把一块中的元素送到另一块中去。
 
-% [插图：正六边形，用两种颜色标注两组顶点$\{x_1,x_3,x_5\}$和$\{x_2,x_4,x_6\}$，用弧形箭头表示$\mathsf{D}_3$的作用在每组内部封闭，两组之间没有箭头相连。]
+\vspace{12pt}
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[thick]
+        % 参数设置
+        \def\r{1.2}
+        \def\p{0.3}
+        \def\ap{1.5}
+        \def\dx{4}
+        \def\dy{-3}
+        \begin{scope}[shift={(0*\dx*\r,0*\dy*\r)}]
+            \foreach \i in {0,...,8}{
+                \draw[densely dashed,gray!30] (30+60*\i:\r) circle (\p);
+            }
+            \foreach \i in {0,1,2}{
+                \draw[BrickRed] (30+120*\i:\r) circle (\p);
+                % \draw[RoyalBlue] (90+120*\i:\r) circle (\p);
+            }
+            \draw[->,thick,gray!50!Brown] (-60:0.3*\r) arc (-60:240:0.3*\r);
+            \filldraw[BrickRed] (30:\r) circle (\p);
+            % \filldraw[RoyalBlue] (90:\r) circle (\p);
+            \draw[dotted,gray!50!Brown] (90:\ap*\r) -- (-90:\ap*\r);
+            \draw[dotted,gray!50!Brown] (-30:\ap*\r) -- (150:\ap*\r);
+            \draw[dotted,gray!50!Brown] (-150:\ap*\r) -- (30:\ap*\r);
+        \end{scope} 
+        \begin{scope}[shift={(1*\dx*\r,0*\dy*\r)}]
+            \foreach \i in {0,...,8}{
+                \draw[densely dashed,gray!30] (30+60*\i:\r) circle (\p);
+            }
+            \foreach \i in {0,1,2}{
+                % \draw[BrickRed] (30+120*\i:\r) circle (\p);
+                \draw[RoyalBlue] (90+120*\i:\r) circle (\p);
+            }
+            \draw[->,thick,gray!50!Brown] (-60:0.3*\r) arc (-60:240:0.3*\r);
+            % \filldraw[BrickRed] (30:\r) circle (\p);
+            \filldraw[RoyalBlue] (90:\r) circle (\p);
+            \draw[dotted,gray!50!Brown] (90:\ap*\r) -- (-90:\ap*\r);
+            \draw[dotted,gray!50!Brown] (-30:\ap*\r) -- (150:\ap*\r);
+            \draw[dotted,gray!50!Brown] (-150:\ap*\r) -- (30:\ap*\r);
+        \end{scope} 
+        \begin{scope}[shift={(2*\dx*\r,0*\dy*\r)}]
+            \foreach \i in {0,1,2}{
+                \fill[BrickRed] (30+120*\i:\r) circle (\p);
+                \fill[RoyalBlue] (90+120*\i:\r) circle (\p);
+            }
+        \end{scope} 
+    \end{tikzpicture}
+    \label{fig:hexagon-orbits}
+    \caption{\texttt{正六边形顶点经$\mathsf{D}_3$变换的轨迹}}
+\end{figure}
+\vspace{8pt}
 
 \begin{df}
 以$\gamma$观群$G$于集合$X$。$G$中各元素施于$x\in X$，得到的相，称为$G$在$x$的\textbf{轨迹}，记为：
@@ -13025,14 +13158,220 @@ $$ G_x = \{a\in G\,|\,axa^{-1} = x\} = \{a\in G\,|\,ax = xa\}.$$
 而如果换一个角度，把$x$看作群变换来看，那么交心集就是它以往复观的定元集。
 
 \begin{ex}
-观正方体旋转群$G$（$24$个元素）于其$8$个顶点。取一个顶点$V_1$。哪些旋转保持$V_1$不动？只有绕通过$V_1$和其对心顶点的对角线（称为体心对角线）的旋转变换：旋转$0°$、$120°$、$240°$，共$3$个。所以$|G_{V_1}| = 3$。
+观正方体旋转群$G$（$24$个元素）于其$8$个顶点。取一个顶点$V_1$。哪些旋转保持$V_1$不动？只有绕通过$V_1$和其对心顶点的对角线（称为顶心对角线）的旋转变换：旋转$0°$、$120°$、$240°$，共$3$个。所以$|G_{V_1}| = 3$。
 
 观$G$于棱：取一条棱$E_1$。保持$E_1$不动的旋转是恒等变换和绕通过$E_1$中点与对棱中点的直线（称为对棱中线）旋转$180°$的变换，共$2$个。所以$|G_{E_1}| = 2$。
 
 观$G$于面：取一个面$F_1$。保持$F_1$不动的旋转：绕通过$F_1$中心与对面中心的直线（称为面心对角线）旋转$0°$、$90°$、$180°$、$270°$，共$4$个。所以$|G_{F_1}| = 4$。
-
-% [插图：正方体，分别用虚线标出一条体对角线（顶点定子群的旋转轴）、一条对边中点连线（边定子群的旋转轴）、一条对面中心连线（面定子群的旋转轴）。每条轴旁标注对应的旋转角度和定子群大小。]
 \end{ex}
+
+\vspace{8pt}
+\begin{figure}[htbp]
+    \centering        
+    \begin{tikzpicture}
+        \def\r{1}
+        \def\dx{2.8}
+        \def\dy{-2.5}
+        \def\ax{0.37}
+        \def\ay{-0.2}
+        \def\az{1.2}
+        \def\va{BrickRed}
+        \def\vb{ForestGreen}
+        \def\vc{MidnightBlue}
+        \def\vd{YellowOrange}
+        \def\ca{SkyBlue}
+        \def\cb{Yellow}
+        \def\cc{Lavender}
+        \def\cd{LimeGreen}
+        \def\rr{0.6}
+        \begin{scope}[shift={(0*\dx*\r,2*\dy*\r)}]
+            \def\R{1}
+            \def\ax{0.37}
+            \def\ay{-0.2}
+            % 顶点坐标
+            %标准面（过中心）
+            \coordinate (TL) at (-0.5*\R, 0.5*\R);
+            \coordinate (TR) at (0.5*\R, 0.5*\R);
+            \coordinate (BL) at (-0.5*\R, -0.5*\R);
+            \coordinate (BR) at (0.5*\R, -0.5*\R); 
+            \coordinate (P) at (0.5*\R*\ax,0.5*\R*\ay);       
+            % 前面（更靠近观察者）       
+            \coordinate (TLQ) at ($(TL) + (P)$);
+            \coordinate (TRQ) at ($(TR) + (P)$);
+            \coordinate (BLQ) at ($(BL) + (P)$);
+            \coordinate (BRQ) at ($(BR) + (P)$);
+            % 后面（更远离观察者）    
+            \coordinate (TLH) at ($(TL) - (P)$);
+            \coordinate (TRH) at ($(TR) - (P)$);
+            \coordinate (BLH) at ($(BL) - (P)$);
+            \coordinate (BRH) at ($(BR) - (P)$);
+            \coordinate (M) at (-2.4*\R,0);
+            \fill[LimeGreen] (TLQ) -- (TLH) -- (TRH) -- (TRQ) -- cycle;
+            \draw[thick, Blue!70!gray] (0,\az*\R) -- (0,0.5*\R) (0,{(0.5-0.5*\ax)*\R}) -- (0,-\az*\R);
+            \fill[RoyalBlue!60] (TLQ) -- (TLH) -- (BLH) -- (BLQ) -- cycle;
+            \fill[YellowOrange!70] (TLQ) -- (BLQ) -- (BRQ) -- (TRQ) -- cycle;
+            \fill[LimeGreen] ($(TLQ)+(M)$) -- ($(TLH)+(M)$) -- ($(TRH)+(M)$) -- ($(TRQ)+(M)$) -- ($(TLQ)+(M)$) -- cycle;
+            \node at (M) {$F_1$};
+        \end{scope}
+        \begin{scope}[shift={(3 *\dx*\r,2*\dy*\r)}]
+            \def\R{1}
+            \def\ax{0.37}
+            \def\ay{-0.2}
+            % 顶点坐标
+            %标准面（过中心）
+            \coordinate (TL) at (-0.5*\R, 0.5*\R);
+            \coordinate (TR) at (0.5*\R, 0.5*\R);
+            \coordinate (BL) at (-0.5*\R, -0.5*\R);
+            \coordinate (BR) at (0.5*\R, -0.5*\R); 
+            \coordinate (P) at (0.5*\R*\ax,0.5*\R*\ay);       
+            % 前面（更靠近观察者）       
+            \coordinate (TLQ) at ($(TL) + (P)$);
+            \coordinate (TRQ) at ($(TR) + (P)$);
+            \coordinate (BLQ) at ($(BL) + (P)$);
+            \coordinate (BRQ) at ($(BR) + (P)$);
+            % 后面（更远离观察者）    
+            \coordinate (TLH) at ($(TL) - (P)$);
+            \coordinate (TRH) at ($(TR) - (P)$);
+            \coordinate (BLH) at ($(BL) - (P)$);
+            \coordinate (BRH) at ($(BR) - (P)$);
+            \fill[LimeGreen] (TLQ) -- (TLH) -- (TRH) -- (TRQ) -- cycle;
+            \draw[thick, Blue!70!gray] (0,\az*\R) -- (0,0.5*\R) (0,{(0.5-0.5*\ax)*\R}) -- (0,-\az*\R);
+            \fill[RubineRed!70] (TLQ) -- (TLH) -- (BLH) -- (BLQ) -- cycle;
+            \fill[RoyalBlue!60] (TLQ) -- (BLQ) -- (BRQ) -- (TRQ) -- cycle;
+        \end{scope}
+        \begin{scope}[shift={(2*\dx*\r,2*\dy*\r)}]
+            \def\R{1}
+            \def\ax{0.37}
+            \def\ay{-0.2}
+            % 顶点坐标
+            %标准面（过中心）
+            \coordinate (TL) at (-0.5*\R, 0.5*\R);
+            \coordinate (TR) at (0.5*\R, 0.5*\R);
+            \coordinate (BL) at (-0.5*\R, -0.5*\R);
+            \coordinate (BR) at (0.5*\R, -0.5*\R); 
+            \coordinate (P) at (0.5*\R*\ax,0.5*\R*\ay);       
+            % 前面（更靠近观察者）       
+            \coordinate (TLQ) at ($(TL) + (P)$);
+            \coordinate (TRQ) at ($(TR) + (P)$);
+            \coordinate (BLQ) at ($(BL) + (P)$);
+            \coordinate (BRQ) at ($(BR) + (P)$);
+            % 后面（更远离观察者）    
+            \coordinate (TLH) at ($(TL) - (P)$);
+            \coordinate (TRH) at ($(TR) - (P)$);
+            \coordinate (BLH) at ($(BL) - (P)$);
+            \coordinate (BRH) at ($(BR) - (P)$);
+            \fill[LimeGreen] (TLQ) -- (TLH) -- (TRH) -- (TRQ) -- cycle;
+            \draw[thick, Blue!70!gray] (0,\az*\R) -- (0,0.5*\R) (0,{(0.5-0.5*\ax)*\R}) -- (0,-\az*\R);
+            \fill[SkyBlue!70] (TLQ) -- (TLH) -- (BLH) -- (BLQ) -- cycle;
+            \fill[RubineRed!70] (TLQ) -- (BLQ) -- (BRQ) -- (TRQ) -- cycle;
+        \end{scope}
+        \begin{scope}[shift={(1*\dx*\r,2*\dy*\r)}]
+            \def\R{1}
+            \def\ax{0.37}
+            \def\ay{-0.2}
+            % 顶点坐标
+            %标准面（过中心）
+            \coordinate (TL) at (-0.5*\R, 0.5*\R);
+            \coordinate (TR) at (0.5*\R, 0.5*\R);
+            \coordinate (BL) at (-0.5*\R, -0.5*\R);
+            \coordinate (BR) at (0.5*\R, -0.5*\R); 
+            \coordinate (P) at (0.5*\R*\ax,0.5*\R*\ay);       
+            % 前面（更靠近观察者）       
+            \coordinate (TLQ) at ($(TL) + (P)$);
+            \coordinate (TRQ) at ($(TR) + (P)$);
+            \coordinate (BLQ) at ($(BL) + (P)$);
+            \coordinate (BRQ) at ($(BR) + (P)$);
+            % 后面（更远离观察者）    
+            \coordinate (TLH) at ($(TL) - (P)$);
+            \coordinate (TRH) at ($(TR) - (P)$);
+            \coordinate (BLH) at ($(BL) - (P)$);
+            \coordinate (BRH) at ($(BR) - (P)$);
+            \fill[LimeGreen] (TLQ) -- (TLH) -- (TRH) -- (TRQ) -- cycle;
+            \draw[thick, Blue!70!gray] (0,\az*\R) -- (0,0.5*\R) (0,{(0.5-0.5*\ax)*\R}) -- (0,-\az*\R);
+            \fill[SkyBlue!70] (TLQ) -- (BLQ) -- (BRQ) -- (TRQ) -- cycle;
+            \fill[YellowOrange!70] (TLQ) -- (TLH) -- (BLH) -- (BLQ) -- cycle;
+        \end{scope}
+        \begin{scope}[shift={(0*\dx*\r,1*\dy*\r)}]
+            \def\ga{1.6}
+            \coordinate (TL) at (-0.5*\r+0.5*\r*\ax, 0.5*\r+0.5*\r*\ay);
+            \coordinate (TR) at (0.5*\r-0.5*\r*\ax, 0.5*\r-0.5*\r*\ay);
+            \coordinate (BL) at (-0.5*\r+0.5*\r*\ax, -0.5*\r+0.5*\r*\ay);
+            \coordinate (BR) at (0.5*\r-0.5*\r*\ax, -0.5*\r-0.5*\r*\ay); 
+            \coordinate (MA) at ($(BL)!0.5!(TL)$); 
+            \coordinate (MB) at ($(BR)!0.5!(TR)$);
+            \draw[thick,Blue!70!gray] ($(MA)!{1+0.6}!(MB)$) -- ($(MA)!{1+\ga}!(MB)$);
+            \draw[dotted] (MA) -- ($(MA)!{1+0.6}!(MB)$);
+            % No.1 (1 2 3 4 5 6 7 8)
+            \pic at (0*\dx*\r,0*\dy*\r) {cube={\va}{\vb}{\vc}{\vd}{\ca}{\cb}{\cc}{\cd}{\r}};
+            \draw[thick,Blue!70!gray] ($(MA)!{-\ga}!(MB)$) -- (MA);
+            \fill (MA) circle (0.8pt);
+            \fill (MB) circle (0.8pt);
+            \draw[thick] ($(TL) - (2*\r,0)$) -- ($(BL) - (2*\r,0)$);
+            \fill[\va] ($(TL) - (2*\r,0)$) circle (4*\r pt);
+            \fill[\vb] ($(BL) - (2*\r,0)$) circle (4*\r pt);
+            \node[left] at ($(MA) - (2*\r-0.56,-0.1)$) {$E_1$};
+        \end{scope}
+        \begin{scope}[shift={(1*\dx*\r,1*\dy*\r)}]
+            \def\ga{1.6}
+            \coordinate (TL) at (-0.5*\r+0.5*\r*\ax, 0.5*\r+0.5*\r*\ay);
+            \coordinate (TR) at (0.5*\r-0.5*\r*\ax, 0.5*\r-0.5*\r*\ay);
+            \coordinate (BL) at (-0.5*\r+0.5*\r*\ax, -0.5*\r+0.5*\r*\ay);
+            \coordinate (BR) at (0.5*\r-0.5*\r*\ax, -0.5*\r-0.5*\r*\ay); 
+            \coordinate (MA) at ($(BL)!0.5!(TL)$); 
+            \coordinate (MB) at ($(BR)!0.5!(TR)$);
+            \draw[thick,Blue!70!gray] ($(MA)!{1+0.6}!(MB)$) -- ($(MA)!{1+\ga}!(MB)$);
+            \draw[dotted] (MA) -- ($(MA)!{1+0.6}!(MB)$);
+            % No.6 (2 1 5 6 3 4 8 7)
+            \pic at (0,0) {cube={\vb}{\va}{\ca}{\cb}{\vc}{\vd}{\cd}{\cc}{\r}};
+            \draw[thick,Blue!70!gray] ($(MA)!{-\ga}!(MB)$) -- (MA);
+            \fill (MA) circle (0.8pt);
+            \fill (MB) circle (0.8pt);
+        \end{scope}
+        \begin{scope}
+            \def\ga{1}
+            \coordinate (TL) at (-0.5*\r, 0.5*\r);
+            \coordinate (BR) at (0.5*\r, -0.5*\r); 
+            \coordinate (P) at (0.5*\r*\ax,0.5*\r*\ay);
+            \coordinate (TLQ) at ($(TL) + (P)$);
+            \coordinate (BRH) at ($(BR) - (P)$);
+            \draw[thick, Blue!70!gray] ($(TLQ)!{1+0.25}!(BRH)$) -- ($(TLQ)!{1+\ga}!(BRH)$);
+            \draw[dotted] (TLQ) -- ($(TLQ)!{1+0.25}!(BRH)$);
+            % No.1 (1 2 3 4 5 6 7 8)
+            \pic at (0*\dx*\r,0*\dy*\r) {cube={\va}{\vb}{\vc}{\vd}{\ca}{\cb}{\cc}{\cd}{\r}};
+            \draw[thick, Blue!70!gray] (TLQ) -- ($(BRH)!{1+\ga}!(TLQ)$);
+            \fill[\va] ($(TLQ) - (2*\r,0)$) circle (4*\r pt);
+            \node at ($(TLQ) + (-2*\r,0.4)$) {$V_1$};
+        \end{scope}
+        \begin{scope}[shift={(1*\dx*\r,0*\dy*\r)}]
+            \def\ga{1}
+            \coordinate (TL) at (-0.5*\r, 0.5*\r);
+            \coordinate (BR) at (0.5*\r, -0.5*\r); 
+            \coordinate (P) at (0.5*\r*\ax,0.5*\r*\ay);
+            \coordinate (TLQ) at ($(TL) + (P)$);
+            \coordinate (BRH) at ($(BR) - (P)$);
+            \draw[thick, Blue!70!gray] ($(TLQ)!{1+0.25}!(BRH)$) -- ($(TLQ)!{1+\ga}!(BRH)$);
+            \draw[dotted] (TLQ) -- ($(TLQ)!{1+0.25}!(BRH)$);
+            % No.2 (1 4 8 5 2 3 7 6)
+            \pic at (0,0) {cube={\va}{\vd}{\cd}{\ca}{\vb}{\vc}{\cc}{\cb}{\r}};
+            \draw[thick, Blue!70!gray] (TLQ) -- ($(BRH)!{1+\ga}!(TLQ)$);
+        \end{scope}
+        \begin{scope}[shift={(2*\dx*\r,0*\dy*\r)}]
+            \def\ga{1}
+            \coordinate (TL) at (-0.5*\r, 0.5*\r);
+            \coordinate (BR) at (0.5*\r, -0.5*\r); 
+            \coordinate (P) at (0.5*\r*\ax,0.5*\r*\ay);
+            \coordinate (TLQ) at ($(TL) + (P)$);
+            \coordinate (BRH) at ($(BR) - (P)$);
+            \draw[thick, Blue!70!gray] ($(TLQ)!{1+0.25}!(BRH)$) -- ($(TLQ)!{1+\ga}!(BRH)$);
+            \draw[dotted] (TLQ) -- ($(TLQ)!{1+0.25}!(BRH)$);
+            % No.3 (1 5 6 2 4 8 7 3)
+            \pic at (0,0) {cube={\va}{\ca}{\cb}{\vb}{\vd}{\cd}{\cc}{\vc}{\r}};
+            \draw[thick, Blue!70!gray] (TLQ) -- ($(BRH)!{1+\ga}!(TLQ)$);
+        \end{scope}
+    \end{tikzpicture}
+    \caption{\texttt{固定正方体一个顶点、一条棱、一个面不变的旋转}}
+    \label{fig:cube-action-fix}
+\end{figure}
 
 上面的例子中，顶点数、棱数、面数，乘以相应每个对象的定子群元素个数，总得到同一个数：$24$。也就是正方体旋转群$G$的势。这是巧合吗？还是普遍规律？
 
@@ -13041,15 +13380,15 @@ $$ G_x = \{a\in G\,|\,axa^{-1} = x\} = \{a\in G\,|\,ax = xa\}.$$
     \hline
 相集 & $|G|$ & $|X|$ & $|G_x|$ \\ \hline
 顶点 & $24$ & $8$ & $3$ \\
-边 & $24$ & $12$ & $2$ \\
+棱 & $24$ & $12$ & $2$ \\
 面 & $24$ & $6$ & $4$ \\
     \hline
 \end{tabular}
 \end{center}
 
-再来看一些别的例子。观三元映轮群$\mathsf{D}_3$于正三角形的$3$个顶点，保持每个顶点不变的变换只有恒等变换和过该顶点的中线的翻转变换，共$2$个。乘以顶点数$3$，得到$6 = |\mathsf{D}_3|$。仍然符合规律。
+再来看一些别的例子。观映轮群$\mathsf{D}_3$于正三角形的$3$个顶点，保持每个顶点不变的变换只有恒等变换和过该顶点的中线的翻转变换，共$2$个。乘以顶点数$3$，得到$6 = |\mathsf{D}_3|$。仍然符合规律。
 
-但如果我们把正三角形换成正六边形呢？观三元映轮群$\mathsf{D}_3$于正六边形的$6$个顶点。如果$\mathsf{D}_3$中的翻转变换过正六边形的顶点，那么保持每个顶点不变的变换有$2$个：恒等变换和过该顶点的中线的翻转变换。但乘以顶点数$6$，得到$12$，不是$|\mathsf{D}_3|$了。
+但如果我们把正三角形换成正六边形呢？观映轮群$\mathsf{D}_3$于正六边形的$6$个顶点。如果$\mathsf{D}_3$中的翻转变换过正六边形的顶点，那么保持每个顶点不变的变换有$2$个：恒等变换和过该顶点的中线的翻转变换。但乘以顶点数$6$，得到$12$，不是$|\mathsf{D}_3|$了。
 
 所以，关键不在于顶点总数，在于每个顶点的轨迹长度。前面的例子里，群总显通相，所有元素的轨迹都贯通整个集合，所以轨迹长度等于集合的势。正六边形的例子里，两者不再相等，就能看出真正的规律了。正六边形中，每个顶点经$\mathsf{D}_3$的轨迹长度为$3$，而不是$6$。
 
@@ -13181,7 +13520,7 @@ $$ G_x = \{a\in G\,|\,axa^{-1} = x\} = \{a\in G\,|\,ax = xa\}.$$
 
 \section*{本章小结}
 
-本章回到"群是对称性的刻画，群元素是作用于集合的变换"这一根本观念，引入\textbf{群观}的概念。
+本章回到“群是对称性的刻画，群元素是作用于集合的变换”的根本观念，引入\textbf{群观}的概念。主要知识点如下：
 \begin{itemize}
     \item \textbf{群观与显相}：以显相映射$\gamma$观群$G$于集合$X$，须满足$\gamma(a,b)(x)=\gamma(a,\gamma(b,x))$与$\gamma(e,x)=x$。映射$a\mapsto\gamma_a$是$G$到$\mathsf{S}_X$的群同态。因此，\textbf{群观的本质就是群到置换群的同态}。
     \item \textbf{轨迹}：群元素就是$X$上的变换。从$x$出发，在$G$的所有变换下能到达的元素集合$\mathcal{O}_G(x)=\{a(x)\mid a\in G\}$。轨迹构成$X$的等价分划。若$X$只有一条轨迹，称$G$（以$\gamma$）\textbf{贯通}$X$，显\textbf{通相}于$X$。
@@ -13198,7 +13537,166 @@ $$ G_x = \{a\in G\,|\,axa^{-1} = x\} = \{a\in G\,|\,ax = xa\}.$$
 
 \clearpage
 
-\section{练习}
+\section{习题}
+
+\begin{problemlist}
+    \item 以下的映射$\gamma:\;G\times X\rightarrow X$是观群的显相映射吗？请说明理由。
+    \begin{problemlist}
+        \item $G$是$\{1,-1\}$关于乘法构成的群，$X=\{-1,0,1\}$。$\gamma(a,x)=a+x$。
+        \item $G$是$\{1,-1\}$关于乘法构成的群，$X=\{-1,0,1\}$。$\gamma(a,x)=ax$。
+        \item $G$是整数加法群$(\mathbb{Z},+)$，$X=\mathbb{Z}$。$\gamma(a,x)=x+a^2$。
+        \item $G$是模$5$加法群$\mathbb{Z}_5$，$X=\mathbb{Z}$。$\gamma(a,x)=ax$\footnote{此处的$ax$表示将$a$视为普通整数与$x$相乘。}。
+        \item $G$是正三角形的对称群$\mathsf{D}_3$，$X$是同中心的正方形顶点集合。$\gamma(a,x)=a(x)$表示以$a$变换$x$的结果。
+        \item $G$是平面直角坐标系中关于标准单位正方形（过原点和$(1,1)$，边长为$1$）的映轮群$\mathsf{D}_4$，$X=\{(m,n)\,|\,m,n\in\mathbb{Z}\}$是平面格点集合。$\gamma(a,x)=a(x)$表示以$a$变换$x$的结果。
+    \end{problemlist}
+    \item 群$G$有$35$个元素，集合$X$有$19$个元素。观$G$于集合$X$，使得$X$中元素轨迹长度都大于$1$。一共有几个轨迹？每个轨迹有多长？
+    \item 观群$G$于$X$，证明：$\forall x\in X$，$g\in G$，$g(x)$的定子群是$gG_xg^{-1}$。
+    \item 设$p$是素数，$n$是正整数，群$G$有$p^n$个元素。证明：$G$的中心不只有幺元$e$。
+    \item 设有限群$G$的势为$n$，$p$是$n$的最小素因数。$H$是$G$的子群，其元素个数为$\frac{n}{p}$。我们想证明$H\nsg G$。
+    \begin{problemlist}
+        \item 说明$H$有几个左往集。
+        \item 记$X$为$H$的所有左往集的集合。证明，可以：$\gamma (x,A)\mapsto xA$观$G$于$X$。
+        \item 记$G$到$\mathsf{S}_X$的自然群同态$\varphi:\;x\mapsto \gamma_x$的核为$N$，证明$N\subseteq H$。
+        \item 证明$N=H$。并说明为何$H\nsg G$。
+    \end{problemlist}
+\end{problemlist}
+
+\clearpage
+
+以下是可以用作正式测验的成套试题。每套试题都有一个主要问题。通过不断解答各个小问，可以逐步得到主要问题的答案。这些试题有两种使用方法。
+\begin{itemize}
+    \item 如果你希望检验自己通过本书掌握了多少知识和方法，可以严格地使用这些试题进行测试。每套试题大约需要$3\sim 4$个小时来解答。你不必答完一道题才开始答下一题，承认之前问题的结论并用来解决后面的问题是允许的。
+    \item 如果你只是希望借着做题来了解更多的知识，那么可以像之前的习题一样，在每小问上思考数分钟，如果仍然没有思路就查看参考解答。这些问题之间的联系和系统性更高，可以多体会问题之间的联系，思考其整体思路。
+\end{itemize}
+
+\clearpage
+
+\begin{center}
+    \Large \textbf{正方体与正四面体的旋转群}
+\end{center}
+
+本题的目的在于研究正方体旋转群$\mathsf{T}_6\cong\mathsf{S}_4$和正四面体的旋转群$\mathsf{A}_4$的关系。考虑备有直角坐标系的空间$\mathbb{R}^3$中的正方体。其顶点坐标为集合$V=\{(\pm1,\pm1,\pm1)\}$。 
+% 注：本书只用几何上的旋转变换定义A_4，而非用置换，因此需要用S_4和群论知识逐渐研究A_4。之前章节的习题研究了A_4的元素、生成路径图、对应的置换等等。现在要通过本题讨论A_4为何是S_4的子群，奇置换偶置换，以及index等概念。
+
+\subsubsection*{第一部分\quad 形体探究}
+    \begin{problemlist}
+        \item 考虑以下映射：
+        \begin{align*}
+            \phi\;:\qquad V\quad&\longrightarrow \; \{\pm 1\}\\
+            (x,y,z) &\longmapsto \;\; xyz
+        \end{align*}
+        它将正方体的顶点分为两组，记为集合$T^+:\{(x,y,z)\in V\,|\,xyz=1\}$、$T^-:\{(x,y,z)\in V\,|\,xyz=-1\}$。说明这样分类的$T^+,T^-$两组顶点有什么直观特征。
+        \item 证明：能够把正方体的顶点分为两个子集，每个子集对应一个正四面体的顶点。这样得到的正四面体的中心在哪里？
+        \item 证明：$\mathsf{T}_6$中通过面心的$90^\circ$旋转，把$T^+,T^-$互相变为对方。
+        \item 证明：$\mathsf{T}_6$中通过体心的$120^\circ$旋转，把$T^+,T^-$变为自身。
+        \item 证明：$\mathsf{T}_6$中通过对棱中线的$180^\circ$旋转，把$T^+,T^-$互相变为对方。
+        \item 证明：$\mathsf{T}_6$中任意变换$\tau$都把$T^+,T^-$映射到两者之一。即总有$\tau(T^+)=T^+$或$\tau(T^+)=T^-$，$\tau(T^-)=T^+$或$\tau(T^-)=T^-$。用$\phi$和$\tau$叙述这个性质。
+ \end{problemlist}
+
+\subsubsection*{第二部分\quad 观群}
+
+\begin{problemlist}[start=7]
+        \item 记$\mathsf{T} = \{T^+,T^-\}$，观$\mathsf{T}_6$于$\mathsf{T}$：
+        \begin{align*}
+            \gamma:\;\mathsf{T}_6\times \mathsf{T}&\longrightarrow\; \mathsf{T}\\
+            (\sigma,\,t) \;&\longmapsto \sigma(t)
+        \end{align*}
+        说明它确是观群法，且$\mathsf{T}_6$显通相。
+        \item 记$H\subg \mathsf{T}_6$为$T^+$的定子群。它有几个元素？说明它是往合子群。
+        \item 说明群同态$\varphi:\;\sigma\mapsto \gamma_\sigma$的核和像。
+        \item 证明商群$\quotient{\mathsf{T_6}}{H}$同构于$\mathsf{S}_\mathsf{T}$，它同构于哪个我们学过的群？    
+        \item 回忆：我们如何把$\mathsf{T}_6$中的变换与$\mathsf{S}_4$中的置换对应？$H$中的变换具体有哪些？对应哪些置换？
+        \item $H$中的变换如何变换$T^+$？说明$H$就是正四面体的旋转群$\mathsf{A}_4$。
+\end{problemlist}
+
+\subsubsection*{第三部分\quad 对换与奇偶性}
+
+\begin{problemlist}[start=13]
+        \item 正方体的哪种旋转对应$\mathsf{S}_4$中的对换？它属于$\mathsf{A}_4$吗？
+        \item 证明：通过正方体面心的$90^\circ$旋转可以表示为对换的复合。
+        \item 证明：$\mathsf{S}_4$中元素总能表示为对换的复合。
+        \item 证明：$\mathsf{A}_4$中的元素总能通过$\mathsf{S}_4$中元素重复两次得到：$\forall\sigma\in\mathsf{A}_4$，$\exists \tau\in\mathsf{S}_4$使得$\sigma=\tau^2$。
+        \item 证明：$\mathsf{A}_4$中的元素总能表示为偶数个对换的复合，$\mathsf{S}_4$中其余元素总能表示为奇数个对换的复合。
+        \item 考虑$\{\pm 1\}$关于乘法构成的群，仍记为$\{\pm 1\}$。用$\gamma_\sigma$给出一个从$\mathsf{S}_4$到$\{\pm 1\}$的群同态，使其核为$\mathsf{A}_4$。
+        \item 证明：$\mathsf{S}_4$中元素不可能既表示为偶数个对换的复合，又表示为奇数个对换的复合。
+\end{problemlist}
+
+\stardivider
+
+\clearpage
+
+\begin{center}
+    \Large \textbf{对称差积与置换的符号}
+\end{center}
+
+设正整数 $n\geqslant 2$。记 $\mathbb{R}[x_1,x_2,\cdots,x_n]$ 为所有 $n$ 元实系数整式的集合。
+对 $\sigma\in\mathsf{S}_n$ 与整式 $p$，规定
+\[
+    \gamma(\sigma,\,p) \;=\; p\!\left(x_{\sigma(1)},\,x_{\sigma(2)},\,\cdots,\,x_{\sigma(n)}\right),
+\]
+以下也简记为 $\sigma\cdot p$。记
+\[
+    \Delta_n \;=\; \prod_{1\leqslant i<j\leqslant n}\left(x_i-x_j\right).
+\]
+
+\subsubsection*{第一部分\quad 低维观察}
+
+\begin{problemlist}
+    \item 证明以 $\gamma$ 可观 $\mathsf{S}_n$ 于 $\mathbb{R}[x_1,x_2,\cdots,x_n]$ 。
+    （即说明它契义，并验证 $\gamma(e,p)=p$ 与 $\gamma(\sigma,\gamma(\tau,p))=\gamma(\sigma\tau,p)$。）
+    \item 设 $n=2$。计算 $(1\,2)\cdot\Delta_2$，并求 $\Delta_2$ 的轨迹与定子群。
+    \item 设 $n=3$。逐个计算
+    \[
+        e,\quad (1\,2),\quad (1\,3),\quad (2\,3),\quad (1\,2\,3),\quad (1\,3\,2)
+    \]
+    施于 $\Delta_3$ 的结果，列成表格。哪些置换保持 $\Delta_3$ 不变？哪些把它变号？
+    \item 根据第 $2$、$3$ 问的观察，猜想：对一般的 $n$ 与 $\sigma\in\mathsf{S}_n$，
+    $\sigma\cdot\Delta_n$ 与 $\Delta_n$ 之间有什么关系？
+\end{problemlist}
+
+\subsubsection*{第二部分\quad 符号同态}
+
+\begin{problemlist}[start=5]
+    \item 考虑二元集$\{i,j\}$的集合$\Gamma_n = \{\{i,j\}\,|\,1\leqslant i < j\leqslant n\}$。给定$\sigma\in\mathsf{S}_n$，考虑$\Gamma_n$上的映射$\phi_\sigma:\;\{i,j\}\mapsto \{\sigma(i),\sigma(j)\}$。证明它是双射。
+    \item 证明：存在唯一的 $\varepsilon(\sigma)\in\{1,-1\}$，使得
+    \[
+        \sigma\cdot\Delta_n \;=\; \varepsilon(\sigma)\,\Delta_n .
+    \]
+    \item 定义 $\sgn(\sigma)=\varepsilon(\sigma)$。设 $\{1,-1\}$ 关于数的乘法成群。
+    证明 $\sgn:\;\mathsf{S}_n\longrightarrow\{1,-1\}$ 是群同态。
+    \item 证明：任一对换 $(a\,b)$ 都满足 $\sgn\big((a\,b)\big)=-1$。
+    （提示：设 $a<b$，把 $\Delta_n$ 的因子分成三类：同时含 $a,b$ 的、恰含 $a,b$ 之一的、
+    两者都不含的。考察交换 $x_a,x_b$ 时每一类的变化。）
+    \item 求 $\Delta_n$ 的轨迹。记 $H_n$ 为 $\Delta_n$ 的定子群。
+    \begin{problemlist}
+        \item 用轨定定理求 $|H_n|$。
+        \item 说明 $H_n$ 是 $\mathsf{S}_n$ 的往合子群。
+        \item 商群 $\quotient{\mathsf{S}_n}{H_n}$ 同构于哪个我们学过的群？
+    \end{problemlist}
+\end{problemlist}
+
+\subsubsection*{第三部分\quad 奇偶性}
+
+\textbf{我们承认以下结论为真}：\textbf{$\boldsymbol{n}$元置换总可以写成有限个对换的复合。}以下各问可直接使用该结论。
+\begin{problemlist}[start=10]
+    \item 设 $\sigma=\tau_1\tau_2\cdots\tau_k$，其中每个 $\tau_i$ 都是对换。
+    \begin{problemlist}
+        \item 证明 $\sgn(\sigma)=(-1)^k$。
+        \item 说明 $k$ 的奇偶性由 $\sigma$ 唯一确定，与所用的分解方式无关。
+        \item 我们称 $\sgn(\sigma)=1$ 的置换为\textbf{偶置换}，$\sgn(\sigma)=-1$ 的置换为\textbf{奇置换}。
+        说明 $H_n$ 恰是全体偶置换构成的集合，记为 $\mathsf{A}_n$；
+        并说明全体奇置换恰好构成 $H_n$ 的另一个往集。
+    \end{problemlist}
+\end{problemlist}
+
+\subsubsection*{第四部分\quad 逆序数与例子}
+
+\begin{problemlist}[start=11]
+    \item 定义$\operatorname{inv}(\sigma)$为集合$\left\{(i,j)\;\middle|\; i<j,\ \sigma(i)>\sigma(j)\right\}$的势，称为 $\sigma$ 的\textbf{逆序数}。证明 $\sgn(\sigma)=(-1)^{\operatorname{inv}(\sigma)}$。
+    \item 对 $n=2,3,4$，按环圈形态列出 $\mathsf{S}_n$ 中各类元素的个数、$\sgn$ 的值以及逆序数的奇偶。若给出逆序数的精确值，须逐个核对。写出 $\mathsf{A}_2,\mathsf{A}_3,\mathsf{A}_4$ 的全部元素。
+\end{problemlist}
+
+\stardivider
 
 \chapter{计数定理} 
 
@@ -13331,7 +13829,7 @@ $$ G_x = \{a\in G\,|\,axa^{-1} = x\} = \{a\in G\,|\,ax = xa\}.$$
     \caption{\texttt{苯环对接各种组件得到的化合物}}
 \end{figure}
 
-举例来说，我们知道苯环是六个碳原子构成的环，可以理解为一个正六边形。它的每个碳原子都有一个能对外连接的氢键。这$6$个“接口”可以“接入”不同的组件，替换原有的氢原子，构成不同的分子。比如，其中两个氢键由甲基代替氢原子，就得到二甲苯。二甲苯有几种呢？天真的想法是计算$6$个位置中放两个甲基的方法，得到$15$。但显然这$15$种情况有大量重复的，因为旋转后可以互相得到，例如放在$2,3$位和放在$3,4$位、$4,5$位并无实际区别。实际上二甲苯只有三种——按照两个甲基之间隔着几个氢来分类——邻二甲苯、间二甲苯和对二甲苯。这个结果不难理解：两个甲基之间的“距离”相同的，自然就是同一种。“距离”最少是$0$，最多是$2$，因此一共有$0,1,2$三种。
+举例来说，我们知道苯环是六个碳原子构成的环，可以理解为一个正六边形。它的每个碳原子都有一个能对外连接的碳氢键。这$6$个“接口”可以“接入”不同的组件，替换原有的氢原子，构成不同的分子。比如，其中两个碳氢键由甲基代替氢原子，就得到二甲苯。二甲苯有几种呢？天真的想法是计算$6$个位置中放两个甲基的方法，得到$15$。但显然这$15$种情况有大量重复的，因为旋转后可以互相得到，例如放在$2,3$位和放在$3,4$位、$4,5$位并无实际区别。实际上二甲苯只有三种——按照两个甲基之间隔着几个氢来分类——邻二甲苯、间二甲苯和对二甲苯。这个结果不难理解：两个甲基之间的“距离”相同的，自然就是同一种。“距离”最少是$0$，最多是$2$，因此一共有$0,1,2$三种。
 
 对于更复杂的情况，这种简单分类的想法就行不通了。比如：每个位置可以是原生的氢，也可以接入甲基或硝基，这时有几种不同的结构呢？直接数数，你恐怕难以得到结果，而且还会担心数重了或数漏了。这时候，我们需要系统、有理论支撑的方法来进行计算。而群作为表示对称性的抽象结构，就派上用场了。
 
@@ -13727,17 +14225,17 @@ $$ |S^g| = 3^{c(g)}.$$
 $$ C^X = \{f\,|\, f:X\rightarrow C\}.$$
 $C^X$中每个元素都是从$X$到$C$的映射。
 
-底座集合$X$有某种对称结构或性质，可归纳为群$G$。$G$以$\gamma$显相于$X$，把$X$中元素变换为另一个元素。此外，群$G$也以$\Gamma$显相于$X$，把一种染色方案变换为另一种方案。两个群相的显相映射$\Gamma,\gamma$之间有天然的关系：
+底座集合$X$有某种对称结构或性质，可归纳为群$G$。$G$以$\gamma$显相于$X$，把$X$中元素变换为另一个元素。此外，群$G$也以$\Gamma$显相于$S$，把一种染色方案变换为另一种方案。两个群相的显相映射$\Gamma,\gamma$之间有天然的关系：
 $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f)(\gamma(g,a)) = f(a). $$
 其中$\Gamma(g,f)$表示变换$g$施于染色方案$f$得到的新方案。$\gamma(g,a)$表示变换$g$施于$a$得到的新位置，或者说变成的新元素。以上等式的含义是：原方案中位置$a$（或者说元素$a$）的染色结果，经过变换$g$，在新方案中，被移到了新的位置上。这说明，群变换只是变换底座集合中各个元素，原方案的映射“本质”通过群变换并没有改变，只是转移位置。这也是我们能够通过对称性合并方案，得到本质相同的方案的基础。
 
-在此基础上，我们通过群$G$到$\mathsf{S}_{X}$的同构，把群元素映射到底座集合上的置换，然后统计各个置换的环圈。记$g$对应置换的环圈个数为$c(g)$。则一个染色方案经$g$不变，当且仅当它对应的置换把同环圈的底座元素都映射到同一个颜色。这样的染色方案，就是把同属一个环圈的元素“捆绑处理”，视为单个元素。因此，所有这样的染色方案个数就是$|C|^{c(g)}$。于是得到结论：
+在此基础上，我们通过群$G$到$\mathsf{S}_{X}$的同态，把群元素映射到底座集合上的置换，然后统计各个置换的环圈。记$g$对应置换的环圈个数为$c(g)$。则一个染色方案经$g$不变，当且仅当它对应的置换把同环圈的底座元素都映射到同一个颜色。这样的染色方案，就是把同属一个环圈的元素“捆绑处理”，视为单个元素。因此，所有这样的染色方案个数就是$|C|^{c(g)}$。于是得到结论：
 \begin{tm}[染色计数定理]\label{tm:8-20}
     用集合$C$中颜色给对称性由$G$描述的集合$X$中的元素染色，所有本质不同的染色方案的个数为：
     \[
         |\mathcal{O}_{G}(C^X)| = \frac{\sum_{g\in G}|C|^{c(g)}}{|G|}.
     \] 
-    其中$C^X = \{f\,|\, f:S\rightarrow C\}.$
+    其中$C^X = \{f\,|\, f:X\rightarrow C\}.$
 \end{tm}
 
 \section{更进一步的计数}
@@ -13840,7 +14338,436 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
 
 \clearpage
 
-\section{练习}
+\section{习题}
+
+\begin{problemlist}
+    \item \textbf{正方体面染色问题}。给定一个正方体，其$6$个面可以用红、蓝两种颜色染色。
+    \begin{problemlist}
+        \item 如果不考虑任何对称性（即对称群只包含恒等变换$e$），有多少种染色方法？
+        \item 如果只允许绕某一条特定的体心对角线（例如连接左下前和右上后顶点的轴）进行旋转，有多少种本质不同的染色方法？
+        \item 如果允许保持某一对特定对面（例如顶面和底面）作为集合不变的所有旋转（即绕垂直轴旋转，以及绕水平轴和对角轴翻转$180^\circ$），有多少种本质不同的染色方法？
+        \item 如果允许正方体的所有旋转（即完整的旋转群$\mathsf{T}_6$），有多少种本质不同的染色方法？
+        \item 如果允许用红、蓝、绿三种颜色给正方体的面染色，以上各个情形的染色方法会变成多少种？
+        \item 对比以上五问的答案，随着允许的对称操作增多，本质不同的染色方案数如何变化？随着颜色种类增多，本质不同的染色方案数如何变化？尝试从“对称轴的数量”和“群势”的角度给出直观解释。
+    \end{problemlist}
+    \item \textbf{正五边形染色问题}。给定正五边形：所有边长相等，所有内角都是$108^\circ$。
+    \begin{problemlist}
+        \item 不考虑对称性，用红、蓝两种颜色给正五边形的顶点染色，有几种染色方法？
+        \item 如果允许旋转和翻转，用红、蓝两种颜色给正五边形的顶点染色，有几种染色方法？
+        \item 如果允许旋转和翻转，用红、蓝、绿三种颜色给正五边形的顶点染色，有几种染色方法？
+        \item 如果只允许旋转，用红、蓝两种颜色给正五边形的顶点染色，有几种染色方法？
+        \item 如果只允许旋转，用红、蓝、绿三种颜色给正五边形的顶点染色，有几种染色方法？
+        \item 对比以上四问的答案，解释在允许与不允许翻转的情形下，用两种颜色染色和用三种颜色染色的答案有何差异？理由是什么？
+        \item 如果只允许旋转和过特定一个顶点的翻转，用红蓝两种颜色给正五边形的顶点染色，有几种染色方法？
+    \end{problemlist}
+\end{problemlist}
+
+\clearpage
+
+以下是可以用作正式测验的成套试题。每套试题都有一个主要问题。通过不断解答各个小问，可以逐步得到主要问题的答案。这些试题有两种使用方法。
+\begin{itemize}
+    \item 如果你希望检验自己通过本书掌握了多少知识和方法，可以严格地使用这些试题进行测试。第一套试题大约需要$2\sim 3$个小时来解答。第二套试题大约需要$3\sim 4$个小时来解答。你不必答完一道题才开始答下一题，承认之前问题的结论并用来解决后面的问题是允许的。
+    \item 如果你只是希望借着做题来了解更多的知识，那么可以像之前的习题一样，在每小问上思考数分钟，如果仍然没有思路就查看参考解答。这些问题之间的联系和系统性更高，可以多体会问题之间的联系，思考其整体思路。
+\end{itemize}
+
+\clearpage
+
+\begin{center}
+    \Large \textbf{六氟化硫的旋转异构体}
+\end{center}
+
+六氟化硫（$\mathrm{SF}_6$）是一种气体分子。它的空间结构是正八面体：硫原子位于中心，六个氟原子分别位于正八面体的六个顶点，这六个位置的地位完全相同。现在设想把其中若干个氟原子换成氯原子，得到 $\mathrm{SF}_{6-k}\mathrm{Cl}_k$ 这样的化合物。理论上，这样的替换一共能产生多少种不同的空间结构\footnote{其中哪些分子能实际制得，属于化学实验的问题，不在本题讨论范围内。}？
+
+在三维空间中，分子可以自由转动。如果两种原子排布能够通过转动完全重合，化学上就把它们看作同一种分子；如果无论怎样转动都不能重合，它们就是不同的分子，称为\textbf{旋转异构体}。例如，当只有两个氯原子时，若这两个氯原子位于正八面体相对的两个顶点，化学上称为\textbf{反式}结构；若位于相邻的两个顶点，则称为\textbf{顺式}结构。
+
+下面分四部分，把这个化学问题逐步改写成本章能够处理的计数问题，并完成计算。各小问都可以直接使用前面小问的结论。
+
+\vspace{12pt}
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[
+        line cap=round,
+        line join=round
+    ]
+    % ==============================
+    % Parameters
+    % ==============================
+    \def\OctaRadius{2.0}     % Distance from center to vertex
+    \def\VertexRadius{1.5pt} % Radius of vertex circles
+
+    % Projection parameters
+    \def\Azimuth{37}         % Horizontal viewing angle
+    \def\Elevation{68}       % Vertical viewing angle
+    % ==============================
+    % 3D projection
+    % ==============================
+    \tdplotsetmaincoords{\Elevation}{\Azimuth}
+
+    \begin{scope}[tdplot_main_coords, scale=\OctaRadius]
+
+        % Six vertices
+        \coordinate (Xp) at (1,0,0);
+        \coordinate (Xm) at (-1,0,0);
+        \coordinate (Yp) at (0,1,0);
+        \coordinate (Ym) at (0,-1,0);
+        \coordinate (Zp) at (0,0,1);
+        \coordinate (Zm) at (0,0,-1);
+
+        % Edges
+        \draw (Zp)--(Xp) (Zp)--(Xm) (Zp)--(Yp) (Zp)--(Ym);
+        \draw (Xp)--(Ym)--(Xm) (Xp)--(Yp);
+        \draw[dashed] (Xm)--(Yp);
+        \draw (Zm)--(Xp) (Zm)--(Ym);
+        \draw[dashed] (Zm)--(Xm) (Zm)--(Yp);
+        % \draw[-Stealth] (-2,0,0) -- (2,0,0);
+        % \draw[-Stealth] (0,-2,0) -- (0,2,0);
+        % \draw[-Stealth] (0,0,-2) -- (0,0,2);
+
+        % Vertex circles
+        \foreach \P in {Xp,Xm,Yp,Ym,Zp,Zm}
+            \fill (\P) circle[radius=\VertexRadius];
+
+    \end{scope}
+
+    \end{tikzpicture}
+    \caption{\texttt{正八面体}}
+    \label{fig:regular-octahedron}
+\end{figure}
+
+\subsubsection*{第一部分\quad 化归数学问题}
+\begin{problemlist}
+    \item 本题中，本章所说的底座集合$X$与颜色集合$C$分别是什么？说明为什么“一种原子排布”就是$X$到$C$的一个映射，并求出不考虑转动时的排布总数$|S|$，其中$S=C^X$定义为所有$X$到$C$映射的集合。
+    \item “两种排布能通过转动重合就是同一种分子”，用第七章的语言应当怎样表述？据此说明：本题要求的答案等于什么？
+    \item 本章处理苯环时用的是映轮群$\mathsf{D}_6$，其中包含翻转；本题却只允许旋转。说明这两种做法并不矛盾。（提示：苯环的六个取代位置在同一平面内，正八面体的六个顶点不在同一平面内。想一想，把一个平面分子在空间中翻个面，究竟是不是旋转。）
+\end{problemlist}
+
+\subsubsection*{第二部分\quad 数清对称群}
+\begin{problemlist}[start=4]
+    \item 正八面体任一顶点可以被转到六个顶点位置中的哪一个？确定之后，正八面体还能怎样转动而不改变这个顶点的位置？由此说明正八面体的旋转共有多少个。把这个群记为$G$。
+    \item 正八面体有$6$个顶点、$8$个面、$12$条棱。把过中心并连接一对相对顶点、一对相对面中心、一对相对棱中点的直线，分别称为顶点轴、面心轴、棱中轴。
+    \begin{problemlist}
+        \item 三类轴各有几条？
+        \item 绕每类轴转动多少度能让正八面体回到原位？每条轴上除恒等变换外有几个旋转？
+        \item 把三类旋转与恒等变换加起来，核对是否等于第$4$问的结果。
+    \end{problemlist}
+    \item 把六个顶点按空间方位命名为上、下、左、右、前、后，其中上与下相对，左与右相对，前与后相对。于是“上—下”是一条顶点轴，左、右、前、后四个顶点围成赤道上的正方形。作为示范，写出绕上下轴（从上往下看逆时针）转$90^\circ$时六个顶点各自的变化，把它写成环圈分解，并给出环圈数$c(g)$。
+\end{problemlist}
+
+\subsubsection*{第三部分\quad 从旋转到环圈，再到计数}
+\begin{problemlist}[start=7]
+    \item 旋转$g$把一种排布$f$变成另一种排布。按本章的约定，这句话说的是：原来在位置$a$上的原子，被搬到了位置$g(a)$上。
+    \begin{problemlist}
+        \item “$g$定住$f$”（即$f\in S^g$）等价于对每个位置$a$有什么要求？
+        \item 由此说明：同一个环圈里的位置必须放同一种原子，不同环圈之间互不影响。
+        \item 用环圈数$c(g)$写出$|S^g|$。
+    \end{problemlist}
+    \item 绕上下轴转$180^\circ$：写出环圈分解与$c(g)$。
+    \item 取上、右、前三个顶点围成的面，它的对面由下、左、后三个顶点围成。绕这条面心轴转$120^\circ$与$240^\circ$：写出环圈分解与$c(g)$。
+    \item 取连接上与前的棱，它的相对棱连接下与后。绕这条棱中轴转$180^\circ$：写出环圈分解与$c(g)$。
+    \item 把第$6$、$8$、$9$、$10$问的结果整理成一张表，列出每类旋转的个数、环圈形态、$c(g)$与$2^{c(g)}$，并核对个数之和。
+    \item 用染色计数定理求出本质不同的排布总数，也就是旋转异构体的总数。
+\end{problemlist}
+
+\subsubsection*{第四部分\quad 回到化学}
+\begin{problemlist}[start=13]
+    \item 现在固定氯原子恰好两个，即$\mathrm{SF}_4\mathrm{Cl}_2$。
+    \begin{problemlist}
+        \item 不考虑转动，从六个位置中选两个放氯原子，有多少种选法？
+        \item 按两个氯原子“相对”还是“相邻”分类，各有多少种？说明每一类中的选法都能通过旋转互相得到。
+        \item 由此说明$\mathrm{SF}_4\mathrm{Cl}_2$恰有两种旋转异构体，并指出哪一种是顺式、哪一种是反式。
+    \end{problemlist}
+    \item 用轨定定理核对上一问：两种异构体各自的轨迹有多长？定子群各有几个元素？试着把反式构型的定子群中的旋转找出来。
+    \item 再看氯原子恰好三个的情形。按“三个氯原子两两相邻”与“三个氯原子中有一对相对”分类，各有多少种选法？核对总数，并说明$\mathrm{SF}_3\mathrm{Cl}_3$也恰有两种旋转异构体。
+    \item 逐个列出$k=0,1,\cdots,6$时$\mathrm{SF}_{6-k}\mathrm{Cl}_k$的异构体数目，核对它们的和是否等于第$12$问的结果。特别说明$k=0,1,5,6$时为什么都只有一种，以及$k=2$与$k=4$的结果为什么相同。
+    \item 用本章介绍的方法重新计算“恰好两个氯原子”的情形：对每类旋转写出对应的整式$P_g$，求其中$a^2b^4$的系数（$a$记氯，$b$记氟），再求和取平均，核对是否仍得$2$。
+\end{problemlist}
+
+\stardivider
+
+\clearpage
+
+\begin{center}
+    \Large \textbf{同构的简单无向图}
+\end{center}
+
+\textbf{图论}是数学中讨论多个事物之间关联的理论。把实际问题中“某某与某某有关”、“某某与某某无关”这样的信息抽离出来，就是图论讨论的内容。一个\textbf{图}由顶点和边构成。顶点表示我们关心的对象，而边则用来描述对象之间的关系。在图论里，我们不关注顶点和边的具体位置，只关注顶点之间是否有边相连。顶点与边共同形成的结构，本身有丰富的性质，能帮助我们了解复杂现象背后的规律。
+
+一个图里，两个顶点之间可能没有边相连，也可能有好几条边相连。如果规定两点之间至多有一条边相连，就说它是\textbf{简单图}。有些图的边标明了方向，从一个顶点指向另一个顶点，这样的图叫做\textbf{有向图}。规定边没有方向的图叫做\textbf{无向图}。$n$元简单无向图就是$n$个顶点构成的简单且无向的图。
+
+\vspace{12pt}
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+        \def\r{3pt}
+        \begin{scope}
+            \coordinate (A1) at (-0.5,0);
+            \coordinate (A2) at (1,0.2);
+            \coordinate (A3) at (-0.3,0.8);
+            \coordinate (A4) at (-1.1,-0.4);
+            \coordinate (A5) at (0.6,-0.7);
+            \coordinate (A6) at (-0.2,-1.2);
+            \draw[-Triangle, shorten <=\r, shorten >=\r] (A1) -- (A3);
+            \draw[-Triangle, shorten <=\r, shorten >=\r] (A3) -- (A2);
+            \draw[-Triangle, shorten <=\r, shorten >=\r] (A3) -- (A5);
+            \draw[-Triangle, shorten <=\r, shorten >=\r] (A5) -- (A4);
+            \draw[-Triangle, shorten <=\r, shorten >=\r] (A5) -- (A6);
+            \foreach \i in {1,...,6}{
+                \fill (A\i) circle[radius=\r];
+            }
+            \node at (0, -1.8) {\texttt{有向图}};
+        \end{scope}
+        \begin{scope}[shift={(5,0)}]
+            \coordinate (A1) at (-0.5,0);
+            \coordinate (A2) at (1,0.2);
+            \coordinate (A3) at (-0.3,0.8);
+            \coordinate (A4) at (-1.1,-0.4);
+            \coordinate (A5) at (0.6,-0.7);
+            \coordinate (A6) at (-0.2,-1.2);
+            \draw (A1) -- (A3) -- (A2) (A3) -- (A5) -- (A4) (A5)--(A6);
+            \foreach \i in {1,...,6}{
+                \fill (A\i) circle[radius=\r];
+            }
+            \node at (0, -1.8) {\texttt{无向图}};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{\texttt{有向图与无向图}}
+    \label{fig:graph-orientation-example}
+\end{figure}
+\vspace{12pt}
+
+下面分四部分，使用本章介绍的计数定理研究图论中的一个问题。各小问都可以直接使用前面小问的结论。
+
+\subsubsection*{第一部分\quad 基本定义和性质}
+\begin{problemlist}
+    \item 考虑$3$元简单无向图。它最多有几条边？最少有几条边？$4$元、$5$元简单无向图呢？
+
+    \item 简单无向图$\Omega$是顶点和边的集合。其中顶点记为$V=\{v_1,v_2,\cdots,v_n\}$，边记为$B=\{\{v_1,v_2\},\{v_2,v_3\},\cdots\}$，即边为其两端顶点的二元集。$n$个顶点构成的简单无向图，最多可以有几条边？我们把所有可能的边的集合记为$E$（$B$是$E$的子集）。
+
+    \item 定义：两个简单无向图$\Omega=(V,B),\,\Omega'=(V',B')$\textbf{同构}，就是说有从$V$到$V'$的双射$f$，使得$\forall\,\{v_i,v_j\}\in B$，都有$\{f(v_i),f(v_j)\}\in B'$，反之亦然。说明：$V=V'$时，用以上定义的$f$可以构造出$E$上的唯一一个置换（以下称为$p_f$）。
+
+    \item 给定$\sigma\in\mathsf{S}_n$，证明它对应$n$元简单无向图到自身的一个同构，并说明它如何改变图的边。
+
+    \item 以下的图，左图和右图同构吗？如果同构，给出同构的$f$，说明它对应怎样的置换（顶点数字$i$表示$v_i$）。% 给出三对简单无向图，其中一对边数不同，一对边数相同但不同构，一对边数相同且同构，并要求给出置换。
+
+    \vspace{12pt}
+    \begin{figure}[htbp]
+        \centering
+        \begin{tikzpicture}
+            \def\r{4pt}
+            \def\dx{5}
+            \def\dy{-3.2}
+            \begin{scope}[shift={(0*\dx,0*\dy)}]
+                \coordinate (O) at (0,0);
+                \coordinate (A) at (1,1);
+                \coordinate (B) at (1,0);
+                \coordinate (C) at (0,1);
+                \coordinate (D) at (0.3,0.5);
+                \coordinate (E) at (1.7,-0.4);
+                \coordinate (F) at (1.4,-0.7);
+                \coordinate (G) at (0.5,-0.7);
+                \draw (C) -- (A) -- (B) -- (E) (A) -- (D) -- (O) (B) -- (F) (B) -- (G);
+                \filldraw[fill=white,draw=black] (O) circle (\r);
+                \filldraw[fill=white,draw=black] (A) circle (\r);
+                \filldraw[fill=white,draw=black] (B) circle (\r);
+                \filldraw[fill=white,draw=black] (C) circle (\r);
+                \filldraw[fill=white,draw=black] (D) circle (\r);
+                \filldraw[fill=white,draw=black] (E) circle (\r);
+                \filldraw[fill=white,draw=black] (F) circle (\r);
+                \filldraw[fill=white,draw=black] (G) circle (\r);
+                \node at (O) {\tiny $1$};
+                \node at (A) {\tiny $4$};
+                \node at (B) {\tiny $5$};
+                \node at (C) {\tiny $3$};
+                \node at (D) {\tiny $2$};
+                \node at (E) {\tiny $6$};
+                \node at (F) {\tiny $7$};
+                \node at (G) {\tiny $8$};
+                \node at (-1.5,1.1) {\footnotesize 〔$1$〕};
+            \end{scope}
+            \begin{scope}[shift={(1*\dx,0*\dy)}]
+                \coordinate (O) at (0,0);
+                \coordinate (A) at (1,1);
+                \coordinate (B) at (1,0);
+                \coordinate (C) at (0,1);
+                \coordinate (D) at (0.3,0.5);
+                \coordinate (E) at (1.7,-0.4);
+                \coordinate (F) at (1.4,-0.7);
+                \coordinate (G) at (0.5,-0.7);
+                \draw (C) -- (A) -- (B) -- (E) (A) -- (D) -- (O) (B) -- (F) (O) -- (G) -- (F);
+                \filldraw[fill=white,draw=black] (O) circle (\r);
+                \filldraw[fill=white,draw=black] (A) circle (\r);
+                \filldraw[fill=white,draw=black] (B) circle (\r);
+                \filldraw[fill=white,draw=black] (C) circle (\r);
+                \filldraw[fill=white,draw=black] (D) circle (\r);
+                \filldraw[fill=white,draw=black] (E) circle (\r);
+                \filldraw[fill=white,draw=black] (F) circle (\r);
+                \filldraw[fill=white,draw=black] (G) circle (\r);
+                \node at (O) {\tiny $1$};
+                \node at (A) {\tiny $4$};
+                \node at (B) {\tiny $5$};
+                \node at (C) {\tiny $3$};
+                \node at (D) {\tiny $2$};
+                \node at (E) {\tiny $6$};
+                \node at (F) {\tiny $7$};
+                \node at (G) {\tiny $8$};
+                % \node at (0.5,-1.3) {\texttt{右}};
+            \end{scope}
+            \begin{scope}[shift={(0*\dx+0.5,1*\dy)}]
+                \coordinate (O) at (0,0);
+                \coordinate (A) at (0.866,0.5);
+                \coordinate (B) at (0.866,-0.5);
+                \coordinate (C) at (0,1);
+                \coordinate (D) at (-0.866,0.5);
+                \coordinate (E) at (-0.866,-0.5);
+                \coordinate (F) at (0,-1);
+                \draw (C) -- (A) -- (B) -- (E) (B) -- (F) -- (D) -- (O) ;
+                \filldraw[fill=white,draw=black] (O) circle (\r);
+                \filldraw[fill=white,draw=black] (A) circle (\r);
+                \filldraw[fill=white,draw=black] (B) circle (\r);
+                \filldraw[fill=white,draw=black] (C) circle (\r);
+                \filldraw[fill=white,draw=black] (D) circle (\r);
+                \filldraw[fill=white,draw=black] (E) circle (\r);
+                \filldraw[fill=white,draw=black] (F) circle (\r);
+                \node at (O) {\tiny $1$};
+                \node at (A) {\tiny $4$};
+                \node at (B) {\tiny $5$};
+                \node at (C) {\tiny $3$};
+                \node at (D) {\tiny $2$};
+                \node at (E) {\tiny $7$};
+                \node at (F) {\tiny $6$};
+                \node at (-2,1.1) {\footnotesize 〔$2$〕};
+                % \node at (0,-1.5) {\texttt{左}};
+            \end{scope}
+            \begin{scope}[shift={(1*\dx+0.5,1*\dy)}]
+                \coordinate (O) at (0,0);
+                \coordinate (A) at (0.866,0.5);
+                \coordinate (B) at (0.866,-0.5);
+                \coordinate (C) at (0,1);
+                \coordinate (D) at (-0.866,0.5);
+                \coordinate (E) at (-0.866,-0.5);
+                \coordinate (F) at (0,-1);
+                \draw (O) -- (A) (O)--(C) (O) -- (B) -- (F) (E) -- (D) -- (O) ;
+                \filldraw[fill=white,draw=black] (O) circle (\r);
+                \filldraw[fill=white,draw=black] (A) circle (\r);
+                \filldraw[fill=white,draw=black] (B) circle (\r);
+                \filldraw[fill=white,draw=black] (C) circle (\r);
+                \filldraw[fill=white,draw=black] (D) circle (\r);
+                \filldraw[fill=white,draw=black] (E) circle (\r);
+                \filldraw[fill=white,draw=black] (F) circle (\r);
+                \node at (O) {\tiny $1$};
+                \node at (A) {\tiny $4$};
+                \node at (B) {\tiny $5$};
+                \node at (C) {\tiny $3$};
+                \node at (D) {\tiny $2$};
+                \node at (E) {\tiny $7$};
+                \node at (F) {\tiny $6$};
+                % \node at (0,-1.5) {\texttt{右}};
+            \end{scope}
+            \begin{scope}[shift={(0*\dx+0.5,2*\dy)}]
+                \coordinate (O) at (0,0);
+                \coordinate (A) at (0.866,0.5);
+                \coordinate (B) at (0.866,-0.5);
+                \coordinate (C) at (0,1);
+                \coordinate (D) at (-0.866,0.5);
+                \coordinate (E) at (-0.866,-0.5);
+                \coordinate (F) at (0,-1);
+                \draw (C) -- (A) -- (B) -- (E) (F) -- (B) -- (O) -- (D) ;
+                \filldraw[fill=white,draw=black] (O) circle (\r);
+                \filldraw[fill=white,draw=black] (A) circle (\r);
+                \filldraw[fill=white,draw=black] (B) circle (\r);
+                \filldraw[fill=white,draw=black] (C) circle (\r);
+                \filldraw[fill=white,draw=black] (D) circle (\r);
+                \filldraw[fill=white,draw=black] (E) circle (\r);
+                \filldraw[fill=white,draw=black] (F) circle (\r);
+                \node at (O) {\tiny $1$};
+                \node at (A) {\tiny $4$};
+                \node at (B) {\tiny $5$};
+                \node at (C) {\tiny $3$};
+                \node at (D) {\tiny $2$};
+                \node at (E) {\tiny $7$};
+                \node at (F) {\tiny $6$};
+                \node at (-2,1.1) {\footnotesize 〔$3$〕};
+                % \node at (0,-1.5) {\texttt{左}};
+            \end{scope}
+            \begin{scope}[shift={(1*\dx+0.5,2*\dy)}]
+                \coordinate (O) at (0,0);
+                \coordinate (A) at (0.866,0.5);
+                \coordinate (B) at (0.866,-0.5);
+                \coordinate (C) at (0,1);
+                \coordinate (D) at (-0.866,0.5);
+                \coordinate (E) at (-0.866,-0.5);
+                \coordinate (F) at (0,-1);
+                \draw (O) -- (A) (O)--(C) (O) -- (B) -- (F) (E) -- (D) -- (O);
+                \filldraw[fill=white,draw=black] (O) circle (\r);
+                \filldraw[fill=white,draw=black] (A) circle (\r);
+                \filldraw[fill=white,draw=black] (B) circle (\r);
+                \filldraw[fill=white,draw=black] (C) circle (\r);
+                \filldraw[fill=white,draw=black] (D) circle (\r);
+                \filldraw[fill=white,draw=black] (E) circle (\r);
+                \filldraw[fill=white,draw=black] (F) circle (\r);
+                \node at (O) {\tiny $1$};
+                \node at (A) {\tiny $4$};
+                \node at (B) {\tiny $5$};
+                \node at (C) {\tiny $3$};
+                \node at (D) {\tiny $2$};
+                \node at (E) {\tiny $7$};
+                \node at (F) {\tiny $6$};
+                % \node at (0,-1.5) {\texttt{右}};
+            \end{scope}
+        \end{tikzpicture}
+    \end{figure}
+
+    \item 如果$n$元简单无向图每两个顶点都有边相连，就称为$n$元\textbf{完全图}，记为$K_n$。完全图有几条边？有多少个到自身的同构$f$？
+\end{problemlist}
+
+\subsubsection*{第二部分\quad 从同构到染色}
+\begin{problemlist}[start=7]
+    \item 用红蓝两种颜色给$3$个顶点的完全图的所有边染色。假设顶点之间没有区别，有多少种不同的染色方法？假设顶点标号$1,2,3$，有多少种不同的方法？枚举所有可能。
+
+    \item 给定顶点集$V=\{v_1,\cdots,v_n\}$，$E$是所有可能边的集合。证明：以下映射可以观$\mathsf{S}_n$于$E$：
+    \begin{align*}
+        \gamma:\;\mathsf{S}_n\times E\quad &\longrightarrow\;E \\
+        (\sigma,\,\{v_i,v_j\})&\longmapsto\{\sigma(v_i),\sigma(v_j)\}
+    \end{align*}
+    并说明$\sigma\mapsto\gamma_\sigma$是群同态。$\gamma$是否令$\mathsf{S}_n$显通相？
+
+    \item 记$S=2^E$为$E$的幂集，即所有边子集的集合。证明：以下映射可以观$\mathsf{S}_n$于$S$：
+    \begin{align*}
+        \gamma':\;\mathsf{S}_n\times S\quad &\longrightarrow\;S \\
+        (\sigma,\,B)&\longmapsto p_\sigma(B)
+    \end{align*}
+    说明$p_\sigma(B)$的含义。$\gamma'$是否令$\mathsf{S}_n$显通相？说明$\gamma$和$\gamma'$之间的关系。
+
+    \item 用两种颜色给$n$元完全图的边染色。证明：两种染色方案本质相同，等价于观$\mathsf{S}_n$于$S$时两个边集属于同一条轨迹。
+
+    \item 我们想知道，给定顶点数$n$，在假设顶点之间没有区别的情况下，本质不同的简单无向图有多少种。说明：这个问题可以转化为给$n$元完全图的边染色的问题。给出转化后的染色问题的具体叙述，并说明它为何与简单无向图种类问题等价。以$n=4$的情况为例，列出本章正文中提到的各个对象在这个染色问题里分别是什么：底座集合$X$、颜色集合$C$、染色方案集合$C^X$、群$G$。$4$元简单无向图的同构类个数等于什么？
+
+\end{problemlist}
+
+\subsubsection*{第三部分\quad 染色计数}
+\begin{problemlist}[start=12]
+    \item $\mathsf{S}_4$中的置换按环圈个数和长度可分为几类？列出各类置换，每类有多少个？对每类，选取一个代表元$\sigma$，写出$\sigma$在$E$上划分的轨迹，并计算轨迹个数（为了表示方便，约定$E$中顶点为$i,j$的边简写为$\overline{ij}$。即$E=\{\overline{12},\overline{13},\overline{14},\overline{23},\overline{24},\overline{34}\}$）。
+
+    \item 对每个$\sigma\in\mathsf{S}_4$，$\gamma_\sigma$对应几元置换？写出上题中每个代表元$\sigma$对应的$\gamma_\sigma$的环圈结构。
+
+    \item 对上面提到的代表元$\sigma$，计算$\sigma$在染色方案集合$S=C^X$上的定元个数$S^\sigma$。
+
+    \item 应用定元分轨定理，计算$4$元简单无向图的同构类个数。
+
+    \item 按边数$k=0,1,2,3,4,5,6$分类，枚举所有$4$元简单无向图（画出每个图的示意图或用边集描述），验证总数与之前得到的结果一致。（提示：$k$条边的图与$6-k$条边的图有什么关系？）
+
+\end{problemlist}
+
+\subsubsection*{第四部分\quad 更进一步}
+\begin{problemlist}[start=17]
+    \item 我们想进一步知道：恰有$k$条边的$4$元简单无向图有几种？设颜色集合$C=\{0,1\}$，用$a$标记颜色$0$（无边），$b$标记颜色$1$（有边）。写出基本多项式$p_n$，说明它代表什么。对$\mathsf{S}_4$的各类置换$\sigma$，逐类根据其环圈结构，搭建多项式$P_\sigma$。
+
+    \item 计算
+    $$P \;=\; \frac{1}{|\mathsf{S}_4|}\sum_{\sigma\in\mathsf{S}_4} P_\sigma$$
+    展开$P$并合并同类项。说明：$P$中$a^{6-k}b^k$的系数，就是恰有$k$条边的$4$元简单无向图的同构类个数。验证各系数与之前枚举的结果一致。
+\end{problemlist}
+
+\stardivider
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                         %
@@ -13882,7 +14809,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
         \item 恰好包含三个变换：保持正三角形形状位置不变的所有旋转变换。
         \item 恰好包含四个变换：军训时“立正”、“向左转”、“向右转”、“向后转”构成的群。
     \end{problemlist}
-    \item 例子一：模$n$的同余类里“加几”构成的群，“加几”的“几”可以是$0,1,\cdots,n$，一共$n$个变换。例子二：正$n$边形的旋转对称群，它包含所有形如$\frac{k\cdot 260^\circ}{n}$（$k=0,1,\cdots,n-1$）的旋转变换，一共$n$个。\\
+    \item 例子一：模$n$的同余类里“加几”构成的群，“加几”的“几”可以是$0,1,\cdots,n$，一共$n$个变换。例子二：正$n$边形的旋转对称群，它包含所有形如$\frac{k\cdot 360^\circ}{n}$（$k=0,1,\cdots,n-1$）的旋转变换，一共$n$个。\\
     “变换组合的顺序影响最终效果”的情况有时可以，有时不可以。比如$n=24$时，考虑正方体的旋转群（$24$个元素），就可以让变换组合的顺序影响最终效果。但比如$n=2$时，只有“什么都不做”和另一个变换$X$。这时，$X$重复两次要么得到自己，要么得到“什么都不做”。两种情况下，变换组合的顺序都不影响最终效果。
 \end{problemlist}
 
@@ -14293,6 +15220,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
                 \def\r{1}
                 \def\dx{2.8}
                 \def\dy{1.25}
+                \def\ay{-0.2}
                 \def\va{BrickRed}
                 \def\vb{ForestGreen}
                 \def\vc{MidnightBlue}
@@ -14303,7 +15231,9 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
                 \def\cd{LimeGreen}
                 \def\rr{0.6}
                 \begin{scope}
-                \draw[thick, densely dashed, Blue!70!gray] (1.2*\dx*\r,1.1*\dy*\r) -- (1.2*\dx*\r,-0.8*\dy*\r);
+                \draw[thick, densely dashed, Blue!70!gray] (1.2*\dx*\r,1.1*\dy*\r) -- (1.2*\dx*\r,0.5*\r);
+                \draw[dotted] (1.2*\dx*\r,0.5*\r) -- (1.2*\dx*\r,{-0.5*\r*(1-\ay)});
+                \draw[thick, densely dashed, Blue!70!gray] (1.2*\dx*\r,{-0.5*\r*(1-\ay)}) -- (1.2*\dx*\r,-1.1*\dy*\r);
                 % No.1 (1 2 3 4 5 6 7 8)
                 \pic at (1.2*\dx*\r,0*\dy*\r) {cube={\va}{\vb}{\vc}{\vd}{\ca}{\cb}{\cc}{\cd}{\r}};
                 % No.10 (4 3 7 8 1 2 6 5)
@@ -14361,8 +15291,8 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
         \end{figure}
         \textbf{注}：聪明的你可能会记得，我们在第一章开头提过这件事。
         
-        \item 考虑正方体对角顶点的连线，称为体心对角线。正方体有几条体心对角线？\\
-        \textbf{解答}：正方体有$8$个顶点，每两个相对的顶点连成一条体心对角线，因此共有 $8 \div 2 = 4$ 条体心对角线。我们用深浅色来标记对角顶点，因此我们可以把$4$条体心对角线称为红体心线、黄体心线、蓝体心线和绿体心线。
+        \item 考虑正方体对角顶点的连线，称为顶心对角线。正方体有几条顶心对角线？\\
+        \textbf{解答}：正方体有$8$个顶点，每两个相对的顶点连成一条顶心对角线，因此共有 $8 \div 2 = 4$ 条顶心对角线。我们用深浅色来标记对角顶点，因此我们可以把$4$条顶心对角线称为红顶心线、黄顶心线、蓝顶心线和绿顶心线。
         \vspace{12pt}
         \begin{figure}[htbp]
             \centering        
@@ -14370,8 +15300,8 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
                 \def\r{1}
                 \def\dx{2.8}
                 \def\dy{1.25}
-                \def\ax{0.27}
-                \def\ay{-0.35}
+                \def\ax{0.37}
+                \def\ay{-0.2}
                 \def\va{BrickRed}
                 \def\vb{ForestGreen}
                 \def\vc{MidnightBlue}
@@ -14388,7 +15318,8 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
                 \coordinate (P) at (0.5*\r*\ax,0.5*\r*\ay);
                 \coordinate (TLQ) at ($(TL) + (P)$);
                 \coordinate (BRH) at ($(BR) - (P)$);
-                \draw[thick, densely dashed, Blue!70!gray] (TLQ) -- ($(TLQ)!{1+\ga}!(BRH)$);
+                \draw[dotted] (TLQ) -- ($(TLQ)!{1+0.3}!(BRH)$);
+                \draw[thick, densely dashed, Blue!70!gray] ($(TLQ)!{1+0.3}!(BRH)$) -- ($(TLQ)!{1+\ga}!(BRH)$);
                 % No.1 (1 2 3 4 5 6 7 8)
                 \pic at (0*\dx*\r,0*\dy*\r) {cube={\va}{\vb}{\vc}{\vd}{\ca}{\cb}{\cc}{\cd}{\r}};
                 \draw[thick, densely dashed, Blue!70!gray] (TLQ) -- ($(BRH)!{1+\ga}!(TLQ)$);
@@ -14400,7 +15331,8 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
                 \coordinate (P) at (0.5*\r*\ax,0.5*\r*\ay);
                 \coordinate (TRQ) at ($(TR) + (P)$);
                 \coordinate (BLH) at ($(BL) - (P)$);
-                \draw[thick, densely dashed, Blue!70!gray] (TRQ) -- ($(TRQ)!{1+\ga}!(BLH)$);
+                \draw[thick, densely dashed, Blue!70!gray] (BLH) -- ($(TRQ)!{1+\ga}!(BLH)$);
+                \draw[dotted] (TRQ) -- (BLH);
                 % No.14 (5 6 2 1 8 7 3 4)
                 \pic at (0,0) {cube={\va}{\vb}{\vc}{\vd}{\ca}{\cb}{\cc}{\cd}{\r}};
                 \draw[thick, densely dashed, Blue!70!gray] ($(TRQ)!{-\ga}!(BLH)$) -- (TRQ);
@@ -14412,10 +15344,11 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
                 \coordinate (P) at (0.5*\r*\ax,0.5*\r*\ay);
                 \coordinate (TLH) at ($(TL) - (P)$);
                 \coordinate (BRQ) at ($(BR) + (P)$);
-                \draw[thick, densely dashed, Blue!70!gray] ($(BRQ)!{\ga}!(TLH)$) -- ($(BRQ)!{1+\ga}!(TLH)$);
+                \draw[thick, densely dashed, Blue!70!gray] (TLH) -- ($(BRQ)!{1+\ga}!(TLH)$);
+                \draw[dotted] (BRQ) -- (TLH);
                 % No.3 (1 5 6 2 4 8 7 3)
                 \pic at (0,0) {cube={\va}{\vb}{\vc}{\vd}{\ca}{\cb}{\cc}{\cd}{\r}};
-                \draw[thick, densely dashed, Blue!70!gray] ($(BRQ)!{-\ga}!(TLH)$) -- ($(BRQ)!{\ga}!(TLH)$);
+                \draw[thick, densely dashed, Blue!70!gray] ($(BRQ)!{-\ga}!(TLH)$) -- (BRQ);
                 \end{scope}
                 \begin{scope}[shift={(3*\dx*\r,0*\dy*\r)}]
                 \def\ga{0.3}
@@ -14424,20 +15357,21 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
                 \coordinate (P) at (0.5*\r*\ax,0.5*\r*\ay);
                 \coordinate (TRH) at ($(TR) - (P)$);
                 \coordinate (BLQ) at ($(BL) + (P)$);
-                \draw[thick, densely dashed, Blue!70!gray] (BLQ) -- ($(BLQ)!{1+\ga}!(TRH)$);
+                \draw[thick, densely dashed, Blue!70!gray] (TRH) -- ($(BLQ)!{1+\ga}!(TRH)$);
+                \draw[dotted] (BLQ) -- (TRH);
                 % No.6 (2 1 5 6 3 4 8 7)
                 \pic at (0,0) {cube={\va}{\vb}{\vc}{\vd}{\ca}{\cb}{\cc}{\cd}{\r}};
                 \draw[thick, densely dashed, Blue!70!gray] ($(BLQ)!{-\ga}!(TRH)$) -- (BLQ);
                 \end{scope}
             \end{tikzpicture}
-            \label{fig:cube-body-diagonals}
+            \label{fig:cube-body-diagonals-2}
         \end{figure}
         
-        \item 描述以左前体心线为轴的旋转变换如何确保正方体位置形状不变。这样的变换有几个？\\
-        \textbf{解答}：以左前体心线（红体心线）为轴旋转时，左前顶点和右后顶点保持不动，而周围的$6$个顶点在空间中轮换位置。经尝试可发现，绕此轴旋转$120^\circ$和$240^\circ$后，正方体的整体轮廓和占据的空间与原来完全重合。这样的非平凡旋转变换有$2$个（旋转$120^\circ$和$240^\circ$）。注意：后者是前者重复两次的结果，也是其逆变换。而重复三次则恢复原状。这和正三角形的旋转性质一样（想想为什么？）。
+        \item 描述以左前顶心线为轴的旋转变换如何确保正方体位置形状不变。这样的变换有几个？\\
+        \textbf{解答}：以左前顶心线（红顶心线）为轴旋转时，左前顶点和右后顶点保持不动，而周围的$6$个顶点在空间中轮换位置。经尝试可发现，绕此轴旋转$120^\circ$和$240^\circ$后，正方体的整体轮廓和占据的空间与原来完全重合。这样的非平凡旋转变换有$2$个（旋转$120^\circ$和$240^\circ$）。注意：后者是前者重复两次的结果，也是其逆变换。而重复三次则恢复原状。这和正三角形的旋转性质一样（想想为什么？）。
         
         \item 用$\tau$和$\sigma$能否生成上面提到的变换？如何做到？\\
-        \textbf{解答}：能。首先我们会发现：不同的体心线之间，可以通过$\tau,\sigma,\rho$互相转换。把正方体分别按$\tau,\sigma,\rho$旋转，就能把一条体心线转到另一条体心线的位置。因此，我们只需要讨论其中一条即可，比如绕红体心线的旋转$\gamma_{\text{红}}$：
+        \textbf{解答}：能。首先我们会发现：不同的顶心线之间，可以通过$\tau,\sigma,\rho$互相转换。把正方体分别按$\tau,\sigma,\rho$旋转，就能把一条顶心线转到另一条顶心线的位置。因此，我们只需要讨论其中一条即可，比如绕红顶心线的旋转$\gamma_{\text{红}}$：
 
         \vspace{12pt}
         \begin{figure}[htbp]
@@ -14446,8 +15380,8 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
                 \def\r{1}
                 \def\dx{2.8}
                 \def\dy{1.25}
-                \def\ax{0.27}
-                \def\ay{-0.35}
+                \def\ax{0.37}
+                \def\ay{-0.2}
                 \def\va{BrickRed}
                 \def\vb{ForestGreen}
                 \def\vc{MidnightBlue}
@@ -14466,7 +15400,8 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
                 \coordinate (P) at (0.5*\r*\ax,0.5*\r*\ay);
                 \coordinate (TLQ) at ($(TL) + (P)$);
                 \coordinate (BRH) at ($(BR) - (P)$);
-                \draw[thick, densely dashed, Blue!70!gray] (TLQ) -- ($(TLQ)!{1+\ga}!(BRH)$);
+                \draw[thick, densely dashed, Blue!70!gray] ($(TLQ)!{1+0.25}!(BRH)$) -- ($(TLQ)!{1+\ga}!(BRH)$);
+                \draw[dotted] (TLQ) -- ($(TLQ)!{1+0.25}!(BRH)$);
                 % No.2 (1 4 8 5 2 3 7 6)
                 \pic at (0,0) {cube={\va}{\vd}{\cd}{\ca}{\vb}{\vc}{\cc}{\cb}{\r}};
                 \draw[thick, densely dashed, Blue!70!gray] (TLQ) -- ($(BRH)!{1+\ga}!(TLQ)$);
@@ -14478,7 +15413,8 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
                 \coordinate (P) at (0.5*\r*\ax,0.5*\r*\ay);
                 \coordinate (TLQ) at ($(TL) + (P)$);
                 \coordinate (BRH) at ($(BR) - (P)$);
-                \draw[thick, densely dashed, Blue!70!gray] (TLQ) -- ($(TLQ)!{1+\ga}!(BRH)$);
+                \draw[thick, densely dashed, Blue!70!gray] ($(TLQ)!{1+0.25}!(BRH)$) -- ($(TLQ)!{1+\ga}!(BRH)$);
+                \draw[dotted] (TLQ) -- ($(TLQ)!{1+0.25}!(BRH)$);
                 % No.3 (1 5 6 2 4 8 7 3)
                 \pic at (0,0) {cube={\va}{\ca}{\cb}{\vb}{\vd}{\cd}{\cc}{\vc}{\r}};
                 \draw[thick, densely dashed, Blue!70!gray] (TLQ) -- ($(BRH)!{1+\ga}!(TLQ)$);
@@ -14489,12 +15425,12 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
                 \node at (1*\dx*\r,-1*\dy*\r) {$\gamma_{\text{红}}$};
                 \node at (2*\dx*\r,-1*\dy*\r) {$\gamma_{\text{红}}^2$};
             \end{tikzpicture}
-            \label{fig:cube-body-diagonal-rotation}
+            \label{fig:cube-body-diagonal-rotation-2}
         \end{figure}
 
         不难发现，$\gamma_{\text{红}}$的效果就是上一问中的中间状态，因此我们知道：
         $$ \gamma_{\text{红}} = \tau\rightarrow\sigma^{-1}.$$
-        而另一个旋转是$\gamma_{\text{红}}$重复两次（也是它的逆操作！），因此同样可以通过$\tau$和$\sigma$得到。而其他体心对角线又可以从$\gamma_{\text{红}}, \gamma_{\text{红}}^2$按$\tau,\sigma,\rho$旋转得到。因此，绕其他体心线的旋转，可以先绕红体心线进行对应角度的旋转，然后按$\tau,\sigma,\rho$把结果旋转到相应的体心线上。
+        而另一个旋转是$\gamma_{\text{红}}$重复两次（也是它的逆操作！），因此同样可以通过$\tau$和$\sigma$得到。而其他顶心对角线又可以从$\gamma_{\text{红}}, \gamma_{\text{红}}^2$按$\tau,\sigma,\rho$旋转得到。因此，绕其他顶心线的旋转，可以先绕红顶心线进行对应角度的旋转，然后按$\tau,\sigma,\rho$把结果旋转到相应的顶心线上。
         
         \item 考虑正方体一条棱和与它相对的棱。两条棱的连线过正方体中心。这样的连线称为对棱中线。正方体有几条对棱中线？\\
         \textbf{解答}：正方体有$12$条棱，每两条相对的棱连成一条对棱中线，因此共有 $12 \div 2 = 6$ 条对棱中线。按我们染色的方法，每条对棱中线对应的两条对棱分别是两对深浅色，因此可以命名为红绿中线、红黄中线、红蓝中线、绿黄中线、绿蓝中线和黄蓝中线。
@@ -14509,8 +15445,8 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
                 \def\r{1}
                 \def\dx{2.8}
                 \def\dy{1.25}
-                \def\ax{0.27}
-                \def\ay{-0.35}
+                \def\ax{0.37}
+                \def\ay{-0.2}
                 \def\va{BrickRed}
                 \def\vb{ForestGreen}
                 \def\vc{MidnightBlue}
@@ -14519,7 +15455,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
                 \def\cb{Yellow}
                 \def\cc{Lavender}
                 \def\cd{LimeGreen}
-                \def\ga{1}
+                \def\ga{2}
                 % No.1 (1 2 3 4 5 6 7 8)
                 \pic at (0*\dx*\r,0*\dy*\r) {cube={\va}{\vb}{\vc}{\vd}{\ca}{\cb}{\cc}{\cd}{\r}};
                 \begin{scope}[shift={(2*\dx*\r,0*\dy*\r)}]
@@ -14529,9 +15465,10 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
                     \coordinate (BR) at (0.5*\r-0.5*\r*\ax, -0.5*\r-0.5*\r*\ay); 
                     \coordinate (MA) at ($(BL)!0.5!(TL)$); 
                     \coordinate (MB) at ($(BR)!0.5!(TR)$);
-                    \draw[densely dashed,thick,Blue!70!gray] (MB) -- ($(MA)!{1+\ga}!(MB)$);
+                    \draw[densely dashed,thick,Blue!70!gray] ($(MA)!{1+0.6}!(MB)$) -- ($(MA)!{1+\ga}!(MB)$);
+                    \draw[dotted] (MA) -- ($(MA)!{1+0.6}!(MB)$);
                     \pic at (0,0) {cube={\vb}{\va}{\ca}{\cb}{\vc}{\vd}{\cd}{\cc}{\r}};
-                    \draw[densely dashed,thick,Blue!70!gray] ($(MA)!{-\ga}!(MB)$) -- (MB);
+                    \draw[densely dashed,thick,Blue!70!gray] ($(MA)!{-\ga}!(MB)$) -- (MA);
                     \draw (MA) circle (0.8pt);
                     \draw (MB) circle (0.8pt);
                 \end{scope}
@@ -14596,7 +15533,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
             \item 不断重复$\sigma$得到的$3$个旋转：$\sigma, \;\sigma^2,\;\sigma^3$（$\sigma^4 = e$）。
             \item 不断重复$\tau$得到的$3$个旋转：$\tau, \;\tau^2,\;\tau^3$（$\tau^4 = e$）。
             \item $\rho = \tau\rightarrow\sigma^{-1}\rightarrow\tau^{-1}$，以及不断重复$\rho$得到的$3$个旋转：$\rho, \;\rho^2,\;\rho^3$（$\rho^4 = e$）。
-            \item $4$条体心对角线对应的$8$个非平凡旋转。
+            \item $4$条顶心对角线对应的$8$个非平凡旋转。
             \item $6$条对棱中线对应的$6$个非平凡旋转。
         \end{enumerate}
         以上各种旋转都不相同（因为旋转轴不同）。加上“什么都不做”的恒等变换$e$，总共生成变换个数为：
@@ -14884,7 +15821,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
         \item[(4)] \textbf{不满足结合律。} 
         可验证$e$ 是幺元。若此表对应群，我们计算 $c(da)$ 和 $(cd)a$。
         查表可知 $da = b$，$cb = a$，所以 $c(da) = cb = a$。
-        另一方面，查表可知 $cd = b$，$ba = d$，所以 $(cd)a = ba = d$。
+        另一方面，查表可知 $cd = b$，$ba = c$，所以 $(cd)a = ba = c$。
         所以 $c(da) \neq (cd)a$，该运算不满足结合律，不构成群。
     \end{problemlist}
 
@@ -14896,7 +15833,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
     另一方面，对$G$中任意元素$a$，$(ax^{-1})x = a(x^{-1}x) = ae = a$，所以第 $x$ 行第$ax^{-1}$列是$a$。因此$G$的每个元素都恰在第 $x$ 行出现一次，不重不漏。
     
     \textbf{对于列：} 同理，假设在第 $x$ 列中，有两个不同行 $y$ 和 $z$ 对应的元素相同，即$xy = xz$。在等式两边左乘 $x^{-1}$，按同样方法可算出$y = z$。因此，同一列中的元素两两不同。\\
-    另一方面，对$G$中任意元素$a$，$x(x^{-1}a) = (xx^{-1})a = ea = a$。所以第 $x$ 列第$ax^{-1}$行是$a$。因此$G$的每个元素都恰在第 $x$ 列出现一次，不重不漏。
+    另一方面，对$G$中任意元素$a$，$x(x^{-1}a) = (xx^{-1})a = ea = a$。所以第 $x$ 列第$x^{-1}a$行是$a$。因此$G$的每个元素都恰在第 $x$ 列出现一次，不重不漏。
 
     \item 
     \begin{problemlist}
@@ -14965,7 +15902,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
             \item \textbf{逆元}：$\pm 2^n 3^m$ 的逆元是 $\pm 2^{-n} 3^{-m}$，由于 $n, m \in \mathbb{Z}$，逆元仍在集合中。
         \end{itemize}
         
-        \item 分母为完全平方数的非零有理数的集合，关于有理数的乘法\textbf{不是群}。不满足\textbf{逆元存在性}（或\textbf{封闭性}）。例如，$\frac{2}{9}$ 是分母为完全平方数的非零有理数，但它的逆元 $\frac{9}{2}$ 的分母是 $2$，不是完全平方数，不在集合中。
+        \item 分母为完全平方数的非零既约分数的集合，关于有理数的乘法\textbf{不是群}。不满足\textbf{逆元存在性}（或\textbf{封闭性}）。例如，$\frac{2}{9}$ 是分母为完全平方数的非零分数，但它的逆元 $\frac{9}{2}$ 的分母是 $2$，不是完全平方数，不在集合中。
     \end{problemlist}
 
     \item \textbf{思路分析}：整式的加法和乘法同样需要严格验证四条公理。特别注意乘法下，除了常数项为 $\pm 1$ 的整式外，绝大多数整式没有乘法逆元。
@@ -14974,7 +15911,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
         \item 实系数一元整式的集合$\mathbb{R}[X]$关于整式的加法\textbf{是群}。理由同上，实系数整式加法同样满足群的四个公理。
         \item 整系数一元整式的集合$\mathbb{Z}[X]$关于整式的乘法\textbf{不是群}。不满足\textbf{逆元存在性}。例如整式 $X$，若存在逆元 $Q(X) \in \mathbb{Z}[X]$ 使得 $X \cdot Q(X) = 1$，则 $X$ 的次数加上 $Q(X)$ 的次数等于 $1$ 的次数（即$0$），这要求 $X$ 的次数不大于 $0$，矛盾。
         \item 实系数一元整式的集合$\mathbb{R}[X]$关于整式的乘法\textbf{不是群}。理由同上，实系数整式乘法下，非常数整式均无逆元。
-        \item 实系数一元有理式的集合$\mathbb{R}(X)$关于整式的乘法\textbf{是群}。非零有理式的乘法满足封闭性、结合律；幺元是 $1$；非零有理式 $\frac{P(X)}{Q(X)}$ 的逆元是 $\frac{Q(X)}{P(X)}$，由于 $P(X) \neq 0$，逆元仍在 $\mathbb{R}(X)$ 中。
+        \item 实系数非零一元有理式的集合$\mathbb{R}(X)$关于整式的乘法\textbf{是群}。非零有理式的乘法满足封闭性、结合律；幺元是 $1$；非零有理式 $\frac{P(X)}{Q(X)}$ 的逆元是 $\frac{Q(X)}{P(X)}$，由于 $P(X) \neq 0$，逆元仍在 $\mathbb{R}(X)$ 中。
         \item 偶系数一元整式的集合$\mathbb{B}[X]$关于整式的加法\textbf{是群}。偶系数整式加法满足封闭性（偶数加偶数仍为偶数）、结合律；幺元是零多项式（系数全为$0$，$0$是偶数）；逆元是系数取反的整式（偶数的相反数仍是偶数）。
         \item 奇系数一元整式的集合$\mathbb{J}[X]$关于整式的加法\textbf{不是群}。
         \begin{itemize}
@@ -15305,7 +16242,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
     \item 存在恰有$77$个元素的映轮群吗？
     
     \textbf{解答：}不存在。\\
-    根据定义，$n$元映轮群$\mathsf{D}_n$包含$n$个旋转变换和$n$个翻转变换，总元素数为$2n$。
+    根据定义，正$n$边形映轮群$\mathsf{D}_n$包含$n$个旋转变换和$n$个翻转变换，总元素数为$2n$。
     因为$n$是正整数，所以$2n$必然是偶数。而$77$是奇数，不可能等于$2n$。
 
     \item 研究映轮群$\mathsf{D}_4$。
@@ -15359,7 +16296,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
             \arrayrulecolor{gray!50}
             \hline
             \arrayrulecolor{black}
-            $r$     & $r$ & $r^2$ & $r^3$ & $e$ & $rs$ & $r^2s$ & $r^3s$ & $s$ \\
+            $r$     & $r$ & $r^2$ & $r^3$ & $e$ & $r^3s$ & $s$ & $rs$ & $r^2s$ \\
             \arrayrulecolor{gray!50}
             \hline
             \arrayrulecolor{black}
@@ -15367,23 +16304,23 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
             \arrayrulecolor{gray!50}
             \hline
             \arrayrulecolor{black}
-            $r^3$   & $r^3$ & $e$ & $r$ & $r^2$ & $r^3s$ & $s$ & $rs$ & $r^2s$ \\
+            $r^3$   & $r^3$ & $e$ & $r$ & $r^2$ & $rs$ & $r^2s$ & $r^3s$ & $s$ \\
             \arrayrulecolor{gray!50}
             \hline
             \arrayrulecolor{black}
-            $s$     & $s$ & $r^3s$ & $r^2s$ & $rs$ & $e$ & $r^3$ & $r^2$ & $r$ \\
+            $s$     & $s$ & $rs$ & $r^2s$ & $r^3s$ & $e$ & $r$ & $r^2$ & $r^3$ \\
             \arrayrulecolor{gray!50}
             \hline
             \arrayrulecolor{black}
-            $rs$    & $rs$ & $s$ & $r^3s$ & $r^2s$ & $r$ & $e$ & $r^3$ & $r^2$ \\
+            $rs$    & $rs$ & $r^2s$ & $r^3s$ & $s$ & $r^3$ & $e$ & $r$ & $r^2$ \\
             \arrayrulecolor{gray!50}
             \hline
             \arrayrulecolor{black}
-            $r^2s$  & $r^2s$ & $rs$ & $s$ & $r^3s$ & $r^2$ & $r$ & $e$ & $r^3$ \\
+            $r^2s$  & $r^2s$ & $r^3s$ & $s$ & $rs$ & $r^2$ & $r^3$ & $e$ & $r$ \\
             \arrayrulecolor{gray!50}
             \hline
             \arrayrulecolor{black}
-            $r^3s$  & $r^3s$ & $r^2s$ & $rs$ & $s$ & $r^3$ & $r^2$ & $r$ & $e$ \\
+            $r^3s$  & $r^3s$ & $s$ & $rs$ & $r^2s$ & $r$ & $r^2$ & $r^3$ & $e$ \\
             \hline
             \end{tabular}
         \end{table}
@@ -16439,9 +17376,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
         验证：计算$(4\,2\,1\,3)\circ(2\,3\,4\,1)$，得到
         $$(4\,2\,1\,3)\circ(2\,3\,4\,1) = (2\,1\,3\,4).$$
         确实得到$1,2$的对换。而$(4\,2\,1\,3)$是绕顶点$2$中线旋转$120^\circ$的变换，确实在$\mathsf{A}_4$中。\\
-        \item 说明$\mathsf{A}_4$一共有几个元素。它同构于什么群？
-
-        \textbf{解答：}\\
+        \item \textbf{解答：}\\
         所有$24$个$4$元置换，可以分为：恒等变换、对换、双对换、$3$元轮换和$4$元轮换。
         其中，$4$元轮换有$6$个，$3$元轮换有$8$个，双对换有$3$个，对换有$6$个。\\
         前面已经证明：恒等变换、双对换和$3$元轮换在$\mathsf{A}_4$中，而对换和$4$元轮换不在$\mathsf{A}_4$中。因此，$\mathsf{A}_4$一共有：
@@ -16452,11 +17387,60 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
             (4\,2\,1\,3),(2\,4\,3\,1),(4\,1\,3\,2),(2\,3\,1\,4),\;\\
             (3\,1\,2\,4),(2\,1\,4\,3),(3\,4\,1\,2),(4\,3\,2\,1)\}
         \end{align*}
-        \item 画出$\mathsf{A}_4$的环道图。
+        \item \textbf{解答：}$\mathsf{A}_4$中有$4$个长度为$3$的环道，$3$个长度为$2$的环道。环道图如下：
+        
+        \vspace{12pt}
+        \begin{figure}[htbp]
+            \centering
+            \begin{tikzpicture}[thick, font=\normalsize,
+                declare function={
+                    tdR(\t,\kc) = sin(90*min(1,min(\kc*\t,\kc*(1-\t))));
+                    tdX(\t,\ang,\dth,\R,\kc) = \R*tdR(\t,\kc)*cos(\ang+(\t-0.5)*\dth);
+                    tdY(\t,\ang,\dth,\R,\kc) = \R*tdR(\t,\kc)*sin(\ang+(\t-0.5)*\dth);
+                }]
 
-        \textbf{解答：}\\
-        根据前面的分析，$\mathsf{A}_4$中有$4$个长度为$3$的环道，以及$3$个长度为$2$的环道。环道图如下：
-        % TODO：插入环道图。
+                % ===== 3 阶元素轨道 =====
+                % --- 3 阶轨道 1：ang=0.00°, dth=60.00°, k=2 ---
+                \draw[thick, gray!50] plot[domain=0:1, samples=100, variable=\t] ({tdX(\t,0,60,3,2)},{tdY(\t,0,60,3,2)});
+                \node[circle, fill=gray!20, draw=gray!70, thick, inner sep=1.5pt, minimum size=24pt] at (2.049, -0.549) {$\tau_1$};
+                \node[circle, fill=gray!20, draw=gray!70, thick, inner sep=1.5pt, minimum size=24pt] at (2.374, 0.5046) {$\tau_1^{2}$};
+
+                % --- 3 阶轨道 2：ang=60.00°, dth=60.00°, k=2 ---
+                \draw[thick, gray!50] plot[domain=0:1, samples=100, variable=\t] ({tdX(\t,60,60,3,2)},{tdY(\t,60,60,3,2)});
+                \node[circle, fill=gray!20, draw=gray!70, thick, inner sep=1.5pt, minimum size=24pt] at (1.624, 1.8037) {$\tau_2$};
+                \node[circle, fill=gray!20, draw=gray!70, thick, inner sep=1.5pt, minimum size=24pt] at (0.75, 2.3083) {$\tau_2^{2}$};
+
+                % --- 3 阶轨道 3：ang=120.00°, dth=60.00°, k=2 ---
+                \draw[thick, gray!50] plot[domain=0:1, samples=100, variable=\t] ({tdX(\t,120,60,3,2)},{tdY(\t,120,60,3,2)});
+                \node[circle, fill=gray!20, draw=gray!70, thick, inner sep=1.5pt, minimum size=24pt] at (-0.75, 2.3083) {$\tau_3^{2}$};
+                \node[circle, fill=gray!20, draw=gray!70, thick, inner sep=1.5pt, minimum size=24pt] at (-1.624, 1.8037) {$\tau_3$};
+
+                % --- 3 阶轨道 4：ang=180.00°, dth=60.00°, k=2 ---
+                \draw[thick, gray!50] plot[domain=0:1, samples=100, variable=\t] ({tdX(\t,180,60,3,2)},{tdY(\t,180,60,3,2)});
+                \node[circle, fill=gray!20, draw=gray!70, thick, inner sep=1.5pt, minimum size=24pt] at (-2.374, 0.5046) {$\tau_4^{2}$};
+                \node[circle, fill=gray!20, draw=gray!70, thick, inner sep=1.5pt, minimum size=24pt] at (-2.049, -0.549) {$\tau_4$};
+
+                % ===== 2 阶元素轨道 =====
+                % --- 2 阶轨道 1：ang=230.00°, dth=40.00°, k=2.7 ---
+                \draw[thick, gray!50] plot[domain=0:1, samples=100, variable=\t] ({tdX(\t,230,40,2.5,2.7)},{tdY(\t,230,40,2.5,2.7)});
+                \node[circle, fill=gray!20, draw=gray!70, thick, inner sep=1.5pt, minimum size=24pt] at (-1.9284*5/6, -2.2981*5/6) {$\sigma_1$};
+
+                % --- 2 阶轨道 2：ang=270.00°, dth=40.00°, k=2.7 ---
+                \draw[thick, gray!50] plot[domain=0:1, samples=100, variable=\t] ({tdX(\t,270,40,2.5,2.7)},{tdY(\t,270,40,2.5,2.7)});
+                \node[circle, fill=gray!20, draw=gray!70, thick, inner sep=1.5pt, minimum size=24pt] at (0, -2.5) {$\sigma_2$};
+
+                % --- 2 阶轨道 3：ang=310.00°, dth=40.00°, k=2.7 ---
+                \draw[thick, gray!50] plot[domain=0:1, samples=100, variable=\t] ({tdX(\t,310,40,2.5,2.7)},{tdY(\t,310,40,2.5,2.7)});
+                \node[circle, fill=gray!20, draw=gray!70, thick, inner sep=1.5pt, minimum size=24pt] at (1.9284*5/6, -2.2981*5/6) {$\sigma_3$};
+
+                % ===== 幺元 =====
+                \node[circle, fill=gray!20, draw=gray!70, very thick, inner sep=2pt, minimum size=24pt] at (0, 0) {$e$};
+            \end{tikzpicture}
+            % \caption*{\texttt{$A_{4}$ 的环道图}}
+            \label{fig:A4-orbit-diagram}
+        \end{figure}
+        \vspace{12pt}
+
         \item \textbf{解答：}\\
         我们把第$4$问中的等式写成：
         \begin{align*}
@@ -16799,7 +17783,831 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
 
 \section{第七章参考解答}
 
+\begin{problemlist}
+    \item \textbf{解答}：
+    \begin{problemlist}
+        \item \textbf{不是。}\\
+        \textbf{理由}：不满足封闭性（如$\gamma(-1,-1)=-2\notin X$）；不满足幺元性质（群的幺元是$1$，但$\gamma(1,0)=1+0=1\neq 0$）。
+        \item \textbf{是。}\\
+        \textbf{理由}：结果仍在$X$中（封闭）；幺元$1$作用为$1\cdot x=x$（幺元满足）；满足相容性$a(bx)=(ab)x$。
+        \item \textbf{不是。}\\
+        \textbf{理由}：虽然满足封闭性（整数加平方仍为整数），且满足幺元性质（$\gamma(0,x)=x+0^2=x$），但不满足相容性。$\gamma(a, \gamma(b, x)) = \gamma(a, x+b^2) = x+b^2+a^2$；而$\gamma(a+b, x) = x+(a+b)^2 = x+a^2+2ab+b^2$。两者不相等。
+        \item \textbf{不是。}\\
+        \textbf{理由}：群的幺元是$0$，但$\gamma(0,x)=0\cdot x=0\neq x$，幺元失效。此外，群的运算是模$5$加法，而映射依赖普通整数乘法，导致相容性失效：$\gamma(a,\gamma(b,x))=(ab)x$，但$\gamma(a+b,x)=(a+b)x$。
+        \item \textbf{不是。}\\
+        \textbf{理由}：不满足封闭性。$\mathsf{D}_3$包含旋转$120^\circ$的变换，将正方形顶点旋转$120^\circ$后，顶点将落在非顶点位置（不在集合$X$中）。
+        \item \textbf{是。}\\
+        \textbf{理由}：$\mathsf{D}_4$的变换（旋转$90^\circ$倍数及翻转）作用于整数格点$(m,n)$，结果是$(1\pm m, 1\pm n)$或$(1\pm n, 1\pm m)$，结果必为整数格点，满足封闭性。变换的复合天然满足幺元与相容性。
+    \end{problemlist}
+    \item 按轨定定理，轨迹长度是$35$的因数，但按条件大于$1$且不超过$19$，因此要么是$5$，要么是$7$。这些轨迹构成$X$的分划。设有$m$个长度为$5$的轨迹，$n$个长度为$7$的轨迹，则有以下的整数不定方程：
+    \[
+    5m + 7n = 19.
+    \]
+    $m,n$都是非负整数。于是$n<3$。用$n=0,1,2$测试，得到$n=2,m=1$。因此一共有$3$个轨道，$1$个长度为$5$，$2$个长度为$7$。
+    \item 记$H$为$g(x)$的定子群。按定义，$G_x = \{a\in G\,|\, a(x)=x\}$。于是$\forall a\in G_x$，$(gag^{-1})(g(x)) = g(a(g^{-1}(g(x)))) = g(a(x)) = g(x)$。这说明$gag^{-1}$是$g(x)$的定子。这说明$gG_xg^{-1}\subseteq H$。另一方面，如果$a\in G$使得$a(g(x)) = g(x)$，那么$(g^{-1}ag)(x) = x$，即$g^{-1}ag\in G_x$，于是$a\in gG_xg^{-1}$。这说明$H\subseteq gG_xg^{-1}$。综上，$H = gG_xg^{-1}$。
+
+    \item 往复观群$G$于自身，则$x\in G$的定子群为其交心群。按照轨定定理，$x$的交心群势乘以$x$的轨道长度等于群势$p^n$。因此，$x$的轨道长度是$|G|$的因数，于是总是$p$的乘方。要么是$1$，要么是$p$的倍数。按定义，$x$的轨道长度为$1$，当且仅当其与群里所有元素交换，即$x$为$G$的心元。按照$G$显于$G$的轨道将$G$划分，得到：
+    \[
+    |G| = \sum_{\mathcal{O}_G(x)\in\mathcal{O}_G(G)} |\mathcal{O}_G(x)| =  \sum_{x\in G^{\text{心}}} |\mathcal{O}_G(x)| + \sum_{x\notin G^{\text{心}}} |\mathcal{O}_G(x)|.
+    \]
+    我们将轨道$\mathcal{O}_G(x)$按长度为$1$和大于$1$分成两类。后一类都是$p$的倍数。而前一类都是$1$，加起来就是$G^{\text{心}}$的势。也就是说：
+    \[
+    |G| = \sum_{x\in G^{\text{心}}} |\mathcal{O}_G(x)| + \sum_{x\notin G^{\text{心}}} |\mathcal{O}_G(x)| = \sum_{x\in G^{\text{心}}} 1 + \sum_{x\notin G^{\text{心}}} p\,\mbox{的倍数} = |G^{\text{心}}| + p\,\mbox{的倍数}.
+    \]
+    这说明：
+    $$ |G| \equiv |G^{\text{心}}| \modu{p}. $$
+    但$|G|=p^n$也是$p$的倍数，所以
+    $$ |G^{\text{心}}|\equiv |G| \equiv 0 \modu{p}. $$
+    即$G$的中心的元素个数也是$p$的倍数，不可能只有幺元$e$。
+    \item \textbf{解答}：
+    \begin{problemlist}
+        \item 根据往集定理，$H$有$p$个左往集。
+        \item 记$X = \{aH\,|\, a\in G\}$，它有$p$个元素。考虑映射
+        \begin{align*}
+            \gamma :\; (G,\, X) &\longrightarrow \,X \\
+            (x,\,A)\,&\longmapsto xA
+        \end{align*}
+        下面逐个验证它满足显相映射的两个条件。首先，$\forall a,b\in G$，$\forall A\in X$，$A$可以写作$A=cH$，其中$c\in G$。而$\gamma(a,\gamma(b,A)) = \gamma(a,bcH) = abcH = (ab)cH = \gamma(ab,A)$，所以满足第一个条件。另外，$\gamma(e,A) = ecH = cH = A$。于是两个条件都满足。
+        \item $\varphi(x) = \gamma_x = A\mapsto xA$。$\gamma_x$是$\mathsf{S}_X$中元素（$X$上的置换）。$\mathsf{S}_X$的幺元是恒等变换，即$aH\mapsto aH$，所以$\varphi$的核$N$里的元素$x$对应的是令$\forall a\in G,\;x(aH)=aH$都成立的$\gamma_x$。即$\gamma_x = \varphi(x)$要使得$\forall a\in G,\;x(aH)=aH$。令$a=e$，就得到$xH=H$。于是至少要有$x\in H$。因此$N\subseteq H$。
+        \item 按照群同态基本定理，同态$\varphi$满足：$|N|\times |\varphi(G)| = |G|$。因此$|\varphi(G)|$是$|G|$的因数。\\
+        另一方面，$\varphi(G)$是$G$通过群同态在$\mathsf{S}_X$中的像，因此是$\mathsf{S}_X$的子群。按照群势定理，它的群势整除$\mathsf{S}_X$的群势。$X$有$p$个元素，所以$\mathsf{S}_X$为$p$元置换的全置换群，群势为$p!$。因而$|\varphi(G)|$是$p!$的因数。\\
+        $p!$的素因数最大是$p$。作为$p!$的因数，$|\varphi(G)|$的素因数要么是$p$，要么比$p$更小。\\
+        但$|\varphi(G)|$的素因数也是$|G|$的素因数，而$p$按定义是$|G|$最小的素因数。所以，$|\varphi(G)|$不能有比$p$更小的素因数，$|\varphi(G)|$只能是$p$的乘方：$p,p^2,p^3,\cdots$\\
+        但$p$作为素数，只在$p!$中出现一次（比$p$小的正整数不会有$p$作为因数），所以$p^2\nmid p!$。这说明$|\varphi(G)| = p$。于是
+        $$ |N| = \frac{|G|}{|\varphi(G)|} = \frac{n}{p} = |H|.$$
+        这与$N\subseteq H$一起，可推出$N = H$。\\
+        $N$作为群同态$\varphi$的核，是$G$的往合子群，所以$H=N$就是$G$的往合子群。
+    \end{problemlist}
+\end{problemlist}
+
+\clearpage
+
+\subsection*{正方体和正四面体的旋转群}
+
+\begin{problemlist}
+    \item \textbf{解答}：两组顶点的坐标分别为：
+    \begin{align*}
+        T^+ &=\{(1,1,1),\,(-1,-1,1),\,(-1,1,-1),\,(1,-1,-1)\},\\
+        T^- &= \{(1,1,-1),\,(1,-1,1),\,(-1,1,1),\,(-1,-1,-1)\}.
+    \end{align*}
+    这两组顶点构成正方体顶点的分划。每组内$4$个顶点之间两两距离都是$2\sqrt{2}$。正方体的同一条体心对角线的两个端点（下称对顶点）必然分属两组（坐标互为相反数）。同一条棱的两端点必然分属两组。
+    \item \textbf{解答}：以上分出的$T^+,T^-$两个集合，每个集合中的顶点恰好是一个正四面体的顶点。由于正方体所有顶点到原点等距，可知两个正四面体的中心都是坐标原点。
+    \item \textbf{解答}：通过面心的$90^\circ$旋转有三类，分别以$x,y,z$轴为旋转轴。不妨设旋转轴为$z$轴，该旋转分别旋转$z=1$和$z=-1$两个面上的顶点。在平面上该旋转体现为$90^\circ$旋转，因此把$x,y$坐标转到下一个象限。于是乘积$xy$变号而$z$不变。这说明$T^+$中所有点都会变为$T^-$中点，反之亦然。
+    \item \textbf{解答}：通过体心的旋转以体心对角线为旋转轴。它固定一个顶点与其对顶点，而置换其相邻顶点的位置。观察可知：任何顶点相邻三顶点都属于$T^+,T^-$中同一个子集，因此经过置换仍然在其中。这说明该旋转把$T^+,T^-$变为自身。
+    \item \textbf{解答}：通过对棱中线的$180^\circ$旋转把相关两条棱中每条棱的顶点对调，而把其他棱上的所有顶点都变为其对顶点，因此所有顶点都改变归属$T^+,T^-$的情况。
+    \item \textbf{解答}：前三问中的旋转都把$T^+,T^-$整体变换，即同属一个子集的顶点变换后要么都属于原子集，要么都属于另一个子集。这些旋转变换能生成正方体的任何旋转变换（具体见第四章习题$5$）。因此，$\forall\tau\in\mathsf{T}_6$，作为它们的复合，也把$T^+,T^-$整体变换。用$\phi$和$\tau$来描述，就是：$\phi\circ\tau$在$T^+,T^-$上各自都是常数。
+    \item \textbf{解答}：由上一问可知$\sigma(t)\in\{T^+,T^-\}=\mathsf{T}$。由于$\gamma$用旋转作为映射来自然定义，只要契义，就自然满足显相映射的条件。而前面可以看到把$T^+,T^-$变为对方的旋转变换，所以它们的轨迹都是$\mathsf{T}$，即群显通相。
+    \item \textbf{解答}：$H=\{\sigma\in\mathsf{T}_6\,|\,\sigma(T^+)=T^+\}$，根据轨定定理，$|H|$乘以$T^+$的轨迹长度就是$|\mathsf{T}_6|=24$。$T^+$的轨迹长度为$2$，所以$|H|=12$。由于$H$的势是$|\mathsf{T}_6|$的一半，它的另一个左往集等于另一个右往集，因此左右往集相等，为往合子群。
+    \item \textbf{解答}：如果$\sigma(T^+)=T^+$，那么$\sigma(T^-)=T^-$，即$\gamma_\sigma$为恒等变换。否则不然。因此群同态$\sigma\mapsto \gamma_\sigma$的核就是$H$，它的像是$\mathsf{T}$上的置换群$\mathsf{S}_\mathsf{T}$，同构于$\mathsf{C}_2$。
+    \item \textbf{解答}：根据群同态基本定理，由于$H$是$\sigma\mapsto \gamma_\sigma$的核，$H$除$\mathsf{T}_6$的商群就同构于它的像：置换群$\mathsf{S}_\mathsf{T}$，即同构于$\mathsf{C}_2$。
+    \item \textbf{解答}：我们用体心对角线的置换来描述正方体的旋转，从而建立$\mathsf{T}_6$与$\mathsf{S}_4$中的置换的对应。按定义$H$保持$T^+$中的顶点，包括通过面心的$180^\circ$旋转（$3$个）、通过体心的$120^\circ$旋转（$8$个）以及恒等变换。它们分别对应$\mathsf{S}_4$中双对换、$3$元轮换和恒等变换。
+    \item \textbf{解答}：考虑$H$中的旋转如何具体变换正四面体$T^+$中的顶点：通过正方体体心的$8$个$120^\circ$旋转对应绕过正四面体顶点和中心的轴线的旋转；通过正方体面心的$3$个$180^\circ$旋转则对应绕正四面体对棱中线的旋转（注意对$T^-$也是如此）。因此$H$包含于正四面体的旋转群$\mathsf{A}_4$。考虑到两者等势，$H=\mathsf{A}_4$。
+    \item \textbf{解答}：$\mathsf{S}_4$中的对换对应绕对棱中线的$180^\circ$旋转：它恰好调换相关两棱所在截面的体心对角线，而保持另外两条不变。它把$T^+$变为$T^-$，因此不属于$H=\mathsf{A}_4$。
+    \item \textbf{解答}：经过尝试可以发现：取某个顶点$V$相邻的三条棱及其对棱，绕这三对棱的中线分别旋转$180^\circ$，效果恰好就是绕通过正方体面心的轴线的$90^\circ$旋转。用置换来表示，可以举例写为：$(1\,2\,3\,4)=(1\,4)(1\,3)(1\,2)$，其中“$1$”就是顶点$V$及其对顶点代表的体心对角线。
+    \item \textbf{解答}：根据第四章的习题，我们知道绕面心的旋转能生成整个$\mathsf{T}_6$，即对应的置换能生成整个$\mathsf{S}_4$。而这些置换本身又能通过对换复合生成，所以对换可以生成整个$\mathsf{S}_4$。
+    \item \textbf{解答}：$\mathsf{A}_4$中元素对应$\mathsf{T}_6$中通过面心的$180^\circ$旋转（$3$个）、通过体心的$120^\circ$旋转（$8$个）以及恒等变换。通过面心的$180^\circ$旋转是通过面心的$90^\circ$旋转两次，通过体心的$120^\circ$旋转是同轴反方向旋转两次，恒等变换等价于自身重复两次。
+    \item \textbf{解答}：$\mathsf{A}_4$中的元素总能表示为$\mathsf{S}_4$中元素的平方，而后者总能表示为对换的复合。所以作为其平方，$\mathsf{A}_4$中的元素总能表示偶数个对换的复合。而其余元素就是$\mathsf{A}_4=H$作为往合子群的另一个往集。由于对换交换$T^+,T^-$，所以另一个往集可以写为$\tau H$，其中$\tau$是某个对换。因此其中元素都可以写为奇数个对换的复合。
+    \item \textbf{解答}：$\{\pm 1\}$作为二元群同构于$\mathsf{C}_2$，又同构于$\mathsf{S}_\mathsf{T}$。记$f$为从$\mathsf{S}_\mathsf{T}$到$\{\pm 1\}$的同构映射，$g$是$\mathsf{S}_4$到$\mathsf{T}_6$的同构映射。考虑映射$\sgn = f\circ\varphi\circ g$。$\sgn$从$\mathsf{S}_4$映射到$\{\pm 1\}$：
+    \[
+        \forall\,\sigma\in\mathsf{S}_4,\;\;\sgn(\sigma) = f(\gamma_{g(\sigma)}).
+    \]
+    由于$\varphi:\sigma\mapsto\gamma_\sigma$是群同态，所以$\forall\,\sigma,\tau\in\mathsf{S}_4$，
+    \begin{align*}
+        \forall\,t\in\mathsf{T},\;\sgn(\sigma\tau) &=f\left(\gamma_{g(\sigma\circ\tau)}\right) =f\left(\gamma_{g(\sigma)g(\tau)}\right) \\
+        &= f\left(\gamma_{g(\sigma)}\gamma_{g(\tau)}\right) = f\left(\gamma_{g(\sigma)}\right)f\left(\gamma_{g(\tau)}\right) \\
+        &= \sgn(\sigma)\sgn(\tau).
+    \end{align*}
+    所以$\sgn$是群同态。它的核是令$\gamma_{g(\sigma)}$为恒等变换的$\sigma$集合，也就是$\mathsf{A}_4$。
+    \item \textbf{解答}：对换总把$T^+,T^-$调换，所以任何对换经$\sgn$映射到$-1$。考虑$\sigma\in\mathsf{S}_4$某种表示为对换复合的方法：$\sigma=\tau_1\tau_2\cdots\tau_k$，其中$k$是正整数，$\tau_1,\tau_2,\cdots,\tau_k$是对换，则$\sgn(\sigma) = \sgn(\tau_1)\sgn(\tau_2)\cdots\sgn(\tau_k)=(-1)^k$。而$\sgn$是良好定义的群同态，所以$\sgn(\sigma)$的值是定值。反设$\sigma$既能表示为偶数个对换的复合，又能表示为奇数个对换的复合，那么按两种方法分别计算$\sgn(\sigma)=(-1)^k$，就得出$\sgn(\sigma)$既是$1$又是$-1$，矛盾！
+    \end{problemlist}
+
+\stardivider
+
+\clearpage
+
+\subsection*{对称差积与置换的符号}
+
+\begin{problemlist}
+    \item \textbf{解答}：先说明契义：把 $p$ 的各个变元换成另一些变元，所得仍是
+    $n$ 元实系数整式，故 $\gamma(\sigma,p)\in\mathbb{R}[x_1,\cdots,x_n]$。
+
+    验证$\gamma$满足显相映射的条件：
+    \begin{itemize}
+        \item 设$e$ 是恒等置换，$x_{e(i)}=x_i$，所以 $\gamma(e,p)=p$。
+        \item 记 $q=\gamma(\tau,p)$，即
+    $q(y_1,\cdots,y_n)=p(y_{\tau(1)},\cdots,y_{\tau(n)})$。
+    把 $y_i$ 代换为 $x_{\sigma(i)}$，得
+    \begin{align*}
+        \gamma(\sigma,\gamma(\tau,p))
+        &= q\!\left(x_{\sigma(1)},\cdots,x_{\sigma(n)}\right)\\
+        &= p\!\left(x_{\sigma(\tau(1))},\cdots,x_{\sigma(\tau(n))}\right)
+        = \gamma(\sigma\tau,\,p).
+    \end{align*}
+    \end{itemize}
+
+    \item \textbf{解答}：$\Delta_2=x_1-x_2$，而
+    \[
+        (1\,2)\cdot\Delta_2 = x_2-x_1 = -\Delta_2 .
+    \]
+    $\mathsf{S}_2=\{e,(1\,2)\}$，故 $\Delta_2$ 的轨迹为 $\{\Delta_2,\,-\Delta_2\}$，长度为 $2$；
+    定子群为 $\{e\}$。用轨定定理核对：$|\mathsf{S}_2|=2=2\times 1$，相符。
+
+    \item \textbf{解答}：$\Delta_3=(x_1-x_2)(x_1-x_3)(x_2-x_3)$。逐个代入：
+    \begin{center}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        $\sigma$ & $\sigma\cdot\Delta_3$ & 结果 \\ \hline
+        $e$ & $(x_1-x_2)(x_1-x_3)(x_2-x_3)$ & $\Delta_3$ \\ \hline
+        $(1\,2)$ & $(x_2-x_1)(x_2-x_3)(x_1-x_3)$ & $-\Delta_3$ \\ \hline
+        $(1\,3)$ & $(x_3-x_2)(x_3-x_1)(x_2-x_1)$ & $-\Delta_3$ \\ \hline
+        $(2\,3)$ & $(x_1-x_3)(x_1-x_2)(x_3-x_2)$ & $-\Delta_3$ \\ \hline
+        $(1\,2\,3)$ & $(x_2-x_3)(x_2-x_1)(x_3-x_1)$ & $\Delta_3$ \\ \hline
+        $(1\,3\,2)$ & $(x_3-x_1)(x_3-x_2)(x_1-x_2)$ & $\Delta_3$ \\ \hline
+    \end{tabular}
+    \end{center}
+    例如 $(1\,3)$ 一行：三个因子分别为 $-(x_2-x_3)$、$-(x_1-x_3)$、$-(x_1-x_2)$，
+    三个负号相乘得 $-1$。而 $(1\,2\,3)$ 一行出现两个负号，相乘得 $+1$。
+
+    因此保持 $\Delta_3$ 的是 $e,(1\,2\,3),(1\,3\,2)$；把它变号的是三个对换。
+
+    \item \textbf{解答}：猜想：任何置换施于 $\Delta_n$，结果要么仍是 $\Delta_n$，
+    要么是 $-\Delta_n$，即 $\sigma\cdot\Delta_n=\pm\Delta_n$。
+    换言之，$\Delta_n$ 的轨迹只有两个元素，置换按"保持"与"变号"分成两类。
+
+    \item \textbf{证明}：把 $\Delta_n$ 的因子按二元子集编号。记
+    \[
+        \Gamma_n=\left\{\{i,j\}\;\middle|\;1\leqslant i<j\leqslant n\right\},\qquad
+        \Delta_n=\prod_{\{a,b\}\in P,\ a<b}(x_a-x_b).
+    \]
+    由于 $\sigma$ 是双射，映射 $\{i,j\}\mapsto\{\sigma(i),\sigma(j)\}$ 是 $\Gamma_n$ 到自身的双射：
+    首先，若 $\{\sigma(i),\sigma(j)\}=\{\sigma(i'),\sigma(j')\}$，则 $\{i,j\}=\{i',j'\}$，
+    再由 $i<j$、$i'<j'$ 得 $(i,j)=(i',j')$。其次，$\{i,j\}$显然可以由$\{\sigma^{-1}(i),\sigma^{-1}(j)\}$映射得到，因此是满射。
+
+    \item 按定义
+    \[
+        \sigma\cdot\Delta_n=\prod_{1\leqslant i<j\leqslant n}\left(x_{\sigma(i)}-x_{\sigma(j)}\right).
+    \]
+    对每个 $i<j$，令 $a$为$\sigma(i),\sigma(j)$中较小者，$b$为较大者，则
+    \[
+        x_{\sigma(i)}-x_{\sigma(j)}=\epsilon_{ij}\,(x_a-x_b),\qquad
+        \epsilon_{ij}=
+        \begin{cases}
+            1, & \sigma(i)<\sigma(j),\\
+            -1, & \sigma(i)>\sigma(j).
+        \end{cases}
+    \]
+    当 $\{i,j\}$ 遍历 $\Gamma_n$ 时，$\{a,b\}$ 也恰好遍历 $\Gamma_n$ 一次。把所有因子相乘，
+    \[
+        \sigma\cdot\Delta_n=\Big(\prod_{i<j}\epsilon_{ij}\Big)\prod_{\{a,b\}\in \Gamma_n,\ a<b}(x_a-x_b)
+        =\varepsilon(\sigma)\,\Delta_n,\qquad \varepsilon(\sigma)=\prod_{i<j}\epsilon_{ij}\in\{1,-1\}.
+    \]
+    再说明$\varepsilon(\sigma)$是唯一的：$\mathbb{R}[x_1,\cdots,x_n]$ 中非零整式之积非零，故 $\Delta_n$不恒等于零。
+    若 $\varepsilon\Delta_n=\varepsilon'\Delta_n$，则 $(\varepsilon-\varepsilon')\Delta_n$恒等于零，从而推出 $\varepsilon=\varepsilon'$。
+
+    \item \textbf{证明}：按定义 $\sgn(\sigma)=\varepsilon(\sigma)$，即
+    $\sigma\cdot\Delta_n=\sgn(\sigma)\Delta_n$。显然 $\sgn(e)=1$。
+
+    注意代入变元不改动实系数，故对任意实数 $c$ 有 $\sigma\cdot(c\,p)=c\,(\sigma\cdot p)$。
+    于是由显相映射的性质，
+    \begin{align*}
+        (\sigma\tau)\cdot\Delta_n
+        &= \sigma\cdot(\tau\cdot\Delta_n)
+        = \sigma\cdot\big(\sgn(\tau)\Delta_n\big)\\
+        &= \sgn(\tau)\,(\sigma\cdot\Delta_n)
+        = \sgn(\tau)\sgn(\sigma)\,\Delta_n .
+    \end{align*}
+    另一方面 $(\sigma\tau)\cdot\Delta_n=\sgn(\sigma\tau)\Delta_n$。
+    由第 $6$ 问中说明的唯一性，并注意 $\{1,-1\}$ 中数的乘法可交换，得
+    \[
+        \sgn(\sigma\tau)=\sgn(\sigma)\sgn(\tau).
+    \]
+    故 $\sgn$ 是群同态。
+
+    \item \textbf{证明}：设 $\tau=(a\,b)$，$a<b$。它交换 $x_a,x_b$，其余变元不动。
+    把 $\Delta_n$ 的因子分成三部分：
+    \[
+        \Delta_n=(x_a-x_b)\cdot A\cdot B,
+    \]
+    其中 $A$ 是两端下标都不属于 $\{a,b\}$ 的因子之积，
+    $B$ 是恰有一个下标属于 $\{a,b\}$ 的因子之积。可以把$B$中的项配对写为：
+    \[
+        B=\prod_{k\neq a,b}(x_k-x_a)(x_k-x_b)
+    \]
+    交换 $x_a,x_b$ 时：
+    \begin{itemize}
+        \item $A$ 完全不变；
+        \item $B$ 中$(x_k-x_a)(x_k-x_b)$变为$(x_k-x_b)(x_k-x_a)$，整体不变。
+        \item 唯有 $(x_a-x_b)$ 变为 $(x_b-x_a)=-(x_a-x_b)$。
+    \end{itemize}
+    因此 $\tau\cdot\Delta_n=-\Delta_n$，即 $\sgn(\tau)=-1$。
+    \item \textbf{解答}：
+    \begin{problemlist}
+        \item 由第 $8$ 问，任一对换把 $\Delta_n$ 变为 $-\Delta_n$，故 $-\Delta_n$ 在轨迹中。
+        又 $\Delta_n\neq-\Delta_n$。结合第 $6$ 问可知，$\Delta_n$的轨迹恰为 $\{\Delta_n,\,-\Delta_n\}$，长度为 $2$。
+        由轨定定理，
+        \[
+            |\mathsf{S}_n|=|\mathcal{O}(\Delta_n)|\cdot|H_n|
+            \quad\Longrightarrow\quad n!=2\,|H_n|
+            \quad\Longrightarrow\quad |H_n|=\frac{n!}{2}.
+        \]
+        \item 两条理由皆可。其一：按定义
+        $H_n=\{\sigma\mid\sigma\cdot\Delta_n=\Delta_n\}=\{\sigma\mid\sgn(\sigma)=1\}=\Ker\sgn$，
+        而群同态的核总是往合子群。其二：$H_n$ 的左往集只有两个，即 $H_n$ 与其补集；
+        右往集也只有这两个，故对一切 $\sigma$ 有 $\sigma H_n=H_n\sigma$。
+        \item 由第 $8$ 问，$\sgn$ 能取到 $-1$，故 $\sgn$ 是满同态，像为 $\{1,-1\}$。
+        由群同态基本定理，
+        \[
+            \quotient{\mathsf{S}_n}{H_n}\;\cong\;\{1,-1\}\;\cong\;\mathsf{C}_2 ,
+        \]
+        即二元循环群。
+    \end{problemlist}
+
+    \item \textbf{解答}：
+    \begin{problemlist}
+        \item 由承认结论，$\sigma$ 可写成对换的复合 $\sigma=\tau_1\tau_2\cdots\tau_k$。
+        反复使用第 $7$ 问的同态性与第 $8$ 问的结论：
+        \[
+            \sgn(\sigma)=\sgn(\tau_1)\sgn(\tau_2)\cdots\sgn(\tau_k)=(-1)^k .
+        \]
+        \item 关键在于：$\sgn$ 是由第 $6$ 问的等式
+        $\sigma\cdot\Delta_n=\sgn(\sigma)\Delta_n$ 定义的，
+        这个定义只用到 $\sigma$ 与 $\Delta_n$，\emph{没有用到任何对换分解}。
+        因此 $\sgn(\sigma)$ 是由 $\sigma$ 唯一确定的一个数。
+        由上一问，任何分解都给出 $(-1)^k=\sgn(\sigma)$，
+        所以 $k$ 的奇偶不依赖分解方式：
+        同一个置换不可能既写成偶数个对换的复合，又写成奇数个对换的复合。
+        \item 按定义，偶置换即 $\sgn(\sigma)=1$ 者，也就是
+        $\sigma\cdot\Delta_n=\Delta_n$ 者，故全体偶置换恰为定子群 $H_n=\Ker\sgn$，记为 $\mathsf{A}_n$，
+        且 $|\mathsf{A}_n|=n!/2$。
+        取任一对换 $\tau$，则 $\sgn(\tau)=-1$，故 $\tau\notin\mathsf{A}_n$。
+        由于只有两个往集，另一个往集就是 $\tau\mathsf{A}_n$；
+        而对其中任一元素 $\tau h$（$h\in\mathsf{A}_n$）有 $\sgn(\tau h)=-1$，
+        反之奇置换 $\sigma$ 满足 $\tau^{-1}\sigma\in\Ker\sgn$，即 $\sigma\in\tau\mathsf{A}_n$。
+        故全体奇置换恰构成另一个往集。
+    \end{problemlist}
+
+    \item \textbf{证明}：在
+    \[
+        \sigma\cdot\Delta_n=\prod_{1\leqslant i<j\leqslant n}\left(x_{\sigma(i)}-x_{\sigma(j)}\right)
+    \]
+    中逐个考察因子。若 $\sigma(i)<\sigma(j)$，该因子就是 $\Delta_n$ 中对应子集
+    $\{\sigma(i),\sigma(j)\}$ 的那个因子；若 $\sigma(i)>\sigma(j)$，
+    则它等于该因子的相反数，贡献一个负号。
+    由第 $5$ 问已知，当 $\{i,j\}$ 遍历所有二元子集时，
+    $\{\sigma(i),\sigma(j)\}$ 也恰好遍历所有二元子集一次，
+    因此这些因子的绝对部分之积恰为 $\Delta_n$，而负号的个数恰为集合
+    \[
+        \{(i,j)\mid i<j,\ \sigma(i)>\sigma(j)\}
+    \]
+    的势，也就是逆序数。于是 $\sigma\cdot\Delta_n=(-1)^{\operatorname{inv}(\sigma)}\Delta_n$，
+    即 $\sgn(\sigma)=(-1)^{\operatorname{inv}(\sigma)}$。
+
+    \item \textbf{解答}：按环圈形态分类。注意\textbf{同一环圈形态的逆序数未必相同，但奇偶相同}。
+
+    $n=2$：
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        环圈型 & 个数 & $\sgn$ & 逆序数奇偶 & 代表元的逆序数 \\ \hline
+        幺元 & $1$ & $1$ & 偶 & $e:\ 0$ \\ \hline
+        对换 & $1$ & $-1$ & 奇 & $(1\,2):\ 1$ \\ \hline
+    \end{tabular}
+    \end{center}
+    $\mathsf{A}_2=\{e\}$。
+
+    $n=3$：
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        环圈型 & 个数 & $\sgn$ & 逆序数奇偶 & 代表元的逆序数 \\ \hline
+        幺元 & $1$ & $1$ & 偶 & $e:\ 0$ \\ \hline
+        对换 & $3$ & $-1$ & 奇 & $(1\,2):1,\ (1\,3):3,\ (2\,3):1$ \\ \hline
+        $3$ 元轮换 & $2$ & $1$ & 偶 & $(1\,2\,3):2,\ (1\,3\,2):2$ \\ \hline
+    \end{tabular}
+    \end{center}
+    $\mathsf{A}_3=\{e,\ (1\,2\,3),\ (1\,3\,2)\}$，同构于 $\mathsf{C}_3$。
+
+    $n=4$：
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        环圈型 & 个数 & $\sgn$ & 逆序数奇偶 & 代表元的逆序数 \\ \hline
+        幺元 & $1$ & $1$ & 偶 & $e:\ 0$ \\ \hline
+        对换 & $6$ & $-1$ & 奇 & $(1\,2):1,\ (1\,3):3,\ (1\,4):5$ \\ \hline
+        双对换 & $3$ & $1$ & 偶 & $(1\,2)(3\,4):2,\ (1\,3)(2\,4):4,\ (1\,4)(2\,3):6$ \\ \hline
+        $3$ 元轮换 & $8$ & $1$ & 偶 & $(1\,2\,3):2,\ (1\,2\,4):4$ \\ \hline
+        $4$ 元轮换 & $6$ & $-1$ & 奇 & $(1\,2\,3\,4):3,\ (1\,3\,2\,4):5$ \\ \hline
+    \end{tabular}
+    \end{center}
+    $\mathsf{A}_4$ 共 $1+3+8=12$ 个元素：
+    \begin{align*}
+        \{\,&e,\ (1\,2)(3\,4),\ (1\,3)(2\,4),\ (1\,4)(2\,3),\\
+            &(1\,2\,3),\ (1\,3\,2),\ (1\,2\,4),\ (1\,4\,2),\\
+            &(1\,3\,4),\ (1\,4\,3),\ (2\,3\,4),\ (2\,4\,3)\,\}.
+    \end{align*}
+
+\end{problemlist}
+
+\stardivider
+
+\clearpage
+
 \section{第八章参考解答}
+
+
+\begin{problemlist}
+\item \textbf{解答}：
+本题的底座集合$X$为正五边形的$5$个顶点。颜色集合为$C$。本质不同的染色方案数，即为对称群显于状态集合$S=C^X$的\textbf{轨迹数}。我们将使用本章的\textbf{染色计数定理}进行计算：
+\[
+\text{轨迹数} = \frac{1}{|G|} \sum_{g\in G} |C|^{c(g)}
+\]
+其中$|G|$为对称群的势，$|C|$为颜色数，$c(g)$为群元素$g$作用于$5$个顶点时形成的\textbf{环圈数}。
+
+首先，分析正五边形对称群中各元素作用于$5$个顶点时的环圈结构：
+\begin{itemize}
+\item \textbf{恒等变换$e$（$1$个）}：每个顶点各自形成一个$1$元环圈，共$c(e)=5$个环圈。
+\item \textbf{非平凡旋转（$4$个）}：每个旋转将$5$个顶点整体轮换，形成$1$个$5$元环圈，共$c(g)=1$个环圈。
+\item \textbf{翻转（$5$个）}：每个翻转的对称轴过$1$个顶点和$1$条对边中点。该顶点形成$1$个$1$元环圈，其余$4$个顶点两两交换，形成$2$个$2$元环圈。共计$c(g)=1+2=3$个环圈。
+\end{itemize}
+
+\vspace{12pt}
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+        % 参数设置
+        \def\r{1.2}
+        \def\p{0.3}
+        \def\dx{4}
+        \def\dy{-3}
+        \begin{scope}[shift={(0*\dx*\r,0)}]
+            \foreach \i in {1,...,5}{
+                \draw[thick] (18+72*\i:\r) circle (\p);
+                \node at (18+72*\i:\r) {$\i$};
+            }
+        \end{scope} 
+        \begin{scope}[shift={(1*\dx*\r,0*\dy*\r)}]
+            \foreach \i in {1,...,5}{
+                \draw[thick] (18+72*\i:\r) circle (\p);
+                \node at (18+72*\i:\r) {$1$};
+            }
+        \end{scope} 
+        \begin{scope}[shift={(2*\dx*\r,0*\dy*\r)}]
+            \foreach \i in {1,...,5}{
+                \draw[thick] (18+72*\i:\r) circle (\p);
+            }
+            \node at (90:\r) {$1$};
+            \node at (18:\r) {$2$};
+            \node at (162:\r) {$2$};
+            \node at (-54:\r) {$3$};
+            \node at (-126:\r) {$3$};
+        \end{scope} 
+    \end{tikzpicture}
+    \caption*{\texttt{各类变换形成的环圈：相同数字表示属于同一个环圈。}}
+    \label{fig:pentagon-cycles}
+\end{figure}
+\vspace{8pt}
+
+\begin{problemlist}
+    \item \textbf{解答}：不考虑对称性，状态集合$S$的大小为$|C|^{|X|} = 2^5 = 32$。所以有$32$种染色方法。
+
+    \item \textbf{解答}：允许旋转和翻转，对称群为正五边形的映轮群$\mathsf{D}_5$，群势$|\mathsf{D}_5|=10$。颜色数$|C|=2$。根据染色计数定理，轨迹数为：
+    $$ \frac{1}{10} \left( 1\times 2^5 + 4\times 2^1 + 5\times 2^3 \right) = \frac{32 + 8 + 40}{10} = \frac{80}{10} = 8 \text{ 种}。 $$
+
+    \item \textbf{解答}：对称群仍为映轮群$\mathsf{D}_5$，群势为$10$。颜色数$|C|=3$。根据染色计数定理，轨迹数为：
+    $$ \frac{1}{10} \left( 1\times 3^5 + 4\times 3^1 + 5\times 3^3 \right) = \frac{243 + 12 + 135}{10} = \frac{390}{10} = 39 \text{ 种}。 $$
+
+    \item \textbf{解答}：只允许旋转，对称群为$5$元循环群$\mathsf{C}_5$，群势$|\mathsf{C}_5|=5$。颜色数$|C|=2$。分析$\mathsf{C}_5$中各元素的环圈数：恒等变换$e$（$1$个）$c(e)=5$；非平凡旋转（$4$个）$c(g)=1$。根据染色计数定理，轨迹数为：
+    $$ \frac{1}{5} \left( 1\times 2^5 + 4\times 2^1 \right) = \frac{32 + 8}{5} = \frac{40}{5} = 8 \text{ 种}。 $$
+
+    \item \textbf{解答}：对称群仍为循环群$\mathsf{C}_5$，群势为$5$。颜色数$|C|=3$。根据染色计数定理，轨迹数为：
+    $$ \frac{1}{5} \left( 1\times 3^5 + 4\times 3^1 \right) = \frac{243 + 12}{5} = \frac{255}{5} = 51 \text{ 种}。 $$
+
+    \item \textbf{解答}：对比第(2)、(3)问（允许翻转，映轮群$\mathsf{D}_5$）与第(4)、(5)问（只允许旋转，循环群$\mathsf{C}_5$）的答案：
+    \begin{itemize}
+    \item 用$2$种颜色时，允许翻转（$8$种）与只允许旋转（$8$种）的答案\textbf{相同}。
+    \item 用$3$种颜色时，允许翻转（$39$种）的答案\textbf{小于}只允许旋转（$51$种）。
+    \end{itemize}
+    \textbf{理由}：引入翻转操作（从$\mathsf{C}_5$扩大到$\mathsf{D}_5$）增加了系统的对称性。通常，更大的对称群会将原本在较小群下不等价的轨迹合并，从而减少总轨迹数。
+    \begin{itemize}
+    \item \textbf{为何$2$色时没有减少}：对于$2$色$5$顶点的所有$8$个旋转轨迹，每一个轨迹在翻转操作下都是“自对称”的。也就是说，任何一个$2$色图案翻转后得到的镜像图案，总可以通过某种旋转操作变回它自己。翻转并没有把两个不同的旋转轨迹合并成一个，而只是在每个旋转轨迹内部进行置换。因此，轨迹总数保持不变。
+    \item \textbf{为何$3$色时减少了}：$3$色增加了状态空间的复杂度。在$3$色的$51$个旋转轨迹中，存在“手性”图案（即翻转后得到的镜像图案，无法通过任何旋转操作与自身重合）。翻转操作将这些互为镜像的旋转轨迹两两合并。因此，总轨迹数从$51$减少到了$39$。
+    \end{itemize}
+\end{problemlist}
+\item \textbf{解答}：
+本题的核心是将“本质不同的染色方案数”转化为“对称群显于状态集合的轨迹数”。底座集合$X$为正方体的$6$个面，$|X|=6$。颜色集合为$C$。我们使用\textbf{染色计数定理}：轨迹数等于群中各元素对应的环圈数$c(g)$的函数$|C|^{c(g)}$的平均值。
+
+\begin{problemlist}
+\item \textbf{不考虑对称性}。用$2$种颜色染色，染色方案数为$ 2^6 = 64$。
+
+\item \textbf{只允许绕某一条特定的体心对角线旋转}。
+体心对角线连接两个相对的顶点。绕此轴旋转$120^\circ$和$240^\circ$可保持正方体不变，加上恒等变换，构成$3$元循环群$G_2 \cong \mathsf{C}_3$，群势$|G_2|=3$。
+分析各元素在$6$个面上的环圈：
+\begin{itemize}
+\item 恒等变换$e$：$c(e)=6$。
+\item 旋转$120^\circ$和$240^\circ$：体心对角线穿过两个顶点，每个顶点连接$3$个面。这$3$个面在旋转下轮换，形成$1$个$3$元环圈。两端共形成$2$个$3$元环圈。因此$c(r)=c(r^2)=2$。
+\end{itemize}
+用$2$种颜色染色，染色方案有
+\begin{align*}
+    \frac{1}{3} \left( 1\times 2^6 + 2\times 2^2 \right) &= \frac{64 + 8}{3} \\
+    &= \frac{72}{3} = 24 \text{ 种}
+\end{align*}
+
+\item \textbf{允许保持某一对特定对面（如上下底面）作为集合不变的所有旋转}。
+要保持“上下底面”这个集合不变，旋转轴必须是垂直轴（连接上下底面中心），或者是水平面内的轴（连接左右/前后侧面中心，或连接侧棱中点）。这些旋转构成一个$8$元群$G_3$（同构于映轮群$\mathsf{D}_4$），群势$|G_3|=8$。
+分析这$8$个元素在$6$个面上的环圈：
+\begin{itemize}
+    \item 恒等变换$e$（$1$个）：$c(e)=6$。
+    \item 绕垂直轴旋转$90^\circ, 270^\circ$（$2$个）：上下底面各自不动（$2$个$1$元环圈），$4$个侧面轮换（$1$个$4$元环圈）。$c=3$。
+    \item 绕垂直轴旋转$180^\circ$（$1$个）：上下底面不动（$2$个$1$元环圈），$4$个侧面两两互换（$2$个$2$元环圈）。$c=4$。
+    \item 绕水平面心轴（如左右面中心连线）旋转$180^\circ$（$2$个）：上下底面互换（$1$个$2$元环圈），两个侧面不动（$2$个$1$元环圈），另两个侧面互换（$1$个$2$元环圈）。$c=1+2+1=4$。
+    \item 绕对棱中线（如左右面与前后面交棱的中点连线）旋转$180^\circ$（$2$个）：上下底面互换（$1$个$2$元环圈），$4$个侧面两两互换（$2$个$2$元环圈）。$c=1+2=3$。
+\end{itemize}
+用$2$种颜色染色，染色方案有
+\begin{align*}
+    \frac{1}{8} \left( 1\times 2^6 + 2\times 2^3 + 1\times 2^4 + 2\times 2^4 + 2\times 2^3 \right) &= \frac{64 + 16 + 16 + 32 + 16}{8} \\
+    &= \frac{144}{8} = 18 \text{ 种}
+\end{align*}
+
+\item \textbf{允许正方体的所有旋转}。
+此时对称群为完整的旋转群$G_4 = \mathsf{T}_6$，群势$|G_4|=24$。
+分析$24$个元素在$6$个面上的环圈：
+\begin{itemize}
+    \item 恒等变换$e$（$1$个）：$c=6$。
+    \item 绕面心轴旋转$90^\circ, 270^\circ$（$3$条轴$\times 2 = 6$个）：$c=3$。
+    \item 绕面心轴旋转$180^\circ$（$3$条轴$\times 1 = 3$个）：$c=4$。
+    \item 绕体心对角线旋转$120^\circ, 240^\circ$（$4$条轴$\times 2 = 8$个）：$c=2$。
+    \item 绕对棱中线旋转$180^\circ$（$6$条轴$\times 1 = 6$个）：$c=3$。
+\end{itemize}
+用$2$种颜色染色，染色方案有
+\begin{align*}
+    \frac{1}{24} \left( 1\times 2^6 + 6\times 2^3 + 3\times 2^4 + 8\times 2^2 + 6\times 2^3 \right) &= \frac{64 + 48 + 48 + 32 + 48}{24} \\
+    &= \frac{240}{24} = 10\text{ 种}
+\end{align*}
+
+\item \textbf{颜色变为$3$种（红、蓝、绿）}。
+只需将上述各问公式中的底数$2$替换为$3$即可：
+\begin{itemize}
+\item 第(1)问：$3^6 = 729$ 种。
+\item 第(2)问（$3$元群）：$\frac{1}{3} (1\times 3^6 + 2\times 3^2) = \frac{729 + 18}{3} = 249$ 种。
+\item 第(3)问（$8$元群）：$\frac{1}{8} (1\times 3^6 + 2\times 3^3 + 1\times 3^4 + 2\times 3^4 + 2\times 3^3) = \frac{729 + 54 + 81 + 162 + 54}{8} = \frac{1080}{8} = 135$ 种。
+\item 第(4)问（$24$元群）：$\frac{1}{24} (1\times 3^6 + 6\times 3^3 + 3\times 3^4 + 8\times 3^2 + 6\times 3^3) = \frac{729 + 162 + 243 + 72 + 162}{24} = \frac{1368}{24} = 57$ 种。
+\end{itemize}
+
+\item \textbf{对比与直观解释}。
+\textbf{变化规律}：
+\begin{itemize}
+    \item \textbf{对称操作增多}：无论是$2$色（$64 \to 24 \to 18 \to 10$）还是$3$色（$729 \to 249 \to 135 \to 57$），随着允许的对称群势增大，本质不同的染色方案数\textbf{严格递减}。
+    \item \textbf{颜色种类增多}：在相同的对称群下，$3$色的方案数都远大于$2$色的方案数。
+\end{itemize}
+
+\textbf{直观解释}：
+\begin{itemize}
+    \item \textbf{从“群势与轨迹合并”的角度}：本质不同的方案数，就是状态集合被群分划的\textbf{轨迹数}。群势越大，意味着群中有更多的变换可以用来“搬运”状态。更多的搬运手段，会把原本在较小群下不等价的状态合并到同一个轨迹中。因此，对称性越高（群势越大），分类就越“粗”，轨迹数（方案数）就越少。
+    \item \textbf{从“对称轴数量”的角度}：第(2)问只有$1$条对称轴，合并能力最弱；第(3)问包含了$1$条垂直轴和$4$条水平/对角轴（共$5$条），合并能力中等；第(4)问包含了$3$条面心轴、$4$条体心对角线、$6$条对棱中线（共$13$条），合并能力最强。对称轴的数量直观地反映了群势的大小，决定了对称操作“抹平”差异的能力。
+    \item \textbf{颜色增多的影响}：颜色增多，使得不考虑对称性时的总状态数$|C|^{|X|}$呈指数级爆炸（从$64$到$729$）。虽然对称操作合并了一部分状态，但状态池的“基数”变大了，因此最终剩下的本质不同的方案数也随之大幅增加。这体现了代数结构（群）对组合数量（状态数）的约束与化归作用。
+\end{itemize}
+\end{problemlist}
+
+\end{problemlist}
+
+\clearpage
+
+\subsection*{六氟化硫的旋转异构体}
+
+\begin{problemlist}
+\item \textbf{解答}：底座集合$X$是正八面体的六个顶点，也就是六个可以安放原子的位置，$|X|=6$。颜色集合$C=\{\text{氟},\text{氯}\}$，$|C|=2$。一种原子排布，就是给每个位置指定一种原子，因此它是一个映射$f:X\rightarrow C$。所有排布构成$S=C^X$，于是
+\[ |S|=|C|^{|X|}=2^6=64. \]
+这里要注意：六个位置是空间中固定的六个点，不随分子转动而改名。转动改变的是“哪个位置上放着哪种原子”，而不是位置本身。
+
+\item \textbf{解答}：以旋转群$G$观于$S$。两种排布能通过转动重合，就是说存在$g\in G$把其中一种变成另一种，也就是它们属于同一条轨迹。因此本题要求的答案，就是$G$显于$S$的轨迹数$|\mathcal{O}_G(S)|$。这正是本章第一节把染色问题化为轨迹计数的做法。
+
+\item \textbf{解答}：苯环的六个取代位置共面。把这样一个平面分子在空间中绕平面内的一条直线转$180^\circ$，是真正的空间旋转；它对六个位置的效果，恰好等同于把平面正六边形沿该直线作轴对称。所以苯环的对称群写成映轮群$\mathsf{D}_6$，其中并没有混入非旋转的操作。正八面体的六个顶点不共面，镜面反射不是空间旋转，一般不能靠转动实现，因此本题只取旋转构成的群。本题也只讨论旋转异构，不讨论镜像带来的对映异构。
+
+\item \textbf{解答}：任取一个顶点，比如“上”。旋转可以把它送到六个顶点位置中的任意一个，共$6$种可能。一旦“上”的去处确定，比如仍留在上方，赤道上的四个顶点就只能在这四个位置之间轮换，共$4$种（转$0^\circ$、$90^\circ$、$180^\circ$、$270^\circ$）。因此
+\[ |G|=6\times 4=24. \]
+这与第一章数正方体旋转的办法完全平行：先把某个面转到朝上，有$6$种；再把某个侧面转到朝前，有$4$种。
+
+\item \textbf{解答}：
+\begin{problemlist}
+\item 六个顶点两两相对，共$3$对，故有$3$条顶点轴；八个面两两相对，共$4$对，故有$4$条面心轴；十二条棱两两相对，共$6$对，故有$6$条棱中轴。
+\item 绕顶点轴转动时，赤道上的四个顶点构成正方形，转$90^\circ$、$180^\circ$、$270^\circ$都能复原，非恒等旋转$3$个。绕面心轴转动时，该面的三个顶点轮换，转$120^\circ$、$240^\circ$复原，非恒等旋转$2$个。绕棱中轴转动时，只有$180^\circ$复原，非恒等旋转$1$个。
+\item 合计
+\[ 1+3\times 3+4\times 2+6\times 1=1+9+8+6=24, \]
+与第$4$问一致。作为对照，正方体有$3$条面心轴、$4$条顶心对角线、$6$条对棱中线，条数完全相同，只是“顶点”与“面”的角色互换。本题不需要追究这一对应关系的缘由，只要会用这$24$个旋转就够了。
+\end{problemlist}
+
+\item \textbf{解答}：绕上下轴从上往下看逆时针转$90^\circ$时，上与下各自不动，右到前、前到左、左到后、后到右。写成环圈分解：
+\[ (\text{上})(\text{下})(\text{右}\ \text{前}\ \text{左}\ \text{后}). \]
+两个$1$元环圈加一个$4$元环圈，故$c(g)=3$。
+
+\item \textbf{解答}：
+\begin{problemlist}
+\item $g$定住$f$，意思是搬家之后每个位置上的原子种类都与原来相同，即
+\[ \forall a\in X,\quad f(g(a))=f(a). \]
+\item 反复施用$g$，从$a$出发依次得到$a,\ g(a),\ g^2(a),\cdots$，它们恰好遍历$a$所在的环圈。上式说明这些位置上的原子种类必须全部相同。反过来，只要每个环圈内部同色，上述条件就处处成立。不同环圈之间没有任何约束。
+\item 每个环圈独立地有$2$种选择，共有$c(g)$个环圈，因此
+\[ |S^g|=2^{c(g)}. \]
+\end{problemlist}
+
+\item \textbf{解答}：上与下不动，右与左互换，前与后互换：
+\[ (\text{上})(\text{下})(\text{右}\ \text{左})(\text{前}\ \text{后}),\qquad c(g)=4. \]
+
+\item \textbf{解答}：绕这条面心轴转$120^\circ$时，上到右、右到前、前到上；同时下到左、左到后、后到下：
+\[ (\text{上}\ \text{右}\ \text{前})(\text{下}\ \text{左}\ \text{后}),\qquad c(g)=2. \]
+转$240^\circ$是它的逆，也是它的平方，环圈的划分方式相同，仍有$c(g)=2$。
+
+\item \textbf{解答}：这条轴穿过“上前”棱的中点，转$180^\circ$把该棱的两个端点对调；相对棱“下后”同理；剩下的左与右被对调：
+\[ (\text{上}\ \text{前})(\text{下}\ \text{后})(\text{左}\ \text{右}),\qquad c(g)=3. \]
+
+\item \textbf{解答}：汇总如下。
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+旋转类别 & 个数 & 环圈形态 & $c(g)$ & $2^{c(g)}$ \\ \hline
+恒等变换 & $1$ & $1^6$ & $6$ & $64$ \\ \hline
+顶点轴$90^\circ,270^\circ$ & $6$ & $1^2\,4$ & $3$ & $8$ \\ \hline
+顶点轴$180^\circ$ & $3$ & $1^2\,2^2$ & $4$ & $16$ \\ \hline
+面心轴$120^\circ,240^\circ$ & $8$ & $3^2$ & $2$ & $4$ \\ \hline
+棱中轴$180^\circ$ & $6$ & $2^3$ & $3$ & $8$ \\ \hline
+\end{tabular}
+\end{center}
+个数之和为$1+6+3+8+6=24$，与$|G|$相符。
+
+\item \textbf{解答}：由染色计数定理，
+\begin{align*}
+|\mathcal{O}_G(S)|
+&=\frac{1}{|G|}\sum_{g\in G}2^{c(g)}\\
+&=\frac{1}{24}\left(1\times 64+6\times 8+3\times 16+8\times 4+6\times 8\right)\\
+&=\frac{64+48+48+32+48}{24}=\frac{240}{24}=10.
+\end{align*}
+即一共有$10$种本质不同的空间结构。
+
+\item \textbf{解答}：
+\begin{problemlist}
+\item 从六个位置中选两个，共$\binom{6}{2}=15$种选法。
+\item 两个氯原子要么位于相对顶点，要么位于相邻顶点，没有第三种可能。相对的情形对应三条顶点轴，共$3$种；相邻的情形共$15-3=12$种，也可以直接数：每个顶点与$4$个顶点相邻，$6\times 4\div 2=12$。
+相对型的三种可以通过旋转互相得到，因为旋转能把任一条顶点轴转到任另一条。相邻型的十二种也可以：先把其中一个氯原子转到“上”（群贯通六个顶点），此时另一个氯原子在赤道四个位置之一，再绕上下轴转$90^\circ$的倍数即可互相得到。
+\item 于是恰好两条轨迹，$\mathrm{SF}_4\mathrm{Cl}_2$恰有两种旋转异构体。相对型是反式，相邻型是顺式。
+\end{problemlist}
+
+\item \textbf{解答}：反式的轨迹长为$3$，由轨定定理，其定子群有$24\div 3=8$个元素；顺式的轨迹长为$12$，定子群有$24\div 12=2$个元素。
+反式的定子群由保持$\{\text{上},\text{下}\}$这个集合不变的旋转组成：绕上下轴的$4$个旋转（含恒等），绕左右轴与前后轴各一个$180^\circ$旋转（它们把上下对调），以及赤道平面内两条棱中轴（“右前—左后”与“右后—左前”）各一个$180^\circ$旋转，共$8$个。
+顺式的定子群由保持$\{\text{上},\text{前}\}$的旋转组成：只有恒等变换，以及绕“上前棱中点—下后棱中点”连线的$180^\circ$旋转，共$2$个。两者都与轨定定理的计算相符。
+
+\item \textbf{解答}：三个氯原子的选法共$\binom{6}{3}=20$种。
+若三个氯原子两两相邻，它们必围成正八面体的一个面，而正八面体有$8$个面，故这样的情形有$8$种。若其中有一对相对顶点，则先选一条顶点轴（$3$种），再从其余$4$个顶点中任选一个（$4$种），共$3\times 4=12$种；每个这样的三元组恰含一对相对顶点，不会重复计数。两类相加$8+12=20$，核对无误。
+面可以转到面，故第一类自成一
+条轨迹；第二类中，先把所含的顶点轴转到上下，再把第三个氯原子转到赤道任一位置，故也自成一条轨迹。于是$SF_3Cl_3$恰有两种旋转异构体：两两相邻型称为面式，含相对对型称为经式。由轨定定理，它们的定子群分别有$24\div 8=3$个与$24\div 12=2$个元素。
+
+\item \textbf{解答}：各配比的结果如下。
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+氯原子个数$k$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ \\ \hline
+异构体数目 & $1$ & $1$ & $2$ & $2$ & $2$ & $1$ & $1$ \\ \hline
+\end{tabular}
+\end{center}
+总和为$1+1+2+2+2+1+1=10$，与第$12$问一致。
+$k=0$与$k=6$时六个位置放同一种原子，只有一种排布。$k=1$时只有一个位置是氯，而群贯通六个顶点，任何两个这样的排布都能互相转到，故只有一种；$k=5$同理，只不过孤立的换成氟。$k=3$见第$15$问。
+$k=2$与$k=4$数目相同，原因是对称的：把每个位置上的氟与氯互换，得到$S$上的一个双射，它与旋转的作用可交换（旋转只搬位置，不改原子种类），因此把$k=2$的轨迹一一对应到$k=4$的轨迹。
+
+\item \textbf{解答}：记$a$为氯，$b$为氟，长度$n$的环圈对应$p_n=a^n+b^n$。按第$11$问的环圈形态逐个搭建整式，并取$a^2b^4$的系数：
+\begin{itemize}
+\item 恒等变换：$P_e=(a+b)^6$，系数为$\binom{6}{2}=15$，小计$1\times 15=15$。
+\item 顶点轴$90^\circ,270^\circ$：$P_g=(a+b)^2(a^4+b^4)$，只有$a^2\cdot b^4$一项合乎要求，系数为$1$，小计$6\times 1=6$。
+\item 顶点轴$180^\circ$：$P_g=(a+b)^2(a^2+b^2)^2=(a^2+2ab+b^2)(a^4+2a^2b^2+b^4)$，取$a^2\cdot b^4$与$b^2\cdot 2a^2b^2$，系数为$1+2=3$，小计$3\times 3=9$。
+\item 面心轴：$P_g=(a^3+b^3)^2$，各项次数都是$3$的倍数，凑不出$a^2b^4$，小计$0$。
+\item 棱中轴：$P_g=(a^2+b^2)^3$，其中$3a^2b^4$的系数为$3$，小计$6\times 3=18$。
+\end{itemize}
+求和取平均：
+\[ \frac{15+6+9+0+18}{24}=\frac{48}{24}=2, \]
+与第$13$问的直接分类结果一致。
+\end{problemlist}
+
+\stardivider
+
+\clearpage
+
+\subsection*{同构的简单无向图}
+
+\begin{problemlist}
+    \item $3$元图最多$3$条边；$4$元图最多$6$条边；$5$元图最多$10$条边。最少都是$0$条边。
+
+    \item $n$元简单无向图最多有$\bino{n}{2}$条边。$E$是$V$的所有二元子集的集合，$|E|=\bino{n}{2}$。任何简单无向图的边集$B$都是$E$的子集。
+
+    \item 设$V=V'=\{v_1,\cdots,v_n\}$，$f:V\to V$是双射。定义$E$上的映射：
+    $$p_f:\;\{v_i,v_j\}\longmapsto\{f(v_i),f(v_j)\}.$$
+    由于$f$是双射，若$\{v_i,v_j\}\neq\{v_k,v_l\}$，则$\{f(v_i),f(v_j)\}\neq\{f(v_k),f(v_l)\}$，所以$p_f$是单射。反之，由于$f$是双射，从任何$\{v_i', v_j'\}$都能得到$\{f^{(-1)}(v_i'),f^{(-1)}(v_j')\}\in E$，因此$p_f$是满射。综上可知$p_f$是$E$上的置换。唯一性由定义显然。
+
+    \item 给定$\sigma\in\mathsf{S}_n$，任取$4$元简单无向图$\Omega=(V,B)$。定义$\Omega'=(V,B')$，其中$B'=p_\sigma(B)=\{\{\sigma(v_i),\sigma(v_j)\}\,|\,\{v_i,v_j\}\in B\}$。
+    则$\sigma$是从$\Omega$到$\Omega'$的同构（按题3的定义）。特别地，若$\Omega'=\Omega$（即$p_\sigma(B)=B$），则$\sigma$是$\Omega$到自身的同构（自同构）。
+    $\sigma$改变边的方式：将边$\{v_i,v_j\}$变为$\{\sigma(v_i),\sigma(v_j)\}$。
+
+    \item \begin{enumerate}[label=〔\arabic*〕]
+        \item 左图有$8$个顶点$7$条边，右图有$8$个顶点$8$条边，不同构。
+        \item 左右图都有$7$个顶点$6$条边，但右图$v_1$连出$4$条边，左图顶点最多连出$3$条边，所以不同构。
+        \item 左右图同构。可以看到都由某个顶点连出$4$条“道路”，其中两条由两条边组成，两条由一条边组成。可以写出左图到右图的双射$f$：
+        \begin{align*}
+            f:\quad v_1 &\mapsto v_2, &
+            v_2 &\mapsto v_7,\\
+            v_3 &\mapsto v_6,&
+            v_4 &\mapsto v_5,\\
+            v_5 &\mapsto v_1,&
+            v_6 &\mapsto v_3,&
+            v_7 &\mapsto v_4.
+        \end{align*}
+        \textbf{注}：$f$并不是唯一的，比如，把$v_6\mapsto v_3,v_7\mapsto v_4$换为$v_6\mapsto v_4,v_7\mapsto v_3$，也是合格的双射。但把$v_3\mapsto v_6,v_4\mapsto v_5$换为$v_3\mapsto v_5,v_4\mapsto v_6$就不行了。
+    \end{enumerate}
+
+    \item 完全图$K_n$每对顶点都有边，共$\bino{n}{2}$条边。
+    完全图的自同构：由于完全图每对顶点都有边，$V$上的任何双射都保持边集不变。因此完全图的自同构群就是$\mathsf{S}_n$，有$n!$个元素。
+
+    \item $K_3$有$3$条边。
+    \textbf{顶点标号$1,2,3$时}：每条边独立选红或蓝，共$2^3=8$种。
+    \textbf{顶点没有区别时}：$\mathsf{S}_3$（$6$个元素）作用于$3$条边上。
+    枚举：全红（$1$种）、全蓝（$1$种）、$1$红$2$蓝（$1$种）、$2$红$1$蓝（$1$种），共$4$种。
+
+\vspace{12pt}
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+        % 参数设置
+        \def\ca{BrickRed}
+        \def\cb{RoyalBlue}
+        \def\s{0.6}
+        \def\dx{1.5}
+        \def\dy{-1.5}
+        \pic[scale=\s] at (0*\dx,0*\dy) {trib={\ca}{\ca}{\ca}{$1$}{$2$}{$3$}};
+        \pic[scale=\s] at (1*\dx,0*\dy) {trib={\ca}{\ca}{\cb}{$1$}{$2$}{$3$}};
+        \pic[scale=\s] at (2*\dx,0*\dy) {trib={\ca}{\cb}{\ca}{$1$}{$2$}{$3$}};
+        \pic[scale=\s] at (3*\dx,0*\dy) {trib={\cb}{\ca}{\ca}{$1$}{$2$}{$3$}};
+        \pic[scale=\s] at (4*\dx,0*\dy) {trib={\cb}{\cb}{\ca}{$1$}{$2$}{$3$}};
+        \pic[scale=\s] at (5*\dx,0*\dy) {trib={\cb}{\ca}{\cb}{$1$}{$2$}{$3$}};
+        \pic[scale=\s] at (6*\dx,0*\dy) {trib={\ca}{\cb}{\cb}{$1$}{$2$}{$3$}};
+        \pic[scale=\s] at (7*\dx,0*\dy) {trib={\cb}{\cb}{\cb}{$1$}{$2$}{$3$}};
+        \pic[scale=\s] at (0*\dx,1*\dy) {trib={\ca}{\ca}{\ca}{}{}{}};
+        \pic[scale=\s] at (2*\dx,1*\dy) {trib={\ca}{\cb}{\ca}{}{}{}};
+        \pic[scale=\s] at (5*\dx,1*\dy) {trib={\cb}{\ca}{\cb}{}{}{}};
+        \pic[scale=\s] at (7*\dx,1*\dy) {trib={\cb}{\cb}{\cb}{}{}{}};
+        \draw[densely dashed, thick] (-0.5*\dx, 0.7) -- (-0.5*\dx, -2.1);
+        \draw[densely dashed, thick] (0.5*\dx, 0.7) -- (0.5*\dx, -2.1);
+        \draw[densely dashed, thick] (3.5*\dx, 0.7) -- (3.5*\dx, -2.1);
+        \draw[densely dashed, thick] (6.5*\dx, 0.7) -- (6.5*\dx, -2.1);
+        \draw[densely dashed, thick] (7.5*\dx, 0.7) -- (7.5*\dx, -2.1);
+    \end{tikzpicture}
+\end{figure}
+\vspace{8pt}
+    \item 验证显相映射的基本性质：
+    \begin{problemlist}
+        \item $\gamma(e,\{v_i,v_j\})=\{e(v_i),e(v_j)\}=\{v_i,v_j\}$。
+        \item $\gamma(\sigma,\gamma(\tau,\{v_i,v_j\}))=\gamma(\sigma,\{\tau(v_i),\tau(v_j)\})=\{\sigma\tau(v_i),\sigma\tau(v_j)\}=\gamma(\sigma\tau,\{v_i,v_j\})$。
+    \end{problemlist}
+    因此$\gamma$是观$\mathsf{S}_n$于$E$的显相映射。
+    $\sigma\mapsto\gamma_\sigma$是群同态：$\gamma_{\sigma\tau}=\gamma_\sigma\circ\gamma_\tau$，由上述第二条直接得出。
+    $\gamma$令$\mathsf{S}_n$显通相：对$E$中任意两条边$\{v_i,v_j\}$和$\{v_k,v_l\}$，总存在$\sigma\in\mathsf{S}_n$使得$\sigma(v_i)=v_k$，$\sigma(v_j)=v_l$（或反之），因此$\gamma_\sigma(\{v_i,v_j\})=\{v_k,v_l\}$。所以$E$只有一条轨迹，$\gamma$显通相。
+
+    \item $S=2^E$，$p_\sigma(B)=\{p_\sigma(e)\,|\,e\in B\}=\{\{\sigma(v_i),\sigma(v_j)\}\,|\,\{v_i,v_j\}\in B\}$。
+    验证群观公理：$p_e(B)=B$；$p_\sigma(p_\tau(B))=p_{\sigma\tau}(B)$。因此$\gamma'$是观$\mathsf{S}_n$于$S$的显相映射。
+    $\gamma'$\textbf{不}令$\mathsf{S}_n$显通相：$S$中元素（边子集）的势不同，而群作用保持势不变。例如$\varnothing$和$E$不在同一轨迹。因此$S$有多条轨迹。
+    
+    $\gamma$和$\gamma'$的关系：
+    对$\forall\,\sigma\in\mathsf{S}_n$，$\forall\,B\in S$，$\forall\,b\in E$，
+    $$b\in B \;\Longleftrightarrow\; \gamma(\sigma,b)\in\gamma'(\sigma,B).$$
+    即：$B$中每条边$b$，经$\gamma$变换后，
+    恰好落在$\gamma'(\sigma,\,B)$中。
+    $\gamma'$的效果完全由$\gamma$决定：
+    逐条搬运$B$中的边，搬运规则就是$\gamma$。
+
+    \item 设两种染色方案分别对应边集$B_1,B_2\subseteq E$。
+    ``本质相同''指存在顶点置换$\sigma\in\mathsf{S}_n$，使得经$\sigma$变换后，$B_1$变为$B_2$，即$p_\sigma(B_1)=B_2$。
+    按题9，$p_\sigma(B_1)=\gamma'_\sigma(B_1)$。因此$B_1$和$B_2$本质相同，当且仅当存在$\sigma$使得$\gamma'_\sigma(B_1)=B_2$，当且仅当$B_1$和$B_2$在$\gamma'$下属于同一条轨迹。
+
+    \item 一个简单无向图由其边集$B\subseteq E$完全决定。而$B\subseteq E$等价于给$E$中每条边染$0$（无边）或$1$（有边）两种颜色之一。因此，$n$元简单无向图与$K_n$的边的二染色方案一一对应。
+    两个简单无向图同构，当且仅当对应的染色方案在$\mathsf{S}_n$诱导的群观下属于同一条轨迹。
+    因此，本质不同的简单无向图的种数，等于$C^E$在$\mathsf{S}_n$诱导群观下的轨迹个数。\\
+    以$n=4$的情况为例。$V=\{1,2,3,4\}$，$E=\{\{1,2\},\{1,3\},\{1,4\},\{2,3\},\{2,4\},\{3,4\}\}$，$|E|=6$。按本章正文的术语，底座集合$X=E$，$|X|=6$。颜色集合$C=\{0,1\}$，$|C|=2$。染色方案集合$S=C^E=\{0,1\}^E$。$E$的每个子集$B$通过函数$\chi_B:E\to\{0,1\}$与$C^E$中元素一一对应。$|C^E|=2^6=64$。群$G=\mathsf{S}_4$，$|G|=24$，通过群观$\gamma$作用于底座集合$X$，通过群观$\gamma'$作用于染色方案集合$S=C^E$。$4$元简单无向图的同构类个数等于$C^E$在$\gamma'$下的轨迹个数。
+
+    \item $\mathsf{S}_4$按环圈形态（环圈数和长度）分类：
+        \begin{center}
+        \begin{tabular}{|c|c|c|c|}
+        \hline
+        类型 & 环圈数 & 代表元 & 置换个数 \\ \hline
+        恒等 & 4 & $(1)(2)(3)(4)$ & $1$ \\
+        对换 & 3 & $(1\,2)(3)(4)$ & $6$ \\
+        $3$元轮换 & 2 & $(1\,2\,3)(4)$ & $8$ \\
+        双对换 & 2 & $(1\,2)(3\,4)$ & $3$ \\ 
+        $4$元轮换 & 1 & $(1\,2\,3\,4)$ & $6$ \\\hline
+        \end{tabular}
+        \end{center}
+        总计$1+6+8+3+6=24$个置换。\\
+        各类的代表元在$E=\{\overline{12},\overline{13},\overline{14},\overline{23},\overline{24},\overline{34}\}$上的轨迹分划：
+        \begin{itemize}
+            \item \textbf{恒等}：每条边不动。因此共有$6$条轨迹，长度是$1$。
+            \item \textbf{对换$(1\,2)$}：$\overline{12}\to \overline{12}$，$\overline{34}\to \overline{34}$，$\overline{13}\leftrightarrow \overline{23}$，$\overline{14}\leftrightarrow \overline{24}$。共$4$条轨迹：
+            $$\{\overline{12}\},\,\{\overline{34}\},\,\{\overline{13},\overline{23}\},\,\{\overline{14},\overline{24}\}$$
+            \item \textbf{$3$元轮换$(1\,2\,3)$}：$\overline{12}\to \overline{23}\to \overline{13}\to \overline{12}$；$\overline{14}\to \overline{24}\to \overline{34}\to \overline{14}$。共$2$条轨迹：
+            $$\{\overline{12},\overline{23},\overline{13}\},\,\{\overline{14},\overline{24},\overline{34}\}$$
+            \item \textbf{双对换$(1\,2)(3\,4)$}：$\overline{12}\to \overline{12}$，$\overline{34}\to \overline{34}$，$\overline{13}\leftrightarrow \overline{24}$，$\overline{14}\leftrightarrow \overline{23}$。共$4$条轨迹：
+            $$\{\overline{12}\},\,\{\overline{34}\},\,\{\overline{13},\overline{24}\},\,\{\overline{14},\overline{23}\}$$
+            \item \textbf{$4$元轮换$(1\,2\,3\,4)$}：$\overline{12}\to \overline{23}\to \overline{34}\to \overline{14}\to \overline{12}$；$\overline{13}\to \overline{24}\to \overline{13}$。共$2$条轨迹：
+            $$\{\overline{12},\overline{23},\overline{34},\overline{14}\},\,\{\overline{13},\overline{24}\}$$
+        \end{itemize}
+
+    \item 对于每个$\sigma\in\mathsf{S}_4$，$\gamma_\sigma$都是$E$上的置换，把$E$中的边换到另一条边。$n=4$时$|E|=6$，所以$\gamma_\sigma$对应$6$元置换，也就是说，我们通过$\sigma\mapsto\gamma_\sigma$，建立了$\mathsf{S}_4$到$\mathsf{S}_6$子群的同构。\\
+    各类的代表元对应的$6$元置换的环圈结构：
+    \begin{itemize}
+        \item \textbf{恒等}：对应$6$元恒等变换，有$6$个环圈，每个长度为$1$。
+        \item \textbf{对换$(1\,2)$}：对应$4$个环圈，两个长度为$1$，两个长度为$2$。
+        \item \textbf{$3$元轮换$(1\,2\,3)$}：对应$2$个环圈，每个长度为$3$。
+        \item \textbf{双对换$(1\,2)(3\,4)$}：对应$4$个环圈，两个长度为$1$，两个长度为$2$。
+        \item \textbf{$4$元轮换$(1\,2\,3\,4)$}：对应$2$个环圈，长度分别是$2$和$4$。
+    \end{itemize}
+    \item 设$\sigma\in\mathsf{S}_4$在$X$上划分的轨迹为$\mathcal{O}_1,\cdots,\mathcal{O}_k$。染色方案$\varphi\in C^X$是$\sigma$的定元，即$\gamma'_\sigma(\varphi)=\varphi$，意味着$\forall\,x\in X$，$\varphi(x)=\varphi(\sigma(x))$。由于同一轨迹内的元素经$\sigma$循环置换，这要求同一轨迹内所有边染相同颜色。反之，若同一轨迹内所有边同色，则$\varphi$经$\sigma$不变。\\
+    同一轨迹内的边必须染相同颜色，不同轨迹之间独立选择。$|C|=2$，$k$条轨迹各有$2$种选择，故$|S^\sigma|=2^k$。\\
+    $\mathsf{S}_4$中各类置换的相关结果：
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+    类型 & 个数 & $\gamma_\sigma$轨迹数（$k$） & 定元数（$2^k$） \\ \hline
+    恒等 & $1$ & $6$ & $64$ \\
+    对换 & $6$ & $4$ & $16$ \\
+    $3$元轮换 & $8$ & $2$ & $4$ \\
+    双对换 & $3$ & $4$ & $16$ \\ 
+    $4$元轮换 & $6$ & $2$ & $4$ \\\hline
+    \end{tabular}
+    \end{center}
+
+    \item 由定元分轨定理：
+    \begin{align*}
+        \mathcal{O}_G(S) &= \frac{1}{|\mathsf{S}_4|}\sum_{\sigma\in\mathsf{S}_4}|S^\sigma|=\frac{1\cdot 64+6\cdot 16+8\cdot 4+3\cdot 16+6\cdot 4}{24}\\
+        &=\frac{64+96+32+24+48}{24}=\frac{264}{24}\\
+        &=11.
+    \end{align*}
+    $4$元简单无向图的同构类个数为$\mathbf{11}$。
+
+    \item 按边数$k$分类枚举：
+    \begin{itemize}
+        \item $k=0$：无边图（也就是点集）。$1$种。
+        \item $k=1$：一条边$+$两个孤立顶点。$1$种。
+        \item $k=2$：两边相邻（路径$P_3$加孤立点）或两边不相邻（$2K_2$）。$2$种。
+        \item $k=3$：三角形$K_3$加孤立点、路径$P_4$、星形$K_{1,3}$。$3$种。
+        \item $k=4$：由互补性，与$k=2$对应。$2$种。
+        \item $k=5$：与$k=1$对应。$1$种。
+        \item $k=6$：完全图$K_4$。$1$种。
+    \end{itemize}
+    总计$1+1+2+3+2+1+1=11$种，与上一题结果一致。
+
+    \item 对任意正整数$n$，基本多项式为：
+    $$p_n = a^n + b^n.$$
+    $p_n$代表一个长度为$n$的环圈：该环圈内所有底座元素必须染同色，要么全染颜色$0$（贡献$a^n$），要么全染颜色$1$（贡献$b^n$）。逐类搭建$P_\sigma$：
+    \begin{itemize}
+        \item \textbf{恒等}（$1$个）：$6$条长度$1$的环圈。
+        $$P = p_1^6 = (a+b)^6.$$
+        \item \textbf{对换}（$6$个）：$2$条长度$1$、$2$条长度$2$的环圈。
+        $$P = p_1^2\,p_2^2 = (a+b)^2(a^2+b^2)^2.$$
+        \item \textbf{$3$元轮换}（$8$个）：$2$条长度$3$的环圈。
+        $$P = p_3^2 = (a^3+b^3)^2.$$
+        \item \textbf{$4$元轮换}（$6$个）：$1$条长度$4$、$1$条长度$2$的环圈。
+        $$P = p_4\,p_2 = (a^4+b^4)(a^2+b^2).$$
+        \item \textbf{双对换}（$3$个）：$2$条长度$1$、$2$条长度$2$的环圈。
+        $$P = p_1^2\,p_2^2 = (a+b)^2(a^2+b^2)^2.$$
+    \end{itemize}
+    注意对换与双对换的$P_\sigma$相同，合并后系数为$6+3=9$。
+
+    \item 汇总得：
+    $$P = \frac{1}{24}\Big[(a+b)^6 + 9(a+b)^2(a^2+b^2)^2 + 8(a^3+b^3)^2 + 6(a^4+b^4)(a^2+b^2)\Big].$$
+    逐项展开：
+    \begin{align*}
+    (a+b)^6 &= a^6+6a^5b+15a^4b^2+20a^3b^3+15a^2b^4+6ab^5+b^6,\\
+    (a+b)^2(a^2+b^2)^2 &= a^6+2a^5b+3a^4b^2+4a^3b^3+3a^2b^4+2ab^5+b^6,\\
+    9(a+b)^2(a^2+b^2)^2 &= 9a^6+18a^5b+27a^4b^2+36a^3b^3+27a^2b^4+18ab^5+9b^6,\\
+    (a^3+b^3)^2 &= a^6+2a^3b^3+b^6,\\
+    8(a^3+b^3)^2 &= 8a^6+16a^3b^3+8b^6,\\
+    (a^4+b^4)(a^2+b^2) &= a^6+a^4b^2+a^2b^4+b^6,\\
+    6(a^4+b^4)(a^2+b^2) &= 6a^6+6a^4b^2+6a^2b^4+6b^6.
+    \end{align*}
+    按次数汇总各项系数：
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|}
+    \hline
+    项 & $a^6$ & $a^5b$ & $a^4b^2$ & $a^3b^3$ & $a^2b^4$ & $ab^5$ & $b^6$ \\ \hline
+    恒等 & $1$ & $6$ & $15$ & $20$ & $15$ & $6$ & $1$ \\
+    对换$+$双对换 & $9$ & $18$ & $27$ & $36$ & $27$ & $18$ & $9$ \\
+    $3$元轮换 & $8$ & $0$ & $0$ & $16$ & $0$ & $0$ & $8$ \\
+    $4$元轮换 & $6$ & $0$ & $6$ & $0$ & $6$ & $0$ & $6$ \\ \hline
+    合计 & $24$ & $24$ & $48$ & $72$ & $48$ & $24$ & $24$ \\ \hline
+    \end{tabular}
+    \end{center}
+    各项除以$24$：
+    $$P = a^6 + a^5b + 2a^4b^2 + 3a^3b^3 + 2a^2b^4 + ab^5 + b^6.$$
+    各系数为$1,1,2,3,2,1,1$。其中$a^{6-k}b^k$的系数就是恰有$k$条边的$4$元简单无向图的同构类个数。与之前枚举的结果完全一致。
+\end{problemlist}
+
+\stardivider
+
+\clearpage
 
 \chapter{本书符号记法常例}
 
@@ -16838,14 +18646,14 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
     $a+H, H+a$& 以$a$左加、右加集合$H$ \\
     & \\
     $\mathsf{C}_n$ & $n$元循环群 \\
-    $\mathsf{D}_n$ & $n$阶映轮群 \\
+    $\mathsf{D}_n$ & 正$n$边形的映轮群 \\
     $\mathsf{S}_n$ & $n$元全置换群 \\
     $\mathsf{S}_X$ & $X$上的全置换群 \\
     $\mathsf{J}_4$ & 矩群 \\
     $\mathsf{T}_6$ & 正方体旋转群 \\
     $A\times B$ & $A$与$B$的架积\\
     $\mathsf{C}_m\times\mathsf{C}_n$ & $\mathsf{C}_m$与$\mathsf{C}_n$的架积\\
-    $\mathsf{U}_4$ & 四元素群 \\
+    $\mathsf{U}_4$ & 四元数群 \\
     & \\
     $A\cap B$ & $A$和$B$的交集 \\
     $A\cup B$ & $A$和$B$的并集 \\
@@ -16870,7 +18678,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
     $\lcm(a,b,c)$ & $a,b,c$的最小公倍数 \\
     $n!$ & $n$的阶乘 \\
     & \\
-    $\mathcal{O}_{G}(X)$ & 群$G$显于$X$的轨道集合 \\
+    $\mathcal{O}_{G}(X)$ & 群$G$显于$X$的轨迹集合 \\
     $\mathcal{O}_{G}(x)$ & 群$G$在$x$的轨迹 \\
     $G_x$ & 群$G$关于$x$的定子集 \\
     $X^g$ & 群元素$g$在$X$上的定元集 \\
@@ -16889,11 +18697,143 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
 
 \end{longtable}
 
-\chapter{图表与图案}
+\chapter{术语对照表}
 
+本章列出《对称与群》中涉及的核心术语及其与主流中文、英文、法文术语的对照，并附上部分术语的命名释义。
 
+\begin{longtable}{>{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{4.1cm} >{\raggedright\arraybackslash}p{4.1cm}}
+\hline
+\textbf{术语} & \textbf{中文} & \textbf{英文} & \textbf{法文} \\
+\hline
+\endfirsthead
 
-\chapter*{结束}
+\multicolumn{4}{c}%
+{{\bfseries \tablename\ \thetable{} -- 续前页}} \\
+\hline
+\textbf{术语} & \textbf{中文} & \textbf{英文} & \textbf{法文} \\
+\hline
+\endhead
+
+\hline
+\multicolumn{4}{r}{{续下页}} \\
+\endfoot
+
+\hline
+\endlastfoot
+
+算则系 & 代数结构 & algebraic structure & structure algébrique \\
+\hline
+域上场 & 域上代数 & algebra over a field & algèbre sur un corps \\
+\hline
+环上场 & 环上代数 & algebra over a ring & algèbre sur un anneau \\
+\hline
+平直群 & 线性群 & linear group & groupe linéaire \\
+\hline
+幺直群 & 特殊线性群 & special linear group & groupe spécial linéaire \\
+\hline
+幺正群 & 正交群 & orthogonal group & groupe orthogonal \\
+\hline
+自幺正群 & 特殊正交群 & special orthogonal group & groupe orthogonal spécial \\
+\hline
+藏环 & 理想（子环） & ideal & idéal \\
+\hline
+左（右）藏 & 左（右）理想 & left (right) ideal & idéal à gauche (droite) \\
+\hline
+双边藏 & 双边理想 & bilateral ideal & idéal bilateral \\
+\hline
+零藏 & 零理想 & zero ideal & idéal zéro \\
+\hline
+真藏 & 真理想 & proper ideal & idéal propre \\
+\hline
+单藏 & 主理想 & principal ideal & idéal principal \\
+\hline
+有限藏 & 有限生成理想 & finitely generated ideal & idéal de type fini \\
+\hline
+极大藏 & 极大理想 & maximal ideal & idéal maximal \\
+\hline
+极小藏 & 极小理想 & minimal ideal & idéal minimal \\
+\hline
+素藏 & 素理想 & prime ideal & idéal premier \\
+\hline
+藏群、往合子群 & 正规子群 & normal subgroup & sous-groupe normal \\
+\hline
+往集 & 陪集 & coset & coset \\
+\hline
+往集定理、群势定理 & 拉格朗日定理 & Lagrange's theorem & théorème de Lagrange \\
+\hline
+同轨 & 共轭（群） & conjugate & conjugué \\
+\hline
+同轨类 & 共轭类 & conjugacy class & classe de conjugaison \\
+\hline
+群的架积 & 群的直积 & direct product of groups & produit direct des groupes \\
+\hline
+轨迹 & 轨道 & orbit & orbite \\
+\hline
+轨道 & 轨道 & orbit & orbite \\
+\hline
+环道 & 轨道 & orbit & orbite \\
+\hline
+环圈 & 轮换 & cycle of a permutation & cycle d'une permutation \\
+\hline
+群观、群相 & 群作用 & group action & action de groupe \\
+\hline
+全置换群 & 对称群 & symmetric group & groupe symétrique \\
+\hline
+对称群 & 对称变换群 & symmetry transformation group, symmetry group & groupe de symétrie \\
+\hline
+置换群定理 & 凯莱定理 & Cayley's theorem & théorème de Cayley \\
+\hline
+轨定定理 & 轨道-稳定化子定理 & orbit-stabilizer theorem & relation orbite-stabilisateur \\
+\hline
+轨类长公式 & 类方程 & conjugacy class equation & équation aux classes \\
+\hline
+定元分轨定理 & 伯恩赛德引理 & Burnside's lemma & formule de Burnside \\
+\hline
+染色计数定理 & 波利亚计数定理 & Pólya's enumeration theorem & théorème de dénombrement de Pólya \\
+\hline
+素阶子群存在定理 & 柯西定理 & Cauchy's theorem & théorème de Cauchy \\
+\hline
+素幂子群定理 & 西罗定理 & Sylow's theorems & théorème de Sylow \\
+\hline
+极大素幂子群 & 西罗p-子群 & Sylow p-subgroup & p-Sylow \\
+\hline
+境 & 模 & module & module \\
+\hline
+映轮群 & 二面体群 & dihedral group & groupe diédral \\
+\hline
+模、模长 & 范数 & norm & norme \\
+\hline
+向量的模 & 向量的模长 、 向量的范数 & vector's norm & norme du vecteur \\
+\hline
+组架坐标系 & 笛卡尔坐标系 & Cartesian coordinate system & système de coordonnées cartésiennes \\
+\hline
+架积 & 笛卡尔积 & Cartesian product & produit cartésien \\
+\hline
+定想的 & 启发式的 & heuristic & heuristique \\
+\hline
+契义 & 是良定义的 & to be well-defined & être bien défini \\
+\hline
+契义 & 良定义的 & well-defined & bien défini \\
+\hline
+保距映射 & 等距映射 & isometry & isométrie \\
+\hline
+\end{longtable}
+
+\textbf{部分术语命名解释}
+
+\begin{itemize}
+\item \textbf{“模”、“模长”和“范数”}：“模”、“范”都是“norm”的翻译。这两种翻译在数学的不同分支中同时出现，因此我们试图统一之，即删除“范数”。另外，“模”既是一种映射（模映射），也是该映射的值，用来表示广义的“长度”，所以后者也可以叫“模长”。另一方面，由于中文的“模”用来表达、翻译多个概念，所以我们会逐步尝试改掉其他中文主流称为“模”的概念。
+\item \textbf{“环上场”、“域上场”}：我们可以推导出“环上场”、“域上场”等结构名字，分别对应环上和域上的algebra。
+\item \textbf{“境”和“模”}：“模”是用来翻译“module”的常用词，我们希望用更切合其自身特征、更有辨识度的翻译代替。选择“境”是因为和“平直空间”相比，“境”意涵中的“结构特性”更少，更暧昧。“境”是一种“不明确的空间”，我们常说“困境”、“胜境”、“幻境”等等。这符合模相比平直空间更加多变的结构特征。如果说平直空间是“域上空间”，那么模就是“环上空间”。《说文》“境”来自“竟”，加上“土”字旁，表示“土竟”，即边界、疆界。平坦模和特征为0的域或线性空间类似，模的无挠部分和向量空间类似，而模的挠部分结构远比域的类似“挠部分”复杂，是模论的核心研究主题，说明研究“止境”是模论的重要任务。 
+\item \textbf{“对称群”和“置换群”}：这些名称的指代关系在英语、法语等语言中也有些模糊。Symmetric group指某个集合上所有置换（到自身的双射）的集合，代表了该集合的对称性。permutation group或group of permutation(s)则指“由置换构成的群”。所以symmetric group是一种permutation group；permutation group一般是symmetric group的子群。为了顾名思义，我们将symmetric group命名为“全置换群”，这样“全置换群就是全部置换构成的群”，“置换群是全置换群的子群”就容易理解了。“对称群”则被用来作两种称呼，一种保留为全置换群的别称，一种对应保持某个几何对象性质的变换群的称呼，即对应symmetry (transformation) group，group of symmetry(ies)等。
+\item \textbf{“群观”和“群相”}：随着中文重命名程度加深，我们认识到单单建立术语之间的映射表已经不够了。因为术语背后是使用者对数学概念的观念和理解。主流中文术语只是单纯地、机械地翻译个别名词术语，所以不需要考虑这一点。但如果从整体系统的认知开始用中文命名数学概念，就会发现：动词、形容词也应该随之匹配，才能一致地、系统地表达整个思想。比如我们把群作用（group action）这个概念用中文重新审视，就会发现group action的实质是通过把群元素视为在另一个集合上的变换，来显示、体现群的结构和功能。通过观察群的各个元素作用在集合上的现象，而理解群的本质。因此，我们要在整体上把这个观念、思想表达出来，就不能满足于把“群作用”改掉，而是要从各个方面着手，整个改掉相关的表达方式。详细内容见《抽象代数》“对称与群”一章的“群作用”一节，以及《对称与群》的“观群”一章。
+\item \textbf{“往复”、“同轨”和“共轭”}：群论中的“共轭”是字面翻译“conjugate”。因为在复数中用“共轭”来翻译“conjugate”，所以这里也沿用“共轭”了。但实际上无论是英文的“conjugate”，还是“共轭”，都没有准确表示群论中“$gxg^{-1}$”的意涵。英文的“conjugate”仅仅是表示“这几个东西经过同一种变换相互得到，地位平等”，有一种“连襟”、“同袍”这样的含义。而法语则直接用“conjugué”，和法语中的“动词变位”一样，更为直白，表示“这几个东西隶属于同一类，通过变换而来，地位平等”。“共轭”也仅仅是试图翻译这一层意思：所谓“轭”，指的是古代牛车上放在并行的牛脖颈上的曲木，比喻像共轭的牛一样地位相等，但已经少了“通过变换可以互相得到”的一层意思。而由于没有像法语一样的使用场景，到了别的地方就更让人难以理解。毕竟复数的共轭只有一个，这里突然有好几个。而我们用牛耕田时一般共轭的牛马不会超过两头（【疏】服馬有二，一馬有一軛。軛者，厄馬領不得出也）。所以“共轭”有过强的二元对应意味，用在这里已经不太适合了。“往复”是直接从“$gxg^{-1}$”的本身角度命名。我们从群作用的角度来看，$x$到$gx$其实可以看作“往左偏一步”，而右边再乘其逆元，就是试图“回来”（复）。如果$x$和$g$交换，那么就变回$x$。但由于$x$和$g$未必交换，所以不一定能回到x。而回不到$x$的情况下，就产生了一系列与$x$相关的元素，构成轨道。这就是这个作用的本质，所以命名为“往复”。一个群元素往复后，不再是自己，而“走出”了一条轨道。这就是群轨道的特性：它是同一个元素经过不同方式“往复”得到的集合。而经过往复得到的等价关系叫做同轨关系，其等价类就是同轨类。因此群论的这个地方，用“同轨”代替“共轭”。
+\item \textbf{“往集”、“往复”和“往合”}：群论中的这几个词都是根据其对象的内在关联而命名的。“往”就是强调“走出”、“离开原位”，“往某个地方走”。而从$x$到$gx$，就是通过$g$的左乘往$gx$走了。所以我们可以说“$x$往左乘$g$得到$gx$”。而对某个子集的所有元素都这么“往左乘$g$”，就得到了其往集。“往复”则是在“往”之后试图“恢复”、“复原”，也就是往右乘$g$的逆元。但由于群元素未必交换，所以不一定能复原，而得到了轨道。“往合”则是说往左乘$g$和往右乘$g$的效果在总体上对合了。之所以用“合”而不是“等”、“同”，就是因为只是整体效果相同（$aH = Ha$，同一个集合），而不是严格地对等（$ax = xa$）。比“往合”更强的是条件是中心，即严格有$ax = xa$。
+\item \textbf{“轨迹”和“轨道”}：两者都是我们给群论中“orbit”的中文对应新命名。前者是群作用于一般集合时，不同群元素作用于同一个集合元素得到的集合。后者是群以（共轭）作用于自身时，群元素的orbit。因此我们决定把两者分开命名。把前者称为“轨迹”，表示群在另一个集合里留下的痕迹；而把后者（一种特殊而重要的群自身的orbit）继续称为轨道，因为它是属于群自身的结构。“群的轨迹”指一般在某个集合留下的痕迹，通过这个痕迹可以理解群的性质。而“群元素的轨道”指这个群元素在共轭作用下得出的结构，是群自身的结构。“轨道”这个名字更偏重实体存在，而“轨迹”则有“留在别的东西上的痕迹”的意义。
+\item \textbf{“环道”和“轨道”}：两者都是我们给群论中“orbit”的中文对应新命名。前者是群元素生成的循环子群的形象说法，后者是群以（共轭）作用于自身时，群元素的orbit。因此我们决定把两者分开命名。
+\item \textbf{“环圈”和“轮换”}：“轮换”是中文用来称呼置换性质的名词，通常有两个含义。一个是某个i经置换重复映射得到的所有值，即n元置换群自然作用于$1,2,...,n$集合时，置换生成的循环子群作用于集合中元素的轨道。另一个含义是只有一个这样的非平凡轨道的置换。因此我们决定把两者分开命名，前者称为“环圈”，后者称为“轮换”。一个轮换恰有一个（非平凡的）环圈。一般的置换则可以有多个环圈，由多个轮换复合而成。在充分理解其关系后，在不至于混淆的情况下，才能以修辞手法的方式，把轮换称为环圈或反过来。
+\item \textbf{“藏”和“藏群”、“藏环”}：“藏”是一个用中文重新梳理命名时得到的“新”概念，没有对应的英语或法语。“藏”指的是一种子结构的特性。子结构由于满足某种吸收或对称的良好性质，导致能够定义商结构。这就叫“藏”。“藏”就是“收藏”、“宝藏”的意思，表示能够收纳的重要地方。所以群论里的藏（藏群）就是正规子群，它因为“吸收”或“对称”（左陪集等于右陪集）而让我们能定义商群。环论中的藏（藏环）就是理想子群，它因为关于乘法吸收而让我们能够定义商环。在群论中，正规子群可以称为“藏”、“藏群”或“往合子群”。环论中则称为“藏”、“藏环”。
+\end{itemize}
 
 \end{appendices}
 

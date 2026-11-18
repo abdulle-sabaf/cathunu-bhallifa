@@ -1,5 +1,5 @@
 % 代数部分
-\usetikzlibrary{calc}
+\usetikzlibrary{calc, shapes.geometric}
 
 % 像空间
 \newcommand\Img[0]{
@@ -77,20 +77,62 @@
 }
 
 % 子群
-\newcommand{\subg}{    
+\newcommand{\subg}{    % 真子群
     \mathord{
         \tikz[baseline=0pt, trim left=-0.2em, trim right=0.8em] \draw (0,.35em) -- (.45em,0.6em) -- (.45em,0.1em)  -- cycle;
     }}
-\newcommand{\subgeq}{    
+\newcommand{\subgeq}{    % 子群
     \mathord{
         \tikz[baseline=0pt, trim left=-0.2em, trim right=0.8em] \draw (0,.35em) -- (.45em,0.6em) -- (.45em,0.1em)  -- cycle (0,.0em) -- (0.5em,.0em);
     }}
 % 正规子群
-\newcommand{\nsg}{    
+\newcommand{\nsg}{    % 正规真子群（往合真子群）
     \mathord{
         \tikz[baseline=0pt, trim left=-0.2em, trim right=0.8em] \draw (0,.35em) -- (.45em,0.6em) -- (.45em,0.1em)  -- cycle (0,.35em) -- (0.45em,.35em);
     }}
-\newcommand{\nsgeq}{    
+\newcommand{\nsgeq}{   % 正规子群（往合子群）
     \mathord{
         \tikz[baseline=0pt, trim left=-0.2em, trim right=0.8em] \draw (0,.35em) -- (.45em,0.6em) -- (.45em,0.1em)  -- cycle (0,.35em) -- (0.45em,.35em) (0,.0em) -- (0.5em,.0em);
     }}
+
+\newcommand{\sgn}{  % 置换的signature
+    \mathord{
+        \tikz[baseline=(current bounding box.south), 
+          trim left=0pt, trim right=0.6em] \draw (0.26em,0.5em) -- (0em,0.4em) -- (0em,0em) --  (0.52em,0.4em) -- (0.52em,0em) -- (0.26em, 0.2em) -- (0.26em, -0.1em);
+    }}
+
+% 排版
+
+% \newcommand{\stardivider}{%
+%   \par\vspace{1.2ex plus 0.4ex minus 0.4ex}\nopagebreak
+%   \noindent\makebox[\textwidth]{%
+%     \hrulefill
+%     \hspace{10pt}%
+%     \raisebox{-0.4ex}{\scalebox{0.85}{\color{BrickRed}$\star\quad\star\quad\bigstar\quad\star\quad\star$}}%
+%     \hspace{10pt}%
+%     \hrulefill
+%   }%
+%   \par\vspace{1.2ex plus 0.4ex minus 0.4ex}\nopagebreak
+% }
+
+\newcommand{\stardivider}{%
+  \par\vspace{1.5ex plus 0.5ex minus 0.5ex}\nopagebreak
+  \noindent\begin{tikzpicture}[baseline=(current bounding box.center)]
+    % 绘制左侧横线
+    \draw[white,line width=1pt] (0,0) -- (\textwidth/2 - 1.5cm, 0);
+    % 绘制右侧横线
+    \draw[white,line width=1pt] (\textwidth/2 + 1.5cm, 0) -- (\textwidth, 0);
+    % 绘制居中的实心五角星
+    \node[star, star points=5, star point ratio=2.25, fill=BrickRed, 
+          inner sep=1.2pt, scale=0.6] at (\textwidth/2-1cm, 0) {};
+    \node[star, star points=5, star point ratio=2.25, fill=BrickRed, 
+          inner sep=1.2pt, scale=0.6] at (\textwidth/2+1cm, 0) {};
+    \node[star, star points=5, star point ratio=2.25, fill=BrickRed, 
+          inner sep=1.2pt, scale=0.6] at (\textwidth/2-0.5cm, 0) {};
+    \node[star, star points=5, star point ratio=2.25, fill=BrickRed, 
+          inner sep=1.2pt, scale=0.6] at (\textwidth/2+0.5cm, 0) {};
+    \node[star, star points=5, star point ratio=2.25, fill=BrickRed, 
+          inner sep=1.2pt, scale=0.9] at (\textwidth/2, 0) {};
+  \end{tikzpicture}%
+  \par\vspace{1.5ex plus 0.5ex minus 0.5ex}\nopagebreak
+}

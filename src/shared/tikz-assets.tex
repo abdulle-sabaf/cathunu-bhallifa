@@ -18,6 +18,26 @@
             \fill[#3] (-BR) circle (4pt);
         }
     },
+    pics/trib/.style n args={6}{
+        code={
+            % 三角形顶点坐标
+            \coordinate (-T) at (0, 0.8);
+            \coordinate (-BL) at (-0.7, -0.4);
+            \coordinate (-BR) at (0.7, -0.4);            
+            % 绘制三角形边框
+            \draw[color=#1,very thick] (-T) -- (-BL);
+            \draw[color=#2,very thick] (-BL)-- (-BR);
+            \draw[color=#3,very thick] (-BR) -- (-T);
+            
+            % 绘制顶点大圆点 (仅填充颜色，无文字)
+            \filldraw[fill=white,draw=black] (-T) circle (5pt);
+            \filldraw[fill=white,draw=black] (-BL) circle (5pt);
+            \filldraw[fill=white,draw=black] (-BR) circle (5pt);
+            \node at (-T) {\tiny #4};
+            \node at (-BL) {\tiny #5};
+            \node at (-BR) {\tiny #6};
+        }
+    },
     pics/recta/.style n args={4}{
         code={
             % 长方形顶点坐标
@@ -87,8 +107,8 @@
     pics/cube/.style n args={9}{
         code={
             \def\R{#9}
-            \def\ax{0.27}
-            \def\ay{-0.35}
+            \def\ax{0.37}
+            \def\ay{-0.2}
             % 顶点坐标
             %标准面（过中心）
             \coordinate (TL) at (-0.5*\R, 0.5*\R);
