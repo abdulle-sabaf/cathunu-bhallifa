@@ -1729,7 +1729,7 @@ $$ e \;=\; p\rightarrow p \;=\; q\rightarrow q \;=\; p\rightarrow q\rightarrow p
 从我们熟悉的$\mathsf{D}_3$开始。我们知道它包含$6$个变换。这些变换以任意方式组合，得到的还是$6$个变换中的某个变换。而变换的种种组合方式，拆解到底，最基本的就是：两个变换作为映射组合起来，成为一个新变换。我们称为两个变换的\textbf{复合}。复合的规则就是群$\mathsf{D}_3$的本质。所以，我们直接把这些变换称为\textbf{群的元素}。把变换的复合操作称为\textbf{群的乘法}。它和乘法确实有类似之处：把两个元素变成另一个元素。我们可以调查所有变换复合的效果到底是哪个变换，然后将结果总结成一张表格：
 
 \vspace{12pt}
-% S_3乘法表
+% S_3乘法表 转置完毕
 \begin{table}[htbp]
     \centering
     \caption{\texttt{三元对称群（$\mathsf{D}_3$）的乘法表}}
@@ -1738,37 +1738,37 @@ $$ e \;=\; p\rightarrow p \;=\; q\rightarrow q \;=\; p\rightarrow q\rightarrow p
     \setlength{\tabcolsep}{10pt} 
     \begin{tabular}{|c|c!{\color{gray!50}\vrule}c!{\color{gray!50}\vrule}c!{\color{gray!50}\vrule}c!{\color{gray!50}\vrule}c!{\color{gray!50}\vrule}c|}
         \hline
-        $\cdot$ & $e$ & $r_1$ & $r_2$ & $s_1$ & $s_2$ & $s_3$ \\
-        \hline
-        $e$     & $e$ & $r_1$ & $r_2$ & $s_1$ & $s_2$ & $s_3$ \\
-        \arrayrulecolor{gray!50}
-        \hline
-        \arrayrulecolor{black}
-        $r_1$   & $r_1$ & $r_2$ & $e$   & $s_2$ & $s_3$ & $s_1$ \\
-        \arrayrulecolor{gray!50}
-        \hline
-        \arrayrulecolor{black}
-        $r_2$   & $r_2$ & $e$   & $r_1$ & $s_3$ & $s_1$ & $s_2$ \\
-        \arrayrulecolor{gray!50}
-        \hline
-        \arrayrulecolor{black}
-        $s_1$   & $s_1$ & $s_3$ & $s_2$ & $e$   & $r_2$ & $r_1$ \\
-        \arrayrulecolor{gray!50}
-        \hline
-        \arrayrulecolor{black}
-        $s_2$   & $s_2$ & $s_1$ & $s_3$ & $r_1$ & $e$   & $r_2$ \\
-        \arrayrulecolor{gray!50}
-        \hline
-        \arrayrulecolor{black}
-        $s_3$   & $s_3$ & $s_2$ & $s_1$ & $r_2$ & $r_1$ & $e$   \\
+        $\cdot$ & $e$ & $r_1$ & $r_2$ & $s_1$ & $s_2$ & $s_3$\\
+                \hline
+        $e$ & $e$ & $r_1$ & $r_2$ & $s_1$ & $s_2$ & $s_3$\\
+                \arrayrulecolor{gray!50}
+                \hline
+                \arrayrulecolor{black}
+        $r_1$ & $r_1$ & $r_2$ & $e$ & $s_3$ & $s_1$ & $s_2$\\
+                \arrayrulecolor{gray!50}
+                \hline
+                \arrayrulecolor{black}
+        $r_2$ & $r_2$ & $e$ & $r_1$ & $s_2$ & $s_3$ & $s_1$\\
+                \arrayrulecolor{gray!50}
+                \hline
+                \arrayrulecolor{black}
+        $s_1$ & $s_1$ & $s_2$ & $s_3$ & $e$ & $r_1$ & $r_2$\\
+                \arrayrulecolor{gray!50}
+                \hline
+                \arrayrulecolor{black}
+        $s_2$ & $s_2$ & $s_3$ & $s_1$ & $r_2$ & $e$ & $r_1$\\
+                \arrayrulecolor{gray!50}
+                \hline
+                \arrayrulecolor{black}
+        $s_3$ & $s_3$ & $s_1$ & $s_2$ & $r_1$ & $r_2$ & $e$\\
         \hline
     \end{tabular}
 \end{table}
 
 \vspace{12pt}
-这个乘法表里列出了群$\mathsf{D}_3$里任意两个变换复合成另一个变换的规则。其中左起第一列和上数第一行是行头和列头，标记了作为“乘数”的元素，里面罗列了群的所有元素。而表格中则记录了元素相乘的结果。要找到两个变换复合的结果，只需要在行头中找到前一个变换，然后在列头中找到后一个变换，则它们分别所在的行和列相交处的内容，就是它们复合的结果。
+这个乘法表里列出了群$\mathsf{D}_3$里任意两个变换复合成另一个变换的规则。其中左起第一列和上数第一行是行头和列头，标记了作为“乘数”的元素，里面罗列了群的所有元素。而表格中则记录了元素相乘的结果。要找到两个变换复合的结果，只需要在列头中找到前一个变换，然后在行头中找到后一个变换，则它们分别所在的行和列相交处的内容，就是它们复合的结果。
 
-比如，如果我们想查询先$r_1$后$s_3$复合的结果：$r_1\rightarrow s_3$，就到左边行头里找到$r_1$：它在第$2$行；然后在上边列头里找到$s_3$：它在最后一列。于是，$r_1$和$s_3$复合的效果，就是第$2$行最后一列的内容：$s_1$：
+比如，如果我们想查询先$r_1$后$s_3$复合的结果：$r_1\rightarrow s_3$，就到上边列头找到$r_1$：它在第$2$列；然后在左边行头里里找到$s_3$：它在最后一行。于是，$r_1$和$s_3$复合的效果，就是最后一行第$2$列的内容：$s_1$：
 $$ s_1 = r_1\rightarrow s_3.$$
 反之，要填写这个表，也只需要按这个规则，把任两个变换复合的结果填进去即可。
 
@@ -1786,7 +1786,7 @@ $$(b\circ a)(x) = b(a(x)).$$
     r_2 &= r_1\leftarrow r_1 = r_1\cdot r_1 = r_1^2, & e &= r_1\leftarrow r_1\leftarrow r_1= r_1\cdot r_1\cdot r_1 = r_1^3, \\
     s_2 &= r_1\leftarrow r_1\leftarrow s_1 = r_1\cdot r_1\cdot s_1 = r_1^2s_1, & s_3 & = r_1\leftarrow s_1 = r_1\cdot s_1 = r_1s_1.
 \end{align*}
-这里变换作为群元素的乘法顺序和左向箭头对应，也和映射的复合记法一致。$ab$就是$a\leftarrow b$的意思，也就是“先$b$后$a$”。本书采用这种约定方法，是“变换优先”思想的产物。按照这个约定，当我们看到群的元素乘积$ab$，要记得在乘法表的上方列头里找$a$（后变换），而在左侧行头找$b$（先变换），这样找到的行列交点才是$ab = a\leftarrow b = b\rightarrow a$。
+这里变换作为群元素的乘法顺序和左向箭头对应，也和映射的复合记法一致。$ab$就是$a\leftarrow b$的意思，也就是“先$b$后$a$”。本书采用这种约定方法，是“变换优先”思想的产物。按照这个约定，当我们看到群的元素乘积$ab$，要记得在乘法表的左侧行头里找$a$（后变换，写在左），而在上方列头找$b$（先变换，写在右），这样找到的行列交点才是$ab = a\leftarrow b = b\rightarrow a$。
 
 我们也可以把矩群的规则做成乘法表：
 
@@ -2219,7 +2219,7 @@ $$ y = y\ast e = y\ast (a\ast x) = (y\ast a)\ast x = e\ast x = x. $$
     \begin{problemlist}
         \item 整数集中的乘法运算。
         \item 有理数集中的减法运算。
-        \item 实系数$3\times 3$矩阵的矩阵乘法运算。
+        \item 实系数$2\times 2$矩阵的矩阵乘法运算。
         \item 模$p$非零同余类的乘法运算（$p$为素数）。
         \item 从$[\,0;1\,]$映射到$[\,0;1\,]$的连续函数集的复合运算。
     \end{problemlist}
@@ -2483,15 +2483,15 @@ $$ y = y\ast e = y\ast (a\ast x) = (y\ast a)\ast x = e\ast x = x. $$
                     \arrayrulecolor{gray!50}
                     \hline
                     \arrayrulecolor{black}
-                    $a$     & $a$ & $a$ & $b$ & $c$ \\
+                    $a$     & $a$ & $a$ & $a$ & $a$ \\
                     \arrayrulecolor{gray!50}
                     \hline
                     \arrayrulecolor{black}
-                    $b$     & $b$ & $a$ & $b$ & $c$ \\
+                    $b$     & $b$ & $b$ & $b$ & $b$ \\
                     \arrayrulecolor{gray!50}
                     \hline
                     \arrayrulecolor{black}
-                    $c$     & $c$ & $a$ & $b$ & $c$ \\
+                    $c$     & $c$ & $c$ & $c$ & $c$ \\
                     \hline
                 \end{tabular}
             \end{minipage}
@@ -2505,7 +2505,7 @@ $$ y = y\ast e = y\ast (a\ast x) = (y\ast a)\ast x = e\ast x = x. $$
                 \hspace{4pt}
                 % e 是幺元
                 % aa = c,  cc = d, dd = c, 因此 ccc = e,
-                % dc = a = ccc = e。矛盾
+                % cd = a = ccc = e。矛盾
                 \begin{tabular}{|c|c!{\color{gray!50}\vrule}c!{\color{gray!50}\vrule}c!{\color{gray!50}\vrule}c!{\color{gray!50}\vrule}c|}
                     \hline
                     $\cdot$ & $e$ & $a$ & $b$ & $c$ & $d$ \\
@@ -2540,25 +2540,25 @@ $$ y = y\ast e = y\ast (a\ast x) = (y\ast a)\ast x = e\ast x = x. $$
                 % 但 cd = b, 矛盾！
                 \begin{tabular}{|c|c!{\color{gray!50}\vrule}c!{\color{gray!50}\vrule}c!{\color{gray!50}\vrule}c!{\color{gray!50}\vrule}c|}
                     \hline
-                    $\cdot$ & $e$ & $a$ & $b$ & $c$ & $d$ \\
+                    $\cdot$ & $e$ & $a$ & $b$ & $c$ & $d$\\
                     \hline
-                    $e$     & $e$ & $a$ & $b$ & $c$ & $d$ \\
+                    $e$ & $e$ & $a$ & $b$ & $c$ & $d$\\
                     \arrayrulecolor{gray!50}
                     \hline
                     \arrayrulecolor{black}
-                    $a$     & $a$ & $e$ & $c$ & $d$ & $b$ \\
+                    $a$ & $a$ & $e$ & $d$ & $b$ & $c$\\
                     \arrayrulecolor{gray!50}
                     \hline
                     \arrayrulecolor{black}
-                    $b$     & $b$ & $d$ & $e$ & $a$ & $c$ \\
+                    $b$ & $b$ & $c$ & $e$ & $d$ & $a$\\
                     \arrayrulecolor{gray!50}
                     \hline
                     \arrayrulecolor{black}
-                    $c$     & $c$ & $b$ & $d$ & $e$ & $a$ \\
+                    $c$ & $c$ & $d$ & $a$ & $e$ & $b$\\
                     \arrayrulecolor{gray!50}
                     \hline
                     \arrayrulecolor{black}
-                    $d$     & $d$ & $c$ & $a$ & $b$ & $e$ \\
+                    $d$ & $d$ & $b$ & $c$ & $a$ & $e$\\
                     \hline
                 \end{tabular}
             \end{minipage}
@@ -2685,8 +2685,8 @@ $$ y = y\ast e = y\ast (a\ast x) = (y\ast a)\ast x = e\ast x = x. $$
         \item 实系数一元整式的集合$\mathbb{R}[X]$关于整式的加法。
         \item 整系数一元整式的集合$\mathbb{Z}[X]$关于整式的乘法。
         \item 实系数一元整式的集合$\mathbb{R}[X]$关于整式的乘法。
-        \item 实系数非零一元有理式的集合$\mathbb{R}(X)$关于整式的乘法。其中$\mathbb{R}(X)$是所有能表示为非零一元整式的商的式子的集合：
-        \[ \mathbb{R}(X) = \left\{\frac{P(X)}{Q(X)}\,\bigg|\,P,Q\in\mathbb{R}[X],Q\neq0\right\}
+        \item 实系数非零一元有理式的集合$\mathbb{R}(X)$关于有理式的乘法。其中$\mathbb{R}(X)$是所有能表示为非零一元整式的商的式子的集合：
+        \[ \mathbb{R}(X) = \left\{\frac{P(X)}{Q(X)}\,\bigg|\,P,Q\in\mathbb{R}[X],\;P,Q\neq0\right\}
         \]
         \item 偶系数一元整式的集合$\mathbb{B}[X]$关于整式的加法。其中$\mathbb{B}=\{2n\,\mid\,n\in\mathbb{Z}\}$。
         \item 奇系数一元整式的集合$\mathbb{J}[X]$关于整式的加法。其中$\mathbb{J}=\{2n+1\,\mid\,n\in\mathbb{Z}\}$。
@@ -3129,7 +3129,7 @@ $$ a^{-n}, \cdots, a^{-2}, a^{-1}, e, a, a^2, \cdots, a^n,  \cdots $$
 \end{figure}
 \vspace{12pt}
 
-另一种方法是查看它的乘法表。交换群的变换可以交换顺序：$ab = ba$，在乘法表里就体现在第$i$行第$j$列的内容与第$j$行第$ji$列的内容相同（前提是在行头和列头按同样的顺序排列群里的变换——第$i$行的行头和第$i$列的列头应该是同样的变换）。直观来看，如果把乘法表按着主对角线（从左上到右下的对角线）折叠，对角线两侧的变换刚好重叠。或者说，沿主对角线翻转，乘法表内容不变。这也是一种对称性的体现——乘法表的对称性对应着乘法先后顺序可交换的对称性。
+另一种方法是查看它的乘法表。交换群的变换可以交换顺序：$ab = ba$，在乘法表里就体现在第$i$行第$j$列的内容与第$j$行第$i$列的内容相同（前提是在行头和列头按同样的顺序排列群里的变换——第$i$行的行头和第$i$列的列头应该是同样的变换）。直观来看，如果把乘法表按着主对角线（从左上到右下的对角线）折叠，对角线两侧的变换刚好重叠。或者说，沿主对角线翻转，乘法表内容不变。这也是一种对称性的体现——乘法表的对称性对应着乘法先后顺序可交换的对称性。
 
 % 插图，解释以上的检验方法
 \vspace{12pt}
@@ -4874,7 +4874,7 @@ $$ srs = r^{-1}. $$
 
 首先用按中心的逆时针$\frac{360^\circ}{n}$旋转：$r$来生成一个$n$元循环。它把正$n$边形不断轮转。选定一个顶点——比如$1$号——来研究的话，$r$把$1$号顶点送到$2$顶点，重复之后把它送到$3$号顶点，再重复则是$4$号顶点，等等。重复$n$次之后回到原顶点。因此我们有$r$生成的$n$元循环群，对应$n$个状态。每个状态下的正$n$边形顶点$1,2,\cdots,n$都是逆时针排列的。
 
-现在引入一个翻转变换$s$，比如按过$0$号顶点和正多边形的中心的轴线翻转，就得到正$n$边形顶点新的状态：$1,2,\cdots,n$按顺时针次序排列了。翻转后不断旋转，又能得到$n$个状态。这$n$个状态下的正$n$边形，由于经过翻转，顶点$1,2,\cdots,n$都是顺时针排列的。这$n$个状态和之前的$n$个状态都不一样。
+现在引入一个翻转变换$s$，比如按过$1$号顶点和正多边形的中心的轴线翻转，就得到正$n$边形顶点新的状态：$1,2,\cdots,n$按顺时针次序排列了。翻转后不断旋转，又能得到$n$个状态。这$n$个状态下的正$n$边形，由于经过翻转，顶点$1,2,\cdots,n$都是顺时针排列的。这$n$个状态和之前的$n$个状态都不一样。
 
 我们把前$n$个状态分别记为$1^+,2^+,\cdots,n^+$，把后$n$个状态记为$1^-,2^-,\cdots,n^-$，那么变换$e,r,r^2,\cdots,r^{n-1}$把状态$1^+$分别变换为$1^+,2^+,\cdots,n^+$，而变换$s, rs, r^2s,\cdots, r^{n-1}s$则分别把状态$1^+$变为$1^-,2^-,\cdots,n^-$。
 
@@ -5271,7 +5271,7 @@ $$ r  \;=\; s\leftarrow r^3s \;=\;  s r^3 s. $$
 $$ \forall\;i=1,2,\cdots,n-1,\qquad \left(r^i\right)^{-1} \;=\; r^{n-i} \;=\; sr^is. $$
 
 
-再来看映照轮换群的乘法表。生成路径图里，我们能看到状态分为两类。这个两分的特征在乘法表里也明显能体现出来。下面是$\mathsf{D}_5$ 的乘法表。
+再来看映轮群的乘法表。生成路径图里，我们能看到状态分为两类。这个两分的特征在乘法表里也明显能体现出来。下面是$\mathsf{D}_5$ 的乘法表。
 
 \setlength{\colwidth}{0.4cm}  % 调控列宽
 \renewcommand{\arraystretch}{1.2} % 整体调控行高
@@ -5293,7 +5293,7 @@ $$ \forall\;i=1,2,\cdots,n-1,\qquad \left(r^i\right)^{-1} \;=\; r^{n-i} \;=\; sr
     \centering
     \begin{tabular}{@{}c@{\hspace{4pt}}c@{}}
 
-        % 【左侧部分】左上角占位 + 左侧表头 (行头：右因子/后执行)
+        % 【左侧部分】左上角占位 + 左侧表头 (行头：左因子/后执行)
         \begin{tabular}{@{}c@{}}
             \vphantom{0} \\[6pt] % 透明的占位符，对齐右侧的顶部行
             \begin{tabular}{|>{\centering\arraybackslash}p{\colwidth}|}
@@ -5311,7 +5311,7 @@ $$ \forall\;i=1,2,\cdots,n-1,\qquad \left(r^i\right)^{-1} \;=\; r^{n-i} \;=\; sr
             \end{tabular}
         \end{tabular}
         &
-        % 【右侧部分】顶部表头 (列头：左因子/先执行) + 主体表格
+        % 【右侧部分】顶部表头 (列头：右因子/先执行) + 主体表格
         \begin{tabular}{@{}c@{}}
             % 顶部表头
             \begin{tabular}{|*{10}{>{\centering\arraybackslash}p{\colwidth}|}}
@@ -5320,38 +5320,29 @@ $$ \forall\;i=1,2,\cdots,n-1,\qquad \left(r^i\right)^{-1} \;=\; r^{n-i} \;=\; sr
             \end{tabular} \\[6pt] % 制造出顶部和主体之间的垂直断开空隙
             
             % 主体表格 (10x10)
-            % 注意：交点 = 列 $\times$ 行 (先执行行，后执行列)
+            % 注意：交点 = 行 $\times$ 列 (先执行列，后执行行)
             \begin{tabular}{|*{10}{>{\centering\arraybackslash}p{\colwidth}|}}
                 \hline
                 % 行 0: y = e
-                \cellcolor{c0}$e$ & \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ & \cellcolor{c3}$r^3$ & \cellcolor{c4}$r^4$ & \cellcolor{c5}$s$ & \cellcolor{c6}$rs$ & \cellcolor{c7}$r^2s$ & \cellcolor{c8}$r^3s$ & \cellcolor{c9}$r^4s$ \\ \hline
-                
+                \cellcolor{c0}$e$ & \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ & \cellcolor{c3}$r^3$ & \cellcolor{c4}$r^4$ & \cellcolor{c5}$s$ & \cellcolor{c6}$rs$ & \cellcolor{c7}$r^2s$ & \cellcolor{c8}$r^3s$ & \cellcolor{c9}$r^4s$\\ \hline
                 % 行 1: y = r
-                \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ & \cellcolor{c3}$r^3$ & \cellcolor{c4}$r^4$ & \cellcolor{c0}$e$ & \cellcolor{c9}$r^4s$ & \cellcolor{c5}$s$ & \cellcolor{c6}$rs$ & \cellcolor{c7}$r^2s$ & \cellcolor{c8}$r^3s$ \\ \hline
-                
+                \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ & \cellcolor{c3}$r^3$ & \cellcolor{c4}$r^4$ & \cellcolor{c0}$e$ & \cellcolor{c6}$rs$ & \cellcolor{c7}$r^2s$ & \cellcolor{c8}$r^3s$ & \cellcolor{c9}$r^4s$ & \cellcolor{c5}$s$\\ \hline
                 % 行 2: y = r^2
-                \cellcolor{c2}$r^2$ & \cellcolor{c3}$r^3$ & \cellcolor{c4}$r^4$ & \cellcolor{c0}$e$ & \cellcolor{c1}$r$ & \cellcolor{c8}$r^3s$ & \cellcolor{c9}$r^4s$ & \cellcolor{c5}$s$ & \cellcolor{c6}$rs$ & \cellcolor{c7}$r^2s$ \\ \hline
-                
+                \cellcolor{c2}$r^2$ & \cellcolor{c3}$r^3$ & \cellcolor{c4}$r^4$ & \cellcolor{c0}$e$ & \cellcolor{c1}$r$ & \cellcolor{c7}$r^2s$ & \cellcolor{c8}$r^3s$ & \cellcolor{c9}$r^4s$ & \cellcolor{c5}$s$ & \cellcolor{c6}$rs$\\ \hline
                 % 行 3: y = r^3
-                \cellcolor{c3}$r^3$ & \cellcolor{c4}$r^4$ & \cellcolor{c0}$e$ & \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ & \cellcolor{c7}$r^2s$ & \cellcolor{c8}$r^3s$ & \cellcolor{c9}$r^4s$ & \cellcolor{c5}$s$ & \cellcolor{c6}$rs$ \\ \hline
-                
+                \cellcolor{c3}$r^3$ & \cellcolor{c4}$r^4$ & \cellcolor{c0}$e$ & \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ & \cellcolor{c8}$r^3s$ & \cellcolor{c9}$r^4s$ & \cellcolor{c5}$s$ & \cellcolor{c6}$rs$ & \cellcolor{c7}$r^2s$\\ \hline
                 % 行 4: y = r^4
-                \cellcolor{c4}$r^4$ & \cellcolor{c0}$e$ & \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ & \cellcolor{c3}$r^3$ & \cellcolor{c6}$rs$ & \cellcolor{c7}$r^2s$ & \cellcolor{c8}$r^3s$ & \cellcolor{c9}$r^4s$ & \cellcolor{c5}$s$ \\ \hline
-                
+                \cellcolor{c4}$r^4$ & \cellcolor{c0}$e$ & \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ & \cellcolor{c3}$r^3$ & \cellcolor{c9}$r^4s$ & \cellcolor{c5}$s$ & \cellcolor{c6}$rs$ & \cellcolor{c7}$r^2s$ & \cellcolor{c8}$r^3s$\\ \hline
                 % 行 5: y = s
-                \cellcolor{c5}$s$ & \cellcolor{c6}$rs$ & \cellcolor{c7}$r^2s$ & \cellcolor{c8}$r^3s$ & \cellcolor{c9}$r^4s$ & \cellcolor{c0}$e$ & \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ & \cellcolor{c3}$r^3$ & \cellcolor{c4}$r^4$ \\ \hline
-                
+                \cellcolor{c5}$s$ & \cellcolor{c9}$r^4s$ & \cellcolor{c8}$r^3s$ & \cellcolor{c7}$r^2s$ & \cellcolor{c6}$rs$ & \cellcolor{c0}$e$ & \cellcolor{c4}$r^4$ & \cellcolor{c3}$r^3$ & \cellcolor{c2}$r^2$ & \cellcolor{c1}$r$\\ \hline
                 % 行 6: y = rs
-                \cellcolor{c6}$rs$ & \cellcolor{c7}$r^2s$ & \cellcolor{c8}$r^3s$ & \cellcolor{c9}$r^4s$ & \cellcolor{c5}$s$ & \cellcolor{c4}$r^4$ & \cellcolor{c0}$e$ & \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ & \cellcolor{c3}$r^3$ \\ \hline
-                
+                \cellcolor{c6}$rs$ & \cellcolor{c5}$s$ & \cellcolor{c9}$r^4s$ & \cellcolor{c8}$r^3s$ & \cellcolor{c7}$r^2s$ & \cellcolor{c1}$r$ & \cellcolor{c0}$e$ & \cellcolor{c4}$r^4$ & \cellcolor{c3}$r^3$ & \cellcolor{c2}$r^2$\\ \hline
                 % 行 7: y = r^2s
-                \cellcolor{c7}$r^2s$ & \cellcolor{c8}$r^3s$ & \cellcolor{c9}$r^4s$ & \cellcolor{c5}$s$ & \cellcolor{c6}$rs$ & \cellcolor{c3}$r^3$ & \cellcolor{c4}$r^4$ & \cellcolor{c0}$e$ & \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ \\ \hline
-                
+                \cellcolor{c7}$r^2s$ & \cellcolor{c6}$rs$ & \cellcolor{c5}$s$ & \cellcolor{c9}$r^4s$ & \cellcolor{c8}$r^3s$ & \cellcolor{c2}$r^2$ & \cellcolor{c1}$r$ & \cellcolor{c0}$e$ & \cellcolor{c4}$r^4$ & \cellcolor{c3}$r^3$\\ \hline
                 % 行 8: y = r^3s
-                \cellcolor{c8}$r^3s$ & \cellcolor{c9}$r^4s$ & \cellcolor{c5}$s$ & \cellcolor{c6}$rs$ & \cellcolor{c7}$r^2s$ & \cellcolor{c2}$r^2$ & \cellcolor{c3}$r^3$ & \cellcolor{c4}$r^4$ & \cellcolor{c0}$e$ & \cellcolor{c1}$r$ \\ \hline
-                
+                \cellcolor{c8}$r^3s$ & \cellcolor{c7}$r^2s$ & \cellcolor{c6}$rs$ & \cellcolor{c5}$s$ & \cellcolor{c9}$r^4s$ & \cellcolor{c3}$r^3$ & \cellcolor{c2}$r^2$ & \cellcolor{c1}$r$ & \cellcolor{c0}$e$ & \cellcolor{c4}$r^4$\\ \hline
                 % 行 9: y = r^4s
-                \cellcolor{c9}$r^4s$ & \cellcolor{c5}$s$ & \cellcolor{c6}$rs$ & \cellcolor{c7}$r^2s$ & \cellcolor{c8}$r^3s$ & \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ & \cellcolor{c3}$r^3$ & \cellcolor{c4}$r^4$ & \cellcolor{c0}$e$ \\ \hline
+                \cellcolor{c9}$r^4s$ & \cellcolor{c8}$r^3s$ & \cellcolor{c7}$r^2s$ & \cellcolor{c6}$rs$ & \cellcolor{c5}$s$ & \cellcolor{c4}$r^4$ & \cellcolor{c3}$r^3$ & \cellcolor{c2}$r^2$ & \cellcolor{c1}$r$ & \cellcolor{c0}$e$\\ \hline
             \end{tabular}
         \end{tabular}
 
@@ -5359,7 +5350,7 @@ $$ \forall\;i=1,2,\cdots,n-1,\qquad \left(r^i\right)^{-1} \;=\; r^{n-i} \;=\; sr
     \caption{\texttt{映轮群 $\mathsf{D}_5$ 的乘法表}}
 \end{figure}
 
-这是一个$10\times 10$的表格。能看出整张表被上下左右分为四块，像个“田”字。每块内部有自己的规律。上半区和下半区仿佛结构一致；左半区和右半区仿佛对称。这当然是因为我们把旋转$e,r,r^2,r^3,r^4$和翻转$s,rs,r^2s,r^3s,r^4s$两类按顺序分别排列了。
+这是一个$10\times 10$的表格。能看出整张表被上下左右分为四块，像个“田”字。每块内部有自己的规律。左半区和右半区仿佛结构一致；上半区和下半区仿佛对称。这当然是因为我们把旋转$e,r,r^2,r^3,r^4$和翻转$s,rs,r^2s,r^3s,r^4s$两类按顺序分别排列了。
 
 乘法表的左上块显然就是循环群$\mathsf{C}_5$，也就是生成路径图里的上轮。右下块的元素和左上块一模一样，都只有$e,r,r^2,r^3,r^4$。左下和右上块的元素则都只有$s,rs,r^2s,r^3s,r^4s$。把前者记为集合$E$，后者记为集合$S$，我们可以得到这样的规律：$E$中元素和$S$中元素复合，得到$S$中元素。$E$中元素自相复合，或$S$中元素自相复合，则得到$E$中元素。如果我们单纯考虑一枚硬币的翻转状态，也会得到同样的规律。也就是说，$\mathsf{D}_5$ 的乘法表，在大体上的行为，和二元循环群$\mathsf{C}_2$的$2\times 2$的乘法表一致。这个现象背后是群的一种关键的性质，在后面的章节将重点讨论。
 
@@ -5413,25 +5404,25 @@ $$ \forall\;i=1,2,\cdots,n-1,\qquad \left(r^i\right)^{-1} \;=\; r^{n-i} \;=\; sr
                         \begin{tabular}{|*{10}{>{\centering\arraybackslash}p{\colwidth}|}}
                             \hline
                             % 行 0: y = e
-                            \cellcolor{c0}$e$ & \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ & \cellcolor{c3}$r^3$ & \cellcolor{c4}$r^4$ & \cellcolor{c5}$s$ & \cellcolor{c6}$rs$ & \cellcolor{c7}$r^2s$ & \cellcolor{c8}$r^3s$ & \cellcolor{c9}$r^4s$ \\ \hline
+                            \cellcolor{c0}$e$ & \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ & \cellcolor{c3}$r^3$ & \cellcolor{c4}$r^4$ & \cellcolor{c5}$s$ & \cellcolor{c6}$rs$ & \cellcolor{c7}$r^2s$ & \cellcolor{c8}$r^3s$ & \cellcolor{c9}$r^4s$\\ \hline
                             % 行 1: y = r
-                            \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ & \cellcolor{c3}$r^3$ & \cellcolor{c4}$r^4$ & \cellcolor{c0}$e$ & \cellcolor{c9}$r^4s$ & \cellcolor{c5}$s$ & \cellcolor{c6}$rs$ & \cellcolor{c7}$r^2s$ & \cellcolor{c8}$r^3s$ \\ \hline
+                            \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ & \cellcolor{c3}$r^3$ & \cellcolor{c4}$r^4$ & \cellcolor{c0}$e$ & \cellcolor{c6}$rs$ & \cellcolor{c7}$r^2s$ & \cellcolor{c8}$r^3s$ & \cellcolor{c9}$r^4s$ & \cellcolor{c5}$s$\\ \hline
                             % 行 2: y = r^2
-                            \cellcolor{c2}$r^2$ & \cellcolor{c3}$r^3$ & \cellcolor{c4}$r^4$ & \cellcolor{c0}$e$ & \cellcolor{c1}$r$ & \cellcolor{c8}$r^3s$ & \cellcolor{c9}$r^4s$ & \cellcolor{c5}$s$ & \cellcolor{c6}$rs$ & \cellcolor{c7}$r^2s$ \\ \hline
+                            \cellcolor{c2}$r^2$ & \cellcolor{c3}$r^3$ & \cellcolor{c4}$r^4$ & \cellcolor{c0}$e$ & \cellcolor{c1}$r$ & \cellcolor{c7}$r^2s$ & \cellcolor{c8}$r^3s$ & \cellcolor{c9}$r^4s$ & \cellcolor{c5}$s$ & \cellcolor{c6}$rs$\\ \hline
                             % 行 3: y = r^3
-                            \cellcolor{c3}$r^3$ & \cellcolor{c4}$r^4$ & \cellcolor{c0}$e$ & \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ & \cellcolor{c7}$r^2s$ & \cellcolor{c8}$r^3s$ & \cellcolor{c9}$r^4s$ & \cellcolor{c5}$s$ & \cellcolor{c6}$rs$ \\ \hline
+                            \cellcolor{c3}$r^3$ & \cellcolor{c4}$r^4$ & \cellcolor{c0}$e$ & \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ & \cellcolor{c8}$r^3s$ & \cellcolor{c9}$r^4s$ & \cellcolor{c5}$s$ & \cellcolor{c6}$rs$ & \cellcolor{c7}$r^2s$\\ \hline
                             % 行 4: y = r^4
-                            \cellcolor{c4}$r^4$ & \cellcolor{c0}$e$ & \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ & \cellcolor{c3}$r^3$ & \cellcolor{c6}$rs$ & \cellcolor{c7}$r^2s$ & \cellcolor{c8}$r^3s$ & \cellcolor{c9}$r^4s$ & \cellcolor{c5}$s$ \\ \hline
+                            \cellcolor{c4}$r^4$ & \cellcolor{c0}$e$ & \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ & \cellcolor{c3}$r^3$ & \cellcolor{c9}$r^4s$ & \cellcolor{c5}$s$ & \cellcolor{c6}$rs$ & \cellcolor{c7}$r^2s$ & \cellcolor{c8}$r^3s$\\ \hline
                             % 行 5: y = s
-                            \cellcolor{c5}$s$ & \cellcolor{c6}$rs$ & \cellcolor{c7}$r^2s$ & \cellcolor{c8}$r^3s$ & \cellcolor{c9}$r^4s$ & \cellcolor{c0}$e$ & \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ & \cellcolor{c3}$r^3$ & \cellcolor{c4}$r^4$ \\ \hline
+                            \cellcolor{c5}$s$ & \cellcolor{c9}$r^4s$ & \cellcolor{c8}$r^3s$ & \cellcolor{c7}$r^2s$ & \cellcolor{c6}$rs$ & \cellcolor{c0}$e$ & \cellcolor{c4}$r^4$ & \cellcolor{c3}$r^3$ & \cellcolor{c2}$r^2$ & \cellcolor{c1}$r$\\ \hline
                             % 行 6: y = rs
-                            \cellcolor{c6}$rs$ & \cellcolor{c7}$r^2s$ & \cellcolor{c8}$r^3s$ & \cellcolor{c9}$r^4s$ & \cellcolor{c5}$s$ & \cellcolor{c4}$r^4$ & \cellcolor{c0}$e$ & \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ & \cellcolor{c3}$r^3$ \\ \hline
+                            \cellcolor{c6}$rs$ & \cellcolor{c5}$s$ & \cellcolor{c9}$r^4s$ & \cellcolor{c8}$r^3s$ & \cellcolor{c7}$r^2s$ & \cellcolor{c1}$r$ & \cellcolor{c0}$e$ & \cellcolor{c4}$r^4$ & \cellcolor{c3}$r^3$ & \cellcolor{c2}$r^2$\\ \hline
                             % 行 7: y = r^2s
-                            \cellcolor{c7}$r^2s$ & \cellcolor{c8}$r^3s$ & \cellcolor{c9}$r^4s$ & \cellcolor{c5}$s$ & \cellcolor{c6}$rs$ & \cellcolor{c3}$r^3$ & \cellcolor{c4}$r^4$ & \cellcolor{c0}$e$ & \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ \\ \hline
+                            \cellcolor{c7}$r^2s$ & \cellcolor{c6}$rs$ & \cellcolor{c5}$s$ & \cellcolor{c9}$r^4s$ & \cellcolor{c8}$r^3s$ & \cellcolor{c2}$r^2$ & \cellcolor{c1}$r$ & \cellcolor{c0}$e$ & \cellcolor{c4}$r^4$ & \cellcolor{c3}$r^3$\\ \hline
                             % 行 8: y = r^3s
-                            \cellcolor{c8}$r^3s$ & \cellcolor{c9}$r^4s$ & \cellcolor{c5}$s$ & \cellcolor{c6}$rs$ & \cellcolor{c7}$r^2s$ & \cellcolor{c2}$r^2$ & \cellcolor{c3}$r^3$ & \cellcolor{c4}$r^4$ & \cellcolor{c0}$e$ & \cellcolor{c1}$r$ \\ \hline
+                            \cellcolor{c8}$r^3s$ & \cellcolor{c7}$r^2s$ & \cellcolor{c6}$rs$ & \cellcolor{c5}$s$ & \cellcolor{c9}$r^4s$ & \cellcolor{c3}$r^3$ & \cellcolor{c2}$r^2$ & \cellcolor{c1}$r$ & \cellcolor{c0}$e$ & \cellcolor{c4}$r^4$\\ \hline
                             % 行 9: y = r^4s
-                            \cellcolor{c9}$r^4s$ & \cellcolor{c5}$s$ & \cellcolor{c6}$rs$ & \cellcolor{c7}$r^2s$ & \cellcolor{c8}$r^3s$ & \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ & \cellcolor{c3}$r^3$ & \cellcolor{c4}$r^4$ & \cellcolor{c0}$e$ \\ \hline
+                            \cellcolor{c9}$r^4s$ & \cellcolor{c8}$r^3s$ & \cellcolor{c7}$r^2s$ & \cellcolor{c6}$rs$ & \cellcolor{c5}$s$ & \cellcolor{c4}$r^4$ & \cellcolor{c3}$r^3$ & \cellcolor{c2}$r^2$ & \cellcolor{c1}$r$ & \cellcolor{c0}$e$\\ \hline
                         \end{tabular}
                     };
 
@@ -5748,7 +5739,7 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
 
 首先来看一个典型的例子：三种颜色的小球从左到右排成一列。假设某种排列（比如红黄蓝）是初始状态，那么任何一种重新的排列方法，都是初始状态的置换。
 
-对于一般的情况，为了好说话，我们用数字来编号：$1,2,\cdots,n$。如果把这$n$个数字从左到右排成一列：$1,2,\cdots,n$，记为初始状态。那么，$1,2,\cdots,n$的任意排列方法，都是从这个状态出发，把数字的位置换一换得到的。因此，对应一个置换。反之，从初始状态出发，任意的置换方法，得到的总是$1,2,\cdots,n$的某种排列。我们用以下方法来记录一个置换：把初始状态的数字写成一列，把置换后的数字也写成一列，然后用箭头连起相同的数字，说明它的位置变到哪里去了。比如，下图就是$1,2,3,4$的几种置换：
+对于一般的情况，为了好说话，我们用数字来编号：$1,2,\cdots,n$。如果把这$n$个数字从左到右排成一行：$1,2,\cdots,n$，记为初始状态。那么，$1,2,\cdots,n$的任意排列方法，都是从这个状态出发，把数字的位置换一换得到的。因此，对应一个置换。反之，从初始状态出发，任意的置换方法，得到的总是$1,2,\cdots,n$的某种排列。我们用以下方法来记录一个置换：把初始状态的数字写成一行，把置换后的数字也写成一行，然后用箭头连起相同的数字，说明它的位置变到哪里去了。比如，下图就是$1,2,3,4$的几种置换：
 
 \vspace{12pt}
 \begin{figure}[htbp]
@@ -5758,73 +5749,73 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
         every node/.style={font=\normalsize},
     ]
 
-        \def\ysep{-0.65}       % distance between elements
-        \def\colsep{0.9}      % vertical distance
+        \def\xsep{0.65}       % distance between elements
+        \def\colsep{-0.9}      % vertical distance
         
 
         % =========================================================
-        % Permutation 1: (1 2 3 4) -> (2 1 3 4)
+        % Permutation 1: (1 2 3 4) -> (1 2 3 4)
         % =========================================================
 
         \begin{scope}
-            \node[left] (a11) at (0,0*\ysep) {1};
-            \node[left] (a12) at (0,1*\ysep) {2};
-            \node[left] (a13) at (0,2*\ysep) {3};
-            \node[left] (a14) at (0,3*\ysep) {4};
+            \node[above] (a11) at (0*\xsep, 0) {1};
+            \node[above] (a12) at (1*\xsep, 0) {2};
+            \node[above] (a13) at (2*\xsep, 0) {3};
+            \node[above] (a14) at (3*\xsep, 0) {4};
 
-            \node[right] (b11) at (\colsep,0*\ysep) {2};
-            \node[right] (b12) at (\colsep,1*\ysep) {1};
-            \node[right] (b13) at (\colsep,2*\ysep) {3};
-            \node[right] (b14) at (\colsep,3*\ysep) {4};
+            \node[below] (b11) at (0*\xsep, \colsep) {2};
+            \node[below] (b12) at (1*\xsep, \colsep) {1};
+            \node[below] (b13) at (2*\xsep, \colsep) {3};
+            \node[below] (b14) at (3*\xsep, \colsep) {4};
 
-            \draw[->] (0,0*\ysep) -- (\colsep,1*\ysep);
-            \draw[->] (0,1*\ysep) -- (\colsep,0*\ysep);
-            \draw[->] (0,2*\ysep) -- (\colsep,2*\ysep);
-            \draw[->] (0,3*\ysep) -- (\colsep,3*\ysep);
+            \draw[->] (0*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (2*\xsep, \colsep);
+            \draw[->] (3*\xsep, 0) -- (3*\xsep, \colsep);
         \end{scope}
 
 
         % =========================================================
-        % Permutation 2: (1 2 3 4) -> (1 3 2 4)
+        % Permutation 2: (1 2 3 4) -> (2 1 4 3)
         % =========================================================
 
         \begin{scope}[xshift=4.0cm]
-            \node[left] (a11) at (0,0*\ysep) {1};
-            \node[left] (a12) at (0,1*\ysep) {2};
-            \node[left] (a13) at (0,2*\ysep) {3};
-            \node[left] (a14) at (0,3*\ysep) {4};
+            \node[above] (a11) at (0*\xsep, 0) {1};
+            \node[above] (a12) at (1*\xsep, 0) {2};
+            \node[above] (a13) at (2*\xsep, 0) {3};
+            \node[above] (a14) at (3*\xsep, 0) {4};
 
-            \node[right] (b11) at (\colsep,0*\ysep) {1};
-            \node[right] (b12) at (\colsep,1*\ysep) {3};
-            \node[right] (b13) at (\colsep,2*\ysep) {2};
-            \node[right] (b14) at (\colsep,3*\ysep) {4};
+            \node[below] (b11) at (0*\xsep, \colsep) {1};
+            \node[below] (b12) at (1*\xsep, \colsep) {3};
+            \node[below] (b13) at (2*\xsep, \colsep) {2};
+            \node[below] (b14) at (3*\xsep, \colsep) {4};
 
-            \draw[->] (0,0*\ysep) -- (\colsep,0*\ysep);
-            \draw[->] (0,1*\ysep) -- (\colsep,2*\ysep);
-            \draw[->] (0,2*\ysep) -- (\colsep,1*\ysep);
-            \draw[->] (0,3*\ysep) -- (\colsep,3*\ysep);
+            \draw[->] (0*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (2*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (3*\xsep, 0) -- (3*\xsep, \colsep);
         \end{scope}
 
 
         % =========================================================
-        % Permutation 3: (1 2 3 4) -> (1 2 4 3)
+        % Permutation 3: (1 2 3 4) -> (3 4 1 2)
         % =========================================================
 
         \begin{scope}[xshift=8.0cm]
-            \node[left] (a11) at (0,0*\ysep) {1};
-            \node[left] (a12) at (0,1*\ysep) {2};
-            \node[left] (a13) at (0,2*\ysep) {3};
-            \node[left] (a14) at (0,3*\ysep) {4};
+            \node[above] (a11) at (0*\xsep, 0) {1};
+            \node[above] (a12) at (1*\xsep, 0) {2};
+            \node[above] (a13) at (2*\xsep, 0) {3};
+            \node[above] (a14) at (3*\xsep, 0) {4};
 
-            \node[right] (b11) at (\colsep,0*\ysep) {2};
-            \node[right] (b12) at (\colsep,1*\ysep) {4};
-            \node[right] (b13) at (\colsep,2*\ysep) {3};
-            \node[right] (b14) at (\colsep,3*\ysep) {1};
+            \node[below] (b11) at (0*\xsep, \colsep) {2};
+            \node[below] (b12) at (1*\xsep, \colsep) {4};
+            \node[below] (b13) at (2*\xsep, \colsep) {3};
+            \node[below] (b14) at (3*\xsep, \colsep) {1};
 
-            \draw[->] (0,0*\ysep) -- (\colsep,3*\ysep);
-            \draw[->] (0,1*\ysep) -- (\colsep,0*\ysep);
-            \draw[->] (0,2*\ysep) -- (\colsep,2*\ysep);
-            \draw[->] (0,3*\ysep) -- (\colsep,1*\ysep);
+            \draw[->] (0*\xsep, 0) -- (3*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (2*\xsep, \colsep);
+            \draw[->] (3*\xsep, 0) -- (1*\xsep, \colsep);
         \end{scope}
 
 
@@ -5833,20 +5824,20 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
         % =========================================================
 
         \begin{scope}[xshift=12.0cm]
-            \node[left] (a11) at (0,0*\ysep) {1};
-            \node[left] (a12) at (0,1*\ysep) {2};
-            \node[left] (a13) at (0,2*\ysep) {3};
-            \node[left] (a14) at (0,3*\ysep) {4};
+            \node[above] (a11) at (0*\xsep, 0) {1};
+            \node[above] (a12) at (1*\xsep, 0) {2};
+            \node[above] (a13) at (2*\xsep, 0) {3};
+            \node[above] (a14) at (3*\xsep, 0) {4};
 
-            \node[right] (b11) at (\colsep,0*\ysep) {4};
-            \node[right] (b12) at (\colsep,1*\ysep) {3};
-            \node[right] (b13) at (\colsep,2*\ysep) {2};
-            \node[right] (b14) at (\colsep,3*\ysep) {1};
+            \node[below] (b11) at (0*\xsep, \colsep) {4};
+            \node[below] (b12) at (1*\xsep, \colsep) {3};
+            \node[below] (b13) at (2*\xsep, \colsep) {2};
+            \node[below] (b14) at (3*\xsep, \colsep) {1};
 
-            \draw[->] (0,0*\ysep) -- (\colsep,3*\ysep);
-            \draw[->] (0,1*\ysep) -- (\colsep,2*\ysep);
-            \draw[->] (0,2*\ysep) -- (\colsep,1*\ysep);
-            \draw[->] (0,3*\ysep) -- (\colsep,0*\ysep);
+            \draw[->] (0*\xsep, 0) -- (3*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (2*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (3*\xsep, 0) -- (0*\xsep, \colsep);
         \end{scope}
 
     \end{tikzpicture}
@@ -5864,8 +5855,8 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
         every node/.style={font=\normalsize},
     ]
 
-        \def\ysep{-0.65}       % distance between elements
-        \def\colsep{0.9}      % vertical distance
+        \def\xsep{0.65}       % distance between elements
+        \def\colsep{-0.9}      % vertical distance
         
 
         % =========================================================
@@ -5873,20 +5864,20 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
         % =========================================================
 
         \begin{scope}
-            \node[left] (a11) at (0,0*\ysep) {3};
-            \node[left] (a12) at (0,1*\ysep) {4};
-            \node[left] (a13) at (0,2*\ysep) {2};
-            \node[left] (a14) at (0,3*\ysep) {1};
+            \node[above] (a11) at (0*\xsep, 0) {3};
+            \node[above] (a12) at (1*\xsep, 0) {4};
+            \node[above] (a13) at (2*\xsep, 0) {2};
+            \node[above] (a14) at (3*\xsep, 0) {1};
 
-            \node[right] (b11) at (\colsep,0*\ysep) {4};
-            \node[right] (b12) at (\colsep,1*\ysep) {3};
-            \node[right] (b13) at (\colsep,2*\ysep) {2};
-            \node[right] (b14) at (\colsep,3*\ysep) {1};
+            \node[below] (b11) at (0*\xsep, \colsep) {4};
+            \node[below] (b12) at (1*\xsep, \colsep) {3};
+            \node[below] (b13) at (2*\xsep, \colsep) {2};
+            \node[below] (b14) at (3*\xsep, \colsep) {1};
 
-            \draw[->] (0,0*\ysep) -- (\colsep,1*\ysep);
-            \draw[->] (0,1*\ysep) -- (\colsep,0*\ysep);
-            \draw[->] (0,2*\ysep) -- (\colsep,2*\ysep);
-            \draw[->] (0,3*\ysep) -- (\colsep,3*\ysep);
+            \draw[->] (0*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (2*\xsep, \colsep);
+            \draw[->] (3*\xsep, 0) -- (3*\xsep, \colsep);
         \end{scope}
 
 
@@ -5895,20 +5886,20 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
         % =========================================================
 
         \begin{scope}[xshift=4.0cm]
-            \node[left] (a11) at (0,0*\ysep) {2};
-            \node[left] (a12) at (0,1*\ysep) {4};
-            \node[left] (a13) at (0,2*\ysep) {3};
-            \node[left] (a14) at (0,3*\ysep) {1};
+            \node[above] (a11) at (0*\xsep, 0) {2};
+            \node[above] (a12) at (1*\xsep, 0) {4};
+            \node[above] (a13) at (2*\xsep, 0) {3};
+            \node[above] (a14) at (3*\xsep, 0) {1};
 
-            \node[right] (b11) at (\colsep,0*\ysep) {2};
-            \node[right] (b12) at (\colsep,1*\ysep) {3};
-            \node[right] (b13) at (\colsep,2*\ysep) {4};
-            \node[right] (b14) at (\colsep,3*\ysep) {1};
+            \node[below] (b11) at (0*\xsep, \colsep) {2};
+            \node[below] (b12) at (1*\xsep, \colsep) {3};
+            \node[below] (b13) at (2*\xsep, \colsep) {4};
+            \node[below] (b14) at (3*\xsep, \colsep) {1};
 
-            \draw[->] (0,0*\ysep) -- (\colsep,0*\ysep);
-            \draw[->] (0,1*\ysep) -- (\colsep,2*\ysep);
-            \draw[->] (0,2*\ysep) -- (\colsep,1*\ysep);
-            \draw[->] (0,3*\ysep) -- (\colsep,3*\ysep);
+            \draw[->] (0*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (2*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (3*\xsep, 0) -- (3*\xsep, \colsep);
         \end{scope}
 
 
@@ -5917,20 +5908,20 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
         % =========================================================
 
         \begin{scope}[xshift=8.0cm]
-            \node[left] (a11) at (0,0*\ysep) {1};
-            \node[left] (a12) at (0,1*\ysep) {4};
-            \node[left] (a13) at (0,2*\ysep) {3};
-            \node[left] (a14) at (0,3*\ysep) {2};
+            \node[above] (a11) at (0*\xsep, 0) {1};
+            \node[above] (a12) at (1*\xsep, 0) {4};
+            \node[above] (a13) at (2*\xsep, 0) {3};
+            \node[above] (a14) at (3*\xsep, 0) {2};
 
-            \node[right] (b11) at (\colsep,0*\ysep) {4};
-            \node[right] (b12) at (\colsep,1*\ysep) {2};
-            \node[right] (b13) at (\colsep,2*\ysep) {3};
-            \node[right] (b14) at (\colsep,3*\ysep) {1};
+            \node[below] (b11) at (0*\xsep, \colsep) {4};
+            \node[below] (b12) at (1*\xsep, \colsep) {2};
+            \node[below] (b13) at (2*\xsep, \colsep) {3};
+            \node[below] (b14) at (3*\xsep, \colsep) {1};
 
-            \draw[->] (0,0*\ysep) -- (\colsep,3*\ysep);
-            \draw[->] (0,1*\ysep) -- (\colsep,0*\ysep);
-            \draw[->] (0,2*\ysep) -- (\colsep,2*\ysep);
-            \draw[->] (0,3*\ysep) -- (\colsep,1*\ysep);
+            \draw[->] (0*\xsep, 0) -- (3*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (2*\xsep, \colsep);
+            \draw[->] (3*\xsep, 0) -- (1*\xsep, \colsep);
         \end{scope}
 
 
@@ -5939,20 +5930,20 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
         % =========================================================
 
         \begin{scope}[xshift=12.0cm]
-            \node[left] (a11) at (0,0*\ysep) {3};
-            \node[left] (a12) at (0,1*\ysep) {1};
-            \node[left] (a13) at (0,2*\ysep) {2};
-            \node[left] (a14) at (0,3*\ysep) {4};
+            \node[above] (a11) at (0*\xsep, 0) {3};
+            \node[above] (a12) at (1*\xsep, 0) {1};
+            \node[above] (a13) at (2*\xsep, 0) {2};
+            \node[above] (a14) at (3*\xsep, 0) {4};
 
-            \node[right] (b11) at (\colsep,0*\ysep) {4};
-            \node[right] (b12) at (\colsep,1*\ysep) {2};
-            \node[right] (b13) at (\colsep,2*\ysep) {1};
-            \node[right] (b14) at (\colsep,3*\ysep) {3};
+            \node[below] (b11) at (0*\xsep, \colsep) {4};
+            \node[below] (b12) at (1*\xsep, \colsep) {2};
+            \node[below] (b13) at (2*\xsep, \colsep) {1};
+            \node[below] (b14) at (3*\xsep, \colsep) {3};
 
-            \draw[->] (0,0*\ysep) -- (\colsep,3*\ysep);
-            \draw[->] (0,1*\ysep) -- (\colsep,2*\ysep);
-            \draw[->] (0,2*\ysep) -- (\colsep,1*\ysep);
-            \draw[->] (0,3*\ysep) -- (\colsep,0*\ysep);
+            \draw[->] (0*\xsep, 0) -- (3*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (2*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (3*\xsep, 0) -- (0*\xsep, \colsep);
         \end{scope}
 
     \end{tikzpicture}
@@ -5974,99 +5965,99 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
         every node/.style={font=\normalsize},
     ]
 
-        \def\ysep{-0.7}       % distance between elements
-        \def\colsep{0.8}      % vertical distance
+        \def\xsep{0.6}       % distance between elements
+        \def\colsep{-0.8}      % vertical distance
         \def\groupsep{2.5cm}
         
         \begin{scope}
-            \node[left] (a11) at (0,0*\ysep) {1};
-            \node[left] (a12) at (0,1*\ysep) {2};
-            \node[left] (a13) at (0,2*\ysep) {3};
+            \node[above] (a11) at (0*\xsep, 0) {1};
+            \node[above] (a12) at (1*\xsep, 0) {2};
+            \node[above] (a13) at (2*\xsep, 0) {3};
 
-            \node[right] (b11) at (\colsep,0*\ysep) {1};
-            \node[right] (b12) at (\colsep,1*\ysep) {2};
-            \node[right] (b13) at (\colsep,2*\ysep) {3};
+            \node[below] (b11) at (0*\xsep, \colsep) {1};
+            \node[below] (b12) at (1*\xsep, \colsep) {2};
+            \node[below] (b13) at (2*\xsep, \colsep) {3};
 
-            \draw[->] (0,0*\ysep) -- (\colsep,0*\ysep);
-            \draw[->] (0,1*\ysep) -- (\colsep,1*\ysep);
-            \draw[->] (0,2*\ysep) -- (\colsep,2*\ysep);
+            \draw[->] (0*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (2*\xsep, \colsep);
         \end{scope}
 
         \begin{scope}[xshift=\groupsep]
-            \node[left] (a11) at (0,0*\ysep) {1};
-            \node[left] (a12) at (0,1*\ysep) {2};
-            \node[left] (a13) at (0,2*\ysep) {3};
+            \node[above] (a11) at (0*\xsep, 0) {1};
+            \node[above] (a12) at (1*\xsep, 0) {2};
+            \node[above] (a13) at (2*\xsep, 0) {3};
 
-            \node[right] (b11) at (\colsep,0*\ysep) {1};
-            \node[right] (b12) at (\colsep,1*\ysep) {3};
-            \node[right] (b13) at (\colsep,2*\ysep) {2};
+            \node[below] (b11) at (0*\xsep, \colsep) {1};
+            \node[below] (b12) at (1*\xsep, \colsep) {3};
+            \node[below] (b13) at (2*\xsep, \colsep) {2};
 
-            \draw[->] (0,0*\ysep) -- (\colsep,0*\ysep);
-            \draw[->] (0,1*\ysep) -- (\colsep,2*\ysep);
-            \draw[->] (0,2*\ysep) -- (\colsep,1*\ysep);
+            \draw[->] (0*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (2*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (1*\xsep, \colsep);
         \end{scope}
 
         \begin{scope}[xshift=2*\groupsep]
-            \node[left] (a11) at (0,0*\ysep) {1};
-            \node[left] (a12) at (0,1*\ysep) {2};
-            \node[left] (a13) at (0,2*\ysep) {3};
+            \node[above] (a11) at (0*\xsep, 0) {1};
+            \node[above] (a12) at (1*\xsep, 0) {2};
+            \node[above] (a13) at (2*\xsep, 0) {3};
 
-            \node[right] (b11) at (\colsep,0*\ysep) {2};
-            \node[right] (b12) at (\colsep,1*\ysep) {1};
-            \node[right] (b13) at (\colsep,2*\ysep) {3};
+            \node[below] (b11) at (0*\xsep, \colsep) {2};
+            \node[below] (b12) at (1*\xsep, \colsep) {1};
+            \node[below] (b13) at (2*\xsep, \colsep) {3};
 
-            \draw[->] (0,0*\ysep) -- (\colsep,1*\ysep);
-            \draw[->] (0,1*\ysep) -- (\colsep,0*\ysep);
-            \draw[->] (0,2*\ysep) -- (\colsep,2*\ysep);
+            \draw[->] (0*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (2*\xsep, \colsep);
         \end{scope}
 
         \begin{scope}[xshift=3*\groupsep]
-            \node[left] (a11) at (0,0*\ysep) {1};
-            \node[left] (a12) at (0,1*\ysep) {2};
-            \node[left] (a13) at (0,2*\ysep) {3};
+            \node[above] (a11) at (0*\xsep, 0) {1};
+            \node[above] (a12) at (1*\xsep, 0) {2};
+            \node[above] (a13) at (2*\xsep, 0) {3};
 
-            \node[right] (b11) at (\colsep,0*\ysep) {2};
-            \node[right] (b12) at (\colsep,1*\ysep) {3};
-            \node[right] (b13) at (\colsep,2*\ysep) {1};
+            \node[below] (b11) at (0*\xsep, \colsep) {2};
+            \node[below] (b12) at (1*\xsep, \colsep) {3};
+            \node[below] (b13) at (2*\xsep, \colsep) {1};
 
-            \draw[->] (0,0*\ysep) -- (\colsep,2*\ysep);
-            \draw[->] (0,1*\ysep) -- (\colsep,0*\ysep);
-            \draw[->] (0,2*\ysep) -- (\colsep,1*\ysep);
+            \draw[->] (0*\xsep, 0) -- (2*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (1*\xsep, \colsep);
         \end{scope}
 
         \begin{scope}[xshift=4*\groupsep]
-            \node[left] (a11) at (0,0*\ysep) {1};
-            \node[left] (a12) at (0,1*\ysep) {2};
-            \node[left] (a13) at (0,2*\ysep) {3};
+            \node[above] (a11) at (0*\xsep, 0) {1};
+            \node[above] (a12) at (1*\xsep, 0) {2};
+            \node[above] (a13) at (2*\xsep, 0) {3};
 
-            \node[right] (b11) at (\colsep,0*\ysep) {3};
-            \node[right] (b12) at (\colsep,1*\ysep) {1};
-            \node[right] (b13) at (\colsep,2*\ysep) {2};
+            \node[below] (b11) at (0*\xsep, \colsep) {3};
+            \node[below] (b12) at (1*\xsep, \colsep) {1};
+            \node[below] (b13) at (2*\xsep, \colsep) {2};
 
-            \draw[->] (0,0*\ysep) -- (\colsep,1*\ysep);
-            \draw[->] (0,1*\ysep) -- (\colsep,2*\ysep);
-            \draw[->] (0,2*\ysep) -- (\colsep,0*\ysep);
+            \draw[->] (0*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (2*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (0*\xsep, \colsep);
         \end{scope}
 
         \begin{scope}[xshift=5*\groupsep]
-            \node[left] (a11) at (0,0*\ysep) {1};
-            \node[left] (a12) at (0,1*\ysep) {2};
-            \node[left] (a13) at (0,2*\ysep) {3};
+            \node[above] (a11) at (0*\xsep, 0) {1};
+            \node[above] (a12) at (1*\xsep, 0) {2};
+            \node[above] (a13) at (2*\xsep, 0) {3};
 
-            \node[right] (b11) at (\colsep,0*\ysep) {3};
-            \node[right] (b12) at (\colsep,1*\ysep) {2};
-            \node[right] (b13) at (\colsep,2*\ysep) {1};
+            \node[below] (b11) at (0*\xsep, \colsep) {3};
+            \node[below] (b12) at (1*\xsep, \colsep) {2};
+            \node[below] (b13) at (2*\xsep, \colsep) {1};
 
-            \draw[->] (0,0*\ysep) -- (\colsep,2*\ysep);
-            \draw[->] (0,1*\ysep) -- (\colsep,1*\ysep);
-            \draw[->] (0,2*\ysep) -- (\colsep,0*\ysep);
+            \draw[->] (0*\xsep, 0) -- (2*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (0*\xsep, \colsep);
         \end{scope}
 
 
     \end{tikzpicture}
     \label{fig:PermutationS3}
 \end{figure}
-\vspace{12pt}
+\vspace{8pt}
 
 分别研究后两类置换。恰好交换两个位置的置换，称为\textbf{对换}，即把一对物品交换。对换两次就是恒等变换。所有位置都变了的两个置换，一个把$1$变为$2$、把$2$变为$3$、把$3$变为$1$；一个把$1$变为$3$、把$3$变为$2$、把$2$变为$1$。这样把一组对象轮转移位的置换称为\textbf{轮换}。如果有$k$个对象被移位，就称为$k$\textbf{元轮换}，说轮换的长度是$k$。这两个轮换各自重复两次会变成对方。如果重复三次，那么都变为恒等变换。这个结构非常眼熟。我们猜想：$\mathsf{S}_3$就是映轮群$\mathsf{D}_3$。
 \begin{tm}\label{tm:4-20}
@@ -6089,10 +6080,10 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
         \def\ypus{0}
         \def\insepx{0.3}
         \def\insepy{0.15}
-        \def\lx{0.26}
-        \def\ly{-0.7}
-        \def\ysep{-0.5}       % distance between elements
-        \def\colsep{0.96}      % distance for arrows
+        \def\ly{0.05}
+        \def\lx{-1}
+        \def\xsep{0.7}       % distance between elements
+        \def\colsep{-0.6}      % distance for arrows
         \pic[scale=\cscale] (A) at (0,0) {tri={BrickRed}{LimeGreen}{RoyalBlue}};
         \node at (90:\r*\cscale) {$1$};
         \node at (-30:\r*\cscale) {$3$};
@@ -6133,82 +6124,82 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
             \draw[->] ($(A6)+(\insepx,\insepy)$) -- ($(B6)+(-\insepx,\insepy)$) node[midway, above] {$s_3$};
 
             \begin{scope}[shift={(A1)}]
-                \node[left] (a11) at (\lx,\ly+0*\ysep) {1};
-                \node[left] (a11) at (\lx,\ly+1*\ysep) {2};
-                \node[left] (a11) at (\lx,\ly+2*\ysep) {3};
+                \node[above] (a11) at (\ly+0*\xsep, \lx) {1};
+                \node[above] (a11) at (\ly+1*\xsep, \lx) {2};
+                \node[above] (a11) at (\ly+2*\xsep, \lx) {3};
 
-                \node[right] (b11) at (\lx+\colsep,\ly+0*\ysep) {1};
-                \node[right] (b12) at (\lx+\colsep,\ly+1*\ysep) {2};
-                \node[right] (b13) at (\lx+\colsep,\ly+2*\ysep) {3};
+                \node[below] (b11) at (\ly+0*\xsep, \lx+\colsep) {1};
+                \node[below] (b12) at (\ly+1*\xsep, \lx+\colsep) {2};
+                \node[below] (b13) at (\ly+2*\xsep, \lx+\colsep) {3};
 
-                \draw[->] (\lx,\ly+0*\ysep) -- (\lx+\colsep,\ly+0*\ysep);
-                \draw[->] (\lx,\ly+1*\ysep) -- (\lx+\colsep,\ly+1*\ysep);
-                \draw[->] (\lx,\ly+2*\ysep) -- (\lx+\colsep,\ly+2*\ysep);
+                \draw[->] (\ly+0*\xsep, \lx) -- (\ly+0*\xsep, \lx+\colsep);
+                \draw[->] (\ly+1*\xsep, \lx) -- (\ly+1*\xsep, \lx+\colsep);
+                \draw[->] (\ly+2*\xsep, \lx) -- (\ly+2*\xsep, \lx+\colsep);
             \end{scope}            
             \begin{scope}[shift={(A2)}]
-                \node[left] (a11) at (\lx,\ly+0*\ysep) {1};
-                \node[left] (a11) at (\lx,\ly+1*\ysep) {2};
-                \node[left] (a11) at (\lx,\ly+2*\ysep) {3};
+                \node[above] (a11) at (\ly+0*\xsep, \lx) {1};
+                \node[above] (a11) at (\ly+1*\xsep, \lx) {2};
+                \node[above] (a11) at (\ly+2*\xsep, \lx) {3};
 
-                \node[right] (b11) at (\lx+\colsep,\ly+0*\ysep) {3};
-                \node[right] (b12) at (\lx+\colsep,\ly+1*\ysep) {1};
-                \node[right] (b13) at (\lx+\colsep,\ly+2*\ysep) {2};
+                \node[below] (b11) at (\ly+0*\xsep, \lx+\colsep) {3};
+                \node[below] (b12) at (\ly+1*\xsep, \lx+\colsep) {1};
+                \node[below] (b13) at (\ly+2*\xsep, \lx+\colsep) {2};
 
-                \draw[->] (\lx,\ly+0*\ysep) -- (\lx+\colsep,\ly+1*\ysep);
-                \draw[->] (\lx,\ly+1*\ysep) -- (\lx+\colsep,\ly+2*\ysep);
-                \draw[->] (\lx,\ly+2*\ysep) -- (\lx+\colsep,\ly+0*\ysep);
+                \draw[->] (\ly+0*\xsep, \lx) -- (\ly+1*\xsep, \lx+\colsep);
+                \draw[->] (\ly+1*\xsep, \lx) -- (\ly+2*\xsep, \lx+\colsep);
+                \draw[->] (\ly+2*\xsep, \lx) -- (\ly+0*\xsep, \lx+\colsep);
             \end{scope}            
             \begin{scope}[shift={(A3)}]
-                \node[left] (a11) at (\lx,\ly+0*\ysep) {1};
-                \node[left] (a11) at (\lx,\ly+1*\ysep) {2};
-                \node[left] (a11) at (\lx,\ly+2*\ysep) {3};
+                \node[above] (a11) at (\ly+0*\xsep, \lx) {1};
+                \node[above] (a11) at (\ly+1*\xsep, \lx) {2};
+                \node[above] (a11) at (\ly+2*\xsep, \lx) {3};
 
-                \node[right] (b11) at (\lx+\colsep,\ly+0*\ysep) {2};
-                \node[right] (b12) at (\lx+\colsep,\ly+1*\ysep) {3};
-                \node[right] (b13) at (\lx+\colsep,\ly+2*\ysep) {1};
+                \node[below] (b11) at (\ly+0*\xsep, \lx+\colsep) {2};
+                \node[below] (b12) at (\ly+1*\xsep, \lx+\colsep) {3};
+                \node[below] (b13) at (\ly+2*\xsep, \lx+\colsep) {1};
 
-                \draw[->] (\lx,\ly+0*\ysep) -- (\lx+\colsep,\ly+2*\ysep);
-                \draw[->] (\lx,\ly+1*\ysep) -- (\lx+\colsep,\ly+0*\ysep);
-                \draw[->] (\lx,\ly+2*\ysep) -- (\lx+\colsep,\ly+1*\ysep);
+                \draw[->] (\ly+0*\xsep, \lx) -- (\ly+2*\xsep, \lx+\colsep);
+                \draw[->] (\ly+1*\xsep, \lx) -- (\ly+0*\xsep, \lx+\colsep);
+                \draw[->] (\ly+2*\xsep, \lx) -- (\ly+1*\xsep, \lx+\colsep);
             \end{scope}            
             \begin{scope}[shift={(A4)}]
-                \node[left] (a11) at (\lx,\ly+0*\ysep) {1};
-                \node[left] (a11) at (\lx,\ly+1*\ysep) {2};
-                \node[left] (a11) at (\lx,\ly+2*\ysep) {3};
+                \node[above] (a11) at (\ly+0*\xsep, \lx) {1};
+                \node[above] (a11) at (\ly+1*\xsep, \lx) {2};
+                \node[above] (a11) at (\ly+2*\xsep, \lx) {3};
 
-                \node[right] (b11) at (\lx+\colsep,\ly+0*\ysep) {1};
-                \node[right] (b12) at (\lx+\colsep,\ly+1*\ysep) {3};
-                \node[right] (b13) at (\lx+\colsep,\ly+2*\ysep) {2};
+                \node[below] (b11) at (\ly+0*\xsep, \lx+\colsep) {1};
+                \node[below] (b12) at (\ly+1*\xsep, \lx+\colsep) {3};
+                \node[below] (b13) at (\ly+2*\xsep, \lx+\colsep) {2};
 
-                \draw[->] (\lx,\ly+0*\ysep) -- (\lx+\colsep,\ly+0*\ysep);
-                \draw[->] (\lx,\ly+1*\ysep) -- (\lx+\colsep,\ly+2*\ysep);
-                \draw[->] (\lx,\ly+2*\ysep) -- (\lx+\colsep,\ly+1*\ysep);
+                \draw[->] (\ly+0*\xsep, \lx) -- (\ly+0*\xsep, \lx+\colsep);
+                \draw[->] (\ly+1*\xsep, \lx) -- (\ly+2*\xsep, \lx+\colsep);
+                \draw[->] (\ly+2*\xsep, \lx) -- (\ly+1*\xsep, \lx+\colsep);
             \end{scope}            
             \begin{scope}[shift={(A5)}]
-                \node[left] (a11) at (\lx,\ly+0*\ysep) {1};
-                \node[left] (a11) at (\lx,\ly+1*\ysep) {2};
-                \node[left] (a11) at (\lx,\ly+2*\ysep) {3};
+                \node[above] (a11) at (\ly+0*\xsep, \lx) {1};
+                \node[above] (a11) at (\ly+1*\xsep, \lx) {2};
+                \node[above] (a11) at (\ly+2*\xsep, \lx) {3};
 
-                \node[right] (b11) at (\lx+\colsep,\ly+0*\ysep) {3};
-                \node[right] (b12) at (\lx+\colsep,\ly+1*\ysep) {2};
-                \node[right] (b13) at (\lx+\colsep,\ly+2*\ysep) {1};
+                \node[below] (b11) at (\ly+0*\xsep, \lx+\colsep) {3};
+                \node[below] (b12) at (\ly+1*\xsep, \lx+\colsep) {2};
+                \node[below] (b13) at (\ly+2*\xsep, \lx+\colsep) {1};
 
-                \draw[->] (\lx,\ly+0*\ysep) -- (\lx+\colsep,\ly+2*\ysep);
-                \draw[->] (\lx,\ly+1*\ysep) -- (\lx+\colsep,\ly+1*\ysep);
-                \draw[->] (\lx,\ly+2*\ysep) -- (\lx+\colsep,\ly+0*\ysep);
+                \draw[->] (\ly+0*\xsep, \lx) -- (\ly+2*\xsep, \lx+\colsep);
+                \draw[->] (\ly+1*\xsep, \lx) -- (\ly+1*\xsep, \lx+\colsep);
+                \draw[->] (\ly+2*\xsep, \lx) -- (\ly+0*\xsep, \lx+\colsep);
             \end{scope}
             \begin{scope}[shift={(A6)}]
-                \node[left] (a11) at (\lx,\ly+0*\ysep) {1};
-                \node[left] (a11) at (\lx,\ly+1*\ysep) {2};
-                \node[left] (a11) at (\lx,\ly+2*\ysep) {3};
+                \node[above] (a11) at (\ly+0*\xsep, \lx) {1};
+                \node[above] (a11) at (\ly+1*\xsep, \lx) {2};
+                \node[above] (a11) at (\ly+2*\xsep, \lx) {3};
 
-                \node[right] (b11) at (\lx+\colsep,\ly+0*\ysep) {2};
-                \node[right] (b12) at (\lx+\colsep,\ly+1*\ysep) {1};
-                \node[right] (b13) at (\lx+\colsep,\ly+2*\ysep) {3};
+                \node[below] (b11) at (\ly+0*\xsep, \lx+\colsep) {2};
+                \node[below] (b12) at (\ly+1*\xsep, \lx+\colsep) {1};
+                \node[below] (b13) at (\ly+2*\xsep, \lx+\colsep) {3};
 
-                \draw[->] (\lx,\ly+0*\ysep) -- (\lx+\colsep,\ly+1*\ysep);
-                \draw[->] (\lx,\ly+1*\ysep) -- (\lx+\colsep,\ly+0*\ysep);
-                \draw[->] (\lx,\ly+2*\ysep) -- (\lx+\colsep,\ly+2*\ysep);
+                \draw[->] (\ly+0*\xsep, \lx) -- (\ly+1*\xsep, \lx+\colsep);
+                \draw[->] (\ly+1*\xsep, \lx) -- (\ly+0*\xsep, \lx+\colsep);
+                \draw[->] (\ly+2*\xsep, \lx) -- (\ly+2*\xsep, \lx+\colsep);
             \end{scope}   
         \end{scope}
     \end{tikzpicture}
@@ -6232,8 +6223,8 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
         every node/.style={font=\normalsize},
     ]
 
-        \def\ysep{-0.65}       % distance between elements
-        \def\colsep{0.9}      % vertical distance
+        \def\xsep{0.65}       % distance between elements
+        \def\colsep{-0.8}      % vertical distance
         
 
         % =========================================================
@@ -6241,23 +6232,23 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
         % =========================================================
 
         \begin{scope}
-            \node[left] (a11) at (0,0*\ysep) {1};
-            \node[left] (a12) at (0,1*\ysep) {2};
-            \node[left] (a13) at (0,2*\ysep) {3};
-            \node[left] (a14) at (0,3*\ysep) {4};
+            \node[above] (a11) at (0*\xsep, 0) {1};
+            \node[above] (a12) at (1*\xsep, 0) {2};
+            \node[above] (a13) at (2*\xsep, 0) {3};
+            \node[above] (a14) at (3*\xsep, 0) {4};
 
-            \node[right] (b11) at (\colsep,0*\ysep) {1};
-            \node[right] (b12) at (\colsep,1*\ysep) {2};
-            \node[right] (b13) at (\colsep,2*\ysep) {3};
-            \node[right] (b14) at (\colsep,3*\ysep) {4};
+            \node[below] (b11) at (0*\xsep, \colsep) {1};
+            \node[below] (b12) at (1*\xsep, \colsep) {2};
+            \node[below] (b13) at (2*\xsep, \colsep) {3};
+            \node[below] (b14) at (3*\xsep, \colsep) {4};
 
-            \draw[->] (0,0*\ysep) -- (\colsep,0*\ysep);
-            \draw[->] (0,1*\ysep) -- (\colsep,1*\ysep);
-            \draw[->] (0,2*\ysep) -- (\colsep,2*\ysep);
-            \draw[->] (0,3*\ysep) -- (\colsep,3*\ysep);
+            \draw[->] (0*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (2*\xsep, \colsep);
+            \draw[->] (3*\xsep, 0) -- (3*\xsep, \colsep);
         \end{scope}
 
-        \begin{scope}[shift={(0.45,2.2)}]
+        \begin{scope}[shift={(1,2.5)}]
             \def\x{0.2}
             \pic[scale=1] (R0) at (0,3) {recta={BrickRed}{LimeGreen}{RoyalBlue}{Goldenrod}};
             \pic[scale=1] (R0) at (4,3) {recta={BrickRed}{LimeGreen}{RoyalBlue}{Goldenrod}};
@@ -6315,20 +6306,20 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
         % =========================================================
 
         \begin{scope}[xshift=8.0cm]
-            \node[left] (a11) at (0,0*\ysep) {1};
-            \node[left] (a12) at (0,1*\ysep) {2};
-            \node[left] (a13) at (0,2*\ysep) {3};
-            \node[left] (a14) at (0,3*\ysep) {4};
+            \node[above] (a11) at (0*\xsep, 0) {1};
+            \node[above] (a12) at (1*\xsep, 0) {2};
+            \node[above] (a13) at (2*\xsep, 0) {3};
+            \node[above] (a14) at (3*\xsep, 0) {4};
 
-            \node[right] (b11) at (\colsep,0*\ysep) {2};
-            \node[right] (b12) at (\colsep,1*\ysep) {1};
-            \node[right] (b13) at (\colsep,2*\ysep) {4};
-            \node[right] (b14) at (\colsep,3*\ysep) {3};
+            \node[below] (b11) at (0*\xsep, \colsep) {2};
+            \node[below] (b12) at (1*\xsep, \colsep) {1};
+            \node[below] (b13) at (2*\xsep, \colsep) {4};
+            \node[below] (b14) at (3*\xsep, \colsep) {3};
 
-            \draw[->] (0,0*\ysep) -- (\colsep,1*\ysep);
-            \draw[->] (0,1*\ysep) -- (\colsep,0*\ysep);
-            \draw[->] (0,2*\ysep) -- (\colsep,3*\ysep);
-            \draw[->] (0,3*\ysep) -- (\colsep,2*\ysep);
+            \draw[->] (0*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (3*\xsep, \colsep);
+            \draw[->] (3*\xsep, 0) -- (2*\xsep, \colsep);
         \end{scope}
 
 
@@ -6337,20 +6328,20 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
         % =========================================================
 
         \begin{scope}[xshift=4.0cm]
-            \node[left] (a11) at (0,0*\ysep) {1};
-            \node[left] (a12) at (0,1*\ysep) {2};
-            \node[left] (a13) at (0,2*\ysep) {3};
-            \node[left] (a14) at (0,3*\ysep) {4};
+            \node[above] (a11) at (0*\xsep, 0) {1};
+            \node[above] (a12) at (1*\xsep, 0) {2};
+            \node[above] (a13) at (2*\xsep, 0) {3};
+            \node[above] (a14) at (3*\xsep, 0) {4};
 
-            \node[right] (b11) at (\colsep,0*\ysep) {4};
-            \node[right] (b12) at (\colsep,1*\ysep) {3};
-            \node[right] (b13) at (\colsep,2*\ysep) {2};
-            \node[right] (b14) at (\colsep,3*\ysep) {1};
+            \node[below] (b11) at (0*\xsep, \colsep) {4};
+            \node[below] (b12) at (1*\xsep, \colsep) {3};
+            \node[below] (b13) at (2*\xsep, \colsep) {2};
+            \node[below] (b14) at (3*\xsep, \colsep) {1};
 
-            \draw[->] (0,0*\ysep) -- (\colsep,3*\ysep);
-            \draw[->] (0,1*\ysep) -- (\colsep,2*\ysep);
-            \draw[->] (0,2*\ysep) -- (\colsep,1*\ysep);
-            \draw[->] (0,3*\ysep) -- (\colsep,0*\ysep);
+            \draw[->] (0*\xsep, 0) -- (3*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (2*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (3*\xsep, 0) -- (0*\xsep, \colsep);
         \end{scope}
 
 
@@ -6359,20 +6350,20 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
         % =========================================================
 
         \begin{scope}[xshift=12.0cm]
-            \node[left] (a11) at (0,0*\ysep) {1};
-            \node[left] (a12) at (0,1*\ysep) {2};
-            \node[left] (a13) at (0,2*\ysep) {3};
-            \node[left] (a14) at (0,3*\ysep) {4};
+            \node[above] (a11) at (0*\xsep, 0) {1};
+            \node[above] (a12) at (1*\xsep, 0) {2};
+            \node[above] (a13) at (2*\xsep, 0) {3};
+            \node[above] (a14) at (3*\xsep, 0) {4};
 
-            \node[right] (b11) at (\colsep,0*\ysep) {3};
-            \node[right] (b12) at (\colsep,1*\ysep) {4};
-            \node[right] (b13) at (\colsep,2*\ysep) {1};
-            \node[right] (b14) at (\colsep,3*\ysep) {2};
+            \node[below] (b11) at (0*\xsep, \colsep) {3};
+            \node[below] (b12) at (1*\xsep, \colsep) {4};
+            \node[below] (b13) at (2*\xsep, \colsep) {1};
+            \node[below] (b14) at (3*\xsep, \colsep) {2};
 
-            \draw[->] (0,0*\ysep) -- (\colsep,2*\ysep);
-            \draw[->] (0,1*\ysep) -- (\colsep,3*\ysep);
-            \draw[->] (0,2*\ysep) -- (\colsep,0*\ysep);
-            \draw[->] (0,3*\ysep) -- (\colsep,1*\ysep);
+            \draw[->] (0*\xsep, 0) -- (2*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (3*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (3*\xsep, 0) -- (1*\xsep, \colsep);
         \end{scope}
 
     \end{tikzpicture}
@@ -6385,7 +6376,7 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
 
 进一步，我们会想：是否所有的群，都可以看作某些置换的集合呢？为此，我们需要让每个群元素对应一个置换。
 
-对于$n$个元素的群$G$，考虑它的乘法表。我们发现，乘法表的每一列，似乎都可以看作一个置换。比如幺元就对应恒等变换：它乘以任何元素得到该元素自身。这个想法是否成立呢？为了好说话，把$G$的元素编号，记为$1,2,\cdots,n$。比如矩群有四个元素，就记为$1,2,3,4$。于是整个群就记为$G =\{1,2,\cdots,n\}$。我们只需要说明，单个群元素乘以所有元素的结果，必然是不重复不遗漏的，于是构成$1,2,\cdots,n$的置换。
+对于$n$个元素的群$G$，考虑它的乘法表。我们发现，乘法表的每一行，似乎都可以看作一个置换。比如幺元就对应恒等变换：它乘以任何元素得到该元素自身。这个想法是否成立呢？为了好说话，把$G$的元素编号，记为$1,2,\cdots,n$。比如矩群有四个元素，就记为$1,2,3,4$。于是整个群就记为$G =\{1,2,\cdots,n\}$。我们只需要说明，单个群元素乘以所有元素的结果，必然是不重复不遗漏的，于是构成$1,2,\cdots,n$的置换。
 
 \vspace{12pt}
 \begin{table}[htbp]
@@ -6411,35 +6402,48 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
         \arrayrulecolor{black}
         $4$     & $4$ & $3$ & $2$ & $1$ \\
         \hline
-    \end{tabular}\hspace{1.8cm}
+    \end{tabular}\hspace{0.01cm}
     \begin{tikzpicture}[
         >=stealth,
     ]
-
-        \def\ysep{-0.65}       % distance between elements
-        \def\colsep{0.9}      % vertical distance
+        \def\r{2.4pt}
+        \def\xsep{0.65}       % distance between elements
+        \def\colsep{-0.9}      % vertical distance
         
+        \draw[->, densely dashed, thick, Blue] (-1.5,-1) to[bend right=5] (-0.3,\colsep-0.25);
+        \draw[->, densely dashed, thick, BrickRed] (-1.5,-2) to[bend right=15] (4-0.3,\colsep-0.25);
+        \draw[->, densely dashed, thick, Brown!60!yellow] (-1.5,-3) to[bend right=15] (-0.3,\colsep-3-0.25);
+        \draw[->, densely dashed, thick, Green] (-1.5,-4) to[bend left=28] (4-0.3,\colsep-3-0.25);
 
+        \filldraw[fill=white,thick,draw=Blue] (-1.5,-1) circle (\r);
+        \filldraw[fill=white,thick,draw=BrickRed] (-1.5,-2) circle (\r);
+        \filldraw[fill=white,thick,draw=Brown!60!yellow] (-1.5,-3) circle (\r);
+        \filldraw[fill=white,thick,draw=Green] (-1.5,-4) circle (\r);
+
+        \draw[densely dashed,thick,Blue] (-0.3,\colsep-0.6) rectangle (3*\xsep+0.3,\colsep);
+        \draw[densely dashed,thick,BrickRed] (4-0.3,\colsep-0.6) rectangle (4+3*\xsep+0.3,\colsep);
+        \draw[densely dashed,thick,Brown!60!yellow] (-0.3,\colsep-3-0.6) rectangle (3*\xsep+0.3,\colsep-3);
+        \draw[densely dashed,thick,Green] (4-0.3,\colsep-3-0.6) rectangle (4+3*\xsep+0.3,\colsep-3);
         % =========================================================
         % Permutation 1: (1 2 3 4) -> (2 1 3 4)
         % =========================================================
 
         \begin{scope}
-            \node at (-0.5*\colsep,0) [left] {$1:$};
-            \node[left] (a11) at (0,0*\ysep) {1};
-            \node[left] (a12) at (0,1*\ysep) {2};
-            \node[left] (a13) at (0,2*\ysep) {3};
-            \node[left] (a14) at (0,3*\ysep) {4};
+            \node at (0.5*\colsep,0.5*\colsep) [above left] {$1:$};
+            \node[above] (a11) at (0*\xsep, 0) {1};
+            \node[above] (a12) at (1*\xsep, 0) {2};
+            \node[above] (a13) at (2*\xsep, 0) {3};
+            \node[above] (a14) at (3*\xsep, 0) {4};
 
-            \node[right] (b11) at (\colsep,0*\ysep) {1};
-            \node[right] (b12) at (\colsep,1*\ysep) {2};
-            \node[right] (b13) at (\colsep,2*\ysep) {3};
-            \node[right] (b14) at (\colsep,3*\ysep) {4};
+            \node[below] (b11) at (0*\xsep, \colsep) {1};
+            \node[below] (b12) at (1*\xsep, \colsep) {2};
+            \node[below] (b13) at (2*\xsep, \colsep) {3};
+            \node[below] (b14) at (3*\xsep, \colsep) {4};
 
-            \draw[->] (0,0*\ysep) -- (\colsep,0*\ysep);
-            \draw[->] (0,1*\ysep) -- (\colsep,1*\ysep);
-            \draw[->] (0,2*\ysep) -- (\colsep,2*\ysep);
-            \draw[->] (0,3*\ysep) -- (\colsep,3*\ysep);
+            \draw[->] (0*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (2*\xsep, \colsep);
+            \draw[->] (3*\xsep, 0) -- (3*\xsep, \colsep);
         \end{scope}
 
 
@@ -6448,21 +6452,21 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
         % =========================================================
 
         \begin{scope}[xshift=4.0cm]
-            \node at (-0.5*\colsep,0) [left] {$2:$};
-            \node[left] (a11) at (0,0*\ysep) {1};
-            \node[left] (a12) at (0,1*\ysep) {2};
-            \node[left] (a13) at (0,2*\ysep) {3};
-            \node[left] (a14) at (0,3*\ysep) {4};
+            \node at (0.5*\colsep,0.5*\colsep) [above left] {$2:$};
+            \node[above] (a11) at (0*\xsep, 0) {1};
+            \node[above] (a12) at (1*\xsep, 0) {2};
+            \node[above] (a13) at (2*\xsep, 0) {3};
+            \node[above] (a14) at (3*\xsep, 0) {4};
 
-            \node[right] (b11) at (\colsep,0*\ysep) {2};
-            \node[right] (b12) at (\colsep,1*\ysep) {1};
-            \node[right] (b13) at (\colsep,2*\ysep) {4};
-            \node[right] (b14) at (\colsep,3*\ysep) {3};
+            \node[below] (b11) at (0*\xsep, \colsep) {2};
+            \node[below] (b12) at (1*\xsep, \colsep) {1};
+            \node[below] (b13) at (2*\xsep, \colsep) {4};
+            \node[below] (b14) at (3*\xsep, \colsep) {3};
 
-            \draw[->] (0,0*\ysep) -- (\colsep,1*\ysep);
-            \draw[->] (0,1*\ysep) -- (\colsep,0*\ysep);
-            \draw[->] (0,2*\ysep) -- (\colsep,3*\ysep);
-            \draw[->] (0,3*\ysep) -- (\colsep,2*\ysep);
+            \draw[->] (0*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (3*\xsep, \colsep);
+            \draw[->] (3*\xsep, 0) -- (2*\xsep, \colsep);
         \end{scope}
 
 
@@ -6471,21 +6475,21 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
         % =========================================================
 
         \begin{scope}[yshift=-3.0cm]
-            \node at (-0.5*\colsep,0) [left] {$3:$};
-            \node[left] (a11) at (0,0*\ysep) {1};
-            \node[left] (a12) at (0,1*\ysep) {2};
-            \node[left] (a13) at (0,2*\ysep) {3};
-            \node[left] (a14) at (0,3*\ysep) {4};
+            \node at (0.5*\colsep,0.5*\colsep) [above left] {$3:$};
+            \node[above] (a11) at (0*\xsep, 0) {1};
+            \node[above] (a12) at (1*\xsep, 0) {2};
+            \node[above] (a13) at (2*\xsep, 0) {3};
+            \node[above] (a14) at (3*\xsep, 0) {4};
 
-            \node[right] (b11) at (\colsep,0*\ysep) {3};
-            \node[right] (b12) at (\colsep,1*\ysep) {4};
-            \node[right] (b13) at (\colsep,2*\ysep) {1};
-            \node[right] (b14) at (\colsep,3*\ysep) {2};
+            \node[below] (b11) at (0*\xsep, \colsep) {3};
+            \node[below] (b12) at (1*\xsep, \colsep) {4};
+            \node[below] (b13) at (2*\xsep, \colsep) {1};
+            \node[below] (b14) at (3*\xsep, \colsep) {2};
 
-            \draw[->] (0,0*\ysep) -- (\colsep,2*\ysep);
-            \draw[->] (0,1*\ysep) -- (\colsep,3*\ysep);
-            \draw[->] (0,2*\ysep) -- (\colsep,0*\ysep);
-            \draw[->] (0,3*\ysep) -- (\colsep,1*\ysep);
+            \draw[->] (0*\xsep, 0) -- (2*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (3*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (3*\xsep, 0) -- (1*\xsep, \colsep);
         \end{scope}
 
 
@@ -6494,25 +6498,25 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
         % =========================================================
 
         \begin{scope}[xshift=4.0cm,yshift=-3.0cm]
-            \node at (-0.5*\colsep,0) [left] {$4:$};
-            \node[left] (a11) at (0,0*\ysep) {1};
-            \node[left] (a12) at (0,1*\ysep) {2};
-            \node[left] (a13) at (0,2*\ysep) {3};
-            \node[left] (a14) at (0,3*\ysep) {4};
+            \node at (0.5*\colsep,0.5*\colsep) [above left] {$4:$};
+            \node[above] (a11) at (0*\xsep, 0) {1};
+            \node[above] (a12) at (1*\xsep, 0) {2};
+            \node[above] (a13) at (2*\xsep, 0) {3};
+            \node[above] (a14) at (3*\xsep, 0) {4};
 
-            \node[right] (b11) at (\colsep,0*\ysep) {4};
-            \node[right] (b12) at (\colsep,1*\ysep) {3};
-            \node[right] (b13) at (\colsep,2*\ysep) {2};
-            \node[right] (b14) at (\colsep,3*\ysep) {1};
+            \node[below] (b11) at (0*\xsep, \colsep) {4};
+            \node[below] (b12) at (1*\xsep, \colsep) {3};
+            \node[below] (b13) at (2*\xsep, \colsep) {2};
+            \node[below] (b14) at (3*\xsep, \colsep) {1};
 
-            \draw[->] (0,0*\ysep) -- (\colsep,3*\ysep);
-            \draw[->] (0,1*\ysep) -- (\colsep,2*\ysep);
-            \draw[->] (0,2*\ysep) -- (\colsep,1*\ysep);
-            \draw[->] (0,3*\ysep) -- (\colsep,0*\ysep);
+            \draw[->] (0*\xsep, 0) -- (3*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (2*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (3*\xsep, 0) -- (0*\xsep, \colsep);
         \end{scope}
 
     \end{tikzpicture}
-    \caption{\texttt{矩群$\mathsf{J}_4$的乘法表。每列都可以看作一个置换。}}
+    \caption{\texttt{矩群$\mathsf{J}_4$的乘法表。每行都可以看作一个置换。}}
 \end{table}
 
 下面来说明这一点。考虑映射：
@@ -6520,40 +6524,41 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
     T_i: G = \{1,2,\cdots,n\} \; &\longrightarrow \quad G\\
     j \qquad\quad &\longmapsto j\rightarrow i \; = \;i\cdot j
 \end{align*}
-% 特别注意：j\rightarrow i表示先j后i，因此按照乘法表定义，在左边行头查到j（这里在第j行），然后在上边列头查到i（这里在第i列）。固定i，变动j，就是遍历第i列的所有行，所以T_i这个变换对应乘法表第i列的内容。
-它表示了第$i$列的群乘法结果（要注意的是这里的“$\cdot$”是群的乘法，而不是整数的乘法）。首先，$T_i$的结果必然不会重复。如果$x,y\in G$使得
+% 特别注意：j\rightarrow i表示先j后i，因此按照乘法表定义，在上边列头查到j（这里在第j列），然后在左边行头查到i（这里在第i行）。固定i，变动j，就是遍历第i行的所有列，所以T_i这个变换对应乘法表第i行的内容。
+它表示了第$i$行的群乘法结果（要注意的是这里的“$\cdot$”是群的乘法，而不是整数的乘法）。首先，$T_i$的结果必然不会重复。如果$x,y\in G$使得
 $$ T_i(x) = i\cdot x = i\cdot y = T_i(y),$$
 那么两边同时在左侧乘以$i^{-1}$，就得到$x=y$。因此，$T_i$的结果不会重复。其次，群的每个元素都有逆元，所以对于任意$j\in G$，都有$i^{-1}\cdot j \in G$，使得
 $$T_i(i^{-1}\cdot j) = i\cdot(i^{-1}\cdot j) = (i\cdot i^{-1})\cdot j \; = \; e\cdot j \; = \; j.$$
-这说明$T_i$的结果也不会遗漏。也就是说，乘法表的第$i$列的结果，恰好是$n$元置换，我们称其为群元素$i$对应的\textbf{列置换}。
+这说明$T_i$的结果也不会遗漏。也就是说，乘法表的第$i$行的结果，恰好是$n$元置换，我们称其为群元素$i$对应的\textbf{行置换}。
 
-考虑列置换的集合：$T = \{T_i\,\mid\,i\in G\}\subseteq \mathsf{S}_n$，可以验证，集合$T$关于映射的复合构成群。首先，映射的复合运算满足结合律。其次，按定义：
+考虑行置换的集合：$T = \{T_i\,\mid\,i\in G\}\subseteq \mathsf{S}_n$，可以验证，集合$T$关于映射的复合构成群。首先，映射的复合运算满足结合律。其次，按定义：
 \begin{align*}
     \forall i,j\in G,&\\
  \forall x\in G,&\quad\, (T_i\circ T_j)(x) = T_i(T_j(x)) = T_i(j\cdot x) \\
  &= i\cdot (j\cdot x) = (i\cdot j)\cdot x \\
  &= T_{i\cdot j}(x).
 \end{align*}
-即$T_i\circ T_j \;=\; T_{i\cdot j}$。这个结果首先说明$T$的元素关于映射的复合运算封闭：复合的结果还在$T$里。其次，它给出了复合结果与$i,j$的关系。$T_i$与$T_j$的复合，等同于$i,j$在群中的乘积对应的列置换。于是：
+即$T_i\circ T_j \;=\; T_{i\cdot j}$。这个结果首先说明$T$的元素关于映射的复合运算封闭：复合的结果还在$T$里。其次，它给出了复合结果与$i,j$的关系。$T_i$与$T_j$的复合，等同于$i,j$在群中的乘积对应的行置换。于是：
 \begin{enumerate}
-    \item 幺元$e$对应的列置换$T_e$也是$T$中的幺元：$\forall\;i\in G$，$T_e\circ T_i = T_{e\cdot i} = T_{i}$，$T_i\circ T_e = T_{i\cdot e} = T_{i}$。
+    \item 幺元$e$对应的行置换$T_e$也是$T$中的幺元：$\forall\;i\in G$，$T_e\circ T_i = T_{e\cdot i} = T_{i}$，$T_i\circ T_e = T_{i\cdot e} = T_{i}$。
     \item $T_i$的逆元是$T_{i^{-1}}$：$\forall\;i\in\{1,2,\cdots,n\}$，$T_{i^{-1}}\circ T_i = T_{i^{-1}\cdot i} = T_{e}$，$T_{i}\circ T_{i^{-1}} = T_{i\cdot i^{-1}} = T_{e}$。
 \end{enumerate}
 于是，$T$关于映射的复合构成群。
 
-考虑群$G$的元素$i$和列置换$T_i$的对应关系：
+考虑群$G$的元素$i$和行置换$T_i$的对应关系：
 \begin{align*}
     \phi:\qquad G\; &\longrightarrow \;T\\
     i \; &\longmapsto \; T_i
 \end{align*}
-它显然是满射。而$G,T$元素个数相同，于是$\phi$作为满射就是双射。
-此外，按照前面的结果，它满足：
+它显然是满射，而且也是单射：若$T_i = T_k$，计算幺元$e$的像，得
+\[ i = i\cdot e = T_i(e) = T_k(e) = k\cdot e = k, \]
+故$i=k$。于是$\phi$是双射。此外，按照前面的结果，它满足：
 \begin{align*}
     \forall i,j\in G,\quad\phi(i)\circ\phi(j) = T_i\circ T_j = T_{i\cdot j} = \phi(i\cdot j).
 \end{align*}
 这说明$\phi$把群$G$的乘法关系完全复刻到了$T$里。按我们之前的说法，既然关系完全一模一样，这两个群就是同构的，讨论$G$就是讨论$T$，反之亦然。$\phi$称为两者之间的\textbf{同构映射}，它具体说明了两个群同构的方式。
 
-要注意的是：以上的证明不仅适用于$n$元群，也适用于元素个数无限的群。实际上，列置换$T_i$的想法虽然来自乘法表的列，但它的定义并不依赖于乘法表的列，我们完全可以形式地定义：
+要注意的是：以上的证明不仅适用于$n$元群，也适用于元素个数无限的群。实际上，行置换$T_i$的想法虽然来自乘法表的行，但它的定义并不依赖于乘法表，我们完全可以形式地定义：
 \begin{align*}
     T_i: G \; &\longrightarrow \quad G\\
     j \; &\longmapsto  \;i\cdot j
@@ -11798,17 +11803,17 @@ $$ H = \langle a^i\rangle = \{a^i, a^{2i}, \cdots, a^n=e\}. $$
                         \begin{tabular}{|*{6}{>{\centering\arraybackslash}p{\colwidth}|}}
                             \hline
                             % 行 0: y = e
-                            \cellcolor{c0}$e$ & \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ & \cellcolor{c3}$s$ & \cellcolor{c4}$rs$ & \cellcolor{c5}$r^2s$ \\ \hline
+                            \cellcolor{c0}$e$ & \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ & \cellcolor{c3}$s$ & \cellcolor{c4}$rs$ & \cellcolor{c5}$r^2s$\\ \hline
                             % 行 1: y = r
-                            \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ & \cellcolor{c0}$e$ & \cellcolor{c5}$r^2s$ & \cellcolor{c3}$s$ & \cellcolor{c4}$rs$ \\ \hline
+                            \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ & \cellcolor{c0}$e$ & \cellcolor{c4}$rs$ & \cellcolor{c5}$r^2s$ & \cellcolor{c3}$s$\\ \hline
                             % 行 2: y = r^2
-                            \cellcolor{c2}$r^2$ & \cellcolor{c0}$e$ & \cellcolor{c1}$r$ & \cellcolor{c4}$rs$ & \cellcolor{c5}$r^2s$ & \cellcolor{c3}$s$ \\ \hline
+                            \cellcolor{c2}$r^2$ & \cellcolor{c0}$e$ & \cellcolor{c1}$r$ & \cellcolor{c5}$r^2s$ & \cellcolor{c3}$s$ & \cellcolor{c4}$rs$\\ \hline
                             % 行 3: y = s
-                            \cellcolor{c3}$s$ & \cellcolor{c4}$rs$ & \cellcolor{c5}$r^2s$ & \cellcolor{c0}$e$ & \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ \\ \hline
+                            \cellcolor{c3}$s$ & \cellcolor{c5}$r^2s$ & \cellcolor{c4}$rs$ & \cellcolor{c0}$e$ & \cellcolor{c2}$r^2$ & \cellcolor{c1}$r$\\ \hline
                             % 行 4: y = rs
-                            \cellcolor{c4}$rs$ & \cellcolor{c5}$r^2s$ & \cellcolor{c3}$s$ & \cellcolor{c2}$r^2$ & \cellcolor{c0}$e$ & \cellcolor{c1}$r$ \\ \hline
+                            \cellcolor{c4}$rs$ & \cellcolor{c3}$s$ & \cellcolor{c5}$r^2s$ & \cellcolor{c1}$r$ & \cellcolor{c0}$e$ & \cellcolor{c2}$r^2$\\ \hline
                             % 行 5: y = r^2s
-                            \cellcolor{c5}$r^2s$ & \cellcolor{c3}$s$ & \cellcolor{c4}$rs$ & \cellcolor{c1}$r$ & \cellcolor{c2}$r^2$ & \cellcolor{c0}$e$ \\ \hline
+                            \cellcolor{c5}$r^2s$ & \cellcolor{c4}$rs$ & \cellcolor{c3}$s$ & \cellcolor{c2}$r^2$ & \cellcolor{c1}$r$ & \cellcolor{c0}$e$\\ \hline
                         \end{tabular}
                     };
 
@@ -11932,21 +11937,21 @@ $$ H = \langle a^i\rangle = \{a^i, a^{2i}, \cdots, a^n=e\}. $$
                 \end{tabular} \\[6pt] % 制造出顶部和主体之间的垂直断开空隙
                 
                 % 主体表格
-                % 规则：行头在后，列头在前。交点 = (列头元素) $\cdot$ (行头元素)
+                % 规则：行头在前，列头在后。交点 = (行头元素) $\cdot$ (列头元素)
                 \begin{tabular}{|*{6}{>{\centering\arraybackslash}p{\colwidth}|}}
                     \hline
-                    % 行 1: 行头 = e
-                    \cellcolor{c0}$e$ & \cellcolor{c3}$s$ & \cellcolor{c1}$r$ & \cellcolor{c4}$rs$ & \cellcolor{c2}$r^2$ & \cellcolor{c5}$r^2s$ \\ \hline
+                    % 行 1: 行头 = e              
+                    \cellcolor{c0}$e$ & \cellcolor{c3}$s$ & \cellcolor{c1}$r$ & \cellcolor{c4}$rs$ & \cellcolor{c2}$r^2$ & \cellcolor{c5}$r^2s$\\ \hline
                     % 行 2: 行头 = s
-                    \cellcolor{c3}$s$ & \cellcolor{c0}$e$ & \cellcolor{c4}$rs$ & \cellcolor{c1}$r$ & \cellcolor{c5}$r^2s$ & \cellcolor{c2}$r^2$ \\ \hline
+                    \cellcolor{c3}$s$ & \cellcolor{c0}$e$ & \cellcolor{c5}$r^2s$ & \cellcolor{c2}$r^2$ & \cellcolor{c4}$rs$ & \cellcolor{c1}$r$\\ \hline
                     % 行 3: 行头 = r
-                    \cellcolor{c1}$r$ & \cellcolor{c5}$r^2s$ & \cellcolor{c2}$r^2$ & \cellcolor{c3}$s$ & \cellcolor{c0}$e$ & \cellcolor{c4}$rs$ \\ \hline
+                    \cellcolor{c1}$r$ & \cellcolor{c4}$rs$ & \cellcolor{c2}$r^2$ & \cellcolor{c5}$r^2s$ & \cellcolor{c0}$e$ & \cellcolor{c3}$s$\\ \hline
                     % 行 4: 行头 = rs
-                    \cellcolor{c4}$rs$ & \cellcolor{c2}$r^2$ & \cellcolor{c5}$r^2s$ & \cellcolor{c0}$e$ & \cellcolor{c3}$s$ & \cellcolor{c1}$r$ \\ \hline
+                    \cellcolor{c4}$rs$ & \cellcolor{c1}$r$ & \cellcolor{c3}$s$ & \cellcolor{c0}$e$ & \cellcolor{c5}$r^2s$ & \cellcolor{c2}$r^2$\\ \hline
                     % 行 5: 行头 = r^2
-                    \cellcolor{c2}$r^2$ & \cellcolor{c4}$rs$ & \cellcolor{c0}$e$ & \cellcolor{c5}$r^2s$ & \cellcolor{c1}$r$ & \cellcolor{c3}$s$ \\ \hline
+                    \cellcolor{c2}$r^2$ & \cellcolor{c5}$r^2s$ & \cellcolor{c0}$e$ & \cellcolor{c3}$s$ & \cellcolor{c1}$r$ & \cellcolor{c4}$rs$\\ \hline
                     % 行 6: 行头 = r^2s
-                    \cellcolor{c5}$r^2s$ & \cellcolor{c1}$r$ & \cellcolor{c3}$s$ & \cellcolor{c2}$r^2$ & \cellcolor{c4}$rs$ & \cellcolor{c0}$e$ \\ \hline
+                    \cellcolor{c5}$r^2s$ & \cellcolor{c2}$r^2$ & \cellcolor{c4}$rs$ & \cellcolor{c1}$r$ & \cellcolor{c3}$s$ & \cellcolor{c0}$e$\\ \hline
                 \end{tabular}
             \end{tabular}
 
@@ -12936,7 +12941,7 @@ $\psi$是单同态，因此，如果只考虑$\psi$的像，它就是同构。$\
 \end{enumerate}
 因此左乘映射是$G$在自身上的群观，称为\textbf{左乘观}或\textbf{左往观}。
 
-第五章中，子群$H$的左往集$gH = \{gh \mid h \in H\}$，正是$H$在左乘观下的像。同理有右乘观（右往观），对应子群的右往集。
+第五章中，子群$H$的左往集$gH = \{gh \mid h \in H\}$，正是$H$在左乘观下的像。
 \end{ex}
 
 \begin{ex}[观群于自身——往复观]
@@ -13522,9 +13527,9 @@ $$ G_x = \{a\in G\,|\,axa^{-1} = x\} = \{a\in G\,|\,ax = xa\}.$$
 
 本章回到“群是对称性的刻画，群元素是作用于集合的变换”的根本观念，引入\textbf{群观}的概念。主要知识点如下：
 \begin{itemize}
-    \item \textbf{群观与显相}：以显相映射$\gamma$观群$G$于集合$X$，须满足$\gamma(a,b)(x)=\gamma(a,\gamma(b,x))$与$\gamma(e,x)=x$。映射$a\mapsto\gamma_a$是$G$到$\mathsf{S}_X$的群同态。因此，\textbf{群观的本质就是群到置换群的同态}。
+    \item \textbf{群观与显相}：以显相映射$\gamma$观群$G$于集合$X$，须满足$\gamma(ab,x)=\gamma(a,\gamma(b,x))$与$\gamma(e,x)=x$。映射$a\mapsto\gamma_a$是$G$到$\mathsf{S}_X$的群同态。因此，\textbf{群观的本质就是群到置换群的同态}。
     \item \textbf{轨迹}：群元素就是$X$上的变换。从$x$出发，在$G$的所有变换下能到达的元素集合$\mathcal{O}_G(x)=\{a(x)\mid a\in G\}$。轨迹构成$X$的等价分划。若$X$只有一条轨迹，称$G$（以$\gamma$）\textbf{贯通}$X$，显\textbf{通相}于$X$。
-    \item \textbf{观群于自身}：令集合$X=G$，即观群于自身。有左乘观、右乘观、往复观等观法。以左乘、右乘观群必显通相，往复观群则仅在群交换时显通相。
+    \item \textbf{观群于自身}：令集合$X=G$，即观群于自身。有左乘观、往复观等观法。以左乘观群必显通相。
     \item \textbf{环圈}与\textbf{轮换}：全置换群$\mathsf{S}_n$以$\gamma(\sigma,i)=\sigma(i)$自然显相于$\{1,2,\cdots,n\}$。其中元素经置换$\sigma$生成的循环子群的轨迹称为$\sigma$的环圈。只有一个长度大于$1$的环圈的置换称为轮换。轮换的环道和该环圈等长。
     \item \textbf{定子与定元}：保持$x$不动的群元素构成$G$的子群$G_x$，称为$x$的\textbf{定子群}；被$a$定住的集合元素构成$X^a$，称为$a$的\textbf{定元集}。两者是对偶概念：$a\in G_x\iff x\in X^a$。
     \item \textbf{心元与交心}：与所有群元素交换的元素称为\textbf{心元}，全体心元构成\textbf{心群}$G^{\text{心}}$，它是往合子群。与特定元素$x$交换的群元素构成\textbf{交心集}（交心群），它是往复观下$x$的定子群。
@@ -13545,9 +13550,11 @@ $$ G_x = \{a\in G\,|\,axa^{-1} = x\} = \{a\in G\,|\,ax = xa\}.$$
         \item $G$是$\{1,-1\}$关于乘法构成的群，$X=\{-1,0,1\}$。$\gamma(a,x)=a+x$。
         \item $G$是$\{1,-1\}$关于乘法构成的群，$X=\{-1,0,1\}$。$\gamma(a,x)=ax$。
         \item $G$是整数加法群$(\mathbb{Z},+)$，$X=\mathbb{Z}$。$\gamma(a,x)=x+a^2$。
+        \item $G$是任意非平凡群，$X=G$。$\gamma(a,x) = xa$。
+        \item $G$是任意非平凡群，$X=G$。$\gamma(a,x) = xa^{-1}$。
         \item $G$是模$5$加法群$\mathbb{Z}_5$，$X=\mathbb{Z}$。$\gamma(a,x)=ax$\footnote{此处的$ax$表示将$a$视为普通整数与$x$相乘。}。
         \item $G$是正三角形的对称群$\mathsf{D}_3$，$X$是同中心的正方形顶点集合。$\gamma(a,x)=a(x)$表示以$a$变换$x$的结果。
-        \item $G$是平面直角坐标系中关于标准单位正方形（过原点和$(1,1)$，边长为$1$）的映轮群$\mathsf{D}_4$，$X=\{(m,n)\,|\,m,n\in\mathbb{Z}\}$是平面格点集合。$\gamma(a,x)=a(x)$表示以$a$变换$x$的结果。
+        \item $G$是平面直角坐标系中关于过原点和$(1,1)$的单位正方形的映轮群$\mathsf{D}_4$，$X=\{(m,n)\,|\,m,n\in\mathbb{Z}\}$是平面格点集合。$\gamma(a,x)=a(x)$表示以$a$变换$x$的结果。
     \end{problemlist}
     \item 群$G$有$35$个元素，集合$X$有$19$个元素。观$G$于集合$X$，使得$X$中元素轨迹长度都大于$1$。一共有几个轨迹？每个轨迹有多长？
     \item 观群$G$于$X$，证明：$\forall x\in X$，$g\in G$，$g(x)$的定子群是$gG_xg^{-1}$。
@@ -15583,7 +15590,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
         \item \textbf{不交换。} 例如 $1 - 2 = -1$，而 $2 - 1 = 1$，$1-2 \neq 2-1$。
         \item \textbf{不交换。} 矩阵乘法一般不满足交换律。例如 $A = \begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix},\, B = \begin{bmatrix} 1 & 0 \\ 1 & 1 \end{bmatrix}$，可验证 $AB \neq BA$。
         \item \textbf{交换。} 整数乘法交换，模 $p$ 同余类的乘法继承了这一性质。
-        \item \textbf{不交换。} 函数的复合一般不交换。例如 $f(x) = x^2, g(x) = x+1$，则 $f(g(x)) = (x+1)^2$，而 $g(f(x)) = x^2+1$。
+        \item \textbf{不交换。} 函数的复合一般不交换。例如 $f(x) = x^2, g(x) = 1-x$，则 $f(g(x)) = (1-x)^2=1-2x+x^2$，而 $g(f(x)) = 1-x^2$。
     \end{itemize}
 
     \item \textbf{思路分析：} 整数加法群 $\mathbb{Z}$ 是一个无限群。它的“乘法表”（此处应为加法表）的行和列都由所有整数构成，因此是一个无限大的表格，无法在纸面上完整画出。
@@ -15597,9 +15604,9 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
 
     \item \textbf{思路分析：} 补全乘法表的核心原则是：每行每列的元素不能重复不能遗漏。已知 $a^2 = e$，我们可以逐步推导。
     \\
-    首先，$e$ 行和 $e$ 列是显然的。对于 $a$ 行：已有 $a, e$，剩下 $b, c$。因为 $b \cdot a$ 不能是 $b$（否则 $a=e$），所以必有 $b \cdot a = c$，同理可得 $c \cdot a = b$。
+    首先，$e$ 行和 $e$ 列是显然的。对于 $a$ 行：已有 $a, e$，剩下 $b, c$。因为 $a \cdot b$ 不能是 $b$（否则 $a = e$），所以必有 $a \cdot b = c$，同理可得 $a \cdot c = b$。
     \\
-    对于 $b$ 行和 $c$ 行，关键在于 $a \cdot b$ 和 $b \cdot b$ 的取值。由列 $a$ 的未填元素可知，$a \cdot b$ 不能是 $b$，故 $a \cdot b = c$，从而 $a \cdot c = b$。
+    对于 $a$ 列：已有 $a, e$，剩下 $b, c$。因为 $b \cdot a$ 不能是 $b$（否则 $a = e$），所以必有 $b \cdot a = c$，同理可得 $c \cdot a = b$。对于 $b$ 行和 $c$ 行，关键在于 $b \cdot b$ 的取值。
     \\
     现在 $b$ 行已有 $b, c$，剩下 $e, a$。这里出现了分歧，导致两种补全方式：
     \begin{itemize}
@@ -15716,38 +15723,38 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
             \textbf{四元数群 $\mathsf{U}_4$ 的乘法表：}\\[0.5em]
             \begin{tabular}{|c|c!{\color{gray!50}\vrule}c!{\color{gray!50}\vrule}c!{\color{gray!50}\vrule}c!{\color{gray!50}\vrule}c!{\color{gray!50}\vrule}c!{\color{gray!50}\vrule}c!{\color{gray!50}\vrule}c|}
                 \hline
-                $\cdot$ & $\phantom{-}1$ & $\phantom{-}i$ & $\phantom{-}j$ & $\phantom{-}k$ & $-1$ & $-i$ & $-j$ & $-k$ \\
+                $\cdot$ & $\phantom{-}1$ & $\phantom{-}i$ & $\phantom{-}j$ & $\phantom{-}k$ & $-1$ & $-i$ & $-j$ & $-k$\\
                 \hline
                 \arrayrulecolor{black}
-                $\phantom{-}1$  & $\phantom{-}1$  & $\phantom{-}i$  & $\phantom{-}j$  & $\phantom{-}k$  & $-1$ & $-i$ & $-j$ & $-k$ \\
+                $\phantom{-}1$ & $\phantom{-}1$ & $\phantom{-}i$ & $\phantom{-}j$ & $\phantom{-}k$ & $-1$ & $-i$ & $-j$ & $-k$\\
                 \arrayrulecolor{gray!50}
                 \hline
                 \arrayrulecolor{black}
-                $\phantom{-}i$  & $\phantom{-}i$  & $-1$ & $-k$ & $\phantom{-}j$  & $-i$ & $\phantom{-}1$  & $\phantom{-}k$  & $-j$ \\
+                $\phantom{-}i$ & $\phantom{-}i$ & $-1$ & $\phantom{-}k$ & $-j$ & $-i$ & $\phantom{-}1$ & $-k$ & $\phantom{-}j$\\
                 \arrayrulecolor{gray!50}
                 \hline
                 \arrayrulecolor{black}
-                $\phantom{-}j$  & $\phantom{-}j$  & $\phantom{-}k$  & $-1$ & $-i$ & $-j$ & $-k$ & $\phantom{-}1$  & $\phantom{-}i$  \\
+                $\phantom{-}j$ & $\phantom{-}j$ & $-k$ & $-1$ & $\phantom{-}i$ & $-j$ & $\phantom{-}k$ & $\phantom{-}1$ & $-i$\\
                 \arrayrulecolor{gray!50}
                 \hline
                 \arrayrulecolor{black}
-                $\phantom{-}k$  & $\phantom{-}k$  & $-j$ & $\phantom{-}i$  & $-1$ & $-k$ & $\phantom{-}j$  & $-i$ & $\phantom{-}1$  \\
+                $\phantom{-}k$ & $\phantom{-}k$ & $\phantom{-}j$ & $-i$ & $-1$ & $-k$ & $-j$ & $\phantom{-}i$ & $\phantom{-}1$\\
                 \arrayrulecolor{gray!50}
                 \hline
                 \arrayrulecolor{black}
-                $-1$ & $-1$ & $-i$ & $-j$ & $-k$ & $\phantom{-}1$  & $\phantom{-}i$  & $\phantom{-}j$  & $\phantom{-}k$  \\
+                $-1$ & $-1$ & $-i$ & $-j$ & $-k$ & $\phantom{-}1$ & $\phantom{-}i$ & $\phantom{-}j$ & $\phantom{-}k$\\
                 \arrayrulecolor{gray!50}
                 \hline
                 \arrayrulecolor{black}
-                $-i$ & $-i$ & $\phantom{-}1$  & $\phantom{-}k$  & $-j$ & $\phantom{-}i$  & $-1$ & $-k$ & $\phantom{-}j$  \\
+                $-i$ & $-i$ & $\phantom{-}1$ & $-k$ & $\phantom{-}j$ & $\phantom{-}i$ & $-1$ & $\phantom{-}k$ & $-j$\\
                 \arrayrulecolor{gray!50}
                 \hline
                 \arrayrulecolor{black}
-                $-j$ & $-j$ & $-k$ & $\phantom{-}1$  & $\phantom{-}i$  & $\phantom{-}j$  & $\phantom{-}k$  & $-1$ & $-i$ \\
+                $-j$ & $-j$ & $\phantom{-}k$ & $\phantom{-}1$ & $-i$ & $\phantom{-}j$ & $-k$ & $-1$ & $\phantom{-}i$\\
                 \arrayrulecolor{gray!50}
                 \hline
                 \arrayrulecolor{black}
-                $-k$ & $-k$ & $\phantom{-}j$  & $-i$ & $\phantom{-}1$  & $\phantom{-}k$  & $-j$ & $\phantom{-}i$  & $-1$ \\
+                $-k$ & $-k$ & $-j$ & $\phantom{-}i$ & $\phantom{-}1$ & $\phantom{-}k$ & $\phantom{-}j$ & $-i$ & $-1$\\
                 \hline
             \end{tabular}
         \end{table}
@@ -15809,14 +15816,14 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
         没有任何一行是 $e, a, b, c$，因此该集合在此运算下没有幺元，自然不构成群。
         
         \item[(2)] \textbf{不满足消去律。} 
-        可验证$e$ 是幺元。观察 $a$ 列，发现 $aa = ab = a$。若左消去 $a$，则会得到 $a = b$，这与 $a, b$ 是不同元素矛盾。
+        可验证$e$ 是幺元。观察 $a$ 行，发现 $aa = ab = a$。若左消去 $a$，则会得到 $a = b$，这与 $a, b$ 是不同元素矛盾。
         
         \item[(3)] \textbf{导致元素相等的矛盾。} 
         可验证$e$ 是幺元。我们通过计算 $a$ 的幂次来寻找矛盾。\\
         若此表对应群，
         查表可知 $aa = c$，$cc = d$，$dd = c$。因此$c = dd = (cc)(cc) = cccc$。
         于是消去一个$c$就得到$ccc = e$。
-        另一方面，查表可知 $a = dc = (cc)c = ccc$。于是$a = ccc = e$，矛盾！
+        另一方面，查表可知 $a = cd = c(cc) = ccc$。于是$a = ccc = e$，矛盾！
         
         \item[(4)] \textbf{不满足结合律。} 
         可验证$e$ 是幺元。若此表对应群，我们计算 $c(da)$ 和 $(cd)a$。
@@ -15826,14 +15833,14 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
     \end{problemlist}
 
     \item 考虑群 $G$ 的乘法表。\\
-    \textbf{对于行：} 假设在第 $x$ 行中，有两个不同列 $y$ 和 $z$ 对应的元素相同，即 $yx = zx$。
-    因为 $G$ 是群，$x$ 有逆元 $x^{-1}$。在等式两边右乘 $x^{-1}$，得到 $(yx)x^{-1} = (zx)x^{-1}$。
-    根据结合律，$y = y(xx^{-1}) = (yx)x^{-1} = (zx)x^{-1} = z$。
-    这与假设“$y$ 和 $z$ 是不同列”矛盾。因此，同一行中的元素两两不同。\\
-    另一方面，对$G$中任意元素$a$，$(ax^{-1})x = a(x^{-1}x) = ae = a$，所以第 $x$ 行第$ax^{-1}$列是$a$。因此$G$的每个元素都恰在第 $x$ 行出现一次，不重不漏。
+    \textbf{对于行：} 假设在第 $x$ 行中，有两个不同列 $y$ 和 $z$ 对应的元素相同，即 $xy = xz$。
+    因为 $G$ 是群，$x$ 有逆元 $x^{-1}$。在等式两边左乘 $x^{-1}$，得到 $x^{-1}(xy) = x^{-1}(xz)$。
+    根据结合律，$y = (x^{-1}x)y = x^{-1}(xy) = x^{-1}(xz) = z$。
+    这与假设"$y$ 和 $z$ 是不同列"矛盾。因此，同一行中的元素两两不同。\\
+    另一方面，对$G$中任意元素$a$，$x(x^{-1}a) = (xx^{-1})a = ea = a$，所以第 $x$ 行第$x^{-1}a$列是$a$。因此$G$的每个元素都恰在第 $x$ 行出现一次，不重不漏。
     
-    \textbf{对于列：} 同理，假设在第 $x$ 列中，有两个不同行 $y$ 和 $z$ 对应的元素相同，即$xy = xz$。在等式两边左乘 $x^{-1}$，按同样方法可算出$y = z$。因此，同一列中的元素两两不同。\\
-    另一方面，对$G$中任意元素$a$，$x(x^{-1}a) = (xx^{-1})a = ea = a$。所以第 $x$ 列第$x^{-1}a$行是$a$。因此$G$的每个元素都恰在第 $x$ 列出现一次，不重不漏。
+    \textbf{对于列：} 同理，假设在第 $x$ 列中，有两个不同行 $y$ 和 $z$ 对应的元素相同，即$yx = zx$。在等式两边右乘 $x^{-1}$，按同样方法可算出$y = z$。因此，同一列中的元素两两不同。\\
+    另一方面，对$G$中任意元素$a$，$(ax^{-1})x = a(x^{-1}x) = ae = a$。所以第 $x$ 列第$ax^{-1}$行是$a$。因此$G$的每个元素都恰在第 $x$ 列出现一次，不重不漏。
 
     \item 
     \begin{problemlist}
@@ -15905,7 +15912,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
         \item 分母为完全平方数的非零既约分数的集合，关于有理数的乘法\textbf{不是群}。不满足\textbf{逆元存在性}（或\textbf{封闭性}）。例如，$\frac{2}{9}$ 是分母为完全平方数的非零分数，但它的逆元 $\frac{9}{2}$ 的分母是 $2$，不是完全平方数，不在集合中。
     \end{problemlist}
 
-    \item \textbf{思路分析}：整式的加法和乘法同样需要严格验证四条公理。特别注意乘法下，除了常数项为 $\pm 1$ 的整式外，绝大多数整式没有乘法逆元。
+    \item \textbf{思路分析}：整式的加法和乘法同样需要严格验证四条公理。特别要注意整式和有理式的乘法单位元是什么，逆元是什么。
     \begin{problemlist}
         \item 整系数一元整式的集合$\mathbb{Z}[X]$关于整式的加法\textbf{是群}。整式加法满足封闭性、结合律；幺元是 $0$；整式 $P$ 的逆元是 $-P$：其系数取相反数后仍为整数。
         \item 实系数一元整式的集合$\mathbb{R}[X]$关于整式的加法\textbf{是群}。理由同上，实系数整式加法同样满足群的四个公理。
@@ -15994,11 +16001,11 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
         生成路径图展示了群元素在生成元作用下的变换关系。给定群元素$x$，为了定位它，我们用元素来命名节点。于是，从$e$节点出发，到达$x$节点的变换组合，效果就是$x$。而$x$的逆元就是能逆转这个效果的变换。因此，我们从$x$节点再出发，沿生成路径图，回到$e$节点。沿途所有变换组合的效果，就是$x$的逆元。根据群和生成路径图的定义，以上说的两条路径都必然存在。
         
         \item \textbf{在乘法表中找逆元}：
-        乘法表穷举了所有元素对的运算结果。根据逆元的定义，$x$ 的逆元 $y$ 是满足 $xy = e$ 且 $y \cdot x = e$ 的元素。
+        乘法表穷举了所有元素对的运算结果。根据逆元的定义，$x$ 的逆元 $y$ 是满足 $x\cdot y = e$ 且 $y \cdot x = e$ 的元素。
         在乘法表中，寻找 $x$ 的逆元的方法非常直观：
         \begin{itemize}
-            \item 找到 $x$ 所在的\textbf{行}，在这一行中寻找幺元 $e$。$e$ 所在的\textbf{列}的列标，就是 $x$ 的左逆元。
-            \item 找到 $x$ 所在的\textbf{列}，在这一列中寻找幺元 $e$。$e$ 所在的\textbf{行}的行标，就是 $x$ 的右逆元。
+            \item 找到 $x$ 所在的\textbf{列}，在这一列中寻找幺元 $e$。$e$ 所在的\textbf{行}的行标，就是 $x$ 的左逆元。
+            \item 找到 $x$ 所在的\textbf{行}，在这一行中寻找幺元 $e$。$e$ 所在的\textbf{列}的列标，就是 $x$ 的右逆元。
             \item 左逆元等于右逆元，因此通过上述两种方法找到的结果是一致的。
         \end{itemize}
     \end{problemlist}
@@ -16290,37 +16297,37 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
             \setlength{\tabcolsep}{6pt} 
             \begin{tabular}{|c|c!{\color{gray!50}\vrule}c!{\color{gray!50}\vrule}c!{\color{gray!50}\vrule}c!{\color{gray!50}\vrule}c!{\color{gray!50}\vrule}c!{\color{gray!50}\vrule}c!{\color{gray!50}\vrule}c|}
             \hline
-            $\cdot$ & $e$ & $r$ & $r^2$ & $r^3$ & $s$ & $rs$ & $r^2s$ & $r^3s$ \\
+            $\cdot$ & $e$ & $r$ & $r^2$ & $r^3$ & $s$ & $rs$ & $r^2s$ & $r^3s$\\
             \hline
-            $e$     & $e$ & $r$ & $r^2$ & $r^3$ & $s$ & $rs$ & $r^2s$ & $r^3s$ \\
+            $e$ & $e$ & $r$ & $r^2$ & $r^3$ & $s$ & $rs$ & $r^2s$ & $r^3s$\\
             \arrayrulecolor{gray!50}
             \hline
             \arrayrulecolor{black}
-            $r$     & $r$ & $r^2$ & $r^3$ & $e$ & $r^3s$ & $s$ & $rs$ & $r^2s$ \\
+            $r$ & $r$ & $r^2$ & $r^3$ & $e$ & $rs$ & $r^2s$ & $r^3s$ & $s$\\
             \arrayrulecolor{gray!50}
             \hline
             \arrayrulecolor{black}
-            $r^2$   & $r^2$ & $r^3$ & $e$ & $r$ & $r^2s$ & $r^3s$ & $s$ & $rs$ \\
+            $r^2$ & $r^2$ & $r^3$ & $e$ & $r$ & $r^2s$ & $r^3s$ & $s$ & $rs$\\
             \arrayrulecolor{gray!50}
             \hline
             \arrayrulecolor{black}
-            $r^3$   & $r^3$ & $e$ & $r$ & $r^2$ & $rs$ & $r^2s$ & $r^3s$ & $s$ \\
+            $r^3$ & $r^3$ & $e$ & $r$ & $r^2$ & $r^3s$ & $s$ & $rs$ & $r^2s$\\
             \arrayrulecolor{gray!50}
             \hline
             \arrayrulecolor{black}
-            $s$     & $s$ & $rs$ & $r^2s$ & $r^3s$ & $e$ & $r$ & $r^2$ & $r^3$ \\
+            $s$ & $s$ & $r^3s$ & $r^2s$ & $rs$ & $e$ & $r^3$ & $r^2$ & $r$\\
             \arrayrulecolor{gray!50}
             \hline
             \arrayrulecolor{black}
-            $rs$    & $rs$ & $r^2s$ & $r^3s$ & $s$ & $r^3$ & $e$ & $r$ & $r^2$ \\
+            $rs$ & $rs$ & $s$ & $r^3s$ & $r^2s$ & $r$ & $e$ & $r^3$ & $r^2$\\
             \arrayrulecolor{gray!50}
             \hline
             \arrayrulecolor{black}
-            $r^2s$  & $r^2s$ & $r^3s$ & $s$ & $rs$ & $r^2$ & $r^3$ & $e$ & $r$ \\
+            $r^2s$ & $r^2s$ & $rs$ & $s$ & $r^3s$ & $r^2$ & $r$ & $e$ & $r^3$\\
             \arrayrulecolor{gray!50}
             \hline
             \arrayrulecolor{black}
-            $r^3s$  & $r^3s$ & $s$ & $rs$ & $r^2s$ & $r$ & $r^2$ & $r^3$ & $e$ \\
+            $r^3s$ & $r^3s$ & $r^2s$ & $rs$ & $s$ & $r^3$ & $r^2$ & $r$ & $e$\\
             \hline
             \end{tabular}
         \end{table}
@@ -16350,7 +16357,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
         \item 为了方便，我们采用更简单的方法表示$\mathsf{S}_4$的元素：在圆括号中列出$1,2,3,4$置换后的结果。比如$(2\,4\,1\,3)$就表示$1\mapsto 2,\,2\mapsto 4,\,3\mapsto 1,\,4\mapsto 3$的置换。说明本章中的记法和这种记法如何转换。
     
         \textbf{解答：}
-        本章介绍的写法是用两列之间的箭头来表示映射关系。如果把左列固定为（从上到下）$1,2,3,4$，那么把右列的数（从上到下）逐个写出来，就是简单写法的结果。反之，把简单写法从左到右逐个从上往下写出来作为右列，添上左列$1,2,3,4$（从上到下），再在相同的数之间标上箭头连起来，就是本章正文里的写法。
+        本章介绍的写法是用两列之间的箭头来表示映射关系。如果把上行固定为$1,2,3,4$，那么把下行的数逐个写出来，就是简单写法的结果。反之，把简单写法作为下行，添上上行$1,2,3,4$，再在相同的数之间标上箭头连起来，就是本章正文里的写法。
         \item 考虑置换$\tau_1 = (2\,3\,4\,1)$，它表示怎样的置换？写出它的环道。
 
         \textbf{解答：} $\tau_1 = (2\,3\,4\,1)$ 表示 $1\to2, 2\to3, 3\to4, 4\to1$。$\tau_1^2=(3\,4\,1\,2), \tau_1^3=(4\,1\,2\,3), \tau_1^4=e$。它的环道长度为$4$。
@@ -17787,17 +17794,21 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
     \item \textbf{解答}：
     \begin{problemlist}
         \item \textbf{不是。}\\
-        \textbf{理由}：不满足封闭性（如$\gamma(-1,-1)=-2\notin X$）；不满足幺元性质（群的幺元是$1$，但$\gamma(1,0)=1+0=1\neq 0$）。
+        \textbf{理由}：不封闭（如$\gamma(-1,-1)=-2\notin X$）；与幺元不相容（群的幺元是$1$，但$\gamma(1,0)=1+0=1\neq 0$）。
         \item \textbf{是。}\\
-        \textbf{理由}：结果仍在$X$中（封闭）；幺元$1$作用为$1\cdot x=x$（幺元满足）；满足相容性$a(bx)=(ab)x$。
+        \textbf{理由}：结果仍在$X$中（封闭）；幺元$1$作用为$1\cdot x=x$；与结合律相容$a(bx)=(ab)x$。
         \item \textbf{不是。}\\
-        \textbf{理由}：虽然满足封闭性（整数加平方仍为整数），且满足幺元性质（$\gamma(0,x)=x+0^2=x$），但不满足相容性。$\gamma(a, \gamma(b, x)) = \gamma(a, x+b^2) = x+b^2+a^2$；而$\gamma(a+b, x) = x+(a+b)^2 = x+a^2+2ab+b^2$。两者不相等。
+        \textbf{理由}：虽然封闭（整数加平方仍为整数），且与幺元相容（$\gamma(0,x)=x+0^2=x$），但与结合律不相容。$\gamma(a, \gamma(b, x)) = \gamma(a, x+b^2) = x+b^2+a^2$；而$\gamma(a+b, x) = x+(a+b)^2 = x+a^2+2ab+b^2$。两者不相等。
         \item \textbf{不是。}\\
-        \textbf{理由}：群的幺元是$0$，但$\gamma(0,x)=0\cdot x=0\neq x$，幺元失效。此外，群的运算是模$5$加法，而映射依赖普通整数乘法，导致相容性失效：$\gamma(a,\gamma(b,x))=(ab)x$，但$\gamma(a+b,x)=(a+b)x$。
+        \textbf{理由}：$\gamma(a, \gamma(b, x)) = (xb)a = x(ba) \neq x(ab) = \gamma(ab, x)$。与结合律不相容。\textbf{注意}：这是因为本书只定义了\textbf{左观群}（$G\times X\rightarrow X$）。群论中还会定义\textbf{右观群}：$X\times G\rightarrow X$。对应的条件是满足幺元相容性以及$\gamma(x, ab) = \gamma(x, \gamma(x, b))$。在右观群时本题定义的$\gamma$就是观群法了，称为\textbf{右乘观}。左观群和右观群是观群的两种定义，并无对错。本书采取较为常用的左观群。两种观群定义是对称的，左观群得到的结论都能对称地写成右观群的相应结论，只是写法不同。
+        \item \textbf{是。}\\
+        \textbf{理由}：可以验证它与幺元、结合律都相容：$\gamma(e,x)=xe^{-1} = xe=x$。$\gamma(a, \gamma(b, x)) =\left(xb^{-1}\right)a^{-1} = x(b^{-1}a^{-1}) = x(ab)^{-1} = \gamma(ab, x)$。\textbf{注意}：这是在左观群时模拟右乘观的方法。由于$a$遍历群时$a^{-1}$也遍历群，所以我们可以讨论以右乘方式观群的性质。
+        \item \textbf{不是。}\\
+        \textbf{理由}：群的幺元是$0$，但$\gamma(0,x)=0\cdot x=0\neq x$，不相容。此外，群的运算是模$5$加法，而映射依赖普通整数乘法，导致不容结合律：$\gamma(a,\gamma(b,x))=(ab)x$，但$\gamma(a+b,x)=(a+b)x$。
         \item \textbf{不是。}\\
         \textbf{理由}：不满足封闭性。$\mathsf{D}_3$包含旋转$120^\circ$的变换，将正方形顶点旋转$120^\circ$后，顶点将落在非顶点位置（不在集合$X$中）。
         \item \textbf{是。}\\
-        \textbf{理由}：$\mathsf{D}_4$的变换（旋转$90^\circ$倍数及翻转）作用于整数格点$(m,n)$，结果是$(1\pm m, 1\pm n)$或$(1\pm n, 1\pm m)$，结果必为整数格点，满足封闭性。变换的复合天然满足幺元与相容性。
+        \textbf{理由}：$\mathsf{D}_4$的变换（旋转$90^\circ$倍数及翻转）作用于整数格点$(m,n)$，结果是$(1\pm m, 1\pm n)$或$(1\pm n, 1\pm m)$，结果必为整数格点，故封闭。变换的复合天然与幺元、结合律相容。
     \end{problemlist}
     \item 按轨定定理，轨迹长度是$35$的因数，但按条件大于$1$且不超过$19$，因此要么是$5$，要么是$7$。这些轨迹构成$X$的分划。设有$m$个长度为$5$的轨迹，$n$个长度为$7$的轨迹，则有以下的整数不定方程：
     \[
@@ -18686,7 +18697,7 @@ $k=2$与$k=4$数目相同，原因是对称的：把每个位置上的氟与氯�
     & \\
     $\text{\texttt{大}}(x, y)$ & $x$和$y$的较大者 \\
     $\text{\texttt{小}}(x, y)$ & $x$和$y$的较小者 \\
-    % $\mathbb{K}(a)$ & 数域$\mathbb{K}$关于$a$的扩张 \\
+    $n\mathbb{Z}$ & $n$的倍数集合 \\
     $\mathbb{K}[x]$ & $\mathbb{K}$系数整式的集合 \\
     $\mathbb{K}_n[x]$ & 次数不超过$n$的$\mathbb{K}$系数整式 \\
     $\imath$ & 虚数单位\footnote{读作“埃”。} \\
@@ -18720,42 +18731,8 @@ $k=2$与$k=4$数目相同，原因是对称的：把每个位置上的氟与氯�
 
 \hline
 \endlastfoot
-
-算则系 & 代数结构 & algebraic structure & structure algébrique \\
 \hline
-域上场 & 域上代数 & algebra over a field & algèbre sur un corps \\
-\hline
-环上场 & 环上代数 & algebra over a ring & algèbre sur un anneau \\
-\hline
-平直群 & 线性群 & linear group & groupe linéaire \\
-\hline
-幺直群 & 特殊线性群 & special linear group & groupe spécial linéaire \\
-\hline
-幺正群 & 正交群 & orthogonal group & groupe orthogonal \\
-\hline
-自幺正群 & 特殊正交群 & special orthogonal group & groupe orthogonal spécial \\
-\hline
-藏环 & 理想（子环） & ideal & idéal \\
-\hline
-左（右）藏 & 左（右）理想 & left (right) ideal & idéal à gauche (droite) \\
-\hline
-双边藏 & 双边理想 & bilateral ideal & idéal bilateral \\
-\hline
-零藏 & 零理想 & zero ideal & idéal zéro \\
-\hline
-真藏 & 真理想 & proper ideal & idéal propre \\
-\hline
-单藏 & 主理想 & principal ideal & idéal principal \\
-\hline
-有限藏 & 有限生成理想 & finitely generated ideal & idéal de type fini \\
-\hline
-极大藏 & 极大理想 & maximal ideal & idéal maximal \\
-\hline
-极小藏 & 极小理想 & minimal ideal & idéal minimal \\
-\hline
-素藏 & 素理想 & prime ideal & idéal premier \\
-\hline
-藏群、往合子群 & 正规子群 & normal subgroup & sous-groupe normal \\
+往合子群 & 正规子群 & normal subgroup & sous-groupe normal \\
 \hline
 往集 & 陪集 & coset & coset \\
 \hline
@@ -18785,31 +18762,15 @@ $k=2$与$k=4$数目相同，原因是对称的：把每个位置上的氟与氯�
 \hline
 轨定定理 & 轨道-稳定化子定理 & orbit-stabilizer theorem & relation orbite-stabilisateur \\
 \hline
-轨类长公式 & 类方程 & conjugacy class equation & équation aux classes \\
-\hline
 定元分轨定理 & 伯恩赛德引理 & Burnside's lemma & formule de Burnside \\
 \hline
 染色计数定理 & 波利亚计数定理 & Pólya's enumeration theorem & théorème de dénombrement de Pólya \\
 \hline
-素阶子群存在定理 & 柯西定理 & Cauchy's theorem & théorème de Cauchy \\
-\hline
-素幂子群定理 & 西罗定理 & Sylow's theorems & théorème de Sylow \\
-\hline
-极大素幂子群 & 西罗p-子群 & Sylow p-subgroup & p-Sylow \\
-\hline
-境 & 模 & module & module \\
-\hline
 映轮群 & 二面体群 & dihedral group & groupe diédral \\
-\hline
-模、模长 & 范数 & norm & norme \\
-\hline
-向量的模 & 向量的模长 、 向量的范数 & vector's norm & norme du vecteur \\
 \hline
 组架坐标系 & 笛卡尔坐标系 & Cartesian coordinate system & système de coordonnées cartésiennes \\
 \hline
 架积 & 笛卡尔积 & Cartesian product & produit cartésien \\
-\hline
-定想的 & 启发式的 & heuristic & heuristique \\
 \hline
 契义 & 是良定义的 & to be well-defined & être bien défini \\
 \hline
@@ -18822,9 +18783,6 @@ $k=2$与$k=4$数目相同，原因是对称的：把每个位置上的氟与氯�
 \textbf{部分术语命名解释}
 
 \begin{itemize}
-\item \textbf{“模”、“模长”和“范数”}：“模”、“范”都是“norm”的翻译。这两种翻译在数学的不同分支中同时出现，因此我们试图统一之，即删除“范数”。另外，“模”既是一种映射（模映射），也是该映射的值，用来表示广义的“长度”，所以后者也可以叫“模长”。另一方面，由于中文的“模”用来表达、翻译多个概念，所以我们会逐步尝试改掉其他中文主流称为“模”的概念。
-\item \textbf{“环上场”、“域上场”}：我们可以推导出“环上场”、“域上场”等结构名字，分别对应环上和域上的algebra。
-\item \textbf{“境”和“模”}：“模”是用来翻译“module”的常用词，我们希望用更切合其自身特征、更有辨识度的翻译代替。选择“境”是因为和“平直空间”相比，“境”意涵中的“结构特性”更少，更暧昧。“境”是一种“不明确的空间”，我们常说“困境”、“胜境”、“幻境”等等。这符合模相比平直空间更加多变的结构特征。如果说平直空间是“域上空间”，那么模就是“环上空间”。《说文》“境”来自“竟”，加上“土”字旁，表示“土竟”，即边界、疆界。平坦模和特征为0的域或线性空间类似，模的无挠部分和向量空间类似，而模的挠部分结构远比域的类似“挠部分”复杂，是模论的核心研究主题，说明研究“止境”是模论的重要任务。 
 \item \textbf{“对称群”和“置换群”}：这些名称的指代关系在英语、法语等语言中也有些模糊。Symmetric group指某个集合上所有置换（到自身的双射）的集合，代表了该集合的对称性。permutation group或group of permutation(s)则指“由置换构成的群”。所以symmetric group是一种permutation group；permutation group一般是symmetric group的子群。为了顾名思义，我们将symmetric group命名为“全置换群”，这样“全置换群就是全部置换构成的群”，“置换群是全置换群的子群”就容易理解了。“对称群”则被用来作两种称呼，一种保留为全置换群的别称，一种对应保持某个几何对象性质的变换群的称呼，即对应symmetry (transformation) group，group of symmetry(ies)等。
 \item \textbf{“群观”和“群相”}：随着中文重命名程度加深，我们认识到单单建立术语之间的映射表已经不够了。因为术语背后是使用者对数学概念的观念和理解。主流中文术语只是单纯地、机械地翻译个别名词术语，所以不需要考虑这一点。但如果从整体系统的认知开始用中文命名数学概念，就会发现：动词、形容词也应该随之匹配，才能一致地、系统地表达整个思想。比如我们把群作用（group action）这个概念用中文重新审视，就会发现group action的实质是通过把群元素视为在另一个集合上的变换，来显示、体现群的结构和功能。通过观察群的各个元素作用在集合上的现象，而理解群的本质。因此，我们要在整体上把这个观念、思想表达出来，就不能满足于把“群作用”改掉，而是要从各个方面着手，整个改掉相关的表达方式。详细内容见《抽象代数》“对称与群”一章的“群作用”一节，以及《对称与群》的“观群”一章。
 \item \textbf{“往复”、“同轨”和“共轭”}：群论中的“共轭”是字面翻译“conjugate”。因为在复数中用“共轭”来翻译“conjugate”，所以这里也沿用“共轭”了。但实际上无论是英文的“conjugate”，还是“共轭”，都没有准确表示群论中“$gxg^{-1}$”的意涵。英文的“conjugate”仅仅是表示“这几个东西经过同一种变换相互得到，地位平等”，有一种“连襟”、“同袍”这样的含义。而法语则直接用“conjugué”，和法语中的“动词变位”一样，更为直白，表示“这几个东西隶属于同一类，通过变换而来，地位平等”。“共轭”也仅仅是试图翻译这一层意思：所谓“轭”，指的是古代牛车上放在并行的牛脖颈上的曲木，比喻像共轭的牛一样地位相等，但已经少了“通过变换可以互相得到”的一层意思。而由于没有像法语一样的使用场景，到了别的地方就更让人难以理解。毕竟复数的共轭只有一个，这里突然有好几个。而我们用牛耕田时一般共轭的牛马不会超过两头（【疏】服馬有二，一馬有一軛。軛者，厄馬領不得出也）。所以“共轭”有过强的二元对应意味，用在这里已经不太适合了。“往复”是直接从“$gxg^{-1}$”的本身角度命名。我们从群作用的角度来看，$x$到$gx$其实可以看作“往左偏一步”，而右边再乘其逆元，就是试图“回来”（复）。如果$x$和$g$交换，那么就变回$x$。但由于$x$和$g$未必交换，所以不一定能回到x。而回不到$x$的情况下，就产生了一系列与$x$相关的元素，构成轨道。这就是这个作用的本质，所以命名为“往复”。一个群元素往复后，不再是自己，而“走出”了一条轨道。这就是群轨道的特性：它是同一个元素经过不同方式“往复”得到的集合。而经过往复得到的等价关系叫做同轨关系，其等价类就是同轨类。因此群论的这个地方，用“同轨”代替“共轭”。
@@ -18832,7 +18790,6 @@ $k=2$与$k=4$数目相同，原因是对称的：把每个位置上的氟与氯�
 \item \textbf{“轨迹”和“轨道”}：两者都是我们给群论中“orbit”的中文对应新命名。前者是群作用于一般集合时，不同群元素作用于同一个集合元素得到的集合。后者是群以（共轭）作用于自身时，群元素的orbit。因此我们决定把两者分开命名。把前者称为“轨迹”，表示群在另一个集合里留下的痕迹；而把后者（一种特殊而重要的群自身的orbit）继续称为轨道，因为它是属于群自身的结构。“群的轨迹”指一般在某个集合留下的痕迹，通过这个痕迹可以理解群的性质。而“群元素的轨道”指这个群元素在共轭作用下得出的结构，是群自身的结构。“轨道”这个名字更偏重实体存在，而“轨迹”则有“留在别的东西上的痕迹”的意义。
 \item \textbf{“环道”和“轨道”}：两者都是我们给群论中“orbit”的中文对应新命名。前者是群元素生成的循环子群的形象说法，后者是群以（共轭）作用于自身时，群元素的orbit。因此我们决定把两者分开命名。
 \item \textbf{“环圈”和“轮换”}：“轮换”是中文用来称呼置换性质的名词，通常有两个含义。一个是某个i经置换重复映射得到的所有值，即n元置换群自然作用于$1,2,...,n$集合时，置换生成的循环子群作用于集合中元素的轨道。另一个含义是只有一个这样的非平凡轨道的置换。因此我们决定把两者分开命名，前者称为“环圈”，后者称为“轮换”。一个轮换恰有一个（非平凡的）环圈。一般的置换则可以有多个环圈，由多个轮换复合而成。在充分理解其关系后，在不至于混淆的情况下，才能以修辞手法的方式，把轮换称为环圈或反过来。
-\item \textbf{“藏”和“藏群”、“藏环”}：“藏”是一个用中文重新梳理命名时得到的“新”概念，没有对应的英语或法语。“藏”指的是一种子结构的特性。子结构由于满足某种吸收或对称的良好性质，导致能够定义商结构。这就叫“藏”。“藏”就是“收藏”、“宝藏”的意思，表示能够收纳的重要地方。所以群论里的藏（藏群）就是正规子群，它因为“吸收”或“对称”（左陪集等于右陪集）而让我们能定义商群。环论中的藏（藏环）就是理想子群，它因为关于乘法吸收而让我们能够定义商环。在群论中，正规子群可以称为“藏”、“藏群”或“往合子群”。环论中则称为“藏”、“藏环”。
 \end{itemize}
 
 \end{appendices}
