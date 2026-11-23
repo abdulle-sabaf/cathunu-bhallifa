@@ -3140,7 +3140,7 @@ $$ \mathsf{C}_a = \{a^n\,\mid\,n\in\mathbb{Z}\}.$$
 
 群的每个元素都有自己所属的环道。我们把$e$看作“原点”。从$e$出发，每次根据不同元素的环道，要么沿着环道走一个圈，再回到$e$；要么得到序列：
 $$ a^{-n}, \cdots, a^{-2}, a^{-1}, e, a, a^2, \cdots, a^n,  \cdots $$
-我们可以把它看作“直线”。这样我们可以生成整个群。这样按照环道循环画出来的图也叫\textbf{环道图}。比如上图是三元对称群$\mathsf{D}_3$的环道图。为了方便，只记录$r=r_1$，$r_2=r_1^2=r^2$。它们和$e$构成三元环道。三个翻转变换$s_1,s_2,s_3$（记为$s_1=s,s_2=rs,s_3=r^2s$）则分别对应二元环道。
+可以看作“直线”。这样可以生成整个群。把群元素按照环道画出的图也叫\textbf{环道图}。比如上图是$\mathsf{D}_3$的环道图。为了方便，只记录$r=r_1$，$r_2=r_1^2=r^2$。它们和$e$构成三元环道。三个翻转变换$s_1,s_2,s_3$（记为$s_1=s,s_2=rs,s_3=r^2s$）则分别对应二元环道。
 
 \section{交换群}
 
@@ -3191,9 +3191,8 @@ $$ a^{-n}, \cdots, a^{-2}, a^{-1}, e, a, a^2, \cdots, a^n,  \cdots $$
 \end{figure}
 \vspace{12pt}
 
-另一种方法是查看它的乘法表。交换群的变换可以交换顺序：$ab = ba$，在乘法表里就体现在第$i$行第$j$列的内容与第$j$行第$i$列的内容相同（前提是在行头和列头按同样的顺序排列群里的变换——第$i$行的行头和第$i$列的列头应该是同样的变换）。直观来看，如果把乘法表按着主对角线（从左上到右下的对角线）折叠，对角线两侧的变换刚好重叠。或者说，沿主对角线翻转，乘法表内容不变。这也是一种对称性的体现——乘法表的对称性对应着乘法先后顺序可交换的对称性。
+另一种方法是查看它的乘法表。交换群的变换可以交换顺序：$ab = ba$。在乘法表里，体现为$a$行$b$列的内容与$b$行$a$列的内容相同。
 
-% 插图，解释以上的检验方法
 \vspace{12pt}
 \begin{figure}[htbp]
     \centering
@@ -3231,9 +3230,11 @@ $$ a^{-n}, \cdots, a^{-2}, a^{-1}, e, a, a^2, \cdots, a^n,  \cdots $$
 
     \end{scope}
     \end{tikzpicture}
-    \label{fig:explain_commutativity_table}
     \caption{\texttt{检查群的乘法表：主对角线两侧对应的格子，元素是否相等}}
+    \label{fig:explain_commutativity_table}
 \end{figure}
+
+直观来看，如果把乘法表按着主对角线（从左上到右下的对角线）折叠，对角线两侧的变换刚好重叠。或者说，沿主对角线翻转，乘法表内容不变。这也是一种对称性的体现——乘法表的对称性对应着乘法先后顺序可交换的对称性。
 
 除了循环群，还有哪些交换群的例子呢？交换群的一个重要场景是晶体的微观结构。什么是晶体呢？晶体是一种固体，构成它的最小粒子在空间中按照一个固定的模式不断重复排列。你可以想象在立体空间里搭起一个无限延伸的脚手架，构成一个个一模一样排列的格子，每个格点上放一个完全相同的小球。无论你站在这个手脚架的哪个位置，向任何方向看，看到的排列方式都完全一样。这种“无限重复、处处相同”的规律就是典型的晶体的特征。
 
@@ -14686,8 +14687,6 @@ $$ \phi_x(\gamma_{\text{左}}(b, a)) = \phi_x(ba) = \gamma(ba,x) = \gamma(b, a(x
 
 \chapter{计数定理} 
 
-% TODO：开篇插图
-
 考虑一串项链，它由十几个或几十个珠子串成。如果有三种颜色的珠子可用，数量不限。那么，用$n$个珠子，可以串出多少种不同的项链？
 
 天真的想法是：每个位置有$3$种选择，$n$个位置就有$3^n$种选择，于是可以串出$3^n$种不同的项链。但是，稍微想深一层就知道，一种串法稍微转一转，就可能和另一种串法重合。通过旋转，看似不同的项链实质上是一样的。
@@ -14770,7 +14769,6 @@ $$ \phi_x(\gamma_{\text{左}}(b, a)) = \phi_x(ba) = \gamma(ba,x) = \gamma(b, a(x
 
 现实中确实有类似的问题。有机化学和生物、制药学科中，研究人员需要面对由固定的几种原子（主要是碳、氧、氢以及其他几种元素）或基础“组件”（原子团）组合成的各种分子。$n$个原子构成的分子，可以有几种不同的形态结构？每种形态结构的化学、生物性质是否有不同？这是一个非常有意义的问题。而解决这个问题，首先就需要算清楚不同形态结构的数量。
 
-% TODO：苯环衍生物插图。几种典型的化合物，二甲苯、三硝基甲苯的同分异构体。
 \begin{figure}[htbp]
     \centering
     \begin{tikzpicture}[thick]
@@ -15825,21 +15823,21 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
     $p=3$时，只有$a=2$的情况。$\overline{2}\times\overline{2} = \overline{1}$，所以得到了所有非零同余类。$a=2$是原根。\\
     $p=5$时，需要检查$a=2,3,4$的情况。
     \begin{align*}
-        \overline{2}\times\overline{2} &= \overline{4},\\
-        \overline{4}\times\overline{2} &= \overline{3},\\
+        \overline{2}\times\overline{2} &= \overline{4},&
         \overline{3}\times\overline{2} &= \overline{1},\\
+        \overline{4}\times\overline{2} &= \overline{3},&
         \overline{1}\times\overline{2} &= \overline{2}.
     \end{align*}
     于是$2$是模$5$原根。
     \begin{align*}
-        \overline{3}\times\overline{3} &= \overline{4},\\
-        \overline{4}\times\overline{3} &= \overline{2},\\
+        \overline{3}\times\overline{3} &= \overline{4},&
         \overline{2}\times\overline{3} &= \overline{1},\\
+        \overline{4}\times\overline{3} &= \overline{2},&
         \overline{1}\times\overline{3} &= \overline{3}.
     \end{align*}
     于是$3$是模$5$原根。
     \begin{align*}
-        \overline{4}\times\overline{4} &= \overline{1},\\
+        \overline{4}\times\overline{4} &= \overline{1}, \\
         \overline{1}\times\overline{4} &= \overline{4}.
     \end{align*}
     构成循环，于是永远无法得到$\overline{2}$和$\overline{3}$，因此$4$不是模$5$原根。实际上，对于更大的素数$p$，$(p-1)\times(p-1) = p^2 - 2p + 1$模$p$余$1$，因此自乘$p-1$必然无法得到其它的类，不是原根。于是模$5$的原根是：$2,3$。\\
@@ -15851,12 +15849,12 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
     \end{align*}
     构成循环，于是永远无法得到$\overline{3}$，因此$2$不是模$7$原根。
     \begin{align*}
-        \overline{3}\times\overline{3} &= \overline{2},\\
-        \overline{2}\times\overline{3} &= \overline{6},\\
-        \overline{6}\times\overline{3} &= \overline{4},\\
+        \overline{3}\times\overline{3} &= \overline{2},& 
         \overline{4}\times\overline{3} &= \overline{5},\\
-        \overline{5}\times\overline{3} &= \overline{1},\\
-        \overline{1}\times\overline{3} &= \overline{3}.
+        \overline{2}\times\overline{3} &= \overline{6},& 
+        \overline{5}\times\overline{3} &= \overline{1},\\ 
+        \overline{6}\times\overline{3} &= \overline{4},& 
+        \overline{1}\times\overline{3} &= \overline{3}.  
     \end{align*}
     于是$3$是模$7$原根。
     \begin{align*}
@@ -15867,12 +15865,12 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
     构成循环，于是永远无法得到$\overline{3}$，因此$4$不是模$7$原根。\\
     实际上我们能预见这一点。$\overline{4}$是$\overline{2}$自乘“路上”的一环，所以它自乘就是$\overline{2}$自乘再自乘，于是必然无法得到所有非零同余类。换句话说，只要某个$a$不是原根，那么它自乘“路上”出现过的数也不会是原根。
     \begin{align*}
-        \overline{5}\times\overline{5} &= \overline{4},\\
-        \overline{4}\times\overline{5} &= \overline{6},\\
-        \overline{6}\times\overline{5} &= \overline{2},\\
-        \overline{2}\times\overline{5} &= \overline{3},\\
-        \overline{3}\times\overline{5} &= \overline{1},\\
-        \overline{1}\times\overline{5} &= \overline{5}.
+        \overline{5}\times\overline{5} &= \overline{4},& % 1
+        \overline{2}\times\overline{5} &= \overline{3},\\ % 4
+        \overline{4}\times\overline{5} &= \overline{6},& % 2
+        \overline{3}\times\overline{5} &= \overline{1},\\% 5
+        \overline{6}\times\overline{5} &= \overline{2},&% 3
+        \overline{1}\times\overline{5} &= \overline{5}. % 6
     \end{align*}
     于是$5$是模$7$原根。于是模$7$的原根是：$3,5$。\\
     $p=11$时，需要检查$a=2,3,4,5,6,7,8,9$的情况。
@@ -15911,26 +15909,22 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
     \end{align*}
     于是$6$是模$11$原根。同理可验证$7,8$是模$11$原根。于是模$11$的原根是：$2,6,7,8$。
 
-
-
 \end{problemlist}
+
+\clearpage
 
 \section{第二章参考解答}
 
 \begin{problemlist}
     \item 
     \begin{problemlist}
-        \item 单个硬币的翻转变换构成的群。\\
-        \textbf{解答}：状态有$2$个：正面朝上、反面朝上。生成这些状态的方法是：进行一次“翻转”操作。
+        \item \textbf{解答}：状态有$2$个：正面朝上、反面朝上。生成这些状态的方法是：进行一次“翻转”操作。
         
-        \item $k$个硬币的翻转变换构成的群。\\
-        \textbf{解答}：每个硬币都有正、反$2$种状态，因此总共有$2^k$个状态。生成这些状态的方法是：分别进行“翻转第$1$枚硬币”、“翻转第$2$枚硬币”……“翻转第$k$枚硬币”这$k$种基本操作。
+        \item \textbf{解答}：每个硬币都有正、反$2$种状态，因此总共有$2^k$个状态。生成这些状态的方法是：分别进行“翻转第$1$枚硬币”、“翻转第$2$枚硬币”……“翻转第$k$枚硬币”这$k$种基本操作。
         
-        \item 整数集的加法群（由所有“加几”操作构成的群）。\\
-        \textbf{解答}：状态有无限多个，对应数轴上所有的整数（整点）。生成这些状态的方法是：进行“加$1$”（向右移动一格）或“减$1$”（向左移动一格）操作。
+        \item \textbf{解答}：状态有无限多个，对应数轴上所有的整数（整点）。生成这些状态的方法是：进行“加$1$”（向右移动一格）或“减$1$”（向左移动一格）操作。
     \end{problemlist}
-    \item 如何为以上的群画出生成路径图？\\
-    \textbf{解答}：
+    \item \textbf{解答}：
     \begin{figure}[htbp]
         \centering
         \begin{tikzpicture}[scale=1,>=Latex,thick]
@@ -16038,40 +16032,50 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
     \begin{problemlist}
         \item \textbf{单硬币群}：画$2$个节点，用一条双向箭头（或两条方向相反、标记为“翻转”的箭头）连接它们。
         \item \textbf{$k$个硬币群}：理论上我们可以画$2^k$个节点。每个节点都有$k$条不同颜色（或不同标记）的箭头连出，分别代表翻转第$1, 2, \dots, k$枚硬币。实际上，这是一个$k$维超立方体的骨架图，想要在平面上画出来，只在$k=1,2$时可行。$k=3$时，我们可以画出立体空间中的正方体，每个顶点代表一个节点。$k>3$时，想通过简单直观的方法来表示$k$个硬币的群就比较困难了。这也提醒我们：理解抽象对象时，不能总依赖于直观的图像。抽象对象的本质需要通过代数关系来理解，直观图景能辅助理解、思考，但代数关系才能精确展现抽象对象的实质。
-        \item \textbf{整数加法群}：画一条向左右两端无限延伸的直线。在直线上标出等距的节点代表整数。向右的箭头标记为“加$1$”，向左的箭头标记为“减$1$”。当然，这条“无限延伸的直线”实际上也只能画出有限长度。这也提醒我们：理解与无穷有关的抽象对象时，直观图景只能帮助我们理解其有限的一部分。抽象对象的本质仍然需要通过代数关系来理解。
-         
-        \vspace{20pt}
-        \begin{tikzpicture}[>=Stealth]
-            \def\x{1.0}
-            \def\lx{-5}
-            \def\rx{5}
-            \def\xd{0.5}
-            \def\ang{30}
-            \draw (\lx-1.8*\x,0) -- (\rx+2*\x,0);
+        \item \textbf{整数加法群}：画一条向左右两端无限延伸的直线。在直线上标出等距的节点代表整数。向右的箭头标记为“加$1$”。当然，这条“无限延伸的直线”实际上也只能画出有限长度。这也提醒我们：理解与无穷有关的抽象对象时，直观图景只能帮助我们理解其有限的一部分。抽象对象的本质仍然需要通过代数关系来理解。 
     
-            \foreach \i in {0,...,\rx} {
-                \draw (\i*\x,0.1) -- (\i*\x,-0.1);
-                \node at (\i*\x,-\xd) {$\i$};
-                \draw[->] (\i*\x,0.15) arc [start angle=90+\ang, end angle=92-\ang, radius=\x];
-            }
-            \draw[->] (-0.02,0.15) arc [start angle=92-\ang, end angle=88+\ang, radius=\x];
-            \foreach \i in {\lx,...,-1} {
-                \draw (\i*\x,0.1) -- (\i*\x,-0.1);
-                \node at (\i*\x-0.15,-\xd) {$\i$};
-                \draw[->] (\i*\x,0.15) arc [start angle=90-\ang, end angle=87+\ang, radius=\x];
-            }
-            \draw (\x+\rx*\x,0.1) -- (\x+\rx*\x,-0.1);
-            \draw (\lx*\x-\x,0.1) -- (\lx*\x-\x,-0.1);
-            \node at (\lx - \x, -\xd) {$\cdots$};
-            \node at (\rx + \x, -\xd) {$\cdots$};            
-        \end{tikzpicture}
-        \label{fig:integer-cayley}
+        \vspace{12pt}
+        \begin{figure}[htbp]
+            \centering
+            \begin{tikzpicture}[>=Triangle, font=\scriptsize]
+                \def\dx{0.28}
+                \def\r{0.1}
+                \def\dy{2}
+                \begin{scope}
+                    \foreach \i in {-12,0,12}{
+                        \draw (\i*\dx+2*\i*\r,0) circle (\r);
+                    }        
+                    \foreach \i in {-13,...,16}{
+                        \draw[->] (\i*\dx-\dx-\r+2*\r*\i,0) -- (\i*\dx-\r+2*\r*\i,0);
+                        \draw (\i*\dx+2*\r*\i,0) circle (\r);
+                    }
+                    \draw[->] (16*\dx+33*\r,0) -- (17*\dx+33*\r,0);
+                    \foreach \i in {2,4,...,10,14,16} {
+                        \node at (\i*\dx+2*\r*\i,-0.3) {$\i$};
+                    }
+                    \foreach \i in {1,3,...,15} {
+                        \node at (\i*\dx+2*\r*\i,0.3) {$\i$};
+                    }
+                    \foreach \i in {-10,-8,...,-2} {
+                        \node at (\i*\dx+2*\r*\i-0.1,-0.3) {$\i$};
+                    }
+                    \foreach \i in {-13,-11,...,-1} {
+                        \node at (\i*\dx+2*\r*\i-0.1,0.3) {$\i$};
+                    }
+                    \node at (-12*\dx-2*\r*12-0.1,-0.3) {$-12$};
+                    \node at (0,-0.3) {$0$};
+                    \node at (12*\dx+2*\r*12,-0.3) {$12$};
+                \end{scope}
+            \end{tikzpicture}
+            \caption{\texttt{整数加法群的生成路径图。}}
+            \label{fig:integer-cayley}
+        \end{figure}
+        
     \end{problemlist}
     \item
     \begin{problemlist}
-        \item 将正方形的四个顶点染成两两不同的颜色。四个顶点所有可能的颜色组合有几种？\\
-        \textbf{解答}：假设四种颜色为红、黄、蓝、绿。将$4$种不同颜色分配给$4$个不同的顶点，共有 $4! = 4 \times 3 \times 2 \times 1 = 24$ 种颜色组合（排列）。
-        \item 考虑将正方形按其中心旋转。哪些旋转变换保持其位置形状不变？这时候的顶点颜色如何变化？列出所有可能达到的状态。
+        \item \textbf{解答}：假设四种颜色为红、黄、蓝、绿。将$4$种不同颜色分配给$4$个不同的顶点，共有 $4! = 4 \times 3 \times 2 \times 1 = 24$ 种颜色组合（排列）。
+        \item \textbf{解答}：保持位置形状不变的旋转变换有$4$种：（逆时针）旋转$0^\circ$（什么都不做）、$90^\circ$、$180^\circ$、$270^\circ$。
 
         \vspace{12pt}
         \begin{figure}[htbp]
@@ -16098,11 +16102,8 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
                 \end{scope}            
             \end{tikzpicture}
             \label{fig:D4-rotations}
-        \end{figure}
-
-        \textbf{解答}：保持位置形状不变的旋转变换有$4$种：（逆时针）旋转$0^\circ$（什么都不做）、$90^\circ$、$180^\circ$、$270^\circ$。见上图。
-        
-        \item 考虑将正方形按过中心的轴线翻转。哪些翻转方法保持其位置形状不变？这时候的顶点颜色如何变化？列出所有可能达到的状态。
+        \end{figure}        
+        \item  \textbf{解答}：过中心的轴线有$4$条（$2$条对角线，$2$条对边中点连线），因此有$4$种翻转方法。
 
         \vspace{12pt}
         \begin{figure}[htbp]
@@ -16132,13 +16133,11 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
                 \end{scope}            
             \end{tikzpicture}
             \label{fig:D4-flips}
-        \end{figure}    
-        \textbf{解答}：过中心的轴线有$4$条（$2$条对角线，$2$条对边中点连线），因此有$4$种翻转方法。见上图。
-        \item 画出以上状态的生成路径图。\\
-        \textbf{解答}：共有$8$个状态节点。可以用一个旋转变换（如逆时针$90^\circ$旋转）将$4$个旋转状态连成一个环；再用一个翻转变换（如沿水平中线翻转）将这$4$个状态与另外$4$个翻转状态一一对应连接起来。
+        \end{figure} 
+        \item \textbf{解答}：共有$8$个状态节点。可以用一个旋转变换（如逆时针$90^\circ$旋转）将$4$个旋转状态连成一个环；再用一个翻转变换（如沿水平中线翻转）将这$4$个状态与另外$4$个翻转状态一一对应连接起来。
         
         \vspace{12pt}
-        \begin{figure}[htbp]
+        \begin{figure}[!h]
             \centering        
             \begin{tikzpicture}[>=Latex,thick]
                 \def\r{0.56}
@@ -16186,17 +16185,15 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
             \label{fig:D4-cayley}
         \end{figure}
 
-        \item 哪些颜色组合无法通过旋转、翻转形成？为什么？给出你的解释。\\
-        \textbf{解答}：$24$种组合中，有$16$种无法形成。\\
+        \item \textbf{解答}：$24$种组合中，有$16$种无法形成。\\
         \textbf{解释}：旋转和翻转虽然改变了颜色的位置，但无法改变相邻关系。原本不相邻的顶点（对角顶点）不可能经过旋转和翻转变成相邻顶点，反之亦然。三角形的顶点则没有这种区分。因此正方形的旋转和翻转无法得到所有组合，而正三角形可以。
     \end{problemlist}
-    \item 研究正方体旋转群。
+    \item 
     \begin{problemlist}
-        \item 这两个变换，能否生成“往右转动$90^\circ$，左右面不变”？如何做到？\\
-        \textbf{解答}：能。“往右转动$90^\circ$”实际上是“往左转动$90^\circ$”（即$\sigma$）的逆操作$\sigma^{-1}$。经观察可发现，连续做$4$次$\sigma$就回到初始状态。因此，做$3$次$\sigma$等于做$1$次它的逆操作。因此，连续进行三次$\sigma$变换（即 $\sigma \rightarrow \sigma \rightarrow \sigma$，或记为$\sigma^3$）即可做到。
+        \item \textbf{解答}：能。“往右转动$90^\circ$”实际上是“往左转动$90^\circ$”（即$\sigma$）的逆操作$\sigma^{-1}$。经观察可发现，连续做$4$次$\sigma$就回到初始状态。因此，做$3$次$\sigma$等于做$1$次它的逆操作。因此，连续进行三次$\sigma$变换（即 $\sigma \rightarrow \sigma \rightarrow \sigma$，或记为$\sigma^3$）即可做到。
         
-        \item 这两个变换，能否生成“往左转动$90^\circ$，上下面不变”？如何做到？
-
+        \item  \textbf{解答}：这个变换的旋转轴既不是$\sigma$的旋转轴，也不是$\tau$的旋转轴。首先要理解这个旋转变换的效果，如何变换顶点（见图）。
+        
         \vspace{12pt}
         \begin{figure}[htbp]
             \centering        
@@ -16234,7 +16231,8 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
             \end{tikzpicture}
             \label{fig:cube-roll}
         \end{figure}
-        \textbf{解答}：这个变换的旋转轴既不是$\sigma$的旋转轴，也不是$\tau$的旋转轴。首先要理解这个旋转变换的效果，如何变换顶点（见上图）。经尝试发现，它可以通过：先做$\tau$操作，再做$\sigma^{-1}$，最后做$\tau$操作的逆操作（$\tau^{-1}$），即可得到这个结果。我们将“往左转动$90^\circ$，上下面不变”的变换记为$\rho$，则
+
+        经尝试发现，它可以通过：先做$\tau$操作，再做$\sigma^{-1}$，最后做$\tau$操作的逆操作（$\tau^{-1}$），即可得到这个结果。我们将“往左转动$90^\circ$，上下面不变”的变换记为$\rho$，则
         $$ \rho = \tau\rightarrow\sigma^{-1}\rightarrow\tau^{-1}. $$
 
         \vspace{12pt}
@@ -16275,8 +16273,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
         \end{figure}
         \textbf{注}：聪明的你可能会记得，我们在第一章开头提过这件事。
         
-        \item 考虑正方体对角顶点的连线，称为顶心对角线。正方体有几条顶心对角线？\\
-        \textbf{解答}：正方体有$8$个顶点，每两个相对的顶点连成一条顶心对角线，因此共有 $8 \div 2 = 4$ 条顶心对角线。我们用深浅色来标记对角顶点，因此我们可以把$4$条顶心对角线称为红顶心线、黄顶心线、蓝顶心线和绿顶心线。
+        \item \textbf{解答}：正方体有$8$个顶点，每两个相对的顶点连成一条顶心对角线，因此共有 $8 \div 2 = 4$ 条顶心对角线。我们用深浅色来标记对角顶点，因此我们可以把$4$条顶心对角线称为红顶心线、黄顶心线、蓝顶心线和绿顶心线。
         \vspace{12pt}
         \begin{figure}[htbp]
             \centering        
@@ -16351,11 +16348,9 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
             \label{fig:cube-body-diagonals-2}
         \end{figure}
         
-        \item 描述以左前顶心线为轴的旋转变换如何确保正方体位置形状不变。这样的变换有几个？\\
-        \textbf{解答}：以左前顶心线（红顶心线）为轴旋转时，左前顶点和右后顶点保持不动，而周围的$6$个顶点在空间中轮换位置。经尝试可发现，绕此轴旋转$120^\circ$和$240^\circ$后，正方体的整体轮廓和占据的空间与原来完全重合。这样的非平凡旋转变换有$2$个（旋转$120^\circ$和$240^\circ$）。注意：后者是前者重复两次的结果，也是其逆变换。而重复三次则恢复原状。这和正三角形的旋转性质一样（想想为什么？）。
+        \item \textbf{解答}：以左前顶心线（红顶心线）为轴旋转时，左前顶点和右后顶点保持不动，而周围的$6$个顶点在空间中轮换位置。经尝试可发现，绕此轴旋转$120^\circ$和$240^\circ$后，正方体的整体轮廓和占据的空间与原来完全重合。这样的非平凡旋转变换有$2$个（旋转$120^\circ$和$240^\circ$）。注意：后者是前者重复两次的结果，也是其逆变换。而重复三次则恢复原状。这和正三角形的旋转性质一样（想想为什么？）。
         
-        \item 用$\tau$和$\sigma$能否生成上面提到的变换？如何做到？\\
-        \textbf{解答}：能。首先我们会发现：不同的顶心线之间，可以通过$\tau,\sigma,\rho$互相转换。把正方体分别按$\tau,\sigma,\rho$旋转，就能把一条顶心线转到另一条顶心线的位置。因此，我们只需要讨论其中一条即可，比如绕红顶心线的旋转$\gamma_{\text{红}}$：
+        \item \textbf{解答}：能。首先我们会发现：不同的顶心线之间，可以通过$\tau,\sigma,\rho$互相转换。把正方体分别按$\tau,\sigma,\rho$旋转，就能把一条顶心线转到另一条顶心线的位置。因此，我们只需要讨论其中一条即可，比如绕红顶心线的旋转$\gamma_{\text{红}}$：
 
         \vspace{12pt}
         \begin{figure}[htbp]
@@ -16416,11 +16411,9 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
         $$ \gamma_{\text{红}} = \tau\rightarrow\sigma^{-1}.$$
         而另一个旋转是$\gamma_{\text{红}}$重复两次（也是它的逆操作！），因此同样可以通过$\tau$和$\sigma$得到。而其他顶心对角线又可以从$\gamma_{\text{红}}, \gamma_{\text{红}}^2$按$\tau,\sigma,\rho$旋转得到。因此，绕其他顶心线的旋转，可以先绕红顶心线进行对应角度的旋转，然后按$\tau,\sigma,\rho$把结果旋转到相应的顶心线上。
         
-        \item 考虑正方体一条棱和与它相对的棱。两条棱的连线过正方体中心。这样的连线称为对棱中线。正方体有几条对棱中线？\\
-        \textbf{解答}：正方体有$12$条棱，每两条相对的棱连成一条对棱中线，因此共有 $12 \div 2 = 6$ 条对棱中线。按我们染色的方法，每条对棱中线对应的两条对棱分别是两对深浅色，因此可以命名为红绿中线、红黄中线、红蓝中线、绿黄中线、绿蓝中线和黄蓝中线。
+        \item \textbf{解答}：正方体有$12$条棱，每两条相对的棱连成一条对棱中线，因此共有 $12 \div 2 = 6$ 条对棱中线。按我们染色的方法，每条对棱中线对应的两条对棱分别是两对深浅色，因此可以命名为红绿中线、红黄中线、红蓝中线、绿黄中线、绿蓝中线和黄蓝中线。
         
-        \item 描述以左对棱线为轴的旋转变换如何确保正方体位置形状不变。这样的变换有几个？\\
-        \textbf{解答}：以左对棱线（红绿中线，或类似位置）为轴旋转$180^\circ$，可以使正方体的上下、前后等面发生对称交换，整体形状和位置保持不变。这样的非平凡旋转变换只有$1$个（即旋转$180^\circ$）。
+        \item \textbf{解答}：以左对棱线（红绿中线，或类似位置）为轴旋转$180^\circ$，可以使正方体的上下、前后等面发生对称交换，整体形状和位置保持不变。这样的非平凡旋转变换只有$1$个（即旋转$180^\circ$）。
         
         \vspace{12pt}
         \begin{figure}[htbp]
@@ -16466,8 +16459,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
             \label{fig:cube-bimedians-diagonal-rotation}
         \end{figure}
 
-        \item 用$\tau$和$\sigma$能否生成上面提到的变换？如何做到？\\
-        \textbf{解答}：能。首先我们会发现：不同的对棱中线之间，可以通过$\tau,\sigma,\rho$互相转换。把正方体分别按$\tau,\sigma,\rho$不断旋转，就能把一条对棱中线转到另一条对棱中线的位置。因此，我们只需要讨论其中一条即可。比如经尝试发现，可以用以下的方法达到绕红绿中线的旋转效果：
+        \item \textbf{解答}：能。首先我们会发现：不同的对棱中线之间，可以通过$\tau,\sigma,\rho$互相转换。把正方体分别按$\tau,\sigma,\rho$不断旋转，就能把一条对棱中线转到另一条对棱中线的位置。因此，我们只需要讨论其中一条即可。比如经尝试发现，可以用以下的方法达到绕红绿中线的旋转效果：
         
         \vspace{12pt}
         \begin{figure}[htbp]
@@ -16538,6 +16530,8 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
     因此，图中的变换违反了可逆性规则，不能是群的生成路径图。
 \end{problemlist}
 
+\clearpage
+
 \section{第三章参考解答}
 
 \subsection*{群运算和乘法表}
@@ -16571,13 +16565,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
     \end{itemize}
 
     \item \textbf{思路分析：} 整数加法群 $\mathbb{Z}$ 是一个无限群。它的“乘法表”（此处应为加法表）的行和列都由所有整数构成，因此是一个无限大的表格，无法在纸面上完整画出。
-    \\
-    \textbf{想法：}
-    \begin{problemlist} % TODO 画出加法表和生成路径图
-        \item 我们可以写出它的“局部”加法表，例如截取 $-2, -1, 0, 1, 2$ 这五个元素构成一个 $5 \times 5$ 的表格。
-        \item 我们可以用代数表达式来描述这个无限表：第 $m$ 行第 $n$ 列的元素就是 $m + n$。
-        \item 从生成路径图的角度看，整数加法群是由 $1$（或 $-1$）生成的无限循环群，它的生成路径图是一条向两端无限延伸的直线（类似数轴），而不是一个闭合的圆。从$0$开始，“加$1$”和“减$1$”作为右向和左向的箭头逐步指向各个整数，表示生成所有整数。
-    \end{problemlist}
+    我们可以有限表格展示它的部分，比如$-2,-1,0,1,2$对应的行列，然后用代数式示意：第 $m$ 行第 $n$ 列的元素是 $m + n$。
 
     \item \textbf{思路分析：} 补全乘法表的核心原则是：每行每列的元素不能重复不能遗漏。已知 $a^2 = e$，我们可以逐步推导。
     \\
@@ -16988,6 +16976,8 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
     \end{problemlist}
 \end{problemlist}
 
+\clearpage
+
 \section{第四章参考解答} 
 
 \subsection*{循环群与交换群}
@@ -17320,7 +17310,9 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
         |\mathsf{S}_1| &= 1! = 1 & |\mathsf{S}_6|\,\, &= 6! = 720 \\
         |\mathsf{S}_2| &= 2! = 2 & |\mathsf{S}_7|\,\, &= 7! = 5040 \\
         |\mathsf{S}_3| &= 3! = 6 & |\mathsf{S}_8| \,\,&= 8! = 40320 \\
-        |\mathsf{S}_4| &= 4! = 24 & |\mathsf{S}_9| \,\,&= 9! = 362880 \\
+        |\mathsf{S}_4| &= 4! = 24 & |\mathsf{S}_9| \,\,&= 9! = 362880 
+    \end{align*}
+    \begin{align*}
         |\mathsf{S}_5| &= 5! = 120 & |\mathsf{S}_{10}| &= 10! = 3628800 
     \end{align*}
     可以观察到，随着$n$的增加，群的大小呈爆炸式增长。这解释了为什么研究高维对称性如此困难。
@@ -17350,149 +17342,143 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
         \end{itemize}
     \end{problemlist}
 
-    \item 右图是某个群$G$的生成路径图。
+    \item % 右图是某个群$G$的生成路径图。
 
         % \begin{tikzpicture}[remember picture, overlay]
         % \node[anchor=center, inner sep=0pt] at ([xshift=4.1cm, yshift=0.1cm]current page.center) {
         %     \usebox{\groupgraphaloft}
         % };
         % \end{tikzpicture}
-    \vspace{8pt}
-    \begin{figure}[htbp]
-        \centering
-        \begin{tikzpicture}[scale=0.7]
-        \def\Rout{3.2}          % 外圈半径
-        \def\Rin{1.7}          % 内圈半径
-        \def\nodesize{0.5cm}    % 节点直径
-        \def\shortenlen{0.2cm} % 边两端缩短量
+    % \vspace{8pt}
+    % \begin{figure}[htbp]
+    %     \centering
+    %     \begin{tikzpicture}[scale=0.7]
+    %     \def\Rout{3.2}          % 外圈半径
+    %     \def\Rin{1.7}          % 内圈半径
+    %     \def\nodesize{0.5cm}    % 节点直径
+    %     \def\shortenlen{0.2cm} % 边两端缩短量
 
-        % ===== 样式 =====
-        \tikzset{
-            vertex/.style={
-            circle,
-            draw=black,
-            fill=gray!25,
-            minimum size=\nodesize,
-            inner sep=0pt
-            },
-            rededge/.style={
-            >={Latex[length=2.1mm,width=1.4mm]},
-            red!80!black,
-            line width=1pt,
-            <->,
-            shorten <=\shortenlen,
-            shorten >=\shortenlen
-            },
-            blueedge/.style={
-            >={Latex[length=2.7mm,width=2mm]},
-            blue!75!black,
-            line width=1pt,
-            ->,
-            shorten <=\shortenlen,
-            shorten >=\shortenlen
-            }
-        }
+    %     % ===== 样式 =====
+    %     \tikzset{
+    %         vertex/.style={
+    %         circle,
+    %         draw=black,
+    %         fill=gray!25,
+    %         minimum size=\nodesize,
+    %         inner sep=0pt
+    %         },
+    %         rededge/.style={
+    %         >={Latex[length=2.1mm,width=1.4mm]},
+    %         red!80!black,
+    %         line width=1pt,
+    %         <->,
+    %         shorten <=\shortenlen,
+    %         shorten >=\shortenlen
+    %         },
+    %         blueedge/.style={
+    %         >={Latex[length=2.7mm,width=2mm]},
+    %         blue!75!black,
+    %         line width=1pt,
+    %         ->,
+    %         shorten <=\shortenlen,
+    %         shorten >=\shortenlen
+    %         }
+    %     }
 
-        % ===== 16 个坐标：外圈 A-H，内圈 I-P =====
-        \coordinate (A) at (90:\Rout);
-        \coordinate (B) at (45:\Rout);
-        \coordinate (C) at (0:\Rout);
-        \coordinate (D) at (-45:\Rout);
-        \coordinate (E) at (-90:\Rout);
-        \coordinate (F) at (-135:\Rout);
-        \coordinate (G) at (-180:\Rout);
-        \coordinate (H) at (-225:\Rout);
+    %     % ===== 16 个坐标：外圈 A-H，内圈 I-P =====
+    %     \coordinate (A) at (90:\Rout);
+    %     \coordinate (B) at (45:\Rout);
+    %     \coordinate (C) at (0:\Rout);
+    %     \coordinate (D) at (-45:\Rout);
+    %     \coordinate (E) at (-90:\Rout);
+    %     \coordinate (F) at (-135:\Rout);
+    %     \coordinate (G) at (-180:\Rout);
+    %     \coordinate (H) at (-225:\Rout);
 
-        \coordinate (I) at (90:\Rin);
-        \coordinate (J) at (45:\Rin);
-        \coordinate (K) at (0:\Rin);
-        \coordinate (L) at (-45:\Rin);
-        \coordinate (M) at (-90:\Rin);
-        \coordinate (N) at (-135:\Rin);
-        \coordinate (O) at (-180:\Rin);
-        \coordinate (P) at (-225:\Rin);
+    %     \coordinate (I) at (90:\Rin);
+    %     \coordinate (J) at (45:\Rin);
+    %     \coordinate (K) at (0:\Rin);
+    %     \coordinate (L) at (-45:\Rin);
+    %     \coordinate (M) at (-90:\Rin);
+    %     \coordinate (N) at (-135:\Rin);
+    %     \coordinate (O) at (-180:\Rin);
+    %     \coordinate (P) at (-225:\Rin);
 
-        % ===== 1. 红色双向径向边 =====
-        \draw[rededge] (A)--(I);
-        \draw[rededge] (B)--(J);
-        \draw[rededge] (C)--(K);
-        \draw[rededge] (D)--(L);
-        \draw[rededge] (E)--(M);
-        \draw[rededge] (F)--(N);
-        \draw[rededge] (G)--(O);
-        \draw[rededge] (H)--(P);
+    %     % ===== 1. 红色双向径向边 =====
+    %     \draw[rededge] (A)--(I);
+    %     \draw[rededge] (B)--(J);
+    %     \draw[rededge] (C)--(K);
+    %     \draw[rededge] (D)--(L);
+    %     \draw[rededge] (E)--(M);
+    %     \draw[rededge] (F)--(N);
+    %     \draw[rededge] (G)--(O);
+    %     \draw[rededge] (H)--(P);
 
-        % ===== 2. 外圈蓝色顺时针真圆弧 =====
-        % 每段均为以原点为圆心、半径 \Rout 的 45 度圆弧
-        \draw[blueedge] (A) arc[start angle=90,   delta angle=-45, radius=\Rout];
-        \draw[blueedge] (B) arc[start angle=45,   delta angle=-45, radius=\Rout];
-        \draw[blueedge] (C) arc[start angle=0,    delta angle=-45, radius=\Rout];
-        \draw[blueedge] (D) arc[start angle=-45,  delta angle=-45, radius=\Rout];
-        \draw[blueedge] (E) arc[start angle=-90,  delta angle=-45, radius=\Rout];
-        \draw[blueedge] (F) arc[start angle=-135, delta angle=-45, radius=\Rout];
-        \draw[blueedge] (G) arc[start angle=-180, delta angle=-45, radius=\Rout];
-        \draw[blueedge] (H) arc[start angle=-225, delta angle=-45, radius=\Rout];
+    %     % ===== 2. 外圈蓝色顺时针真圆弧 =====
+    %     % 每段均为以原点为圆心、半径 \Rout 的 45 度圆弧
+    %     \draw[blueedge] (A) arc[start angle=90,   delta angle=-45, radius=\Rout];
+    %     \draw[blueedge] (B) arc[start angle=45,   delta angle=-45, radius=\Rout];
+    %     \draw[blueedge] (C) arc[start angle=0,    delta angle=-45, radius=\Rout];
+    %     \draw[blueedge] (D) arc[start angle=-45,  delta angle=-45, radius=\Rout];
+    %     \draw[blueedge] (E) arc[start angle=-90,  delta angle=-45, radius=\Rout];
+    %     \draw[blueedge] (F) arc[start angle=-135, delta angle=-45, radius=\Rout];
+    %     \draw[blueedge] (G) arc[start angle=-180, delta angle=-45, radius=\Rout];
+    %     \draw[blueedge] (H) arc[start angle=-225, delta angle=-45, radius=\Rout];
 
-        % ===== 3. 内圈蓝色直线星形边 =====
-        \draw[blueedge] (P)--(K);
-        \draw[blueedge] (K)--(N);
-        \draw[blueedge] (N)--(I);
-        \draw[blueedge] (I)--(L);
-        \draw[blueedge] (L)--(O);
-        \draw[blueedge] (O)--(J);
-        \draw[blueedge] (J)--(M);
-        \draw[blueedge] (M)--(P);
+    %     % ===== 3. 内圈蓝色直线星形边 =====
+    %     \draw[blueedge] (P)--(K);
+    %     \draw[blueedge] (K)--(N);
+    %     \draw[blueedge] (N)--(I);
+    %     \draw[blueedge] (I)--(L);
+    %     \draw[blueedge] (L)--(O);
+    %     \draw[blueedge] (O)--(J);
+    %     \draw[blueedge] (J)--(M);
+    %     \draw[blueedge] (M)--(P);
 
-        % ===== 4. 最后画空节点，覆盖线端 =====
-        \node[vertex] at (A) {};
-        \node[vertex] at (B) {};
-        \node[vertex] at (C) {};
-        \node[vertex] at (D) {};
-        \node[vertex] at (E) {};
-        \node[vertex] at (F) {};
-        \node[vertex] at (G) {};
-        \node[vertex] at (H) {};
-        \node[vertex] at (I) {};
-        \node[vertex] at (J) {};
-        \node[vertex] at (K) {};
-        \node[vertex] at (L) {};
-        \node[vertex] at (M) {};
-        \node[vertex] at (N) {};
-        \node[vertex] at (O) {};
-        \node[vertex] at (P) {};
-        \node at (A) {$e$};
-        \node at (L) {$x$};
-        \node at (E) {\scriptsize $x^2$};
-        \node at (P) {\scriptsize $x^3$};
+    %     % ===== 4. 最后画空节点，覆盖线端 =====
+    %     \node[vertex] at (A) {};
+    %     \node[vertex] at (B) {};
+    %     \node[vertex] at (C) {};
+    %     \node[vertex] at (D) {};
+    %     \node[vertex] at (E) {};
+    %     \node[vertex] at (F) {};
+    %     \node[vertex] at (G) {};
+    %     \node[vertex] at (H) {};
+    %     \node[vertex] at (I) {};
+    %     \node[vertex] at (J) {};
+    %     \node[vertex] at (K) {};
+    %     \node[vertex] at (L) {};
+    %     \node[vertex] at (M) {};
+    %     \node[vertex] at (N) {};
+    %     \node[vertex] at (O) {};
+    %     \node[vertex] at (P) {};
+    %     \node at (A) {$e$};
+    %     \node at (L) {$x$};
+    %     \node at (E) {\scriptsize $x^2$};
+    %     \node at (P) {\scriptsize $x^3$};
 
-        % ================= 右侧图例 =================
+    %     % ================= 右侧图例 =================
         
-        \begin{scope}[font=\small,shift={(5,1.6)}]
-            \def\x{1.5}
-            \node at (0, 1) {\textbf{变换图例：}};
-            \begin{scope}[shift={(0,0)}]
-                \draw[-{Latex[length=2.4mm,width=1.5mm]},red!80!black, line width=1pt] (0,0) -- (\x,0);
-                \node[right=0.2cm] at (\x,0) {$a$};
-            \end{scope}
-            \begin{scope}[shift={(0,-1)}]
-                \draw[-{Latex[length=2.4mm,width=1.5mm]}, blue!75!black, line width=1pt] (0,0) -- (\x,0);
-                \node[right=0.2cm] at (\x,0) {$b$};
-            \end{scope}
-        \end{scope}
-        \end{tikzpicture}
-        \label{fig:SD8-group-cayley}
-    \end{figure}
+    %     \begin{scope}[font=\small,shift={(5,1.6)}]
+    %         \def\x{1.5}
+    %         \node at (0, 1) {\textbf{变换图例：}};
+    %         \begin{scope}[shift={(0,0)}]
+    %             \draw[-{Latex[length=2.4mm,width=1.5mm]},red!80!black, line width=1pt] (0,0) -- (\x,0);
+    %             \node[right=0.2cm] at (\x,0) {$a$};
+    %         \end{scope}
+    %         \begin{scope}[shift={(0,-1)}]
+    %             \draw[-{Latex[length=2.4mm,width=1.5mm]}, blue!75!black, line width=1pt] (0,0) -- (\x,0);
+    %             \node[right=0.2cm] at (\x,0) {$b$};
+    %         \end{scope}
+    %     \end{scope}
+    %     \end{tikzpicture}
+    %     \label{fig:SD8-group-cayley}
+    % \end{figure}
 
     \begin{problemlist}
-        \item 群$G$有几个元素？
-        
-        \textbf{解答：}
-        观察生成路径图，外圈有$8$个节点，内圈有$8$个节点。
+        \item \textbf{解答：}观察生成路径图，外圈有$8$个节点，内圈有$8$个节点。
         总共有$8 + 8 = 16$个节点。因为生成路径图中的每个节点代表群的一个唯一状态，所以群$G$有$16$个元素。
-        \item 按图解释群$G$是如何生成的？它和$\mathsf{D}_8$有何不同？
-        
-        \textbf{解答：}
-        群$G$由两个变换$a$（红边）和$b$（蓝边）生成。
+        \item \textbf{解答：} 群$G$由两个变换$a$（红边）和$b$（蓝边）生成。
         \begin{itemize}
             \item $a$的作用：在外圈和内圈对应的节点之间来回翻转。因为红边是双向的，所以$a^2 = e$。
             \item $b$的作用：在外圈，$b$的效果是顺时针旋转一步。但在内圈，$b$的作用不是简单的顺时针旋转，而是“跳$3$步”。
@@ -17500,26 +17486,14 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
         与$\mathsf{D}_8$的不同：\\
         在$\mathsf{D}_8$的生成路径图中，如果外圈$b$是顺时针一步步旋转，那么内圈的$b$作用是逆时针旋转。但在$G$的生成路径图中，内圈的$b$作用是“跳$3$步”。\\
         代数上，$\mathsf{D}_8$满足关系 $aba = b^{-1}$（即$aba=b^7$）；而群$G$满足关系 $aba = b^3$。这是一个不同于映轮群的$16$元群。
-        \item 我们想研究群中元素$x$的环道。首先，请用$a,b$表示$x$。
-        
-        \textbf{解答：}
-        从节点$e$出发，先沿红色箭头进入内圈，然后沿蓝色箭头即到达$x$。因此，$x = ba$。
+        \item \textbf{解答：} 从节点$e$出发，先沿红色箭头进入内圈，然后沿蓝色箭头即到达$x$。因此，$x = ba$。
 
-        \item 在生成路径图中找出表示$x$不断自乘的路径。这条路径什么时候回到$e$？
-        
-        \textbf{解答：}
-        图中路径告诉我们，$x$的效果就是先红后蓝，先$a$后$b$：$a\rightarrow b$。因此，不断重复“先红后蓝”，就是$x$不断自乘的结果。从$e$出发，先红后蓝，得到$x$；再次“先红后蓝”，得到外圈最下方节点；再次“先红后蓝”，得到内圈左上节点；再次“先红后蓝”，回到$e$。\\
+        \item \textbf{解答：} 图中路径告诉我们，$x$的效果就是先红后蓝，先$a$后$b$：$a\rightarrow b$。因此，不断重复“先红后蓝”，就是$x$不断自乘的结果。从$e$出发，先红后蓝，得到$x$；再次“先红后蓝”，得到外圈最下方节点；再次“先红后蓝”，得到内圈左上节点；再次“先红后蓝”，回到$e$。\\
         因此，$x$不断自乘，$4$步后回到$e$：$x^4 = e$。
 
-        \item 画出$x$的环道。
-        
-        \textbf{解答：}
-        由上可知环道长度为$4$：$e\to x \to x^2 \to x^3 \to e$。
+        \item \textbf{解答：} 由上可知环道长度为$4$：$e\to x \to x^2 \to x^3 \to e$。
 
-        \item 按此方法找出所有群元素的环道，并分类整理。
-        
-        \textbf{解答：}
-        我们需要计算群中所有$16$个元素的环道长度（即元素的阶）。按照以上的做法，先用$a,b$表达从$e$到达该元素对应节点的方法，然后不断重复，看几次后回到$e$。\\
+        \item \textbf{解答：} 我们需要计算群中所有$16$个元素的环道长度（即元素的阶）。按照以上的做法，先用$a,b$表达从$e$到达该元素对应节点的方法，然后不断重复，看几次后回到$e$。\\
         \textbf{外圈元素（形如$b^i$）：}
         \begin{itemize}            
             \item $e$：长度是$1$。
@@ -17543,7 +17517,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
         
         \textbf{注}：对比$\mathsf{D}_8$，$\mathsf{D}_8$中内圈所有元素的环道长度都是$2$。而群$G$中，内圈元素的环道长度有$2$也有$4$。这正是$aba=b^3$与$aba=b^7$在代数结构上的表现。
     \end{problemlist}
-    \item 正四面体是最简单的正多面体。它由$4$个正三角形围成，有$4$个顶点、$4$个面、$6$条棱。研究其旋转群，即保持正四面体位置形状不变的旋转变换构成的群$\mathsf{A}_4$。
+    \item 
     \begin{problemlist}
         \item \textbf{解答：}绕一顶点中线的旋转变换一共有$3$个，分别是不变、旋转$120^\circ$和旋转$240^\circ$（或反方向旋转$120^\circ$）。按任何方向旋转$3$次都得到恒等变换。我们把顶点按$1,2,3,4$编号，把过顶点$1$且按某个方向的旋转$120^\circ$记为$\tau_1$，则$\tau_1^2$就是按相反方向的旋转$120^\circ$。同理，绕顶点$2,3,4$中线的旋转变换分别记为$\tau_2,\tau_3,\tau_4$和$\tau_2^2,\tau_3^2,\tau_4^2$。
         \vspace{12pt}
@@ -18038,13 +18012,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
             \tau_1^3 = \tau_2^3 = \tau_3^3 = \tau_4^3 = e,\\
             \sigma_1^2 = \sigma_2^2 = \sigma_3^2 = e.
         \end{align*}
-        \item 验证以下等式，并说明它们的含义：
-        \begin{align*}
-            (4\,2\,1\,3) &= (2\,1\,4\,3)\circ(1\,3\,4\,2)\circ(2\,1\,4\,3)\\
-            (4\,2\,1\,3) &= (2\,3\,1\,4)\circ(1\,3\,4\,2)\circ(3\,1\,2\,4)
-        \end{align*}
-
-        \textbf{解答：}\\
+        \item \textbf{解答：}\\
         第一个等式：从右到左验证右边三个置换的复合效果。
         \begin{itemize}
             \item $1$被映射到$2$，然后被映射到$3$，再被映射到$4$，所以$1\mapsto 4$。
@@ -18320,13 +18288,9 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
             \label{fig:A4-element-decomposition-2}
         \end{figure}
         从正四面体的角度来看，这两个等式说明了绕过顶点$1$中线的旋转与绕过顶点$2$中线的旋转之间如何转换。第一个等式的含义是：首先绕交换$1,2$顶点和$3,4$顶点的对棱中线旋转$180^\circ$，然后绕顶点$1$中线旋转$120^\circ$，最后再绕交换$1,2$顶点和$3,4$顶点的对棱中线旋转$180^\circ$，最终效果等同于绕顶点$2$中线旋转$120^\circ$。第二个等式的含义是：首先绕过顶点$4$的中线旋转$120^\circ$，然后绕过顶点$1$的中线旋转$120^\circ$，最后绕过顶点$4$的中线反向旋转$120^\circ$，最终效果等同于绕顶点$2$中线旋转$120^\circ$。
-        \item 说明为何$4$元置换中的对换（只交换两个顶点）不能通过旋转得到。
-
-        \textbf{解答：}\\
+        \item \textbf{解答：}\\
         空间中的旋转总绕着一个轴线进行。如果一个旋转交换两个顶点，那么轴线必然经过两顶点的中点，也就是对应棱的中点。然而，该旋转要保持正四面体的位置形状不变，因此必然经过其中心。于是自然经过对棱的中点，成为对棱中线，于是也交换另两个顶点。因此，旋转不可能只交换两个顶点，而是要么不交换顶点，要么交换两对顶点。
-        \item 说明为何$4$元置换中的$4$元轮换（变换所有顶点，环道长度为$4$）不能通过旋转得到。
-
-        \textbf{解答：}\\
+        \item \textbf{解答：}\\
         用反证法证明。上一问已经说明旋转无法得到对换。假设能得到$4$元轮换，我们可以通过将它与$\mathsf{A}_4$的某个变换组合，得到对换，从而违反群的封闭性，得到矛盾。\\
         作为例子，考虑$4$元轮换$(2\,3\,4\,1)$，它把顶点映射到下一个编号（最后返回顶点$1$）。我们希望再经过一次变换后得到$1,2$的对换。据此倒推该变换：
         \begin{itemize}
@@ -18517,6 +18481,8 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
     \end{problemlist}
 \end{problemlist}
 
+\clearpage
+
 \section{第五章参考解答}
 
 \begin{problemlist}
@@ -18621,15 +18587,16 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
     \end{problemlist}
 \end{problemlist}
 
-\section{第六章参考解答}
+\clearpage
 
+\section{第六章参考解答}
 \begin{problemlist}
     \item \textbf{解答}：
     \begin{problemlist}
         \item 这个表达式是说$12\mathbb{Z}$是$\mathbb{Z}$的往合子群，$2 + 12\mathbb{Z}$是其商群的元素。
         \item 这个表达式是说$16\mathbb{Z}$是$2\mathbb{Z}$的往合子群，$10 + 16\mathbb{Z}$是其商群的元素。
-        \item 这个表达式是说$6\mathbb{Z}\times\!12\mathbb{Z}$是$\mathbb{Z}\times\mathbb{Z}$的往合子群，$(5,9) + 6\mathbb{Z}\times12\mathbb{Z}$是其商群的元素。
-        \item 这个表达式是说$12\mathbb{Z}\times6\mathbb{Z}$是$4\mathbb{Z}\times2\mathbb{Z}$的往合子群，$(4,4) + 12\mathbb{Z}\times6\mathbb{Z}$是其商群的元素。
+        \item 这个表达式是说$6\mathbb{Z}\!\times\!12\mathbb{Z}$是$\mathbb{Z}\!\times\!\mathbb{Z}$的往合子群，$(5,9)\!+\! 6\mathbb{Z}\!\times\!12\mathbb{Z}$是其商群的元素。
+        \item 这个表达式是说$12\mathbb{Z}\!\times\!6\mathbb{Z}$是$4\mathbb{Z}\!\times\!2\mathbb{Z}$的往合子群，$(4,4)\!+\!12\mathbb{Z}\!\times\!6\mathbb{Z}$是其商群元素。
         \item 这个表达式是说$\langle\overline{3}\rangle$是$\mathbb{Z}_{12}$的往合子群，$\overline{2}+\langle\overline{3}\rangle$是其商群的元素。
         \item 这个表达式是说$\langle\overline{4}\rangle$是$\mathbb{Z}_{12}$的往合子群，$\overline{5}+\langle\overline{4}\rangle$是其商群的元素。
         \item 这个表达式是说$\langle(\overline{0},\overline{2})\rangle$是$\mathbb{Z}_{3}\times\mathbb{Z}_4$的往合子群，$(\overline{2},\overline{1})+\langle(\overline{0},\overline{2})\rangle$是其商群的元素。
@@ -18715,11 +18682,11 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
             \left(rs\langle r^2\rangle\right)\left(s\langle r^2\rangle\right) &= \left(rss\right)\langle r^2\rangle = r\langle r^2\rangle, 
         \end{align*}
         $r,s$对应的往集，分别和$rs$对应的往集交换。\\
-        综上可知，$\langle r^2\rangle, r\langle r^2\rangle, s\langle r^2\rangle, rs\langle r^2\rangle$是含有三个$2$阶元素的四元群。它同构于矩群$\mathsf{C}_2\times\mathsf{C}_2$。
+        综上可知，$\langle r^2\rangle, r\langle r^2\rangle, s\langle r^2\rangle, rs\langle r^2\rangle$是含有三个$2$阶元素的四元群，同构于$\mathsf{C}_2\times\mathsf{C}_2$。
         \item $\langle r^2,s\rangle = \{e,s,r^2,r^2s\}$。这个群同构于矩群。
         \item $M_1$的势是$\mathsf{D}_4$的一半。因此它的左往集等于右往集，从而往合。$\quotient{\mathsf{D}_4}{M_1}$有两个元素，因此同构于$\mathsf{C}_2$。
         \item 另外的两个往合真子群都是四元群，分别记为$M_2=\langle r\rangle$，$M_3=\langle r^2,rs\rangle$。前者同构于$\mathsf{C}_4$，后者同构于矩群。对应的商群都是二元群，同构于$\mathsf{C}_2$。
-        \item $\langle r^2\rangle$对应的商群同构于矩群。矩群有三个不同的二元子群。而$\langle r^2\rangle$可继续添加元素生成三个四元往合子群。我们可以画出表示$\mathsf{D}_4$往合子群与对应商群各自的对应关系图。把有直接包含关系的群连线，用箭头从子群指向母群。从包含（子群）关系来看，往合子群网格和商群网格有相同的结构。\\
+        \item $\langle r^2\rangle$对应的商群同构于矩群。矩群有三个不同的二元子群。而$\langle r^2\rangle$可继续添加元素生成三个四元往合子群。我们可以画出表示$\mathsf{D}_4$往合子群与对应商群各自的对应关系图。把有直接包含关系的群连线，用箭头从子群指向母群。从包含（子群）关系来看，往合子群网格和商群网格有相同的结构（见下页图）。\\
         不过，除了包含关系，我们并不能推出更多的东西。比如，第二“层”的商群都是$\mathsf{C}_2$，但第二“层”的$M_1,M_2,M_3$并不是同一个构造，$M_2=\langle r\rangle$和其他两个群不同构。
 
         \vspace{12pt}
@@ -18780,6 +18747,8 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
         \end{figure}
     \end{problemlist}
 \end{problemlist}
+
+\clearpage
 
 \section{第七章参考解答}
 
@@ -19636,10 +19605,10 @@ $k=2$与$k=4$数目相同，原因是对称的：把每个位置上的氟与氯�
     $\mathbb{Q}$ & 有理数集 \\
     $\mathbb{R}$ & 实数集 \\
     $\mathbb{Z}^+$ & 正整数集 \\
-    $\mathbb{Z}^-$ & 负整数集 \\
+    $n\mathbb{Z}$ & $n$的倍数集合 \\
     $\mathbb{R}_0^+$ & 非负实数集 \\
     & \\
-    $(G,\cdot)$ & 关于运算$\cdot$的群$G$ \\
+    $(G,\ast)$ & 关于运算$\ast$的群$G$ \\
     $A \cong B$ & $A$同构于$B$ \\
     $H\subgeq G$ & $H$是$G$的子群 \\
     $H\subg G$ & $H$是$G$的真子群 \\
@@ -19661,6 +19630,7 @@ $k=2$与$k=4$数目相同，原因是对称的：把每个位置上的氟与氯�
     $A\times B$ & $A$与$B$的架积\\
     $\mathsf{C}_m\times\mathsf{C}_n$ & $\mathsf{C}_m$与$\mathsf{C}_n$的架积\\
     $\mathsf{U}_4$ & 四元数群 \\
+    $\mathbb{Z}_n$ & 模$n$同余系 \\
     & \\
     $A\cap B$ & $A$和$B$的交集 \\
     $A\cup B$ & $A$和$B$的并集 \\
@@ -19693,7 +19663,6 @@ $k=2$与$k=4$数目相同，原因是对称的：把每个位置上的氟与氯�
     & \\
     $\text{\texttt{大}}(x, y)$ & $x$和$y$的较大者 \\
     $\text{\texttt{小}}(x, y)$ & $x$和$y$的较小者 \\
-    $n\mathbb{Z}$ & $n$的倍数集合 \\
     $\mathbb{K}[x]$ & $\mathbb{K}$系数整式的集合 \\
     $\mathbb{K}_n[x]$ & 次数不超过$n$的$\mathbb{K}$系数整式 \\
     $\imath$ & 虚数单位\footnote{读作“埃”。} \\
