@@ -12,18 +12,24 @@
 
 % 封面
 % --- 定义作者和书名的变量 ---
-\newcommand{\mytitle}{对称与群}
+\newcommand{\mytitle}{群论入门}  % 对称与群
+\newcommand{\mysecondtitle}{从对称到计数}
 \newcommand{\myauthor}{大青花鱼}
 % 正文
 \begin{document}
+
+\frontmatter
 % ========== 扉页 ==========
 \cleardoublepage                % 确保从右页（奇数页）开始
 \thispagestyle{empty}           % 本页无页码无页眉
 \begin{center}
-    \vspace*{2cm}               % 顶部留白
+    \vspace*{1.5cm}               % 顶部留白
     
     % 书名
     {\zihao{0} \bfseries \mytitle}
+
+    \vspace{0.5cm}              % 书名与副标题间距
+    {\zihao{1} \bfseries \mysecondtitle}
     
     \vspace{1cm}              % 书名与作者间距
     
@@ -45,10 +51,57 @@
 \end{center}
 \newpage   
 % ========== 扉页结束 ==========
+\chapter*{前言}
+\phantomsection
+\addcontentsline{toc}{chapter}{前言}
+\markboth{前言}{前言}
 
+群是现代数学的基础概念，群是研究复杂问题的重要工具，群是展示数学之美的上好途径。
+
+可是，群论怎么入门？
+
+是直接从代数的定义出发，摆弄各种字母等式吗？是看各种精彩美妙的图形，泛泛欣赏对称之美吗？
+
+自从数学教育普及以来，有许多降低群论入门难度的尝试，其主旨不外乎将以上两点调和起来。本书也不例外，不过试图提供一个新的“菜谱”，一本对自学者友好、但又能使其真正登堂入室的书。只要还没使用传统高等数学教材系统学过群论，读这本书就不算迟。
+
+本书的目标是把群的概念和基本性质说清楚。以常见的有限群为例子，把中学数学里说的“对称”讲明白，把传统群论教材中前半部分的内容细致地讲好。主要覆盖子群、商群、群同态和群作用等概念。
+
+要讲清楚这些概念，至少需要什么知识呢？
+
+本书的视角是：群是对称变换的集合。为此，掌握集合与映射是必需的。我们希望用直观的图形变换来理解群，所以基础的几何知识也不可少。除此以外，为了介绍群的应用，我们需要掌握基础的组合计数知识。
+
+从这些知识开始，我们能走多远？本书试图给出一个回答。我们希望读完这本书的人，能计算把正方体的面染成三种颜色的方法有多少，并说得清背后的群论道理。
+
+如何做到这一点呢？纵观以往的尝试，或者从具体现象出发，但不敢多做演算，浅尝辄止；或者早早陷入图形变换的抽象分析，在讨论向量和矩阵中迷失，难以脱身；或者从解高次方程讲起，直奔代数式的丛林，叫人望而却步。本书借鉴了内森·卡特（Nathan Carter）的《可视群论》（Visual Group Theory）一书的做法，从直观的图形变换出发，但不侧重于严格讨论平面和空间中的运动，而只把它作为演示群变换的工具，专注于展示群自身的结构以及揭示背后的思想。通过图形和图解让读者看见群、理解群、思考群。待到对群的了解足够了，再正式介绍并讨论其代数性质。希望这种方法能避免过往种种弊端，帮助读者揭开群的面纱，真正掌握讨论群的手段。
+
+本书的另一个尝试是采用中文本位的术语体系，故而一部分术语记号与主流中文教材不同。附录中有说明和对照表，方便查阅。本书采用知识共享署名—相同方式共享 4.0 国际许可（CC BY-SA 4.0）发布。读者可以自由复制、传播、改编本书，包括用于教学与商业用途，只需署名并以相同许可发布。
+
+《可视群论》是本书前半讲法的来源，谨此致谢。作为初版，疏漏难免。恳请各位方家斧正，指出错误，提出建议。
+
+\cleardoublepage
 \tableofcontents
-\newpage
+\cleardoublepage
 
+\chapter*{致读者}
+\phantomsection
+\addcontentsline{toc}{chapter}{致读者}
+\markboth{致读者}{致读者}
+
+你是一个中学生，对中学数学的知识掌握得差不多了，好奇什么是群论；又或者你已经告别中学了，但中学数学的知识还没有落下，想重新学学数学，了解一下群论是什么。这本书就是为你写的。
+
+这是一本用科普手法写的群论入门教材。它不像传统的代数教材那样，直接从严谨但枯燥的内容开始，讨论抽象的概念。这是一本从想法入手的书。群到底是什么？当数学家们使用群的概念时，他们在想什么？提出想法，理解想法，验证想法，这比直接计算或证明一些高深的定理更重要。如果你想认真学习群论，这本书能带你入门，给你一些基础的概念和丰富的例子，让你在正式踏上学习群论或抽象代数理论的道路前，有机会仔细思考一些基本的问题，准备得更好。前四章能让你看到群的样貌，你产生的很多疑问会在第五、六、七章得到解答，第八章能让你知道，怎么在实际问题中使用群的理论。
+
+如果你只想泛泛了解群的概念和理论，把这本书当作科普读物也没问题。这本书介绍了群的基本性质，并不作过多深入讨论。当你在别的领域里遇到群的概念时，本书的内容能让你有讨论它的基本语言。本书只要求你具备高中水平的数学知识，但可能需要你熟悉集合、映射的语言和代数式的演算。你可以重点阅读前四章，第五、第六章可以大致了解结论。第七章会帮助你更好理解前四章的很多东西，第八章是你不应该错过的。
+
+本书有很多图，希望能帮你看见群的样子。但图并不是一切。群是抽象的概念。但愿当你进入代数的抽象区域时，这些图像能帮你更好地思考。每章末尾有小结，列出了继续阅读前最好掌握的关键内容。每章还配有习题，附录中有所有习题的解答。虽然我们推荐认真学习的读者做一些习题（不必全做），但不做习题也不会妨碍继续阅读。当然，愿意认真做习题的人会得到应有的回报。
+
+本书用语使用中文本位的术语体系，和主流中文用语、符号可能不同。附录二、附录三有全面的对照表格供查阅。
+
+开始阅读之前，建议你准备好一张纸和一支笔（有不同颜色的笔会更好），最好有一个骰子或小方块，也许准备两个硬币。如果你能使用生成式人工智能服务，可以试试把本书的源代码交给它，让它更好地辅助你阅读。
+
+\cleardoublepage
+
+\mainmatter
 \chapter{什么是群？}
 
 \section{对称和变换}
@@ -106,7 +159,7 @@
 \end{figure}
 \vspace{16pt}
 
-不过，也可以说它先朝左转动了$90^\circ$，让上面（浅红色）变成左面，保持前后面（蓝色）不变；然后再往右转了$90^\circ$，让左面（浅红色）变成前面，保持上下面（绿色）不变；再往右转动了$90^\circ$，让上面（浅绿色）变成右面，保持前后面（红色）不变。
+不过，也可以说它先朝左转动了$90^\circ$，让上面（浅红色）变成左面，保持前后面（蓝色）不变；接着往右转了$90^\circ$，让左面（浅红色）变成前面，保持上下面（绿色）不变；然后再往右转动了$90^\circ$，让上面（浅绿色）变成右面，保持前后面（红色）不变。
 
 \vspace{16pt}
 \begin{figure}[htbp]
@@ -145,7 +198,7 @@
 
             \filldraw[fill=SkyBlue!70!white, draw=black] (F_BL) -- (F_BR) -- (F_TR) -- (F_TL) -- cycle;
             \filldraw[fill=SpringGreen, draw=black] (F_TL) -- (F_TR) -- (B_TR) -- (B_TL) -- cycle;
-            \filldraw[fill=Red!, opacity=0.7, draw=black] (F_BL) -- (F_TL) -- (B_TL) -- (B_BL) -- cycle;
+            \filldraw[fill=RedOrange, opacity=0.7, draw=black] (F_BL) -- (F_TL) -- (B_TL) -- (B_BL) -- cycle;
             % 隐藏边虚线
             \draw[opacity=0.5, dashed] (B_BL) -- (B_BR);
             \draw[opacity=0.5, dashed] (B_BR) -- (F_BR);
@@ -366,7 +419,7 @@
 
 其次，每个变换都是可逆的，逆变换也在集合里。比如，我们有把正三角形沿逆时针旋转$120^\circ$的变换，就有把正三角形沿顺时针旋转$120^\circ$的变换。它恢复“逆时针旋转$120^\circ$”这个操作。正方体的变换里，每种方式转过后，也可以逆着转回来。
 
-最后，变换的组合还是某种变换。比如我们会发现：把正三角形沿逆时针旋转$120^\circ$两次，效果和沿顺时针针旋转$120^\circ$是一样的。把正方体顶面转到左面、右转$90^\circ$、再把顶面转到右侧面，效果和把顶面转到正面是一样的。无论怎么变，结果总是集合里的某种变换。
+最后，变换的组合还是某种变换。比如我们会发现：把正三角形沿逆时针旋转$120^\circ$两次，效果和沿顺时针旋转$120^\circ$是一样的。把正方体顶面转到左面、右转$90^\circ$、再把顶面转到右侧面，效果和把顶面转到正面是一样的。无论怎么变，结果总是集合里的某种变换。
 
 我们来总结一下这些规则：
 \begin{enumerate}[label=\arabic*.]
@@ -396,59 +449,52 @@ $$ \left\{\overline{0},\,\overline{1},\,\overline{2},\,\overline{3},\,\overline{
 
 \begin{et}
     以下的例子里是否包含群？
-    \begin{enumerate}[label=\arabic*).]
+    \begin{problemlist}
         \item 一枚金币和一枚银币放在桌子上，都分正反面。每次可以选择翻动一枚币。这样的变换有几个？是否构成了群？
         \item 同上情况。每次可以选择翻动一枚币、两枚币，或者什么都不做。这样的变换有几个？是否构成了群？
         \item 同上情况。每次要么同时翻动两枚币，要么什么都不做。这样的变换有几个？是否构成了群？
         \item 考虑集合$A$到$B$的映射，这些映射是否构成了群？
         \item 考虑集合到自身的所有映射，这些映射是否构成了群？
         \item 考虑集合到自身的所有双射，这些双射是否构成了群？
-    \end{enumerate}
+    \end{problemlist}
 \end{et}
 
 \begin{so}
-     \mbox{} \\
-     \indent 1). 每次恰好翻动一枚币，所以变换只有$2$个：翻金币、翻银币。
-     翻金币后再翻银币，两枚币都翻面，可是“同时翻两枚”并不在这$2$个变换之中。
-     按规定，两个变换的组合无法用一次变换实现，不在集合里，不满足规则$4$。
-     因此不构成群。
-
-     2). 变换有$4$个：什么都不做、只翻金币、只翻银币、同时翻两枚。
-     规则$1$、$2$显然成立。
-     每个变换做两次都恢复原状，因此满足规则$3$。
-     再验证规则$4$：任取两个不同的变换连续做，效果仍然是这$4$个变换之一。
-     比如“只翻金币”接着“只翻银币”，效果等于“同时翻两枚”；
-     “只翻金币”接着“同时翻两枚”，效果等于“只翻银币”。
-     其他组合也可以逐一验证。这说明任意两种变换连续做的结果是某一个变换。于是对于多于两个变换的组合，可以不断把前两个变换替换成一个，最终简化成一个变换。于是规则$4$满足。
-     综上可知构成群。
-
-     3). 变换有$2$个：什么都不做、同时翻两枚。
-     规则$1$、$2$显然成立。
-     “同时翻两枚”做两次，两枚币都翻了两次，恢复原状，
-     效果等于“什么都不做”。所以它的逆变换就是它自己，满足规则$3$。
-     再验证规则$4$：两个变换的任意组合仍在集合中。比如“同时翻两枚”接“同时翻两枚”等于“什么都不做”，
-     其余组合更不成问题。同前一题可知规则$4$满足。
-     综上可知构成群。
-
-     4). 集合$A$到集合$B$的映射，不一定能两两复合：
-     第一个映射把$A$中的元素映射到$B$中，
-     第二个映射也要从$A$出发，可是它的输入是$B$中的元素。
-     除非$B = A$，否则复合没有定义，规则$4$无从谈起。
-     即使$B = A$，一般的映射也未必可逆（比如把$A$中所有元素都映到同一个元素的常映射，就无法从结果还原输入），规则$3$也不满足。因此不构成群。
-
-     5). 集合到自身的映射，复合之后仍是集合到自身的映射，
-     满足规则$4$。每个映射的效果是确定的，满足规则$2$。
-     但并非每个映射都可逆。
-     比如集合$\{1,2\}$到自身的映射“把$1$和$2$都映到$1$”，
-     无论再做任何映射，都不可能把$1$还原为原来的$1$和$2$两个不同的元素。
-     所以规则$3$不满足。
-     因此不构成群。
-
-     6). 集合到自身的双射，就是一一对应的映射。
-     规则$1$、$2$显然成立。
-     每个双射都可逆，且逆映射也是双射，满足规则$3$。
-     两个双射复合仍是双射，满足规则$4$。
+     \begin{problemlist}
+        \item 每次恰好翻动一枚币，所以变换只有$2$个：翻金币、翻银币。翻金币后再翻银币，两枚币都翻面，可是“同时翻两枚”并不在这$2$个变换之中。按规定，两个变换的组合无法用一次变换实现，不在集合里，不满足规则$4$。因此不构成群。
+        \item 变换有$4$个：什么都不做、只翻金币、只翻银币、同时翻两枚。
+            规则$1$、$2$显然成立。
+            每个变换做两次都恢复原状，因此满足规则$3$。
+            再验证规则$4$：任取两个不同的变换连续做，效果仍然是这$4$个变换之一。
+            比如“只翻金币”接着“只翻银币”，效果等于“同时翻两枚”；
+            “只翻金币”接着“同时翻两枚”，效果等于“只翻银币”。
+            其他组合也可以逐一验证。这说明任意两种变换连续做的结果是某一个变换。于是对于多于两个变换的组合，可以不断把前两个变换替换成一个，最终简化成一个变换。于是规则$4$满足。
+            综上可知构成群。
+        \item 变换有$2$个：什么都不做、同时翻两枚。
+            规则$1$、$2$显然成立。
+            “同时翻两枚”做两次，两枚币都翻了两次，恢复原状，
+            效果等于“什么都不做”。所以它的逆变换就是它自己，满足规则$3$。
+            再验证规则$4$：两个变换的任意组合仍在集合中。比如“同时翻两枚”接“同时翻两枚”等于“什么都不做”，
+            其余组合更不成问题。同前一题可知规则$4$满足。
+            综上可知构成群。
+        \item 集合$A$到集合$B$的映射，不一定能两两复合：
+            第一个映射把$A$中的元素映射到$B$中，
+            第二个映射也要从$A$出发，可是它的输入是$B$中的元素。
+            除非$B = A$，否则复合没有定义，规则$4$无从谈起。
+            即使$B = A$，一般的映射也未必可逆（比如把$A$中所有元素都映到同一个元素的常映射，就无法从结果还原输入），规则$3$也不满足。因此不构成群。
+        \item 集合到自身的映射，复合之后仍是集合到自身的映射，
+            满足规则$4$。每个映射的效果是确定的，满足规则$2$。
+            但并非每个映射都可逆。
+            比如集合$\{1,2\}$到自身的映射“把$1$和$2$都映到$1$”，
+            无论再做任何映射，都不可能把$1$还原为原来的$1$和$2$两个不同的元素。
+            所以规则$3$不满足。
+            因此不构成群。
+        \item 集合到自身的双射，就是一一对应的映射。
+            规则$1$、$2$显然成立。
+            每个双射都可逆，且逆映射也是双射，满足规则$3$。
+            两个双射复合仍是双射，满足规则$4$。
      因此构成群。
+     \end{problemlist} 
 \end{so}
 
 \clearpage
@@ -458,7 +504,7 @@ $$ \left\{\overline{0},\,\overline{1},\,\overline{2},\,\overline{3},\,\overline{
 本章我们从正三角形和正方体的对称变换出发，抽离出了对称现象背后的规则。一个群就是一个由“变换”构成的系统，它必须满足四个基本条件：
 \begin{itemize}
     \item \textbf{集合确定}：变换的集合是明确且固定的。
-    \item \textbf{效果确定}：每个变换的效果是确定的，这保证了运算的结合律。
+    \item \textbf{效果确定}：每个变换的效果是确定的，这是变换运算的前提。
     \item \textbf{操作可逆}：每个变换都存在逆变换，能够撤销其效果。
     \item \textbf{组合封闭}：任意两个变换的组合（复合）仍然是该集合中的变换。
 \end{itemize}
@@ -468,9 +514,9 @@ $$ \left\{\overline{0},\,\overline{1},\,\overline{2},\,\overline{3},\,\overline{
 
 \section{习题}
 
-以下习题是帮助你理解刚刚讨论的概念的思想实验。在数学及类似的科学工作中，习题通常需要一些思考，会让你花费一些时间。本书并不会要求你反复琢磨每一段文字，大可以快速浏览内容，欣赏大略的思想。不过对于较为抽象的概念，只有经过一番思考，才能真正深入地理解其机理。因此，在习题上花费一些时间很正常，不要气馁。
+以下习题是一些思想实验，目的是帮助你理解我们刚刚讨论的概念。在数学及类似的学科中，习题通常需要一些思考，会让你花费一些时间。本书并不会要求你反复琢磨每一段文字，大可以快速浏览内容，欣赏大略的思想。不过对于较为抽象的概念，只有经过一番思考，才能真正深入地理解其机理。因此，在习题上花费一些时间很正常，不要气馁。
 
-同样，在习题上花费过多的时间，也是没必要的。到附录里查看习题的答案或解题思路，也不必感到不好意思。习题并不是为了刁难人而设置的。因此，思考几分钟无果，就查看答案来掌握思考方法，也是合理的策略。像读小说一样，完全不看习题，直接阅读下一章，也没有问题。
+不过，在习题上花费过多的时间，也是没必要的。到附录里查看习题的答案或解题思路，也不必感到不好意思。习题并不是为了刁难人而设置的。因此，思考几分钟无果，就查看答案来掌握思考方法，也是合理的策略。像读小说一样，完全不看习题，直接阅读下一章，也没有问题。
 
 \subsection*{是不是群}
 
@@ -505,9 +551,8 @@ $$ \left\{\overline{0},\,\overline{1},\,\overline{2},\,\overline{3},\,\overline{
 
 \subsection*{打破规则}
 
-下面来谈谈我们给群定的规则是否是必须的。不遵守这些规则会出现什么情况。第一条规则是基础的，离开它我们甚至不能确定我们在讨论什么东西。所以下面只讨论第二、三、四条规则，想想没了这些规则会得到什么。
+下面来谈谈我们给群定的规则是否是必须的。不遵守这些规则会出现什么情况。前两条规则是基础的，离开它我们甚至不能确定我们在讨论什么东西。所以下面只讨论第三、四条规则，想想没了这些规则会得到什么。
 \begin{problemlist}
-    \item 仿照以下例子，设计一个仅仅不满足第二条规则的情形。例子：考虑一块可擦除的电子白板。变换是“在白板上写点东西”。每次写的内容是不确定的，所以不满足第二条规则。但其他规则都符合。
     \item 仿照以下例子，设计一个仅仅不满足第三条规则的情形。例子：考虑无限多的火柴，变换是“抽出一根火柴划着”。由于火柴划着后就无法复原了，所以效果不可逆，不满足第三条规则。但其他规则都符合。
     \item 仿照以下例子，设计一个仅仅不满足第四条规则的情形。例子：考虑所有整数，变换是“加$1$”和“减$1$”。由于“加$1$”重复两次就不再是“加$1$”、“减$1$”之一，所以不满足第四条规则。但其他规则都符合。
 \end{problemlist}
@@ -540,7 +585,7 @@ $$ \left\{\overline{0},\,\overline{1},\,\overline{2},\,\overline{3},\,\overline{
 
 上一章我们引入了“群”的概念，还举出了不少例子。不过，单单用文字来描述群的性质，总仿佛隔着一层薄纱，朦朦胧胧看不清楚。一个群里有多少个变换？这些变换之间是什么关系呢？用文字来描述，反而更让人困惑了。这是因为对称和变换本身就是抽象的概念。我们需要找到把它们看清楚的方法。
 
-正三角形和正方体的例子里，我们试图用图像来理解群，不过做得还不够。正三角形相关的群就有$6$个变换，而正方体相关的群有$24$个变换。我们小时候玩过的魔方，虽然也是正方体，通过把每个面扭转到不同的方向，竟然能够变出$4$千亿亿种不同的状态。这样繁多的变换，犹如漫天星辰，如何去理解？
+正三角形和正方体的例子里，我们试图用图像来理解群，不过做得还不够。正三角形相关的群就有$6$个变换，而正方体相关的群有$24$个变换。我们小时候玩过的魔方，虽然也是正方体，通过把每个面扭转到不同的方向，竟然能够变出四千亿亿种不同的状态。这样繁多的变换，犹如漫天星辰，如何去理解？
 
 古人观天时，想要找到一颗星星，怎么做呢？他们把位置相近的星星在头脑里连起来，想象成互相关联的一个整体。这样，只要找到了最亮的那颗星，就能跟着头脑里的连线，找到其他的星星了。这启发我们用连线的方式来表示变换。我们可以把不同的状态看作“星星”，把状态之间的变换用连线来表示。和天上的星星相比，我们的优势是能够任意排布这些“星星”的位置，方便我们连线。
 
@@ -1408,7 +1453,7 @@ $$ \left\{\overline{0},\,\overline{1},\,\overline{2},\,\overline{3},\,\overline{
 
 可以看到，长方形的四种状态对应两个开关的四种状态，而“水平翻转”、“垂直翻转”则对应着“按上面的开关”和“按下面的开关”。如果我们不关注状态的具体内容，只关心箭头的位置和方向，那么我们会发现，这里这些箭头连接状态的方式，和前面长方形的例子是一样的。两个图的结构一致。
 
-所以，这两个群尽管表面上不同，说的是不同的事情，但论及变换的结构，并没有不同。它们反应了两个不同事物的共同本质。我们还可以把两个开关换成两枚硬币，结果也是一样的。
+所以，这两个群尽管表面上不同，说的是不同的事情，但论及变换的结构，并没有不同。它们反映了两个不同事物的共同本质。我们还可以把两个开关换成两枚硬币，结果也是一样的。
 
 变换的路径图为我们揭示了一种抽象的规律。数学上，我们说这是一种结构上的等同关系。长方形的对称变换构成的群，和两个开关的变换构成的群\textbf{同构}。我们认为，这两个群是一样的结构。讨论这个群就等于讨论那个群，讨论那个群就等于讨论这个群，没有任何区别。这个抽象的群，我们称它为\textbf{矩群}，记作$\mathsf{J}_4$。
 
@@ -1443,7 +1488,7 @@ $$ \left\{\overline{0},\,\overline{1},\,\overline{2},\,\overline{3},\,\overline{
 $$ r \;=\; p\rightarrow q \;=\; q\rightarrow p. $$
 而$r$重复两次，也相当于什么都不做。这些关系就是我们从不同的例子里抽离出来的共性。研究这个抽象的群，得到的知识，就能应用到这些不同的例子里。比如，我们会发现：
 $$ p\rightarrow q\rightarrow p = q, \qquad q\rightarrow p \rightarrow q = p. $$
-因为从左上角的节点开始，往右、往下、再往左，就得到左下角的节点，效果和直接往下一样。同理，从左上角的节点开始，往下、往右、再往上，就得到右上角的节点，效果和直接往右一样。这个性质反映到开关的例子里，就是按一个开关两次的间隔里按另一个开关，和只按另一个开关效果相同。反应到长方形的例子里，就是水平翻转两次的间隔里垂直翻转一次，效果和只垂直翻转一次一样。一旦掌握了抽象的本质，我们就能用它理解各个具体例子的相关性质。
+因为从左上角的节点开始，往右、往下、再往左，就得到左下角的节点，效果和直接往下一样。同理，从左上角的节点开始，往下、往右、再往上，就得到右上角的节点，效果和直接往右一样。这个性质反映到开关的例子里，就是按一个开关两次的间隔里按另一个开关，和只按另一个开关效果相同。反映到长方形的例子里，就是水平翻转两次的间隔里垂直翻转一次，效果和只垂直翻转一次一样。一旦掌握了抽象的本质，我们就能用它理解各个具体例子的相关性质。
 
 正三角形的例子也能变成抽象的群。我们忽略正三角形的各种状态，只考虑变换之间的关系，可以画出以下的图：
 
@@ -1509,6 +1554,7 @@ $$ p\rightarrow q\rightarrow p = q, \qquad q\rightarrow p \rightarrow q = p. $$
 
 \vspace{12pt}
 这是一个$6$个节点，由两个变换生成的群。我们不需要知道节点的具体含义，也不需要知道$r_1$和$s_1$的具体意义。从图中我们可以看到，$r_1$重复三次总回到原节点，而$s_1$重复两次就回到原节点，等等。我们把这个群叫做\textbf{三元对称群}，记作$\mathsf{D}_3$。
+% 注释：三元对称群这个名字就是为了说明D_3同构于S_3，即该群不仅表示通过旋转和翻转完成正三角形的所有对称，也表示它集成了三元集合所有的对称性。这个名字就说明了两种对称性在n=3时合一的事实。这个貌似“非正式”的名称，在之后证明了D_3同构于S_3后，会得到合理性的加持。
 
 \vspace{12pt}
 \begin{figure}[htbp]
@@ -1863,7 +1909,13 @@ $$ e\rightarrow a \; = \; a\rightarrow e \; = \;a.$$
 
 接下来是结合律，也是我们讨论过的性质。从变换的角度来看，结合律是显然的性质。如果从纯粹抽象的集合元素出发，就需要人为规定运算满足结合律了。
 
-然后是“幺元”的概念。幺元，也称为\textbf{单位元}、\textbf{空元}，就是和任何元素运算之后都不改变对方的元素。换句话说，就是我们的视角中的“什么都不做”的变换。在我们的“土法”定义里，也没有包括幺元，因为“什么都不做”的变换似乎是显然存在的。正式定义从集合与元素的角度出发，就需要说明幺元存在了。
+然后是“幺元”的概念。幺元，也称为\textbf{单位元}、\textbf{空元}，就是和任何元素运算之后都不改变对方的元素。换句话说，就是我们的视角中的“什么都不做”的变换。在我们的“土法”定义里，也没有包括幺元，因为“什么都不做”的变换似乎是显然存在的。正式定义从集合与元素的角度出发，就需要说明幺元存在了。要注意的是，定义中并没有规定幺元只有一个。但从直觉上来说，幺元（也就是“什么都不做”）理当是惟一的。在正式定义中，可以由定义直接推出：
+\begin{tm}[幺元惟一]
+    群恰有一个幺元。
+\end{tm}
+\begin{proof}
+    设$e_1,e_2$是群$(G,\ast)$的幺元，那么按定义，$e_1 = e_1\ast e_2 = e_2$。
+\end{proof}
 
 最后是“逆元”的概念。这就是我们的“土法”定义里的规则$3$。从变换的视角看来，变换可逆是自然的要求。如果一个变换不可逆转，那么让它代表对称性质就有些勉强了。换句话说，可逆也是一种对称性质。
 
@@ -1871,14 +1923,24 @@ $$ e\rightarrow a \; = \; a\rightarrow e \; = \;a.$$
 
 另一种定义可逆的方法则不直接说明有一个“逆元”，而是用类似解方程的说法：
 \begin{df}[\textbf{互反律}]
-    说集合$S$中的二元运算$\ast$满足互反律，就是指$\forall a,b\,\in\,S$，都能找到$x,y\,\in\,S$，使得
+    说集合$S$中的二元运算$\ast$满足互反律，就是指$\forall a,b\,\in\,S$，都能找到$x,y\,\in\,S$使得
     $$ a\ast x = y\ast a = b.$$
 \end{df}
 
-这种定义下，我们把逆元看作方程$a\ast x = y\ast a = e$的解。两个方程如果都有解，那么解就是逆元。
+这种定义下，我们把逆元定义为方程$a\ast x = y\ast a = e$的解。两个方程如果都有解，那么解就是逆元。反之，按逆元的定义，互反律必然成立，令$x=a^{-1}b$、$y=ba^{-1}$即可。这说明两种定义是等价的。
 
 也许你会问：这两个方程的解，就一定是同一个吗？这是个好问题。一般情况下，两个解并不相同。但是，如果运算$\ast$满足结合律，并且有幺元，我们就能确保这一点。我们可以直接通过下面这个等式来说明：
 $$ y = y\ast e = y\ast (a\ast x) = (y\ast a)\ast x = e\ast x = x. $$
+这个结论还顺带证明了\textbf{逆元是惟一的}：如果$x,y$都是$a$的逆元，那么它们是方程$a\ast x = y\ast a = e$的解，因此相等。
+
+由逆元存在性可以得到一个实用的性质：
+\begin{tm}[群的消去律]
+    设$a,b,c$是某个群的元素。如果$a\ast c = b\ast c$，那么$a = b$。同样地，如果$c\ast a = c\ast b$，那么$a = b$。
+\end{tm}
+\begin{proof}
+    使用结合律和逆元定义即可。以下只给出前半的证明。请你模仿给出后半的证明。
+    $$ a = a\ast e = a\ast (c\ast c^{-1}) = (a\ast c)\ast c^{-1} = (b\ast c)\ast c^{-1} = b\ast (c\ast c^{-1}) = b\ast e = b. $$
+\end{proof}
 
 现在我们对群有两种角度来看待。一个是从开篇引入的变换的动态视角：群是由一些变换构成的，这些变换改变对象的状态，并且满足某些规则。它们的性质揭示了对象的对称性。另一个是我们刚刚审视完的集合的静态视角：群是某些元素的集合，配备了一种二元运算。这个运算满足几种基本性质，一般称为群的乘法。这两种视角是等价的，各有各的好处。有些群论里的定理、结论，用一种视角来看，会比另一种更好理解。保持多种视角来看问题，对于学习总是有益的。
 
@@ -2671,7 +2733,7 @@ $$ y = y\ast e = y\ast (a\ast x) = (y\ast a)\ast x = e\ast x = x. $$
     \begin{problemlist}
         \item 所有$3$的倍数关于整数的加法。
         \item 所有$3$的倍数关于整数的乘法。
-        \item 非零实数关于乘方。
+        \item 正实数关于乘方。
         \item 所有完全平方数关于整数的乘法。
         \item 所有非零的完全平方有理数关于有理数的乘法。完全平方有理数指能够写成两个完全平方数相除的商的数。
         \item 所有素数有理数关于有理数的乘法。素数有理数指能写成两个素数商的数。
@@ -3078,7 +3140,7 @@ $$ \mathsf{C}_a = \{a^n\,\mid\,n\in\mathbb{Z}\}.$$
 
 群的每个元素都有自己所属的环道。我们把$e$看作“原点”。从$e$出发，每次根据不同元素的环道，要么沿着环道走一个圈，再回到$e$；要么得到序列：
 $$ a^{-n}, \cdots, a^{-2}, a^{-1}, e, a, a^2, \cdots, a^n,  \cdots $$
-我们可以把它看作“直线”。这样我们可以生成整个群。这样按照环道循环画出来的生成路径图也叫\textbf{环道图}。比如上图是三元对称群$\mathsf{D}_3$的环道图。为了方便，只记录$r=r_1$，$r_2=r_1^2=r^2$。它们和$e$构成三元环道。三个翻转变换$s_1,s_2,s_3$（记为$s_1=s,s_2=rs,s_3=r^2s$）则分别对应二元环道。
+我们可以把它看作“直线”。这样我们可以生成整个群。这样按照环道循环画出来的图也叫\textbf{环道图}。比如上图是三元对称群$\mathsf{D}_3$的环道图。为了方便，只记录$r=r_1$，$r_2=r_1^2=r^2$。它们和$e$构成三元环道。三个翻转变换$s_1,s_2,s_3$（记为$s_1=s,s_2=rs,s_3=r^2s$）则分别对应二元环道。
 
 \section{交换群}
 
@@ -3158,8 +3220,8 @@ $$ a^{-n}, \cdots, a^{-2}, a^{-1}, e, a, a^2, \cdots, a^n,  \cdots $$
         \node at (-\pad-0.5*\x,-\jj*\y-0.5*\y) {$b$};
         \draw[thick,darkgray] (\ii*\x,-\jj*\y) rectangle (\ii*\x+\x,-\jj*\y-\y);
         \draw[thick,darkgray] (\jj*\x,-\ii*\y) rectangle (\jj*\x+\x,-\ii*\y-\y);
-        \node at (\ii*\x+0.5*\x,-\jj*\y-0.5*\y) {$ab$};
-        \node at (\jj*\x+0.5*\x,-\ii*\y-0.5*\y) {$ba$};
+        \node at (\ii*\x+0.5*\x,-\jj*\y-0.5*\y) {$ba$};
+        \node at (\jj*\x+0.5*\x,-\ii*\y-0.5*\y) {$ab$};
         \draw[->, dashed] (\ii*\x+0.5*\x,-\pad) -- (\ii*\x+0.5*\x,-\jj*\y+\pad);
         \draw[->, dashed] (\jj*\x+0.5*\x,-\pad) -- (\jj*\x+0.5*\x,-\ii*\y+\pad);
         \draw[->, dashed] (\pad,-\ii*\y-0.5*\y) -- (\jj*\x-\pad,-\ii*\y-0.5*\y);
@@ -3917,7 +3979,7 @@ $$
 
 另一个例子是我们讨论过两个开关的状态群。每个开关的状态都独立于其他开关，因此，两个开关的状态群就是$\mathsf{C}_2\times \mathsf{C}_2$。而我们已经论证过，它同构于矩群$\mathsf{J}_4$。也就是说，$\mathsf{J}_4$其实就是两个$\mathsf{C}_2$的架积，记为$\mathsf{J}_4\cong \mathsf{C}_2\times \mathsf{C}_2$。
 
-$\mathsf{C}_2\times \mathsf{C}_2$有$4$个元素，分别写为$(e_1,e_2)$、$(e_1,a_2)$、$(a_1,e_2)$、$(a_1,a_2)$。其中$\{e_1,a_1\}$是第一个$\mathsf{C}_2$，$\{e_2,a_2\}$是第二个$\mathsf{C}_2$。实际上，由于两个群独立变化，我们不需要如此严格区分。不致于混淆的时候，我们可以直接把这$4$个元素记为：$(e,e)$、$(e,a)$、$(a,e)$、$(a,a)$。
+$\mathsf{C}_2\times \mathsf{C}_2$有$4$个元素，分别写为$(e_1,e_2)$、$(e_1,a_2)$、$(a_1,e_2)$、$(a_1,a_2)$。其中$\{e_1,a_1\}$是第一个$\mathsf{C}_2$，$\{e_2,a_2\}$是第二个$\mathsf{C}_2$。实际上，由于两个群独立变化，我们不需要如此严格区分。不至于混淆的时候，我们可以直接把这$4$个元素记为：$(e,e)$、$(e,a)$、$(a,e)$、$(a,a)$。
 
 再来考虑$\mathsf{C}_3\times \mathsf{C}_2$。我们可以类似地写出它的元素：$(e,e)$、$(e,b)$、$(a,e)$、$(a,b)$、$(a^2,e)$、$(a^2,b)$。注意这里我们使用乘法来表示$\mathsf{C}_3$和$\mathsf{C}_2$的群运算。它和我们见过的$\mathsf{D}_3$一样，有$6$个元素。但结构并不相同。从$(a,b)$出发，不断重复，可以得到：
 \[
@@ -5665,7 +5727,13 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
 
 我们很早就接触过置换的概念。把$n$个互不相同的物品排成一列，有多少种方法？思考这个问题的时候，可以从某种排列出发。其他的方法，都是把物品的位置换一换得到的。这种变换就是\textbf{置换}。置换就是从$n$元集合到自身的一一对应：物品还是那些物品，只不过位置换了，顺序变了。
 
-我们知道，把$n$个互不相同的物品排成一列，有$n!$种方法。也就是说，如果把完全不变也看作置换，那么$n$个物品一共有$n!$种置换。如果把正三角形的顶点编号看作固定位置，那么旋转和对称变换都是按顺序把三种颜色放进顶点，因此就是某种置换。同理，考虑正方体的旋转时，如果把八个顶点看作固定位置并编号，那么每种旋转变换都是按顺序把八种颜色放入顶点，因此是一种置换。
+我们知道，把$n$个互不相同的物品排成一列，有$n!$种方法。也就是说，如果把完全不变也看作置换，那么$n$个物品一共有$n!$种置换。如果把正三角形的顶点编号看作固定位置，那么旋转和对称变换都是变换了把三种颜色放进顶点的方法，把不同的颜色分别放入不同的位置，因此就是某种置换。同理，考虑正方体的旋转时，如果把八个顶点看作固定位置并编号，那么每种旋转变换都是变换了把八种颜色放入顶点的方法，把不同的颜色分别放入不同的位置，因此是一种置换。
+
+置换与对称有密切联系。置换构成的群称为\textbf{置换群}，在群论中有重要位置。
+
+首先来看一个典型的例子：三种颜色的小球从左到右排成一列。假设某种排列（比如红黄蓝）是初始状态，那么任何一种重新的排列方法，都是初始状态的置换。
+
+显然，一共有$3! = 6$种排列方法，如下图所示：
 
 \vspace{12pt}
 \begin{figure}[htbp]
@@ -5735,11 +5803,7 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
     \label{fig:Ball3Example}
 \end{figure}
 
-置换与对称有密切联系。置换构成的群称为\textbf{置换群}，在群论中有重要位置。
-
-首先来看一个典型的例子：三种颜色的小球从左到右排成一列。假设某种排列（比如红黄蓝）是初始状态，那么任何一种重新的排列方法，都是初始状态的置换。
-
-对于一般的情况，为了好说话，我们用数字来编号：$1,2,\cdots,n$。如果把这$n$个数字从左到右排成一行：$1,2,\cdots,n$，记为初始状态。那么，$1,2,\cdots,n$的任意排列方法，都是从这个状态出发，把数字的位置换一换得到的。因此，对应一个置换。反之，从初始状态出发，任意的置换方法，得到的总是$1,2,\cdots,n$的某种排列。我们用以下方法来记录一个置换：把初始状态的数字写成一行，把置换后的数字也写成一行，然后用箭头连起相同的数字，说明它的位置变到哪里去了。比如，下图就是$1,2,3,4$的几种置换：
+对于一般的情况，为了好说话，我们用数字来编号：$1,2,\cdots,n$。如果把这$n$个数字从左到右排成一行：$1,2,\cdots,n$，记为初始状态。那么，$1,2,\cdots,n$的任意排列方法，都是从这个状态出发，把数字的位置换一换得到的。因此，对应一个置换。反之，从初始状态出发，任意的置换方法，得到的总是$1,2,\cdots,n$的某种排列。我们用以下方法来记录一个置换：把初始状态的数字写成一行，把置换后的数字也写成一行，然后用箭头从置换前的数字指向置换后的数字，说明它变换的结果。比如，下图就是$1,2,3,4$的几种置换：
 
 \vspace{12pt}
 \begin{figure}[htbp]
@@ -5748,104 +5812,108 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
         >=stealth,
         every node/.style={font=\normalsize},
     ]
-
+        \def\dx{6}
         \def\xsep{0.65}       % distance between elements
         \def\colsep{-0.9}      % vertical distance
         
-
-        % =========================================================
-        % Permutation 1: (1 2 3 4) -> (1 2 3 4)
-        % =========================================================
-
-        \begin{scope}
-            \node[above] (a11) at (0*\xsep, 0) {1};
-            \node[above] (a12) at (1*\xsep, 0) {2};
-            \node[above] (a13) at (2*\xsep, 0) {3};
-            \node[above] (a14) at (3*\xsep, 0) {4};
-
-            \node[below] (b11) at (0*\xsep, \colsep) {2};
-            \node[below] (b12) at (1*\xsep, \colsep) {1};
-            \node[below] (b13) at (2*\xsep, \colsep) {3};
-            \node[below] (b14) at (3*\xsep, \colsep) {4};
-
-            \draw[->] (0*\xsep, 0) -- (1*\xsep, \colsep);
-            \draw[->] (1*\xsep, 0) -- (0*\xsep, \colsep);
-            \draw[->] (2*\xsep, 0) -- (2*\xsep, \colsep);
-            \draw[->] (3*\xsep, 0) -- (3*\xsep, \colsep);
+        \begin{scope}[shift={(0*\dx*\xsep,0)}]
+            \coordinate (a10) at (0*\xsep, 0);
+            \coordinate (a11) at (1*\xsep, 0);
+            \coordinate (a12) at (2*\xsep, 0);
+            \coordinate (a13) at (3*\xsep, 0);
+            \coordinate (b10) at (0*\xsep, \colsep);
+            \coordinate (b11) at (1*\xsep, \colsep);
+            \coordinate (b12) at (2*\xsep, \colsep);
+            \coordinate (b13) at (3*\xsep, \colsep);
+            \node[above] at (a10) {1};
+            \node[above] at (a11) {2};
+            \node[above] at (a12) {3};
+            \node[above] at (a13) {4};
+            \node[below] at (b10) {2};
+            \node[below] at (b11) {1};
+            \node[below] at (b12) {3};
+            \node[below] at (b13) {4};
+            \draw[->] (a10) -- (b10);
+            \draw[->] (a11) -- (b11);
+            \draw[->] (a12) -- (b12);
+            \draw[->] (a13) -- (b13);
         \end{scope}
 
-
-        % =========================================================
-        % Permutation 2: (1 2 3 4) -> (2 1 4 3)
-        % =========================================================
-
-        \begin{scope}[xshift=4.0cm]
-            \node[above] (a11) at (0*\xsep, 0) {1};
-            \node[above] (a12) at (1*\xsep, 0) {2};
-            \node[above] (a13) at (2*\xsep, 0) {3};
-            \node[above] (a14) at (3*\xsep, 0) {4};
-
-            \node[below] (b11) at (0*\xsep, \colsep) {1};
-            \node[below] (b12) at (1*\xsep, \colsep) {3};
-            \node[below] (b13) at (2*\xsep, \colsep) {2};
-            \node[below] (b14) at (3*\xsep, \colsep) {4};
-
-            \draw[->] (0*\xsep, 0) -- (0*\xsep, \colsep);
-            \draw[->] (1*\xsep, 0) -- (2*\xsep, \colsep);
-            \draw[->] (2*\xsep, 0) -- (1*\xsep, \colsep);
-            \draw[->] (3*\xsep, 0) -- (3*\xsep, \colsep);
+        \begin{scope}[shift={(1*\dx*\xsep,0)}]
+            \coordinate (a10) at (0*\xsep, 0);
+            \coordinate (a11) at (1*\xsep, 0);
+            \coordinate (a12) at (2*\xsep, 0);
+            \coordinate (a13) at (3*\xsep, 0);
+            \coordinate (b10) at (0*\xsep, \colsep);
+            \coordinate (b11) at (1*\xsep, \colsep);
+            \coordinate (b12) at (2*\xsep, \colsep);
+            \coordinate (b13) at (3*\xsep, \colsep);
+            \node[above] at (a10) {1};
+            \node[above] at (a11) {2};
+            \node[above] at (a12) {3};
+            \node[above] at (a13) {4};
+            \node[below] at (b10) {3};
+            \node[below] at (b11) {1};
+            \node[below] at (b12) {4};
+            \node[below] at (b13) {2};
+            \draw[->] (a10) -- (b10);
+            \draw[->] (a11) -- (b11);
+            \draw[->] (a12) -- (b12);
+            \draw[->] (a13) -- (b13);
         \end{scope}
 
-
-        % =========================================================
-        % Permutation 3: (1 2 3 4) -> (3 4 1 2)
-        % =========================================================
-
-        \begin{scope}[xshift=8.0cm]
-            \node[above] (a11) at (0*\xsep, 0) {1};
-            \node[above] (a12) at (1*\xsep, 0) {2};
-            \node[above] (a13) at (2*\xsep, 0) {3};
-            \node[above] (a14) at (3*\xsep, 0) {4};
-
-            \node[below] (b11) at (0*\xsep, \colsep) {2};
-            \node[below] (b12) at (1*\xsep, \colsep) {4};
-            \node[below] (b13) at (2*\xsep, \colsep) {3};
-            \node[below] (b14) at (3*\xsep, \colsep) {1};
-
-            \draw[->] (0*\xsep, 0) -- (3*\xsep, \colsep);
-            \draw[->] (1*\xsep, 0) -- (0*\xsep, \colsep);
-            \draw[->] (2*\xsep, 0) -- (2*\xsep, \colsep);
-            \draw[->] (3*\xsep, 0) -- (1*\xsep, \colsep);
+        \begin{scope}[shift={(2*\dx*\xsep,0)}]
+            \coordinate (a10) at (0*\xsep, 0);
+            \coordinate (a11) at (1*\xsep, 0);
+            \coordinate (a12) at (2*\xsep, 0);
+            \coordinate (a13) at (3*\xsep, 0);
+            \coordinate (b10) at (0*\xsep, \colsep);
+            \coordinate (b11) at (1*\xsep, \colsep);
+            \coordinate (b12) at (2*\xsep, \colsep);
+            \coordinate (b13) at (3*\xsep, \colsep);
+            \node[above] at (a10) {1};
+            \node[above] at (a11) {2};
+            \node[above] at (a12) {3};
+            \node[above] at (a13) {4};
+            \node[below] at (b10) {4};
+            \node[below] at (b11) {3};
+            \node[below] at (b12) {2};
+            \node[below] at (b13) {1};
+            \draw[->] (a10) -- (b10);
+            \draw[->] (a11) -- (b11);
+            \draw[->] (a12) -- (b12);
+            \draw[->] (a13) -- (b13);
         \end{scope}
 
-
-        % =========================================================
-        % Permutation 4: (1 2 3 4) -> (4 3 2 1)
-        % =========================================================
-
-        \begin{scope}[xshift=12.0cm]
-            \node[above] (a11) at (0*\xsep, 0) {1};
-            \node[above] (a12) at (1*\xsep, 0) {2};
-            \node[above] (a13) at (2*\xsep, 0) {3};
-            \node[above] (a14) at (3*\xsep, 0) {4};
-
-            \node[below] (b11) at (0*\xsep, \colsep) {4};
-            \node[below] (b12) at (1*\xsep, \colsep) {3};
-            \node[below] (b13) at (2*\xsep, \colsep) {2};
-            \node[below] (b14) at (3*\xsep, \colsep) {1};
-
-            \draw[->] (0*\xsep, 0) -- (3*\xsep, \colsep);
-            \draw[->] (1*\xsep, 0) -- (2*\xsep, \colsep);
-            \draw[->] (2*\xsep, 0) -- (1*\xsep, \colsep);
-            \draw[->] (3*\xsep, 0) -- (0*\xsep, \colsep);
+        \begin{scope}[shift={(3*\dx*\xsep,0)}]
+            \coordinate (a10) at (0*\xsep, 0);
+            \coordinate (a11) at (1*\xsep, 0);
+            \coordinate (a12) at (2*\xsep, 0);
+            \coordinate (a13) at (3*\xsep, 0);
+            \coordinate (b10) at (0*\xsep, \colsep);
+            \coordinate (b11) at (1*\xsep, \colsep);
+            \coordinate (b12) at (2*\xsep, \colsep);
+            \coordinate (b13) at (3*\xsep, \colsep);
+            \node[above] at (a10) {1};
+            \node[above] at (a11) {2};
+            \node[above] at (a12) {3};
+            \node[above] at (a13) {4};
+            \node[below] at (b10) {2};
+            \node[below] at (b11) {4};
+            \node[below] at (b12) {3};
+            \node[below] at (b13) {1};
+            \draw[->] (a10) -- (b10);
+            \draw[->] (a11) -- (b11);
+            \draw[->] (a12) -- (b12);
+            \draw[->] (a13) -- (b13);
         \end{scope}
 
     \end{tikzpicture}
-    \label{fig:PermutationExample1}
+    \label{fig:permutation-example-1}
 \end{figure}
 \vspace{12pt}
 
-要注意的是，$1,2,3,4$等只是状态，箭头表示的才是置换本身。我们可以把初始状态改为其他的状态：
+要注意的是：这个表示方法其实不关心初始状态数字的顺序，只关心用箭头从置换前的数字指向置换后的数字。我们可以把初始状态换为别的顺序，甚至把置换后的数字也改变顺序。以上四个置换分别可以写为：
 
 \vspace{12pt}
 \begin{figure}[htbp]
@@ -5854,9 +5922,118 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
         >=stealth,
         every node/.style={font=\normalsize},
     ]
-
+        \def\dx{6}
         \def\xsep{0.65}       % distance between elements
         \def\colsep{-0.9}      % vertical distance
+        
+        \begin{scope}[shift={(0*\dx*\xsep,0)}]
+            \coordinate (a10) at (0*\xsep, 0);
+            \coordinate (a11) at (1*\xsep, 0);
+            \coordinate (a12) at (2*\xsep, 0);
+            \coordinate (a13) at (3*\xsep, 0);
+            \coordinate (b10) at (0*\xsep, \colsep);
+            \coordinate (b11) at (1*\xsep, \colsep);
+            \coordinate (b12) at (2*\xsep, \colsep);
+            \coordinate (b13) at (3*\xsep, \colsep);
+            \node[above] at (a10) {2};
+            \node[above] at (a11) {1};
+            \node[above] at (a12) {3};
+            \node[above] at (a13) {4};
+            \node[below] at (b10) {1};
+            \node[below] at (b11) {2};
+            \node[below] at (b12) {3};
+            \node[below] at (b13) {4};
+            \draw[->] (a10) -- (b10);
+            \draw[->] (a11) -- (b11);
+            \draw[->] (a12) -- (b12);
+            \draw[->] (a13) -- (b13);
+        \end{scope}
+
+        \begin{scope}[shift={(1*\dx*\xsep,0)}]
+            \coordinate (a10) at (0*\xsep, 0);
+            \coordinate (a11) at (1*\xsep, 0);
+            \coordinate (a12) at (2*\xsep, 0);
+            \coordinate (a13) at (3*\xsep, 0);
+            \coordinate (b10) at (0*\xsep, \colsep);
+            \coordinate (b11) at (1*\xsep, \colsep);
+            \coordinate (b12) at (2*\xsep, \colsep);
+            \coordinate (b13) at (3*\xsep, \colsep);
+            \node[above] at (a10) {4};
+            \node[above] at (a11) {3};
+            \node[above] at (a12) {2};
+            \node[above] at (a13) {1};
+            \node[below] at (b10) {2};
+            \node[below] at (b11) {1};
+            \node[below] at (b12) {4};
+            \node[below] at (b13) {3};
+            \draw[->] (a10) -- (b10);
+            \draw[->] (a11) -- (b12);
+            \draw[->] (a12) -- (b11);
+            \draw[->] (a13) -- (b13);
+        \end{scope}
+
+        \begin{scope}[shift={(2*\dx*\xsep,0)}]
+            \coordinate (a10) at (0*\xsep, 0);
+            \coordinate (a11) at (1*\xsep, 0);
+            \coordinate (a12) at (2*\xsep, 0);
+            \coordinate (a13) at (3*\xsep, 0);
+            \coordinate (b10) at (0*\xsep, \colsep);
+            \coordinate (b11) at (1*\xsep, \colsep);
+            \coordinate (b12) at (2*\xsep, \colsep);
+            \coordinate (b13) at (3*\xsep, \colsep);
+            \node[above] at (a10) {2};
+            \node[above] at (a11) {3};
+            \node[above] at (a12) {4};
+            \node[above] at (a13) {1};
+            \node[below] at (b10) {4};
+            \node[below] at (b11) {3};
+            \node[below] at (b12) {1};
+            \node[below] at (b13) {2};
+            \draw[->] (a10) -- (b11);
+            \draw[->] (a11) -- (b13);
+            \draw[->] (a12) -- (b12);
+            \draw[->] (a13) -- (b10);
+        \end{scope}
+
+        \begin{scope}[shift={(3*\dx*\xsep,0)}]
+            \coordinate (a10) at (0*\xsep, 0);
+            \coordinate (a11) at (1*\xsep, 0);
+            \coordinate (a12) at (2*\xsep, 0);
+            \coordinate (a13) at (3*\xsep, 0);
+            \coordinate (b10) at (0*\xsep, \colsep);
+            \coordinate (b11) at (1*\xsep, \colsep);
+            \coordinate (b12) at (2*\xsep, \colsep);
+            \coordinate (b13) at (3*\xsep, \colsep);
+            \node[above] at (a10) {3};
+            \node[above] at (a11) {2};
+            \node[above] at (a12) {1};
+            \node[above] at (a13) {4};
+            \node[below] at (b10) {3};
+            \node[below] at (b11) {4};
+            \node[below] at (b12) {2};
+            \node[below] at (b13) {1};
+            \draw[->] (a10) -- (b10);
+            \draw[->] (a11) -- (b11);
+            \draw[->] (a12) -- (b12);
+            \draw[->] (a13) -- (b13);
+        \end{scope}
+
+    \end{tikzpicture}
+    \label{fig:permutation-exmample-2}
+\end{figure}
+\vspace{12pt}
+
+我们甚至可以把初始状态的数字写成纵列。
+\vspace{12pt}
+\begin{figure}[!h]
+    \centering
+    \begin{tikzpicture}[
+        >=stealth,
+        every node/.style={font=\normalsize},
+    ]
+
+        \def\ysep{-0.65}       % distance between elements
+        \def\colsep{0.9}      % vertical distance
         
 
         % =========================================================
@@ -5864,92 +6041,173 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
         % =========================================================
 
         \begin{scope}
-            \node[above] (a11) at (0*\xsep, 0) {3};
-            \node[above] (a12) at (1*\xsep, 0) {4};
-            \node[above] (a13) at (2*\xsep, 0) {2};
-            \node[above] (a14) at (3*\xsep, 0) {1};
+            \node[left] (a11) at (0,0*\ysep) {1};
+            \node[left] (a12) at (0,1*\ysep) {2};
+            \node[left] (a13) at (0,2*\ysep) {3};
+            \node[left] (a14) at (0,3*\ysep) {4};
 
-            \node[below] (b11) at (0*\xsep, \colsep) {4};
-            \node[below] (b12) at (1*\xsep, \colsep) {3};
-            \node[below] (b13) at (2*\xsep, \colsep) {2};
-            \node[below] (b14) at (3*\xsep, \colsep) {1};
+            \node[right] (b11) at (\colsep,0*\ysep) {1};
+            \node[right] (b12) at (\colsep,1*\ysep) {2};
+            \node[right] (b13) at (\colsep,2*\ysep) {3};
+            \node[right] (b14) at (\colsep,3*\ysep) {4};
 
-            \draw[->] (0*\xsep, 0) -- (1*\xsep, \colsep);
-            \draw[->] (1*\xsep, 0) -- (0*\xsep, \colsep);
-            \draw[->] (2*\xsep, 0) -- (2*\xsep, \colsep);
-            \draw[->] (3*\xsep, 0) -- (3*\xsep, \colsep);
+            \draw[->] (0,0*\ysep) -- (\colsep,1*\ysep);
+            \draw[->] (0,1*\ysep) -- (\colsep,0*\ysep);
+            \draw[->] (0,2*\ysep) -- (\colsep,2*\ysep);
+            \draw[->] (0,3*\ysep) -- (\colsep,3*\ysep);
         \end{scope}
 
-
         % =========================================================
-        % Permutation 2: (1 2 3 4) -> (1 3 2 4)
+        % Permutation 2: (1 2 3 4) -> (3 1 4 2)
         % =========================================================
 
         \begin{scope}[xshift=4.0cm]
-            \node[above] (a11) at (0*\xsep, 0) {2};
-            \node[above] (a12) at (1*\xsep, 0) {4};
-            \node[above] (a13) at (2*\xsep, 0) {3};
-            \node[above] (a14) at (3*\xsep, 0) {1};
+            \node[left] (a11) at (0,0*\ysep) {1};
+            \node[left] (a12) at (0,1*\ysep) {2};
+            \node[left] (a13) at (0,2*\ysep) {3};
+            \node[left] (a14) at (0,3*\ysep) {4};
 
-            \node[below] (b11) at (0*\xsep, \colsep) {2};
-            \node[below] (b12) at (1*\xsep, \colsep) {3};
-            \node[below] (b13) at (2*\xsep, \colsep) {4};
-            \node[below] (b14) at (3*\xsep, \colsep) {1};
+            \node[right] (b11) at (\colsep,0*\ysep) {3};
+            \node[right] (b12) at (\colsep,1*\ysep) {1};
+            \node[right] (b13) at (\colsep,2*\ysep) {4};
+            \node[right] (b14) at (\colsep,3*\ysep) {2};
 
-            \draw[->] (0*\xsep, 0) -- (0*\xsep, \colsep);
-            \draw[->] (1*\xsep, 0) -- (2*\xsep, \colsep);
-            \draw[->] (2*\xsep, 0) -- (1*\xsep, \colsep);
-            \draw[->] (3*\xsep, 0) -- (3*\xsep, \colsep);
+            \draw[->] (0,0*\ysep) -- (\colsep,0*\ysep);
+            \draw[->] (0,1*\ysep) -- (\colsep,1*\ysep);
+            \draw[->] (0,2*\ysep) -- (\colsep,2*\ysep);
+            \draw[->] (0,3*\ysep) -- (\colsep,3*\ysep);
         \end{scope}
 
-
         % =========================================================
-        % Permutation 3: (1 2 3 4) -> (1 2 4 3)
+        % Permutation 3: (1 2 3 4) -> (4 3 2 1)
         % =========================================================
 
         \begin{scope}[xshift=8.0cm]
-            \node[above] (a11) at (0*\xsep, 0) {1};
-            \node[above] (a12) at (1*\xsep, 0) {4};
-            \node[above] (a13) at (2*\xsep, 0) {3};
-            \node[above] (a14) at (3*\xsep, 0) {2};
+            \node[left] (a11) at (0,0*\ysep) {1};
+            \node[left] (a12) at (0,1*\ysep) {4};
+            \node[left] (a13) at (0,2*\ysep) {3};
+            \node[left] (a14) at (0,3*\ysep) {2};
 
-            \node[below] (b11) at (0*\xsep, \colsep) {4};
-            \node[below] (b12) at (1*\xsep, \colsep) {2};
-            \node[below] (b13) at (2*\xsep, \colsep) {3};
-            \node[below] (b14) at (3*\xsep, \colsep) {1};
+            \node[right] (b11) at (\colsep,0*\ysep) {4};
+            \node[right] (b12) at (\colsep,1*\ysep) {2};
+            \node[right] (b13) at (\colsep,2*\ysep) {3};
+            \node[right] (b14) at (\colsep,3*\ysep) {1};
 
-            \draw[->] (0*\xsep, 0) -- (3*\xsep, \colsep);
-            \draw[->] (1*\xsep, 0) -- (0*\xsep, \colsep);
-            \draw[->] (2*\xsep, 0) -- (2*\xsep, \colsep);
-            \draw[->] (3*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (0,0*\ysep) -- (\colsep,0*\ysep);
+            \draw[->] (0,1*\ysep) -- (\colsep,3*\ysep);
+            \draw[->] (0,2*\ysep) -- (\colsep,1*\ysep);
+            \draw[->] (0,3*\ysep) -- (\colsep,2*\ysep);
         \end{scope}
 
-
         % =========================================================
-        % Permutation 4: (1 2 3 4) -> (4 3 2 1)
+        % Permutation 4: (1 2 3 4) -> (2 4 3 1)
         % =========================================================
 
         \begin{scope}[xshift=12.0cm]
-            \node[above] (a11) at (0*\xsep, 0) {3};
-            \node[above] (a12) at (1*\xsep, 0) {1};
-            \node[above] (a13) at (2*\xsep, 0) {2};
-            \node[above] (a14) at (3*\xsep, 0) {4};
+            \node[left] (a11) at (0,0*\ysep) {3};
+            \node[left] (a12) at (0,1*\ysep) {1};
+            \node[left] (a13) at (0,2*\ysep) {2};
+            \node[left] (a14) at (0,3*\ysep) {4};
 
-            \node[below] (b11) at (0*\xsep, \colsep) {4};
-            \node[below] (b12) at (1*\xsep, \colsep) {2};
-            \node[below] (b13) at (2*\xsep, \colsep) {1};
-            \node[below] (b14) at (3*\xsep, \colsep) {3};
+            \node[right] (b11) at (\colsep,0*\ysep) {4};
+            \node[right] (b12) at (\colsep,1*\ysep) {2};
+            \node[right] (b13) at (\colsep,2*\ysep) {1};
+            \node[right] (b14) at (\colsep,3*\ysep) {3};
 
-            \draw[->] (0*\xsep, 0) -- (3*\xsep, \colsep);
-            \draw[->] (1*\xsep, 0) -- (2*\xsep, \colsep);
-            \draw[->] (2*\xsep, 0) -- (1*\xsep, \colsep);
-            \draw[->] (3*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (0,0*\ysep) -- (\colsep,3*\ysep);
+            \draw[->] (0,1*\ysep) -- (\colsep,1*\ysep);
+            \draw[->] (0,2*\ysep) -- (\colsep,0*\ysep);
+            \draw[->] (0,3*\ysep) -- (\colsep,2*\ysep);
         \end{scope}
 
     \end{tikzpicture}
-    \label{fig:PermutationExample2}
+    \label{fig:permutation-example-vertical}
 \end{figure}
 \vspace{12pt}
+
+这个规则和表示映射的箭头是一样的。因此我们可以方便地用它来表示置换的复合：只需要跟着箭头即可。比如下面的置换复合把$1$变为$2$，然后再变为$4$；把$2$变为$1$，然后再变为$3$；把$3$变为$3$，然后再变为$2$；把$4$变为$4$，然后再变为$1$。
+
+\vspace{12pt}
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[
+        >=stealth,
+        every node/.style={font=\normalsize},
+    ]
+        % =========================================================
+        % Permutation 1: (1 2 3 4) -> (2 1 3 4) -> (4 3 2 1)
+        % =========================================================
+    
+        \begin{scope}
+            \def\xsep{0.65}       % distance between elements
+            \def\colsep{-0.9}      % vertical distance
+            \coordinate (a10) at (0*\xsep, 0);
+            \coordinate (a11) at (1*\xsep, 0);
+            \coordinate (a12) at (2*\xsep, 0);
+            \coordinate (a13) at (3*\xsep, 0);
+            \coordinate (Q) at (0,-0.6);
+            \coordinate (P) at ($(0,\colsep) + (Q)$);
+            \coordinate (b10) at (0*\xsep, \colsep);
+            \coordinate (b11) at (1*\xsep, \colsep);
+            \coordinate (b12) at (2*\xsep, \colsep);
+            \coordinate (b13) at (3*\xsep, \colsep);
+            \node[above] at (a10) {1};
+            \node[above] at (a11) {2};
+            \node[above] at (a12) {3};
+            \node[above] at (a13) {4};
+            \node[below] at (b10) {2};
+            \node[below] at (b11) {1};
+            \node[below] at (b12) {3};
+            \node[below] at (b13) {4};
+            \node[below] at ($(b10) + (P)$) {4};
+            \node[below] at ($(b11) + (P)$) {3};
+            \node[below] at ($(b12) + (P)$) {2};
+            \node[below] at ($(b13) + (P)$) {1};
+            \draw[->] (a10) -- (b10);
+            \draw[->] (a11) -- (b11);
+            \draw[->] (a12) -- (b12);
+            \draw[->] (a13) -- (b13);
+            \draw[->] ($(b10)+(Q)$) -- ($(b10) + (P)$);
+            \draw[->] ($(b11)+(Q)$) -- ($(b11) + (P)$);
+            \draw[->] ($(b12)+(Q)$) -- ($(b12) + (P)$);
+            \draw[->] ($(b13)+(Q)$) -- ($(b13) + (P)$);
+        \end{scope}
+
+        \begin{scope}[shift={(5,0)}]
+            \def\xsep{0.55}
+            \def\ysep{-0.65}  
+            \def\colsep{1.2}   
+
+            \node[left] (a11) at (0,0*\ysep) {1};
+            \node[left] (a12) at (0,1*\ysep) {2};
+            \node[left] (a13) at (0,2*\ysep) {3};
+            \node[left] (a14) at (0,3*\ysep) {4};
+
+            \node[right] (b11) at (\colsep,0*\ysep) {1};
+            \node[right] (b12) at (\colsep,1*\ysep) {2};
+            \node[right] (b13) at (\colsep,2*\ysep) {3};
+            \node[right] (b14) at (\colsep,3*\ysep) {4};
+
+            \node[right] at (2*\colsep+\xsep,0*\ysep) {3};
+            \node[right] at (2*\colsep+\xsep,1*\ysep) {4};
+            \node[right] at (2*\colsep+\xsep,2*\ysep) {2};
+            \node[right] at (2*\colsep+\xsep,3*\ysep) {1};
+
+            \draw[->] (0,0*\ysep) -- (\colsep,1*\ysep);
+            \draw[->] (0,1*\ysep) -- (\colsep,0*\ysep);
+            \draw[->] (0,2*\ysep) -- (\colsep,2*\ysep);
+            \draw[->] (0,3*\ysep) -- (\colsep,3*\ysep);
+            
+            \draw[->] (\colsep+\xsep,0*\ysep) -- (2*\colsep+\xsep,2*\ysep);
+            \draw[->] (\colsep+\xsep,1*\ysep) -- (2*\colsep+\xsep,1*\ysep);
+            \draw[->] (\colsep+\xsep,2*\ysep) -- (2*\colsep+\xsep,0*\ysep);
+            \draw[->] (\colsep+\xsep,3*\ysep) -- (2*\colsep+\xsep,3*\ysep);
+        \end{scope}
+
+    \end{tikzpicture}
+    \caption{\texttt{两种方法记录置换的复合：把$(1\,2\,3\,4)$变为$(2\,1\,3\,4)$，再变为$(4\,3\,2\,1)$。}}
+    \label{fig:permutation-example-composition}
+\end{figure}
 
 所有$n$个元素的置换，或者说$n$元集合的所有双射，按照映射的复合运算，构成群吗？不难验证，答案是肯定的。首先，容易验证置换的复合运算满足封闭性：置换的复合仍然是置换。其次，映射的复合运算满足结合律。再者，恒等映射是置换的复合运算的单位元。最后，每个置换都是双射，因此必然有逆映射，逆映射也是置换，按定义逆转置换的效果，这就是逆元的定义。因此，所有$n$元置换构成群。我们称它为$\boldsymbol{n}$\textbf{元全置换群}，记为$\mathsf{S}_n$。它有$n!$个元素。比如，$\mathsf{S}_3$有$3! = 6$个元素，$\mathsf{S}_4$有$4! = 24$个元素。一般集合$X$上的全置换群则记为$\mathsf{S}_X$。
 
@@ -5993,8 +6251,8 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
             \node[below] (b13) at (2*\xsep, \colsep) {2};
 
             \draw[->] (0*\xsep, 0) -- (0*\xsep, \colsep);
-            \draw[->] (1*\xsep, 0) -- (2*\xsep, \colsep);
-            \draw[->] (2*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (2*\xsep, \colsep);
         \end{scope}
 
         \begin{scope}[xshift=2*\groupsep]
@@ -6006,8 +6264,8 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
             \node[below] (b12) at (1*\xsep, \colsep) {1};
             \node[below] (b13) at (2*\xsep, \colsep) {3};
 
-            \draw[->] (0*\xsep, 0) -- (1*\xsep, \colsep);
-            \draw[->] (1*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (0*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (1*\xsep, \colsep);
             \draw[->] (2*\xsep, 0) -- (2*\xsep, \colsep);
         \end{scope}
 
@@ -6020,9 +6278,9 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
             \node[below] (b12) at (1*\xsep, \colsep) {3};
             \node[below] (b13) at (2*\xsep, \colsep) {1};
 
-            \draw[->] (0*\xsep, 0) -- (2*\xsep, \colsep);
-            \draw[->] (1*\xsep, 0) -- (0*\xsep, \colsep);
-            \draw[->] (2*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (0*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (2*\xsep, \colsep);
         \end{scope}
 
         \begin{scope}[xshift=4*\groupsep]
@@ -6034,9 +6292,9 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
             \node[below] (b12) at (1*\xsep, \colsep) {1};
             \node[below] (b13) at (2*\xsep, \colsep) {2};
 
-            \draw[->] (0*\xsep, 0) -- (1*\xsep, \colsep);
-            \draw[->] (1*\xsep, 0) -- (2*\xsep, \colsep);
-            \draw[->] (2*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (0*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (2*\xsep, \colsep);
         \end{scope}
 
         \begin{scope}[xshift=5*\groupsep]
@@ -6048,9 +6306,9 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
             \node[below] (b12) at (1*\xsep, \colsep) {2};
             \node[below] (b13) at (2*\xsep, \colsep) {1};
 
-            \draw[->] (0*\xsep, 0) -- (2*\xsep, \colsep);
+            \draw[->] (0*\xsep, 0) -- (0*\xsep, \colsep);
             \draw[->] (1*\xsep, 0) -- (1*\xsep, \colsep);
-            \draw[->] (2*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (2*\xsep, \colsep);
         \end{scope}
 
 
@@ -6059,14 +6317,14 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
 \end{figure}
 \vspace{8pt}
 
-分别研究后两类置换。恰好交换两个位置的置换，称为\textbf{对换}，即把一对物品交换。对换两次就是恒等变换。所有位置都变了的两个置换，一个把$1$变为$2$、把$2$变为$3$、把$3$变为$1$；一个把$1$变为$3$、把$3$变为$2$、把$2$变为$1$。这样把一组对象轮转移位的置换称为\textbf{轮换}。如果有$k$个对象被移位，就称为$k$\textbf{元轮换}，说轮换的长度是$k$。这两个轮换各自重复两次会变成对方。如果重复三次，那么都变为恒等变换。这个结构非常眼熟。我们猜想：$\mathsf{S}_3$就是映轮群$\mathsf{D}_3$。
+分别研究后两类置换。恰好交换两个位置的置换，称为\textbf{对换}，即把一对物品交换。对换两次就是恒等变换。所有位置都变了的两个置换，一个把$1$变为$2$、把$2$变为$3$、把$3$变为$1$；一个把$1$变为$3$、把$3$变为$2$、把$2$变为$1$。这样把一组对象轮转移位的置换称为\textbf{轮换}。如果有$k$个对象被移位，就称为$k$\textbf{元轮换}，说轮换的长度是$k$。这两个轮换都是$3$元轮换，各自重复两次会变成对方。而如果重复三次，那么都变为恒等变换。这个结构非常眼熟。我们猜想：$\mathsf{S}_3$就是映轮群$\mathsf{D}_3$。
 \begin{tm}\label{tm:4-20}
     三元全置换群同构于正三角形的映轮群：$\mathsf{S}_3\cong \mathsf{D}_3$。
 \end{tm}
 
-事实上确实如此。把正三角形的三个顶点视为固定位置，三个颜色编号为$1,2,3$，那么，$\mathsf{D}_3$里的各种变换就是$1,2,3$的置换。
+事实上确实如此。把正三角形顶点所在的固定位置编号为$1,2,3$，那么，$\mathsf{D}_3$里的各种变换，就是顶点位置的变换。比如，逆时针旋转$120^\circ$的效果，就是把顶点从$1$转到$2$，从$2$转到$3$，从$3$转到$1$。因此，我们可以把它和置换：$1\to 2,\;2\to 3,\,3\to 1$对应起来。如下图，$\mathsf{D}_3$里的每个变换，都恰好对应$\mathsf{S}_3$里的一个三元置换。
 
-% 插图：正三角形顶点和置换的关系。左边把染色顶点编号，右边逐个显示几何变换效果和编号映射箭头
+\vspace{12pt}
 \begin{figure}[htbp]
     \centering
     \begin{tikzpicture}[>=Stealth]
@@ -6141,26 +6399,26 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
                 \node[above] (a11) at (\ly+1*\xsep, \lx) {2};
                 \node[above] (a11) at (\ly+2*\xsep, \lx) {3};
 
-                \node[below] (b11) at (\ly+0*\xsep, \lx+\colsep) {3};
-                \node[below] (b12) at (\ly+1*\xsep, \lx+\colsep) {1};
-                \node[below] (b13) at (\ly+2*\xsep, \lx+\colsep) {2};
+                \node[below] (b11) at (\ly+0*\xsep, \lx+\colsep) {2};
+                \node[below] (b12) at (\ly+1*\xsep, \lx+\colsep) {3};
+                \node[below] (b13) at (\ly+2*\xsep, \lx+\colsep) {1};
 
-                \draw[->] (\ly+0*\xsep, \lx) -- (\ly+1*\xsep, \lx+\colsep);
-                \draw[->] (\ly+1*\xsep, \lx) -- (\ly+2*\xsep, \lx+\colsep);
-                \draw[->] (\ly+2*\xsep, \lx) -- (\ly+0*\xsep, \lx+\colsep);
+                \draw[->] (\ly+0*\xsep, \lx) -- (\ly+0*\xsep, \lx+\colsep);
+                \draw[->] (\ly+1*\xsep, \lx) -- (\ly+1*\xsep, \lx+\colsep);
+                \draw[->] (\ly+2*\xsep, \lx) -- (\ly+2*\xsep, \lx+\colsep);
             \end{scope}            
             \begin{scope}[shift={(A3)}]
                 \node[above] (a11) at (\ly+0*\xsep, \lx) {1};
                 \node[above] (a11) at (\ly+1*\xsep, \lx) {2};
                 \node[above] (a11) at (\ly+2*\xsep, \lx) {3};
 
-                \node[below] (b11) at (\ly+0*\xsep, \lx+\colsep) {2};
-                \node[below] (b12) at (\ly+1*\xsep, \lx+\colsep) {3};
-                \node[below] (b13) at (\ly+2*\xsep, \lx+\colsep) {1};
+                \node[below] (b11) at (\ly+0*\xsep, \lx+\colsep) {3};
+                \node[below] (b12) at (\ly+1*\xsep, \lx+\colsep) {1};
+                \node[below] (b13) at (\ly+2*\xsep, \lx+\colsep) {2};
 
-                \draw[->] (\ly+0*\xsep, \lx) -- (\ly+2*\xsep, \lx+\colsep);
-                \draw[->] (\ly+1*\xsep, \lx) -- (\ly+0*\xsep, \lx+\colsep);
-                \draw[->] (\ly+2*\xsep, \lx) -- (\ly+1*\xsep, \lx+\colsep);
+                \draw[->] (\ly+0*\xsep, \lx) -- (\ly+0*\xsep, \lx+\colsep);
+                \draw[->] (\ly+1*\xsep, \lx) -- (\ly+1*\xsep, \lx+\colsep);
+                \draw[->] (\ly+2*\xsep, \lx) -- (\ly+2*\xsep, \lx+\colsep);
             \end{scope}            
             \begin{scope}[shift={(A4)}]
                 \node[above] (a11) at (\ly+0*\xsep, \lx) {1};
@@ -6172,8 +6430,8 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
                 \node[below] (b13) at (\ly+2*\xsep, \lx+\colsep) {2};
 
                 \draw[->] (\ly+0*\xsep, \lx) -- (\ly+0*\xsep, \lx+\colsep);
-                \draw[->] (\ly+1*\xsep, \lx) -- (\ly+2*\xsep, \lx+\colsep);
-                \draw[->] (\ly+2*\xsep, \lx) -- (\ly+1*\xsep, \lx+\colsep);
+                \draw[->] (\ly+1*\xsep, \lx) -- (\ly+1*\xsep, \lx+\colsep);
+                \draw[->] (\ly+2*\xsep, \lx) -- (\ly+2*\xsep, \lx+\colsep);
             \end{scope}            
             \begin{scope}[shift={(A5)}]
                 \node[above] (a11) at (\ly+0*\xsep, \lx) {1};
@@ -6184,9 +6442,9 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
                 \node[below] (b12) at (\ly+1*\xsep, \lx+\colsep) {2};
                 \node[below] (b13) at (\ly+2*\xsep, \lx+\colsep) {1};
 
-                \draw[->] (\ly+0*\xsep, \lx) -- (\ly+2*\xsep, \lx+\colsep);
+                \draw[->] (\ly+0*\xsep, \lx) -- (\ly+0*\xsep, \lx+\colsep);
                 \draw[->] (\ly+1*\xsep, \lx) -- (\ly+1*\xsep, \lx+\colsep);
-                \draw[->] (\ly+2*\xsep, \lx) -- (\ly+0*\xsep, \lx+\colsep);
+                \draw[->] (\ly+2*\xsep, \lx) -- (\ly+2*\xsep, \lx+\colsep);
             \end{scope}
             \begin{scope}[shift={(A6)}]
                 \node[above] (a11) at (\ly+0*\xsep, \lx) {1};
@@ -6197,8 +6455,8 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
                 \node[below] (b12) at (\ly+1*\xsep, \lx+\colsep) {1};
                 \node[below] (b13) at (\ly+2*\xsep, \lx+\colsep) {3};
 
-                \draw[->] (\ly+0*\xsep, \lx) -- (\ly+1*\xsep, \lx+\colsep);
-                \draw[->] (\ly+1*\xsep, \lx) -- (\ly+0*\xsep, \lx+\colsep);
+                \draw[->] (\ly+0*\xsep, \lx) -- (\ly+0*\xsep, \lx+\colsep);
+                \draw[->] (\ly+1*\xsep, \lx) -- (\ly+1*\xsep, \lx+\colsep);
                 \draw[->] (\ly+2*\xsep, \lx) -- (\ly+2*\xsep, \lx+\colsep);
             \end{scope}   
         \end{scope}
@@ -6206,9 +6464,11 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
     \caption{\texttt{映轮群$\mathsf{D}_3$和全置换群$\mathsf{S}_3$的对应关系}}
 \end{figure}
 
-可以看出，三个翻转变换就是对换。因为按中线翻转保持中线上的顶点不变，交换另两个顶点。而两个旋转变换就是完全移位的轮换。按这个对应方式，$\mathsf{S}_3$就是映轮群$\mathsf{D}_3$。我们可以逐个验证三元置换两两组合的效果，和$\mathsf{D}_3$对应变换组合的效果一样。这说明两者的群乘法表一模一样，因此两者同构。我们之前把$\mathsf{D}_3$称为三元对称群，并不是错误，而是因为$\mathsf{D}_3$确实包含了三元变换的所有对称性。
+可以看出，三个翻转变换就是对换。因为按中线翻转保持中线上的顶点不变，交换另两个顶点。而两个旋转变换就是完全移位的$3$元轮换。按这个方式，我们建立了$\mathsf{S}_3$和映轮群$\mathsf{D}_3$之间的一一对应。我们可以接着逐个验证三元置换两两组合的效果，即群$\mathsf{S}_3$的乘法。其运算律和$\mathsf{D}_3$对应变换的运算律是一样的。例如，先对换$1$和$2$（对应$s_3$），再对换$2$和$3$（对应$s_1$），得到$(3\,1\,2)$（对应$r_2$）。而$r_2 = s_3\rightarrow s_1$。这说明两者的群乘法表一模一样，因此两者同构。我们之前把$\mathsf{D}_3$称为三元对称群，并不是错误，而是因为$\mathsf{D}_3$确实包含了三元变换的所有对称性。
 
-注意：$\mathsf{S}_3$和$\mathsf{D}_3$的关系只是巧合。$n\neq 3$时，$\mathsf{S}_n$和$\mathsf{D}_n$并不同构。前者有$n!$个元素，后者只有$2n$个。随着$n$增大，差别会越来越大。
+\textbf{注意}：$\mathsf{S}_3$和$\mathsf{D}_3$的关系只是巧合。$n\neq 3$时，$\mathsf{S}_n$和$\mathsf{D}_n$并不同构。前者有$n!$个元素，后者只有$2n$个。随着$n$增大，差别会越来越大。
+
+\clearpage
 
 \section{置换群定理}
 全置换群代表了怎样的对称性呢？全置换群对应集合的对称性。回顾集合的定义：集合是无序的，它只关心一个元素是否属于它，不关心它的元素按什么方式罗列。因此，集合经过任何置换都不改变。这就是全置换群对应的对称性。我们也称全置换群为集合的\textbf{对称群}。$n$元全置换群就是$n$元集合的对称群，简称$\boldsymbol{n}$\textbf{元对称群}。
@@ -6226,28 +6486,6 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
         \def\xsep{0.65}       % distance between elements
         \def\colsep{-0.8}      % vertical distance
         
-
-        % =========================================================
-        % Permutation 1: (1 2 3 4) -> (1 2 3 4)
-        % =========================================================
-
-        \begin{scope}
-            \node[above] (a11) at (0*\xsep, 0) {1};
-            \node[above] (a12) at (1*\xsep, 0) {2};
-            \node[above] (a13) at (2*\xsep, 0) {3};
-            \node[above] (a14) at (3*\xsep, 0) {4};
-
-            \node[below] (b11) at (0*\xsep, \colsep) {1};
-            \node[below] (b12) at (1*\xsep, \colsep) {2};
-            \node[below] (b13) at (2*\xsep, \colsep) {3};
-            \node[below] (b14) at (3*\xsep, \colsep) {4};
-
-            \draw[->] (0*\xsep, 0) -- (0*\xsep, \colsep);
-            \draw[->] (1*\xsep, 0) -- (1*\xsep, \colsep);
-            \draw[->] (2*\xsep, 0) -- (2*\xsep, \colsep);
-            \draw[->] (3*\xsep, 0) -- (3*\xsep, \colsep);
-        \end{scope}
-
         \begin{scope}[shift={(1,2.5)}]
             \def\x{0.2}
             \pic[scale=1] (R0) at (0,3) {recta={BrickRed}{LimeGreen}{RoyalBlue}{Goldenrod}};
@@ -6301,31 +6539,22 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
             \node at (12+\x+0.1,1.5) {$pq$};
         \end{scope}
 
-        % =========================================================
-        % Permutation 2: (1 2 3 4) -> (2 1 4 3)
-        % =========================================================
-
-        \begin{scope}[xshift=8.0cm]
+        \begin{scope}
             \node[above] (a11) at (0*\xsep, 0) {1};
             \node[above] (a12) at (1*\xsep, 0) {2};
             \node[above] (a13) at (2*\xsep, 0) {3};
             \node[above] (a14) at (3*\xsep, 0) {4};
 
-            \node[below] (b11) at (0*\xsep, \colsep) {2};
-            \node[below] (b12) at (1*\xsep, \colsep) {1};
-            \node[below] (b13) at (2*\xsep, \colsep) {4};
-            \node[below] (b14) at (3*\xsep, \colsep) {3};
+            \node[below] (b11) at (0*\xsep, \colsep) {1};
+            \node[below] (b12) at (1*\xsep, \colsep) {2};
+            \node[below] (b13) at (2*\xsep, \colsep) {3};
+            \node[below] (b14) at (3*\xsep, \colsep) {4};
 
-            \draw[->] (0*\xsep, 0) -- (1*\xsep, \colsep);
-            \draw[->] (1*\xsep, 0) -- (0*\xsep, \colsep);
-            \draw[->] (2*\xsep, 0) -- (3*\xsep, \colsep);
-            \draw[->] (3*\xsep, 0) -- (2*\xsep, \colsep);
+            \draw[->] (0*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (2*\xsep, \colsep);
+            \draw[->] (3*\xsep, 0) -- (3*\xsep, \colsep);
         \end{scope}
-
-
-        % =========================================================
-        % Permutation 3: (1 2 3 4) -> (4 3 2 1)
-        % =========================================================
 
         \begin{scope}[xshift=4.0cm]
             \node[above] (a11) at (0*\xsep, 0) {1};
@@ -6338,16 +6567,28 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
             \node[below] (b13) at (2*\xsep, \colsep) {2};
             \node[below] (b14) at (3*\xsep, \colsep) {1};
 
-            \draw[->] (0*\xsep, 0) -- (3*\xsep, \colsep);
-            \draw[->] (1*\xsep, 0) -- (2*\xsep, \colsep);
-            \draw[->] (2*\xsep, 0) -- (1*\xsep, \colsep);
-            \draw[->] (3*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (0*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (2*\xsep, \colsep);
+            \draw[->] (3*\xsep, 0) -- (3*\xsep, \colsep);
         \end{scope}
 
+        \begin{scope}[xshift=8.0cm]
+            \node[above] (a11) at (0*\xsep, 0) {1};
+            \node[above] (a12) at (1*\xsep, 0) {2};
+            \node[above] (a13) at (2*\xsep, 0) {3};
+            \node[above] (a14) at (3*\xsep, 0) {4};
 
-        % =========================================================
-        % Permutation 4: (1 2 3 4) -> (3 4 1 2)
-        % =========================================================
+            \node[below] (b11) at (0*\xsep, \colsep) {2};
+            \node[below] (b12) at (1*\xsep, \colsep) {1};
+            \node[below] (b13) at (2*\xsep, \colsep) {4};
+            \node[below] (b14) at (3*\xsep, \colsep) {3};
+
+            \draw[->] (0*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (2*\xsep, \colsep);
+            \draw[->] (3*\xsep, 0) -- (3*\xsep, \colsep);
+        \end{scope}
 
         \begin{scope}[xshift=12.0cm]
             \node[above] (a11) at (0*\xsep, 0) {1};
@@ -6360,15 +6601,15 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
             \node[below] (b13) at (2*\xsep, \colsep) {1};
             \node[below] (b14) at (3*\xsep, \colsep) {2};
 
-            \draw[->] (0*\xsep, 0) -- (2*\xsep, \colsep);
-            \draw[->] (1*\xsep, 0) -- (3*\xsep, \colsep);
-            \draw[->] (2*\xsep, 0) -- (0*\xsep, \colsep);
-            \draw[->] (3*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (0*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (2*\xsep, \colsep);
+            \draw[->] (3*\xsep, 0) -- (3*\xsep, \colsep);
         \end{scope}
 
     \end{tikzpicture}
     \caption{\texttt{矩群元素对应的置换}}
-    \label{fig:PermutationRecta}
+    \label{fig:rectangle-permutation}
 \end{figure}
 \vspace{12pt}
 
@@ -6381,7 +6622,7 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
 \vspace{12pt}
 \begin{table}[htbp]
     \centering
-    \label{tab:CayleyK4}
+    \label{tab:cayley-J4-permutation}
     \renewcommand{\arraystretch}{1.5} 
     \setlength{\tabcolsep}{12pt} 
     \begin{tabular}[b]{|c|c!{\color{gray!50}\vrule}c!{\color{gray!50}\vrule}c!{\color{gray!50}\vrule}c|}
@@ -6425,7 +6666,7 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
         \draw[densely dashed,thick,Brown!60!yellow] (-0.3,\colsep-3-0.6) rectangle (3*\xsep+0.3,\colsep-3);
         \draw[densely dashed,thick,Green] (4-0.3,\colsep-3-0.6) rectangle (4+3*\xsep+0.3,\colsep-3);
         % =========================================================
-        % Permutation 1: (1 2 3 4) -> (2 1 3 4)
+        % Permutation 1: (1 2 3 4) -> (1 2 3 4)
         % =========================================================
 
         \begin{scope}
@@ -6446,9 +6687,8 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
             \draw[->] (3*\xsep, 0) -- (3*\xsep, \colsep);
         \end{scope}
 
-
         % =========================================================
-        % Permutation 2: (1 2 3 4) -> (1 3 2 4)
+        % Permutation 2: (1 2 3 4) -> (2 1 4 3)
         % =========================================================
 
         \begin{scope}[xshift=4.0cm]
@@ -6463,15 +6703,14 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
             \node[below] (b13) at (2*\xsep, \colsep) {4};
             \node[below] (b14) at (3*\xsep, \colsep) {3};
 
-            \draw[->] (0*\xsep, 0) -- (1*\xsep, \colsep);
-            \draw[->] (1*\xsep, 0) -- (0*\xsep, \colsep);
-            \draw[->] (2*\xsep, 0) -- (3*\xsep, \colsep);
-            \draw[->] (3*\xsep, 0) -- (2*\xsep, \colsep);
+            \draw[->] (0*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (2*\xsep, \colsep);
+            \draw[->] (3*\xsep, 0) -- (3*\xsep, \colsep);
         \end{scope}
 
-
         % =========================================================
-        % Permutation 3: (1 2 3 4) -> (1 2 4 3)
+        % Permutation 3: (1 2 3 4) -> (3 4 1 2)
         % =========================================================
 
         \begin{scope}[yshift=-3.0cm]
@@ -6486,12 +6725,11 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
             \node[below] (b13) at (2*\xsep, \colsep) {1};
             \node[below] (b14) at (3*\xsep, \colsep) {2};
 
-            \draw[->] (0*\xsep, 0) -- (2*\xsep, \colsep);
-            \draw[->] (1*\xsep, 0) -- (3*\xsep, \colsep);
-            \draw[->] (2*\xsep, 0) -- (0*\xsep, \colsep);
-            \draw[->] (3*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (0*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (2*\xsep, \colsep);
+            \draw[->] (3*\xsep, 0) -- (3*\xsep, \colsep);
         \end{scope}
-
 
         % =========================================================
         % Permutation 4: (1 2 3 4) -> (4 3 2 1)
@@ -6509,10 +6747,10 @@ $$ r \;=\; r\leftarrow(srsr) \;=\; rsrsr \;= \;(rsrs)\leftarrow r. $$
             \node[below] (b13) at (2*\xsep, \colsep) {2};
             \node[below] (b14) at (3*\xsep, \colsep) {1};
 
-            \draw[->] (0*\xsep, 0) -- (3*\xsep, \colsep);
-            \draw[->] (1*\xsep, 0) -- (2*\xsep, \colsep);
-            \draw[->] (2*\xsep, 0) -- (1*\xsep, \colsep);
-            \draw[->] (3*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (0*\xsep, 0) -- (0*\xsep, \colsep);
+            \draw[->] (1*\xsep, 0) -- (1*\xsep, \colsep);
+            \draw[->] (2*\xsep, 0) -- (2*\xsep, \colsep);
+            \draw[->] (3*\xsep, 0) -- (3*\xsep, \colsep);
         \end{scope}
 
     \end{tikzpicture}
@@ -6572,6 +6810,9 @@ $$T_i(i^{-1}\cdot j) = i\cdot(i^{-1}\cdot j) = (i\cdot i^{-1})\cdot j \; = \; e\
 要注意的是，$n$元群并不是只能同构于$n$元变换构成的群。比如前面介绍的$\mathsf{D}_3$同构于$\mathsf{S}_3$。而按照以上推导，$\mathsf{D}_3$同构于某个$6$元置换构成的群（因为$\mathsf{D}_3$有$6$个元素）。当然，由于它们同构，本质上都是同一个群。
 
 当$n>3$时，全置换群的元素个数增长得非常快。$\mathsf{S}_4$有$24$个元素，$\mathsf{S}_5$有$120$个元素，$\mathsf{S}_6$则有$720$个元素了。这么多元素的群，十分复杂，只靠逐个元素去分析，已经不现实。我们可以勉强分析一下$\mathsf{S}_4$。$\mathsf{S}_4$的元素个数和第一章里提到的正方体的旋转群一样多。实际上，这两个群是同构的。
+\begin{tm}
+    四元全置换群同构于正方体的旋转群：$\mathsf{S}_4\cong\mathsf{T}_6$。
+\end{tm}
 
 \vspace{12pt}
 \begin{figure}[htbp]
@@ -6648,12 +6889,663 @@ $$T_i(i^{-1}\cdot j) = i\cdot(i^{-1}\cdot j) = (i\cdot i^{-1})\cdot j \; = \; e\
     \label{fig:cube-body-diagonals-1}
 \end{figure}
 
-为了看清这一点，我们可以考虑正方体的顶心对角线，即穿过正方体中心和一对顶点的对角线。顶心对角线有四条，把正方体的$8$个顶点分成四对。如果转动正方体保持位置形状不变，那么顶心对角线仍然是顶心对角线。所以，正方体的旋转变换实际上是四条顶心对角线的重排。把四条顶心对角线编号，那么正方体的任何旋转都对应一个$4$元置换。我们把这个对应关系记为映射$\phi$。
+为了看清这一点，可以考虑正方体的顶心对角线，即穿过正方体中心和一对顶点的对角线。顶心对角线有四条，把正方体的$8$个顶点分成四对。旋转正方体前后，顶心对角线仍然是顶心对角线。所以，正方体的旋转变换实际上是四条顶心对角线的重排。把四条顶心对角线编号，那么正方体的任何旋转都对应一个$4$元置换。我们把这个对应关系记为映射$\phi$。通过枚举所有旋转和$4$元置换的一一对应关系（见图\ref{fig:cube-rotation-permutation-map}）可知，映射$\phi$是双射。此外，$\phi$传递群运算：旋转作为映射的复合，自然对应着顶心对角线变换的复合，因此对应$4$元置换的复合。因此，$\phi$是群的同构。正方体的旋转群，就是$\mathsf{S}_4$。
 
-可以证明，映射$\phi$是双射。实际上，如果两个旋转对应同一个$4$元置换，就是说它们变换四个顶心对角线的结果相同，于是$8$个顶点作为顶心对角线的端点，也完全相同。这就说明两个旋转完全一致。这说明对应关系是单射。但两个群元素个数相同，所以单射就是双射。此外，$\phi$传递群运算：旋转作为映射的复合，自然对应着顶心对角线变换的复合，因此对应$4$元置换的复合。因此，$\phi$是群的同构。正方体的旋转群，就是$\mathsf{S}_4$。
-\begin{tm}
-    四元全置换群同构于正方体的旋转群：$\mathsf{S}_4\cong\mathsf{T}_6$。
-\end{tm}
+\vspace{12pt}
+\begin{figure}[htbp]
+    \centering        
+    \begin{tikzpicture}[>=Stealth]
+        % 定义参数
+        
+        \def\r{0.9}
+        \def\dx{2.5}
+        \def\dy{-4}
+        \def\px{-0.65}
+        \def\py{-1.35}
+        \def\xb{1}
+        \def\yb{0.9}
+        \def\va{BrickRed}
+        \def\vb{ForestGreen}
+        \def\vc{MidnightBlue}
+        \def\vd{YellowOrange}
+        \def\ca{SkyBlue}
+        \def\cb{Yellow}
+        \def\cc{Lavender}
+        \def\cd{LimeGreen}
+        
+        \begin{scope}[shift={(0,1.6)}]
+            \def\R{4pt}
+            \def\x{1.6}
+            \def\xt{3.2}
+
+            \draw[thick] (0*\x+0*\xt,0) -- node [midway,above] {1} (1*\x+0*\xt,0);
+            \draw[thick] (0*\x+1*\xt,0) -- node [midway,above] {2} (1*\x+1*\xt,0);
+            \draw[thick] (0*\x+2*\xt,0) -- node [midway,above] {3} (1*\x+2*\xt,0);
+            \draw[thick] (0*\x+3*\xt,0) -- node [midway,above] {4} (1*\x+3*\xt,0);
+            \fill[\va] (0*\x+0*\xt,0) circle (\R);
+            \fill[\cc] (1*\x+0*\xt,0) circle (\R);
+            \fill[\vb] (0*\x+1*\xt,0) circle (\R);
+            \fill[\cd] (1*\x+1*\xt,0) circle (\R);
+            \fill[\vc] (0*\x+2*\xt,0) circle (\R);
+            \fill[\ca] (1*\x+2*\xt,0) circle (\R);
+            \fill[\vd] (0*\x+3*\xt,0) circle (\R);
+            \fill[\cb] (1*\x+3*\xt,0) circle (\R);
+        \end{scope}
+
+        \begin{scope} 
+            \pic at (0*\dx*\r,0*\dy*\r) {cube={\va}{\vb}{\vc}{\vd}{\ca}{\cb}{\cc}{\cd}{\r}};
+            \pic at (1*\dx*\r,0*\dy*\r) {cube={\va}{\vd}{\cd}{\ca}{\vb}{\vc}{\cc}{\cb}{\r}};
+            \pic at (2*\dx*\r,0*\dy*\r) {cube={\va}{\ca}{\cb}{\vb}{\vd}{\cd}{\cc}{\vc}{\r}};
+            \pic at (3*\dx*\r,0*\dy*\r) {cube={\vb}{\cb}{\cc}{\vc}{\va}{\ca}{\cd}{\vd}{\r}};
+            \pic at (4*\dx*\r,0*\dy*\r) {cube={\vb}{\vc}{\vd}{\va}{\cb}{\cc}{\cd}{\ca}{\r}};
+            \pic at (5*\dx*\r,0*\dy*\r) {cube={\vb}{\va}{\ca}{\cb}{\vc}{\vd}{\cd}{\cc}{\r}};
+            \pic at (0*\dx*\r,1*\dy*\r) {cube={\vc}{\cc}{\cd}{\vd}{\vb}{\cb}{\ca}{\va}{\r}};
+            \pic at (1*\dx*\r,1*\dy*\r) {cube={\vc}{\vd}{\va}{\vb}{\cc}{\cd}{\ca}{\cb}{\r}};
+            \pic at (2*\dx*\r,1*\dy*\r) {cube={\vc}{\vb}{\cb}{\cc}{\vd}{\va}{\ca}{\cd}{\r}};
+            \pic at (3*\dx*\r,1*\dy*\r) {cube={\vd}{\vc}{\cc}{\cd}{\va}{\vb}{\cb}{\ca}{\r}};
+            \pic at (4*\dx*\r,1*\dy*\r) {cube={\vd}{\va}{\vb}{\vc}{\cd}{\ca}{\cb}{\cc}{\r}};
+            \pic at (5*\dx*\r,1*\dy*\r) {cube={\vd}{\cd}{\ca}{\va}{\vc}{\cc}{\cb}{\vb}{\r}};
+            \pic at (0*\dx*\r,2*\dy*\r) {cube={\ca}{\cd}{\cc}{\cb}{\va}{\vd}{\vc}{\vb}{\r}};
+            \pic at (1*\dx*\r,2*\dy*\r) {cube={\ca}{\cb}{\vb}{\va}{\cd}{\cc}{\vc}{\vd}{\r}};
+            \pic at (2*\dx*\r,2*\dy*\r) {cube={\ca}{\va}{\vd}{\cd}{\cb}{\vb}{\vc}{\cc}{\r}};
+            \pic at (3*\dx*\r,2*\dy*\r) {cube={\cb}{\vb}{\va}{\ca}{\cc}{\vc}{\vd}{\cd}{\r}};
+            \pic at (4*\dx*\r,2*\dy*\r) {cube={\cb}{\ca}{\cd}{\cc}{\vb}{\va}{\vd}{\vc}{\r}};
+            \pic at (5*\dx*\r,2*\dy*\r) {cube={\cb}{\cc}{\vc}{\vb}{\ca}{\cd}{\vd}{\va}{\r}};
+            \pic at (0*\dx*\r,3*\dy*\r) {cube={\cc}{\cb}{\ca}{\cd}{\vc}{\vb}{\va}{\vd}{\r}};
+            \pic at (1*\dx*\r,3*\dy*\r) {cube={\cc}{\vc}{\vb}{\cb}{\cd}{\vd}{\va}{\ca}{\r}};
+            \pic at (2*\dx*\r,3*\dy*\r) {cube={\cc}{\cd}{\vd}{\vc}{\cb}{\ca}{\va}{\vb}{\r}};
+            \pic at (3*\dx*\r,3*\dy*\r) {cube={\cd}{\vd}{\vc}{\cc}{\ca}{\va}{\vb}{\cb}{\r}};
+            \pic at (4*\dx*\r,3*\dy*\r) {cube={\cd}{\cc}{\cb}{\ca}{\vd}{\vc}{\vb}{\va}{\r}};
+            \pic at (5*\dx*\r,3*\dy*\r) {cube={\cd}{\ca}{\va}{\vd}{\cc}{\cb}{\vb}{\vc}{\r}};
+            
+        \end{scope}
+        
+        \begin{scope}[shift={(\px*\r,\py*\r)},font=\scriptsize]
+
+            \def\xsep{0.4}       % distance between elements
+            \def\colsep{-0.5}    % vertical distance
+
+            % row 1, col 1: p=1234
+            \begin{scope}[shift={(0*\dx*\r,0*\dy*\r)}]
+                \coordinate (a10) at (0*\xsep, 0);
+                \coordinate (a11) at (1*\xsep, 0);
+                \coordinate (a12) at (2*\xsep, 0);
+                \coordinate (a13) at (3*\xsep, 0);
+                \coordinate (b10) at (0*\xsep, \colsep);
+                \coordinate (b11) at (1*\xsep, \colsep);
+                \coordinate (b12) at (2*\xsep, \colsep);
+                \coordinate (b13) at (3*\xsep, \colsep);
+                \node[above] at (a10) {1};
+                \node[above] at (a11) {2};
+                \node[above] at (a12) {3};
+                \node[above] at (a13) {4};
+                \node[below] at (b10) {1};
+                \node[below] at (b11) {2};
+                \node[below] at (b12) {3};
+                \node[below] at (b13) {4};
+                \draw[->] (a10) -- (b10);
+                \draw[->] (a11) -- (b11);
+                \draw[->] (a12) -- (b12);
+                \draw[->] (a13) -- (b13);
+            \end{scope}
+
+            % row 1, col 2: p=1342
+            \begin{scope}[shift={(1*\dx*\r,0*\dy*\r)}]
+                \coordinate (a10) at (0*\xsep, 0);
+                \coordinate (a11) at (1*\xsep, 0);
+                \coordinate (a12) at (2*\xsep, 0);
+                \coordinate (a13) at (3*\xsep, 0);
+                \coordinate (b10) at (0*\xsep, \colsep);
+                \coordinate (b11) at (1*\xsep, \colsep);
+                \coordinate (b12) at (2*\xsep, \colsep);
+                \coordinate (b13) at (3*\xsep, \colsep);
+                \node[above] at (a10) {1};
+                \node[above] at (a11) {2};
+                \node[above] at (a12) {3};
+                \node[above] at (a13) {4};
+                \node[below] at (b10) {1};
+                \node[below] at (b11) {3};
+                \node[below] at (b12) {4};
+                \node[below] at (b13) {2};
+                \draw[->] (a10) -- (b10);
+                \draw[->] (a11) -- (b11);
+                \draw[->] (a12) -- (b12);
+                \draw[->] (a13) -- (b13);
+            \end{scope}
+
+            % row 1, col 3: p=1423
+            \begin{scope}[shift={(2*\dx*\r,0*\dy*\r)}]
+                \coordinate (a10) at (0*\xsep, 0);
+                \coordinate (a11) at (1*\xsep, 0);
+                \coordinate (a12) at (2*\xsep, 0);
+                \coordinate (a13) at (3*\xsep, 0);
+                \coordinate (b10) at (0*\xsep, \colsep);
+                \coordinate (b11) at (1*\xsep, \colsep);
+                \coordinate (b12) at (2*\xsep, \colsep);
+                \coordinate (b13) at (3*\xsep, \colsep);
+                \node[above] at (a10) {1};
+                \node[above] at (a11) {2};
+                \node[above] at (a12) {3};
+                \node[above] at (a13) {4};
+                \node[below] at (b10) {1};
+                \node[below] at (b11) {4};
+                \node[below] at (b12) {2};
+                \node[below] at (b13) {3};
+                \draw[->] (a10) -- (b10);
+                \draw[->] (a11) -- (b11);
+                \draw[->] (a12) -- (b12);
+                \draw[->] (a13) -- (b13);
+            \end{scope}
+
+            % row 1, col 4: p=3142
+            \begin{scope}[shift={(3*\dx*\r,0*\dy*\r)}]
+                \coordinate (a10) at (0*\xsep, 0);
+                \coordinate (a11) at (1*\xsep, 0);
+                \coordinate (a12) at (2*\xsep, 0);
+                \coordinate (a13) at (3*\xsep, 0);
+                \coordinate (b10) at (0*\xsep, \colsep);
+                \coordinate (b11) at (1*\xsep, \colsep);
+                \coordinate (b12) at (2*\xsep, \colsep);
+                \coordinate (b13) at (3*\xsep, \colsep);
+                \node[above] at (a10) {1};
+                \node[above] at (a11) {2};
+                \node[above] at (a12) {3};
+                \node[above] at (a13) {4};
+                \node[below] at (b10) {3};
+                \node[below] at (b11) {1};
+                \node[below] at (b12) {4};
+                \node[below] at (b13) {2};
+                \draw[->] (a10) -- (b10);
+                \draw[->] (a11) -- (b11);
+                \draw[->] (a12) -- (b12);
+                \draw[->] (a13) -- (b13);
+            \end{scope}
+
+            % row 1, col 5: p=4123
+            \begin{scope}[shift={(4*\dx*\r,0*\dy*\r)}]
+                \coordinate (a10) at (0*\xsep, 0);
+                \coordinate (a11) at (1*\xsep, 0);
+                \coordinate (a12) at (2*\xsep, 0);
+                \coordinate (a13) at (3*\xsep, 0);
+                \coordinate (b10) at (0*\xsep, \colsep);
+                \coordinate (b11) at (1*\xsep, \colsep);
+                \coordinate (b12) at (2*\xsep, \colsep);
+                \coordinate (b13) at (3*\xsep, \colsep);
+                \node[above] at (a10) {1};
+                \node[above] at (a11) {2};
+                \node[above] at (a12) {3};
+                \node[above] at (a13) {4};
+                \node[below] at (b10) {4};
+                \node[below] at (b11) {1};
+                \node[below] at (b12) {2};
+                \node[below] at (b13) {3};
+                \draw[->] (a10) -- (b10);
+                \draw[->] (a11) -- (b11);
+                \draw[->] (a12) -- (b12);
+                \draw[->] (a13) -- (b13);
+            \end{scope}
+
+            % row 1, col 6: p=2134
+            \begin{scope}[shift={(5*\dx*\r,0*\dy*\r)}]
+                \coordinate (a10) at (0*\xsep, 0);
+                \coordinate (a11) at (1*\xsep, 0);
+                \coordinate (a12) at (2*\xsep, 0);
+                \coordinate (a13) at (3*\xsep, 0);
+                \coordinate (b10) at (0*\xsep, \colsep);
+                \coordinate (b11) at (1*\xsep, \colsep);
+                \coordinate (b12) at (2*\xsep, \colsep);
+                \coordinate (b13) at (3*\xsep, \colsep);
+                \node[above] at (a10) {1};
+                \node[above] at (a11) {2};
+                \node[above] at (a12) {3};
+                \node[above] at (a13) {4};
+                \node[below] at (b10) {2};
+                \node[below] at (b11) {1};
+                \node[below] at (b12) {3};
+                \node[below] at (b13) {4};
+                \draw[->] (a10) -- (b10);
+                \draw[->] (a11) -- (b11);
+                \draw[->] (a12) -- (b12);
+                \draw[->] (a13) -- (b13);
+            \end{scope}
+
+            % row 2, col 1: p=2314
+            \begin{scope}[shift={(0*\dx*\r,1*\dy*\r)}]
+                \coordinate (a10) at (0*\xsep, 0);
+                \coordinate (a11) at (1*\xsep, 0);
+                \coordinate (a12) at (2*\xsep, 0);
+                \coordinate (a13) at (3*\xsep, 0);
+                \coordinate (b10) at (0*\xsep, \colsep);
+                \coordinate (b11) at (1*\xsep, \colsep);
+                \coordinate (b12) at (2*\xsep, \colsep);
+                \coordinate (b13) at (3*\xsep, \colsep);
+                \node[above] at (a10) {1};
+                \node[above] at (a11) {2};
+                \node[above] at (a12) {3};
+                \node[above] at (a13) {4};
+                \node[below] at (b10) {2};
+                \node[below] at (b11) {3};
+                \node[below] at (b12) {1};
+                \node[below] at (b13) {4};
+                \draw[->] (a10) -- (b10);
+                \draw[->] (a11) -- (b11);
+                \draw[->] (a12) -- (b12);
+                \draw[->] (a13) -- (b13);
+            \end{scope}
+
+            % row 2, col 2: p=3412
+            \begin{scope}[shift={(1*\dx*\r,1*\dy*\r)}]
+                \coordinate (a10) at (0*\xsep, 0);
+                \coordinate (a11) at (1*\xsep, 0);
+                \coordinate (a12) at (2*\xsep, 0);
+                \coordinate (a13) at (3*\xsep, 0);
+                \coordinate (b10) at (0*\xsep, \colsep);
+                \coordinate (b11) at (1*\xsep, \colsep);
+                \coordinate (b12) at (2*\xsep, \colsep);
+                \coordinate (b13) at (3*\xsep, \colsep);
+                \node[above] at (a10) {1};
+                \node[above] at (a11) {2};
+                \node[above] at (a12) {3};
+                \node[above] at (a13) {4};
+                \node[below] at (b10) {3};
+                \node[below] at (b11) {4};
+                \node[below] at (b12) {1};
+                \node[below] at (b13) {2};
+                \draw[->] (a10) -- (b10);
+                \draw[->] (a11) -- (b11);
+                \draw[->] (a12) -- (b12);
+                \draw[->] (a13) -- (b13);
+            \end{scope}
+
+            % row 2, col 3: p=4213
+            \begin{scope}[shift={(2*\dx*\r,1*\dy*\r)}]
+                \coordinate (a10) at (0*\xsep, 0);
+                \coordinate (a11) at (1*\xsep, 0);
+                \coordinate (a12) at (2*\xsep, 0);
+                \coordinate (a13) at (3*\xsep, 0);
+                \coordinate (b10) at (0*\xsep, \colsep);
+                \coordinate (b11) at (1*\xsep, \colsep);
+                \coordinate (b12) at (2*\xsep, \colsep);
+                \coordinate (b13) at (3*\xsep, \colsep);
+                \node[above] at (a10) {1};
+                \node[above] at (a11) {2};
+                \node[above] at (a12) {3};
+                \node[above] at (a13) {4};
+                \node[below] at (b10) {4};
+                \node[below] at (b11) {2};
+                \node[below] at (b12) {1};
+                \node[below] at (b13) {3};
+                \draw[->] (a10) -- (b10);
+                \draw[->] (a11) -- (b11);
+                \draw[->] (a12) -- (b12);
+                \draw[->] (a13) -- (b13);
+            \end{scope}
+
+            % row 2, col 4: p=3421
+            \begin{scope}[shift={(3*\dx*\r,1*\dy*\r)}]
+                \coordinate (a10) at (0*\xsep, 0);
+                \coordinate (a11) at (1*\xsep, 0);
+                \coordinate (a12) at (2*\xsep, 0);
+                \coordinate (a13) at (3*\xsep, 0);
+                \coordinate (b10) at (0*\xsep, \colsep);
+                \coordinate (b11) at (1*\xsep, \colsep);
+                \coordinate (b12) at (2*\xsep, \colsep);
+                \coordinate (b13) at (3*\xsep, \colsep);
+                \node[above] at (a10) {1};
+                \node[above] at (a11) {2};
+                \node[above] at (a12) {3};
+                \node[above] at (a13) {4};
+                \node[below] at (b10) {3};
+                \node[below] at (b11) {4};
+                \node[below] at (b12) {2};
+                \node[below] at (b13) {1};
+                \draw[->] (a10) -- (b10);
+                \draw[->] (a11) -- (b11);
+                \draw[->] (a12) -- (b12);
+                \draw[->] (a13) -- (b13);
+            \end{scope}
+
+            % row 2, col 5: p=2341
+            \begin{scope}[shift={(4*\dx*\r,1*\dy*\r)}]
+                \coordinate (a10) at (0*\xsep, 0);
+                \coordinate (a11) at (1*\xsep, 0);
+                \coordinate (a12) at (2*\xsep, 0);
+                \coordinate (a13) at (3*\xsep, 0);
+                \coordinate (b10) at (0*\xsep, \colsep);
+                \coordinate (b11) at (1*\xsep, \colsep);
+                \coordinate (b12) at (2*\xsep, \colsep);
+                \coordinate (b13) at (3*\xsep, \colsep);
+                \node[above] at (a10) {1};
+                \node[above] at (a11) {2};
+                \node[above] at (a12) {3};
+                \node[above] at (a13) {4};
+                \node[below] at (b10) {2};
+                \node[below] at (b11) {3};
+                \node[below] at (b12) {4};
+                \node[below] at (b13) {1};
+                \draw[->] (a10) -- (b10);
+                \draw[->] (a11) -- (b11);
+                \draw[->] (a12) -- (b12);
+                \draw[->] (a13) -- (b13);
+            \end{scope}
+
+            % row 2, col 6: p=4231
+            \begin{scope}[shift={(5*\dx*\r,1*\dy*\r)}]
+                \coordinate (a10) at (0*\xsep, 0);
+                \coordinate (a11) at (1*\xsep, 0);
+                \coordinate (a12) at (2*\xsep, 0);
+                \coordinate (a13) at (3*\xsep, 0);
+                \coordinate (b10) at (0*\xsep, \colsep);
+                \coordinate (b11) at (1*\xsep, \colsep);
+                \coordinate (b12) at (2*\xsep, \colsep);
+                \coordinate (b13) at (3*\xsep, \colsep);
+                \node[above] at (a10) {1};
+                \node[above] at (a11) {2};
+                \node[above] at (a12) {3};
+                \node[above] at (a13) {4};
+                \node[below] at (b10) {4};
+                \node[below] at (b11) {2};
+                \node[below] at (b12) {3};
+                \node[below] at (b13) {1};
+                \draw[->] (a10) -- (b10);
+                \draw[->] (a11) -- (b11);
+                \draw[->] (a12) -- (b12);
+                \draw[->] (a13) -- (b13);
+            \end{scope}
+
+            % row 3, col 1: p=3214
+            \begin{scope}[shift={(0*\dx*\r,2*\dy*\r)}]
+                \coordinate (a10) at (0*\xsep, 0);
+                \coordinate (a11) at (1*\xsep, 0);
+                \coordinate (a12) at (2*\xsep, 0);
+                \coordinate (a13) at (3*\xsep, 0);
+                \coordinate (b10) at (0*\xsep, \colsep);
+                \coordinate (b11) at (1*\xsep, \colsep);
+                \coordinate (b12) at (2*\xsep, \colsep);
+                \coordinate (b13) at (3*\xsep, \colsep);
+                \node[above] at (a10) {1};
+                \node[above] at (a11) {2};
+                \node[above] at (a12) {3};
+                \node[above] at (a13) {4};
+                \node[below] at (b10) {3};
+                \node[below] at (b11) {2};
+                \node[below] at (b12) {1};
+                \node[below] at (b13) {4};
+                \draw[->] (a10) -- (b10);
+                \draw[->] (a11) -- (b11);
+                \draw[->] (a12) -- (b12);
+                \draw[->] (a13) -- (b13);
+            \end{scope}
+
+            % row 3, col 2: p=4312
+            \begin{scope}[shift={(1*\dx*\r,2*\dy*\r)}]
+                \coordinate (a10) at (0*\xsep, 0);
+                \coordinate (a11) at (1*\xsep, 0);
+                \coordinate (a12) at (2*\xsep, 0);
+                \coordinate (a13) at (3*\xsep, 0);
+                \coordinate (b10) at (0*\xsep, \colsep);
+                \coordinate (b11) at (1*\xsep, \colsep);
+                \coordinate (b12) at (2*\xsep, \colsep);
+                \coordinate (b13) at (3*\xsep, \colsep);
+                \node[above] at (a10) {1};
+                \node[above] at (a11) {2};
+                \node[above] at (a12) {3};
+                \node[above] at (a13) {4};
+                \node[below] at (b10) {4};
+                \node[below] at (b11) {3};
+                \node[below] at (b12) {1};
+                \node[below] at (b13) {2};
+                \draw[->] (a10) -- (b10);
+                \draw[->] (a11) -- (b11);
+                \draw[->] (a12) -- (b12);
+                \draw[->] (a13) -- (b13);
+            \end{scope}
+
+            % row 3, col 3: p=2413
+            \begin{scope}[shift={(2*\dx*\r,2*\dy*\r)}]
+                \coordinate (a10) at (0*\xsep, 0);
+                \coordinate (a11) at (1*\xsep, 0);
+                \coordinate (a12) at (2*\xsep, 0);
+                \coordinate (a13) at (3*\xsep, 0);
+                \coordinate (b10) at (0*\xsep, \colsep);
+                \coordinate (b11) at (1*\xsep, \colsep);
+                \coordinate (b12) at (2*\xsep, \colsep);
+                \coordinate (b13) at (3*\xsep, \colsep);
+                \node[above] at (a10) {1};
+                \node[above] at (a11) {2};
+                \node[above] at (a12) {3};
+                \node[above] at (a13) {4};
+                \node[below] at (b10) {2};
+                \node[below] at (b11) {4};
+                \node[below] at (b12) {1};
+                \node[below] at (b13) {3};
+                \draw[->] (a10) -- (b10);
+                \draw[->] (a11) -- (b11);
+                \draw[->] (a12) -- (b12);
+                \draw[->] (a13) -- (b13);
+            \end{scope}
+
+            % row 3, col 4: p=3241
+            \begin{scope}[shift={(3*\dx*\r,2*\dy*\r)}]
+                \coordinate (a10) at (0*\xsep, 0);
+                \coordinate (a11) at (1*\xsep, 0);
+                \coordinate (a12) at (2*\xsep, 0);
+                \coordinate (a13) at (3*\xsep, 0);
+                \coordinate (b10) at (0*\xsep, \colsep);
+                \coordinate (b11) at (1*\xsep, \colsep);
+                \coordinate (b12) at (2*\xsep, \colsep);
+                \coordinate (b13) at (3*\xsep, \colsep);
+                \node[above] at (a10) {1};
+                \node[above] at (a11) {2};
+                \node[above] at (a12) {3};
+                \node[above] at (a13) {4};
+                \node[below] at (b10) {3};
+                \node[below] at (b11) {2};
+                \node[below] at (b12) {4};
+                \node[below] at (b13) {1};
+                \draw[->] (a10) -- (b10);
+                \draw[->] (a11) -- (b11);
+                \draw[->] (a12) -- (b12);
+                \draw[->] (a13) -- (b13);
+            \end{scope}
+
+            % row 3, col 5: p=4321
+            \begin{scope}[shift={(4*\dx*\r,2*\dy*\r)}]
+                \coordinate (a10) at (0*\xsep, 0);
+                \coordinate (a11) at (1*\xsep, 0);
+                \coordinate (a12) at (2*\xsep, 0);
+                \coordinate (a13) at (3*\xsep, 0);
+                \coordinate (b10) at (0*\xsep, \colsep);
+                \coordinate (b11) at (1*\xsep, \colsep);
+                \coordinate (b12) at (2*\xsep, \colsep);
+                \coordinate (b13) at (3*\xsep, \colsep);
+                \node[above] at (a10) {1};
+                \node[above] at (a11) {2};
+                \node[above] at (a12) {3};
+                \node[above] at (a13) {4};
+                \node[below] at (b10) {4};
+                \node[below] at (b11) {3};
+                \node[below] at (b12) {2};
+                \node[below] at (b13) {1};
+                \draw[->] (a10) -- (b10);
+                \draw[->] (a11) -- (b11);
+                \draw[->] (a12) -- (b12);
+                \draw[->] (a13) -- (b13);
+            \end{scope}
+
+            % row 3, col 6: p=2431
+            \begin{scope}[shift={(5*\dx*\r,2*\dy*\r)}]
+                \coordinate (a10) at (0*\xsep, 0);
+                \coordinate (a11) at (1*\xsep, 0);
+                \coordinate (a12) at (2*\xsep, 0);
+                \coordinate (a13) at (3*\xsep, 0);
+                \coordinate (b10) at (0*\xsep, \colsep);
+                \coordinate (b11) at (1*\xsep, \colsep);
+                \coordinate (b12) at (2*\xsep, \colsep);
+                \coordinate (b13) at (3*\xsep, \colsep);
+                \node[above] at (a10) {1};
+                \node[above] at (a11) {2};
+                \node[above] at (a12) {3};
+                \node[above] at (a13) {4};
+                \node[below] at (b10) {2};
+                \node[below] at (b11) {4};
+                \node[below] at (b12) {3};
+                \node[below] at (b13) {1};
+                \draw[->] (a10) -- (b10);
+                \draw[->] (a11) -- (b11);
+                \draw[->] (a12) -- (b12);
+                \draw[->] (a13) -- (b13);
+            \end{scope}
+
+            % row 4, col 1: p=1432
+            \begin{scope}[shift={(0*\dx*\r,3*\dy*\r)}]
+                \coordinate (a10) at (0*\xsep, 0);
+                \coordinate (a11) at (1*\xsep, 0);
+                \coordinate (a12) at (2*\xsep, 0);
+                \coordinate (a13) at (3*\xsep, 0);
+                \coordinate (b10) at (0*\xsep, \colsep);
+                \coordinate (b11) at (1*\xsep, \colsep);
+                \coordinate (b12) at (2*\xsep, \colsep);
+                \coordinate (b13) at (3*\xsep, \colsep);
+                \node[above] at (a10) {1};
+                \node[above] at (a11) {2};
+                \node[above] at (a12) {3};
+                \node[above] at (a13) {4};
+                \node[below] at (b10) {1};
+                \node[below] at (b11) {4};
+                \node[below] at (b12) {3};
+                \node[below] at (b13) {2};
+                \draw[->] (a10) -- (b10);
+                \draw[->] (a11) -- (b11);
+                \draw[->] (a12) -- (b12);
+                \draw[->] (a13) -- (b13);
+            \end{scope}
+
+            % row 4, col 2: p=1324
+            \begin{scope}[shift={(1*\dx*\r,3*\dy*\r)}]
+                \coordinate (a10) at (0*\xsep, 0);
+                \coordinate (a11) at (1*\xsep, 0);
+                \coordinate (a12) at (2*\xsep, 0);
+                \coordinate (a13) at (3*\xsep, 0);
+                \coordinate (b10) at (0*\xsep, \colsep);
+                \coordinate (b11) at (1*\xsep, \colsep);
+                \coordinate (b12) at (2*\xsep, \colsep);
+                \coordinate (b13) at (3*\xsep, \colsep);
+                \node[above] at (a10) {1};
+                \node[above] at (a11) {2};
+                \node[above] at (a12) {3};
+                \node[above] at (a13) {4};
+                \node[below] at (b10) {1};
+                \node[below] at (b11) {3};
+                \node[below] at (b12) {2};
+                \node[below] at (b13) {4};
+                \draw[->] (a10) -- (b10);
+                \draw[->] (a11) -- (b11);
+                \draw[->] (a12) -- (b12);
+                \draw[->] (a13) -- (b13);
+            \end{scope}
+
+            % row 4, col 3: p=1243
+            \begin{scope}[shift={(2*\dx*\r,3*\dy*\r)}]
+                \coordinate (a10) at (0*\xsep, 0);
+                \coordinate (a11) at (1*\xsep, 0);
+                \coordinate (a12) at (2*\xsep, 0);
+                \coordinate (a13) at (3*\xsep, 0);
+                \coordinate (b10) at (0*\xsep, \colsep);
+                \coordinate (b11) at (1*\xsep, \colsep);
+                \coordinate (b12) at (2*\xsep, \colsep);
+                \coordinate (b13) at (3*\xsep, \colsep);
+                \node[above] at (a10) {1};
+                \node[above] at (a11) {2};
+                \node[above] at (a12) {3};
+                \node[above] at (a13) {4};
+                \node[below] at (b10) {1};
+                \node[below] at (b11) {2};
+                \node[below] at (b12) {4};
+                \node[below] at (b13) {3};
+                \draw[->] (a10) -- (b10);
+                \draw[->] (a11) -- (b11);
+                \draw[->] (a12) -- (b12);
+                \draw[->] (a13) -- (b13);
+            \end{scope}
+
+            % row 4, col 4: p=4132
+            \begin{scope}[shift={(3*\dx*\r,3*\dy*\r)}]
+                \coordinate (a10) at (0*\xsep, 0);
+                \coordinate (a11) at (1*\xsep, 0);
+                \coordinate (a12) at (2*\xsep, 0);
+                \coordinate (a13) at (3*\xsep, 0);
+                \coordinate (b10) at (0*\xsep, \colsep);
+                \coordinate (b11) at (1*\xsep, \colsep);
+                \coordinate (b12) at (2*\xsep, \colsep);
+                \coordinate (b13) at (3*\xsep, \colsep);
+                \node[above] at (a10) {1};
+                \node[above] at (a11) {2};
+                \node[above] at (a12) {3};
+                \node[above] at (a13) {4};
+                \node[below] at (b10) {4};
+                \node[below] at (b11) {1};
+                \node[below] at (b12) {3};
+                \node[below] at (b13) {2};
+                \draw[->] (a10) -- (b10);
+                \draw[->] (a11) -- (b11);
+                \draw[->] (a12) -- (b12);
+                \draw[->] (a13) -- (b13);
+            \end{scope}
+
+            % row 4, col 5: p=2143
+            \begin{scope}[shift={(4*\dx*\r,3*\dy*\r)}]
+                \coordinate (a10) at (0*\xsep, 0);
+                \coordinate (a11) at (1*\xsep, 0);
+                \coordinate (a12) at (2*\xsep, 0);
+                \coordinate (a13) at (3*\xsep, 0);
+                \coordinate (b10) at (0*\xsep, \colsep);
+                \coordinate (b11) at (1*\xsep, \colsep);
+                \coordinate (b12) at (2*\xsep, \colsep);
+                \coordinate (b13) at (3*\xsep, \colsep);
+                \node[above] at (a10) {1};
+                \node[above] at (a11) {2};
+                \node[above] at (a12) {3};
+                \node[above] at (a13) {4};
+                \node[below] at (b10) {2};
+                \node[below] at (b11) {1};
+                \node[below] at (b12) {4};
+                \node[below] at (b13) {3};
+                \draw[->] (a10) -- (b10);
+                \draw[->] (a11) -- (b11);
+                \draw[->] (a12) -- (b12);
+                \draw[->] (a13) -- (b13);
+            \end{scope}
+
+            % row 4, col 6: p=3124
+            \begin{scope}[shift={(5*\dx*\r,3*\dy*\r)}]
+                \coordinate (a10) at (0*\xsep, 0);
+                \coordinate (a11) at (1*\xsep, 0);
+                \coordinate (a12) at (2*\xsep, 0);
+                \coordinate (a13) at (3*\xsep, 0);
+                \coordinate (b10) at (0*\xsep, \colsep);
+                \coordinate (b11) at (1*\xsep, \colsep);
+                \coordinate (b12) at (2*\xsep, \colsep);
+                \coordinate (b13) at (3*\xsep, \colsep);
+                \node[above] at (a10) {1};
+                \node[above] at (a11) {2};
+                \node[above] at (a12) {3};
+                \node[above] at (a13) {4};
+                \node[below] at (b10) {3};
+                \node[below] at (b11) {1};
+                \node[below] at (b12) {2};
+                \node[below] at (b13) {4};
+                \draw[->] (a10) -- (b10);
+                \draw[->] (a11) -- (b11);
+                \draw[->] (a12) -- (b12);
+                \draw[->] (a13) -- (b13);
+            \end{scope}
+
+        \end{scope}  
+    \end{tikzpicture}
+    \caption{\texttt{正方体旋转与$4$元置换按顶心对角线一一对应}}
+    \label{fig:cube-rotation-permutation-map}
+\end{figure}
 
 \clearpage
 
@@ -9432,7 +10324,7 @@ $$ \{aH \,\mid\, a\in G\}. $$
         \node at (1.5*\a, 5.5*\y) {$g_ma$};
         \node at (2.5*\a, 5.5*\y+0.04) {$g_mb$};
         \node at (3.55*\a, 5.5*\y) {$\cdots$};
-        \node at (-\b, 0.5*\y) {$e\mathsf{H}$};
+        \node at (-\b, 0.5*\y) {$e\,\mathsf{H}$};
         \node at (-\b-0.09, 1.5*\y) {$g_1\mathsf{H}$};
         \node at (-\b-0.09, 2.5*\y) {$g_2\mathsf{H}$};
         \node at (-\b-0.15, 5.5*\y) {$g_m\mathsf{H}$};
@@ -9468,7 +10360,7 @@ $$ H = \langle a^i\rangle = \{a^i, a^{2i}, \cdots, a^n=e\}. $$
 
 类似可以研究群$\mathsf{D}_n$的子群。$\mathsf{D}_n$有$2n$个元素，其中所有的$n$旋转构成环道，由逆时针旋转$\frac{360^\circ}{n}$的旋转$r$生成，另外$n$个元素为翻转变换。按照群势定理，它的子群的势整除$2n$，比如是一元群、二元群、$n$元群、$2n$元群。一元群$\{e\}$和$2n$元群（$\mathsf{D}_n$自身）都是显然的。二元群包括翻转变换的环道，$n$元群则主要包括$r$的环道。此外，作为循环群，只要正整数$m$整除$n$，那么就有子群$\langle r^{\frac{n}{m}} \rangle$。最后，$r^{\frac{n}{m}}$和某些翻转变换$s$能生成$2m$个元素的子群。% 具体哪些翻转变换可以，以及生成的是什么子群，可以作为习题。
 
-以上分析中，我们发现，并没有很好的办法来找出给定大小的子群。群势定理告诉我们子群的势整除群势。但反过来，给定群势的某个因数$m$，群有没有$m$元子群呢？有几个呢？这些问题都是群势定理回答不了的。这个问题至今仍然未完全解决。解决它需要对群的结构做更深入的了解、更本质的刻画。正式的群论教材会对群本身的结构和性质进行更多的探讨，给出这个问题的部分回答。本书不作涉及。
+以上分析中，我们发现，并没有很好的办法来找出给定大小的子群。群势定理告诉我们子群的势整除群势。但反过来，给定群势的某个因数$m$，群有没有$m$元子群呢？有几个呢？这些问题都是群势定理回答不了的。一般来说，给定群势的某个因数$m$，群未必有$m$元子群。那么，对怎样的群和怎样的因数$m$，群一定有$m$元子群呢？这个问题至今仍然未完全解决。解决它需要对群的结构做更深入的了解、更本质的刻画。正式的群论教材会对群本身的结构和性质进行更多的探讨，给出这个问题的部分回答。本书不作涉及。
 
 \clearpage
 
@@ -12064,9 +12956,9 @@ $$ \forall \; a \in G,\quad aH = \{ah\,\mid\,h\in H\} = \{ha\,\mid\,h\in H\} = H
 
 设$H$为$(\mathbb{Z},\,+)$的任何子群，且不是平凡的一元群$\{0\}$，则$H$中必有最小的正整数$a$。$\forall \, h\in H$，考虑$h$对$a$的带余除法：
 $$ h = q\cdot a + r.$$
-其中$q,r$是整数，余数$r$满足$0\leqslant r < a$。根据群的性质，$r = h+q\cdot(-a)\in H$，但按定义$a$是$H$中最小正整数，因此$r=0$。这说明$H$中的元素都是$a$的倍数，于是$H$可以写成$a\mathbb{Z}$\footnote{当然，也可以写为$\mathbb{Z}a$。由于$\mathbb{Z}$是关于乘法的交换群，两者相同。不过这是整数乘法的性质，不要与我们在讨论的加法混淆了。}：
-$$ a\mathbb{Z} \;=\; \{a\cdot n \,\mid\, n \in Z\}. $$
-注意到我们可以定义$\{0\}=\{0\cdot n \,\mid\, n\in Z\}=0\mathbb{Z}$。换句话说，$(\mathbb{Z},\,+)$的所有子群都可以写为$a\mathbb{Z}$的形式，其中$a$是整数。
+其中$q,r$是整数，余数$r$满足$0\leqslant r < a$。根据群的性质，$r = h+q\cdot(-a)\in H$，但按定义$a$是$H$中最小正整数，因此$r=0$。这说明$H$中的元素都是$a$的倍数，于是$H$可以写成$a\mathbb{Z}$\footnote{当然，也可以写为$\mathbb{Z}a$。由于整数乘法可交换，两者相同。不过这是整数乘法的性质，不要与我们在讨论的加法混淆了。}：
+$$ a\mathbb{Z} \;=\; \{a\cdot n \,\mid\, n \in \mathbb{Z}\}. $$
+注意到我们可以定义$\{0\}=\{0\cdot n \,\mid\, n\in \mathbb{Z}\}=0\mathbb{Z}$。换句话说，$(\mathbb{Z},\,+)$的所有子群都可以写为$a\mathbb{Z}$的形式，其中$a$是整数。
 
 \vspace{12pt}
 \begin{figure}[htbp]
@@ -12156,7 +13048,7 @@ $$ a\mathbb{Z} \;=\; \{a\cdot n \,\mid\, n \in Z\}. $$
 
 我们可以验证$a\mathbb{Z}$的左往集总是右往集。
 $$ \forall \; m \in \mathbb{Z},\quad m + (a\mathbb{Z}) = \{m + (a\cdot n) \,\mid\, n \in Z\} = \{(a\cdot n) + m \,\mid\, n \in Z\} = (a\mathbb{Z}) + m. $$
-可以看到，$a\mathbb{Z}$的往集就是所有模$a$同余的整数的集合。这让我们猜出：$a\mathbb{Z}$除$\mathbb{Z}$的商群就是模$a$的同余类构成的加法群：
+可以看到，$a\mathbb{Z}$的往集就是所有模$a$同余的整数的集合。这让我们猜出：$a$为正整数时，$a\mathbb{Z}$除$\mathbb{Z}$的商群就是模$a$的同余类构成的加法群：
 $$ \quotient{\mathbb{Z}}{a\mathbb{Z}} = \{m + a\mathbb{Z}\,\mid\,m\in\mathbb{Z}\} = \{\overline{m} \,\mid\, 0\leqslant m < a,m\in\mathbb{Z}\} = \mathbb{Z}_a.$$
 方便起见，在不至于混淆的情况下，我们也可以直接用$0,1,\cdots,a-1$来指代模$a$的同余类。
 
@@ -12261,8 +13153,8 @@ $$ \quotient{\mathbb{Z}}{a\mathbb{Z}} = \{m + a\mathbb{Z}\,\mid\,m\in\mathbb{Z}\
             \filldraw[thick, color=gray!5, draw=darkgray] (-\pad,0) rectangle (-\pad-\x,-\n*\y);
             \draw[thick,darkgray] (\jj*\x,\pad) rectangle (\jj*\x+\x,\pad+\y);
             \draw[thick,darkgray] (-\pad,-\ii*\y) rectangle (-\pad-\x,-\ii*\y-\y);
-            \node at (\jj*\x+0.5*\x,\pad+0.5*\y) {$\phi(a)$};
-            \node at (-\pad-0.5*\x,-\ii*\y-0.5*\y) {$\phi(b)$};
+            \node at (\jj*\x+0.5*\x,\pad+0.5*\y) {$\phi(b)$};
+            \node at (-\pad-0.5*\x,-\ii*\y-0.5*\y) {$\phi(a)$};
             \draw[thick,darkgray] (\jj*\x-0.1,-\ii*\y) rectangle (\jj*\x+\x+0.1,-\ii*\y-\y);
             \node at (\jj*\x+0.5*\x,-\ii*\y-0.5*\y) {$\phi(ab)$};
             \draw[->, dashed] (\jj*\x+0.5*\x,-\pad) -- (\jj*\x+0.5*\x,-\ii*\y+\pad);
@@ -12274,8 +13166,8 @@ $$ \quotient{\mathbb{Z}}{a\mathbb{Z}} = \{m + a\mathbb{Z}\,\mid\,m\in\mathbb{Z}\
             \filldraw[thick, color=gray!5, draw=darkgray] (-\pad,0) rectangle (-\pad-\x,-\n*\y);
             \draw[thick,darkgray] (\jj*\x,\pad) rectangle (\jj*\x+\x,\pad+\y);
             \draw[thick,darkgray] (-\pad,-\ii*\y) rectangle (-\pad-\x,-\ii*\y-\y);
-            \node at (\jj*\x+0.5*\x,\pad+0.5*\y) {$a$};
-            \node at (-\pad-0.5*\x,-\ii*\y-0.5*\y) {$b$};
+            \node at (\jj*\x+0.5*\x,\pad+0.5*\y) {$b$};
+            \node at (-\pad-0.5*\x,-\ii*\y-0.5*\y) {$a$};
             \draw[thick,darkgray] (\jj*\x,-\ii*\y) rectangle (\jj*\x+\x,-\ii*\y-\y);
             \node at (\jj*\x+0.5*\x,-\ii*\y-0.5*\y) {$ab$};
             \draw[->, dashed] (\jj*\x+0.5*\x,-\pad) -- (\jj*\x+0.5*\x,-\ii*\y+\pad);
@@ -12431,7 +13323,7 @@ $\Ker(\phi)$是$G_1$的子群。所以，如果$G_1$是有限群，那么$\left|
 \end{align*}
 映射$\psi$和$\phi$很像，但又有不同。不同在于：商群把$\phi$中所有“藏起来”的元素都“打包”了，把$G_1$按照$\phi$的性质分成了一份份，把每一份“压缩”成一个元素。可以说，$\psi$是$\phi$的“精简版”。我们自然期望它是单同态。
 
-首先要说明可以这样定义映射$\psi$：在$G_1$中任取元素$a$，然后把$a\Ker(\phi)$映射到$\phi(a)$。由于$\Ker(\phi)$的往集（左往集等于右往集）构成了$G_1$的分划，不重不漏，所以，$a$总是恰好属于某个往集。而这个往集中其他元素也被映射到$\phi(a)$了。因此，一个往集必然只映射到一个值。不会有某个往集里的两个元素让$\psi$映射到两个不同的值。因此，$\phi$的定义是没有问题的。
+首先要说明可以这样定义映射$\psi$：在$G_1$中任取元素$a$，然后把$a\Ker(\phi)$映射到$\phi(a)$。由于$\Ker(\phi)$的往集（左往集等于右往集）构成了$G_1$的分划，不重不漏，所以，$a$总是恰好属于某个往集。而这个往集中其他元素也被映射到$\phi(a)$了。因此，一个往集必然只映射到一个值。不会有某个往集里的两个元素让$\psi$映射到两个不同的值。因此，$\psi$的定义是没有问题的。
 
 其次，映射$\psi$也是群同态。我们知道作为往合子群，$\Ker(\phi)$的往集满足：
 $$ \forall \; a,b\in G_1,\quad \left(a\Ker(\phi)\right)\cdot\left(b\Ker(\phi)\right) = (ab)\Ker(\phi). $$
@@ -12516,7 +13408,7 @@ $\psi$是单同态，因此，如果只考虑$\psi$的像，它就是同构。$\
             }
             \filldraw[white,draw=Goldenrod!20!black,very thick] (\Ra+0.1*\dx*\Ra,\Ra+0.2*\dy*\Ra) circle (3pt);
         \end{scope}
-        \draw[Goldenrod!50!black,dashed,-{Triangle[length=2.2mm,width=1.6mm]},thick,shorten <=2.5pt, shorten >=7pt] ($(Cg)+(N)$) --  ($(O1)+(47.6+7*24:\R)$);
+        \draw[Goldenrod!50!black,dashed,-{Triangle[length=2.2mm,width=1.6mm]},thick,shorten <=2.5pt, shorten >=7pt] ($(Cg)+(N)$) to[bend left=5] ($(O1)+(47.6+7*24:\R)$);
         \begin{scope}[shift={(Cc)}]
             \fill[Thistle!30,rounded corners=\rc cm] (-\Ra-\pdx*\Ra,-\Ra-\pdy*\Ra) rectangle (\Ra+\dx*\Ra,\Ra+\dy*\Ra);
             % \node at ({(\tx-1-\pdx)*\Ra},{(1-\ty+\dy)*\Ra}) {$c\Ker(\phi)$};
@@ -12552,7 +13444,7 @@ $\psi$是单同态，因此，如果只考虑$\psi$的像，它就是同构。$\
             }
             \filldraw[white,draw=BrickRed,very thick] (\Ra+0.1*\dx*\Ra,\Ra+0.2*\dy*\Ra) circle (3pt);
         \end{scope}
-        \draw[BrickRed,dashed,-{Triangle[length=2.2mm,width=1.6mm]},thick,shorten <=2.5pt, shorten >=7pt] (N) --  (P);
+        \draw[BrickRed,dashed,-{Triangle[length=2.2mm,width=1.6mm]},thick,shorten <=2.5pt, shorten >=7pt] (N) to[bend right=10] (P);
         \draw[dashed,rounded corners=\rc cm] (-6.04,-7.35) rectangle (2.54,1.62);
         \draw[dashed,rounded corners=\rc cm] ($(A)+(1.8,-4)$) rectangle ($(A)+(7.37,2)$);
         \node at (2.1, 1.2) {$G_1$};
@@ -12684,9 +13576,17 @@ $\psi$是单同态，因此，如果只考虑$\psi$的像，它就是同构。$\
     \begin{problemlist}
         \item 证明：$\mathsf{A}_4$同构于$\mathsf{S}_4$的往合子群。
         \item 证明：如果有限群$G$的子群$H$拥有$G$的一半元素，则$H$是$G$的往合子群。
-        \item 如果$G$有无限个元素，还有类似的结论吗？如何描述？
+        \item 证明：$\mathsf{A}_4$没有$6$元子群。
     \end{problemlist}
-    \item 证明：$\mathsf{A}_4$没有$6$元子群。
+    设$\mathsf{S}_{\mathbb{N}}$为自然数集$\mathbb{N}$上的全体置换（即所有$\mathbb{N}$到$\mathbb{N}$的双射）构成的群。$\forall n\in\mathbb{N}$，记$\mathsf{H}_n=\{\sigma\in\mathsf{S}_{\mathbb{N}}\,|\,\sigma(0)=n\}$。
+    \begin{problemlist}[start=4]
+        \item 证明$\mathsf{H}_0\subg \mathsf{S}_{\mathbb{N}}$。
+        \item 记$\tau\in\mathsf{S}_{\mathbb{N}}$为只交换$0$和$1$的对换。证明：$\tau \mathsf{H}_0 \neq \mathsf{H}_0\tau$（提示：在$\mathsf{H}_0$中找一个很像$\tau$的元素$\sigma$，研究$\tau\sigma$、$\sigma\tau$）。
+        \item 记$\tau_n\in\mathsf{S}_{\mathbb{N}}$为只交换$0$和$n$的对换。证明：$\mathsf{H}_n = \tau_n \mathsf{H}_0$。
+        \item $\forall\, i\in\mathbb{Z}^+$，记$\mathsf{H}_0^{(i)} = \{\sigma\in\mathsf{H}_0\,|\,\sigma(1)=i\}$，证明：不同的$\mathsf{H}_0^{(i)}$两两不相交，相互等势。所有$\mathsf{H}_0^{(i)}$构成$\mathsf{H}_0$的分划。
+        \item 证明：$\mathsf{H}_0^{(1)}$和$\mathsf{H}_0$之间有双射（提示：考虑$\Phi:\;\sigma \mapsto (x\mapsto \sigma(x+1)-1)$）。
+        \item 证明$\mathsf{H}_0$和它在$\mathsf{S}_{\mathbb{N}}$的补集之间有双射。综上，你能得到什么结论？
+    \end{problemlist}
     \item 讨论映轮群$\mathsf{D}_4$的往合子群。
     \begin{problemlist}
         \item 设$r,s$为映轮群$\mathsf{D}_4$中的逆时针旋转$90^\circ$和水平翻转变换。证明：子群$\{e,r^2\}$是往合子群。
@@ -13095,9 +13995,9 @@ $X_6$被分成了两块：$\{x_1, x_3, x_5\}$和$\{x_2, x_4, x_6\}$。群作用�
     这样的记法下，如果只有一对括号（一个长度超过$1$的环圈），就说它是一个\textbf{轮换}。环圈的长度称为轮换的长度。最长的轮换是$(1\,2\,\cdots\,n)$，它的长度是$n$。最短的轮换（不考虑恒等变换）形如$(i\,j)$（$i\neq j$），就是\textbf{对换}。轮换的长度和轮换的环道的长度是一样的。
 \end{ex}
 
-如果观群于自身，群元素的轨迹会是什么呢？给定$x\in G$，左往观用所有群元素左乘它，得到$\{ax\,|\,a\in G\}$，由群的可逆性质可知，它就是$G$自身。也就是说，任何$x$的轨迹都是整个群：左往观群，显通相。同理，右往观群，也显通相。
+如果观群于自身，群元素的轨迹会是什么呢？给定$x\in G$，左往观用所有群元素左乘它，得到$\{ax\,|\,a\in G\}$，由群的可逆性质可知，它就是$G$自身。也就是说，任何$x$的轨迹都是整个群：左往观群，显通相。
 
-如果不用$G$，而用它的子群$H$的元素来左乘$x$，结果当然是$Hx$。也就是说，以左往观子群，元素的轨迹是子群的右往集。这是同一个事实的不同说法。同理，以右往观子群，轨迹为左往集。
+如果不用$G$，而用它的子群$H$的元素来左乘$x$，结果当然是$Hx$。也就是说，以左往观子群，元素的轨迹是子群的右往集。这是同一个事实的不同说法。
 
 如果换成往复观呢？得到的轨迹是$\{axa^{-1}\,|\,a\in G\}$，这并不一定是整个群了。实际上，如果$G$是交换群，那么$\{axa^{-1}\,|\,a\in G\}$就是$\{x\}$。因为$axa^{-1} = x$等价于说$ax = xa$。实际上，要让轨迹为$\{x\}$，不需要$G$是交换群，只需要$ax = xa$对所有群元素$a$成立即可。我们称这样的$x$为群$G$的\textbf{心元}。所有心元构成的集合称为群的\textbf{中心}，记为$G^{\text{心}}$。反之，令$axa^{-1} \neq x$的$a$越多（轨迹越长），说明$x$与$G$中其他元素交换能力越差。这是$x$作为群元素固有的性质。我们把$\{axa^{-1}\,|\,a\in G\}$称为$x$的（往复）\textbf{轨道}。
 
@@ -13118,7 +14018,7 @@ $X_6$被分成了两块：$\{x_1, x_3, x_5\}$和$\{x_2, x_4, x_6\}$。群作用�
 \]
 所以$aG^{\text{心}} = G^{\text{心}}a$，因而是往合子群。作为往合子群，$G^{\text{心}}$有对应的商群。
 
-\section{轨定定理}
+\section{定子与定元}
 
 轨迹关心的是“$x$能走到哪里”。与之相对的问题是：“哪些群元素不变动$x$？”
 
@@ -13156,18 +14056,97 @@ $$b^{-1}(x) = b^{-1}(b(x)) = (b^{-1}b)(x) = e(x) = x.$$
 所以$ab^{-1} \in G_x$。因此按子群的判断准则，$G_x$是$G$的子群。
 \end{proof}
 
-取$X=G$，以左乘观群于自身，则任何群元素的定子群都是平凡子群$\{e\}$，任何群元素的定元集也是$\{e\}$。如果以往复观群于自身，则群元素$x$的定子群可以写为：
+取$X=G$，以左乘观群于自身，则任何群元素的定子群都是平凡子群$\{e\}$，幺元以外任何群元素的定元集都是空集。如果以往复观群于自身，则群元素$x$的定子群可以写为：
 $$ G_x = \{a\in G\,|\,axa^{-1} = x\} = \{a\in G\,|\,ax = xa\}.$$
-即所有与$x$交换的群元素的集合。我们称之为$x$的\textbf{交心集}。由上可知，交心集是$G$的子群，也叫\textbf{交心群}。
+即所有与$x$交换的群元素的集合。我们称之为$x$的\textbf{交心集}。由上可知，交心集是$G$的子群，也叫\textbf{交心群}。而如果换一个角度，把$x$看作群变换来看，那么交心集就是它以往复观的定元集。
 
-而如果换一个角度，把$x$看作群变换来看，那么交心集就是它以往复观的定元集。
+回顾用连线图理解群变换的做法，我们用给多边形顶点标记不同颜色的方法来说明变换。这也是一种观群法。如果所有顶点之间没有区别，那么群变换不会改变所见状态，这时图形的定子群就是整个群$G$。将顶点染上不同颜色后，各种变换就能造成变化了。
 
+还记得我们把“什么都不做”在连线图里忽略掉这件事吗？实际上，连线图和生成路径图里，每个状态节点都有一个到自身的变换$e$，但我们将它忽略了。如果我们不好好把图形染色，就会有更多的变换被忽略掉。
+
+如果我们把连线图里看作群显相于多边形顶点状态的集合$X$，状态节点是$X$的元素，那么染色的效果就是把定子群缩减到$\{e\}$。实际上，如果某个群变换$a\neq e$不改变$X$某个状态$x$（$a(x)=x$），我们就说它对$x$\textbf{无效}。对$x$无效的变换构成它的定子群。在连线图的例子里，这个变换的箭头就从这个节点指向自身。而如果它对整个状态集合都无效，那么就会和“什么都不做”一样，被我们忽略掉。这时我们说$\gamma$无法让$a$显相。换句话说，这时$a$的定元集是整个$X$。反之，如果$e$以外的群元素都能让$X$至少一个元素变动，就说$\gamma$\textbf{有效}。有效的观群法里只有$e$的定元集是整个$X$，我们说观群法令群在$X$上显\textbf{明相}。若$\gamma$无法令群显明相，我们就无法观整个群：有群元素完全“隐身暗中”，无法被我们通过观群法观察到。
+
+如果更进一步，群元素$a$能让所有$x\in X$都“动起来”（$a(x)\neq x$），就说$a$\textbf{无定}。无定元的定元集是空集，它不在任何定子群中。在连线图的例子里，多边形顶点两两不同色，就让$e$以外的群元素都成了无定元，把所有状态的定子群都缩减到$\{e\}$；它们的定元集都是空集。我们称这样的观群法\textbf{行健}，群在$X$上显\textbf{行相}。行健必然有效，反之不然。行相必然是明相，反之不然。以左乘观群于自身，群必然显行相。以往复观群于自身，则群一般不显行相。
+
+群显行相，但未必贯通。如果有不通达的状态，那么就无法构成完全的连线图。连线图的例子里，我们选择生成元来生成群，确保状态之间相互通达。行健而贯通的观群法$\gamma$，称为\textbf{得宜}的。考虑从任意$x\in X$出发的映射：
+\begin{align*}
+    \phi_x :\quad G\; &\longrightarrow \;\;\, X \\
+    a\;\, &\longmapsto \; \gamma(a,x) = a(x)
+\end{align*}
+如果$G$贯通$X$，那么$\forall y\in X$，总有$a\in G$使得$\phi_x(a) = a(x) = y$。于是$\phi_x$是满射。如果$G$在$X$上行健，所以$\forall a,b\in G$，只要$a(x) = b(x)$，那么$x = a^{-1}(a(x)) =a^{-1}(b(x)) = \left(a^{-1}b\right)(x)$。这说明$a^{-1}b = e$，即$a = b$。于是$\phi_x$是单射。因此，只要观群得宜，$\phi_x$就是双射，$G$和$X$之间能建立一一对应的关系，而且固定出发点后，$X$中每个元素到另一个元素的变动，恰好是一个群元素的体现。我们称群在$X$上显\textbf{实相}。
+
+连线图就是观群得宜的表现。经过染色后，图形的对称变换构成的群都在其顶点状态集合上行健且贯通，所以我们能够画出连通的生成路径图，并且把状态和群元素一一对应起来。如果我们不为顶点染上两两不同的颜色，其对称变换构成的群就不一定恰好能对应其顶点状态集合了。
+
+\vspace{12pt}
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[>={Triangle[length=3mm,width=2mm]}]
+
+        % ================= 节点与状态 =================
+        \def\R{1.6} % 六边形半径
+        
+        % 绘制 6 个状态节点        
+        % A1 (正上方, 90度)
+        \pic[scale=0.8] (A1) at (90:\R) {tri={BrickRed}{LimeGreen}{RoyalBlue}};
+        \node at (A1-C) {$A_1$};
+        
+        % A5 (左下, -150度)
+        \pic[scale=0.8] (A2) at (-150:\R) {tri={RoyalBlue}{BrickRed}{LimeGreen}};
+        \node at (A2-C) {$A_2$};
+        
+        % A3 (右下, -30度)
+        \pic[scale=0.8] (A3) at (-30:\R) {tri={LimeGreen}{RoyalBlue}{BrickRed}};
+        \node at (A3-C) {$A_3$};
+        % 2. r1 (逆时针120度): 红色单向弧线
+        \draw[Red, ->, very thick, shorten <=15pt, shorten >=15pt] (A1-C) -- node[midway,left,black] {$r$} (A2-C);
+        \draw[Red, ->, very thick, shorten <=15pt, shorten >=15pt] (A2-C) --node[midway,below,black] {$r$} (A3-C);
+        \draw[Red, ->, very thick, shorten <=15pt, shorten >=15pt] (A3-C) --node[midway,right,black] {$r$} (A1-C);
+        % 循环群：C_4
+        \begin{scope}[shift={(6,0.6)}, scale=0.8]
+            \def\R{2.0}
+            \def\ti{90}
+            \def\n{3}
+            \def\s{20}
+            \def\psiz{30}
+            \def\abend{25}
+            \node[circle, fill=gray!5,draw=gray, minimum size=\psiz] (n0) at (\ti+0*360/\n:\R) {};
+            \node[circle,fill=gray!5,draw=gray,  minimum size=\psiz] (n1) at (\ti+1*360/\n:\R) {};
+            \node[circle,fill=gray!5,draw=gray,  minimum size=\psiz] (n2) at (\ti+2*360/\n:\R) {};
+            \draw[red,very thick] (\ti+0*360/\n+\s:\R) arc (\ti+0*360/\n+\s:\ti+1*360/\n-\s-5:\R);
+            \draw[red,very thick] (\ti+1*360/\n+\s:\R) arc (\ti+1*360/\n+\s:\ti+2*360/\n-\s-5:\R);
+            \draw[red,very thick] (\ti+2*360/\n+\s:\R) arc (\ti+2*360/\n+\s:\ti+3*360/\n-\s-5:\R);
+            \draw[->,red, very thick] (\ti+1*360/\n-\s-1:\R) -- (\ti+1*360/\n-\s:\R); 
+            \draw[->,red, very thick] (\ti+2*360/\n-\s-1:\R) -- (\ti+2*360/\n-\s:\R); 
+            \draw[->,red, very thick] (\ti+0*360/\n-\s-1:\R) -- (\ti+0*360/\n-\s:\R); 
+            \node at (n0) {$e$};
+            \node at (n1) {$r$};
+            \node at (n2) {$r^2$};
+            \node[above left] at (\ti+0.5*360/\n:\R) {$r$};
+            \node[below] at (\ti+1.5*360/\n:\R) {$r$};
+            \node[above right] at (\ti+2.5*360/\n:\R) {$r$};
+
+        \end{scope}
+        
+    \end{tikzpicture}
+    \caption{\texttt{观群得宜等价于左乘观群于自身}}
+    \label{fig:regular-action-equivalence}
+\end{figure}
+
+\textbf{注}：既然观群得宜时$G,X$一一对应，考虑以左乘观$G$于自身：$\gamma_{\text{左}}$，有：
+$$ \phi_x(\gamma_{\text{左}}(b, a)) = \phi_x(ba) = \gamma(ba,x) = \gamma(b, a(x)) = \gamma(b,\phi_x(a)).$$
+这个关系说明了什么呢？说明所有得宜的观群法本质上都是左乘观在另一个集合$X$的“映像”。换句话说，以$x\in X$为起点，依次经过$a \rightarrow b\rightarrow c$变换得到$a(x),ba(x),cba(x)$，和从群的幺元$e$出发，左乘得到$a,ba,cba$，过程是一样的。两者之间只差一个双射$\phi_x$。也就是说，\textbf{得宜的观群法都等价于以左乘观群于自身}。这就是我们能通过连线图揭示群自身结构的原因。
+
+\section{轨定定理}
+
+再来看正方体旋转群的例子。
 \begin{ex}
-观正方体旋转群$G$（$24$个元素）于其$8$个顶点。取一个顶点$V_1$。哪些旋转保持$V_1$不动？只有绕通过$V_1$和其对心顶点的对角线（称为顶心对角线）的旋转变换：旋转$0°$、$120°$、$240°$，共$3$个。所以$|G_{V_1}| = 3$。
+观正方体旋转群$G=\mathsf{T}_6$（$24$个元素）于其$8$个顶点。取一个顶点$V_1$。哪些旋转保持$V_1$不动？只有绕通过$V_1$和其对心顶点的对角线（称为顶心对角线）的旋转变换：旋转$0°$、$120°$、$240°$，共$3$个。所以$|G_{V_1}| = 3$。
 
 观$G$于棱：取一条棱$E_1$。保持$E_1$不动的旋转是恒等变换和绕通过$E_1$中点与对棱中点的直线（称为对棱中线）旋转$180°$的变换，共$2$个。所以$|G_{E_1}| = 2$。
 
 观$G$于面：取一个面$F_1$。保持$F_1$不动的旋转：绕通过$F_1$中心与对面中心的直线（称为面心对角线）旋转$0°$、$90°$、$180°$、$270°$，共$4$个。所以$|G_{F_1}| = 4$。
+
+这些观群法都显明相，但都不显行相，因此不得宜。
 \end{ex}
 
 \vspace{8pt}
@@ -13378,7 +14357,7 @@ $$ G_x = \{a\in G\,|\,axa^{-1} = x\} = \{a\in G\,|\,ax = xa\}.$$
     \label{fig:cube-action-fix}
 \end{figure}
 
-上面的例子中，顶点数、棱数、面数，乘以相应每个对象的定子群元素个数，总得到同一个数：$24$。也就是正方体旋转群$G$的势。这是巧合吗？还是普遍规律？
+上面的例子中，我们观察到这样一个事实：顶点数、棱数、面数，乘以相应每个对象的定子群元素个数，总得到同一个数：$24$。也就是正方体旋转群$G$的势。这是巧合吗？还是普遍规律？
 
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
@@ -13396,10 +14375,6 @@ $$ G_x = \{a\in G\,|\,axa^{-1} = x\} = \{a\in G\,|\,ax = xa\}.$$
 但如果我们把正三角形换成正六边形呢？观映轮群$\mathsf{D}_3$于正六边形的$6$个顶点。如果$\mathsf{D}_3$中的翻转变换过正六边形的顶点，那么保持每个顶点不变的变换有$2$个：恒等变换和过该顶点的中线的翻转变换。但乘以顶点数$6$，得到$12$，不是$|\mathsf{D}_3|$了。
 
 所以，关键不在于顶点总数，在于每个顶点的轨迹长度。前面的例子里，群总显通相，所有元素的轨迹都贯通整个集合，所以轨迹长度等于集合的势。正六边形的例子里，两者不再相等，就能看出真正的规律了。正六边形中，每个顶点经$\mathsf{D}_3$的轨迹长度为$3$，而不是$6$。
-
-我们可以用正九边形和正十二边形来验证。假设$\mathsf{D}_3$中的翻转变换过正多边形的某顶点。正九边形中，有$3$个顶点在$\mathsf{D}_3$的对应翻转变换下不变，另外$6$个顶点则只在恒等变换下不变。分析它们的轨迹：前$3$个顶点归属同一个轨迹，后$6$个顶点归属另一个轨迹。而$3\times 2 = 6\times 1 = 6$。
-
-正十二边形中，有$6$个顶点在$\mathsf{D}_3$的对应翻转变换下不变，另外$6$个顶点则只在恒等变换下不变。分析它们的轨迹：前$6$个顶点在旋转变换下，分为两个轨迹。每个轨迹包含$3$个顶点。后$6$个顶点则同属一个轨迹。同样，$3\times 2 = 3\times 2 = 6\times 1 = 6$。
 
 \vspace{12pt}
 \begin{figure}[htbp]
@@ -13488,6 +14463,10 @@ $$ G_x = \{a\in G\,|\,axa^{-1} = x\} = \{a\in G\,|\,ax = xa\}.$$
 \end{figure}
 \vspace{8pt}
 
+我们可以用正九边形和正十二边形来验证。假设$\mathsf{D}_3$中的翻转变换过正多边形的某顶点。正九边形中，有$3$个顶点在$\mathsf{D}_3$的对应翻转变换下不变，另外$6$个顶点则只在恒等变换下不变。分析它们的轨迹：前$3$个顶点归属同一个轨迹，后$6$个顶点归属另一个轨迹。而$3\times 2 = 6\times 1 = 6$。
+
+正十二边形中，有$6$个顶点在$\mathsf{D}_3$的对应翻转变换下不变，另外$6$个顶点则只在恒等变换下不变。分析它们的轨迹：前$6$个顶点在旋转变换下，分为两个轨迹。每个轨迹包含$3$个顶点。后$6$个顶点则同属一个轨迹。同样，$3\times 2 = 3\times 2 = 6\times 1 = 6$。
+
 所以，真正的规律是：$|\mathcal{O}_G(x)| \times |G_x| = |G|$。这背后的原理是什么呢？
 
 我们可以这样理解：$x$的轨迹就是用$G$中元素不断地变动$x$、“移动”$x$得到的所有结果，是“$x$能到什么地方”的集合，因此，里面各个不同的元素，就是“$x$能往哪里走”的不同回答。换句话说，我们可以把$\mathcal{O}_G(x)$里的元素看作某种“往集”的“代表元”。当然，这里的“往集”不是真正的$G$中子群的往集。然而，由于显相映射兼容群运算，我们能够建立群的某个往集与这个“往集”之间的关联映射，也就是同态。这个真正的往集是谁的往集呢？自然就应该是让$x$不动的定子群$G_x$的往集了。下面就把这个结论和证明严格地写出来：
@@ -13531,7 +14510,7 @@ $$ G_x = \{a\in G\,|\,axa^{-1} = x\} = \{a\in G\,|\,ax = xa\}.$$
     \item \textbf{轨迹}：群元素就是$X$上的变换。从$x$出发，在$G$的所有变换下能到达的元素集合$\mathcal{O}_G(x)=\{a(x)\mid a\in G\}$。轨迹构成$X$的等价分划。若$X$只有一条轨迹，称$G$（以$\gamma$）\textbf{贯通}$X$，显\textbf{通相}于$X$。
     \item \textbf{观群于自身}：令集合$X=G$，即观群于自身。有左乘观、往复观等观法。以左乘观群必显通相。
     \item \textbf{环圈}与\textbf{轮换}：全置换群$\mathsf{S}_n$以$\gamma(\sigma,i)=\sigma(i)$自然显相于$\{1,2,\cdots,n\}$。其中元素经置换$\sigma$生成的循环子群的轨迹称为$\sigma$的环圈。只有一个长度大于$1$的环圈的置换称为轮换。轮换的环道和该环圈等长。
-    \item \textbf{定子与定元}：保持$x$不动的群元素构成$G$的子群$G_x$，称为$x$的\textbf{定子群}；被$a$定住的集合元素构成$X^a$，称为$a$的\textbf{定元集}。两者是对偶概念：$a\in G_x\iff x\in X^a$。
+    \item \textbf{定子与定元}：保持$x$不动的群元素构成$G$的子群$G_x$，称为$x$的\textbf{定子群}；被$a$定住的集合元素构成$X^a$，称为$a$的\textbf{定元集}。两者是对偶概念：$a\in G_x\iff x\in X^a$。只有幺元能定住$X$全集说明群\textbf{有效}，显\textbf{明相}；幺元以外都不是定子说明群\textbf{行健}，显\textbf{行相}。行健且贯通称为\textbf{得宜}，此时群到集合有双射，群显\textbf{实相}。\textbf{观群得宜等价于以左乘观群于自身}。
     \item \textbf{心元与交心}：与所有群元素交换的元素称为\textbf{心元}，全体心元构成\textbf{心群}$G^{\text{心}}$，它是往合子群。与特定元素$x$交换的群元素构成\textbf{交心集}（交心群），它是往复观下$x$的定子群。
     \item \textbf{轨定定理}：观群于集合时，集合元素经群变换的轨迹长度，乘以其定子群势，等于群势。
     \[
@@ -13836,9 +14815,9 @@ $$ G_x = \{a\in G\,|\,axa^{-1} = x\} = \{a\in G\,|\,ax = xa\}.$$
     \caption{\texttt{苯环对接各种组件得到的化合物}}
 \end{figure}
 
-举例来说，我们知道苯环是六个碳原子构成的环，可以理解为一个正六边形。它的每个碳原子都有一个能对外连接的碳氢键。这$6$个“接口”可以“接入”不同的组件，替换原有的氢原子，构成不同的分子。比如，其中两个碳氢键由甲基代替氢原子，就得到二甲苯。二甲苯有几种呢？天真的想法是计算$6$个位置中放两个甲基的方法，得到$15$。但显然这$15$种情况有大量重复的，因为旋转后可以互相得到，例如放在$2,3$位和放在$3,4$位、$4,5$位并无实际区别。实际上二甲苯只有三种——按照两个甲基之间隔着几个氢来分类——邻二甲苯、间二甲苯和对二甲苯。这个结果不难理解：两个甲基之间的“距离”相同的，自然就是同一种。“距离”最少是$0$，最多是$2$，因此一共有$0,1,2$三种。
+举例来说，我们知道苯环是六个碳原子构成的环，可以理解为一个正六边形。它的每个碳原子都有一个能对外连接的碳氢键。这$6$个“接口”可以“接入”不同的组件，替换原有的氢原子，构成不同的分子。比如，其中两个氢原子由甲基代替，就得到二甲苯。二甲苯有几种呢？天真的想法是计算$6$个位置中放两个甲基的方法，得到$15$。但显然这$15$种情况有大量重复的，因为旋转后可以互相得到，例如放在$2,3$位和放在$3,4$位、$4,5$位并无实际区别。实际上二甲苯只有三种——按照两个甲基之间隔着几个氢来分类——邻二甲苯、间二甲苯和对二甲苯。这个结果不难理解：两个甲基之间的“距离”相同的，自然就是同一种。“距离”最少是$0$，最多是$2$，因此一共有$0,1,2$三种。
 
-对于更复杂的情况，这种简单分类的想法就行不通了。比如：每个位置可以是原生的氢，也可以接入甲基或硝基，这时有几种不同的结构呢？直接数数，你恐怕难以得到结果，而且还会担心数重了或数漏了。这时候，我们需要系统、有理论支撑的方法来进行计算。而群作为表示对称性的抽象结构，就派上用场了。
+对于更复杂的情况，这种简单分类的想法就行不通了。比如：每个位置可以是氢原子，也可以接入甲基或硝基，这时有几种不同的结构呢？直接数数，你恐怕难以得到结果，而且还会担心数重了或数漏了。这时候，我们需要系统、有理论支撑的方法来进行计算。而群作为表示对称性的抽象结构，就派上用场了。
 
 \section{计数与群}
 
@@ -13932,7 +14911,7 @@ $$ G_x = \{a\in G\,|\,axa^{-1} = x\} = \{a\in G\,|\,ax = xa\}.$$
     \caption{\texttt{各个轨迹的元素}}
 \end{figure}
 
-以上的解法其实很清晰。上面提到的项链、苯环衍生物等问题，也可以这么解决。写出不考虑对称性时所有的状态$S$，找出所有对称性构成的群$G$。然后对每个元素$x\in S$，找出它在$G$的变换下的轨迹，归为一类。所有轨迹的个数就是答案。这个解法的困难在于：当$S$变得很大的时候，分析$S$中各个元素的轨迹，找出轨迹个数，就变成了一个棘手的问题：运算量太大了。比如，如果我们想讨论用三种颜色的$20$个珠子串成一个项链，对应的状态集合$S$就有$3^{20}\approx 3.49\times 10^{10}$个元素。逐个分析这些元素在群变换下的轨迹，显然是不现实的。
+以上的解法其实很清晰。上面提到的项链、苯环衍生物等问题，也可以这么解决。写出不考虑对称性时所有的状态$S$，找出所有对称性构成的群$G$。然后对每个元素$x\in S$，找出它在$G$的变换下的轨迹，归为一类。所有轨迹的个数就是答案。这个解法的困难在于：当$S$变得很大的时候，分析$S$中各个元素的轨迹，找出轨迹个数，就变成了一个棘手的问题：运算量太大了。比如，如果我们想讨论用三种颜色的$20$个珠子串成一个项链，对应的状态集合$S$就有$3^{20}\approx 3.49\times 10^{9}$个元素。逐个分析这些元素在群变换下的轨迹，显然是不现实的。
 
 \section{定元分轨定理}
 
@@ -14306,9 +15285,9 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
     \end{itemize}
     过对边中点连线的翻转可分解为三个对换，有$3$个环圈，每个长度为$2$。过对角顶点的翻转有$2$个长度为$1$的环圈，和$2$个长度为$2$的环圈。共有$4$个环圈。因此，所有染色方案数为：
     \begin{align*}
-        \frac{1}{|\mathsf{D}_{6}|}\sum_{g\in \mathsf{D}_{6}} |X^g| &= \sum_{g\in \mathsf{D}_{6}} 3^{c(g)} \\
+        \frac{1}{|\mathsf{D}_{6}|}\sum_{g\in \mathsf{D}_{6}} |X^g| &= \frac{1}{12}\sum_{g\in \mathsf{D}_{6}} 3^{c(g)} \\
         &= \frac{1}{12}\left(3^{6} + 2\times 3^{1} + 2\times 3^{2} + 1\times 3^{3} + 3\times 3^{3} + 3\times 3^{4} \right)\\
-        &= \frac{1}{12}\left(729 + 6 + 18 + 27 + 81 + 243\right) = \frac{1104}{12}\\
+        &= \frac{1}{12}\left(729 + 6 + 18 + 27 + 81 + 243\right) = \frac{1104}{12}\\[4pt]
         &= 92.
     \end{align*}
     继续精细计算每个$g$对应的$1$红$2$黄$3$蓝染色方案数。由上知对每个群元素$g$需要构建$P_g$。要注意的是：要确保有单一一个元素被染红，必须要有长度为$1$的环道，于是非平凡旋转和过对边中点连线的翻转被排除。只需要考虑恒等变换$e$和过对角顶点的翻转$rs,r^3s,r^5s$。其多项式分别是：
@@ -14351,7 +15330,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
     \item \textbf{正方体面染色问题}。给定一个正方体，其$6$个面可以用红、蓝两种颜色染色。
     \begin{problemlist}
         \item 如果不考虑任何对称性（即对称群只包含恒等变换$e$），有多少种染色方法？
-        \item 如果只允许绕某一条特定的体心对角线（例如连接左下前和右上后顶点的轴）进行旋转，有多少种本质不同的染色方法？
+        \item 如果只允许绕某一条特定的顶心对角线（例如连接左下前和右上后顶点的轴）进行旋转，有多少种本质不同的染色方法？
         \item 如果允许保持某一对特定对面（例如顶面和底面）作为集合不变的所有旋转（即绕垂直轴旋转，以及绕水平轴和对角轴翻转$180^\circ$），有多少种本质不同的染色方法？
         \item 如果允许正方体的所有旋转（即完整的旋转群$\mathsf{T}_6$），有多少种本质不同的染色方法？
         \item 如果允许用红、蓝、绿三种颜色给正方体的面染色，以上各个情形的染色方法会变成多少种？
@@ -14365,7 +15344,6 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
         \item 如果只允许旋转，用红、蓝两种颜色给正五边形的顶点染色，有几种染色方法？
         \item 如果只允许旋转，用红、蓝、绿三种颜色给正五边形的顶点染色，有几种染色方法？
         \item 对比以上四问的答案，解释在允许与不允许翻转的情形下，用两种颜色染色和用三种颜色染色的答案有何差异？理由是什么？
-        \item 如果只允许旋转和过特定一个顶点的翻转，用红蓝两种颜色给正五边形的顶点染色，有几种染色方法？
     \end{problemlist}
 \end{problemlist}
 
@@ -14380,12 +15358,12 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
 \clearpage
 
 \begin{center}
-    \Large \textbf{六氟化硫的旋转异构体}
+    \Large \textbf{六氟化硫的立体异构体}
 \end{center}
 
 六氟化硫（$\mathrm{SF}_6$）是一种气体分子。它的空间结构是正八面体：硫原子位于中心，六个氟原子分别位于正八面体的六个顶点，这六个位置的地位完全相同。现在设想把其中若干个氟原子换成氯原子，得到 $\mathrm{SF}_{6-k}\mathrm{Cl}_k$ 这样的化合物。理论上，这样的替换一共能产生多少种不同的空间结构\footnote{其中哪些分子能实际制得，属于化学实验的问题，不在本题讨论范围内。}？
 
-在三维空间中，分子可以自由转动。如果两种原子排布能够通过转动完全重合，化学上就把它们看作同一种分子；如果无论怎样转动都不能重合，它们就是不同的分子，称为\textbf{旋转异构体}。例如，当只有两个氯原子时，若这两个氯原子位于正八面体相对的两个顶点，化学上称为\textbf{反式}结构；若位于相邻的两个顶点，则称为\textbf{顺式}结构。
+在三维空间中，分子可以自由转动。如果两种原子排布能够通过转动完全重合，化学上就把它们看作同一种分子；如果无论怎样转动都不能重合，它们就是不同的分子，称为\textbf{立体异构体}。例如，当只有两个氯原子时，若这两个氯原子位于正八面体相对的两个顶点，化学上称为\textbf{反式}结构；若位于相邻的两个顶点，则称为\textbf{顺式}结构。
 
 下面分四部分，把这个化学问题逐步改写成本章能够处理的计数问题，并完成计算。各小问都可以直接使用前面小问的结论。
 
@@ -14472,7 +15450,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
     \item 取上、右、前三个顶点围成的面，它的对面由下、左、后三个顶点围成。绕这条面心轴转$120^\circ$与$240^\circ$：写出环圈分解与$c(g)$。
     \item 取连接上与前的棱，它的相对棱连接下与后。绕这条棱中轴转$180^\circ$：写出环圈分解与$c(g)$。
     \item 把第$6$、$8$、$9$、$10$问的结果整理成一张表，列出每类旋转的个数、环圈形态、$c(g)$与$2^{c(g)}$，并核对个数之和。
-    \item 用染色计数定理求出本质不同的排布总数，也就是旋转异构体的总数。
+    \item 用染色计数定理求出本质不同的排布总数，也就是立体异构体的总数。
 \end{problemlist}
 
 \subsubsection*{第四部分\quad 回到化学}
@@ -14481,10 +15459,10 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
     \begin{problemlist}
         \item 不考虑转动，从六个位置中选两个放氯原子，有多少种选法？
         \item 按两个氯原子“相对”还是“相邻”分类，各有多少种？说明每一类中的选法都能通过旋转互相得到。
-        \item 由此说明$\mathrm{SF}_4\mathrm{Cl}_2$恰有两种旋转异构体，并指出哪一种是顺式、哪一种是反式。
+        \item 由此说明$\mathrm{SF}_4\mathrm{Cl}_2$恰有两种立体异构体，并指出哪一种是顺式、哪一种是反式。
     \end{problemlist}
     \item 用轨定定理核对上一问：两种异构体各自的轨迹有多长？定子群各有几个元素？试着把反式构型的定子群中的旋转找出来。
-    \item 再看氯原子恰好三个的情形。按“三个氯原子两两相邻”与“三个氯原子中有一对相对”分类，各有多少种选法？核对总数，并说明$\mathrm{SF}_3\mathrm{Cl}_3$也恰有两种旋转异构体。
+    \item 再看氯原子恰好三个的情形。按“三个氯原子两两相邻”与“三个氯原子中有一对相对”分类，各有多少种选法？核对总数，并说明$\mathrm{SF}_3\mathrm{Cl}_3$也恰有两种立体异构体。
     \item 逐个列出$k=0,1,\cdots,6$时$\mathrm{SF}_{6-k}\mathrm{Cl}_k$的异构体数目，核对它们的和是否等于第$12$问的结果。特别说明$k=0,1,5,6$时为什么都只有一种，以及$k=2$与$k=4$的结果为什么相同。
     \item 用本章介绍的方法重新计算“恰好两个氯原子”的情形：对每类旋转写出对应的整式$P_g$，求其中$a^2b^4$的系数（$a$记氯，$b$记氟），再求和取平均，核对是否仍得$2$。
 \end{problemlist}
@@ -14822,7 +15800,6 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
 
 \subsection*{打破规则}
 \begin{problemlist}
-    \item 仅仅不满足第二条规则的例子：取一块抹布，操作是“蘸上一些墨水”或“洗干净晾干”。操作集合是固定的，操作是可逆的，重复操作仍然在集合里，但蘸上墨水的效果是不确定的，所以仅仅不满足规则$2$。
     \item 仅仅不满足第三条规则的例子：固定一个圆规的一脚，让另一脚画圆弧，操作是：“沿顺时针画$n$度的圆弧”（$n$为正整数）。操作集合固定；效果确定；任意重复组合的效果仍然是沿顺时针画正整数度圆弧。但任何操作不可逆，所以仅仅不满足规则$3$。
     \item 仅仅不满足第四条规则的例子：考虑军训时“向左转”、“向右转”两个口令。操作集合固定；效果确定；操作是可逆的。但连续两次“向左转”的效果不在集合里。所以仅仅不满足规则$4$。
 \end{problemlist}
@@ -14930,7 +15907,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
         \overline{8}\times\overline{6} &= \overline{4},&
         \overline{4}\times\overline{6} &= \overline{2},\\
         \overline{2}\times\overline{6} &= \overline{1},&
-        \overline{1}\times\overline{6} &= \overline{6}
+        \overline{1}\times\overline{6} &= \overline{6}.
     \end{align*}
     于是$6$是模$11$原根。同理可验证$7,8$是模$11$原根。于是模$11$的原根是：$2,6,7,8$。
 
@@ -15596,7 +16573,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
     \item \textbf{思路分析：} 整数加法群 $\mathbb{Z}$ 是一个无限群。它的“乘法表”（此处应为加法表）的行和列都由所有整数构成，因此是一个无限大的表格，无法在纸面上完整画出。
     \\
     \textbf{想法：}
-    \begin{problemlist}
+    \begin{problemlist} % TODO 画出加法表和生成路径图
         \item 我们可以写出它的“局部”加法表，例如截取 $-2, -1, 0, 1, 2$ 这五个元素构成一个 $5 \times 5$ 的表格。
         \item 我们可以用代数表达式来描述这个无限表：第 $m$ 行第 $n$ 列的元素就是 $m + n$。
         \item 从生成路径图的角度看，整数加法群是由 $1$（或 $-1$）生成的无限循环群，它的生成路径图是一条向两端无限延伸的直线（类似数轴），而不是一个闭合的圆。从$0$开始，“加$1$”和“减$1$”作为右向和左向的箭头逐步指向各个整数，表示生成所有整数。
@@ -15875,7 +16852,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
         
         \item 所有$3$的倍数关于整数的乘法\textbf{不是群}。因为\textbf{没有幺元}。$1$不是$3$的倍数，不在集合中。因此集合中没有元素$e$，使任何元素乘$e$后得到自身。
         
-        \item 非零实数关于乘方\textbf{不是群}。不满足\textbf{结合律}。乘方运算不满足结合律，例如 $(2^3)^2 = 8^2 = 64$，而 $2^{(3^2)} = 2^9 = 512$，两者不相等。
+        \item 正实数关于乘方\textbf{不是群}。不满足\textbf{结合律}。乘方运算不满足结合律，例如 $(2^3)^2 = 8^2 = 64$，而 $2^{(3^2)} = 2^9 = 512$，两者不相等。
         
         \item 所有完全平方数关于整数的乘法\textbf{不是群}。
         \begin{itemize}
@@ -16025,7 +17002,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
     要使$a^k = e$，就必须有$a^r = e$。根据生成元的性质，只有当$r=0$时才成立。
     因此，$k$必须是$n$的倍数。另一方面，$n$整除$k$时可验证$a^k=e$。\\
     综上所述，满足$a^k=e$的整数$k$的集合为：
-    \[\{na\,|\,a\in\mathbb{Z}\}\]
+    \[\{nz\,|\,z\in\mathbb{Z}\}\]
     后面我们会学到，它是整数加法群的子群，记为$n\mathbb{Z}$。
 
     \item 考虑$n$元循环群$\mathsf{C}_n = \{a,a^2,\cdots,a^n=e\}$。对正整数$k>1$，设$b = a^k$。我们想了解：$b$不断自乘，得到的环道是怎样的？
@@ -16350,42 +17327,20 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
 
     \item 研究$\mathsf{S}_4$。
     \begin{problemlist}
-        \item $\mathsf{S}_4$有几个元素？用本章中介绍的写法，列出所有的元素（$4$元置换）。
-
-        \textbf{解答：}
-        $\mathsf{S}_4$有$4! = 24$个元素。
-        \item 为了方便，我们采用更简单的方法表示$\mathsf{S}_4$的元素：在圆括号中列出$1,2,3,4$置换后的结果。比如$(2\,4\,1\,3)$就表示$1\mapsto 2,\,2\mapsto 4,\,3\mapsto 1,\,4\mapsto 3$的置换。说明本章中的记法和这种记法如何转换。
-    
-        \textbf{解答：}
-        本章介绍的写法是用两列之间的箭头来表示映射关系。如果把上行固定为$1,2,3,4$，那么把下行的数逐个写出来，就是简单写法的结果。反之，把简单写法作为下行，添上上行$1,2,3,4$，再在相同的数之间标上箭头连起来，就是本章正文里的写法。
-        \item 考虑置换$\tau_1 = (2\,3\,4\,1)$，它表示怎样的置换？写出它的环道。
-
-        \textbf{解答：} $\tau_1 = (2\,3\,4\,1)$ 表示 $1\to2, 2\to3, 3\to4, 4\to1$。$\tau_1^2=(3\,4\,1\,2), \tau_1^3=(4\,1\,2\,3), \tau_1^4=e$。它的环道长度为$4$。
-        \item 考虑置换$\tau_2 = (2\,1\,3\,4)$，它表示怎样的置换？写出它的环道。
-        
-        \textbf{解答：} $\tau_2 = (2\,1\,3\,4)$ 表示 $1\to2, 2\to1, 3\to3, 4\to4$。这是一个\textbf{对换}，它只调转$1,2$的位置。
+        \item \textbf{解答：}$\mathsf{S}_4$有$4! = 24$个元素。它的所有元素可见本章正文最后的图\ref{fig:cube-rotation-permutation-map}。
+        \item \textbf{解答：}本章介绍的写法是用箭头来表示映射关系。两行写法中，如果把上行固定为$1,2,3,4$，那么把下行的数逐个写出来，就是简单写法的结果。反之，把简单写法作为下行，添上上行$1,2,3,4$，再在相同的数之间标上箭头连起来，就是本章正文里的写法。
+        \item \textbf{解答：} $\tau_1 = (2\,3\,4\,1)$ 表示 $1\to2, 2\to3, 3\to4, 4\to1$。$\tau_1^2=(3\,4\,1\,2), \tau_1^3=(4\,1\,2\,3), \tau_1^4=e$。它的环道长度为$4$。
+        \item \textbf{解答：} $\tau_2 = (2\,1\,3\,4)$ 表示 $1\to2, 2\to1, 3\to3, 4\to4$。这是一个\textbf{对换}，它只调转$1,2$的位置。
         它的环道长度为$2$：$\tau_2, e$。
-        \item 考虑置换$\tau_3 = (2\,1\,4\,3)$，它表示怎样的置换？写出它的环道。
-        
-        \textbf{解答：} $\tau_3 = (2\,1\,4\,3)$ 表示 $1\to2, 2\to1, 3\to4, 4\to3$。这是一个\textbf{双对换}，它调转$1,2$的位置，也调转$3,4$的位置。
+        \item \textbf{解答：} $\tau_3 = (2\,1\,4\,3)$ 表示 $1\to2, 2\to1, 3\to4, 4\to3$。这是一个\textbf{双对换}，它调转$1,2$的位置，也调转$3,4$的位置。
         它的环道长度为$2$：$\tau_3, e$。
-        \item 考虑置换$\tau_4 = (2\,3\,1\,4)$，它表示怎样的置换？写出它的环道。
-        
-        \textbf{解答：} $\tau_4 = (2\,3\,1\,4)$ 表示 $1\to2, 2\to3, 3\to1, 4\to4$。$\tau_4^2=(3\,1\,2\,4), \tau_4^3=e$。它的环道长度为$3$。
-        % \item 考虑置换$\tau_1 = (1\,3\,4\,2)$，它表示怎样的置换？写出它的环道。
-        
-        % \textbf{解答：} $\tau_5 = (1\,3\,4\,2)$ 表示 $1\to1, 2\to3, 3\to4, 4\to2$。$\tau_5^2=(1\,4\,2\,3), \tau_5^3=e$。它的环道长度为$3$。
-        \item 计算$\mathsf{S}_4$中所有元素的环道长度。一共有几种环道长度？
-        
-        \textbf{解答：} 根据上述分析以及穷举所有24个置换，环道长度共有 \textbf{4种}：
+        \item \textbf{解答：} $\tau_4 = (2\,3\,1\,4)$ 表示 $1\to2, 2\to3, 3\to1, 4\to4$。$\tau_4^2=(3\,1\,2\,4), \tau_4^3=e$。它的环道长度为$3$。
+        \item \textbf{解答：} 根据上述分析以及穷举所有24个置换，环道长度共有 \textbf{4种}：
         长度为$1$：恒等变换（$1$个）。
         长度为$2$：对换（$6$个）和双对换（$3$个），共$9$个。
         长度为$3$：8个。
         长度为$4$：6个。
-
-        \item 计算$\tau_1,\tau_2,\tau_3,\tau_4$两两相乘的结果。这$4$个变换中，有哪些是交换的？哪些不是？
-        
-        \textbf{解答：}
+        \item \textbf{解答：}
         经过计算：
         \begin{itemize}
             \item $\tau_1$与$\tau_2, \tau_3, \tau_4$均不交换。
@@ -16402,6 +17357,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
         %     \usebox{\groupgraphaloft}
         % };
         % \end{tikzpicture}
+    \vspace{8pt}
     \begin{figure}[htbp]
         \centering
         \begin{tikzpicture}[scale=0.7]
@@ -17068,7 +18024,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
             \end{tikzpicture}
             \label{fig:tetrahedron-bimedians-rotations}
         \end{figure}
-        \item 完全不变对应于恒等变换$e$。绕顶点中线的旋转变换保持该顶点不变，其他三个顶点变换，因此对应$3$元轮换：
+        \item \textbf{解答：}完全不变对应于恒等变换$e$。绕顶点中线的旋转变换保持该顶点不变，其他三个顶点变换，因此对应$3$元轮换：
         \begin{align*}
             \tau_1 &= (1\,3\,4\,2), & \tau_1^2 &= (1\,4\,2\,3),\\
             \tau_2 &= (3\,2\,4\,1), & \tau_2^2 &= (4\,2\,1\,3),\\
@@ -17607,7 +18563,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
         \]
         不难验证$G$是群。列出其乘法表可知其与$\mathsf{J}_4$同构。
         \item $\mathsf{C}_6$有阶为$6$的元素，即需要重复$6$次才变成恒等变换。$\mathsf{A}_4$中没有这样的元素。
-        \item $\mathsf{D}_3$有$3$个$2$元素。反设$\mathsf{A}_4$有子群$H$同构于$\mathsf{D}_3$，那么$H$也会有$3$个$2$元素。由上一题知必然是$(2\,1\,4\,3),(3\,4\,1\,2),(4\,3\,2\,1)$。它们和幺元一起构成子群，而且是$H$的子集。这说明$H$有$4$元子集$G$，违反群势定理，矛盾！
+        \item $\mathsf{D}_3$有$3$个$2$阶元素。反设$\mathsf{A}_4$有子群$H$同构于$\mathsf{D}_3$，那么$H$也会有$3$个$2$元素。由上一题知必然是$(2\,1\,4\,3),(3\,4\,1\,2),(4\,3\,2\,1)$。它们和幺元一起构成子群，而且是$H$的子集。这说明$H$有$4$元子集$G$，违反群势定理，矛盾！
     \end{problemlist}
     \item 生成的子群为：
 
@@ -17636,8 +18592,8 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
     据此可以计算乘法表。它们的生成路径图和乘法表都一样，因此同构。
     \item 子群的往集为：
     \begin{problemlist}
-        \item $\{6n+k\,|\,n\in\mathbb{Z}\}$，其中$i=1,2,3,4,5$。左右往集相等。
-        \item $\{6n+k\,|\,n\in\mathbb{Z}\}$，其中$i=2,4$。左右往集相等。
+        \item $\{6n+k\,|\,n\in\mathbb{Z}\}$，其中$k=1,2,3,4,5$。左右往集相等。
+        \item $\{6n+k\,|\,n\in\mathbb{Z}\}$，其中$k=2,4$。左右往集相等。
         \item $\{\overline{1},\overline{4},\overline{7},\overline{10}\}$和$\{\overline{2},\overline{5},\overline{8},\overline{11}\}$。左右往集相等。
         \item \textbf{解答}：\\
         不难推出$r$是$4$阶旋转，$s$是翻转。$\langle r^2\rangle = \{e,r^2\}$，记为$H$。$H$的左往集为$rH=\{r,r^3\}$，$sH=\{s,r^2s\}$，$rsH = \{rs,rsr^2\} = \{rs,r^3s\}$。$H$的右往集为$Hr=\{r,r^3\}$，$Hs=\{s,sr^2\}=\{s,r^2s\}$，$Hrs = \{rs,r^3s\}$。左右往集相等。原因是$sr^2=r^2s$。这让$r^2$和$s,rs,r^2s,r^3s$都交换，从而和所有群元素交换。
@@ -17668,7 +18624,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
 \section{第六章参考解答}
 
 \begin{problemlist}
-    \item 以下的群和群元素是什么意思？解释你看到的表达式。
+    \item \textbf{解答}：
     \begin{problemlist}
         \item 这个表达式是说$12\mathbb{Z}$是$\mathbb{Z}$的往合子群，$2 + 12\mathbb{Z}$是其商群的元素。
         \item 这个表达式是说$16\mathbb{Z}$是$2\mathbb{Z}$的往合子群，$10 + 16\mathbb{Z}$是其商群的元素。
@@ -17692,10 +18648,47 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
         另外，子怡认为非交换群无法分解为两个交换群，混淆了群的架积和商群分解。通过往合子群分解为商群，并不代表往合子群和商群的架积是原来的群。实际上，非交换群可以同时拥有交换的往合子群和商群，比如$\mathsf{D}_3$就通过同构于交换群$\mathsf{C}_3$的往合子群得到同构于$\mathsf{C}_2$的商群，后两个群都是交换群。
         \item $\mathsf{S}_4$中同构于$\mathsf{C}_3$的子群就是$3$阶元素生成的子群。$\mathsf{S}_4$有$8$个$3$阶元素，即$3$元轮换。它们构成$4$个三元群，都同构于$\mathsf{C}_3$。但它们都不往合。例如，取子群$H = \{(1\,2\,3\,4),\,(2\,3\,1\,4),\,(3\,1\,2\,4)\}$，用$a=(4\,2\,3\,1)$左乘它，得到$aH=\{(4\,2\,3\,1),\,(2\,3\,4\,1),\,(3\,4\,2\,1)\}$，右乘则得到$Ha=\{(4\,2\,3\,1),\,(4\,3\,1\,2),\,(4\,1\,2\,3)\}$。于是$aH\neq Ha$。其他群可类似验证。
     \end{problemlist}
-    \item \textbf{证明}：\\
-    反设$\mathsf{A}_4$有$6$元子群$H$，则$H$除自身外只有一个往集，因此左往集等于右往集。这说明$H$是往合子群，可以定义商群$Q$。$Q$是二元群，因此同构于$\mathsf{C}_2$。$H$则是从$\mathsf{A}_4$到$\mathsf{C}_2$的同态$\varphi$的核。\\
-    考察$\mathsf{A}_4$中的$3$元轮换，它们都是$3$阶元素。因此任意$3$元轮换$x$都有$x^3=e_1\in\mathsf{A}_4$。$x$经$\varphi$映射变成$\varphi(x)\in\mathsf{C}_2$，于是$e_2=\varphi(e_1)=\varphi(x^3)=\varphi(x)^3$，其中$e_2$是$\mathsf{C}_2$的幺元。然而$\mathsf{C}_2$中没有$3$阶元素。$\varphi(x)^3=e_2$，说明$\varphi(x)=e_2$。因此$\mathsf{A}_4$中所有$3$元轮换都映射到$e_2$，即都在同态核$H$中。但$\mathsf{A}_4$中有$8$个$3$元轮换，$H$只有$6$个元素，矛盾！
-    \item \textbf{解答}：\\
+    \item \textbf{解答}：
+    \begin{problemlist}
+        \item 设题目中给出的$12$个置换构成的群为$H$（$\mathsf{A}_4$同构于$H$），考察它的往集。$H$左乘对换$\tau = (2\,1\,3\,4)$，得到以下$12$个元素：
+        \begin{align*}
+            \tau H &= \{\tau \sigma\,|\,\sigma\in H\} \\
+            &= \{(2\,1\,3\,4),(2\,3\,4\,1),(2\,4\,1\,3),(3\,1\,4\,2),\;\\
+            &\quad(4\,1\,2\,3),(1\,4\,3\,2),(4\,2\,3\,1),(1\,3\,2\,4),\;\\
+            &\quad(3\,2\,1\,4),(1\,2\,4\,3),(3\,4\,2\,1),(4\,3\,1\,2)\}
+        \end{align*}
+        窍门是把其中的$1,2$对换即可。\\
+        我们知道左往集$\tau H$和$H$不相交且等势，构成$\mathsf{S}_4$的分划。同理，右往集$H\tau$也和$H$不相交且等势，构成$\mathsf{S}_4$的分划。这说明$\tau H = H\tau$，因此$H\nsg \mathsf{S}_4$。
+        \item 如果有限群$G$的子群$H$拥有$G$的一半元素，取另一半元素中任一个：$a$。那么根据往集的性质，$aH$和$Ha$都是另一半元素构成的往集，于是$aH=Ha$。这说明$H\nsg G$。
+        \item 反设$\mathsf{A}_4$有$6$元子群$H$，则$H$除自身外只有一个往集，因此左往集等于右往集。这说明$H$是往合子群，可以定义商群$Q$。$Q$是二元群，因此同构于$\mathsf{C}_2$。$H$则是从$\mathsf{A}_4$到$\mathsf{C}_2$的同态$\varphi$的核。\\
+        考察$\mathsf{A}_4$中的$3$元轮换，它们都是$3$阶元素。因此任意$3$元轮换$x$都有$x^3=e_1\in\mathsf{A}_4$。$x$经$\varphi$映射变成$\varphi(x)\in\mathsf{C}_2$，于是$e_2=\varphi(e_1)=\varphi(x^3)=\varphi(x)^3$，其中$e_2$是$\mathsf{C}_2$的幺元。然而$\mathsf{C}_2$中没有$3$阶元素。$\varphi(x)^3=e_2$，说明$\varphi(x)=e_2$。因此$\mathsf{A}_4$中所有$3$元轮换都映射到$e_2$，即都在同态核$H$中。但$\mathsf{A}_4$中有$8$个$3$元轮换，$H$只有$6$个元素，矛盾！
+        \item 按定义，$\mathsf{H}_0=\{\sigma\in\mathsf{S}_{\mathbb{N}}\,|\,\sigma(0)=0\}$。如果$a\in\mathsf{H}_0$，那么$a(0)=0$，于是$a^{-1}(0)=0$。因此，$\forall \,a,b\in\mathsf{H}_0$，$(ab^{-1})(0) = a(b^{-1}(0)) = a(0)=0$。这说明$ab^{-1}\in\mathsf{H}_0$。因此$\mathsf{H}_0\subg \mathsf{S}_{\mathbb{N}}$。
+        \item 考虑$\mathbb{N}$上的置换$\sigma$，它只交换$1$和$2$。$\sigma(0)=0$，因此$\sigma\in\mathsf{H}_0$。计算$\sigma\tau\in\mathsf{H}_0\tau$：$(\sigma\tau)(0)=2$，$(\sigma\tau)(1)=0$，$(\sigma\tau)(2)=1$，其他情况下$(\sigma\tau)(n)=n$。考虑左往集$\tau\mathsf{H}_0$。$\forall \tau h\in\tau\mathsf{H}_0$，总有$(\tau h)(0)=\tau(h(0)) = \tau(0)=1$。所以$\sigma\tau\notin \tau\mathsf{H}_0$。这说明$\tau\mathsf{H}_0\neq\mathsf{H}_0\tau$。左往集不等于右往集，因此$\mathsf{H}_0$不是往合子群。（\textbf{注意}：通过证明$\sigma\tau\neq\tau\sigma$来证明$\mathsf{H}_0$不是往合子群是不行的。）
+        \item $\forall \sigma\in\mathsf{H}_0$，$(\tau_n\sigma)(0)=\tau_n(\sigma(0)) = \tau(0)=n$，所以$\tau_n\mathsf{H}_0\subseteq \mathsf{H}_n$。反之，$\forall \sigma\in\mathsf{H}_n$，$\left(\tau_n^{-1}\sigma\right)(0)=\tau_n^{-1}\left(\sigma(0)\right)=\tau_n^{-1}(n)=0$。所以$\tau_n^{-1}\sigma\in\mathsf{H}_0$，即$\sigma\in\tau_n\mathsf{H}_0$。于是$\mathsf{H}_n\subseteq\tau_n\mathsf{H}_0$。综合有$\mathsf{H}_n=\tau_n\mathsf{H}_0$。这说明$|\mathsf{H}_0|=|\tau_n\mathsf{H}_0|=|\mathsf{H}_n|$。
+        \item 按定义显然$\mathsf{H}_0^{(i)}$两两不相交。由于$\mathsf{H}_0$中元素不可能把$1$映射到$0$，所以只能映射到正整数，于是必然恰好属于一个$\mathsf{H}_0^{(i)}$（只要$\sigma(1)=i$，$\sigma$就属于$\mathsf{H}_0^{(i)}$）。因此$\{\mathsf{H}_0^{(i)},\,|\,i\in\mathbb{Z}^+\}$构成$\mathsf{H}_0$的分划。另一方面，仿照前一问的方法可证明$\mathsf{H}_0^{(i)}=\rho_i\mathsf{H}_0^{(1)}$，其中$\rho_i$是只交换$1$和$i$的对换。因此$|\mathsf{H}_0^{(i)}|=|\mathsf{H}_0^{(1)}|$。
+        \item $\forall \sigma\in\mathsf{H}_0^{(1)}$，双射$\sigma$固定$0$和$1$，因此只变动大于$1$的正整数。考虑$f:\,x\mapsto \sigma(x+1)-1$，$\forall x\in\mathbb{Z}^+$，$x+1\geqslant 2$，$f(x)=\sigma(x+1)-1\geqslant 1$。根据$\sigma$的性质，它是正整数集上的双射，因此可以补充定义$f(0)=0$。这样就定义了一个属于$\mathsf{H}_0$的置换$f$。于是我们构建了从$\mathsf{H}_0^{(1)}$到$\mathsf{H}_0$的映射：
+        \[
+            \Phi:\; \sigma \;\mapsto \;\left(x\mapsto \begin{cases*}
+                \sigma(x+1)-1 & $x\in\mathbb{Z}^+$ \\
+                0 & $x=0$
+            \end{cases*}\right)
+        \]
+        反之，给定$\sigma\in\mathsf{H}_0$，定义$g:\,x\mapsto\sigma(x-1)+1$。正整数$x>1$时，$x-1>0$，于是$g(x)=\sigma(x-1)+1 > 1$。根据$\sigma$的性质，它在大于$1$的正整数集上是双射。补充定义$g(0)=0$，$g(1)=1$。这样就构造出属于$\mathsf{H}_0^{(1)}$的置换$g$。我们把这个从$\mathsf{H}_0$到$\mathsf{H}_0^{(1)}$的映射记作$\Psi$：
+        \[
+            \Psi:\; \sigma \;\mapsto \;\left(x\mapsto \begin{cases*}
+                \sigma(x-1)+1 & $x\in\mathbb{Z}^+,\;x>1$ \\
+                1 & $x=1$\\
+                0 & $x=0$
+            \end{cases*}\right)
+        \]
+        最后，计算$\Phi(\Psi(\sigma))$。首先按$\Phi$的定义，$\Phi(\Psi(\sigma))(0)=0$；其次，
+        $$\forall\,x\in\mathbb{Z}^+,\;\;\Phi(\Psi(\sigma))(x)=\Psi(\sigma)(x+1)-1=\sigma(x+1-1)+1-1=\sigma(x).$$
+        因此$\Phi(\Psi(\sigma))=\sigma$。同理可验证$\Psi(\Phi(\sigma))=\sigma$。这说明$\Phi$和$\Psi$互为逆映射，即$\Phi$是可逆的双射。我们建立了$\mathsf{H}_0$和$\mathsf{H}_0^{(1)}$之间的双射。
+        \item 通过$\tau_n$可建立$\mathsf{H}_0$到$\mathsf{H}_n$的双射$\phi_n:\,x\mapsto \tau_n x$。注意到$\{\mathsf{H}_n|n\in\mathbb{N}\}$构成$\mathsf{S}_\mathbb{N}$的分划，因此$\mathsf{H}_0$的补集就是$\mathsf{H}_n$（$n\in\mathbb{Z}^+$）的不交并集$K$。只要证明$\mathsf{H}_0^{(n)}$到$\mathsf{H}_n$之间有双射$\psi_n$。那么把所有$\psi_n$拼接起来，就构成$\mathsf{H}_0$到$K$的双射。\\
+        下面构建双射$\psi_n$。前一问证明了$\mathsf{H}_0$和$\mathsf{H}_0^{(1)}$之间有双射，记为$\Phi_0^{(1)}$。考虑只交换$1$和$n$的置换$\tau_1^n$，$\sigma\mapsto\tau_1^n\circ\sigma$是$\mathsf{H}_0^{(1)}$到$\mathsf{H}_0^{(n)}$的双射。于是对任意正整数$n$，$\mathsf{H}_0$和$\mathsf{H}_0^{(n)}$之间总有双射，记为$\Phi_0^{(n)}$。而$\mathsf{H}_0$和$\mathsf{H}_n$之间也有双射$\phi_n$，因此$\mathsf{H}_n$和$\mathsf{H}_0^{(n)}$就有双射，这就是我们要找的$\psi_n$。\\
+        $\mathsf{H}_0$和它在$\mathsf{S}_{\mathbb{N}}$的补集$K$之间有双射。按集合的性质，两者等势。我们可以说“$K$和$\mathsf{H}_0$的往集一样大”，但这不说明“$\mathsf{H}_0$占了$\mathsf{S}_{\mathbb{N}}$的一半元素”或“$\mathsf{H}_0$是$\mathsf{S}_{\mathbb{N}}$的往合子群”。在有限群上成立的结论，对无限群则不成立了。
+    \end{problemlist}
+    \item \textbf{解答}：
     \begin{problemlist}
         \item 可以验证，$e,r^2$都与$\mathsf{D}_4$中所有元素交换，因此，$\forall a\in\mathsf{D}_4$，都有$a\langle r^2\rangle = \langle r^2\rangle a$。于是$H\nsg \mathsf{D}_4$。
         \item $\mathsf{D}_4$的其他二元子群$K$都是翻转变换生成的子群。可以验证$rK\neq Kr$。
@@ -17808,16 +18801,19 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
         \item \textbf{不是。}\\
         \textbf{理由}：不满足封闭性。$\mathsf{D}_3$包含旋转$120^\circ$的变换，将正方形顶点旋转$120^\circ$后，顶点将落在非顶点位置（不在集合$X$中）。
         \item \textbf{是。}\\
-        \textbf{理由}：$\mathsf{D}_4$的变换（旋转$90^\circ$倍数及翻转）作用于整数格点$(m,n)$，结果是$(1\pm m, 1\pm n)$或$(1\pm n, 1\pm m)$，结果必为整数格点，故封闭。变换的复合天然与幺元、结合律相容。
+        \textbf{理由}：$\mathsf{D}_4$的变换（旋转$90^\circ$倍数及翻转）作用于整数格点$(m,n)$，结果总在$(1\pm m, 1\pm n)$、$(1\pm n, 1\pm m)$、$(\pm m,\pm n)$或$(\pm n,\pm m)$之中。结果必为整数格点，故封闭。变换的复合天然与幺元、结合律相容。
     \end{problemlist}
-    \item 按轨定定理，轨迹长度是$35$的因数，但按条件大于$1$且不超过$19$，因此要么是$5$，要么是$7$。这些轨迹构成$X$的分划。设有$m$个长度为$5$的轨迹，$n$个长度为$7$的轨迹，则有以下的整数不定方程：
+    \item \textbf{解答}：\\
+    按轨定定理，轨迹长度是$35$的因数，但按条件大于$1$且不超过$19$，因此要么是$5$，要么是$7$。这些轨迹构成$X$的分划。设有$m$个长度为$5$的轨迹，$n$个长度为$7$的轨迹，则有以下的整数不定方程：
     \[
     5m + 7n = 19.
     \]
     $m,n$都是非负整数。于是$n<3$。用$n=0,1,2$测试，得到$n=2,m=1$。因此一共有$3$个轨道，$1$个长度为$5$，$2$个长度为$7$。
-    \item 记$H$为$g(x)$的定子群。按定义，$G_x = \{a\in G\,|\, a(x)=x\}$。于是$\forall a\in G_x$，$(gag^{-1})(g(x)) = g(a(g^{-1}(g(x)))) = g(a(x)) = g(x)$。这说明$gag^{-1}$是$g(x)$的定子。这说明$gG_xg^{-1}\subseteq H$。另一方面，如果$a\in G$使得$a(g(x)) = g(x)$，那么$(g^{-1}ag)(x) = x$，即$g^{-1}ag\in G_x$，于是$a\in gG_xg^{-1}$。这说明$H\subseteq gG_xg^{-1}$。综上，$H = gG_xg^{-1}$。
+    \item \textbf{解答}：\\
+    记$H$为$g(x)$的定子群。按定义，$G_x = \{a\in G\,|\, a(x)=x\}$。于是$\forall a\in G_x$，$(gag^{-1})(g(x)) = g(a(g^{-1}(g(x)))) = g(a(x)) = g(x)$。这说明$gag^{-1}$是$g(x)$的定子。这说明$gG_xg^{-1}\subseteq H$。另一方面，如果$a\in G$使得$a(g(x)) = g(x)$，那么$(g^{-1}ag)(x) = x$，即$g^{-1}ag\in G_x$，于是$a\in gG_xg^{-1}$。这说明$H\subseteq gG_xg^{-1}$。综上，$H = gG_xg^{-1}$。
 
-    \item 往复观群$G$于自身，则$x\in G$的定子群为其交心群。按照轨定定理，$x$的交心群势乘以$x$的轨道长度等于群势$p^n$。因此，$x$的轨道长度是$|G|$的因数，于是总是$p$的乘方。要么是$1$，要么是$p$的倍数。按定义，$x$的轨道长度为$1$，当且仅当其与群里所有元素交换，即$x$为$G$的心元。按照$G$显于$G$的轨道将$G$划分，得到：
+    \item \textbf{解答}：\\
+    往复观群$G$于自身，则$x\in G$的定子群为其交心群。按照轨定定理，$x$的交心群势乘以$x$的轨道长度等于群势$p^n$。因此，$x$的轨道长度是$|G|$的因数，于是总是$p$的乘方。要么是$1$，要么是$p$的倍数。按定义，$x$的轨道长度为$1$，当且仅当其与群里所有元素交换，即$x$为$G$的心元。按照$G$显于$G$的轨道将$G$划分，得到：
     \[
     |G| = \sum_{\mathcal{O}_G(x)\in\mathcal{O}_G(G)} |\mathcal{O}_G(x)| =  \sum_{x\in G^{\text{心}}} |\mathcal{O}_G(x)| + \sum_{x\notin G^{\text{心}}} |\mathcal{O}_G(x)|.
     \]
@@ -17838,7 +18834,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
             \gamma :\; (G,\, X) &\longrightarrow \,X \\
             (x,\,A)\,&\longmapsto xA
         \end{align*}
-        下面逐个验证它满足显相映射的两个条件。首先，$\forall a,b\in G$，$\forall A\in X$，$A$可以写作$A=cH$，其中$c\in G$。而$\gamma(a,\gamma(b,A)) = \gamma(a,bcH) = abcH = (ab)cH = \gamma(ab,A)$，所以满足第一个条件。另外，$\gamma(e,A) = ecH = cH = A$。于是两个条件都满足。
+        下面逐个验证它满足显相映射的两个条件。首先，$\forall A=aH\in X$，其中$c\in G$，$\gamma(e,A) = eaH = aH = A$。其次$\forall x,y\in G$，$\forall A=aH\in X$，$\gamma(x,\gamma(y,A)) = \gamma(x,yaH) = xyaH = (xy)aH = \gamma(xy,A)$，于是兼容结合律。
         \item $\varphi(x) = \gamma_x = A\mapsto xA$。$\gamma_x$是$\mathsf{S}_X$中元素（$X$上的置换）。$\mathsf{S}_X$的幺元是恒等变换，即$aH\mapsto aH$，所以$\varphi$的核$N$里的元素$x$对应的是令$\forall a\in G,\;x(aH)=aH$都成立的$\gamma_x$。即$\gamma_x = \varphi(x)$要使得$\forall a\in G,\;x(aH)=aH$。令$a=e$，就得到$xH=H$。于是至少要有$x\in H$。因此$N\subseteq H$。
         \item 按照群同态基本定理，同态$\varphi$满足：$|N|\times |\varphi(G)| = |G|$。因此$|\varphi(G)|$是$|G|$的因数。\\
         另一方面，$\varphi(G)$是$G$通过群同态在$\mathsf{S}_X$中的像，因此是$\mathsf{S}_X$的子群。按照群势定理，它的群势整除$\mathsf{S}_X$的群势。$X$有$p$个元素，所以$\mathsf{S}_X$为$p$元置换的全置换群，群势为$p!$。因而$|\varphi(G)|$是$p!$的因数。\\
@@ -17861,20 +18857,20 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
         T^+ &=\{(1,1,1),\,(-1,-1,1),\,(-1,1,-1),\,(1,-1,-1)\},\\
         T^- &= \{(1,1,-1),\,(1,-1,1),\,(-1,1,1),\,(-1,-1,-1)\}.
     \end{align*}
-    这两组顶点构成正方体顶点的分划。每组内$4$个顶点之间两两距离都是$2\sqrt{2}$。正方体的同一条体心对角线的两个端点（下称对顶点）必然分属两组（坐标互为相反数）。同一条棱的两端点必然分属两组。
+    这两组顶点构成正方体顶点的分划。每组内$4$个顶点之间两两距离都是$2\sqrt{2}$。正方体的同一条顶心对角线的两个端点（下称对顶点）必然分属两组（坐标互为相反数）。同一条棱的两端点必然分属两组。
     \item \textbf{解答}：以上分出的$T^+,T^-$两个集合，每个集合中的顶点恰好是一个正四面体的顶点。由于正方体所有顶点到原点等距，可知两个正四面体的中心都是坐标原点。
     \item \textbf{解答}：通过面心的$90^\circ$旋转有三类，分别以$x,y,z$轴为旋转轴。不妨设旋转轴为$z$轴，该旋转分别旋转$z=1$和$z=-1$两个面上的顶点。在平面上该旋转体现为$90^\circ$旋转，因此把$x,y$坐标转到下一个象限。于是乘积$xy$变号而$z$不变。这说明$T^+$中所有点都会变为$T^-$中点，反之亦然。
-    \item \textbf{解答}：通过体心的旋转以体心对角线为旋转轴。它固定一个顶点与其对顶点，而置换其相邻顶点的位置。观察可知：任何顶点相邻三顶点都属于$T^+,T^-$中同一个子集，因此经过置换仍然在其中。这说明该旋转把$T^+,T^-$变为自身。
+    \item \textbf{解答}：通过体心的旋转以顶心对角线为旋转轴。它固定一个顶点与其对顶点，而置换其相邻顶点的位置。观察可知：任何顶点相邻三顶点都属于$T^+,T^-$中同一个子集，因此经过置换仍然在其中。这说明该旋转把$T^+,T^-$变为自身。
     \item \textbf{解答}：通过对棱中线的$180^\circ$旋转把相关两条棱中每条棱的顶点对调，而把其他棱上的所有顶点都变为其对顶点，因此所有顶点都改变归属$T^+,T^-$的情况。
     \item \textbf{解答}：前三问中的旋转都把$T^+,T^-$整体变换，即同属一个子集的顶点变换后要么都属于原子集，要么都属于另一个子集。这些旋转变换能生成正方体的任何旋转变换（具体见第四章习题$5$）。因此，$\forall\tau\in\mathsf{T}_6$，作为它们的复合，也把$T^+,T^-$整体变换。用$\phi$和$\tau$来描述，就是：$\phi\circ\tau$在$T^+,T^-$上各自都是常数。
     \item \textbf{解答}：由上一问可知$\sigma(t)\in\{T^+,T^-\}=\mathsf{T}$。由于$\gamma$用旋转作为映射来自然定义，只要契义，就自然满足显相映射的条件。而前面可以看到把$T^+,T^-$变为对方的旋转变换，所以它们的轨迹都是$\mathsf{T}$，即群显通相。
     \item \textbf{解答}：$H=\{\sigma\in\mathsf{T}_6\,|\,\sigma(T^+)=T^+\}$，根据轨定定理，$|H|$乘以$T^+$的轨迹长度就是$|\mathsf{T}_6|=24$。$T^+$的轨迹长度为$2$，所以$|H|=12$。由于$H$的势是$|\mathsf{T}_6|$的一半，它的另一个左往集等于另一个右往集，因此左右往集相等，为往合子群。
     \item \textbf{解答}：如果$\sigma(T^+)=T^+$，那么$\sigma(T^-)=T^-$，即$\gamma_\sigma$为恒等变换。否则不然。因此群同态$\sigma\mapsto \gamma_\sigma$的核就是$H$，它的像是$\mathsf{T}$上的置换群$\mathsf{S}_\mathsf{T}$，同构于$\mathsf{C}_2$。
     \item \textbf{解答}：根据群同态基本定理，由于$H$是$\sigma\mapsto \gamma_\sigma$的核，$H$除$\mathsf{T}_6$的商群就同构于它的像：置换群$\mathsf{S}_\mathsf{T}$，即同构于$\mathsf{C}_2$。
-    \item \textbf{解答}：我们用体心对角线的置换来描述正方体的旋转，从而建立$\mathsf{T}_6$与$\mathsf{S}_4$中的置换的对应。按定义$H$保持$T^+$中的顶点，包括通过面心的$180^\circ$旋转（$3$个）、通过体心的$120^\circ$旋转（$8$个）以及恒等变换。它们分别对应$\mathsf{S}_4$中双对换、$3$元轮换和恒等变换。
+    \item \textbf{解答}：我们用顶心对角线的置换来描述正方体的旋转，从而建立$\mathsf{T}_6$与$\mathsf{S}_4$中的置换的对应。按定义$H$保持$T^+$中的顶点，包括通过面心的$180^\circ$旋转（$3$个）、通过体心的$120^\circ$旋转（$8$个）以及恒等变换。它们分别对应$\mathsf{S}_4$中双对换、$3$元轮换和恒等变换。
     \item \textbf{解答}：考虑$H$中的旋转如何具体变换正四面体$T^+$中的顶点：通过正方体体心的$8$个$120^\circ$旋转对应绕过正四面体顶点和中心的轴线的旋转；通过正方体面心的$3$个$180^\circ$旋转则对应绕正四面体对棱中线的旋转（注意对$T^-$也是如此）。因此$H$包含于正四面体的旋转群$\mathsf{A}_4$。考虑到两者等势，$H=\mathsf{A}_4$。
-    \item \textbf{解答}：$\mathsf{S}_4$中的对换对应绕对棱中线的$180^\circ$旋转：它恰好调换相关两棱所在截面的体心对角线，而保持另外两条不变。它把$T^+$变为$T^-$，因此不属于$H=\mathsf{A}_4$。
-    \item \textbf{解答}：经过尝试可以发现：取某个顶点$V$相邻的三条棱及其对棱，绕这三对棱的中线分别旋转$180^\circ$，效果恰好就是绕通过正方体面心的轴线的$90^\circ$旋转。用置换来表示，可以举例写为：$(1\,2\,3\,4)=(1\,4)(1\,3)(1\,2)$，其中“$1$”就是顶点$V$及其对顶点代表的体心对角线。
+    \item \textbf{解答}：$\mathsf{S}_4$中的对换对应绕对棱中线的$180^\circ$旋转：它恰好调换相关两棱所在截面的顶心对角线，而保持另外两条不变。它把$T^+$变为$T^-$，因此不属于$H=\mathsf{A}_4$。
+    \item \textbf{解答}：经过尝试可以发现：取某个顶点$V$相邻的三条棱及其对棱，绕这三对棱的中线分别旋转$180^\circ$，效果恰好就是绕通过正方体面心的轴线的$90^\circ$旋转。用置换来表示，可以举例写为：$(1\,2\,3\,4)=(1\,4)(1\,3)(1\,2)$，其中“$1$”就是顶点$V$及其对顶点代表的顶心对角线。
     \item \textbf{解答}：根据第四章的习题，我们知道绕面心的旋转能生成整个$\mathsf{T}_6$，即对应的置换能生成整个$\mathsf{S}_4$。而这些置换本身又能通过对换复合生成，所以对换可以生成整个$\mathsf{S}_4$。
     \item \textbf{解答}：$\mathsf{A}_4$中元素对应$\mathsf{T}_6$中通过面心的$180^\circ$旋转（$3$个）、通过体心的$120^\circ$旋转（$8$个）以及恒等变换。通过面心的$180^\circ$旋转是通过面心的$90^\circ$旋转两次，通过体心的$120^\circ$旋转是同轴反方向旋转两次，恒等变换等价于自身重复两次。
     \item \textbf{解答}：$\mathsf{A}_4$中的元素总能表示为$\mathsf{S}_4$中元素的平方，而后者总能表示为对换的复合。所以作为其平方，$\mathsf{A}_4$中的元素总能表示偶数个对换的复合。而其余元素就是$\mathsf{A}_4=H$作为往合子群的另一个往集。由于对换交换$T^+,T^-$，所以另一个往集可以写为$\tau H$，其中$\tau$是某个对换。因此其中元素都可以写为奇数个对换的复合。
@@ -17948,7 +18944,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
     \item \textbf{证明}：把 $\Delta_n$ 的因子按二元子集编号。记
     \[
         \Gamma_n=\left\{\{i,j\}\;\middle|\;1\leqslant i<j\leqslant n\right\},\qquad
-        \Delta_n=\prod_{\{a,b\}\in P,\ a<b}(x_a-x_b).
+        \Delta_n=\prod_{\{a,b\}\in \Gamma_n,\ a<b}(x_a-x_b).
     \]
     由于 $\sigma$ 是双射，映射 $\{i,j\}\mapsto\{\sigma(i),\sigma(j)\}$ 是 $\Gamma_n$ 到自身的双射：
     首先，若 $\{\sigma(i),\sigma(j)\}=\{\sigma(i'),\sigma(j')\}$，则 $\{i,j\}=\{i',j'\}$，
@@ -18127,6 +19123,80 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
 
 
 \begin{problemlist}
+    
+\item \textbf{解答}：
+本题的核心是将“本质不同的染色方案数”转化为“对称群显于状态集合的轨迹数”。底座集合$X$为正方体的$6$个面，$|X|=6$。颜色集合为$C$。我们使用\textbf{染色计数定理}：轨迹数等于群中各元素对应的环圈数$c(g)$的函数$|C|^{c(g)}$的平均值。
+\begin{problemlist}
+\item \textbf{不考虑对称性}。用$2$种颜色染色，染色方案数为$ 2^6 = 64$。
+
+\item \textbf{只允许绕某一条特定的顶心对角线旋转}。
+顶心对角线连接两个相对的顶点。绕此轴旋转$120^\circ$和$240^\circ$可保持正方体不变，加上恒等变换，构成$3$元循环群$G_2 \cong \mathsf{C}_3$，群势$|G_2|=3$。
+分析各元素在$6$个面上的环圈：
+\begin{itemize}
+\item 恒等变换$e$：$c(e)=6$。
+\item 旋转$120^\circ$和$240^\circ$：顶心对角线穿过两个顶点，每个顶点连接$3$个面。这$3$个面在旋转下轮换，形成$1$个$3$元环圈。两端共形成$2$个$3$元环圈。因此$c(r)=c(r^2)=2$。
+\end{itemize}
+用$2$种颜色染色，染色方案有
+\begin{align*}
+    \frac{1}{3} \left( 1\times 2^6 + 2\times 2^2 \right) &= \frac{64 + 8}{3} \\
+    &= \frac{72}{3} = 24 \text{ 种}
+\end{align*}
+
+\item \textbf{允许保持某一对特定对面（如上下底面）作为集合不变的所有旋转}。
+要保持“上下底面”这个集合不变，旋转轴必须是垂直轴（连接上下底面中心），或者是水平面内的轴（连接左右/前后侧面中心，或连接侧棱中点）。这些旋转构成一个$8$元群$G_3$（同构于映轮群$\mathsf{D}_4$），群势$|G_3|=8$。
+分析这$8$个元素在$6$个面上的环圈：
+\begin{itemize}
+    \item 恒等变换$e$（$1$个）：$c(e)=6$。
+    \item 绕垂直轴旋转$90^\circ, 270^\circ$（$2$个）：上下底面各自不动（$2$个$1$元环圈），$4$个侧面轮换（$1$个$4$元环圈）。$c=3$。
+    \item 绕垂直轴旋转$180^\circ$（$1$个）：上下底面不动（$2$个$1$元环圈），$4$个侧面两两互换（$2$个$2$元环圈）。$c=4$。
+    \item 绕水平面心轴（如左右面中心连线）旋转$180^\circ$（$2$个）：上下底面互换（$1$个$2$元环圈），两个侧面不动（$2$个$1$元环圈），另两个侧面互换（$1$个$2$元环圈）。$c=1+2+1=4$。
+    \item 绕对棱中线（如左右面与前后面交棱的中点连线）旋转$180^\circ$（$2$个）：上下底面互换（$1$个$2$元环圈），$4$个侧面两两互换（$2$个$2$元环圈）。$c=1+2=3$。
+\end{itemize}
+用$2$种颜色染色，染色方案有
+\begin{align*}
+    \frac{1}{8} \left( 1\times 2^6 + 2\times 2^3 + 1\times 2^4 + 2\times 2^4 + 2\times 2^3 \right) &= \frac{64 + 16 + 16 + 32 + 16}{8} \\
+    &= \frac{144}{8} = 18 \text{ 种}
+\end{align*}
+
+\item \textbf{允许正方体的所有旋转}。
+此时对称群为完整的旋转群$G_4 = \mathsf{T}_6$，群势$|G_4|=24$。
+分析$24$个元素在$6$个面上的环圈：
+\begin{itemize}
+    \item 恒等变换$e$（$1$个）：$c=6$。
+    \item 绕面心轴旋转$90^\circ, 270^\circ$（$3$条轴$\times 2 = 6$个）：$c=3$。
+    \item 绕面心轴旋转$180^\circ$（$3$条轴$\times 1 = 3$个）：$c=4$。
+    \item 绕顶心对角线旋转$120^\circ, 240^\circ$（$4$条轴$\times 2 = 8$个）：$c=2$。
+    \item 绕对棱中线旋转$180^\circ$（$6$条轴$\times 1 = 6$个）：$c=3$。
+\end{itemize}
+用$2$种颜色染色，染色方案有
+\begin{align*}
+    \frac{1}{24} \left( 1\times 2^6 + 6\times 2^3 + 3\times 2^4 + 8\times 2^2 + 6\times 2^3 \right) &= \frac{64 + 48 + 48 + 32 + 48}{24} \\
+    &= \frac{240}{24} = 10\text{ 种}
+\end{align*}
+
+\item \textbf{颜色变为$3$种（红、蓝、绿）}。
+只需将上述各问公式中的底数$2$替换为$3$即可：
+\begin{itemize}
+\item 第(1)问：$3^6 = 729$ 种。
+\item 第(2)问（$3$元群）：$\frac{1}{3} (1\times 3^6 + 2\times 3^2) = \frac{729 + 18}{3} = 249$ 种。
+\item 第(3)问（$8$元群）：$\frac{1}{8} (1\times 3^6 + 2\times 3^3 + 1\times 3^4 + 2\times 3^4 + 2\times 3^3) = \frac{729 + 54 + 81 + 162 + 54}{8} = \frac{1080}{8} = 135$ 种。
+\item 第(4)问（$24$元群）：$\frac{1}{24} (1\times 3^6 + 6\times 3^3 + 3\times 3^4 + 8\times 3^2 + 6\times 3^3) = \frac{729 + 162 + 243 + 72 + 162}{24} = \frac{1368}{24} = 57$ 种。
+\end{itemize}
+
+\item \textbf{对比与直观解释}。
+\textbf{变化规律}：
+\begin{itemize}
+    \item \textbf{对称操作增多}：无论是$2$色（$64 \to 24 \to 18 \to 10$）还是$3$色（$729 \to 249 \to 135 \to 57$），随着允许的对称群势增大，本质不同的染色方案数\textbf{严格递减}。
+    \item \textbf{颜色种类增多}：在相同的对称群下，$3$色的方案数都远大于$2$色的方案数。
+\end{itemize}
+
+\textbf{直观解释}：
+\begin{itemize}
+    \item \textbf{从“群势与轨迹合并”的角度}：本质不同的方案数，就是状态集合被群分划的\textbf{轨迹数}。群势越大，意味着群中有更多的变换可以用来“搬运”状态。更多的搬运手段，会把原本在较小群下不等价的状态合并到同一个轨迹中。因此，对称性越高（群势越大），分类就越“粗”，轨迹数（方案数）就越少。
+    \item \textbf{从“对称轴数量”的角度}：第(2)问只有$1$条对称轴，合并能力最弱；第(3)问包含了$1$条垂直轴和$4$条水平/对角轴（共$5$条），合并能力中等；第(4)问包含了$3$条面心轴、$4$条顶心对角线、$6$条对棱中线（共$13$条），合并能力最强。对称轴的数量直观地反映了群势的大小，决定了对称操作“抹平”差异的能力。
+    \item \textbf{颜色增多的影响}：颜色增多，使得不考虑对称性时的总状态数$|C|^{|X|}$呈指数级爆炸（从$64$到$729$）。虽然对称操作合并了一部分状态，但状态池的“基数”变大了，因此最终剩下的本质不同的方案数也随之大幅增加。这体现了代数结构（群）对组合数量（状态数）的约束与化归作用。
+\end{itemize}
+\end{problemlist}
 \item \textbf{解答}：
 本题的底座集合$X$为正五边形的$5$个顶点。颜色集合为$C$。本质不同的染色方案数，即为对称群显于状态集合$S=C^X$的\textbf{轨迹数}。我们将使用本章的\textbf{染色计数定理}进行计算：
 \[
@@ -18195,95 +19265,21 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
 
     \item \textbf{解答}：对比第(2)、(3)问（允许翻转，映轮群$\mathsf{D}_5$）与第(4)、(5)问（只允许旋转，循环群$\mathsf{C}_5$）的答案：
     \begin{itemize}
-    \item 用$2$种颜色时，允许翻转（$8$种）与只允许旋转（$8$种）的答案\textbf{相同}。
-    \item 用$3$种颜色时，允许翻转（$39$种）的答案\textbf{小于}只允许旋转（$51$种）。
+        \item 用$2$种颜色时，允许翻转（$8$种）与只允许旋转（$8$种）的答案\textbf{相同}。
+        \item 用$3$种颜色时，允许翻转（$39$种）的答案\textbf{小于}只允许旋转（$51$种）。
     \end{itemize}
     \textbf{理由}：引入翻转操作（从$\mathsf{C}_5$扩大到$\mathsf{D}_5$）增加了系统的对称性。通常，更大的对称群会将原本在较小群下不等价的轨迹合并，从而减少总轨迹数。
     \begin{itemize}
-    \item \textbf{为何$2$色时没有减少}：对于$2$色$5$顶点的所有$8$个旋转轨迹，每一个轨迹在翻转操作下都是“自对称”的。也就是说，任何一个$2$色图案翻转后得到的镜像图案，总可以通过某种旋转操作变回它自己。翻转并没有把两个不同的旋转轨迹合并成一个，而只是在每个旋转轨迹内部进行置换。因此，轨迹总数保持不变。
-    \item \textbf{为何$3$色时减少了}：$3$色增加了状态空间的复杂度。在$3$色的$51$个旋转轨迹中，存在“手性”图案（即翻转后得到的镜像图案，无法通过任何旋转操作与自身重合）。翻转操作将这些互为镜像的旋转轨迹两两合并。因此，总轨迹数从$51$减少到了$39$。
+        \item \textbf{为何$2$色时没有减少}：对于$2$色$5$顶点的所有$8$个旋转轨迹，每一个轨迹在翻转操作下都是“自对称”的。也就是说，任何一个$2$色图案翻转后得到的镜像图案，总可以通过某种旋转操作变回它自己。翻转并没有把两个不同的旋转轨迹合并成一个，而只是在每个旋转轨迹内部进行置换。因此，轨迹总数保持不变。
+        \item \textbf{为何$3$色时减少了}：$3$色增加了状态空间的复杂度。在$3$色的$51$个旋转轨迹中，存在“手性”图案（即翻转后得到的镜像图案，无法通过任何旋转操作与自身重合）。翻转操作将这些互为镜像的旋转轨迹两两合并。因此，总轨迹数从$51$减少到了$39$。
     \end{itemize}
-\end{problemlist}
-\item \textbf{解答}：
-本题的核心是将“本质不同的染色方案数”转化为“对称群显于状态集合的轨迹数”。底座集合$X$为正方体的$6$个面，$|X|=6$。颜色集合为$C$。我们使用\textbf{染色计数定理}：轨迹数等于群中各元素对应的环圈数$c(g)$的函数$|C|^{c(g)}$的平均值。
-
-\begin{problemlist}
-\item \textbf{不考虑对称性}。用$2$种颜色染色，染色方案数为$ 2^6 = 64$。
-
-\item \textbf{只允许绕某一条特定的体心对角线旋转}。
-体心对角线连接两个相对的顶点。绕此轴旋转$120^\circ$和$240^\circ$可保持正方体不变，加上恒等变换，构成$3$元循环群$G_2 \cong \mathsf{C}_3$，群势$|G_2|=3$。
-分析各元素在$6$个面上的环圈：
-\begin{itemize}
-\item 恒等变换$e$：$c(e)=6$。
-\item 旋转$120^\circ$和$240^\circ$：体心对角线穿过两个顶点，每个顶点连接$3$个面。这$3$个面在旋转下轮换，形成$1$个$3$元环圈。两端共形成$2$个$3$元环圈。因此$c(r)=c(r^2)=2$。
-\end{itemize}
-用$2$种颜色染色，染色方案有
-\begin{align*}
-    \frac{1}{3} \left( 1\times 2^6 + 2\times 2^2 \right) &= \frac{64 + 8}{3} \\
-    &= \frac{72}{3} = 24 \text{ 种}
-\end{align*}
-
-\item \textbf{允许保持某一对特定对面（如上下底面）作为集合不变的所有旋转}。
-要保持“上下底面”这个集合不变，旋转轴必须是垂直轴（连接上下底面中心），或者是水平面内的轴（连接左右/前后侧面中心，或连接侧棱中点）。这些旋转构成一个$8$元群$G_3$（同构于映轮群$\mathsf{D}_4$），群势$|G_3|=8$。
-分析这$8$个元素在$6$个面上的环圈：
-\begin{itemize}
-    \item 恒等变换$e$（$1$个）：$c(e)=6$。
-    \item 绕垂直轴旋转$90^\circ, 270^\circ$（$2$个）：上下底面各自不动（$2$个$1$元环圈），$4$个侧面轮换（$1$个$4$元环圈）。$c=3$。
-    \item 绕垂直轴旋转$180^\circ$（$1$个）：上下底面不动（$2$个$1$元环圈），$4$个侧面两两互换（$2$个$2$元环圈）。$c=4$。
-    \item 绕水平面心轴（如左右面中心连线）旋转$180^\circ$（$2$个）：上下底面互换（$1$个$2$元环圈），两个侧面不动（$2$个$1$元环圈），另两个侧面互换（$1$个$2$元环圈）。$c=1+2+1=4$。
-    \item 绕对棱中线（如左右面与前后面交棱的中点连线）旋转$180^\circ$（$2$个）：上下底面互换（$1$个$2$元环圈），$4$个侧面两两互换（$2$个$2$元环圈）。$c=1+2=3$。
-\end{itemize}
-用$2$种颜色染色，染色方案有
-\begin{align*}
-    \frac{1}{8} \left( 1\times 2^6 + 2\times 2^3 + 1\times 2^4 + 2\times 2^4 + 2\times 2^3 \right) &= \frac{64 + 16 + 16 + 32 + 16}{8} \\
-    &= \frac{144}{8} = 18 \text{ 种}
-\end{align*}
-
-\item \textbf{允许正方体的所有旋转}。
-此时对称群为完整的旋转群$G_4 = \mathsf{T}_6$，群势$|G_4|=24$。
-分析$24$个元素在$6$个面上的环圈：
-\begin{itemize}
-    \item 恒等变换$e$（$1$个）：$c=6$。
-    \item 绕面心轴旋转$90^\circ, 270^\circ$（$3$条轴$\times 2 = 6$个）：$c=3$。
-    \item 绕面心轴旋转$180^\circ$（$3$条轴$\times 1 = 3$个）：$c=4$。
-    \item 绕体心对角线旋转$120^\circ, 240^\circ$（$4$条轴$\times 2 = 8$个）：$c=2$。
-    \item 绕对棱中线旋转$180^\circ$（$6$条轴$\times 1 = 6$个）：$c=3$。
-\end{itemize}
-用$2$种颜色染色，染色方案有
-\begin{align*}
-    \frac{1}{24} \left( 1\times 2^6 + 6\times 2^3 + 3\times 2^4 + 8\times 2^2 + 6\times 2^3 \right) &= \frac{64 + 48 + 48 + 32 + 48}{24} \\
-    &= \frac{240}{24} = 10\text{ 种}
-\end{align*}
-
-\item \textbf{颜色变为$3$种（红、蓝、绿）}。
-只需将上述各问公式中的底数$2$替换为$3$即可：
-\begin{itemize}
-\item 第(1)问：$3^6 = 729$ 种。
-\item 第(2)问（$3$元群）：$\frac{1}{3} (1\times 3^6 + 2\times 3^2) = \frac{729 + 18}{3} = 249$ 种。
-\item 第(3)问（$8$元群）：$\frac{1}{8} (1\times 3^6 + 2\times 3^3 + 1\times 3^4 + 2\times 3^4 + 2\times 3^3) = \frac{729 + 54 + 81 + 162 + 54}{8} = \frac{1080}{8} = 135$ 种。
-\item 第(4)问（$24$元群）：$\frac{1}{24} (1\times 3^6 + 6\times 3^3 + 3\times 3^4 + 8\times 3^2 + 6\times 3^3) = \frac{729 + 162 + 243 + 72 + 162}{24} = \frac{1368}{24} = 57$ 种。
-\end{itemize}
-
-\item \textbf{对比与直观解释}。
-\textbf{变化规律}：
-\begin{itemize}
-    \item \textbf{对称操作增多}：无论是$2$色（$64 \to 24 \to 18 \to 10$）还是$3$色（$729 \to 249 \to 135 \to 57$），随着允许的对称群势增大，本质不同的染色方案数\textbf{严格递减}。
-    \item \textbf{颜色种类增多}：在相同的对称群下，$3$色的方案数都远大于$2$色的方案数。
-\end{itemize}
-
-\textbf{直观解释}：
-\begin{itemize}
-    \item \textbf{从“群势与轨迹合并”的角度}：本质不同的方案数，就是状态集合被群分划的\textbf{轨迹数}。群势越大，意味着群中有更多的变换可以用来“搬运”状态。更多的搬运手段，会把原本在较小群下不等价的状态合并到同一个轨迹中。因此，对称性越高（群势越大），分类就越“粗”，轨迹数（方案数）就越少。
-    \item \textbf{从“对称轴数量”的角度}：第(2)问只有$1$条对称轴，合并能力最弱；第(3)问包含了$1$条垂直轴和$4$条水平/对角轴（共$5$条），合并能力中等；第(4)问包含了$3$条面心轴、$4$条体心对角线、$6$条对棱中线（共$13$条），合并能力最强。对称轴的数量直观地反映了群势的大小，决定了对称操作“抹平”差异的能力。
-    \item \textbf{颜色增多的影响}：颜色增多，使得不考虑对称性时的总状态数$|C|^{|X|}$呈指数级爆炸（从$64$到$729$）。虽然对称操作合并了一部分状态，但状态池的“基数”变大了，因此最终剩下的本质不同的方案数也随之大幅增加。这体现了代数结构（群）对组合数量（状态数）的约束与化归作用。
-\end{itemize}
 \end{problemlist}
 
 \end{problemlist}
 
 \clearpage
 
-\subsection*{六氟化硫的旋转异构体}
+\subsection*{六氟化硫的立体异构体}
 
 \begin{problemlist}
 \item \textbf{解答}：底座集合$X$是正八面体的六个顶点，也就是六个可以安放原子的位置，$|X|=6$。颜色集合$C=\{\text{氟},\text{氯}\}$，$|C|=2$。一种原子排布，就是给每个位置指定一种原子，因此它是一个映射$f:X\rightarrow C$。所有排布构成$S=C^X$，于是
@@ -18359,7 +19355,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
 \item 从六个位置中选两个，共$\binom{6}{2}=15$种选法。
 \item 两个氯原子要么位于相对顶点，要么位于相邻顶点，没有第三种可能。相对的情形对应三条顶点轴，共$3$种；相邻的情形共$15-3=12$种，也可以直接数：每个顶点与$4$个顶点相邻，$6\times 4\div 2=12$。
 相对型的三种可以通过旋转互相得到，因为旋转能把任一条顶点轴转到任另一条。相邻型的十二种也可以：先把其中一个氯原子转到“上”（群贯通六个顶点），此时另一个氯原子在赤道四个位置之一，再绕上下轴转$90^\circ$的倍数即可互相得到。
-\item 于是恰好两条轨迹，$\mathrm{SF}_4\mathrm{Cl}_2$恰有两种旋转异构体。相对型是反式，相邻型是顺式。
+\item 于是恰好两条轨迹，$\mathrm{SF}_4\mathrm{Cl}_2$恰有两种立体异构体。相对型是反式，相邻型是顺式。
 \end{problemlist}
 
 \item \textbf{解答}：反式的轨迹长为$3$，由轨定定理，其定子群有$24\div 3=8$个元素；顺式的轨迹长为$12$，定子群有$24\div 12=2$个元素。
@@ -18369,7 +19365,7 @@ $$ \forall \, g\in G,\;\forall \, f \in C^X,\, \forall \;a\in X,\quad \Gamma(g,f
 \item \textbf{解答}：三个氯原子的选法共$\binom{6}{3}=20$种。
 若三个氯原子两两相邻，它们必围成正八面体的一个面，而正八面体有$8$个面，故这样的情形有$8$种。若其中有一对相对顶点，则先选一条顶点轴（$3$种），再从其余$4$个顶点中任选一个（$4$种），共$3\times 4=12$种；每个这样的三元组恰含一对相对顶点，不会重复计数。两类相加$8+12=20$，核对无误。
 面可以转到面，故第一类自成一
-条轨迹；第二类中，先把所含的顶点轴转到上下，再把第三个氯原子转到赤道任一位置，故也自成一条轨迹。于是$SF_3Cl_3$恰有两种旋转异构体：两两相邻型称为面式，含相对对型称为经式。由轨定定理，它们的定子群分别有$24\div 8=3$个与$24\div 12=2$个元素。
+条轨迹；第二类中，先把所含的顶点轴转到上下，再把第三个氯原子转到赤道任一位置，故也自成一条轨迹。于是$SF_3Cl_3$恰有两种立体异构体：两两相邻型称为面式，含相对对型称为经式。由轨定定理，它们的定子群分别有$24\div 8=3$个与$24\div 12=2$个元素。
 
 \item \textbf{解答}：各配比的结果如下。
 \begin{center}
@@ -18470,7 +19466,7 @@ $k=2$与$k=4$数目相同，原因是对称的：把每个位置上的氟与氯�
     \end{tikzpicture}
 \end{figure}
 \vspace{8pt}
-    \item 验证显相映射的基本性质：
+    \item 验证显相映射的相容条件：
     \begin{problemlist}
         \item $\gamma(e,\{v_i,v_j\})=\{e(v_i),e(v_j)\}=\{v_i,v_j\}$。
         \item $\gamma(\sigma,\gamma(\tau,\{v_i,v_j\}))=\gamma(\sigma,\{\tau(v_i),\tau(v_j)\})=\{\sigma\tau(v_i),\sigma\tau(v_j)\}=\gamma(\sigma\tau,\{v_i,v_j\})$。
@@ -18732,13 +19728,17 @@ $k=2$与$k=4$数目相同，原因是对称的：把每个位置上的氟与氯�
 \hline
 \endlastfoot
 \hline
+群 & 群 & group & groupe \\
+\hline
+子群 & 子群 & subgroup & sous-groupe \\
+\hline
 往合子群 & 正规子群 & normal subgroup & sous-groupe normal \\
 \hline
 往集 & 陪集 & coset & coset \\
 \hline
 往集定理、群势定理 & 拉格朗日定理 & Lagrange's theorem & théorème de Lagrange \\
 \hline
-同轨 & 共轭（群） & conjugate & conjugué \\
+往复、同轨 & 共轭（群） & conjugate & conjugué \\
 \hline
 同轨类 & 共轭类 & conjugacy class & classe de conjugaison \\
 \hline
@@ -18753,6 +19753,14 @@ $k=2$与$k=4$数目相同，原因是对称的：把每个位置上的氟与氯�
 环圈 & 轮换 & cycle of a permutation & cycle d'une permutation \\
 \hline
 群观、群相 & 群作用 & group action & action de groupe \\
+\hline
+有效、显明相 & 忠实的 & faithful, effective & fidèle, effective \\
+\hline
+行健、显行相 & 自由的 & free & libre \\
+\hline
+贯通、显通相 & 传递的 & transitive & transitive \\
+\hline
+得宜、显实相 & 正则的 & regular, sharply transitive & simplement transitive  \\
 \hline
 全置换群 & 对称群 & symmetric group & groupe symétrique \\
 \hline
@@ -18784,9 +19792,10 @@ $k=2$与$k=4$数目相同，原因是对称的：把每个位置上的氟与氯�
 
 \begin{itemize}
 \item \textbf{“对称群”和“置换群”}：这些名称的指代关系在英语、法语等语言中也有些模糊。Symmetric group指某个集合上所有置换（到自身的双射）的集合，代表了该集合的对称性。permutation group或group of permutation(s)则指“由置换构成的群”。所以symmetric group是一种permutation group；permutation group一般是symmetric group的子群。为了顾名思义，我们将symmetric group命名为“全置换群”，这样“全置换群就是全部置换构成的群”，“置换群是全置换群的子群”就容易理解了。“对称群”则被用来作两种称呼，一种保留为全置换群的别称，一种对应保持某个几何对象性质的变换群的称呼，即对应symmetry (transformation) group，group of symmetry(ies)等。
-\item \textbf{“群观”和“群相”}：随着中文重命名程度加深，我们认识到单单建立术语之间的映射表已经不够了。因为术语背后是使用者对数学概念的观念和理解。主流中文术语只是单纯地、机械地翻译个别名词术语，所以不需要考虑这一点。但如果从整体系统的认知开始用中文命名数学概念，就会发现：动词、形容词也应该随之匹配，才能一致地、系统地表达整个思想。比如我们把群作用（group action）这个概念用中文重新审视，就会发现group action的实质是通过把群元素视为在另一个集合上的变换，来显示、体现群的结构和功能。通过观察群的各个元素作用在集合上的现象，而理解群的本质。因此，我们要在整体上把这个观念、思想表达出来，就不能满足于把“群作用”改掉，而是要从各个方面着手，整个改掉相关的表达方式。详细内容见《抽象代数》“对称与群”一章的“群作用”一节，以及《对称与群》的“观群”一章。
+\item \textbf{“群观”和“群相”}：随着中文重命名程度加深，我们认识到单单建立术语之间的映射表已经不够了。因为术语背后是使用者对数学概念的观念和理解。主流中文术语只是单纯地、机械地翻译个别名词术语，所以不需要考虑这一点。但如果从整体系统的认知开始用中文命名数学概念，就会发现：动词、形容词也应该随之匹配，才能一致地、系统地表达整个思想。比如我们把群作用（group action）这个概念用中文重新审视，就会发现group action的实质是通过把群元素视为在另一个集合上的变换，来显示、体现群的结构和功能。通过观察群的各个元素作用在集合上的现象，而理解群的本质。因此，我们要在整体上把这个观念、思想表达出来，就不能满足于把“群作用”改掉，而是要从各个方面着手，整个改掉相关的表达方式。详细内容见第七章“观群”。
 \item \textbf{“往复”、“同轨”和“共轭”}：群论中的“共轭”是字面翻译“conjugate”。因为在复数中用“共轭”来翻译“conjugate”，所以这里也沿用“共轭”了。但实际上无论是英文的“conjugate”，还是“共轭”，都没有准确表示群论中“$gxg^{-1}$”的意涵。英文的“conjugate”仅仅是表示“这几个东西经过同一种变换相互得到，地位平等”，有一种“连襟”、“同袍”这样的含义。而法语则直接用“conjugué”，和法语中的“动词变位”一样，更为直白，表示“这几个东西隶属于同一类，通过变换而来，地位平等”。“共轭”也仅仅是试图翻译这一层意思：所谓“轭”，指的是古代牛车上放在并行的牛脖颈上的曲木，比喻像共轭的牛一样地位相等，但已经少了“通过变换可以互相得到”的一层意思。而由于没有像法语一样的使用场景，到了别的地方就更让人难以理解。毕竟复数的共轭只有一个，这里突然有好几个。而我们用牛耕田时一般共轭的牛马不会超过两头（【疏】服馬有二，一馬有一軛。軛者，厄馬領不得出也）。所以“共轭”有过强的二元对应意味，用在这里已经不太适合了。“往复”是直接从“$gxg^{-1}$”的本身角度命名。我们从群作用的角度来看，$x$到$gx$其实可以看作“往左偏一步”，而右边再乘其逆元，就是试图“回来”（复）。如果$x$和$g$交换，那么就变回$x$。但由于$x$和$g$未必交换，所以不一定能回到x。而回不到$x$的情况下，就产生了一系列与$x$相关的元素，构成轨道。这就是这个作用的本质，所以命名为“往复”。一个群元素往复后，不再是自己，而“走出”了一条轨道。这就是群轨道的特性：它是同一个元素经过不同方式“往复”得到的集合。而经过往复得到的等价关系叫做同轨关系，其等价类就是同轨类。因此群论的这个地方，用“同轨”代替“共轭”。
 \item \textbf{“往集”、“往复”和“往合”}：群论中的这几个词都是根据其对象的内在关联而命名的。“往”就是强调“走出”、“离开原位”，“往某个地方走”。而从$x$到$gx$，就是通过$g$的左乘往$gx$走了。所以我们可以说“$x$往左乘$g$得到$gx$”。而对某个子集的所有元素都这么“往左乘$g$”，就得到了其往集。“往复”则是在“往”之后试图“恢复”、“复原”，也就是往右乘$g$的逆元。但由于群元素未必交换，所以不一定能复原，而得到了轨道。“往合”则是说往左乘$g$和往右乘$g$的效果在总体上对合了。之所以用“合”而不是“等”、“同”，就是因为只是整体效果相同（$aH = Ha$，同一个集合），而不是严格地对等（$ax = xa$）。比“往合”更强的是条件是中心，即严格有$ax = xa$。
+\item \textbf{“明相”、“行相”、“通相”和“实相”}：这些名词用来形容群作用的性质，对应选择的形容词（表语）为“有效”、“行健”、“贯通”、“得宜”。英语中只有形容词，分别是“faithful/effective”、“free”、“transitive”、“regular/sharply transitive”。要注意的是外语用词已经用了譬喻和类比手法，使用了有带感情或价值含义的用词如“faithful”、“free”。中文主流用语分别是“忠实的”、“自由的”、“传递的”、“正则的”，基本是字面翻译，导致词不达意，难以顾名思义。比如“transitive”照字面翻译成“传递的”，中文的“传递”一般并不用作形容词，导致“传递的”到底想表达什么性质让人费解。而“贯通”则直接说明“transitive”的本义，即从一个元素出发不断变换就能贯通整个集合，名词“通相”的“通”就概括了其本质。又比如“free”本身就过于空泛，照字面翻译翻译为“自由”更恶化了这个问题。而“行健”取自“天行健”出自《周易·乾卦·象传》，表示整个天球永恒运动，所有星辰都一刻不息，恰到好处地说明了“除了最核心的幺元以外所有的群元素都在变动所有的集合元素，没有止息”这个性质。同理“regular”这个本就空泛的词被字面翻译为“正则”，再次让人费解。而“得宜”和“实相”的“实”则说明每个集合元素恰被一个群元素变为另一个集合元素的性质，即“适宜而确实”。《说文》：“宜，所安也”，《左传》：“宜，和顺之意也”。“faithful”这个词本来就不太恰当，词义过强，更适合用来描述regular action。字面翻译为“忠实”更是容易让人误解。我们采用“有效”（来自“effective”）和“明”来命名，强调所有群元素都至少有一点效果，能通过群作用被观察到，整个群都被摆在明处，没有藏在暗处完全不起效果的元素。
 \item \textbf{“轨迹”和“轨道”}：两者都是我们给群论中“orbit”的中文对应新命名。前者是群作用于一般集合时，不同群元素作用于同一个集合元素得到的集合。后者是群以（共轭）作用于自身时，群元素的orbit。因此我们决定把两者分开命名。把前者称为“轨迹”，表示群在另一个集合里留下的痕迹；而把后者（一种特殊而重要的群自身的orbit）继续称为轨道，因为它是属于群自身的结构。“群的轨迹”指一般在某个集合留下的痕迹，通过这个痕迹可以理解群的性质。而“群元素的轨道”指这个群元素在共轭作用下得出的结构，是群自身的结构。“轨道”这个名字更偏重实体存在，而“轨迹”则有“留在别的东西上的痕迹”的意义。
 \item \textbf{“环道”和“轨道”}：两者都是我们给群论中“orbit”的中文对应新命名。前者是群元素生成的循环子群的形象说法，后者是群以（共轭）作用于自身时，群元素的orbit。因此我们决定把两者分开命名。
 \item \textbf{“环圈”和“轮换”}：“轮换”是中文用来称呼置换性质的名词，通常有两个含义。一个是某个i经置换重复映射得到的所有值，即n元置换群自然作用于$1,2,...,n$集合时，置换生成的循环子群作用于集合中元素的轨道。另一个含义是只有一个这样的非平凡轨道的置换。因此我们决定把两者分开命名，前者称为“环圈”，后者称为“轮换”。一个轮换恰有一个（非平凡的）环圈。一般的置换则可以有多个环圈，由多个轮换复合而成。在充分理解其关系后，在不至于混淆的情况下，才能以修辞手法的方式，把轮换称为环圈或反过来。
