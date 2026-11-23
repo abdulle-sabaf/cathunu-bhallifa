@@ -4,6 +4,7 @@
 \input{../shared/settings_test2}
 \input{../shared/settings-alg}
 \input{../shared/tikz-assets}
+\input{群论入门封面.tex}
 \geometry{a4paper,top=3.33cm, bottom=3.43cm, left=2.5cm, right=2.5cm, 
             headheight=15pt, includehead}
 
@@ -19,8 +20,9 @@
 \begin{document}
 
 \frontmatter
+\MakeCover
 % ========== 扉页 ==========
-\cleardoublepage                % 确保从右页（奇数页）开始
+\clearpage                % 确保从右页（奇数页）开始
 \thispagestyle{empty}           % 本页无页码无页眉
 \begin{center}
     \vspace*{1.5cm}               % 顶部留白
@@ -31,7 +33,7 @@
     \vspace{0.5cm}              % 书名与副标题间距
     {\zihao{1} \bfseries \mysecondtitle}
     
-    \vspace{1cm}              % 书名与作者间距
+    \vspace{3cm}              % 书名与作者间距
     
     % 作者名
     {\zihao{2} \texttt{\myauthor}}
@@ -49,7 +51,7 @@
     您可以自由地共享、修改本作品，但须遵守“署名”和“相同方式共享”的条件。
     }
 \end{center}
-\newpage   
+\clearpage
 % ========== 扉页结束 ==========
 \chapter*{前言}
 \phantomsection
@@ -19675,7 +19677,7 @@ $k=2$与$k=4$数目相同，原因是对称的：把每个位置上的氟与氯�
 
 \chapter{术语对照表}
 
-本章列出《对称与群》中涉及的核心术语及其与主流中文、英文、法文术语的对照，并附上部分术语的命名释义。
+以下是本书涉及的核心术语及其与主流中文、英文、法文术语的对照，并附上部分术语的命名释义。
 
 \begin{longtable}{>{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{4.1cm} >{\raggedright\arraybackslash}p{4.1cm}}
 \hline
